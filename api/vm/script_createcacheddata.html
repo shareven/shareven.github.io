@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>script.createCachedData() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/vm/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756329772" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-vm">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>script.createCachedData()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../vm.html#vm_script_createcacheddata" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/vm/script_createcacheddata.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.6.0</span>
+</div><ul>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a></li>
+</ul><p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x88AB; Script &#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D; <code>cachedData</code> &#x9009;&#x9879;&#x4F7F;&#x7528;&#x7684;&#x4EE3;&#x7801;&#x7F13;&#x5B58;&#x3002;&#x8FD4;&#x56DE; Buffer&#x3002;&#x53EF;&#x4EE5;&#x5728;&#x4EFB;&#x4F55;&#x65F6;&#x5019;&#x4E0D;&#x9650;&#x6B21;&#x6570;&#x5730;&#x8C03;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;&#x3002;</p><pre><code class="language-js">const script = new vm.Script(`
+function add(a, b) {
+  return a + b;
+}
+
+const x = add(1, 2);
+`);
+
+const cacheWithoutX = script.createCachedData();
+
+script.runInThisContext();
+
+const cacheWithX = script.createCachedData();
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v10.6.0</span>
+</div><ul>
+<li>Returns: <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a></li>
+</ul><p>Creates a code cache that can be used with the Script constructor&apos;s
+<code>cachedData</code> option. Returns a Buffer. This method may be called at any
+time and any number of times.</p><pre><code class="language-js">const script = new vm.Script(`
+function add(a, b) {
+  return a + b;
+}
+
+const x = add(1, 2);
+`);
+
+const cacheWithoutX = script.createCachedData();
+
+script.runInThisContext();
+
+const cacheWithX = script.createCachedData();
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/vm/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756329772"><\/script>');
+  </script>
+</body>
+</html>

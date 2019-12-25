@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>new stream.Readable([options]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324261" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-stream">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>new stream.Readable([options])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../stream.html#stream_new_stream_readable_options" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/stream/new_stream_readable_options.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v11.2.0</td>
+<td><p>Add <code>autoDestroy</code> option to automatically <code>destroy()</code> the stream when it emits <code>&apos;end&apos;</code> or errors.</p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>highWaterMark</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> &#x4ECE;&#x5E95;&#x5C42;&#x8D44;&#x6E90;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x5E76;&#x5B58;&#x50A8;&#x5728;&#x5185;&#x90E8;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#x7684;&#x6700;&#x5927;<a href="http://nodejs.cn/s/K499k3" rel="nofollow">&#x5B57;&#x8282;&#x6570;</a>&#x3002;
+<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>16384</code> (16kb), &#x5BF9;&#x8C61;&#x6A21;&#x5F0F;&#x7684;&#x6D41;&#x9ED8;&#x8BA4;&#x4E3A; <code>16</code>&#x3002;</li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86;&#xFF0C;&#x5219;&#x4F7F;&#x7528;&#x6307;&#x5B9A;&#x7684;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x5C06; buffer &#x89E3;&#x7801;&#x6210;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>null</code>&#x3002;</li>
+<li><code>objectMode</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x6D41;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x6D41;&#x3002;
+&#x4E5F;&#x5C31;&#x662F;&#x8BF4; <a href="http://nodejs.cn/s/SpgRaa" rel="nofollow"><code>stream.read(n)</code></a> &#x4F1A;&#x8FD4;&#x56DE;&#x5BF9;&#x8C61;&#x800C;&#x4E0D;&#x662F; <code>Buffer</code>&#x3002;
+<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#x3002;</li>
+<li><code>emitClose</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x6D41;&#x88AB;&#x9500;&#x6BC1;&#x540E;&#x662F;&#x5426;&#x5E94;&#x8BE5;&#x89E6;&#x53D1; <code>&apos;close&apos;</code>&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>true</code>&#x3002;</li>
+<li><code>read</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x5BF9; <a href="http://nodejs.cn/s/5hv4Rd" rel="nofollow"><code>stream._read()</code></a> &#x65B9;&#x6CD5;&#x7684;&#x5B9E;&#x73B0;&#x3002;</li>
+<li><code>destroy</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x5BF9; <a href="http://nodejs.cn/s/2c9czW" rel="nofollow"><code>stream._destroy()</code></a> &#x65B9;&#x6CD5;&#x7684;&#x5B9E;&#x73B0;&#x3002;</li>
+<li><code>autoDestroy</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x6D41;&#x662F;&#x5426;&#x5E94;&#x5728;&#x7ED3;&#x675F;&#x540E;&#x81EA;&#x52A8;&#x8C03;&#x7528; <code>.destroy()</code>&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#x3002;</li>
+</ul>
+</li>
+</ul><pre><code class="language-js">const { Readable } = require(&apos;stream&apos;);
+
+class MyReadable extends Readable {
+  constructor(options) {
+    // &#x8C03;&#x7528; stream.Readable(options) &#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;
+    super(options);
+    // ...
+  }
+}
+</code></pre><p>&#x4F7F;&#x7528; ES6 &#x4E4B;&#x524D;&#x7684;&#x8BED;&#x6CD5;&#xFF1A;</p><pre><code class="language-js">const { Readable } = require(&apos;stream&apos;);
+const util = require(&apos;util&apos;);
+
+function MyReadable(options) {
+  if (!(this instanceof MyReadable))
+    return new MyReadable(options);
+  Readable.call(this, options);
+}
+util.inherits(MyReadable, Readable);
+</code></pre><p>&#x4F7F;&#x7528;&#x7B80;&#x5316;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF1A;</p><pre><code class="language-js">const { Readable } = require(&apos;stream&apos;);
+
+const myReadable = new Readable({
+  read(size) {
+    // ...
+  }
+});
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v11.2.0</td>
+<td><p>Add <code>autoDestroy</code> option to automatically <code>destroy()</code> the stream when it emits <code>&apos;end&apos;</code> or errors.</p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>highWaterMark</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> The maximum <a href="http://nodejs.cn/s/K499k3" rel="nofollow">number of bytes</a> to store
+in the internal buffer before ceasing to read from the underlying resource.
+<strong>Default:</strong> <code>16384</code> (16kb), or <code>16</code> for <code>objectMode</code> streams.</li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> If specified, then buffers will be decoded to
+strings using the specified encoding. <strong>Default:</strong> <code>null</code>.</li>
+<li><code>objectMode</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> Whether this stream should behave
+as a stream of objects. Meaning that <a href="http://nodejs.cn/s/SpgRaa" rel="nofollow"><code>stream.read(n)</code></a> returns
+a single value instead of a <code>Buffer</code> of size <code>n</code>. <strong>Default:</strong> <code>false</code>.</li>
+<li><code>emitClose</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> Whether or not the stream should emit <code>&apos;close&apos;</code>
+after it has been destroyed. <strong>Default:</strong> <code>true</code>.</li>
+<li><code>read</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> Implementation for the <a href="http://nodejs.cn/s/5hv4Rd" rel="nofollow"><code>stream._read()</code></a>
+method.</li>
+<li><code>destroy</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> Implementation for the
+<a href="http://nodejs.cn/s/2c9czW" rel="nofollow"><code>stream._destroy()</code></a> method.</li>
+<li><code>autoDestroy</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> Whether this stream should automatically call
+<code>.destroy()</code> on itself after ending. <strong>Default:</strong> <code>false</code>.</li>
+</ul>
+</li>
+</ul><pre><code class="language-js">const { Readable } = require(&apos;stream&apos;);
+
+class MyReadable extends Readable {
+  constructor(options) {
+    // Calls the stream.Readable(options) constructor.
+    super(options);
+    // ...
+  }
+}
+</code></pre><p>Or, when using pre-ES6 style constructors:</p><pre><code class="language-js">const { Readable } = require(&apos;stream&apos;);
+const util = require(&apos;util&apos;);
+
+function MyReadable(options) {
+  if (!(this instanceof MyReadable))
+    return new MyReadable(options);
+  Readable.call(this, options);
+}
+util.inherits(MyReadable, Readable);
+</code></pre><p>Or, using the Simplified Constructor approach:</p><pre><code class="language-js">const { Readable } = require(&apos;stream&apos;);
+
+const myReadable = new Readable({
+  read(size) {
+    // ...
+  }
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324261"><\/script>');
+  </script>
+</body>
+</html>

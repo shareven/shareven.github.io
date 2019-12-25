@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>util.callbackify(original) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/util/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756328556" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-util">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>util.callbackify(original)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../util.html#util_util_callbackify_original" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_callbackify_original.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v8.2.0</span>
+</div><ul>
+<li><code>original</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#xA0;<code>async</code> &#x5F02;&#x6B65;&#x51FD;&#x6570;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x4F20;&#x7EDF;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;</li>
+</ul><p>&#x5C06; <code>async</code> &#x5F02;&#x6B65;&#x51FD;&#x6570;&#xFF08;&#x6216;&#x8005;&#x4E00;&#x4E2A;&#x8FD4;&#x56DE;&#x503C;&#x4E3A; <code>Promise</code> &#x7684;&#x51FD;&#x6570;&#xFF09;&#x8F6C;&#x6362;&#x6210;&#x9075;&#x5FAA;&#x5F02;&#x5E38;&#x4F18;&#x5148;&#x7684;&#x56DE;&#x8C03;&#x98CE;&#x683C;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x4F8B;&#x5982;&#x5C06; <code>(err, value) =&gt; ...</code> &#x56DE;&#x8C03;&#x4F5C;&#x4E3A;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x3002;
+&#x5728;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;&#x62D2;&#x7EDD;&#x7684;&#x539F;&#x56E0;&#xFF08;&#x5982;&#x679C; <code>Promise</code> &#x89E3;&#x51B3;&#xFF0C;&#x5219;&#x4E3A; <code>null</code>&#xFF09;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x5219;&#x662F;&#x89E3;&#x51B3;&#x7684;&#x503C;&#x3002;</p><pre><code class="language-js">const util = require(&apos;util&apos;);
+
+async function fn() {
+  return &apos;hello world&apos;;
+}
+const callbackFunction = util.callbackify(fn);
+
+callbackFunction((err, ret) =&gt; {
+  if (err) throw err;
+  console.log(ret);
+});
+</code></pre><p>&#x5C06;&#x4F1A;&#x6253;&#x5370;&#x51FA;&#xFF1A;</p><pre><code class="language-txt">hello world
+</code></pre><p>&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x662F;&#x5F02;&#x6B65;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x5E76;&#x4E14;&#x6709;&#x5F02;&#x5E38;&#x5806;&#x6808;&#x9519;&#x8BEF;&#x8FFD;&#x8E2A;&#x3002;
+&#x5982;&#x679C;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x5F02;&#x5E38;&#xFF0C;&#x8FDB;&#x7A0B;&#x4F1A;&#x89E6;&#x53D1;&#x4E00;&#x4E2A; <a href="http://nodejs.cn/s/Lc6A38" rel="nofollow"><code>&apos;uncaughtException&apos;</code></a> &#x5F02;&#x5E38;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x88AB;&#x6355;&#x83B7;&#xFF0C;&#x8FDB;&#x7A0B;&#x5C06;&#x4F1A;&#x9000;&#x51FA;&#x3002;</p><p><code>null</code> &#x5728;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E2D;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x6709;&#x5176;&#x7279;&#x6B8A;&#x7684;&#x610F;&#x4E49;&#xFF0C;&#x5982;&#x679C;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x7684;&#x9996;&#x4E2A;&#x53C2;&#x6570;&#x4E3A; <code>Promise</code> &#x62D2;&#x7EDD;&#x7684;&#x539F;&#x56E0;&#x4E14;&#x5E26;&#x6709;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x4E14;&#x503C;&#x53EF;&#x4EE5;&#x8F6C;&#x6362;&#x6210;&#x5E03;&#x5C14;&#x503C; <code>false</code>&#xFF0C;&#x8FD9;&#x4E2A;&#x503C;&#x4F1A;&#x88AB;&#x5C01;&#x88C5;&#x5728; <code>Error</code> &#x5BF9;&#x8C61;&#x91CC;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5C5E;&#x6027; <code>reason</code> &#x83B7;&#x53D6;&#x3002;</p><pre><code class="language-js">function fn() {
+  return Promise.reject(null);
+}
+const callbackFunction = util.callbackify(fn);
+
+callbackFunction((err, ret) =&gt; {
+  // &#x5F53; Promise &#x88AB;&#x4EE5; `null` &#x62D2;&#x7EDD;&#x65F6;&#xFF0C;&#x5B83;&#x88AB;&#x5305;&#x88C5;&#x4E3A; Error &#x5E76;&#x4E14;&#x539F;&#x59CB;&#x503C;&#x5B58;&#x50A8;&#x5728; `reason` &#x4E2D;&#x3002;
+  err &amp;&amp; err.hasOwnProperty(&apos;reason&apos;) &amp;&amp; err.reason === null;  // true
+});
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v8.2.0</span>
+</div><ul>
+<li><code>original</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> An <code>async</code> function</li>
+<li>Returns: <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> a callback style function</li>
+</ul><p>Takes an <code>async</code> function (or a function that returns a <code>Promise</code>) and returns a
+function following the error-first callback style, i.e. taking
+an <code>(err, value) =&gt; ...</code> callback as the last argument. In the callback, the
+first argument will be the rejection reason (or <code>null</code> if the <code>Promise</code>
+resolved), and the second argument will be the resolved value.</p><pre><code class="language-js">const util = require(&apos;util&apos;);
+
+async function fn() {
+  return &apos;hello world&apos;;
+}
+const callbackFunction = util.callbackify(fn);
+
+callbackFunction((err, ret) =&gt; {
+  if (err) throw err;
+  console.log(ret);
+});
+</code></pre><p>Will print:</p><pre><code class="language-txt">hello world
+</code></pre><p>The callback is executed asynchronously, and will have a limited stack trace.
+If the callback throws, the process will emit an <a href="http://nodejs.cn/s/Lc6A38" rel="nofollow"><code>&apos;uncaughtException&apos;</code></a>
+event, and if not handled will exit.</p><p>Since <code>null</code> has a special meaning as the first argument to a callback, if a
+wrapped function rejects a <code>Promise</code> with a falsy value as a reason, the value
+is wrapped in an <code>Error</code> with the original value stored in a field named
+<code>reason</code>.</p><pre><code class="language-js">function fn() {
+  return Promise.reject(null);
+}
+const callbackFunction = util.callbackify(fn);
+
+callbackFunction((err, ret) =&gt; {
+  // When the Promise was rejected with `null` it is wrapped with an Error and
+  // the original value is stored in `reason`.
+  err &amp;&amp; err.hasOwnProperty(&apos;reason&apos;) &amp;&amp; err.reason === null;  // true
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/util/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756328556"><\/script>');
+  </script>
+</body>
+</html>

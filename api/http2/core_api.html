@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>核心 API | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/http2/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756313710" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-http2">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>核心 API</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../http2.html#http2_core_api" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/http2/core_api.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x6838;&#x5FC3; API &#x63D0;&#x4F9B;&#x4E86;&#x4E13;&#x95E8;&#x9488;&#x5BF9;&#x652F;&#x6301; HTTP/2 &#x534F;&#x8BAE;&#x7684;&#x7279;&#x6027;&#x800C;&#x8BBE;&#x8BA1;&#x7684;&#x5E95;&#x5C42;&#x63A5;&#x53E3;&#x3002;
+&#x5B83;&#x4E0D;&#x662F;&#x4E13;&#x95E8;&#x8BBE;&#x8BA1;&#x4E3A;&#x4E0E;&#x73B0;&#x6709;&#x7684; <a href="http://nodejs.cn/s/2Nw5aN" rel="nofollow">HTTP/1</a> &#x6A21;&#x5757; API &#x517C;&#x5BB9;&#x3002;
+&#x5F53;&#x7136;&#xFF0C;&#x4E5F;&#x6709;<a href="http://nodejs.cn/s/KNoesd" rel="nofollow">&#x517C;&#x5BB9;&#x7684; API</a>&#x3002;</p><p><code>http2</code> &#x6838;&#x5FC3; API &#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x548C;&#x670D;&#x52A1;&#x5668;&#x4E4B;&#x95F4;&#x6BD4; <code>http</code> API &#x66F4;&#x52A0;&#x5BF9;&#x79F0;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;&#x5927;&#x591A;&#x6570;&#x4E8B;&#x4EF6;&#xFF0C;&#x6BD4;&#x5982; <code>&apos;error&apos;</code>&#x3001; <code>&apos;connect&apos;</code> &#x548C; <code>&apos;stream&apos;</code>&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x7531;&#x5BA2;&#x6237;&#x7AEF;&#x4EE3;&#x7801;&#x6216;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x4EE3;&#x7801;&#x89E6;&#x53D1;&#x3002;</p></div>
+          <div id="content_right"><p>The Core API provides a low-level interface designed specifically around
+support for HTTP/2 protocol features. It is specifically <em>not</em> designed for
+compatibility with the existing <a href="http://nodejs.cn/s/2Nw5aN" rel="nofollow">HTTP/1</a> module API. However,
+the <a href="http://nodejs.cn/s/KNoesd" rel="nofollow">Compatibility API</a> is.</p><p>The <code>http2</code> Core API is much more symmetric between client and server than the
+<code>http</code> API. For instance, most events, like <code>&apos;error&apos;</code>, <code>&apos;connect&apos;</code> and
+<code>&apos;stream&apos;</code>, can be emitted either by client-side code or server-side code.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/http2/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756313710"><\/script>');
+  </script>
+</body>
+</html>

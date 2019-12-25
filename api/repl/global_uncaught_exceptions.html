@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>全局的未捕获异常 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/repl/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756322705" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-repl">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>全局的未捕获异常</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../repl.html#repl_global_uncaught_exceptions" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/repl/global_uncaught_exceptions.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v12.3.0</td>
+<td><p>The <code>&apos;uncaughtException&apos;</code> event is from now on triggered if the repl is used as standalone program.</p></td></tr>
+</tbody></table>
+</details>
+</div><p>REPL&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/cnfQ9s" rel="nofollow"><code>domain</code></a> &#x6A21;&#x5757;&#x6765;&#x6355;&#x83B7;&#x4F1A;&#x8BDD;&#x671F;&#x95F4;&#x7684;&#x6240;&#x6709;&#x672A;&#x6355;&#x83B7;&#x5F02;&#x5E38;&#x3002;</p><p>&#x5728;REPL&#x4E2D;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/cnfQ9s" rel="nofollow"><code>domain</code></a> &#x6A21;&#x5757;&#x6709;&#x5982;&#x4E0B;&#x526F;&#x4F5C;&#x7528;&#xFF1A;</p><ul>
+<li>&#x5982;&#x679C;&#x5C06; <code>repl</code> &#x7528;&#x4F5C;&#x72EC;&#x7ACB;&#x7A0B;&#x5E8F;&#xFF0C;&#x5219;&#x672A;&#x6355;&#x83B7;&#x7684;&#x5F02;&#x5E38;&#x4EC5;&#x89E6;&#x53D1; <a href="http://nodejs.cn/s/Lc6A38" rel="nofollow"><code>&apos;uncaughtException&apos;</code></a> &#x4E8B;&#x4EF6;&#x3002;
+&#x5982;&#x679C; <code>repl</code> &#x5305;&#x542B;&#x5728;&#x53E6;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x4EFB;&#x4F55;&#x4F4D;&#x7F6E;&#xFF0C;&#x5219;&#x4E3A;&#x6B64;&#x4E8B;&#x4EF6;&#x6DFB;&#x52A0;&#x76D1;&#x542C;&#x5668;&#x5C06;&#x4F1A;&#x629B;&#x51FA; <a href="http://nodejs.cn/s/dFsJGZ" rel="nofollow"><code>ERR_INVALID_REPL_INPUT</code></a> &#x5F02;&#x5E38;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x5C1D;&#x8BD5;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/4yit6t" rel="nofollow"><code>process.setUncaughtExceptionCaptureCallback()</code></a> &#x5C06;&#x4EA7;&#x751F;&#x4E00;&#x4E2A; <a href="http://nodejs.cn/s/3Hg5uo" rel="nofollow"><code>ERR_DOMAIN_CANNOT_SET_UNCAUGHT_EXCEPTION_CAPTURE</code></a> &#x9519;&#x8BEF;&#x3002;</li>
+</ul><p>&#x4F5C;&#x4E3A;&#x72EC;&#x7ACB;&#x7A0B;&#x5E8F;&#xFF1A;</p><pre><code class="language-js">process.on(&apos;uncaughtException&apos;, () =&gt; console.log(&apos;&#x672A;&#x6355;&#x83B7;&#x7684;&#x5F02;&#x5E38;&apos;));
+
+throw new Error(&apos;foobar&apos;);
+// &#x6253;&#x5370;&#xFF1A;&#x672A;&#x6355;&#x83B7;&#x7684;&#x5F02;&#x5E38;
+</code></pre><p>&#x5F53;&#x5728;&#x5176;&#x4ED6;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x4F7F;&#x7528;&#x65F6;&#xFF1A;</p><pre><code class="language-js">process.on(&apos;uncaughtException&apos;, () =&gt; console.log(&apos;&#x672A;&#x6355;&#x83B7;&#x7684;&#x5F02;&#x5E38;&apos;));
+// &#x629B;&#x51FA; TypeError [ERR_INVALID_REPL_INPUT]: Listeners for `uncaughtException` cannot be used in the REPL
+
+throw new Error(&apos;foobar&apos;);
+// &#x629B;&#x51FA;:
+// Error: foobar
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v12.3.0</td>
+<td><p>The <code>&apos;uncaughtException&apos;</code> event is from now on triggered if the repl is used as standalone program.</p></td></tr>
+</tbody></table>
+</details>
+</div><p>The REPL uses the <a href="http://nodejs.cn/s/cnfQ9s" rel="nofollow"><code>domain</code></a> module to catch all uncaught exceptions for that
+REPL session.</p><p>This use of the <a href="http://nodejs.cn/s/cnfQ9s" rel="nofollow"><code>domain</code></a> module in the REPL has these side effects:</p><ul>
+<li>Uncaught exceptions only emit the <a href="http://nodejs.cn/s/Lc6A38" rel="nofollow"><code>&apos;uncaughtException&apos;</code></a> event if the
+<code>repl</code> is used as standalone program. If the <code>repl</code> is included anywhere in
+another application, adding a listener for this event will throw an
+<a href="http://nodejs.cn/s/dFsJGZ" rel="nofollow"><code>ERR_INVALID_REPL_INPUT</code></a> exception.</li>
+<li>Trying to use <a href="http://nodejs.cn/s/4yit6t" rel="nofollow"><code>process.setUncaughtExceptionCaptureCallback()</code></a> throws
+an <a href="http://nodejs.cn/s/3Hg5uo" rel="nofollow"><code>ERR_DOMAIN_CANNOT_SET_UNCAUGHT_EXCEPTION_CAPTURE</code></a> error.</li>
+</ul><p>As standalone program:</p><pre><code class="language-js">process.on(&apos;uncaughtException&apos;, () =&gt; console.log(&apos;Uncaught&apos;));
+
+throw new Error(&apos;foobar&apos;);
+// Uncaught
+</code></pre><p>When used in another application:</p><pre><code class="language-js">process.on(&apos;uncaughtException&apos;, () =&gt; console.log(&apos;Uncaught&apos;));
+// TypeError [ERR_INVALID_REPL_INPUT]: Listeners for `uncaughtException`
+// cannot be used in the REPL
+
+throw new Error(&apos;foobar&apos;);
+// Thrown:
+// Error: foobar
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/repl/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756322705"><\/script>');
+  </script>
+</body>
+</html>

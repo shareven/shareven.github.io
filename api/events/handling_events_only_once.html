@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>仅处理事件一次 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/events/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756306995" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-events">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>仅处理事件一次</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../events.html#events_handling_events_only_once" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/events/handling_events_only_once.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x5F53;&#x4F7F;&#x7528; <code>eventEmitter.on()</code> &#x6CE8;&#x518C;&#x76D1;&#x542C;&#x5668;&#x65F6;&#xFF0C;&#x76D1;&#x542C;&#x5668;&#x4F1A;&#x5728;&#x6BCF;&#x6B21;&#x89E6;&#x53D1;&#x547D;&#x540D;&#x4E8B;&#x4EF6;&#x65F6;&#x88AB;&#x8C03;&#x7528;&#x3002;</p><pre><code class="language-js">const myEmitter = new MyEmitter();
+let m = 0;
+myEmitter.on(&apos;event&apos;, () =&gt; {
+  console.log(++m);
+});
+myEmitter.emit(&apos;event&apos;);
+// &#x6253;&#x5370;: 1
+myEmitter.emit(&apos;event&apos;);
+// &#x6253;&#x5370;: 2
+</code></pre><p>&#x4F7F;&#x7528; <code>eventEmitter.once()</code> &#x53EF;&#x4EE5;&#x6CE8;&#x518C;&#x6700;&#x591A;&#x53EF;&#x8C03;&#x7528;&#x4E00;&#x6B21;&#x7684;&#x76D1;&#x542C;&#x5668;&#x3002;
+&#x5F53;&#x4E8B;&#x4EF6;&#x88AB;&#x89E6;&#x53D1;&#x65F6;&#xFF0C;&#x76D1;&#x542C;&#x5668;&#x4F1A;&#x88AB;&#x6CE8;&#x9500;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x8C03;&#x7528;&#x3002;</p><pre><code class="language-js">const myEmitter = new MyEmitter();
+let m = 0;
+myEmitter.once(&apos;event&apos;, () =&gt; {
+  console.log(++m);
+});
+myEmitter.emit(&apos;event&apos;);
+// &#x6253;&#x5370;: 1
+myEmitter.emit(&apos;event&apos;);
+// &#x4E0D;&#x89E6;&#x53D1;
+</code></pre></div>
+          <div id="content_right"><p>When a listener is registered using the <code>eventEmitter.on()</code> method, that
+listener will be invoked <em>every time</em> the named event is emitted.</p><pre><code class="language-js">const myEmitter = new MyEmitter();
+let m = 0;
+myEmitter.on(&apos;event&apos;, () =&gt; {
+  console.log(++m);
+});
+myEmitter.emit(&apos;event&apos;);
+// Prints: 1
+myEmitter.emit(&apos;event&apos;);
+// Prints: 2
+</code></pre><p>Using the <code>eventEmitter.once()</code> method, it is possible to register a listener
+that is called at most once for a particular event. Once the event is emitted,
+the listener is unregistered and <em>then</em> called.</p><pre><code class="language-js">const myEmitter = new MyEmitter();
+let m = 0;
+myEmitter.once(&apos;event&apos;, () =&gt; {
+  console.log(++m);
+});
+myEmitter.emit(&apos;event&apos;);
+// Prints: 1
+myEmitter.emit(&apos;event&apos;);
+// Ignored
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/events/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756306995"><\/script>');
+  </script>
+</body>
+</html>

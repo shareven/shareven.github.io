@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>文件路径 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756309466" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>文件路径</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_file_paths" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/file_paths.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x5927;&#x591A;&#x6570; <code>fs</code> &#x64CD;&#x4F5C;&#x63A5;&#x53D7;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x3001;<a href="http://nodejs.cn/s/FApxjh" rel="nofollow"><code>Buffer</code></a>&#x3001;&#x6216;&#x4F7F;&#x7528; <code>file:</code> &#x534F;&#x8BAE;&#x7684; <a href="http://nodejs.cn/s/5dwq7G" rel="nofollow"><code>URL</code></a> &#x5BF9;&#x8C61;&#x3002;</p><p>&#x5B57;&#x7B26;&#x4E32;&#x5F62;&#x5F0F;&#x7684;&#x8DEF;&#x5F84;&#x88AB;&#x89E3;&#x6790;&#x4E3A;&#x6807;&#x8BC6;&#x7EDD;&#x5BF9;&#x6216;&#x76F8;&#x5BF9;&#x6587;&#x4EF6;&#x540D;&#x7684; UTF-8 &#x5B57;&#x7B26;&#x5E8F;&#x5217;&#x3002;
+&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#x5C06;&#x76F8;&#x5BF9;&#x4E8E; <code>process.cwd()</code> &#x6307;&#x5B9A;&#x7684;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x8FDB;&#x884C;&#x89E3;&#x6790;&#x3002;</p><p>&#x5728; POSIX &#x4E0A;&#x4F7F;&#x7528;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x7684;&#x793A;&#x4F8B;&#xFF1A;</p><pre><code class="language-js">const fs = require(&apos;fs&apos;);
+
+fs.open(&apos;/open/some/file.txt&apos;, &apos;r&apos;, (err, fd) =&gt; {
+  if (err) throw err;
+  fs.close(fd, (err) =&gt; {
+    if (err) throw err;
+  });
+});
+</code></pre><p>&#x5728; POSIX &#x4E0A;&#x4F7F;&#x7528;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#xFF08;&#x76F8;&#x5BF9;&#x4E8E; <code>process.cwd()</code>&#xFF09;&#x7684;&#x793A;&#x4F8B;&#xFF1A;</p><pre><code class="language-js">fs.open(&apos;file.txt&apos;, &apos;r&apos;, (err, fd) =&gt; {
+  if (err) throw err;
+  fs.close(fd, (err) =&gt; {
+    if (err) throw err;
+  });
+});
+</code></pre><p>&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/FApxjh" rel="nofollow"><code>Buffer</code></a> &#x6307;&#x5B9A;&#x7684;&#x8DEF;&#x5F84;&#x4E3B;&#x8981;&#x7528;&#x4E8E;&#x5C06;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x89C6;&#x4E3A;&#x4E0D;&#x900F;&#x660E;&#x5B57;&#x8282;&#x5E8F;&#x5217;&#x7684;&#x67D0;&#x4E9B; POSIX &#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x3002;
+&#x5728;&#x8FD9;&#x6837;&#x7684;&#x7CFB;&#x7EDF;&#x4E0A;&#xFF0C;&#x5355;&#x4E2A;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x4F7F;&#x7528;&#x591A;&#x79CD;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x7684;&#x5B50;&#x5E8F;&#x5217;&#x3002;
+&#x4E0E;&#x5B57;&#x7B26;&#x4E32;&#x8DEF;&#x5F84;&#x4E00;&#x6837;&#xFF0C; <code>Buffer</code> &#x8DEF;&#x5F84;&#x53EF;&#x4EE5;&#x662F;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#x6216;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#xFF1A;</p><p>&#x5728; POSIX &#x4E0A;&#x4F7F;&#x7528;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x7684;&#x793A;&#x4F8B;&#xFF1A;</p><pre><code class="language-js">fs.open(Buffer.from(&apos;/open/some/file.txt&apos;), &apos;r&apos;, (err, fd) =&gt; {
+  if (err) throw err;
+  fs.close(fd, (err) =&gt; {
+    if (err) throw err;
+  });
+});
+</code></pre><p>&#x5728; Windows &#x4E0A;&#xFF0C;Node.js &#x9075;&#x5FAA;&#x6BCF;&#x4E2A;&#x9A71;&#x52A8;&#x5668;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x7684;&#x6982;&#x5FF5;&#x3002;
+&#x5F53;&#x4F7F;&#x7528;&#x6CA1;&#x6709;&#x53CD;&#x659C;&#x6760;&#x7684;&#x9A71;&#x52A8;&#x5668;&#x8DEF;&#x5F84;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x89C2;&#x5BDF;&#x5230;&#x6B64;&#x884C;&#x4E3A;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C; <code>fs.readdirSync(&apos;c:\\&apos;)</code> &#x53EF;&#x80FD;&#x4F1A;&#x8FD4;&#x56DE;&#x4E0E; <code>fs.readdirSync(&apos;c:&apos;)</code> &#x4E0D;&#x540C;&#x7684;&#x7ED3;&#x679C;&#x3002;
+&#x6709;&#x5173;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x53C2;&#x9605;<a href="http://nodejs.cn/s/qMc4eE" rel="nofollow">&#x6B64; MSDN &#x9875;&#x9762;</a>&#x3002;</p></div>
+          <div id="content_right"><p>Most <code>fs</code> operations accept filepaths that may be specified in the form of
+a string, a <a href="http://nodejs.cn/s/FApxjh" rel="nofollow"><code>Buffer</code></a>, or a <a href="http://nodejs.cn/s/5dwq7G" rel="nofollow"><code>URL</code></a> object using the <code>file:</code> protocol.</p><p>String form paths are interpreted as UTF-8 character sequences identifying
+the absolute or relative filename. Relative paths will be resolved relative
+to the current working directory as specified by <code>process.cwd()</code>.</p><p>Example using an absolute path on POSIX:</p><pre><code class="language-js">const fs = require(&apos;fs&apos;);
+
+fs.open(&apos;/open/some/file.txt&apos;, &apos;r&apos;, (err, fd) =&gt; {
+  if (err) throw err;
+  fs.close(fd, (err) =&gt; {
+    if (err) throw err;
+  });
+});
+</code></pre><p>Example using a relative path on POSIX (relative to <code>process.cwd()</code>):</p><pre><code class="language-js">fs.open(&apos;file.txt&apos;, &apos;r&apos;, (err, fd) =&gt; {
+  if (err) throw err;
+  fs.close(fd, (err) =&gt; {
+    if (err) throw err;
+  });
+});
+</code></pre><p>Paths specified using a <a href="http://nodejs.cn/s/FApxjh" rel="nofollow"><code>Buffer</code></a> are useful primarily on certain POSIX
+operating systems that treat file paths as opaque byte sequences. On such
+systems, it is possible for a single file path to contain sub-sequences that
+use multiple character encodings. As with string paths, <code>Buffer</code> paths may
+be relative or absolute:</p><p>Example using an absolute path on POSIX:</p><pre><code class="language-js">fs.open(Buffer.from(&apos;/open/some/file.txt&apos;), &apos;r&apos;, (err, fd) =&gt; {
+  if (err) throw err;
+  fs.close(fd, (err) =&gt; {
+    if (err) throw err;
+  });
+});
+</code></pre><p>On Windows, Node.js follows the concept of per-drive working directory. This
+behavior can be observed when using a drive path without a backslash. For
+example <code>fs.readdirSync(&apos;c:\\&apos;)</code> can potentially return a different result than
+<code>fs.readdirSync(&apos;c:&apos;)</code>. For more information, see
+<a href="http://nodejs.cn/s/qMc4eE" rel="nofollow">this MSDN page</a>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756309466"><\/script>');
+  </script>
+</body>
+</html>

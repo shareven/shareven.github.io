@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>process.initgroups(user, extraGroup) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756321053" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>process.initgroups(user, extraGroup)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../process.html#process_process_initgroups_user_extragroup" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/process/process_initgroups_user_extragroup.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.4</span>
+</div><ul>
+<li><code>user</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> &#x7528;&#x6237;&#x540D;&#x79F0;&#x6216;&#x6570;&#x5B57;&#x6807;&#x8BC6;&#x7B26;&#x3002;</li>
+<li><code>extra_group</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> &#x7EC4;&#x540D;&#x79F0;&#x6216;&#x6570;&#x5B57;&#x6807;&#x8BC6;&#x7B26;&#x3002;</li>
+</ul><p><code>process.initgroups()</code> &#x65B9;&#x6CD5;&#x8BFB;&#x53D6; <code>/etc/group</code> &#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x4E14;&#x521D;&#x59CB;&#x5316;&#x7EC4;&#x8BBF;&#x95EE;&#x5217;&#x8868;&#xFF0C;&#x8BE5;&#x5217;&#x8868;&#x5305;&#x62EC;&#x4E86;&#x7528;&#x6237;&#x6240;&#x5728;&#x7684;&#x6240;&#x6709;&#x7EC4;&#x3002;
+&#x8BE5;&#x65B9;&#x6CD5;&#x9700;&#x8981; Node.js &#x8FDB;&#x7A0B;&#x6709; <code>root</code> &#x8BBF;&#x95EE;&#x6216;&#x8005;&#x6709;<code>CAP_SETGID</code> &#x80FD;&#x529B;&#x624D;&#x80FD;&#x64CD;&#x4F5C;&#x3002;</p><p>&#x5220;&#x9664;&#x6743;&#x9650;&#x65F6;&#x8981;&#x5C0F;&#x5FC3;&#xFF1A;</p><pre><code class="language-js">console.log(process.getgroups());         // [ 0 ]
+process.initgroups(&apos;bnoordhuis&apos;, 1000);   // &#x5207;&#x6362;&#x7528;&#x6237;&#x3002;
+console.log(process.getgroups());         // [ 27, 30, 46, 1000, 0 ]
+process.setgid(1000);                     // &#x5220;&#x9664; root &#x7684; gid&#x3002;
+console.log(process.getgroups());         // [ 27, 30, 46, 1000 ]
+</code></pre><p>&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x53EA;&#x5728; POSIX &#x5E73;&#x53F0;&#x6709;&#x6548;&#xFF08;&#x5728; Windows &#x6216; Android &#x5E73;&#x53F0;&#x65E0;&#x6548;&#xFF09;&#x3002;
+&#x6B64;&#x7279;&#x6027;&#x5728; <a href="http://nodejs.cn/s/S15DqM" rel="nofollow"><code>Worker</code></a> &#x7EBF;&#x7A0B;&#x4E2D;&#x4E0D;&#x53EF;&#x7528;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.9.4</span>
+</div><ul>
+<li><code>user</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> The user name or numeric identifier.</li>
+<li><code>extraGroup</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> A group name or numeric identifier.</li>
+</ul><p>The <code>process.initgroups()</code> method reads the <code>/etc/group</code> file and initializes
+the group access list, using all groups of which the user is a member. This is
+a privileged operation that requires that the Node.js process either have <code>root</code>
+access or the <code>CAP_SETGID</code> capability.</p><p>Use care when dropping privileges:</p><pre><code class="language-js">console.log(process.getgroups());         // [ 0 ]
+process.initgroups(&apos;bnoordhuis&apos;, 1000);   // switch user
+console.log(process.getgroups());         // [ 27, 30, 46, 1000, 0 ]
+process.setgid(1000);                     // drop root gid
+console.log(process.getgroups());         // [ 27, 30, 46, 1000 ]
+</code></pre><p>This function is only available on POSIX platforms (i.e. not Windows or
+Android).
+This feature is not available in <a href="http://nodejs.cn/s/S15DqM" rel="nofollow"><code>Worker</code></a> threads.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756321053"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>response.end([data[, encoding]][, callback]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/http/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756311979" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-http">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>response.end([data[, encoding]][, callback])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../http.html#http_response_end_data_encoding_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/http/response_end_data_encoding_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>This method now returns a reference to <code>ServerResponse</code>.</p></td></tr>
+<tr><td>v0.1.90</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.90</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>data</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a></li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/v7Fsu2" target="_blank" rel="nofollow" class="type">&lt;this&gt;</a></li>
+</ul><p>&#x6B64;&#x65B9;&#x6CD5;&#x5411;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x51FA;&#x4FE1;&#x53F7;&#xFF0C;&#x8868;&#x660E;&#x5DF2;&#x53D1;&#x9001;&#x6240;&#x6709;&#x54CD;&#x5E94;&#x5934;&#x548C;&#x4E3B;&#x4F53;&#xFF0C;&#x8BE5;&#x670D;&#x52A1;&#x5668;&#x5E94;&#x8BE5;&#x89C6;&#x4E3A;&#x6B64;&#x6D88;&#x606F;&#x5DF2;&#x5B8C;&#x6210;&#x3002;
+&#x5FC5;&#x987B;&#x5728;&#x6BCF;&#x4E2A;&#x54CD;&#x5E94;&#x4E0A;&#x8C03;&#x7528;&#x6B64; <code>response.end()</code> &#x65B9;&#x6CD5;&#x3002;</p><p>&#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86; <code>data</code>&#xFF0C;&#x5219;&#x76F8;&#x5F53;&#x4E8E;&#x8C03;&#x7528; <a href="http://nodejs.cn/s/gvWo3m" rel="nofollow"><code>response.write(data, encoding)</code></a> &#x4E4B;&#x540E;&#x518D;&#x8C03;&#x7528; <code>response.end(callback)</code>&#x3002;</p><p>&#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86; <code>callback</code>&#xFF0C;&#x5219;&#x5F53;&#x54CD;&#x5E94;&#x6D41;&#x5B8C;&#x6210;&#x65F6;&#x5C06;&#x8C03;&#x7528;&#x5B83;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>This method now returns a reference to <code>ServerResponse</code>.</p></td></tr>
+<tr><td>v0.1.90</td>
+<td><p><span>Added in: v0.1.90</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>data</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a></li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></li>
+<li>Returns: <a href="http://nodejs.cn/s/v7Fsu2" target="_blank" rel="nofollow" class="type">&lt;this&gt;</a></li>
+</ul><p>This method signals to the server that all of the response headers and body
+have been sent; that server should consider this message complete.
+The method, <code>response.end()</code>, MUST be called on each response.</p><p>If <code>data</code> is specified, it is similar in effect to calling
+<a href="http://nodejs.cn/s/gvWo3m" rel="nofollow"><code>response.write(data, encoding)</code></a> followed by <code>response.end(callback)</code>.</p><p>If <code>callback</code> is specified, it will be called when the response stream
+is finished.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/http/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756311979"><\/script>');
+  </script>
+</body>
+</html>

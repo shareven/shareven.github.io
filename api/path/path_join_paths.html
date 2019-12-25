@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>path.join([...paths]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/path/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756319389" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-path">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>path.join([...paths])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../path.html#path_path_join_paths" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/path/path_join_paths.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.16</span>
+</div><ul>
+<li><code>...paths</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x8DEF;&#x5F84;&#x7247;&#x6BB5;&#x7684;&#x5E8F;&#x5217;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p><code>path.join()</code> &#x65B9;&#x6CD5;&#x4F7F;&#x7528;&#x5E73;&#x53F0;&#x7279;&#x5B9A;&#x7684;&#x5206;&#x9694;&#x7B26;&#x4F5C;&#x4E3A;&#x5B9A;&#x754C;&#x7B26;&#x5C06;&#x6240;&#x6709;&#x7ED9;&#x5B9A;&#x7684; <code>path</code> &#x7247;&#x6BB5;&#x8FDE;&#x63A5;&#x5728;&#x4E00;&#x8D77;&#xFF0C;&#x7136;&#x540E;&#x89C4;&#x8303;&#x5316;&#x751F;&#x6210;&#x7684;&#x8DEF;&#x5F84;&#x3002;</p><p>&#x96F6;&#x957F;&#x5EA6;&#x7684; <code>path</code> &#x7247;&#x6BB5;&#x4F1A;&#x88AB;&#x5FFD;&#x7565;&#x3002;
+&#x5982;&#x679C;&#x8FDE;&#x63A5;&#x7684;&#x8DEF;&#x5F84;&#x5B57;&#x7B26;&#x4E32;&#x662F;&#x96F6;&#x957F;&#x5EA6;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x8FD4;&#x56DE; <code>&apos;.&apos;</code>&#xFF0C;&#x8868;&#x793A;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x3002;</p><pre><code class="language-js">path.join(&apos;/foo&apos;, &apos;bar&apos;, &apos;baz/asdf&apos;, &apos;quux&apos;, &apos;..&apos;);
+// &#x8FD4;&#x56DE;: &apos;/foo/bar/baz/asdf&apos;
+
+path.join(&apos;foo&apos;, {}, &apos;bar&apos;);
+// &#x629B;&#x51FA; &apos;TypeError: Path must be a string. Received {}&apos;
+</code></pre><p>&#x5982;&#x679C;&#x4EFB;&#x4F55;&#x8DEF;&#x5F84;&#x7247;&#x6BB5;&#x4E0D;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="http://nodejs.cn/s/Z7Lqyj" rel="nofollow"><code>TypeError</code></a>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.16</span>
+</div><ul>
+<li><code>...paths</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> A sequence of path segments</li>
+<li>Returns: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>The <code>path.join()</code> method joins all given <code>path</code> segments together using the
+platform-specific separator as a delimiter, then normalizes the resulting path.</p><p>Zero-length <code>path</code> segments are ignored. If the joined path string is a
+zero-length string then <code>&apos;.&apos;</code> will be returned, representing the current
+working directory.</p><pre><code class="language-js">path.join(&apos;/foo&apos;, &apos;bar&apos;, &apos;baz/asdf&apos;, &apos;quux&apos;, &apos;..&apos;);
+// Returns: &apos;/foo/bar/baz/asdf&apos;
+
+path.join(&apos;foo&apos;, {}, &apos;bar&apos;);
+// Throws &apos;TypeError: Path must be a string. Received {}&apos;
+</code></pre><p>A <a href="http://nodejs.cn/s/Z7Lqyj" rel="nofollow"><code>TypeError</code></a> is thrown if any of the path segments is not a string.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/path/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756319389"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>zlib 常量 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/zlib/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756330932" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-zlib">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>zlib 常量</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../zlib.html#zlib_zlib_constants" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/zlib/zlib_constants.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x8FD9;&#x4E9B;&#x88AB;&#x5B9A;&#x4E49;&#x5728; <code>zlib.h</code> &#x7684;&#x5168;&#x90E8;&#x5E38;&#x91CF;&#x540C;&#x65F6;&#x4E5F;&#x88AB;&#x5B9A;&#x4E49;&#x5728; <code>require(&apos;zlib&apos;).constants</code> &#x5E38;&#x91CF;&#x4E0A;&#x3002;
+&#x4E0D;&#x9700;&#x8981;&#x5728;&#x6B63;&#x5E38;&#x7684;&#x64CD;&#x4F5C;&#x4E2D;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x5E38;&#x91CF;&#x3002;
+&#x8BB0;&#x5F55;&#x4ED6;&#x4EEC;&#x4E3A;&#x4E86;&#x4F7F;&#x4ED6;&#x4EEC;&#x7684;&#x5B58;&#x5728;&#x5E76;&#x4E0D;&#x5947;&#x602A;&#x3002;
+&#x8FD9;&#x4E2A;&#x7AE0;&#x8282;&#x51E0;&#x4E4E;&#x76F4;&#x63A5;&#x53D6;&#x81EA; <a href="http://nodejs.cn/s/P77W2D" rel="nofollow">zlib &#x6587;&#x6863;</a>&#x3002;</p><p>&#x4EE5;&#x524D;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4ECE; <code>require(&apos;zlib&apos;)</code> &#x4E2D;&#x83B7;&#x53D6;&#x5230;&#x8FD9;&#x4E9B;&#x5E38;&#x91CF;&#xFF0C;&#x4F8B;&#x5982; <code>zlib.Z_NO_FLUSH</code>&#x3002;
+&#x76EE;&#x524D;&#x4ECD;&#x7136;&#x53EF;&#x4EE5;&#x4ECE;&#x6A21;&#x5757;&#x4E2D;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x8FD9;&#x4E9B;&#x5E38;&#x91CF;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x3002;</p><p>&#x53EF;&#x63A5;&#x53D7;&#x7684; flush &#x503C;&#x3002;</p><ul>
+<li><code>zlib.constants.Z_NO_FLUSH</code></li>
+<li><code>zlib.constants.Z_PARTIAL_FLUSH</code></li>
+<li><code>zlib.constants.Z_SYNC_FLUSH</code></li>
+<li><code>zlib.constants.Z_FULL_FLUSH</code></li>
+<li><code>zlib.constants.Z_FINISH</code></li>
+<li><code>zlib.constants.Z_BLOCK</code></li>
+<li><code>zlib.constants.Z_TREES</code></li>
+</ul><p>&#x8FD4;&#x56DE;&#x538B;&#x7F29;/&#x89E3;&#x538B;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x3002;
+&#x53D1;&#x9001;&#x9519;&#x8BEF;&#x65F6;&#x4E3A;&#x8D1F;&#x503C;&#xFF0C;&#x6B63;&#x503C;&#x7528;&#x4E8E;&#x7279;&#x6B8A;&#x4F46;&#x6B63;&#x5E38;&#x7684;&#x4E8B;&#x4EF6;&#x3002;</p><ul>
+<li><code>zlib.constants.Z_OK</code></li>
+<li><code>zlib.constants.Z_STREAM_END</code></li>
+<li><code>zlib.constants.Z_NEED_DICT</code></li>
+<li><code>zlib.constants.Z_ERRNO</code></li>
+<li><code>zlib.constants.Z_STREAM_ERROR</code></li>
+<li><code>zlib.constants.Z_DATA_ERROR</code></li>
+<li><code>zlib.constants.Z_MEM_ERROR</code></li>
+<li><code>zlib.constants.Z_BUF_ERROR</code></li>
+<li><code>zlib.constants.Z_VERSION_ERROR</code></li>
+</ul><p>&#x538B;&#x7F29;&#x7B49;&#x7EA7;&#x3002;</p><ul>
+<li><code>zlib.constants.Z_NO_COMPRESSION</code></li>
+<li><code>zlib.constants.Z_BEST_SPEED</code></li>
+<li><code>zlib.constants.Z_BEST_COMPRESSION</code></li>
+<li><code>zlib.constants.Z_DEFAULT_COMPRESSION</code></li>
+</ul><p>&#x538B;&#x7F29;&#x7B56;&#x7565;&#x3002;</p><ul>
+<li><code>zlib.constants.Z_FILTERED</code></li>
+<li><code>zlib.constants.Z_HUFFMAN_ONLY</code></li>
+<li><code>zlib.constants.Z_RLE</code></li>
+<li><code>zlib.constants.Z_FIXED</code></li>
+<li><code>zlib.constants.Z_DEFAULT_STRATEGY</code></li>
+</ul></div>
+          <div id="content_right"><p>All of the constants defined in <code>zlib.h</code> are also defined on
+<code>require(&apos;zlib&apos;).constants</code>. In the normal course of operations, it will not be
+necessary to use these constants. They are documented so that their presence is
+not surprising. This section is taken almost directly from the
+<a href="http://nodejs.cn/s/P77W2D" rel="nofollow">zlib documentation</a>.</p><p>Previously, the constants were available directly from <code>require(&apos;zlib&apos;)</code>, for
+instance <code>zlib.Z_NO_FLUSH</code>. Accessing the constants directly from the module is
+currently still possible but is deprecated.</p><p>Allowed flush values.</p><ul>
+<li><code>zlib.constants.Z_NO_FLUSH</code></li>
+<li><code>zlib.constants.Z_PARTIAL_FLUSH</code></li>
+<li><code>zlib.constants.Z_SYNC_FLUSH</code></li>
+<li><code>zlib.constants.Z_FULL_FLUSH</code></li>
+<li><code>zlib.constants.Z_FINISH</code></li>
+<li><code>zlib.constants.Z_BLOCK</code></li>
+<li><code>zlib.constants.Z_TREES</code></li>
+</ul><p>Return codes for the compression/decompression functions. Negative
+values are errors, positive values are used for special but normal
+events.</p><ul>
+<li><code>zlib.constants.Z_OK</code></li>
+<li><code>zlib.constants.Z_STREAM_END</code></li>
+<li><code>zlib.constants.Z_NEED_DICT</code></li>
+<li><code>zlib.constants.Z_ERRNO</code></li>
+<li><code>zlib.constants.Z_STREAM_ERROR</code></li>
+<li><code>zlib.constants.Z_DATA_ERROR</code></li>
+<li><code>zlib.constants.Z_MEM_ERROR</code></li>
+<li><code>zlib.constants.Z_BUF_ERROR</code></li>
+<li><code>zlib.constants.Z_VERSION_ERROR</code></li>
+</ul><p>Compression levels.</p><ul>
+<li><code>zlib.constants.Z_NO_COMPRESSION</code></li>
+<li><code>zlib.constants.Z_BEST_SPEED</code></li>
+<li><code>zlib.constants.Z_BEST_COMPRESSION</code></li>
+<li><code>zlib.constants.Z_DEFAULT_COMPRESSION</code></li>
+</ul><p>Compression strategy.</p><ul>
+<li><code>zlib.constants.Z_FILTERED</code></li>
+<li><code>zlib.constants.Z_HUFFMAN_ONLY</code></li>
+<li><code>zlib.constants.Z_RLE</code></li>
+<li><code>zlib.constants.Z_FIXED</code></li>
+<li><code>zlib.constants.Z_DEFAULT_STRATEGY</code></li>
+</ul></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/zlib/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756330932"><\/script>');
+  </script>
+</body>
+</html>

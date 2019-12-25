@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Buffer 与字符编码 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756294520" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-buffer">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>Buffer 与字符编码</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../buffer.html#buffer_buffers_and_character_encodings" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/buffer/buffers_and_character_encodings.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v6.4.0</td>
+<td><p>Introduced <code>latin1</code> as an alias for <code>binary</code>.</p></td></tr>
+<tr><td>v5.0.0</td>
+<td><p>Removed the deprecated <code>raw</code> and <code>raws</code> encodings.</p></td></tr>
+</tbody></table>
+</details>
+</div><p>&#x5F53;&#x5B57;&#x7B26;&#x4E32;&#x6570;&#x636E;&#x88AB;&#x5B58;&#x50A8;&#x5165; <code>Buffer</code> &#x5B9E;&#x4F8B;&#x6216;&#x4ECE; <code>Buffer</code> &#x5B9E;&#x4F8B;&#x4E2D;&#x88AB;&#x63D0;&#x53D6;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x3002;</p><pre><code class="language-js">const buf = Buffer.from(&apos;hello world&apos;, &apos;ascii&apos;);
+
+console.log(buf.toString(&apos;hex&apos;));
+// &#x6253;&#x5370;: 68656c6c6f20776f726c64
+console.log(buf.toString(&apos;base64&apos;));
+// &#x6253;&#x5370;: aGVsbG8gd29ybGQ=
+
+console.log(Buffer.from(&apos;fhqwhgads&apos;, &apos;ascii&apos;));
+// &#x6253;&#x5370;: &lt;Buffer 66 68 71 77 68 67 61 64 73&gt;
+console.log(Buffer.from(&apos;fhqwhgads&apos;, &apos;utf16le&apos;));
+// &#x6253;&#x5370;: &lt;Buffer 66 00 68 00 71 00 77 00 68 00 67 00 61 00 64 00 73 00&gt;
+</code></pre><p>Node.js &#x5F53;&#x524D;&#x652F;&#x6301;&#x7684;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x6709;&#xFF1A;</p><ul>
+<li>
+<p><code>&apos;ascii&apos;</code>: &#x4EC5;&#x9002;&#x7528;&#x4E8E; 7 &#x4F4D; ASCII &#x6570;&#x636E;&#x3002;&#x6B64;&#x7F16;&#x7801;&#x901F;&#x5EA6;&#x5F88;&#x5FEB;&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x5219;&#x4F1A;&#x5265;&#x79BB;&#x9AD8;&#x4F4D;&#x3002;</p>
+</li>
+<li>
+<p><code>&apos;utf8&apos;</code>: &#x591A;&#x5B57;&#x8282;&#x7F16;&#x7801;&#x7684; Unicode &#x5B57;&#x7B26;&#x3002;&#x8BB8;&#x591A;&#x7F51;&#x9875;&#x548C;&#x5176;&#x4ED6;&#x6587;&#x6863;&#x683C;&#x5F0F;&#x90FD;&#x4F7F;&#x7528; UTF-8&#x3002;</p>
+</li>
+<li>
+<p><code>&apos;utf16le&apos;</code>: 2 &#x6216; 4 &#x4E2A;&#x5B57;&#x8282;&#xFF0C;&#x5C0F;&#x7AEF;&#x5E8F;&#x7F16;&#x7801;&#x7684; Unicode &#x5B57;&#x7B26;&#x3002;&#x652F;&#x6301;&#x4EE3;&#x7406;&#x5BF9;&#xFF08;U+10000 &#x81F3; U+10FFFF&#xFF09;&#x3002;</p>
+</li>
+<li>
+<p><code>&apos;ucs2&apos;</code>: <code>&apos;utf16le&apos;</code> &#x7684;&#x522B;&#x540D;&#x3002;</p>
+</li>
+<li>
+<p><code>&apos;base64&apos;</code>: Base64 &#x7F16;&#x7801;&#x3002;&#x5F53;&#x4ECE;&#x5B57;&#x7B26;&#x4E32;&#x521B;&#x5EFA; <code>Buffer</code> &#x65F6;&#xFF0C;&#x6B64;&#x7F16;&#x7801;&#x4E5F;&#x4F1A;&#x6B63;&#x786E;&#x5730;&#x63A5;&#x53D7; <a href="http://nodejs.cn/s/j8aS4R" rel="nofollow">RFC 4648 &#x7B2C; 5 &#x8282;</a>&#x4E2D;&#x6307;&#x5B9A;&#x7684; &#x201C;URL &#x548C;&#x6587;&#x4EF6;&#x540D;&#x5B89;&#x5168;&#x5B57;&#x6BCD;&#x201D;&#x3002;</p>
+</li>
+<li>
+<p><code>&apos;latin1&apos;</code>: &#x4E00;&#x79CD;&#x5C06; <code>Buffer</code> &#x7F16;&#x7801;&#x6210;&#x5355;&#x5B57;&#x8282;&#x7F16;&#x7801;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x65B9;&#x6CD5;&#xFF08;&#x7531; <a href="http://nodejs.cn/s/SYWoTZ" rel="nofollow">RFC 1345</a> &#x4E2D;&#x7684; IANA &#x5B9A;&#x4E49;&#xFF0C;&#x7B2C; 63 &#x9875;&#xFF0C;&#x4F5C;&#x4E3A; Latin-1 &#x7684;&#x8865;&#x5145;&#x5757;&#x548C; C0/C1 &#x63A7;&#x5236;&#x7801;&#xFF09;&#x3002;</p>
+</li>
+<li>
+<p><code>&apos;binary&apos;</code>: <code>&apos;latin1&apos;</code> &#x7684;&#x522B;&#x540D;&#x3002;</p>
+</li>
+<li>
+<p><code>&apos;hex&apos;</code>: &#x5C06;&#x6BCF;&#x4E2A;&#x5B57;&#x8282;&#x7F16;&#x7801;&#x6210;&#x4E24;&#x4E2A;&#x5341;&#x516D;&#x8FDB;&#x5236;&#x7684;&#x5B57;&#x7B26;&#x3002;</p>
+</li>
+</ul><p>&#x73B0;&#x4EE3;&#x7684; Web &#x6D4F;&#x89C8;&#x5668;&#x9075;&#x5FAA; <a href="http://nodejs.cn/s/sasgQF" rel="nofollow">WHATWG &#x7F16;&#x7801;&#x6807;&#x51C6;</a>&#xFF0C;&#x5C06; <code>&apos;latin1&apos;</code> &#x548C; <code>&apos;ISO-8859-1&apos;</code> &#x522B;&#x540D;&#x4E3A; <code>&apos;win-1252&apos;</code>&#x3002;
+&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5F53;&#x6267;&#x884C; <code>http.get()</code> &#x4E4B;&#x7C7B;&#x7684;&#x64CD;&#x4F5C;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x8FD4;&#x56DE;&#x7684;&#x5B57;&#x7B26;&#x96C6;&#x662F; WHATWG &#x89C4;&#x8303;&#x4E2D;&#x5217;&#x51FA;&#x7684;&#x5B57;&#x7B26;&#x96C6;&#x4E4B;&#x4E00;&#xFF0C;&#x5219;&#x670D;&#x52A1;&#x5668;&#x53EF;&#x80FD;&#x5B9E;&#x9645;&#x8FD4;&#x56DE; <code>&apos;win-1252&apos;</code> &#x7F16;&#x7801;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x800C;&#x4F7F;&#x7528; <code>&apos;latin1&apos;</code> &#x7F16;&#x7801;&#x53EF;&#x80FD;&#x9519;&#x8BEF;&#x5730;&#x89E3;&#x7801;&#x5B57;&#x7B26;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v6.4.0</td>
+<td><p>Introduced <code>latin1</code> as an alias for <code>binary</code>.</p></td></tr>
+<tr><td>v5.0.0</td>
+<td><p>Removed the deprecated <code>raw</code> and <code>raws</code> encodings.</p></td></tr>
+</tbody></table>
+</details>
+</div><p>When string data is stored in or extracted out of a <code>Buffer</code> instance, a
+character encoding may be specified.</p><pre><code class="language-js">const buf = Buffer.from(&apos;hello world&apos;, &apos;ascii&apos;);
+
+console.log(buf.toString(&apos;hex&apos;));
+// Prints: 68656c6c6f20776f726c64
+console.log(buf.toString(&apos;base64&apos;));
+// Prints: aGVsbG8gd29ybGQ=
+
+console.log(Buffer.from(&apos;fhqwhgads&apos;, &apos;ascii&apos;));
+// Prints: &lt;Buffer 66 68 71 77 68 67 61 64 73&gt;
+console.log(Buffer.from(&apos;fhqwhgads&apos;, &apos;utf16le&apos;));
+// Prints: &lt;Buffer 66 00 68 00 71 00 77 00 68 00 67 00 61 00 64 00 73 00&gt;
+</code></pre><p>The character encodings currently supported by Node.js include:</p><ul>
+<li>
+<p><code>&apos;ascii&apos;</code>: For 7-bit ASCII data only. This encoding is fast and will strip
+the high bit if set.</p>
+</li>
+<li>
+<p><code>&apos;utf8&apos;</code>: Multibyte encoded Unicode characters. Many web pages and other
+document formats use UTF-8.</p>
+</li>
+<li>
+<p><code>&apos;utf16le&apos;</code>: 2 or 4 bytes, little-endian encoded Unicode characters.
+Surrogate pairs (U+10000 to U+10FFFF) are supported.</p>
+</li>
+<li>
+<p><code>&apos;ucs2&apos;</code>: Alias of <code>&apos;utf16le&apos;</code>.</p>
+</li>
+<li>
+<p><code>&apos;base64&apos;</code>: Base64 encoding. When creating a <code>Buffer</code> from a string,
+this encoding will also correctly accept &quot;URL and Filename Safe Alphabet&quot; as
+specified in <a href="http://nodejs.cn/s/j8aS4R" rel="nofollow">RFC 4648, Section 5</a>.</p>
+</li>
+<li>
+<p><code>&apos;latin1&apos;</code>: A way of encoding the <code>Buffer</code> into a one-byte encoded string
+(as defined by the IANA in <a href="http://nodejs.cn/s/SYWoTZ" rel="nofollow">RFC 1345</a>,
+page 63, to be the Latin-1 supplement block and C0/C1 control codes).</p>
+</li>
+<li>
+<p><code>&apos;binary&apos;</code>: Alias for <code>&apos;latin1&apos;</code>.</p>
+</li>
+<li>
+<p><code>&apos;hex&apos;</code>: Encode each byte as two hexadecimal characters.</p>
+</li>
+</ul><p>Modern Web browsers follow the <a href="http://nodejs.cn/s/sasgQF" rel="nofollow">WHATWG Encoding Standard</a> which aliases
+both <code>&apos;latin1&apos;</code> and <code>&apos;ISO-8859-1&apos;</code> to <code>&apos;win-1252&apos;</code>. This means that while doing
+something like <code>http.get()</code>, if the returned charset is one of those listed in
+the WHATWG specification it is possible that the server actually returned
+<code>&apos;win-1252&apos;</code>-encoded data, and using <code>&apos;latin1&apos;</code> encoding may incorrectly decode
+the characters.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756294520"><\/script>');
+  </script>
+</body>
+</html>

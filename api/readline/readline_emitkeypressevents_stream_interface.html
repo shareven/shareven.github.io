@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>readline.emitKeypressEvents(stream[, interface]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/readline/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756322252" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-readline">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>readline.emitKeypressEvents(stream[, interface])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../readline.html#readline_readline_emitkeypressevents_stream_interface" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/readline/readline_emitkeypressevents_stream_interface.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.7</span>
+</div><ul>
+<li><code>stream</code> <a href="http://nodejs.cn/s/YuDKX1" target="_blank" rel="nofollow" class="type">&lt;stream.Readable&gt;</a></li>
+<li><code>interface</code> <a href="http://nodejs.cn/s/cfvLn6" target="_blank" rel="nofollow" class="type">&lt;readline.Interface&gt;</a></li>
+</ul><p><code>readline.emitKeypressEvents()</code> &#x65B9;&#x6CD5;&#x4F7F;&#x7ED9;&#x5B9A;&#x7684;<a href="http://nodejs.cn/s/zz7Dx3" rel="nofollow">&#x53EF;&#x8BFB;&#x6D41;</a>&#x5F00;&#x59CB;&#x89E6;&#x53D1;&#x4E0E;&#x63A5;&#x6536;&#x7684;&#x8F93;&#x5165;&#x76F8;&#x5BF9;&#x5E94;&#x7684; <code>&apos;keypress&apos;</code> &#x4E8B;&#x4EF6;&#x3002;</p><p>&#x53EF;&#x9009;&#x7684; <code>interface</code> &#x6307;&#x5B9A; <code>readline.Interface</code> &#x5B9E;&#x4F8B;&#xFF0C;&#x5F53;&#x68C0;&#x6D4B;&#x5230;&#x590D;&#x5236;&#x7C98;&#x8D34;&#x8F93;&#x5165;&#x65F6;&#xFF0C;&#x5C06;&#x7981;&#x7528;&#x81EA;&#x52A8;&#x8865;&#x5168;&#x3002;</p><p>&#x5982;&#x679C; <code>stream</code> &#x662F; <a href="http://nodejs.cn/s/JGk7iB" rel="nofollow">TTY</a>&#xFF0C;&#x5219;&#x5B83;&#x5FC5;&#x987B;&#x5904;&#x4E8E;&#x539F;&#x59CB;&#x6A21;&#x5F0F;&#x3002;</p><p>&#x5982;&#x679C; <code>input</code> &#x662F;&#x7EC8;&#x7AEF;&#xFF0C;&#x5219;&#x7531;&#x5176; <code>input</code> &#x4E0A;&#x7684;&#x4EFB;&#x4F55; <code>readline</code> &#x5B9E;&#x4F8B;&#x81EA;&#x52A8;&#x8C03;&#x7528;&#x3002;
+&#x5173;&#x95ED; <code>readline</code> &#x5B9E;&#x4F8B;&#x4E0D;&#x4F1A;&#x963B;&#x6B62; <code>input</code> &#x89E6;&#x53D1; <code>&apos;keypress&apos;</code> &#x4E8B;&#x4EF6;&#x3002;</p><pre><code class="language-js">readline.emitKeypressEvents(process.stdin);
+if (process.stdin.isTTY)
+  process.stdin.setRawMode(true);
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.7.7</span>
+</div><ul>
+<li><code>stream</code> <a href="http://nodejs.cn/s/YuDKX1" target="_blank" rel="nofollow" class="type">&lt;stream.Readable&gt;</a></li>
+<li><code>interface</code> <a href="http://nodejs.cn/s/cfvLn6" target="_blank" rel="nofollow" class="type">&lt;readline.Interface&gt;</a></li>
+</ul><p>The <code>readline.emitKeypressEvents()</code> method causes the given <a href="http://nodejs.cn/s/zz7Dx3" rel="nofollow">Readable</a>
+stream to begin emitting <code>&apos;keypress&apos;</code> events corresponding to received input.</p><p>Optionally, <code>interface</code> specifies a <code>readline.Interface</code> instance for which
+autocompletion is disabled when copy-pasted input is detected.</p><p>If the <code>stream</code> is a <a href="http://nodejs.cn/s/JGk7iB" rel="nofollow">TTY</a>, then it must be in raw mode.</p><p>This is automatically called by any readline instance on its <code>input</code> if the
+<code>input</code> is a terminal. Closing the <code>readline</code> instance does not stop
+the <code>input</code> from emitting <code>&apos;keypress&apos;</code> events.</p><pre><code class="language-js">readline.emitKeypressEvents(process.stdin);
+if (process.stdin.isTTY)
+  process.stdin.setRawMode(true);
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/readline/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756322252"><\/script>');
+  </script>
+</body>
+</html>

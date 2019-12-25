@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'clientError' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/http/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756311932" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-http">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'clientError' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../http.html#http_event_clienterror" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/http/event_clienterror.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v12.0.0</td>
+<td><p>The default behavior will return a 431 Request Header Fields Too Large if a HPE_HEADER_OVERFLOW error occurs.</p></td></tr>
+<tr><td>v9.4.0</td>
+<td><p>The <code>rawPacket</code> is the current buffer that just parsed. Adding this buffer to the error object of <code>&apos;clientError&apos;</code> event is to make it possible that developers can log the broken packet.</p></td></tr>
+<tr><td>v6.0.0</td>
+<td><p>The default action of calling <code>.destroy()</code> on the <code>socket</code> will no longer take place if there are listeners attached for <code>&apos;clientError&apos;</code>.</p></td></tr>
+<tr><td>v0.1.94</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.94</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>exception</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>socket</code> <a href="http://nodejs.cn/s/wsJ1o1" target="_blank" rel="nofollow" class="type">&lt;net.Socket&gt;</a></li>
+</ul><p>&#x5982;&#x679C;&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x89E6;&#x53D1; <code>&apos;error&apos;</code> &#x4E8B;&#x4EF6;&#xFF0C;&#x5219;&#x4F1A;&#x5728;&#x6B64;&#x5904;&#x8F6C;&#x53D1;&#x3002;
+&#x6B64;&#x4E8B;&#x4EF6;&#x7684;&#x76D1;&#x542C;&#x5668;&#x8D1F;&#x8D23;&#x5173;&#x95ED;&#x6216;&#x9500;&#x6BC1;&#x5E95;&#x5C42;&#x5957;&#x63A5;&#x5B57;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x80FD;&#x5E0C;&#x671B;&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49; HTTP &#x54CD;&#x5E94;&#x66F4;&#x4F18;&#x96C5;&#x5730;&#x5173;&#x95ED;&#x5957;&#x63A5;&#x5B57;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x7A81;&#x7136;&#x5207;&#x65AD;&#x8FDE;&#x63A5;&#x3002;</p><p>&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#x662F;&#x5C1D;&#x8BD5;&#x4F7F;&#x7528; HTTP <code>400 Bad Request</code> &#x5173;&#x95ED;&#x5957;&#x63A5;&#x5B57;&#x3001;&#x6216;&#x8005;&#x5728; <a href="http://nodejs.cn/s/mRFwDR" rel="nofollow"><code>HPE_HEADER_OVERFLOW</code></a> &#x9519;&#x8BEF;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x5C1D;&#x8BD5;&#x5173;&#x95ED; HTTP <code>431 Request Header Fields Too Large</code>&#x3002;
+&#x5982;&#x679C;&#x5957;&#x63A5;&#x5B57;&#x4E0D;&#x53EF;&#x5199;&#xFF0C;&#x5219;&#x4F1A;&#x88AB;&#x7ACB;&#x5373;&#x9500;&#x6BC1;&#x3002;</p><p><code>socket</code> &#x662F;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x7684; <a href="http://nodejs.cn/s/wsJ1o1" rel="nofollow"><code>net.Socket</code></a> &#x5BF9;&#x8C61;&#x3002;</p><pre><code class="language-js">const http = require(&apos;http&apos;);
+
+const server = http.createServer((req, res) =&gt; {
+  res.end();
+});
+server.on(&apos;clientError&apos;, (err, socket) =&gt; {
+  socket.end(&apos;HTTP/1.1 400 Bad Request\r\n\r\n&apos;);
+});
+server.listen(8000);
+</code></pre><p>&#x5F53; <code>&apos;clientError&apos;</code> &#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x65F6;&#xFF0C;&#x6CA1;&#x6709; <code>request</code> &#x6216; <code>response</code> &#x5BF9;&#x8C61;&#xFF0C;&#x56E0;&#x6B64;&#x5FC5;&#x987B;&#x5C06;&#x53D1;&#x9001;&#x7684;&#x4EFB;&#x4F55; HTTP &#x54CD;&#x5E94;&#xFF08;&#x5305;&#x62EC;&#x54CD;&#x5E94;&#x5934;&#x548C;&#x6709;&#x6548;&#x8D1F;&#x8F7D;&#xFF09;&#x76F4;&#x63A5;&#x5199;&#x5165; <code>socket</code> &#x5BF9;&#x8C61;&#x3002;
+&#x5FC5;&#x987B;&#x6CE8;&#x610F;&#x786E;&#x4FDD;&#x54CD;&#x5E94;&#x662F;&#x683C;&#x5F0F;&#x6B63;&#x786E;&#x7684; HTTP &#x54CD;&#x5E94;&#x6D88;&#x606F;&#x3002;</p><p><code>err</code> &#x662F; <code>Error</code> &#x5B9E;&#x4F8B;&#xFF0C;&#x6709;&#x4EE5;&#x4E0B;&#x4E24;&#x4E2A;&#x989D;&#x5916;&#x7684;&#x90E8;&#x5206;&#xFF1A;</p><ul>
+<li><code>bytesParsed</code>: Node.js &#x53EF;&#x80FD;&#x6B63;&#x786E;&#x89E3;&#x6790;&#x7684;&#x8BF7;&#x6C42;&#x5305;&#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;</li>
+<li><code>rawPacket</code>: &#x5F53;&#x524D;&#x8BF7;&#x6C42;&#x7684;&#x539F;&#x59CB;&#x6570;&#x636E;&#x5305;&#x3002;</li>
+</ul></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v12.0.0</td>
+<td><p>The default behavior will return a 431 Request Header Fields Too Large if a HPE_HEADER_OVERFLOW error occurs.</p></td></tr>
+<tr><td>v9.4.0</td>
+<td><p>The <code>rawPacket</code> is the current buffer that just parsed. Adding this buffer to the error object of <code>&apos;clientError&apos;</code> event is to make it possible that developers can log the broken packet.</p></td></tr>
+<tr><td>v6.0.0</td>
+<td><p>The default action of calling <code>.destroy()</code> on the <code>socket</code> will no longer take place if there are listeners attached for <code>&apos;clientError&apos;</code>.</p></td></tr>
+<tr><td>v0.1.94</td>
+<td><p><span>Added in: v0.1.94</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>exception</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>socket</code> <a href="http://nodejs.cn/s/wsJ1o1" target="_blank" rel="nofollow" class="type">&lt;net.Socket&gt;</a></li>
+</ul><p>If a client connection emits an <code>&apos;error&apos;</code> event, it will be forwarded here.
+Listener of this event is responsible for closing/destroying the underlying
+socket. For example, one may wish to more gracefully close the socket with a
+custom HTTP response instead of abruptly severing the connection.</p><p>Default behavior is to try close the socket with a HTTP &apos;400 Bad Request&apos;,
+or a HTTP &apos;431 Request Header Fields Too Large&apos; in the case of a
+<a href="http://nodejs.cn/s/mRFwDR" rel="nofollow"><code>HPE_HEADER_OVERFLOW</code></a> error. If the socket is not writable it is
+immediately destroyed.</p><p><code>socket</code> is the <a href="http://nodejs.cn/s/wsJ1o1" rel="nofollow"><code>net.Socket</code></a> object that the error originated from.</p><pre><code class="language-js">const http = require(&apos;http&apos;);
+
+const server = http.createServer((req, res) =&gt; {
+  res.end();
+});
+server.on(&apos;clientError&apos;, (err, socket) =&gt; {
+  socket.end(&apos;HTTP/1.1 400 Bad Request\r\n\r\n&apos;);
+});
+server.listen(8000);
+</code></pre><p>When the <code>&apos;clientError&apos;</code> event occurs, there is no <code>request</code> or <code>response</code>
+object, so any HTTP response sent, including response headers and payload,
+<em>must</em> be written directly to the <code>socket</code> object. Care must be taken to
+ensure the response is a properly formatted HTTP response message.</p><p><code>err</code> is an instance of <code>Error</code> with two extra columns:</p><ul>
+<li><code>bytesParsed</code>: the bytes count of request packet that Node.js may have parsed
+correctly;</li>
+<li><code>rawPacket</code>: the raw packet of current request.</li>
+</ul></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/http/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756311932"><\/script>');
+  </script>
+</body>
+</html>

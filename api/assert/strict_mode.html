@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>严格模式 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/assert/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756292527" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-assert">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>严格模式</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../assert.html#assert_strict_mode" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/assert/strict_mode.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v9.9.0</td>
+<td><p>Added error diffs to the strict mode</p></td></tr>
+<tr><td>v9.9.0</td>
+<td><p>Added strict mode to the assert module.</p></td></tr>
+<tr><td>v9.9.0</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v9.9.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><p>&#x5728;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x4E2D;&#xFF0C;&#x4EFB;&#x4F55; <code>assert</code> &#x51FD;&#x6570;&#x90FD;&#x5C06;&#x4F7F;&#x7528;&#x4E25;&#x683C;&#x51FD;&#x6570;&#x6A21;&#x5F0F;&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x76F8;&#x7B49;&#x6027;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;<a href="http://nodejs.cn/s/T9fJbF" rel="nofollow"><code>assert.deepEqual()</code></a> &#x5C06;&#x4E0E; <a href="http://nodejs.cn/s/PPMrJo" rel="nofollow"><code>assert.deepStrictEqual()</code></a> &#x4E00;&#x6837;&#x6548;&#x679C;&#x3002;</p><p>&#x5728;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x4E2D;&#xFF0C;&#x5BF9;&#x8C61;&#x7684;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x4F1A;&#x663E;&#x793A;&#x5DEE;&#x5F02;&#x3002;
+&#x5728;&#x9057;&#x7559;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x5BF9;&#x8C61;&#x7684;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x4F1A;&#x663E;&#x793A;&#x5BF9;&#x8C61;&#xFF0C;&#x901A;&#x5E38;&#x662F;&#x622A;&#x65AD;&#x7684;&#x3002;</p><p>&#x4F7F;&#x7528;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#xFF1A;</p><pre><code class="language-js">const assert = require(&apos;assert&apos;).strict;
+</code></pre><p>&#x9519;&#x8BEF;&#x5DEE;&#x5F02;&#x7684;&#x793A;&#x4F8B;&#xFF1A;</p><pre><code class="language-js">const assert = require(&apos;assert&apos;).strict;
+
+assert.deepEqual([[[1, 2, 3]], 4, 5], [[[1, 2, &apos;3&apos;]], 4, 5]);
+// AssertionError: Expected inputs to be strictly deep-equal:
+// + actual - expected ... Lines skipped
+//
+//   [
+//     [
+// ...
+//       2,
+// +     3
+// -     &apos;3&apos;
+//     ],
+// ...
+//     5
+//   ]
+</code></pre><p>&#x8981;&#x505C;&#x7528;&#x989C;&#x8272;&#xFF0C;&#x5219;&#x4F7F;&#x7528; <code>NODE_DISABLE_COLORS</code> &#x73AF;&#x5883;&#x53D8;&#x91CF;&#x3002;
+&#x6CE8;&#x610F;&#xFF0C;&#x8FD9;&#x4E5F;&#x5C06;&#x505C;&#x7528; REPL &#x4E2D;&#x7684;&#x989C;&#x8272;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v9.9.0</td>
+<td><p>Added error diffs to the strict mode</p></td></tr>
+<tr><td>v9.9.0</td>
+<td><p>Added strict mode to the assert module.</p></td></tr>
+<tr><td>v9.9.0</td>
+<td><p><span>Added in: v9.9.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><p>In <code>strict</code> mode, <code>assert</code> functions use the comparison in the corresponding
+strict functions. For example, <a href="http://nodejs.cn/s/T9fJbF" rel="nofollow"><code>assert.deepEqual()</code></a> will behave like
+<a href="http://nodejs.cn/s/PPMrJo" rel="nofollow"><code>assert.deepStrictEqual()</code></a>.</p><p>In <code>strict</code> mode, error messages for objects display a diff. In legacy mode,
+error messages for objects display the objects, often truncated.</p><p>To use <code>strict</code> mode:</p><pre><code class="language-js">const assert = require(&apos;assert&apos;).strict;
+</code></pre><p>Example error diff:</p><pre><code class="language-js">const assert = require(&apos;assert&apos;).strict;
+
+assert.deepEqual([[[1, 2, 3]], 4, 5], [[[1, 2, &apos;3&apos;]], 4, 5]);
+// AssertionError: Expected inputs to be strictly deep-equal:
+// + actual - expected ... Lines skipped
+//
+//   [
+//     [
+// ...
+//       2,
+// +     3
+// -     &apos;3&apos;
+//     ],
+// ...
+//     5
+//   ]
+</code></pre><p>To deactivate the colors, use the <code>NODE_DISABLE_COLORS</code> environment variable.
+This will also deactivate the colors in the REPL.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/assert/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756292527"><\/script>');
+  </script>
+</body>
+</html>

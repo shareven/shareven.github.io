@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>vm.compileFunction(code[, params[, options]]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/vm/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756329782" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-vm">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>vm.compileFunction(code[, params[, options]])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../vm.html#vm_vm_compilefunction_code_params_options" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/vm/vm_compilefunction_code_params_options.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.10.0</span>
+</div><ul>
+<li><code>code</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x9700;&#x8981;&#x7F16;&#x8BD1;&#x7684;&#x51FD;&#x6570;&#x4F53;&#x3002;</li>
+<li><code>params</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string[]&gt;</a> &#x5305;&#x542B;&#x6240;&#x6709;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x6570;&#x7EC4;&#x3002;</li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>filename</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5B9A;&#x4E49;&#x6B64;&#x811A;&#x672C;&#x751F;&#x6210;&#x7684;&#x5806;&#x6808;&#x8DDF;&#x8E2A;&#x4FE1;&#x606F;&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x3002; <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;&apos;</code>&#x3002;</li>
+<li><code>lineOffset</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> &#x5B9A;&#x4E49;&#x6B64;&#x811A;&#x672C;&#x751F;&#x6210;&#x7684;&#x5806;&#x6808;&#x8DDF;&#x8E2A;&#x4FE1;&#x606F;&#x4E2D;&#x663E;&#x793A;&#x7684;&#x884C;&#x53F7;&#x504F;&#x79FB;&#x91CF;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>0</code>&#x3002;</li>
+<li><code>columnOffset</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> &#x5B9A;&#x4E49;&#x6B64;&#x811A;&#x672C;&#x751F;&#x6210;&#x7684;&#x5806;&#x6808;&#x8DDF;&#x8E2A;&#x4E2D;&#x663E;&#x793A;&#x7684;&#x5217;&#x504F;&#x79FB;&#x91CF;&#x3002; <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>0</code>&#x3002;</li>
+<li><code>cachedData</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/oh3CkV" target="_blank" rel="nofollow" class="type">&lt;TypedArray&gt;</a> | <a href="http://nodejs.cn/s/yCdVkD" target="_blank" rel="nofollow" class="type">&lt;DataView&gt;</a> &#x4E3A;&#x6E90;&#x7801;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A; <code>Buffer</code>&#x3001; <code>TypedArray</code> &#x6216; <code>DataView</code> &#x683C;&#x5F0F;&#x7684; V8 &#x4EE3;&#x7801;&#x7F13;&#x5B58;&#x3002;</li>
+<li><code>produceCachedData</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5B9A;&#x4E49;&#x662F;&#x5426;&#x9700;&#x8981;&#x751F;&#x6210;&#x65B0;&#x7684;&#x7F13;&#x5B58;&#x6570;&#x636E;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#x3002;</li>
+<li><code>parsingContext</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> &#x7F16;&#x8BD1;&#x51FD;&#x6570;&#x7684;<a href="http://nodejs.cn/s/x6KGQQ" rel="nofollow">&#x4E0A;&#x4E0B;&#x6587;&#x9694;&#x79BB;&#x5316;</a>&#x7684;&#x6C99;&#x7BB1;&#x3002;</li>
+<li><code>contextExtensions</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object[]&gt;</a>  &#x5305;&#x542B;&#x8981;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x5E94;&#x7528;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x6269;&#x5C55;&#xFF08;&#x5305;&#x88C5;&#x5F53;&#x524D;&#x8303;&#x56F4;&#x7684;&#x5BF9;&#x8C61;&#xFF09;&#x7684;&#x96C6;&#x5408;&#x7684;&#x6570;&#x7EC4;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>[]</code>&#x3002;</li>
+</ul>
+</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></li>
+</ul><p>&#x5C06;&#x7ED9;&#x5B9A;&#x7684;&#x4EE3;&#x7801;&#x7F16;&#x8BD1;&#x5230;&#x63D0;&#x4F9B;&#x7684;&#x4E0A;&#x4E0B;&#x6587;/&#x6C99;&#x7BB1;&#x4E2D;&#xFF08;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x63D0;&#x4F9B;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x5219;&#x4F7F;&#x7528;&#x5F53;&#x524D;&#x4E0A;&#x4E0B;&#x6587;&#xFF09;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x5305;&#x88C5;&#x4E86;&#x7ED9;&#x5B9A; <code>params</code> &#x7684;&#x51FD;&#x6570;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v10.10.0</span>
+</div><ul>
+<li><code>code</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> The body of the function to compile.</li>
+<li><code>params</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string[]&gt;</a> An array of strings containing all parameters for the
+function.</li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>filename</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> Specifies the filename used in stack traces produced
+by this script. <strong>Default:</strong> <code>&apos;&apos;</code>.</li>
+<li><code>lineOffset</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> Specifies the line number offset that is displayed
+in stack traces produced by this script. <strong>Default:</strong> <code>0</code>.</li>
+<li><code>columnOffset</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> Specifies the column number offset that is displayed
+in stack traces produced by this script. <strong>Default:</strong> <code>0</code>.</li>
+<li><code>cachedData</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/oh3CkV" target="_blank" rel="nofollow" class="type">&lt;TypedArray&gt;</a> | <a href="http://nodejs.cn/s/yCdVkD" target="_blank" rel="nofollow" class="type">&lt;DataView&gt;</a> Provides an optional <code>Buffer</code> or
+<code>TypedArray</code>, or <code>DataView</code> with V8&apos;s code cache data for the supplied
+source.</li>
+<li><code>produceCachedData</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> Specifies whether to produce new cache data.
+<strong>Default:</strong> <code>false</code>.</li>
+<li><code>parsingContext</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> The <a href="http://nodejs.cn/s/x6KGQQ" rel="nofollow">contextified</a> sandbox in which the said
+function should be compiled in.</li>
+<li><code>contextExtensions</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object[]&gt;</a> An array containing a collection of context
+extensions (objects wrapping the current scope) to be applied while
+compiling. <strong>Default:</strong> <code>[]</code>.</li>
+</ul>
+</li>
+<li>Returns: <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></li>
+</ul><p>Compiles the given code into the provided context/sandbox (if no context is
+supplied, the current context is used), and returns it wrapped inside a
+function with the given <code>params</code>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/vm/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756329782"><\/script>');
+  </script>
+</body>
+</html>

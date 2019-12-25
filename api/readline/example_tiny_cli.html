@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>示例：微型 CLI | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/readline/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756322255" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-readline">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>示例：微型 CLI</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../readline.html#readline_example_tiny_cli" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/readline/example_tiny_cli.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x4EE5;&#x4E0B;&#x793A;&#x4F8B;&#x8BF4;&#x660E;&#x4E86;&#x5982;&#x4F55;&#x4F7F;&#x7528; <code>readline.Interface</code> &#x7C7B;&#x6765;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x5C0F;&#x578B;&#x547D;&#x4EE4;&#x884C;&#x754C;&#x9762;&#xFF1A;</p><pre><code class="language-js">const readline = require(&apos;readline&apos;);
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+  prompt: &apos;&#x8BF7;&#x8F93;&#x5165;&gt; &apos;
+});
+
+rl.prompt();
+
+rl.on(&apos;line&apos;, (line) =&gt; {
+  switch (line.trim()) {
+    case &apos;hello&apos;:
+      console.log(&apos;world!&apos;);
+      break;
+    default:
+      console.log(`&#x4F60;&#x8F93;&#x5165;&#x7684;&#x662F;&#xFF1A;&apos;${line.trim()}&apos;`);
+      break;
+  }
+  rl.prompt();
+}).on(&apos;close&apos;, () =&gt; {
+  console.log(&apos;&#x518D;&#x89C1;!&apos;);
+  process.exit(0);
+});
+</code></pre></div>
+          <div id="content_right"><p>The following example illustrates the use of <code>readline.Interface</code> class to
+implement a small command-line interface:</p><pre><code class="language-js">const readline = require(&apos;readline&apos;);
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+  prompt: &apos;OHAI&gt; &apos;
+});
+
+rl.prompt();
+
+rl.on(&apos;line&apos;, (line) =&gt; {
+  switch (line.trim()) {
+    case &apos;hello&apos;:
+      console.log(&apos;world!&apos;);
+      break;
+    default:
+      console.log(`Say what? I might have heard &apos;${line.trim()}&apos;`);
+      break;
+  }
+  rl.prompt();
+}).on(&apos;close&apos;, () =&gt; {
+  console.log(&apos;Have a great day!&apos;);
+  process.exit(0);
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/readline/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756322255"><\/script>');
+  </script>
+</body>
+</html>

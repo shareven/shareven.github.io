@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>fsPromises.mkdir(path[, options]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756310335" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>fsPromises.mkdir(path[, options])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_fspromises_mkdir_path_options" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/fspromises_mkdir_path_options.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.0.0</span>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></p>
+<ul>
+<li><code>recursive</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#x3002;</li>
+<li><code>mode</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> Windows &#x4E0A;&#x4E0D;&#x652F;&#x6301;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>0o777</code>&#x3002;</li>
+</ul>
+</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/ri1kj8" target="_blank" rel="nofollow" class="type">&lt;Promise&gt;</a></li>
+</ul><p>&#x5F02;&#x6B65;&#x5730;&#x521B;&#x5EFA;&#x76EE;&#x5F55;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x6210;&#x529F;&#x65F6;&#x89E3;&#x51B3; <code>Promise</code> &#x4E14;&#x4E0D;&#x5E26;&#x53C2;&#x6570;&#x3002;</p><p>&#x53EF;&#x9009;&#x7684; <code>options</code> &#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x662F;&#x6307;&#x5B9A;&#x6A21;&#x5F0F;&#xFF08;&#x6743;&#x9650;&#x548C;&#x7C98;&#x6EDE;&#x4F4D;&#xFF09;&#x7684;&#x6574;&#x6570;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x5177;&#x6709; <code>mode</code> &#x5C5E;&#x6027;&#x548C; <code>recursive</code> &#x5C5E;&#x6027;&#xFF08;&#x6307;&#x793A;&#x662F;&#x5426;&#x5E94;&#x521B;&#x5EFA;&#x7236;&#x6587;&#x4EF6;&#x5939;&#xFF09;&#x7684;&#x5BF9;&#x8C61;&#x3002;
+&#x5F53; <code>path</code> &#x662F;&#x4E00;&#x4E2A;&#x5DF2;&#x5B58;&#x5728;&#x7684;&#x76EE;&#x5F55;&#x65F6;&#xFF0C;&#x8C03;&#x7528; <code>fsPromises.mkdir()</code> &#x4EC5;&#x5728; <code>recursive</code> &#x4E3A; false &#x65F6;&#x624D;&#x5BFC;&#x81F4;&#x62D2;&#x7EDD;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v10.0.0</span>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></p>
+<ul>
+<li><code>recursive</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <strong>Default:</strong> <code>false</code></li>
+<li><code>mode</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> Not supported on Windows. <strong>Default:</strong> <code>0o777</code>.</li>
+</ul>
+</li>
+<li>Returns: <a href="http://nodejs.cn/s/ri1kj8" target="_blank" rel="nofollow" class="type">&lt;Promise&gt;</a></li>
+</ul><p>Asynchronously creates a directory then resolves the <code>Promise</code> with no
+arguments upon success.</p><p>The optional <code>options</code> argument can be an integer specifying mode (permission
+and sticky bits), or an object with a <code>mode</code> property and a <code>recursive</code>
+property indicating whether parent folders should be created. Calling
+<code>fsPromises.mkdir()</code> when <code>path</code> is a directory that exists results in a
+rejection only when <code>recursive</code> is false.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756310335"><\/script>');
+  </script>
+</body>
+</html>

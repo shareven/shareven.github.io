@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>urlSearchParams.forEach(fn[, thisArg]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/url/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756327595" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-url">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>urlSearchParams.forEach(fn[, thisArg])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../url.html#url_urlsearchparams_foreach_fn_thisarg" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/url/urlsearchparams_foreach_fn_thisarg.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><ul>
+<li><code>fn</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x5728;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x952E;&#x503C;&#x5BF9;&#x7684;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x3002;</li>
+<li><code>thisArg</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> &#x5F53; <code>fn</code> &#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x88AB;&#x7528;&#x4F5C; <code>this</code> &#x503C;&#x7684;&#x5BF9;&#x8C61;&#x3002;</li>
+</ul><p>&#x5728;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x8FED;&#x4EE3;&#x6BCF;&#x4E2A;&#x952E;&#x503C;&#x5BF9;&#xFF0C;&#x5E76;&#x8C03;&#x7528;&#x7ED9;&#x5B9A;&#x7684;&#x51FD;&#x6570;&#x3002;</p><pre><code class="language-js">const myURL = new URL(&apos;https://example.org/?a=b&amp;c=d&apos;);
+myURL.searchParams.forEach((value, name, searchParams) =&gt; {
+  console.log(name, value, myURL.searchParams === searchParams);
+});
+// &#x6253;&#x5370;:
+//   a b true
+//   c d true
+</code></pre></div>
+          <div id="content_right"><ul>
+<li><code>fn</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> Invoked for each name-value pair in the query</li>
+<li><code>thisArg</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> To be used as <code>this</code> value for when <code>fn</code> is called</li>
+</ul><p>Iterates over each name-value pair in the query and invokes the given function.</p><pre><code class="language-js">const myURL = new URL(&apos;https://example.org/?a=b&amp;c=d&apos;);
+myURL.searchParams.forEach((value, name, searchParams) =&gt; {
+  console.log(name, value, myURL.searchParams === searchParams);
+});
+// Prints:
+//   a b true
+//   c d true
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/url/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756327595"><\/script>');
+  </script>
+</body>
+</html>

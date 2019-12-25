@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>process.versions | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756321118" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>process.versions</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../process.html#process_process_versions" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/process/process_versions.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v9.0.0</td>
+<td><p>The <code>v8</code> property now includes a Node.js specific suffix.</p></td></tr>
+<tr><td>v4.2.0</td>
+<td><p>The <code>icu</code> property is now supported.</p></td></tr>
+<tr><td>v0.2.0</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.2.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></li>
+</ul><p><code>process.versions</code>&#x5C5E;&#x6027;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x6B64;&#x5BF9;&#x8C61;&#x5217;&#x51FA;&#x4E86;Node.js&#x548C;&#x5176;&#x4F9D;&#x8D56;&#x7684;&#x7248;&#x672C;&#x4FE1;&#x606F;&#x3002;
+<code>process.versions.modules</code>&#x8868;&#x660E;&#x4E86;&#x5F53;&#x524D;ABI&#x7248;&#x672C;&#xFF0C;&#x6B64;&#x7248;&#x672C;&#x4F1A;&#x968F;&#x7740;&#x4E00;&#x4E2A;C++API&#x53D8;&#x5316;&#x800C;&#x589E;&#x52A0;&#x3002;
+Node.js&#x4F1A;&#x62D2;&#x7EDD;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E9B;&#x6A21;&#x5757;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x4E0D;&#x540C;ABI&#x7248;&#x672C;&#x7684;&#x6A21;&#x5757;&#x8FDB;&#x884C;&#x7F16;&#x8BD1;&#x3002;</p><pre><code class="language-js">console.log(process.versions);
+</code></pre><p>&#x4F1A;&#x663E;&#x793A;&#x7C7B;&#x4F3C;&#x4E0B;&#x9762;&#x7684;&#x5BF9;&#x8C61;&#x4FE1;&#x606F;:</p><pre><code class="language-console">{ node: &apos;11.13.0&apos;,
+  v8: &apos;7.0.276.38-node.18&apos;,
+  uv: &apos;1.27.0&apos;,
+  zlib: &apos;1.2.11&apos;,
+  brotli: &apos;1.0.7&apos;,
+  ares: &apos;1.15.0&apos;,
+  modules: &apos;67&apos;,
+  nghttp2: &apos;1.34.0&apos;,
+  napi: &apos;4&apos;,
+  llhttp: &apos;1.1.1&apos;,
+  http_parser: &apos;2.8.0&apos;,
+  openssl: &apos;1.1.1b&apos;,
+  cldr: &apos;34.0&apos;,
+  icu: &apos;63.1&apos;,
+  tz: &apos;2018e&apos;,
+  unicode: &apos;11.0&apos; }
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v9.0.0</td>
+<td><p>The <code>v8</code> property now includes a Node.js specific suffix.</p></td></tr>
+<tr><td>v4.2.0</td>
+<td><p>The <code>icu</code> property is now supported.</p></td></tr>
+<tr><td>v0.2.0</td>
+<td><p><span>Added in: v0.2.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></li>
+</ul><p>The <code>process.versions</code> property returns an object listing the version strings of
+Node.js and its dependencies. <code>process.versions.modules</code> indicates the current
+ABI version, which is increased whenever a C++ API changes. Node.js will refuse
+to load modules that were compiled against a different module ABI version.</p><pre><code class="language-js">console.log(process.versions);
+</code></pre><p>Will generate an object similar to:</p><pre><code class="language-console">{ node: &apos;11.13.0&apos;,
+  v8: &apos;7.0.276.38-node.18&apos;,
+  uv: &apos;1.27.0&apos;,
+  zlib: &apos;1.2.11&apos;,
+  brotli: &apos;1.0.7&apos;,
+  ares: &apos;1.15.0&apos;,
+  modules: &apos;67&apos;,
+  nghttp2: &apos;1.34.0&apos;,
+  napi: &apos;4&apos;,
+  llhttp: &apos;1.1.1&apos;,
+  http_parser: &apos;2.8.0&apos;,
+  openssl: &apos;1.1.1b&apos;,
+  cldr: &apos;34.0&apos;,
+  icu: &apos;63.1&apos;,
+  tz: &apos;2018e&apos;,
+  unicode: &apos;11.0&apos; }
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756321118"><\/script>');
+  </script>
+</body>
+</html>

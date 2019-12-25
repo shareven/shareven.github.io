@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>server.listen([port[, host[, backlog]]][, callback]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/net/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756318333" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-net">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>server.listen([port[, host[, backlog]]][, callback])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../net.html#net_server_listen_port_host_backlog_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/net/server_listen_port_host_backlog_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.90</span>
+</div><ul>
+<li><code>port</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>host</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>backlog</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> <a href="http://nodejs.cn/s/xGksiu" rel="nofollow"><code>server.listen()</code></a> &#x51FD;&#x6570;&#x7684;&#x901A;&#x7528;&#x53C2;&#x6570;&#x3002;</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> <a href="http://nodejs.cn/s/xGksiu" rel="nofollow"><code>server.listen()</code></a> &#x51FD;&#x6570;&#x7684;&#x901A;&#x7528;&#x53C2;&#x6570;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/gBYjux" target="_blank" rel="nofollow" class="type">&lt;net.Server&gt;</a></li>
+</ul><p>&#x542F;&#x52A8;&#x4E00;&#x4E2A; TCP &#x670D;&#x52A1;&#x76D1;&#x542C;&#x8F93;&#x5165;&#x7684; <code>port</code> &#x548C; <code>host</code>&#x3002;</p><p>&#x5982;&#x679C; <code>port</code> &#x7701;&#x7565;&#x6216;&#x662F; 0&#xFF0C;&#x7CFB;&#x7EDF;&#x4F1A;&#x968F;&#x610F;&#x5206;&#x914D;&#x4E00;&#x4E2A;&#x5728; <a href="http://nodejs.cn/s/gimdsR" rel="nofollow"><code>&apos;listening&apos;</code></a> &#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x540E;&#x80FD;&#x88AB; <code>server.address().port</code> &#x68C0;&#x7D22;&#x7684;&#x65E0;&#x7528;&#x7AEF;&#x53E3;&#x3002;</p><p>&#x5982;&#x679C; <code>host</code> &#x7701;&#x7565;&#xFF0C;&#x5982;&#x679C; IPv6 &#x53EF;&#x7528;&#xFF0C;&#x670D;&#x52A1;&#x5668;&#x5C06;&#x4F1A;&#x63A5;&#x6536;&#x57FA;&#x4E8E;<a href="http://nodejs.cn/s/Qm3wjJ" rel="nofollow">&#x672A;&#x6307;&#x5B9A;&#x7684; IPv6 &#x5730;&#x5740;</a> (<code>::</code>) &#x7684;&#x8FDE;&#x63A5;&#xFF0C;&#x5426;&#x5219;&#x63A5;&#x6536;&#x57FA;&#x4E8E;<a href="http://nodejs.cn/s/ccQvH8" rel="nofollow">&#x672A;&#x6307;&#x5B9A;&#x7684; IPv4 &#x5730;&#x5740;</a> (<code>0.0.0.0</code>) &#x7684;&#x8FDE;&#x63A5;&#x3002;</p><p>&#x5728;&#x5927;&#x591A;&#x6570;&#x7684;&#x7CFB;&#x7EDF;, &#x76D1;&#x542C;<a href="http://nodejs.cn/s/Qm3wjJ" rel="nofollow">&#x672A;&#x6307;&#x5B9A;&#x7684; IPv6 &#x5730;&#x5740;</a> (<code>::</code>) &#x53EF;&#x80FD;&#x5BFC;&#x81F4; <code>net.Server</code> &#x4E5F;&#x76D1;&#x542C;<a href="http://nodejs.cn/s/ccQvH8" rel="nofollow">&#x672A;&#x6307;&#x5B9A;&#x7684; IPv4 &#x5730;&#x5740;</a> (<code>0.0.0.0</code>)&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.90</span>
+</div><ul>
+<li><code>port</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>host</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>backlog</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> Common parameter of <a href="http://nodejs.cn/s/xGksiu" rel="nofollow"><code>server.listen()</code></a> functions.</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> Common parameter of <a href="http://nodejs.cn/s/xGksiu" rel="nofollow"><code>server.listen()</code></a> functions.</li>
+<li>Returns: <a href="http://nodejs.cn/s/gBYjux" target="_blank" rel="nofollow" class="type">&lt;net.Server&gt;</a></li>
+</ul><p>Start a TCP server listening for connections on the given <code>port</code> and <code>host</code>.</p><p>If <code>port</code> is omitted or is 0, the operating system will assign an arbitrary
+unused port, which can be retrieved by using <code>server.address().port</code>
+after the <a href="http://nodejs.cn/s/gimdsR" rel="nofollow"><code>&apos;listening&apos;</code></a> event has been emitted.</p><p>If <code>host</code> is omitted, the server will accept connections on the
+<a href="http://nodejs.cn/s/Qm3wjJ" rel="nofollow">unspecified IPv6 address</a> (<code>::</code>) when IPv6 is available, or the
+<a href="http://nodejs.cn/s/ccQvH8" rel="nofollow">unspecified IPv4 address</a> (<code>0.0.0.0</code>) otherwise.</p><p>In most operating systems, listening to the <a href="http://nodejs.cn/s/Qm3wjJ" rel="nofollow">unspecified IPv6 address</a> (<code>::</code>)
+may cause the <code>net.Server</code> to also listen on the <a href="http://nodejs.cn/s/ccQvH8" rel="nofollow">unspecified IPv4 address</a>
+(<code>0.0.0.0</code>).</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/net/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756318333"><\/script>');
+  </script>
+</body>
+</html>

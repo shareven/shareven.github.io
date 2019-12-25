@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>socket.ref() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/dgram/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756302457" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-dgram">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>socket.ref()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../dgram.html#dgram_socket_ref" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/socket_ref.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.1</span>
+</div><ul>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/gLhMN2" target="_blank" rel="nofollow" class="type">&lt;dgram.Socket&gt;</a></li>
+</ul><p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7ED1;&#x5B9A;&#x4E00;&#x4E2A; socket &#x4F1A;&#x5728; socket &#x8FD0;&#x884C;&#x65F6;&#x963B;&#x6B62; Node.js &#x8FDB;&#x7A0B;&#x9000;&#x51FA;&#x3002;
+<code>socket.unref()</code> &#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x5C06; socket &#x4ECE;&#x7EF4;&#x6301; Node.js &#x8FDB;&#x7A0B;&#x7684;&#x5F15;&#x7528;&#x5217;&#x8868;&#x4E2D;&#x89E3;&#x9664;&#x3002;
+<code>socket.ref()</code> &#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x5C06; socket &#x91CD;&#x65B0;&#x6DFB;&#x52A0;&#x5230;&#x8FD9;&#x4E2A;&#x5F15;&#x7528;&#x5217;&#x8868;&#x4E2D;&#xFF0C;&#x5E76;&#x6062;&#x590D;&#x5176;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#x3002;</p><p>&#x591A;&#x6B21;&#x8C03;&#x7528; <code>socket.ref()</code> &#x4E0D;&#x4F1A;&#x6709;&#x989D;&#x5916;&#x7684;&#x4F5C;&#x7528;&#x3002;</p><p><code>socket.ref()</code> &#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9; socket &#x7684;&#x5F15;&#x7528;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x94FE;&#x5F0F;&#x8C03;&#x7528;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.9.1</span>
+</div><ul>
+<li>Returns: <a href="http://nodejs.cn/s/gLhMN2" target="_blank" rel="nofollow" class="type">&lt;dgram.Socket&gt;</a></li>
+</ul><p>By default, binding a socket will cause it to block the Node.js process from
+exiting as long as the socket is open. The <code>socket.unref()</code> method can be used
+to exclude the socket from the reference counting that keeps the Node.js
+process active. The <code>socket.ref()</code> method adds the socket back to the reference
+counting and restores the default behavior.</p><p>Calling <code>socket.ref()</code> multiples times will have no additional effect.</p><p>The <code>socket.ref()</code> method returns a reference to the socket so calls can be
+chained.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/dgram/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756302457"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>进程 I/O 的注意事项 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756321101" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>进程 I/O 的注意事项</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../process.html#process_a_note_on_process_i_o" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/process/a_note_on_process_i_o.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p><code>process.stdout</code> and <code>process.stderr</code> &#x4E0E; Node.js &#x4E2D;&#x5176;&#x4ED6; streams &#x5728;&#x91CD;&#x8981;&#x7684;&#x65B9;&#x9762;&#x6709;&#x4E0D;&#x540C;:</p><ol>
+<li><a href="http://nodejs.cn/s/sUaBgC" rel="nofollow"><code>console.log()</code></a> &#x548C; <a href="http://nodejs.cn/s/Xcs7Ni" rel="nofollow"><code>console.error()</code></a> &#x5185;&#x90E8;&#x5206;&#x522B;&#x662F;&#x7531;&#x5B83;&#x4EEC;&#x5B9E;&#x73B0;&#x7684;&#x3002;</li>
+<li>
+<p>&#x5199;&#x64CD;&#x4F5C;&#x662F;&#x5426;&#x4E3A;&#x540C;&#x6B65;&#xFF0C;&#x53D6;&#x51B3;&#x4E8E;&#x8FDE;&#x63A5;&#x7684;&#x662F;&#x4EC0;&#x4E48;&#x6D41;&#x4EE5;&#x53CA;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x662F; Windows &#x8FD8;&#x662F; POSIX :</p>
+<ul>
+<li>&#x6587;&#x4EF6;&#xFF1A;&#x5728; Windows &#x548C; POSIX &#x4E0A;&#x662F;&#x540C;&#x6B65;&#x7684;&#x3002;</li>
+<li>TTY&#xFF08;&#x7EC8;&#x7AEF;&#xFF09;&#xFF1A;&#x5728; Windows &#x4E0A;&#x662F;&#x5F02;&#x6B65;&#x7684;&#xFF0C;&#x5728; POSIX &#x4E0A;&#x662F;&#x540C;&#x6B65;&#x7684;&#x3002;</li>
+<li>&#x7BA1;&#x9053;&#xFF08;&#x548C; socket&#xFF09;&#xFF1A;&#x5728; Windows &#x4E0A;&#x662F;&#x540C;&#x6B65;&#x7684;&#xFF0C;&#x5728; POSIX &#x4E0A;&#x662F;&#x5F02;&#x6B65;&#x7684;&#x3002;</li>
+</ul>
+</li>
+</ol><p>&#x8FD9;&#x4E9B;&#x884C;&#x4E3A;&#x90E8;&#x5206;&#x662F;&#x5386;&#x53F2;&#x539F;&#x56E0;&#xFF0C;&#x6539;&#x53D8;&#x4ED6;&#x4EEC;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x5411;&#x540E;&#x4E0D;&#x517C;&#x5BB9;&#xFF0C;&#x800C;&#x4E14;&#x4ED6;&#x4EEC;&#x7684;&#x884C;&#x4E3A;&#x4E5F;&#x7B26;&#x5408;&#x90E8;&#x5206;&#x7528;&#x6237;&#x7684;&#x9884;&#x671F;&#x3002;</p><p>&#x540C;&#x6B65;&#x5199;&#x907F;&#x514D;&#x4E86;&#x8C03;&#x7528; <code>console.log()</code> &#x6216; <code>console.error()</code> &#x4EA7;&#x751F;&#x4E0D;&#x7B26;&#x5408;&#x9884;&#x671F;&#x7684;&#x4EA4;&#x9519;&#x8F93;&#x51FA;&#x95EE;&#x9898;&#xFF0C;&#x6216;&#x662F;&#x5728;&#x5F02;&#x6B65;&#x5199;&#x5B8C;&#x6210;&#x524D;&#x8C03;&#x7528;&#x4E86;<code>process.exit()</code>&#x5BFC;&#x81F4;&#x672A;&#x5199;&#x5B8C;&#x6574;&#x3002; &#x67E5;&#x770B;<a href="http://nodejs.cn/s/53qrEa" rel="nofollow"><code>process.exit()</code></a> &#x83B7;&#x53D6;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#x3002;</p><p>&#x540C;&#x6B65;&#x5199;&#x5C06;&#x4F1A;&#x963B;&#x585E;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x76F4;&#x5230;&#x5199;&#x5B8C;&#x6210;&#x3002; &#x6709;&#x65F6;&#x53EF;&#x80FD;&#x4E00;&#x77AC;&#x95F4;&#x5C31;&#x80FD;&#x5199;&#x5230;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x4F46;&#x5F53;&#x7CFB;&#x7EDF;&#x5904;&#x4E8E;&#x9AD8;&#x8D1F;&#x8F7D;&#x65F6;&#xFF0C;&#x7BA1;&#x9053;&#x7684;&#x63A5;&#x6536;&#x7AEF;&#x53EF;&#x80FD;&#x4E0D;&#x4F1A;&#x88AB;&#x8BFB;&#x53D6;&#x3001;&#x7F13;&#x6162;&#x7684;&#x7EC8;&#x7AEF;&#x6216;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF0C;&#x56E0;&#x4E3A;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x88AB;&#x963B;&#x585E;&#x7684;&#x8DB3;&#x591F;&#x9891;&#x7E41;&#x4E14;&#x8DB3;&#x591F;&#x957F;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x8FD9;&#x4E9B;&#x53EF;&#x80FD;&#x4F1A;&#x7ED9;&#x7CFB;&#x7EDF;&#x6027;&#x80FD;&#x5E26;&#x6765;&#x6D88;&#x6781;&#x7684;&#x5F71;&#x54CD;&#x3002;&#x5F53;&#x4F60;&#x5411;&#x4E00;&#x4E2A;&#x4EA4;&#x4E92;&#x7EC8;&#x7AEF;&#x4F1A;&#x8BDD;&#x5199;&#x65F6;&#x8FD9;&#x53EF;&#x80FD;&#x4E0D;&#x662F;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x4F46;&#x5F53;&#x751F;&#x4EA7;&#x65E5;&#x5FD7;&#x5230;&#x8FDB;&#x7A0B;&#x7684;&#x8F93;&#x51FA;&#x6D41;&#x65F6;&#x8981;&#x7279;&#x522B;&#x7559;&#x5FC3;&#x3002;</p><p>&#x5982;&#x679C;&#x8981;&#x68C0;&#x67E5;&#x4E00;&#x4E2A;&#x6D41;&#x662F;&#x5426;&#x8FDE;&#x63A5;&#x5230;&#x4E86;&#x4E00;&#x4E2A; <a href="http://nodejs.cn/s/FrYxPR" rel="nofollow">TTY</a> &#x4E0A;&#x4E0B;&#x6587;&#xFF0C; &#x68C0;&#x67E5;&#xA0;<code>isTTY</code> &#x5C5E;&#x6027;&#x3002;</p><p>&#x4F8B;&#x5982;:</p><pre><code class="language-console">$ node -p &quot;Boolean(process.stdin.isTTY)&quot;
+true
+$ echo &quot;foo&quot; | node -p &quot;Boolean(process.stdin.isTTY)&quot;
+false
+$ node -p &quot;Boolean(process.stdout.isTTY)&quot;
+true
+$ node -p &quot;Boolean(process.stdout.isTTY)&quot; | cat
+false
+</code></pre><p>&#x67E5;&#x770B; <a href="http://nodejs.cn/s/FrYxPR" rel="nofollow">TTY</a> &#x6587;&#x6863;&#x4EE5;&#x83B7;&#x5F97;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#x3002;</p></div>
+          <div id="content_right"><p><code>process.stdout</code> and <code>process.stderr</code> differ from other Node.js streams in
+important ways:</p><ol>
+<li>They are used internally by <a href="http://nodejs.cn/s/sUaBgC" rel="nofollow"><code>console.log()</code></a> and <a href="http://nodejs.cn/s/Xcs7Ni" rel="nofollow"><code>console.error()</code></a>,
+respectively.</li>
+<li>
+<p>Writes may be synchronous depending on what the stream is connected to
+and whether the system is Windows or POSIX:</p>
+<ul>
+<li>Files: <em>synchronous</em> on Windows and POSIX</li>
+<li>TTYs (Terminals): <em>asynchronous</em> on Windows, <em>synchronous</em> on POSIX</li>
+<li>Pipes (and sockets): <em>synchronous</em> on Windows, <em>asynchronous</em> on POSIX</li>
+</ul>
+</li>
+</ol><p>These behaviors are partly for historical reasons, as changing them would
+create backwards incompatibility, but they are also expected by some users.</p><p>Synchronous writes avoid problems such as output written with <code>console.log()</code> or
+<code>console.error()</code> being unexpectedly interleaved, or not written at all if
+<code>process.exit()</code> is called before an asynchronous write completes. See
+<a href="http://nodejs.cn/s/53qrEa" rel="nofollow"><code>process.exit()</code></a> for more information.</p><p><strong><em>Warning</em></strong>: Synchronous writes block the event loop until the write has
+completed. This can be near instantaneous in the case of output to a file, but
+under high system load, pipes that are not being read at the receiving end, or
+with slow terminals or file systems, its possible for the event loop to be
+blocked often enough and long enough to have severe negative performance
+impacts. This may not be a problem when writing to an interactive terminal
+session, but consider this particularly careful when doing production logging to
+the process output streams.</p><p>To check if a stream is connected to a <a href="http://nodejs.cn/s/FrYxPR" rel="nofollow">TTY</a> context, check the <code>isTTY</code>
+property.</p><p>For instance:</p><pre><code class="language-console">$ node -p &quot;Boolean(process.stdin.isTTY)&quot;
+true
+$ echo &quot;foo&quot; | node -p &quot;Boolean(process.stdin.isTTY)&quot;
+false
+$ node -p &quot;Boolean(process.stdout.isTTY)&quot;
+true
+$ node -p &quot;Boolean(process.stdout.isTTY)&quot; | cat
+false
+</code></pre><p>See the <a href="http://nodejs.cn/s/FrYxPR" rel="nofollow">TTY</a> documentation for more information.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756321101"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>示例：逐行读取文件流 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/readline/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756322257" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-readline">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>示例：逐行读取文件流</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../readline.html#readline_example_read_file_stream_line_by_line" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/readline/example_read_file_stream_line_by_line.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p><code>readline</code> &#x7684;&#x4E00;&#x4E2A;&#x5E38;&#x89C1;&#x7528;&#x4F8B;&#x662F;&#x6BCF;&#x6B21;&#x4E00;&#x884C;&#x5730;&#x8F93;&#x5165;&#x6587;&#x4EF6;&#x3002;
+&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x5229;&#x7528; <a href="http://nodejs.cn/s/C3Eioq" rel="nofollow"><code>fs.ReadStream</code></a> API &#x4EE5;&#x53CA; <code>for await...of</code> &#x5FAA;&#x73AF;&#xFF1A;</p><pre><code class="language-js">const fs = require(&apos;fs&apos;);
+const readline = require(&apos;readline&apos;);
+
+async function processLineByLine() {
+  const fileStream = fs.createReadStream(&apos;input.txt&apos;);
+
+  const rl = readline.createInterface({
+    input: fileStream,
+    crlfDelay: Infinity
+  });
+  // &#x6CE8;&#x610F;&#xFF1A;&#x6211;&#x4EEC;&#x4F7F;&#x7528; crlfDelay &#x9009;&#x9879;&#x5C06; input.txt &#x4E2D;&#x7684;&#x6240;&#x6709; CR LF &#x5B9E;&#x4F8B;&#xFF08;&apos;\r\n&apos;&#xFF09;&#x8BC6;&#x522B;&#x4E3A;&#x5355;&#x4E2A;&#x6362;&#x884C;&#x7B26;&#x3002;
+
+  for await (const line of rl) {
+    // input.txt &#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x884C;&#x5728;&#x8FD9;&#x91CC;&#x5C06;&#x4F1A;&#x88AB;&#x8FDE;&#x7EED;&#x5730;&#x7528;&#x4F5C; `line`&#x3002;
+    console.log(`Line from file: ${line}`);
+  }
+}
+
+processLineByLine();
+</code></pre><p>&#x6216;&#x8005;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/bjhuVU" rel="nofollow"><code>&apos;line&apos;</code></a> &#x4E8B;&#x4EF6;&#xFF1A;</p><pre><code class="language-js">const fs = require(&apos;fs&apos;);
+const readline = require(&apos;readline&apos;);
+
+const rl = readline.createInterface({
+  input: fs.createReadStream(&apos;sample.txt&apos;),
+  crlfDelay: Infinity
+});
+
+rl.on(&apos;line&apos;, (line) =&gt; {
+  console.log(`&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x884C;: ${line}`);
+});
+</code></pre><p>&#x76EE;&#x524D;&#xFF0C; <code>for await...of</code> &#x5FAA;&#x73AF;&#x53EF;&#x80FD;&#x4F1A;&#x6162;&#x4E00;&#x70B9;&#x3002;
+&#x5982;&#x679C; <code>async</code> / <code>await</code> &#x6D41;&#x548C;&#x901F;&#x5EA6;&#x90FD;&#x662F;&#x5FC5;&#x4E0D;&#x53EF;&#x5C11;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x5E94;&#x7528;&#x6DF7;&#x5408;&#x65B9;&#x6CD5;&#xFF1A;</p><pre><code class="language-js">const { once } = require(&apos;events&apos;);
+const { createReadStream } = require(&apos;fs&apos;);
+const { createInterface } = require(&apos;readline&apos;);
+
+(async function processLineByLine() {
+  try {
+    const rl = createInterface({
+      input: createReadStream(&apos;big-file.txt&apos;),
+      crlfDelay: Infinity
+    });
+
+    rl.on(&apos;line&apos;, (line) =&gt; {
+      // &#x5904;&#x7406;&#x884C;&#x3002;
+    });
+
+    await once(rl, &apos;close&apos;);
+
+    console.log(&apos;&#x6587;&#x4EF6;&#x5DF2;&#x5904;&#x7406;&apos;);
+  } catch (err) {
+    console.error(err);
+  }
+})();
+</code></pre></div>
+          <div id="content_right"><p>A common use case for <code>readline</code> is to consume an input file one line at a
+time. The easiest way to do so is leveraging the <a href="http://nodejs.cn/s/C3Eioq" rel="nofollow"><code>fs.ReadStream</code></a> API as
+well as a <code>for await...of</code> loop:</p><pre><code class="language-js">const fs = require(&apos;fs&apos;);
+const readline = require(&apos;readline&apos;);
+
+async function processLineByLine() {
+  const fileStream = fs.createReadStream(&apos;input.txt&apos;);
+
+  const rl = readline.createInterface({
+    input: fileStream,
+    crlfDelay: Infinity
+  });
+  // Note: we use the crlfDelay option to recognize all instances of CR LF
+  // (&apos;\r\n&apos;) in input.txt as a single line break.
+
+  for await (const line of rl) {
+    // Each line in input.txt will be successively available here as `line`.
+    console.log(`Line from file: ${line}`);
+  }
+}
+
+processLineByLine();
+</code></pre><p>Alternatively, one could use the <a href="http://nodejs.cn/s/bjhuVU" rel="nofollow"><code>&apos;line&apos;</code></a> event:</p><pre><code class="language-js">const fs = require(&apos;fs&apos;);
+const readline = require(&apos;readline&apos;);
+
+const rl = readline.createInterface({
+  input: fs.createReadStream(&apos;sample.txt&apos;),
+  crlfDelay: Infinity
+});
+
+rl.on(&apos;line&apos;, (line) =&gt; {
+  console.log(`Line from file: ${line}`);
+});
+</code></pre><p>Currently, <code>for await...of</code> loop can be a bit slower. If <code>async</code> / <code>await</code>
+flow and speed are both essential, a mixed approach can be applied:</p><pre><code class="language-js">const { once } = require(&apos;events&apos;);
+const { createReadStream } = require(&apos;fs&apos;);
+const { createInterface } = require(&apos;readline&apos;);
+
+(async function processLineByLine() {
+  try {
+    const rl = createInterface({
+      input: createReadStream(&apos;big-file.txt&apos;),
+      crlfDelay: Infinity
+    });
+
+    rl.on(&apos;line&apos;, (line) =&gt; {
+      // Process the line.
+    });
+
+    await once(rl, &apos;close&apos;);
+
+    console.log(&apos;File processed.&apos;);
+  } catch (err) {
+    console.error(err);
+  }
+})();
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/readline/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756322257"><\/script>');
+  </script>
+</body>
+</html>

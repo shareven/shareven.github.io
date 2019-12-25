@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'SIGTSTP' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/readline/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756322227" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-readline">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'SIGTSTP' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../readline.html#readline_event_sigtstp" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/readline/event_sigtstp.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.5</span>
+</div><p>&#x6BCF;&#x5F53; <code>input</code> &#x6D41;&#x63A5;&#x6536;&#x5230; <code>&lt;ctrl&gt;-Z</code> &#x8F93;&#x5165;&#xFF08;&#x901A;&#x5E38;&#x79F0;&#x4E3A; <code>SIGTSTP</code>&#xFF09;&#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x89E6;&#x53D1; <code>&apos;SIGTSTP&apos;</code> &#x4E8B;&#x4EF6;&#x3002;
+&#x5982;&#x679C;&#x5F53; <code>input</code> &#x6D41;&#x63A5;&#x6536;&#x5230; <code>SIGTSTP</code> &#x65F6;&#x6CA1;&#x6709;&#x6CE8;&#x518C; <code>&apos;SIGTSTP&apos;</code> &#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x5219; Node.js &#x8FDB;&#x7A0B;&#x5C06;&#x88AB;&#x53D1;&#x9001;&#x5230;&#x540E;&#x53F0;&#x3002;</p><p>&#x5F53;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/hgYpiL" rel="nofollow"><code>fg(1p)</code></a> &#x6062;&#x590D;&#x7A0B;&#x5E8F;&#x65F6;&#xFF0C;&#x5C06;&#x89E6;&#x53D1; <code>&apos;pause&apos;</code> &#x548C; <code>&apos;SIGCONT&apos;</code> &#x4E8B;&#x4EF6;&#x3002;
+&#x8FD9;&#x53EF;&#x7528;&#x4E8E;&#x6062;&#x590D; <code>input</code> &#x6D41;&#x3002;</p><p>&#x5982;&#x679C;&#x5728;&#x5C06;&#x8FDB;&#x7A0B;&#x53D1;&#x9001;&#x5230;&#x540E;&#x53F0;&#x4E4B;&#x524D;&#x6682;&#x505C; <code>input</code>&#xFF0C;&#x5219;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1; <code>&apos;pause&apos;</code> &#x548C; <code>&apos;SIGCONT&apos;</code> &#x4E8B;&#x4EF6;&#x3002;</p><p>&#x8C03;&#x7528;&#x76D1;&#x542C;&#x5668;&#x51FD;&#x6570;&#x65F6;&#x4E0D;&#x4F20;&#x5165;&#x4EFB;&#x4F55;&#x53C2;&#x6570;&#x3002;</p><pre><code class="language-js">rl.on(&apos;SIGTSTP&apos;, () =&gt; {
+  // &#x8FD9;&#x5C06;&#x8986;&#x76D6; SIGTSTP &#x5E76;&#x963B;&#x6B62;&#x7A0B;&#x5E8F;&#x8FDB;&#x5165;&#x540E;&#x53F0;&#x3002;
+  console.log(&apos;&#x6355;&#x83B7; SIGTSTP&apos;);
+});
+</code></pre><p>Windows &#x4E0A;&#x4E0D;&#x652F;&#x6301; <code>&apos;SIGTSTP&apos;</code> &#x4E8B;&#x4EF6;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.7.5</span>
+</div><p>The <code>&apos;SIGTSTP&apos;</code> event is emitted when the <code>input</code> stream receives a <code>&lt;ctrl&gt;-Z</code>
+input, typically known as <code>SIGTSTP</code>. If there are no <code>&apos;SIGTSTP&apos;</code> event listeners
+registered when the <code>input</code> stream receives a <code>SIGTSTP</code>, the Node.js process
+will be sent to the background.</p><p>When the program is resumed using <a href="http://nodejs.cn/s/hgYpiL" rel="nofollow"><code>fg(1p)</code></a>, the <code>&apos;pause&apos;</code> and <code>&apos;SIGCONT&apos;</code> events
+will be emitted. These can be used to resume the <code>input</code> stream.</p><p>The <code>&apos;pause&apos;</code> and <code>&apos;SIGCONT&apos;</code> events will not be emitted if the <code>input</code> was
+paused before the process was sent to the background.</p><p>The listener function is invoked without passing any arguments.</p><pre><code class="language-js">rl.on(&apos;SIGTSTP&apos;, () =&gt; {
+  // This will override SIGTSTP and prevent the program from going to the
+  // background.
+  console.log(&apos;Caught SIGTSTP.&apos;);
+});
+</code></pre><p>The <code>&apos;SIGTSTP&apos;</code> event is <em>not</em> supported on Windows.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/readline/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756322227"><\/script>');
+  </script>
+</body>
+</html>

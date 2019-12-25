@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>options.stdio | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/child_process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756295884" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-child_process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>options.stdio</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../child_process.html#child_process_options_stdio" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/child_process/options_stdio.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v3.3.1</td>
+<td><p>The value <code>0</code> is now accepted as a file descriptor.</p></td></tr>
+<tr><td>v0.7.10</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.7.10</span></p></td></tr>
+</tbody></table>
+</details>
+</div><p><code>options.stdio</code> &#x9009;&#x9879;&#x7528;&#x4E8E;&#x914D;&#x7F6E;&#x5728;&#x7236;&#x8FDB;&#x7A0B;&#x548C;&#x5B50;&#x8FDB;&#x7A0B;&#x4E4B;&#x95F4;&#x5EFA;&#x7ACB;&#x7684;&#x7BA1;&#x9053;&#x3002;
+&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5B50;&#x8FDB;&#x7A0B;&#x7684; stdin&#x3001; stdout &#x548C; stderr &#x4F1A;&#x88AB;&#x91CD;&#x5B9A;&#x5411;&#x5230; <a href="http://nodejs.cn/s/uALgct" rel="nofollow"><code>ChildProcess</code></a> &#x5BF9;&#x8C61;&#x4E0A;&#x76F8;&#x5E94;&#x7684; <a href="http://nodejs.cn/s/Su8gEr" rel="nofollow"><code>subprocess.stdin</code></a>&#x3001;<a href="http://nodejs.cn/s/F2vs59" rel="nofollow"><code>subprocess.stdout</code></a> &#x548C; <a href="http://nodejs.cn/s/jjhXtd" rel="nofollow"><code>subprocess.stderr</code></a> &#x6D41;&#x3002;
+&#x8FD9;&#x76F8;&#x5F53;&#x4E8E;&#x5C06; <code>options.stdio</code> &#x8BBE;&#x7F6E;&#x4E3A; <code>[&apos;pipe&apos;, &apos;pipe&apos;, &apos;pipe&apos;]</code>&#x3002;</p><p>&#x4E3A;&#x65B9;&#x4FBF;&#x8D77;&#x89C1;&#xFF0C; <code>options.stdio</code> &#x53EF;&#x4EE5;&#x662F;&#x4EE5;&#x4E0B;&#x5B57;&#x7B26;&#x4E32;&#x4E4B;&#x4E00;&#xFF1A;</p><ul>
+<li><code>&apos;pipe&apos;</code> - &#x76F8;&#x5F53;&#x4E8E; <code>[&apos;pipe&apos;, &apos;pipe&apos;, &apos;pipe&apos;]</code>&#xFF08;&#x9ED8;&#x8BA4;&#x503C;&#xFF09;&#x3002;</li>
+<li><code>&apos;ignore&apos;</code> - &#x76F8;&#x5F53;&#x4E8E; <code>[&apos;ignore&apos;, &apos;ignore&apos;, &apos;ignore&apos;]</code>&#x3002;</li>
+<li><code>&apos;inherit&apos;</code> - &#x76F8;&#x5F53;&#x4E8E; <code>[&apos;inherit&apos;, &apos;inherit&apos;, &apos;inherit&apos;]</code> &#x6216; <code>[0, 1, 2]</code>&#x3002;</li>
+</ul><p>&#x5426;&#x5219;&#xFF0C; <code>options.stdio</code> &#x7684;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x5176;&#x4E2D;&#x6BCF;&#x4E2A;&#x7D22;&#x5F15;&#x5BF9;&#x5E94;&#x4E8E;&#x5B50;&#x8FDB;&#x7A0B;&#x4E2D;&#x7684; fd&#x3002;
+fd 0&#x3001;1 &#x548C; 2 &#x5206;&#x522B;&#x5BF9;&#x5E94;&#x4E8E; stdin&#x3001;stdout &#x548C; stderr&#x3002;
+&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x5176;&#x4ED6; fd &#x4EE5;&#x4FBF;&#x5728;&#x7236;&#x8FDB;&#x7A0B;&#x548C;&#x5B50;&#x8FDB;&#x7A0B;&#x4E4B;&#x95F4;&#x521B;&#x5EFA;&#x989D;&#x5916;&#x7684;&#x7BA1;&#x9053;&#x3002;
+&#x503C;&#x53EF;&#x4EE5;&#x662F;&#x4EE5;&#x4E0B;&#x4E4B;&#x4E00;&#xFF1A;</p><ol>
+<li>
+<p><code>&apos;pipe&apos;</code> - &#x5728;&#x5B50;&#x8FDB;&#x7A0B;&#x548C;&#x7236;&#x8FDB;&#x7A0B;&#x4E4B;&#x95F4;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7BA1;&#x9053;&#x3002;
+&#x7BA1;&#x9053;&#x7684;&#x7236;&#x7AEF;&#x4F5C;&#x4E3A; <code>child_process</code> &#x5BF9;&#x8C61;&#x4E0A;&#x7684; <a href="http://nodejs.cn/s/jADQsb" rel="nofollow"><code>subprocess.stdio[fd]</code></a> &#x5C5E;&#x6027;&#x66B4;&#x9732;&#x7ED9;&#x7236;&#x8FDB;&#x7A0B;&#x3002;
+&#x4E3A; fd 0 - 2 &#x521B;&#x5EFA;&#x7684;&#x7BA1;&#x9053;&#x4E5F;&#x53EF;&#x5206;&#x522B;&#x4F5C;&#x4E3A; <a href="http://nodejs.cn/s/Su8gEr" rel="nofollow"><code>subprocess.stdin</code></a>&#x3001;<a href="http://nodejs.cn/s/F2vs59" rel="nofollow"><code>subprocess.stdout</code></a> &#x548C; <a href="http://nodejs.cn/s/jjhXtd" rel="nofollow"><code>subprocess.stderr</code></a> &#x4F7F;&#x7528;&#x3002;</p>
+</li>
+<li>
+<p><code>&apos;ipc&apos;</code> - &#x521B;&#x5EFA;&#x4E00;&#x4E2A; IPC &#x901A;&#x9053;&#xFF0C;&#x7528;&#x4E8E;&#x5728;&#x7236;&#x8FDB;&#x7A0B;&#x548C;&#x5B50;&#x8FDB;&#x7A0B;&#x4E4B;&#x95F4;&#x4F20;&#x9012;&#x6D88;&#x606F;&#x6216;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x3002;
+&#x4E00;&#x4E2A; <a href="http://nodejs.cn/s/uALgct" rel="nofollow"><code>ChildProcess</code></a> &#x6700;&#x591A;&#x53EF;&#x4EE5;&#x6709;&#x4E00;&#x4E2A; IPC stdio &#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x3002;
+&#x8BBE;&#x7F6E;&#x6B64;&#x9009;&#x9879;&#x4F1A;&#x542F;&#x7528; <a href="http://nodejs.cn/s/Eggixm" rel="nofollow"><code>subprocess.send()</code></a> &#x65B9;&#x6CD5;&#x3002;
+&#x5982;&#x679C;&#x5B50;&#x8FDB;&#x7A0B;&#x662F;&#x4E00;&#x4E2A; Node.js &#x8FDB;&#x7A0B;&#xFF0C;&#x5219; IPC &#x901A;&#x9053;&#x7684;&#x5B58;&#x5728;&#x5C06;&#x4F1A;&#x542F;&#x7528; <a href="http://nodejs.cn/s/Cd2TZw" rel="nofollow"><code>process.send()</code></a> &#x548C; <a href="http://nodejs.cn/s/omDrya" rel="nofollow"><code>process.disconnect()</code></a> &#x65B9;&#x6CD5;&#x3001;&#x4EE5;&#x53CA;&#x5B50;&#x8FDB;&#x7A0B;&#x5185;&#x7684; <a href="http://nodejs.cn/s/n6LBD8" rel="nofollow"><code>&apos;disconnect&apos;</code></a> &#x548C; <a href="http://nodejs.cn/s/vYuu5g" rel="nofollow"><code>&apos;message&apos;</code></a> &#x4E8B;&#x4EF6;&#x3002;</p>
+<p>&#x4EE5; <a href="http://nodejs.cn/s/Cd2TZw" rel="nofollow"><code>process.send()</code></a> &#x4EE5;&#x5916;&#x7684;&#x4EFB;&#x4F55;&#x65B9;&#x5F0F;&#x8BBF;&#x95EE; IPC &#x901A;&#x9053;&#x7684; fd&#x3001;&#x6216;&#x8005;&#x5728;&#x4E00;&#x4E2A;&#x4E0D;&#x662F; Node.js &#x5B9E;&#x4F8B;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#x4E2D;&#x4F7F;&#x7528; IPC &#x901A;&#x9053;&#xFF0C;&#x90FD;&#x662F;&#x4E0D;&#x652F;&#x6301;&#x7684;&#x3002;</p>
+</li>
+<li>
+<p><code>&apos;ignore&apos;</code> - &#x6307;&#x793A; Node.js &#x5FFD;&#x7565;&#x5B50;&#x8FDB;&#x7A0B;&#x4E2D;&#x7684; fd&#x3002;
+&#x867D;&#x7136; Node.js &#x5C06;&#x4F1A;&#x59CB;&#x7EC8;&#x4E3A;&#x5B83;&#x884D;&#x751F;&#x7684;&#x8FDB;&#x7A0B;&#x6253;&#x5F00; fd 0 - 2&#xFF0C;&#x4F46;&#x5C06; fd &#x8BBE;&#x7F6E;&#x4E3A; <code>&apos;ignore&apos;</code> &#x5C06;&#x4F1A;&#x5BFC;&#x81F4; Node.js &#x6253;&#x5F00; <code>/dev/null</code> &#x5E76;&#x5C06;&#x5176;&#x9644;&#x52A0;&#x5230;&#x5B50;&#x8FDB;&#x7A0B;&#x7684; fd&#x3002;</p>
+</li>
+<li>
+<p><code>&apos;inherit&apos;</code> - &#x5C06;&#x76F8;&#x5E94;&#x7684; stdio &#x6D41;&#x4F20;&#x7ED9;&#x7236;&#x8FDB;&#x7A0B;&#x6216;&#x4ECE;&#x7236;&#x8FDB;&#x7A0B;&#x4F20;&#x5165;&#x3002;
+&#x5728;&#x524D;&#x4E09;&#x4E2A;&#x4F4D;&#x7F6E;&#x4E2D;&#xFF0C;&#x8FD9;&#x5206;&#x522B;&#x76F8;&#x5F53;&#x4E8E; <code>process.stdin</code>&#x3001; <code>process.stdout</code> &#x548C; <code>process.stderr</code>&#x3002;
+&#x5728;&#x4EFB;&#x4F55;&#x5176;&#x4ED6;&#x4F4D;&#x7F6E;&#x4E2D;&#xFF0C;&#x5219;&#x76F8;&#x5F53;&#x4E8E; <code>&apos;ignore&apos;</code>&#x3002;</p>
+</li>
+<li>
+<p><a href="http://nodejs.cn/s/t73H94" target="_blank" rel="nofollow" class="type">&lt;Stream&gt;</a> &#x5BF9;&#x8C61; - &#x4E0E;&#x5B50;&#x8FDB;&#x7A0B;&#x5171;&#x4EAB;&#x6307;&#x5411; tty&#x3001;&#x6587;&#x4EF6;&#x3001; socket &#x6216;&#x7BA1;&#x9053;&#x7684;&#x53EF;&#x8BFB;&#x6216;&#x53EF;&#x5199;&#x6D41;&#x3002;
+&#x6D41;&#x7684;&#x5E95;&#x5C42;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x5728;&#x5B50;&#x8FDB;&#x7A0B;&#x4E2D;&#x4F1A;&#x88AB;&#x590D;&#x5236;&#x5230;&#x4E0E; <code>stdio</code> &#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x7D22;&#x5F15;&#x5BF9;&#x5E94;&#x7684; fd&#x3002;
+&#x8BE5;&#x6D41;&#x5FC5;&#x987B;&#x5177;&#x6709;&#x4E00;&#x4E2A;&#x5E95;&#x5C42;&#x7684;&#x63CF;&#x8FF0;&#x7B26;&#xFF08;&#x6587;&#x4EF6;&#x6D41;&#x76F4;&#x5230;&#x89E6;&#x53D1; <code>&apos;open&apos;</code> &#x4E8B;&#x4EF6;&#x624D;&#x9700;&#x8981;&#xFF09;&#x3002;</p>
+</li>
+<li>
+<p>&#x6B63;&#x6574;&#x6570; - &#x6574;&#x6570;&#x503C;&#x4F1A;&#x88AB;&#x89E3;&#x91CA;&#x4E3A;&#x5F53;&#x524D;&#x5728;&#x7236;&#x8FDB;&#x7A0B;&#x4E2D;&#x6253;&#x5F00;&#x7684;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x3002;
+&#x5B83;&#x4E0E;&#x5B50;&#x8FDB;&#x7A0B;&#x5171;&#x4EAB;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;&#x5171;&#x4EAB; <a href="http://nodejs.cn/s/t73H94" target="_blank" rel="nofollow" class="type">&lt;Stream&gt;</a> &#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x5F0F;&#x3002;
+&#x5728; Windows &#x4E0A;&#x4E0D;&#x652F;&#x6301;&#x4F20;&#x5165; socket&#x3002;</p>
+</li>
+<li>
+<p><code>null</code> &#x6216; <code>undefined</code> - &#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x503C;&#x3002;
+&#x5BF9;&#x4E8E; stdio &#x7684; fd 0&#x3001;1 &#x548C; 2&#xFF08;&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;stdin&#x3001;stdout &#x548C; stderr&#xFF09;&#xFF0C;&#x5C06;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x7BA1;&#x9053;&#x3002;
+&#x5BF9;&#x4E8E; fd 3 &#x53CA;&#x66F4;&#x5927;&#x7684;&#x503C;&#xFF0C;&#x5219;&#x9ED8;&#x8BA4;&#x4E3A; <code>&apos;ignore&apos;</code>&#x3002;</p>
+</li>
+</ol><pre><code class="language-js">const { spawn } = require(&apos;child_process&apos;);
+
+// &#x5B50;&#x8FDB;&#x7A0B;&#x4F7F;&#x7528;&#x7236;&#x8FDB;&#x7A0B;&#x7684; stdio&#x3002;
+spawn(&apos;prg&apos;, [], { stdio: &apos;inherit&apos; });
+
+// &#x884D;&#x751F;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#x53EA;&#x5171;&#x4EAB; stderr&#x3002;
+spawn(&apos;prg&apos;, [], { stdio: [&apos;pipe&apos;, &apos;pipe&apos;, process.stderr] });
+
+// &#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x989D;&#x5916;&#x7684; fd=4&#xFF0C;&#x4E0E;&#x5448;&#x73B0;&#x542F;&#x52A8;&#x5F0F;&#x754C;&#x9762;&#x7684;&#x7A0B;&#x5E8F;&#x8FDB;&#x884C;&#x4EA4;&#x4E92;&#x3002;
+spawn(&apos;prg&apos;, [], { stdio: [&apos;pipe&apos;, null, null, null, &apos;pipe&apos;] });
+</code></pre><p>&#x5F53;&#x5728;&#x7236;&#x8FDB;&#x7A0B;&#x548C;&#x5B50;&#x8FDB;&#x7A0B;&#x4E4B;&#x95F4;&#x5EFA;&#x7ACB; IPC &#x901A;&#x9053;&#xFF0C;&#x5E76;&#x4E14;&#x5B50;&#x8FDB;&#x7A0B;&#x662F;&#x4E00;&#x4E2A; Node.js &#x8FDB;&#x7A0B;&#x65F6;&#xFF0C;&#x5219;&#x5B50;&#x8FDB;&#x7A0B;&#x542F;&#x52A8;&#x65F6;&#x4E0D;&#x4F1A;&#x6307;&#x5411; IPC &#x901A;&#x9053;&#xFF08;&#x4F7F;&#x7528; <code>unref()</code>&#xFF09;&#xFF0C;&#x76F4;&#x5230;&#x5B50;&#x8FDB;&#x7A0B;&#x4E3A; <a href="http://nodejs.cn/s/n6LBD8" rel="nofollow"><code>&apos;disconnect&apos;</code></a> &#x4E8B;&#x4EF6;&#x6216; <a href="http://nodejs.cn/s/vYuu5g" rel="nofollow"><code>&apos;message&apos;</code></a> &#x4E8B;&#x4EF6;&#x6CE8;&#x518C;&#x4E86;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;&#x3002;
+&#x8FD9;&#x5141;&#x8BB8;&#x5B50;&#x8FDB;&#x7A0B;&#x6B63;&#x5E38;&#x9000;&#x51FA;&#x800C;&#x4E0D;&#x9700;&#x8981;&#x901A;&#x8FC7;&#x5F00;&#x653E;&#x7684; IPC &#x901A;&#x9053;&#x4FDD;&#x6301;&#x6253;&#x5F00;&#x8BE5;&#x8FDB;&#x7A0B;&#x3002;</p><p>&#x5728;&#x7C7B; Unix &#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E0A;&#xFF0C;<a href="http://nodejs.cn/s/CKoDGf" rel="nofollow"><code>child_process.spawn()</code></a> &#x65B9;&#x6CD5;&#x5728;&#x5C06;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4E0E;&#x5B50;&#x8FDB;&#x7A0B;&#x89E3;&#x8026;&#x4E4B;&#x524D;&#x4F1A;&#x540C;&#x6B65;&#x5730;&#x6267;&#x884C;&#x5185;&#x5B58;&#x64CD;&#x4F5C;&#x3002;
+&#x5177;&#x6709;&#x5927;&#x5185;&#x5B58;&#x5360;&#x7528;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x53EF;&#x80FD;&#x4F1A;&#x53D1;&#x73B0;&#x9891;&#x7E41;&#x7684; <a href="http://nodejs.cn/s/CKoDGf" rel="nofollow"><code>child_process.spawn()</code></a> &#x8C03;&#x7528;&#x6210;&#x4E3A;&#x74F6;&#x9888;&#x3002;
+&#x8BE6;&#x89C1; <a href="http://nodejs.cn/s/p8ZCVp" rel="nofollow">V8 &#x95EE;&#x9898; 7381</a>&#x3002;</p><p>&#x8FD8;&#x53EF;&#x53C2;&#x9605;&#xFF1A;<a href="http://nodejs.cn/s/pkpJMy" rel="nofollow"><code>child_process.exec()</code></a> &#x548C; <a href="http://nodejs.cn/s/VDCJMa" rel="nofollow"><code>child_process.fork()</code></a>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v3.3.1</td>
+<td><p>The value <code>0</code> is now accepted as a file descriptor.</p></td></tr>
+<tr><td>v0.7.10</td>
+<td><p><span>Added in: v0.7.10</span></p></td></tr>
+</tbody></table>
+</details>
+</div><p>The <code>options.stdio</code> option is used to configure the pipes that are established
+between the parent and child process. By default, the child&apos;s stdin, stdout,
+and stderr are redirected to corresponding <a href="http://nodejs.cn/s/Su8gEr" rel="nofollow"><code>subprocess.stdin</code></a>,
+<a href="http://nodejs.cn/s/F2vs59" rel="nofollow"><code>subprocess.stdout</code></a>, and <a href="http://nodejs.cn/s/jjhXtd" rel="nofollow"><code>subprocess.stderr</code></a> streams on the
+<a href="http://nodejs.cn/s/uALgct" rel="nofollow"><code>ChildProcess</code></a> object. This is equivalent to setting the <code>options.stdio</code>
+equal to <code>[&apos;pipe&apos;, &apos;pipe&apos;, &apos;pipe&apos;]</code>.</p><p>For convenience, <code>options.stdio</code> may be one of the following strings:</p><ul>
+<li><code>&apos;pipe&apos;</code>: equivalent to <code>[&apos;pipe&apos;, &apos;pipe&apos;, &apos;pipe&apos;]</code> (the default)</li>
+<li><code>&apos;ignore&apos;</code>: equivalent to <code>[&apos;ignore&apos;, &apos;ignore&apos;, &apos;ignore&apos;]</code></li>
+<li><code>&apos;inherit&apos;</code>: equivalent to <code>[&apos;inherit&apos;, &apos;inherit&apos;, &apos;inherit&apos;]</code> or <code>[0, 1, 2]</code></li>
+</ul><p>Otherwise, the value of <code>options.stdio</code> is an array where each index corresponds
+to an fd in the child. The fds 0, 1, and 2 correspond to stdin, stdout,
+and stderr, respectively. Additional fds can be specified to create additional
+pipes between the parent and child. The value is one of the following:</p><ol>
+<li>
+<p><code>&apos;pipe&apos;</code>: Create a pipe between the child process and the parent process.
+The parent end of the pipe is exposed to the parent as a property on the
+<code>child_process</code> object as <a href="http://nodejs.cn/s/jADQsb" rel="nofollow"><code>subprocess.stdio[fd]</code></a>. Pipes
+created for fds 0, 1, and 2 are also available as <a href="http://nodejs.cn/s/Su8gEr" rel="nofollow"><code>subprocess.stdin</code></a>,
+<a href="http://nodejs.cn/s/F2vs59" rel="nofollow"><code>subprocess.stdout</code></a> and <a href="http://nodejs.cn/s/jjhXtd" rel="nofollow"><code>subprocess.stderr</code></a>, respectively.</p>
+</li>
+<li>
+<p><code>&apos;ipc&apos;</code>: Create an IPC channel for passing messages/file descriptors
+between parent and child. A <a href="http://nodejs.cn/s/uALgct" rel="nofollow"><code>ChildProcess</code></a> may have at most one IPC
+stdio file descriptor. Setting this option enables the
+<a href="http://nodejs.cn/s/Eggixm" rel="nofollow"><code>subprocess.send()</code></a> method. If the child is a Node.js process, the
+presence of an IPC channel will enable <a href="http://nodejs.cn/s/Cd2TZw" rel="nofollow"><code>process.send()</code></a> and
+<a href="http://nodejs.cn/s/omDrya" rel="nofollow"><code>process.disconnect()</code></a> methods, as well as <a href="http://nodejs.cn/s/n6LBD8" rel="nofollow"><code>&apos;disconnect&apos;</code></a> and
+<a href="http://nodejs.cn/s/vYuu5g" rel="nofollow"><code>&apos;message&apos;</code></a> events within the child.</p>
+<p>Accessing the IPC channel fd in any way other than <a href="http://nodejs.cn/s/Cd2TZw" rel="nofollow"><code>process.send()</code></a>
+or using the IPC channel with a child process that is not a Node.js instance
+is not supported.</p>
+</li>
+<li>
+<p><code>&apos;ignore&apos;</code>: Instructs Node.js to ignore the fd in the child. While Node.js
+will always open fds 0, 1, and 2 for the processes it spawns, setting the fd
+to <code>&apos;ignore&apos;</code> will cause Node.js to open <code>/dev/null</code> and attach it to the
+child&apos;s fd.</p>
+</li>
+<li>
+<p><code>&apos;inherit&apos;</code>: Pass through the corresponding stdio stream to/from the
+parent process. In the first three positions, this is equivalent to
+<code>process.stdin</code>, <code>process.stdout</code>, and <code>process.stderr</code>, respectively. In
+any other position, equivalent to <code>&apos;ignore&apos;</code>.</p>
+</li>
+<li>
+<p><a href="http://nodejs.cn/s/t73H94" target="_blank" rel="nofollow" class="type">&lt;Stream&gt;</a> object: Share a readable or writable stream that refers to a tty,
+file, socket, or a pipe with the child process. The stream&apos;s underlying
+file descriptor is duplicated in the child process to the fd that
+corresponds to the index in the <code>stdio</code> array. The stream must have an
+underlying descriptor (file streams do not until the <code>&apos;open&apos;</code> event has
+occurred).</p>
+</li>
+<li>
+<p>Positive integer: The integer value is interpreted as a file descriptor
+that is currently open in the parent process. It is shared with the child
+process, similar to how <a href="http://nodejs.cn/s/t73H94" target="_blank" rel="nofollow" class="type">&lt;Stream&gt;</a> objects can be shared. Passing sockets
+is not supported on Windows.</p>
+</li>
+<li>
+<p><code>null</code>, <code>undefined</code>: Use default value. For stdio fds 0, 1, and 2 (in other
+words, stdin, stdout, and stderr) a pipe is created. For fd 3 and up, the
+default is <code>&apos;ignore&apos;</code>.</p>
+</li>
+</ol><pre><code class="language-js">const { spawn } = require(&apos;child_process&apos;);
+
+// Child will use parent&apos;s stdios.
+spawn(&apos;prg&apos;, [], { stdio: &apos;inherit&apos; });
+
+// Spawn child sharing only stderr.
+spawn(&apos;prg&apos;, [], { stdio: [&apos;pipe&apos;, &apos;pipe&apos;, process.stderr] });
+
+// Open an extra fd=4, to interact with programs presenting a
+// startd-style interface.
+spawn(&apos;prg&apos;, [], { stdio: [&apos;pipe&apos;, null, null, null, &apos;pipe&apos;] });
+</code></pre><p><em>It is worth noting that when an IPC channel is established between the
+parent and child processes, and the child is a Node.js process, the child
+is launched with the IPC channel unreferenced (using <code>unref()</code>) until the
+child registers an event handler for the <a href="http://nodejs.cn/s/n6LBD8" rel="nofollow"><code>&apos;disconnect&apos;</code></a> event
+or the <a href="http://nodejs.cn/s/vYuu5g" rel="nofollow"><code>&apos;message&apos;</code></a> event. This allows the child to exit
+normally without the process being held open by the open IPC channel.</em></p><p>On Unix-like operating systems, the <a href="http://nodejs.cn/s/CKoDGf" rel="nofollow"><code>child_process.spawn()</code></a> method
+performs memory operations synchronously before decoupling the event loop
+from the child. Applications with a large memory footprint may find frequent
+<a href="http://nodejs.cn/s/CKoDGf" rel="nofollow"><code>child_process.spawn()</code></a> calls to be a bottleneck. For more information,
+see <a href="https://bugs.chromium.org/p/v8/issues/detail?id=7381" rel="nofollow">V8 issue 7381</a>.</p><p>See also: <a href="http://nodejs.cn/s/pkpJMy" rel="nofollow"><code>child_process.exec()</code></a> and <a href="http://nodejs.cn/s/VDCJMa" rel="nofollow"><code>child_process.fork()</code></a>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/child_process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756295884"><\/script>');
+  </script>
+</body>
+</html>

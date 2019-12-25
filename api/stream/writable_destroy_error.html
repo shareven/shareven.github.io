@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>writable.destroy([error]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324117" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-stream">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>writable.destroy([error])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../stream.html#stream_writable_destroy_error" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/stream/writable_destroy_error.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v8.0.0</span>
+</div><ul>
+<li><code>error</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a> &#x53EF;&#x9009;&#xFF0C;&#x4F7F;&#x7528; <code>&apos;error&apos;</code> &#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x7684;&#x9519;&#x8BEF;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/v7Fsu2" target="_blank" rel="nofollow" class="type">&lt;this&gt;</a></li>
+</ul><p>&#x9500;&#x6BC1;&#x6D41;&#x3002;
+&#x53EF;&#x9009;&#x5730;&#x89E6;&#x53D1; <code>&apos;error&apos;</code>&#xFF0C;&#x5E76;&#x4E14;&#x89E6;&#x53D1; <code>&apos;close&apos;</code> &#x4E8B;&#x4EF6;&#xFF08;&#x9664;&#x975E;&#x5C06; <code>emitClose</code> &#x8BBE;&#x7F6E;&#x4E3A; <code>false</code>&#xFF09;&#x3002;
+&#x8C03;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;&#x540E;&#xFF0C;&#x53EF;&#x5199;&#x6D41;&#x5C31;&#x7ED3;&#x675F;&#x4E86;&#xFF0C;&#x4E4B;&#x540E;&#x518D;&#x8C03;&#x7528; <code>write()</code> &#x6216; <code>end()</code> &#x90FD;&#x4F1A;&#x5BFC;&#x81F4; <code>ERR_STREAM_DESTROYED</code> &#x9519;&#x8BEF;&#x3002;
+&#x8FD9;&#x662F;&#x9500;&#x6BC1;&#x6D41;&#x7684;&#x6700;&#x76F4;&#x63A5;&#x7684;&#x65B9;&#x5F0F;&#x3002;
+&#x524D;&#x9762;&#x5BF9; <code>write()</code> &#x7684;&#x8C03;&#x7528;&#x53EF;&#x80FD;&#x6CA1;&#x6709;&#x8017;&#x5C3D;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x80FD;&#x89E6;&#x53D1; <code>ERR_STREAM_DESTROYED</code> &#x9519;&#x8BEF;&#x3002;
+&#x5982;&#x679C;&#x6570;&#x636E;&#x5728;&#x5173;&#x95ED;&#x4E4B;&#x524D;&#x5E94;&#x8BE5;&#x5237;&#x65B0;&#xFF0C;&#x5219;&#x4F7F;&#x7528; <code>end()</code> &#x800C;&#x4E0D;&#x662F;&#x9500;&#x6BC1;&#xFF0C;&#x6216;&#x8005;&#x5728;&#x9500;&#x6BC1;&#x6D41;&#x4E4B;&#x524D;&#x7B49;&#x5F85; <code>&apos;drain&apos;</code> &#x4E8B;&#x4EF6;&#x3002;
+&#x5B9E;&#x73B0;&#x8005;&#x4E0D;&#x5E94;&#x8BE5;&#x91CD;&#x5199;&#x6B64;&#x65B9;&#x6CD5;&#xFF0C;&#x800C;&#x5E94;&#x8BE5;&#x5B9E;&#x73B0; <a href="http://nodejs.cn/s/7DTgUP" rel="nofollow"><code>writable._destroy()</code></a>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v8.0.0</span>
+</div><ul>
+<li><code>error</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a> Optional, an error to emit with <code>&apos;error&apos;</code> event.</li>
+<li>Returns: <a href="http://nodejs.cn/s/v7Fsu2" target="_blank" rel="nofollow" class="type">&lt;this&gt;</a></li>
+</ul><p>Destroy the stream. Optionally emit an <code>&apos;error&apos;</code> event, and emit a <code>&apos;close&apos;</code>
+event (unless <code>emitClose</code> is set to <code>false</code>). After this call, the writable
+stream has ended and subsequent calls to <code>write()</code> or <code>end()</code> will result in
+an <code>ERR_STREAM_DESTROYED</code> error.
+This is a destructive and immediate way to destroy a stream. Previous calls to
+<code>write()</code> may not have drained, and may trigger an <code>ERR_STREAM_DESTROYED</code> error.
+Use <code>end()</code> instead of destroy if data should flush before close, or wait for
+the <code>&apos;drain&apos;</code> event before destroying the stream.
+Implementors should not override this method,
+but instead implement <a href="http://nodejs.cn/s/7DTgUP" rel="nofollow"><code>writable._destroy()</code></a>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324117"><\/script>');
+  </script>
+</body>
+</html>

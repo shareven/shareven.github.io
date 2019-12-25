@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>文件拷贝的常量 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756310412" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>文件拷贝的常量</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_file_copy_constants" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/file_copy_constants.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x4EE5;&#x4E0B;&#x5E38;&#x91CF;&#x9002;&#x7528;&#x4E8E; <a href="http://nodejs.cn/s/T2U5cj" rel="nofollow"><code>fs.copyFile()</code></a>&#x3002;</p><table>
+  <tbody><tr>
+    <th>&#x5E38;&#x91CF;</th>
+    <th>&#x8BF4;&#x660E;</th>
+  </tr>
+  <tr>
+    <td><code>COPYFILE_EXCL</code></td>
+    <td>&#x5982;&#x679C;&#x76EE;&#x6807;&#x8DEF;&#x5F84;&#x5DF2;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x62F7;&#x8D1D;&#x64CD;&#x4F5C;&#x5C06;&#x5931;&#x8D25;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>COPYFILE_FICLONE</code></td>
+    <td>&#x62F7;&#x8D1D;&#x64CD;&#x4F5C;&#x5C06;&#x5C1D;&#x8BD5;&#x521B;&#x5EFA;&#x5199;&#x65F6;&#x62F7;&#x8D1D;&#x94FE;&#x63A5;&#x3002;
+    &#x5982;&#x679C;&#x5E95;&#x5C42;&#x5E73;&#x53F0;&#x4E0D;&#x652F;&#x6301;&#x5199;&#x65F6;&#x62F7;&#x8D1D;&#xFF0C;&#x5219;&#x4F7F;&#x7528;&#x5907;&#x9009;&#x7684;&#x62F7;&#x8D1D;&#x673A;&#x5236;&#x3002;
+    </td>
+  </tr>
+  <tr>
+    <td><code>COPYFILE_FICLONE_FORCE</code></td>
+    <td>&#x62F7;&#x8D1D;&#x64CD;&#x4F5C;&#x5C06;&#x5C1D;&#x8BD5;&#x521B;&#x5EFA;&#x5199;&#x65F6;&#x62F7;&#x8D1D;&#x94FE;&#x63A5;&#x3002;
+    &#x5982;&#x679C;&#x5E95;&#x5C42;&#x5E73;&#x53F0;&#x4E0D;&#x652F;&#x6301;&#x5199;&#x65F6;&#x62F7;&#x8D1D;&#xFF0C;&#x5219;&#x62F7;&#x8D1D;&#x64CD;&#x4F5C;&#x5C06;&#x5931;&#x8D25;&#x3002;
+    </td>
+  </tr>
+</tbody></table></div>
+          <div id="content_right"><p>The following constants are meant for use with <a href="http://nodejs.cn/s/T2U5cj" rel="nofollow"><code>fs.copyFile()</code></a>.</p><table>
+  <tbody><tr>
+    <th>Constant</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>COPYFILE_EXCL</code></td>
+    <td>If present, the copy operation will fail with an error if the
+    destination path already exists.</td>
+  </tr>
+  <tr>
+    <td><code>COPYFILE_FICLONE</code></td>
+    <td>If present, the copy operation will attempt to create a
+    copy-on-write reflink. If the underlying platform does not support
+    copy-on-write, then a fallback copy mechanism is used.</td>
+  </tr>
+  <tr>
+    <td><code>COPYFILE_FICLONE_FORCE</code></td>
+    <td>If present, the copy operation will attempt to create a
+    copy-on-write reflink. If the underlying platform does not support
+    copy-on-write, then the operation will fail with an error.</td>
+  </tr>
+</tbody></table></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756310412"><\/script>');
+  </script>
+</body>
+</html>

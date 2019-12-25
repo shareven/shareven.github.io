@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>自定义 REPL 输出 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/repl/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756322712" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-repl">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>自定义 REPL 输出</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../repl.html#repl_customizing_repl_output" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/repl/customizing_repl_output.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5728;&#x628A;&#x8F93;&#x51FA;&#x5199;&#x5165;&#x5230;&#x63D0;&#x4F9B;&#x7684;&#x53EF;&#x5199;&#x6D41;&#xFF08;&#x9ED8;&#x8BA4;&#x4E3A; <code>process.stdout</code>&#xFF09;&#x4E4B;&#x524D;&#xFF0C;<a href="http://nodejs.cn/s/XV9dYG" rel="nofollow"><code>repl.REPLServer</code></a> &#x5B9E;&#x4F8B;&#x4F1A;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/fHaJzA" rel="nofollow"><code>util.inspect()</code></a> &#x65B9;&#x6CD5;&#x5BF9;&#x8F93;&#x51FA;&#x8FDB;&#x884C;&#x683C;&#x5F0F;&#x5316;&#x3002;
+<code>showProxy</code> &#x68C0;&#x67E5;&#x9009;&#x9879;&#x4F1A;&#x9ED8;&#x8BA4;&#x8BBE;&#x7F6E;&#x4E3A; true&#xFF0C; <code>colors</code> &#x9009;&#x9879;&#x4F1A;&#x8BBE;&#x7F6E;&#x4E3A; true&#xFF0C;&#x5177;&#x4F53;&#x53D6;&#x51B3;&#x4E8E; REPL &#x7684; <code>useColors</code> &#x9009;&#x9879;&#x3002;</p><p>&#x53EF;&#x4EE5;&#x5728;&#x6784;&#x9020;&#x65F6;&#x6307;&#x5B9A; <code>useColors</code> &#x5E03;&#x5C14;&#x503C;&#x9009;&#x9879;&#xFF0C;&#x4EE5;&#x6307;&#x793A;&#x9ED8;&#x8BA4;&#x7684;&#x7F16;&#x5199;&#x5668;&#x4F7F;&#x7528; ANSI &#x6837;&#x5F0F;&#x4EE3;&#x7801;&#x6765;&#x7740;&#x8272;&#x6765;&#x81EA; <code>util.inspect()</code> &#x65B9;&#x6CD5;&#x7684;&#x8F93;&#x51FA;&#x3002;</p><p>&#x5982;&#x679C; REPL &#x4F5C;&#x4E3A;&#x72EC;&#x7ACB;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#xFF0C;&#x5219;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>inspect.replDefaults</code> &#x5C5E;&#x6027;&#x4ECE; REPL &#x5185;&#x90E8;&#x66F4;&#x6539; REPL &#x7684;&#x68C0;&#x67E5;&#x9ED8;&#x8BA4;&#x503C;<a href="http://nodejs.cn/s/fHaJzA" rel="nofollow"><code>util.inspect()</code></a>&#xFF0C;&#x8BE5;&#x5C5E;&#x6027;&#x662F; <a href="http://nodejs.cn/s/fHaJzA" rel="nofollow"><code>util.inspect()</code></a> &#x4E2D;&#x7684; <code>defaultOptions</code> &#x7684;&#x955C;&#x50CF;&#x3002;</p><pre><code class="language-console">&gt; util.inspect.replDefaults.compact = false;
+false
+&gt; [1]
+[
+  1
+]
+&gt;
+</code></pre><p>&#x5728;&#x6784;&#x9020;&#x65F6;&#xFF0C;&#x901A;&#x8FC7;&#x5728; <code>writer</code> &#x9009;&#x9879;&#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x5B8C;&#x5168;&#x5730;&#x81EA;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A; <a href="http://nodejs.cn/s/XV9dYG" rel="nofollow"><code>repl.REPLServer</code></a> &#x5B9E;&#x4F8B;&#x7684;&#x8F93;&#x51FA;&#x3002;
+&#x4F8B;&#x5B50;&#xFF0C;&#x628A;&#x8F93;&#x5165;&#x7684;&#x4EFB;&#x4F55;&#x6587;&#x672C;&#x8F6C;&#x6362;&#x4E3A;&#x5927;&#x5199;&#xFF1A;</p><pre><code class="language-js">const repl = require(&apos;repl&apos;);
+
+const r = repl.start({ prompt: &apos;&gt; &apos;, eval: myEval, writer: myWriter });
+
+function myEval(cmd, context, filename, callback) {
+  callback(null, cmd);
+}
+
+function myWriter(output) {
+  return output.toUpperCase();
+}
+</code></pre></div>
+          <div id="content_right"><p>By default, <a href="http://nodejs.cn/s/XV9dYG" rel="nofollow"><code>repl.REPLServer</code></a> instances format output using the
+<a href="http://nodejs.cn/s/fHaJzA" rel="nofollow"><code>util.inspect()</code></a> method before writing the output to the provided <code>Writable</code>
+stream (<code>process.stdout</code> by default). The <code>showProxy</code> inspection option is set
+to true by default and the <code>colors</code> option is set to true depending on the
+REPL&apos;s <code>useColors</code> option.</p><p>The <code>useColors</code> boolean option can be specified at construction to instruct the
+default writer to use ANSI style codes to colorize the output from the
+<code>util.inspect()</code> method.</p><p>If the REPL is run as standalone program, it is also possible to change the
+REPL&apos;s <a href="http://nodejs.cn/s/fHaJzA" rel="nofollow">inspection defaults</a> from inside the REPL by using the
+<code>inspect.replDefaults</code> property which mirrors the <code>defaultOptions</code> from
+<a href="http://nodejs.cn/s/fHaJzA" rel="nofollow"><code>util.inspect()</code></a>.</p><pre><code class="language-console">&gt; util.inspect.replDefaults.compact = false;
+false
+&gt; [1]
+[
+  1
+]
+&gt;
+</code></pre><p>To fully customize the output of a <a href="http://nodejs.cn/s/XV9dYG" rel="nofollow"><code>repl.REPLServer</code></a> instance pass in a new
+function for the <code>writer</code> option on construction. The following example, for
+instance, simply converts any input text to upper case:</p><pre><code class="language-js">const repl = require(&apos;repl&apos;);
+
+const r = repl.start({ prompt: &apos;&gt; &apos;, eval: myEval, writer: myWriter });
+
+function myEval(cmd, context, filename, callback) {
+  callback(null, cmd);
+}
+
+function myWriter(output) {
+  return output.toUpperCase();
+}
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/repl/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756322712"><\/script>');
+  </script>
+</body>
+</html>

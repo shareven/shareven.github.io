@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>dir.read() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756309503" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>dir.read()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_dir_read" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/dir_read.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v12.12.0</span>
+</div><ul>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/ri1kj8" target="_blank" rel="nofollow" class="type">&lt;Promise&gt;</a> &#x5305;&#x542B; <a href="http://nodejs.cn/s/mNLVJ7" target="_blank" rel="nofollow" class="type">&lt;fs.Dirent&gt;</a> | <a href="http://nodejs.cn/s/334hvC" target="_blank" rel="nofollow" class="type">&lt;null&gt;</a>&#x3002;</li>
+</ul><p>&#x901A;&#x8FC7; <a href="http://nodejs.cn/s/QvrbKw" rel="nofollow"><code>readdir(3)</code></a> &#x5F02;&#x6B65;&#x5730;&#x8BFB;&#x53D6;&#x4E0B;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#x9879;&#x4F5C;&#x4E3A; <a href="http://nodejs.cn/s/mNLVJ7" rel="nofollow"><code>fs.Dirent</code></a>&#x3002;</p><p>&#x8BFB;&#x53D6;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#xFF0C;&#x5C06;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; <code>Promise</code>&#xFF0C;&#x5B83;&#x88AB;&#x89E3;&#x51B3;&#x65F6;&#x5C06;&#x4F1A;&#x8FD4;&#x56DE; <a href="http://nodejs.cn/s/mNLVJ7" rel="nofollow"><code>fs.Dirent</code></a> &#x6216; <code>null</code>&#xFF08;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x66F4;&#x591A;&#x7684;&#x76EE;&#x5F55;&#x9879;&#x8981;&#x8BFB;&#x53D6;&#xFF09;&#x3002;</p><p>&#x6B64;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x7684;&#x76EE;&#x5F55;&#x9879;&#x4E0D;&#x9075;&#x5FAA;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x5E95;&#x5C42;&#x76EE;&#x5F55;&#x673A;&#x5236;&#x6240;&#x63D0;&#x4F9B;&#x7684;&#x7279;&#x5B9A;&#x987A;&#x5E8F;&#x3002;
+&#x904D;&#x5386;&#x76EE;&#x5F55;&#x65F6;&#x6DFB;&#x52A0;&#x6216;&#x5220;&#x9664;&#x7684;&#x76EE;&#x5F55;&#x9879;&#x53EF;&#x80FD;&#x4F1A;&#x6216;&#x53EF;&#x80FD;&#x4E0D;&#x4F1A;&#x5305;&#x542B;&#x5728;&#x904D;&#x5386;&#x7684;&#x7ED3;&#x679C;&#x4E2D;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v12.12.0</span>
+</div><ul>
+<li>Returns: <a href="http://nodejs.cn/s/ri1kj8" target="_blank" rel="nofollow" class="type">&lt;Promise&gt;</a> containing <a href="http://nodejs.cn/s/mNLVJ7" target="_blank" rel="nofollow" class="type">&lt;fs.Dirent&gt;</a> | <a href="http://nodejs.cn/s/334hvC" target="_blank" rel="nofollow" class="type">&lt;null&gt;</a></li>
+</ul><p>Asynchronously read the next directory entry via <a href="http://nodejs.cn/s/QvrbKw" rel="nofollow"><code>readdir(3)</code></a> as an
+<a href="http://nodejs.cn/s/mNLVJ7" rel="nofollow"><code>fs.Dirent</code></a>.</p><p>After the read is completed, a <code>Promise</code> is returned that will be resolved with
+an <a href="http://nodejs.cn/s/mNLVJ7" rel="nofollow"><code>fs.Dirent</code></a>, or <code>null</code> if there are no more directory entries to read.</p><p>Directory entries returned by this function are in no particular order as
+provided by the operating system&apos;s underlying directory mechanisms.
+Entries added or removed while iterating over the directory may or may not be
+included in the iteration results.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756309503"><\/script>');
+  </script>
+</body>
+</html>

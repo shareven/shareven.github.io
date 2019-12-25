@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>repl.start([options]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/repl/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756322735" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-repl">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>repl.start([options])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../repl.html#repl_repl_start_options" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/repl/repl_start_options.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v12.0.0</td>
+<td><p>The <code>terminal</code> option now follows the default description in all cases and <code>useColors</code> checks <code>hasColors()</code> if available.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p>The <code>REPL_MAGIC_MODE</code> <code>replMode</code> was removed.</p></td></tr>
+<tr><td>v5.8.0</td>
+<td><p>The <code>options</code> parameter is optional now.</p></td></tr>
+<tr><td>v0.1.91</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.91</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></p>
+<ul>
+<li><code>prompt</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x8981;&#x663E;&#x793A;&#x7684;&#x8F93;&#x5165;&#x63D0;&#x793A;&#x7B26;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;&gt; &apos;</code>&#xFF08;&#x672B;&#x5C3E;&#x6709;&#x4E00;&#x4E2A;&#x7A7A;&#x683C;&#xFF09;&#x3002;</li>
+<li><code>input</code> <a href="http://nodejs.cn/s/YuDKX1" target="_blank" rel="nofollow" class="type">&lt;stream.Readable&gt;</a> REPL &#x8F93;&#x5165;&#x8981;&#x88AB;&#x8BFB;&#x53D6;&#x7684;&#x53EF;&#x8BFB;&#x6D41;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>process.stdin</code>&#x3002;</li>
+<li><code>output</code> <a href="http://nodejs.cn/s/9JUnJ8" target="_blank" rel="nofollow" class="type">&lt;stream.Writable&gt;</a> REPL &#x8F93;&#x51FA;&#x8981;&#x88AB;&#x5199;&#x5165;&#x7684;&#x53EF;&#x5199;&#x6D41;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>process.stdout</code>&#x3002;</li>
+<li><code>terminal</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5982;&#x679C;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x6307;&#x5B9A; <code>output</code> &#x5E94;&#x88AB;&#x5F53;&#x4F5C;&#x4E00;&#x4E2A; TTY &#x7EC8;&#x7AEF;&#x3002;
+<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> &#x521D;&#x59CB;&#x5316;&#x65F6;&#x68C0;&#x67E5; <code>output</code> &#x6D41;&#x7684; <code>isTTY</code> &#x5C5E;&#x6027;&#x7684;&#x503C;&#x3002;</li>
+<li><code>eval</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x5F53;&#x89E3;&#x91CA;&#x6BCF;&#x884C;&#x8F93;&#x5165;&#x65F6;&#x4F7F;&#x7528;&#x7684;&#x51FD;&#x6570;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> JavaScript <code>eval()</code> &#x51FD;&#x6570;&#x7684;&#x5F02;&#x6B65;&#x5C01;&#x88C5;&#x3002;
+<code>eval</code> &#x51FD;&#x6570;&#x51FA;&#x9519;&#x65F6;&#x4F1A;&#x8FD4;&#x56DE; <code>repl.Recoverable</code>&#xFF0C;&#x8868;&#x660E;&#x8F93;&#x5165;&#x4E0D;&#x5B8C;&#x6574;&#x5E76;&#x63D0;&#x793A;&#x7528;&#x6237;&#x5B8C;&#x6210;&#x8F93;&#x5165;&#x3002;</li>
+<li><code>useColors</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5982;&#x679C;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x7684; <code>writer</code> &#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x5728; REPL &#x8F93;&#x51FA;&#x4E2D;&#x5305;&#x542B; ANSI &#x989C;&#x8272;&#x98CE;&#x683C;&#x3002;
+&#x5982;&#x679C;&#x63D0;&#x4F9B;&#x4E86;&#x81EA;&#x5B9A;&#x4E49;&#x7684; <code>writer</code> &#x51FD;&#x6570;&#xFF0C;&#x5219;&#x8BE5;&#x53C2;&#x6570;&#x65E0;&#x6548;&#x3002;
+<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> &#x5982;&#x679C; REPL &#x5B9E;&#x4F8B;&#x7684; <code>terminal</code> &#x503C;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x68C0;&#x67E5; <code>output</code> &#x6D41;&#x4E0A;&#x7684;&#x989C;&#x8272;&#x652F;&#x6301;&#x3002;</li>
+<li><code>useGlobal</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5982;&#x679C;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x7684;&#x89E3;&#x91CA;&#x51FD;&#x6570;&#x4F7F;&#x7528; JavaScript <code>global</code> &#x4F5C;&#x4E3A;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4E3A; REPL &#x5B9E;&#x4F8B;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x72EC;&#x7ACB;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x3002;
+&#xA0; &#xA0;&#x5728;node&#x547D;&#x4EE4;&#x884C;(node CLI)&#x4EA4;&#x4E92;&#x89E3;&#x91CA;&#x5668;&#x4E2D;&#xFF0C;&#x8FD9;&#x4E2A;&#x503C;&#x4E3A; <code>true</code>&#x3002;
+<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#x3002;</li>
+<li><code>ignoreUndefined</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5982;&#x679C;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x7684;&#x8F93;&#x51FA;&#x5668;&#x4E0D;&#x4F1A;&#x8F93;&#x51FA;&#x547D;&#x4EE4;&#x8FD4;&#x56DE;&#x7684; <code>undefined</code> &#x503C;&#x3002;
+<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#x3002;</li>
+<li><code>writer</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x5728;&#x5199;&#x5165;&#x5230; <code>output</code> &#x4E4B;&#x524D;&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#x7528;&#x6765;&#x683C;&#x5F0F;&#x5316;&#x6BCF;&#x4E2A;&#x547D;&#x4EE4;&#x7684;&#x8F93;&#x51FA;&#x3002;
+<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <a href="http://nodejs.cn/s/fHaJzA" rel="nofollow"><code>util.inspect()</code></a>&#x3002;</li>
+<li><code>completer</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x53EF;&#x9009;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x7528;&#x6765;&#x81EA;&#x5B9A;&#x4E49; Tab &#x952E;&#x7684;&#x81EA;&#x52A8;&#x8865;&#x5168;&#x3002;
+&#x8BE6;&#x89C1; <a href="http://nodejs.cn/s/hHJRq3" rel="nofollow"><code>readline.InterfaceCompleter</code></a>&#x3002;</li>
+<li>
+<p><code>replMode</code> <a href="http://nodejs.cn/s/i5E1UH" target="_blank" rel="nofollow" class="type">&lt;symbol&gt;</a> &#x4E00;&#x4E2A;&#x6807;&#x5FD7;&#x4F4D;&#xFF0C;&#x6307;&#x5B9A;&#x9ED8;&#x8BA4;&#x7684;&#x89E3;&#x91CA;&#x5668;&#x4F7F;&#x7528;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x6216;&#x9ED8;&#x8BA4;&#xFF08;sloppy&#xFF09;&#x6A21;&#x5F0F;&#x6765;&#x6267;&#x884C; JavaScript &#x547D;&#x4EE4;&#x3002;
+&#x53EF;&#x9009;&#x7684;&#x503C;&#x6709;</p>
+<ul>
+<li><code>repl.REPL_MODE_SLOPPY</code> &#x8981;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x6A21;&#x5F0F;&#x89E3;&#x91CA;&#x8868;&#x8FBE;&#x5F0F;&#x3002;</li>
+<li><code>repl.REPL_MODE_STRICT</code> &#x8981;&#x4F7F;&#x7528;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x89E3;&#x91CA;&#x8868;&#x8FBE;&#x5F0F;&#x3002;&#x8BE5;&#x6A21;&#x5F0F;&#x7B49;&#x540C;&#x4E8E;&#x5728;&#x6BCF;&#x4E2A; repl &#x58F0;&#x660E;&#x524D;&#x52A0;&#x4E0A; <code>&apos;use strict&apos;</code>&#x3002;</li>
+</ul>
+</li>
+<li><code>breakEvalOnSigint</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5F53;&#x63A5;&#x6536;&#x5230; <code>SIGINT</code> &#x65F6;&#x505C;&#x6B62;&#x89E3;&#x91CA;&#x5F53;&#x524D;&#x4EE3;&#x7801;&#xFF0C;&#x6BD4;&#x5982;&#x5F53;&#x6309;&#x4E0B; <code>Ctrl+C</code>&#x3002;
+&#x4E0D;&#x80FD;&#x4E0E;&#x81EA;&#x5B9A;&#x4E49;&#x7684; <code>eval</code> &#x51FD;&#x6570;&#x540C;&#x65F6;&#x4F7F;&#x7528;&#x3002;
+<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#x3002;</li>
+</ul>
+</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/XV9dYG" target="_blank" rel="nofollow" class="type">&lt;repl.REPLServer&gt;</a></li>
+</ul><p><code>repl.start()</code> &#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x5E76;&#x542F;&#x52A8;&#x4E00;&#x4E2A; <a href="http://nodejs.cn/s/XV9dYG" rel="nofollow"><code>repl.REPLServer</code></a> &#x5B9E;&#x4F8B;&#x3002;</p><p>&#x5982;&#x679C; <code>options</code> &#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x5B83;&#x6307;&#x5B9A;&#x4E86;&#x8F93;&#x5165;&#x63D0;&#x793A;&#x7B26;&#xFF1A;</p><pre><code class="language-js">const repl = require(&apos;repl&apos;);
+
+// &#x4E00;&#x4E2A; Unix &#x98CE;&#x683C;&#x7684;&#x63D0;&#x793A;&#x7B26;&#x3002;
+repl.start(&apos;$ &apos;);
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v12.0.0</td>
+<td><p>The <code>terminal</code> option now follows the default description in all cases and <code>useColors</code> checks <code>hasColors()</code> if available.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p>The <code>REPL_MAGIC_MODE</code> <code>replMode</code> was removed.</p></td></tr>
+<tr><td>v5.8.0</td>
+<td><p>The <code>options</code> parameter is optional now.</p></td></tr>
+<tr><td>v0.1.91</td>
+<td><p><span>Added in: v0.1.91</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></p>
+<ul>
+<li><code>prompt</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> The input prompt to display. <strong>Default:</strong> <code>&apos;&gt; &apos;</code>
+(with a trailing space).</li>
+<li><code>input</code> <a href="http://nodejs.cn/s/YuDKX1" target="_blank" rel="nofollow" class="type">&lt;stream.Readable&gt;</a> The <code>Readable</code> stream from which REPL input will
+be read. <strong>Default:</strong> <code>process.stdin</code>.</li>
+<li><code>output</code> <a href="http://nodejs.cn/s/9JUnJ8" target="_blank" rel="nofollow" class="type">&lt;stream.Writable&gt;</a> The <code>Writable</code> stream to which REPL output will
+be written. <strong>Default:</strong> <code>process.stdout</code>.</li>
+<li><code>terminal</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> If <code>true</code>, specifies that the <code>output</code> should be
+treated as a TTY terminal.
+<strong>Default:</strong> checking the value of the <code>isTTY</code> property on the <code>output</code>
+stream upon instantiation.</li>
+<li><code>eval</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> The function to be used when evaluating each given line
+of input. <strong>Default:</strong> an async wrapper for the JavaScript <code>eval()</code>
+function. An <code>eval</code> function can error with <code>repl.Recoverable</code> to indicate
+the input was incomplete and prompt for additional lines.</li>
+<li><code>useColors</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> If <code>true</code>, specifies that the default <code>writer</code>
+function should include ANSI color styling to REPL output. If a custom
+<code>writer</code> function is provided then this has no effect. <strong>Default:</strong> checking
+color support on the <code>output</code> stream if the REPL instance&apos;s <code>terminal</code> value
+is <code>true</code>.</li>
+<li><code>useGlobal</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> If <code>true</code>, specifies that the default evaluation
+function will use the JavaScript <code>global</code> as the context as opposed to
+creating a new separate context for the REPL instance. The node CLI REPL
+sets this value to <code>true</code>. <strong>Default:</strong> <code>false</code>.</li>
+<li><code>ignoreUndefined</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> If <code>true</code>, specifies that the default writer
+will not output the return value of a command if it evaluates to
+<code>undefined</code>. <strong>Default:</strong> <code>false</code>.</li>
+<li><code>writer</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> The function to invoke to format the output of each
+ command before writing to <code>output</code>. <strong>Default:</strong> <a href="http://nodejs.cn/s/fHaJzA" rel="nofollow"><code>util.inspect()</code></a>.</li>
+<li><code>completer</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> An optional function used for custom Tab auto
+ completion. See <a href="http://nodejs.cn/s/hHJRq3" rel="nofollow"><code>readline.InterfaceCompleter</code></a> for an example.</li>
+<li>
+<p><code>replMode</code> <a href="http://nodejs.cn/s/i5E1UH" target="_blank" rel="nofollow" class="type">&lt;symbol&gt;</a> A flag that specifies whether the default evaluator
+executes all JavaScript commands in strict mode or default (sloppy) mode.
+Acceptable values are:</p>
+<ul>
+<li><code>repl.REPL_MODE_SLOPPY</code> to evaluate expressions in sloppy mode.</li>
+<li><code>repl.REPL_MODE_STRICT</code> to evaluate expressions in strict mode. This is
+equivalent to prefacing every repl statement with <code>&apos;use strict&apos;</code>.</li>
+</ul>
+</li>
+<li><code>breakEvalOnSigint</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> Stop evaluating the current piece of code when
+<code>SIGINT</code> is received, such as when <code>Ctrl+C</code> is pressed. This cannot be used
+together with a custom <code>eval</code> function. <strong>Default:</strong> <code>false</code>.</li>
+</ul>
+</li>
+<li>Returns: <a href="http://nodejs.cn/s/XV9dYG" target="_blank" rel="nofollow" class="type">&lt;repl.REPLServer&gt;</a></li>
+</ul><p>The <code>repl.start()</code> method creates and starts a <a href="http://nodejs.cn/s/XV9dYG" rel="nofollow"><code>repl.REPLServer</code></a> instance.</p><p>If <code>options</code> is a string, then it specifies the input prompt:</p><pre><code class="language-js">const repl = require(&apos;repl&apos;);
+
+// a Unix style prompt
+repl.start(&apos;$ &apos;);
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/repl/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756322735"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Verify 类 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/crypto/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756300281" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-crypto">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>Verify 类</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../crypto.html#crypto_class_verify" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/crypto/class_verify.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.92</span>
+</div><ul>
+<li>&#x7EE7;&#x627F;&#x81EA;: <a href="http://nodejs.cn/s/9JUnJ8" target="_blank" rel="nofollow" class="type">&lt;stream.Writable&gt;</a></li>
+</ul><p><code>Verify</code> &#x7C7B;&#x662F;&#x4E00;&#x4E2A;&#x5B9E;&#x7528;&#x5DE5;&#x5177;&#xFF0C;&#x7528;&#x4E8E;&#x9A8C;&#x8BC1;&#x7B7E;&#x540D;&#x3002;
+&#x5B83;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x4E4B;&#x4E00;&#x4F7F;&#x7528;&#xFF1A;</p><ul>
+<li>&#x4F5C;&#x4E3A;&#x53EF;&#x5199;&#x7684;<a href="http://nodejs.cn/s/kUvpNm" rel="nofollow">&#x6D41;</a>&#xFF0C;&#x5176;&#x4E2D;&#x4F7F;&#x7528;&#x5199;&#x5165;&#x7684;&#x6570;&#x636E;&#x6765;&#x9A8C;&#x8BC1;&#x63D0;&#x4F9B;&#x7684;&#x7B7E;&#x540D;&#x3002;</li>
+<li>&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/xw5mUp" rel="nofollow"><code>verify.update()</code></a> &#x548C; <a href="http://nodejs.cn/s/HXeG8Q" rel="nofollow"><code>verify.verify()</code></a> &#x65B9;&#x6CD5;&#x6765;&#x9A8C;&#x8BC1;&#x7B7E;&#x540D;&#x3002;</li>
+</ul><p><a href="http://nodejs.cn/s/sXCgdr" rel="nofollow"><code>crypto.createVerify()</code></a> &#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x521B;&#x5EFA; <code>Verify</code> &#x5B9E;&#x4F8B;&#x3002;
+&#x4E0D;&#x80FD;&#x4F7F;&#x7528; <code>new</code> &#x5173;&#x952E;&#x5B57;&#x76F4;&#x63A5;&#x5730;&#x521B;&#x5EFA; <code>Verify</code> &#x5BF9;&#x8C61;&#x3002;</p><p>&#x6709;&#x5173;&#x793A;&#x4F8B;&#xFF0C;&#x8BF7;&#x53C2;&#x9605; <a href="http://nodejs.cn/s/72GADJ" rel="nofollow"><code>Sign</code></a>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.92</span>
+</div><ul>
+<li>Extends: <a href="http://nodejs.cn/s/9JUnJ8" target="_blank" rel="nofollow" class="type">&lt;stream.Writable&gt;</a></li>
+</ul><p>The <code>Verify</code> class is a utility for verifying signatures. It can be used in one
+of two ways:</p><ul>
+<li>As a writable <a href="http://nodejs.cn/s/kUvpNm" rel="nofollow">stream</a> where written data is used to validate against the
+supplied signature, or</li>
+<li>Using the <a href="http://nodejs.cn/s/xw5mUp" rel="nofollow"><code>verify.update()</code></a> and <a href="http://nodejs.cn/s/HXeG8Q" rel="nofollow"><code>verify.verify()</code></a> methods to verify
+the signature.</li>
+</ul><p>The <a href="http://nodejs.cn/s/sXCgdr" rel="nofollow"><code>crypto.createVerify()</code></a> method is used to create <code>Verify</code> instances.
+<code>Verify</code> objects are not to be created directly using the <code>new</code> keyword.</p><p>See <a href="http://nodejs.cn/s/72GADJ" rel="nofollow"><code>Sign</code></a> for examples.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/crypto/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756300281"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>取消定时器 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/timers/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756325280" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-timers">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>取消定时器</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../timers.html#timers_cancelling_timers" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/timers/cancelling_timers.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p><a href="http://nodejs.cn/s/Cjc23N" rel="nofollow"><code>setImmediate()</code></a>&#x3001;<a href="http://nodejs.cn/s/hWCq4X" rel="nofollow"><code>setInterval()</code></a> &#x548C; <a href="http://nodejs.cn/s/UxXb1y" rel="nofollow"><code>setTimeout()</code></a> &#x65B9;&#x6CD5;&#x5404;&#x81EA;&#x8FD4;&#x56DE;&#x8868;&#x793A;&#x9884;&#x5B9A;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#x7684;&#x5BF9;&#x8C61;&#x3002;
+&#x5B83;&#x4EEC;&#x53EF;&#x7528;&#x4E8E;&#x53D6;&#x6D88;&#x5B9A;&#x65F6;&#x5668;&#x5E76;&#x9632;&#x6B62;&#x5176;&#x89E6;&#x53D1;&#x3002;</p><p>&#x65E0;&#x6CD5;&#x53D6;&#x6D88;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/Cjc23N" rel="nofollow"><code>setImmediate()</code></a>&#x3001;<a href="http://nodejs.cn/s/UxXb1y" rel="nofollow"><code>setTimeout()</code></a> &#x7684; Promise &#x5316;&#x7684;&#x53D8;&#x4F53;&#x521B;&#x5EFA;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#x3002;</p></div>
+          <div id="content_right"><p>The <a href="http://nodejs.cn/s/Cjc23N" rel="nofollow"><code>setImmediate()</code></a>, <a href="http://nodejs.cn/s/hWCq4X" rel="nofollow"><code>setInterval()</code></a>, and <a href="http://nodejs.cn/s/UxXb1y" rel="nofollow"><code>setTimeout()</code></a> methods
+each return objects that represent the scheduled timers. These can be used to
+cancel the timer and prevent it from triggering.</p><p>It is not possible to cancel timers that were created using the promisified
+variants of <a href="http://nodejs.cn/s/Cjc23N" rel="nofollow"><code>setImmediate()</code></a>, <a href="http://nodejs.cn/s/UxXb1y" rel="nofollow"><code>setTimeout()</code></a>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/timers/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756325280"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>assert.throws(fn[, error][, message]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/assert/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756292605" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-assert">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>assert.throws(fn[, error][, message])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../assert.html#assert_assert_throws_fn_error_message" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/assert/assert_throws_fn_error_message.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.2.0</td>
+<td><p>The <code>error</code> parameter can be an object containing regular expressions now.</p></td></tr>
+<tr><td>v9.9.0</td>
+<td><p>The <code>error</code> parameter can now be an object as well.</p></td></tr>
+<tr><td>v4.2.0</td>
+<td><p>The <code>error</code> parameter can now be an arrow function.</p></td></tr>
+<tr><td>v0.1.21</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.21</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>fn</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></li>
+<li><code>error</code> <a href="http://nodejs.cn/s/G38byW" target="_blank" rel="nofollow" class="type">&lt;RegExp&gt;</a> | <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> | <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>message</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>&#x671F;&#x671B; <code>fn</code> &#x51FD;&#x6570;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x3002;</p><p>&#x5982;&#x679C;&#x6307;&#x5B9A;&#xFF0C;&#x5219; <code>error</code> &#x53EF;&#x4EE5;&#x662F; <a href="http://nodejs.cn/s/5wDLcp" rel="nofollow"><code>Class</code></a>&#x3001;<a href="http://nodejs.cn/s/tbQJCP" rel="nofollow"><code>RegExp</code></a>&#x3001;&#x9A8C;&#x8BC1;&#x51FD;&#x6570;&#xFF0C;&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#x5C06;&#x88AB;&#x6D4B;&#x8BD5;&#x4E25;&#x683C;&#x7684;&#x6DF1;&#x5EA6;&#x76F8;&#x7B49;&#x7684;&#x9A8C;&#x8BC1;&#x5BF9;&#x8C61;&#x3001;&#x6216;&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#xFF08;&#x5305;&#x62EC;&#x4E0D;&#x53EF;&#x679A;&#x4E3E;&#x7684; <code>message</code> &#x548C; <code>name</code> &#x5C5E;&#x6027;&#xFF09;&#x5C06;&#x88AB;&#x6D4B;&#x8BD5;&#x4E25;&#x683C;&#x7684;&#x6DF1;&#x5EA6;&#x76F8;&#x7B49;&#x7684;&#x9519;&#x8BEF;&#x5B9E;&#x4F8B;&#x3002;
+&#x4F7F;&#x7528;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x5728;&#x5BF9;&#x5B57;&#x7B26;&#x4E32;&#x5C5E;&#x6027;&#x8FDB;&#x884C;&#x9A8C;&#x8BC1;&#x65F6;&#x4F7F;&#x7528;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x3002;
+&#x8BF7;&#x53C2;&#x9605;&#x4E0B;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x3002;</p><p>&#x5982;&#x679C;&#x6307;&#x5B9A; <code>message</code>&#xFF0C;&#x5219;&#x5F53; <code>fn</code> &#x8C03;&#x7528;&#x65E0;&#x6CD5;&#x629B;&#x51FA;&#x6216;&#x9519;&#x8BEF;&#x9A8C;&#x8BC1;&#x5931;&#x8D25;&#x65F6;&#xFF0C; <code>message</code> &#x5C06;&#x9644;&#x52A0;&#x5230; <code>AssertionError</code> &#x63D0;&#x4F9B;&#x7684;&#x6D88;&#x606F;&#x3002;</p><p>&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x9A8C;&#x8BC1;&#x5BF9;&#x8C61;/&#x9519;&#x8BEF;&#x5B9E;&#x4F8B;&#xFF1A;</p><pre><code class="language-js">const err = new TypeError(&apos;&#x9519;&#x8BEF;&#x503C;&apos;);
+err.code = 404;
+err.foo = &apos;bar&apos;;
+err.info = {
+  nested: true,
+  baz: &apos;text&apos;
+};
+err.reg = /abc/i;
+
+assert.throws(
+  () =&gt; {
+    throw err;
+  },
+  {
+    name: &apos;TypeError&apos;,
+    message: &apos;&#x9519;&#x8BEF;&#x503C;&apos;,
+    info: {
+      nested: true,
+      baz: &apos;text&apos;
+    }
+    // &#x4EC5;&#x6D4B;&#x8BD5;&#x9A8C;&#x8BC1;&#x5BF9;&#x8C61;&#x4E0A;&#x7684;&#x5C5E;&#x6027;&#x3002;
+&#xA0;&#xA0;&#xA0;&#xA0;// &#x4F7F;&#x7528;&#x5D4C;&#x5957;&#x5BF9;&#x8C61;&#x9700;&#x8981;&#x5B58;&#x5728;&#x6240;&#x6709;&#x5C5E;&#x6027;&#x3002;
+    // &#x5426;&#x5219;&#x9A8C;&#x8BC1;&#x5C06;&#x5931;&#x8D25;&#x3002;
+  }
+);
+
+// &#x4F7F;&#x7528;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x9A8C;&#x8BC1;&#x9519;&#x8BEF;&#x5C5E;&#x6027;&#xFF1A;
+assert.throws(
+  () =&gt; {
+    throw err;
+  },
+  {
+    // `name` &#x548C; `message` &#x5C5E;&#x6027;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x4F7F;&#x7528;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x5C06;&#x5339;&#x914D;&#x5B57;&#x7B26;&#x4E32;&#x3002; 
+    // &#x5982;&#x679C;&#x5931;&#x8D25;&#xFF0C;&#x5219;&#x4F1A;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x3002;
+    name: /^TypeError$/,
+    message: /&#x9519;&#x8BEF;/,
+    foo: &apos;bar&apos;,
+    info: {
+      nested: true,
+      // &#x65E0;&#x6CD5;&#x5BF9;&#x5D4C;&#x5957;&#x5C5E;&#x6027;&#x4F7F;&#x7528;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#xFF01;
+      baz: &apos;text&apos;
+    },
+    // `reg` &#x5C5E;&#x6027;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;
+    // &#x5E76;&#x4E14;&#x53EA;&#x6709;&#x5F53;&#x9A8C;&#x8BC1;&#x5BF9;&#x8C61;&#x5305;&#x542B;&#x76F8;&#x540C;&#x7684;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x65F6;&#xFF0C;
+    // &#x5B83;&#x624D;&#x4F1A;&#x901A;&#x8FC7;&#x3002;
+    reg: /abc/i
+  }
+);
+
+// &#x7531;&#x4E8E; `message` &#x548C; `name` &#x5C5E;&#x6027;&#x4E0D;&#x540C;&#x800C;&#x5931;&#x8D25;&#xFF1A;
+assert.throws(
+  () =&gt; {
+    const otherErr = new Error(&apos;&#x672A;&#x627E;&#x5230;&apos;);
+    otherErr.code = 404;
+    throw otherErr;
+  },
+  err // &#x6D4B;&#x8BD5; `message`&#x3001; `name` &#x548C; `code`&#x3002;
+);
+</code></pre><p>&#x4F7F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x9A8C;&#x8BC1; instanceof&#xFF1A;</p><pre><code class="language-js">assert.throws(
+  () =&gt; {
+    throw new Error(&apos;&#x9519;&#x8BEF;&#x503C;&apos;);
+  },
+  Error
+);
+</code></pre><p>&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/tbQJCP" rel="nofollow"><code>RegExp</code></a> &#x9A8C;&#x8BC1;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#xFF1A;</p><p>&#x4F7F;&#x7528;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x5728;&#x9519;&#x8BEF;&#x5BF9;&#x8C61;&#x4E0A;&#x8FD0;&#x884C; <code>.toString</code>&#xFF0C;&#x56E0;&#x6B64;&#x4E5F;&#x5C06;&#x5305;&#x542B;&#x9519;&#x8BEF;&#x540D;&#x79F0;&#x3002;</p><pre><code class="language-js">assert.throws(
+  () =&gt; {
+    throw new Error(&apos;&#x9519;&#x8BEF;&#x503C;&apos;);
+  },
+  /^Error: &#x9519;&#x8BEF;&#x503C;$/
+);
+</code></pre><p>&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x9519;&#x8BEF;&#x9A8C;&#x8BC1;&#x51FD;&#x6570;&#xFF1A;</p><pre><code class="language-js">assert.throws(
+  () =&gt; {
+    throw new Error(&apos;&#x9519;&#x8BEF;&#x503C;&apos;);
+  },
+  (err) =&gt; {
+    assert(err instanceof Error);
+    assert(/value/.test(err));
+    // &#x9664;&#x4E86; `true` &#x4E4B;&#x5916;&#xFF0C;&#x4E0D;&#x5EFA;&#x8BAE;&#x4ECE;&#x9A8C;&#x8BC1;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x4EFB;&#x4F55;&#x5185;&#x5BB9;&#x3002; 
+    // &#x8FD9;&#x6837;&#x505A;&#x4F1A;&#x5BFC;&#x81F4;&#x518D;&#x6B21;&#x629B;&#x51FA;&#x6355;&#x83B7;&#x7684;&#x9519;&#x8BEF;&#x3002; 
+    // &#x8FD9;&#x901A;&#x5E38;&#x4E0D;&#x662F;&#x7406;&#x60F3;&#x7684;&#x7ED3;&#x679C;&#x3002; 
+    // &#x629B;&#x51FA;&#x6709;&#x5173;&#x5931;&#x8D25;&#x7684;&#x7279;&#x5B9A;&#x9A8C;&#x8BC1;&#x7684;&#x9519;&#x8BEF;&#xFF08;&#x5982;&#x672C;&#x4F8B;&#x6240;&#x793A;&#xFF09;&#x3002;
+    return true;
+  },
+  &apos;&#x4E0D;&#x662F;&#x671F;&#x671B;&#x7684;&#x9519;&#x8BEF;&apos;
+);
+</code></pre><p><code>error</code> &#x4E0D;&#x80FD;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+&#x5982;&#x679C;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5219;&#x5047;&#x5B9A; <code>error</code> &#x88AB;&#x5FFD;&#x7565;&#xFF0C;&#x800C;&#x5B57;&#x7B26;&#x4E32;&#x5C06;&#x7528;&#x4E8E; <code>message</code>&#x3002;
+&#x8FD9;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x5BB9;&#x6613;&#x9519;&#x8FC7;&#x7684;&#x9519;&#x8BEF;&#x3002;
+&#x4F7F;&#x7528;&#x4E0E;&#x629B;&#x51FA;&#x7684;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x76F8;&#x540C;&#x7684;&#x6D88;&#x606F;&#x5C06;&#x5BFC;&#x81F4; <code>ERR_AMBIGUOUS_ARGUMENT</code> &#x9519;&#x8BEF;&#x3002;
+&#x5982;&#x679C;&#x4F7F;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x8BF7;&#x4ED4;&#x7EC6;&#x9605;&#x8BFB;&#x4E0B;&#x9762;&#x7684;&#x793A;&#x4F8B;&#xFF1A;</p><pre><code class="language-js">function throwingFirst() {
+  throw new Error(&apos;&#x9519;&#x8BEF;&#x4E00;&apos;);
+}
+function throwingSecond() {
+  throw new Error(&apos;&#x9519;&#x8BEF;&#x4E8C;&apos;);
+}
+function notThrowing() {}
+
+// &#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x8F93;&#x5165;&#x51FD;&#x6570;&#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x3002;
+// &#x7B2C;&#x4E00;&#x79CD;&#x60C5;&#x51B5;&#x4E0D;&#x4F1A;&#x629B;&#x51FA;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4E0E;&#x8F93;&#x5165;&#x51FD;&#x6570;&#x629B;&#x51FA;&#x7684;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x4E0D;&#x5339;&#x914D;&#xFF01;
+assert.throws(throwingFirst, &apos;&#x9519;&#x8BEF;&#x4E8C;&apos;);
+// &#x5728;&#x4E0B;&#x4E00;&#x4E2A;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;&#x4F20;&#x5165;&#x7684;&#x6D88;&#x606F;&#x7C7B;&#x4F3C;&#x6765;&#x81EA;&#x9519;&#x8BEF;&#x7684;&#x6D88;&#x606F;&#xFF0C;
+// &#x5E76;&#x4E14;&#x7531;&#x4E8E;&#x4E0D;&#x6E05;&#x695A;&#x7528;&#x6237;&#x662F;&#x5426;&#x6253;&#x7B97;&#x5B9E;&#x9645;&#x5339;&#x914D;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#xFF0C;
+// &#x56E0;&#x6B64; Node.js &#x629B;&#x51FA;&#x4E86; `ERR_AMBIGUOUS_ARGUMENT` &#x9519;&#x8BEF;&#x3002;
+assert.throws(throwingSecond, &apos;&#x9519;&#x8BEF;&#x4E8C;&apos;);
+// TypeError [ERR_AMBIGUOUS_ARGUMENT]
+
+// &#x8BE5;&#x5B57;&#x7B26;&#x4E32;&#x4EC5;&#x5728;&#x51FD;&#x6570;&#x672A;&#x629B;&#x51FA;&#x65F6;&#x4F7F;&#x7528;&#xFF08;&#x4F5C;&#x4E3A;&#x6D88;&#x606F;&#xFF09;&#xFF1A;
+assert.throws(notThrowing, &apos;&#x9519;&#x8BEF;&#x4E8C;&apos;);
+// AssertionError [ERR_ASSERTION]: Missing expected exception: &#x9519;&#x8BEF;&#x4E8C;
+
+// &#x5982;&#x679C;&#x8981;&#x5339;&#x914D;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#xFF0C;&#x8BF7;&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x64CD;&#x4F5C;&#xFF1A;
+// &#x5B83;&#x4E0D;&#x4F1A;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#xFF0C;&#x56E0;&#x4E3A;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x5339;&#x914D;&#x3002;
+assert.throws(throwingSecond, /&#x9519;&#x8BEF;&#x4E8C;$/);
+
+// &#x5982;&#x679C;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x4E0D;&#x5339;&#x914D;&#xFF0C;&#x5219;&#x4E0D;&#x4F1A;&#x6355;&#x83B7;&#x51FD;&#x6570;&#x5185;&#x7684;&#x9519;&#x8BEF;&#x3002;
+assert.throws(throwingFirst, /&#x9519;&#x8BEF;&#x4E8C;$/);
+// Error: &#x9519;&#x8BEF;&#x4E00;
+//     at throwingFirst (repl:2:9)
+</code></pre><p>&#x7531;&#x4E8E;&#x4EE4;&#x4EBA;&#x56F0;&#x60D1;&#x7684;&#x8868;&#x793A;&#x6CD5;&#xFF0C;&#x5EFA;&#x8BAE;&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x3002;
+&#x8FD9;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x96BE;&#x4EE5;&#x53D1;&#x73B0;&#x7684;&#x9519;&#x8BEF;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v10.2.0</td>
+<td><p>The <code>error</code> parameter can be an object containing regular expressions now.</p></td></tr>
+<tr><td>v9.9.0</td>
+<td><p>The <code>error</code> parameter can now be an object as well.</p></td></tr>
+<tr><td>v4.2.0</td>
+<td><p>The <code>error</code> parameter can now be an arrow function.</p></td></tr>
+<tr><td>v0.1.21</td>
+<td><p><span>Added in: v0.1.21</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>fn</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></li>
+<li><code>error</code> <a href="http://nodejs.cn/s/G38byW" target="_blank" rel="nofollow" class="type">&lt;RegExp&gt;</a> | <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> | <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>message</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>Expects the function <code>fn</code> to throw an error.</p><p>If specified, <code>error</code> can be a <a href="http://nodejs.cn/s/5wDLcp" rel="nofollow"><code>Class</code></a>, <a href="http://nodejs.cn/s/tbQJCP" rel="nofollow"><code>RegExp</code></a>, a validation function,
+a validation object where each property will be tested for strict deep equality,
+or an instance of error where each property will be tested for strict deep
+equality including the non-enumerable <code>message</code> and <code>name</code> properties. When
+using an object, it is also possible to use a regular expression, when
+validating against a string property. See below for examples.</p><p>If specified, <code>message</code> will be appended to the message provided by the
+<code>AssertionError</code> if the <code>fn</code> call fails to throw or in case the error validation
+fails.</p><p>Custom validation object/error instance:</p><pre><code class="language-js">const err = new TypeError(&apos;Wrong value&apos;);
+err.code = 404;
+err.foo = &apos;bar&apos;;
+err.info = {
+  nested: true,
+  baz: &apos;text&apos;
+};
+err.reg = /abc/i;
+
+assert.throws(
+  () =&gt; {
+    throw err;
+  },
+  {
+    name: &apos;TypeError&apos;,
+    message: &apos;Wrong value&apos;,
+    info: {
+      nested: true,
+      baz: &apos;text&apos;
+    }
+    // Only properties on the validation object will be tested for.
+    // Using nested objects requires all properties to be present. Otherwise
+    // the validation is going to fail.
+  }
+);
+
+// Using regular expressions to validate error properties:
+assert.throws(
+  () =&gt; {
+    throw err;
+  },
+  {
+    // The `name` and `message` properties are strings and using regular
+    // expressions on those will match against the string. If they fail, an
+    // error is thrown.
+    name: /^TypeError$/,
+    message: /Wrong/,
+    foo: &apos;bar&apos;,
+    info: {
+      nested: true,
+      // It is not possible to use regular expressions for nested properties!
+      baz: &apos;text&apos;
+    },
+    // The `reg` property contains a regular expression and only if the
+    // validation object contains an identical regular expression, it is going
+    // to pass.
+    reg: /abc/i
+  }
+);
+
+// Fails due to the different `message` and `name` properties:
+assert.throws(
+  () =&gt; {
+    const otherErr = new Error(&apos;Not found&apos;);
+    otherErr.code = 404;
+    throw otherErr;
+  },
+  err // This tests for `message`, `name` and `code`.
+);
+</code></pre><p>Validate instanceof using constructor:</p><pre><code class="language-js">assert.throws(
+  () =&gt; {
+    throw new Error(&apos;Wrong value&apos;);
+  },
+  Error
+);
+</code></pre><p>Validate error message using <a href="http://nodejs.cn/s/tbQJCP" rel="nofollow"><code>RegExp</code></a>:</p><p>Using a regular expression runs <code>.toString</code> on the error object, and will
+therefore also include the error name.</p><pre><code class="language-js">assert.throws(
+  () =&gt; {
+    throw new Error(&apos;Wrong value&apos;);
+  },
+  /^Error: Wrong value$/
+);
+</code></pre><p>Custom error validation:</p><pre><code class="language-js">assert.throws(
+  () =&gt; {
+    throw new Error(&apos;Wrong value&apos;);
+  },
+  (err) =&gt; {
+    assert(err instanceof Error);
+    assert(/value/.test(err));
+    // Returning anything from validation functions besides `true` is not
+    // recommended. Doing so results in the caught error being thrown again.
+    // That is usually not the desired outcome. Throw an error about the
+    // specific validation that failed instead (as done in this example).
+    return true;
+  },
+  &apos;unexpected error&apos;
+);
+</code></pre><p><code>error</code> cannot be a string. If a string is provided as the second
+argument, then <code>error</code> is assumed to be omitted and the string will be used for
+<code>message</code> instead. This can lead to easy-to-miss mistakes. Using the same
+message as the thrown error message is going to result in an
+<code>ERR_AMBIGUOUS_ARGUMENT</code> error. Please read the example below carefully if using
+a string as the second argument gets considered:</p><pre><code class="language-js">function throwingFirst() {
+  throw new Error(&apos;First&apos;);
+}
+function throwingSecond() {
+  throw new Error(&apos;Second&apos;);
+}
+function notThrowing() {}
+
+// The second argument is a string and the input function threw an Error.
+// The first case will not throw as it does not match for the error message
+// thrown by the input function!
+assert.throws(throwingFirst, &apos;Second&apos;);
+// In the next example the message has no benefit over the message from the
+// error and since it is not clear if the user intended to actually match
+// against the error message, Node.js throws an `ERR_AMBIGUOUS_ARGUMENT` error.
+assert.throws(throwingSecond, &apos;Second&apos;);
+// TypeError [ERR_AMBIGUOUS_ARGUMENT]
+
+// The string is only used (as message) in case the function does not throw:
+assert.throws(notThrowing, &apos;Second&apos;);
+// AssertionError [ERR_ASSERTION]: Missing expected exception: Second
+
+// If it was intended to match for the error message do this instead:
+// It does not throw because the error messages match.
+assert.throws(throwingSecond, /Second$/);
+
+// If the error message does not match, the error from within the function is
+// not caught.
+assert.throws(throwingFirst, /Second$/);
+// Error: First
+//     at throwingFirst (repl:2:9)
+</code></pre><p>Due to the confusing notation, it is recommended not to use a string as the
+second argument. This might lead to difficult-to-spot errors.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/assert/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756292605"><\/script>');
+  </script>
+</body>
+</html>

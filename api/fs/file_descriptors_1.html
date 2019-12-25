@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>文件描述符 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756310002" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>文件描述符</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_file_descriptors_1" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/file_descriptors_1.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><ol>
+<li>&#x4EFB;&#x4F55;&#x6307;&#x5B9A;&#x7684;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x90FD;&#x5FC5;&#x987B;&#x652F;&#x6301;&#x8BFB;&#x53D6;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x5C06;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x6307;&#x5B9A;&#x4E3A; <code>path</code>&#xFF0C;&#x5219;&#x4E0D;&#x4F1A;&#x81EA;&#x52A8;&#x5173;&#x95ED;&#x5B83;&#x3002;</li>
+<li>&#x8BFB;&#x6570;&#x5C06;&#x4ECE;&#x5F53;&#x524D;&#x4F4D;&#x7F6E;&#x5F00;&#x59CB;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x5DF2;&#x7ECF;&#x6709;&#x5185;&#x5BB9; <code>&apos;Hello World</code>&apos; &#x5E76;&#x4E14;&#x4F7F;&#x7528;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x8BFB;&#x53D6;&#x4E86;&#x516D;&#x4E2A;&#x5B57;&#x8282;&#xFF0C;&#x5219;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x8C03;&#x7528; <code>fs.readFile()</code> &#x5C06;&#x8FD4;&#x56DE; <code>&apos;World&apos;</code> &#x800C;&#x4E0D;&#x662F; <code>&apos;Hello World&apos;</code>&#x3002;</li>
+</ol></div>
+          <div id="content_right"><ol>
+<li>Any specified file descriptor has to support reading.</li>
+<li>If a file descriptor is specified as the <code>path</code>, it will not be closed
+automatically.</li>
+<li>The reading will begin at the current position. For example, if the file
+already had <code>&apos;Hello World</code>&apos; and six bytes are read with the file descriptor,
+the call to <code>fs.readFile()</code> with the same file descriptor, would give
+<code>&apos;World&apos;</code>, rather than <code>&apos;Hello World&apos;</code>.</li>
+</ol></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756310002"><\/script>');
+  </script>
+</body>
+</html>

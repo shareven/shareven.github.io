@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>命令与特殊键 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/repl/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756322696" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-repl">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>命令与特殊键</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../repl.html#repl_commands_and_special_keys" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/repl/commands_and_special_keys.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x6240;&#x6709; REPL &#x7684;&#x5B9E;&#x4F8B;&#x90FD;&#x652F;&#x6301;&#x4E0B;&#x5217;&#x7279;&#x6B8A;&#x547D;&#x4EE4;&#xFF1A;</p><ul>
+<li><code>.break</code> - &#x5728;&#x8F93;&#x5165;&#x4E00;&#x4E2A;&#x591A;&#x884C;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x8F93;&#x5165; <code>.break</code> &#x547D;&#x4EE4;&#xFF08;&#x6216;&#x6309;&#x4E0B; <code>&lt;ctrl&gt;-C</code> &#x7EC4;&#x5408;&#x952E;&#xFF09;&#x5C06;&#x7EC8;&#x6B62;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x7EE7;&#x7EED;&#x8F93;&#x5165;&#x3002;</li>
+<li><code>.clear</code> - &#x91CD;&#x7F6E; REPL &#x7684; <code>context</code> &#x4E3A;&#x4E00;&#x4E2A;&#x7A7A;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x6E05;&#x9664;&#x5F53;&#x524D;&#x6B63;&#x8F93;&#x5165;&#x7684;&#x6240;&#x6709;&#x591A;&#x884C;&#x8868;&#x8FBE;&#x5F0F;&#x3002;</li>
+<li><code>.exit</code> - &#x5173;&#x95ED;&#x8F93;&#x5165;&#x8F93;&#x51FA;&#x6D41;&#xFF0C;&#x9000;&#x51FA; REPL&#x3002;</li>
+<li><code>.help</code> - &#x663E;&#x793A;&#x7279;&#x5B9A;&#x547D;&#x4EE4;&#x7684;&#x5E2E;&#x52A9;&#x5217;&#x8868;&#x3002;</li>
+<li><code>.save</code> - &#x4FDD;&#x5B58;&#x5F53;&#x524D; REPL &#x4F1A;&#x8BDD;&#x5230;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF1A;
+<code>&gt; .save ./file/to/save.js</code></li>
+<li><code>.load</code> - &#x8BFB;&#x53D6;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5230;&#x5F53;&#x524D; REPL &#x4F1A;&#x8BDD;&#x3002;
+<code>&gt; .load ./file/to/load.js</code></li>
+<li><code>.editor</code> &#x8FDB;&#x5165;&#x7F16;&#x8F91;&#x6A21;&#x5F0F;&#xFF08;<code>&lt;ctrl&gt;-D</code> &#x5B8C;&#x6210;&#xFF0C; <code>&lt;ctrl&gt;-C</code> &#x53D6;&#x6D88;&#xFF09;</li>
+</ul><pre><code class="language-console">&gt; .editor
+// &#x8FDB;&#x5165;&#x7F16;&#x8F91;&#x6A21;&#x5F0F;&#xFF08;^D &#x5B8C;&#x6210;&#xFF0C;^C &#x53D6;&#x6D88;&#xFF09;
+function welcome(name) {
+  return `&#x4F60;&#x597D; ${name}&#xFF01;`;
+}
+
+welcome(&apos;Node.js &#x7528;&#x6237;&apos;);
+
+// ^D
+&apos;&#x4F60;&#x597D; Node.js &#x7528;&#x6237;&#xFF01;&apos;
+&gt;
+</code></pre><p>REPL &#x4E2D;&#x4E0B;&#x5217;&#x6309;&#x952E;&#x7EC4;&#x5408;&#x6709;&#x7279;&#x6B8A;&#x4F5C;&#x7528;&#xFF1A;</p><ul>
+<li><code>&lt;ctrl&gt;-C</code> - &#x5F53;&#x6309;&#x4E0B;&#x4E00;&#x6B21;&#x65F6;&#xFF0C;&#x4E0E; <code>.break</code> &#x547D;&#x4EE4;&#x7684;&#x6548;&#x679C;&#x4E00;&#x6837;&#x3002;&#x5F53;&#x5728;&#x7A7A;&#x767D;&#x884C;&#x6309;&#x4E0B;&#x4E24;&#x6B21;&#x65F6;&#xFF0C;&#x4E0E; <code>.exit</code> &#x547D;&#x4EE4;&#x7684;&#x6548;&#x679C;&#x4E00;&#x6837;&#x3002;</li>
+<li><code>&lt;ctrl&gt;-D</code> - &#x4E0E; <code>.exit</code> &#x547D;&#x4EE4;&#x7684;&#x6548;&#x679C;&#x4E00;&#x6837;&#x3002;</li>
+<li><code>&lt;tab&gt;</code> - &#x5F53;&#x5728;&#x7A7A;&#x767D;&#x884C;&#x6309;&#x4E0B;&#x65F6;&#xFF0C;&#x663E;&#x793A;&#x5168;&#x5C40;&#x548C;&#x672C;&#x5730;&#x4F5C;&#x7528;&#x57DF;&#x5185;&#x7684;&#x53D8;&#x91CF;&#x3002;&#x5F53;&#x5728;&#x8F93;&#x5165;&#x65F6;&#x6309;&#x4E0B;&#xFF0C;&#x663E;&#x793A;&#x76F8;&#x5173;&#x7684;&#x81EA;&#x52A8;&#x8865;&#x5168;&#x9009;&#x9879;&#x3002;</li>
+</ul></div>
+          <div id="content_right"><p>The following special commands are supported by all REPL instances:</p><ul>
+<li><code>.break</code>: When in the process of inputting a multi-line expression, entering
+the <code>.break</code> command (or pressing the <code>&lt;ctrl&gt;-C</code> key combination) will abort
+further input or processing of that expression.</li>
+<li><code>.clear</code>: Resets the REPL <code>context</code> to an empty object and clears any
+multi-line expression currently being input.</li>
+<li><code>.exit</code>: Close the I/O stream, causing the REPL to exit.</li>
+<li><code>.help</code>: Show this list of special commands.</li>
+<li><code>.save</code>: Save the current REPL session to a file:
+<code>&gt; .save ./file/to/save.js</code></li>
+<li><code>.load</code>: Load a file into the current REPL session.
+<code>&gt; .load ./file/to/load.js</code></li>
+<li><code>.editor</code>: Enter editor mode (<code>&lt;ctrl&gt;-D</code> to finish, <code>&lt;ctrl&gt;-C</code> to cancel).</li>
+</ul><pre><code class="language-console">&gt; .editor
+// Entering editor mode (^D to finish, ^C to cancel)
+function welcome(name) {
+  return `Hello ${name}!`;
+}
+
+welcome(&apos;Node.js User&apos;);
+
+// ^D
+&apos;Hello Node.js User!&apos;
+&gt;
+</code></pre><p>The following key combinations in the REPL have these special effects:</p><ul>
+<li><code>&lt;ctrl&gt;-C</code>: When pressed once, has the same effect as the <code>.break</code> command.
+When pressed twice on a blank line, has the same effect as the <code>.exit</code>
+command.</li>
+<li><code>&lt;ctrl&gt;-D</code>: Has the same effect as the <code>.exit</code> command.</li>
+<li><code>&lt;tab&gt;</code>: When pressed on a blank line, displays global and local (scope)
+variables. When pressed while entering other input, displays relevant
+autocompletion options.</li>
+</ul></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/repl/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756322696"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>线程池的用法 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/zlib/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756330914" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-zlib">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>线程池的用法</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../zlib.html#zlib_threadpool_usage" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/zlib/threadpool_usage.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x9664;&#x663E;&#x5F0F;&#x540C;&#x6B65;&#x7684; API &#x4E4B;&#x5916;&#xFF0C;&#x6240;&#x6709; zlib API &#x5747;&#x4F7F;&#x7528; libuv &#x7684;&#x7EBF;&#x7A0B;&#x6C60;&#x3002;
+&#x8FD9;&#x53EF;&#x80FD;&#x4F1A;&#x5728;&#x67D0;&#x4E9B;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x4EA7;&#x751F;&#x610F;&#x5916;&#x7684;&#x6548;&#x679C;&#xFF0C;&#x4F8B;&#x5982;&#x6027;&#x80FD;&#x4E0D;&#x4F73;&#xFF08;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8C03;&#x6574;<a href="http://nodejs.cn/s/6DjmgS" rel="nofollow">&#x6C60;&#x7684;&#x5927;&#x5C0F;</a>&#x6765;&#x7F13;&#x548C;&#xFF09;&#x548C;/&#x6216;&#x65E0;&#x6CD5;&#x6062;&#x590D;&#x7684;&#x707E;&#x96BE;&#x6027;&#x5185;&#x5B58;&#x788E;&#x7247;&#x3002;</p></div>
+          <div id="content_right"><p>All zlib APIs, except those that are explicitly synchronous, use libuv&apos;s
+threadpool. This can lead to surprising effects in some applications, such as
+subpar performance (which can be mitigated by adjusting the <a href="http://nodejs.cn/s/6DjmgS" rel="nofollow">pool size</a>)
+and/or unrecoverable and catastrophic memory fragmentation.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/zlib/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756330914"><\/script>');
+  </script>
+</body>
+</html>

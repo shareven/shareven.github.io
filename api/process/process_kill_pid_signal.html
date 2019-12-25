@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>process.kill(pid[, signal]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756321055" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>process.kill(pid[, signal])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../process.html#process_process_kill_pid_signal" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/process/process_kill_pid_signal.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.0.6</span>
+</div><ul>
+<li><code>pid</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> &#x8FDB;&#x7A0B; ID&#x3002;</li>
+<li><code>signal</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> &#x5C06;&#x53D1;&#x9001;&#x7684;&#x4FE1;&#x53F7;&#xFF0C;&#x7C7B;&#x578B;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x6570;&#x5B57;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;SIGTERM&apos;</code>&#x3002;</li>
+</ul><p><code>process.kill()</code> &#x65B9;&#x6CD5;&#x5C06; <code>signal</code> &#x53D1;&#x9001;&#x7ED9; <code>pid</code> &#x6807;&#x8BC6;&#x7684;&#x8FDB;&#x7A0B;&#x3002;</p><p>&#x4FE1;&#x53F7;&#x540D;&#x79F0;&#x662F;&#x5982; <code>&apos;SIGINT&apos;</code> &#x6216; <code>&apos;SIGHUP&apos;</code>&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#xFF0C;&#x53C2;&#x9605;<a href="http://nodejs.cn/s/hihzhD" rel="nofollow">&#x4FE1;&#x53F7;&#x4E8B;&#x4EF6;</a>&#x548C; <a href="http://nodejs.cn/s/KDV7jD" rel="nofollow"><code>kill(2)</code></a>&#x3002;</p><p>&#x5982;&#x679C;&#x76EE;&#x6807; <code>pid</code> &#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x4F1A;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x3002;
+&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x4F8B;&#x5B50;&#xFF0C;&#x4FE1;&#x53F7; <code>0</code> &#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x6D4B;&#x8BD5;&#x8FDB;&#x7A0B;&#x662F;&#x5426;&#x5B58;&#x5728;&#x3002;
+&#x5728; Windows &#x5E73;&#x53F0;&#x4E2D;&#xFF0C;&#x5982;&#x679C; <code>pid</code> &#x7528;&#x4E8E;&#x6740;&#x6B7B;&#x8FDB;&#x7A0B;&#x7EC4;&#xFF0C;&#x5219;&#x4F1A;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x3002;</p><p>&#x5373;&#x4F7F;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x540D;&#x79F0;&#x662F; <code>process.kill()</code>,&#x5B83;&#x5176;&#x5B9E;&#x53EA;&#x662F;&#x53D1;&#x9001;&#x4FE1;&#x53F7;&#xFF0C;&#x8FD9;&#x70B9;&#x4E0E; <code>kill</code> &#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x7C7B;&#x4F3C;&#x3002;
+&#x53D1;&#x9001;&#x7684;&#x4FE1;&#x53F7;&#x53EF;&#x80FD;&#x662F;&#x505A;&#x4E00;&#x4E9B;&#x4E0E;&#x6740;&#x6B7B;&#x76EE;&#x6807;&#x8FDB;&#x7A0B;&#x65E0;&#x5173;&#x7684;&#x4E8B;&#x60C5;&#x3002;</p><pre><code class="language-js">process.on(&apos;SIGHUP&apos;, () =&gt; {
+  console.log(&apos;&#x6536;&#x5230; SIGHUP &#x4FE1;&#x53F7;&apos;);
+});
+
+setTimeout(() =&gt; {
+  console.log(&apos;&#x9000;&#x51FA;&#x4E2D;&apos;);
+  process.exit(0);
+}, 100);
+
+process.kill(process.pid, &apos;SIGHUP&apos;);
+</code></pre><p>&#x5F53; Node.js &#x8FDB;&#x7A0B;&#x63A5;&#x6536;&#x5230; <code>SIGUSR1</code> &#x65F6;&#xFF0C;Node.js &#x5C06;&#x4F1A;&#x542F;&#x52A8;&#x8C03;&#x8BD5;&#x5668;&#xFF0C;&#x53C2;&#x9605;<a href="http://nodejs.cn/s/hihzhD" rel="nofollow">&#x4FE1;&#x53F7;&#x4E8B;&#x4EF6;</a>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.0.6</span>
+</div><ul>
+<li><code>pid</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> A process ID</li>
+<li><code>signal</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> The signal to send, either as a string or number.
+<strong>Default:</strong> <code>&apos;SIGTERM&apos;</code>.</li>
+</ul><p>The <code>process.kill()</code> method sends the <code>signal</code> to the process identified by
+<code>pid</code>.</p><p>Signal names are strings such as <code>&apos;SIGINT&apos;</code> or <code>&apos;SIGHUP&apos;</code>. See <a href="http://nodejs.cn/s/hihzhD" rel="nofollow">Signal Events</a>
+and <a href="http://nodejs.cn/s/KDV7jD" rel="nofollow"><code>kill(2)</code></a> for more information.</p><p>This method will throw an error if the target <code>pid</code> does not exist. As a special
+case, a signal of <code>0</code> can be used to test for the existence of a process.
+Windows platforms will throw an error if the <code>pid</code> is used to kill a process
+group.</p><p>Even though the name of this function is <code>process.kill()</code>, it is really just a
+signal sender, like the <code>kill</code> system call. The signal sent may do something
+other than kill the target process.</p><pre><code class="language-js">process.on(&apos;SIGHUP&apos;, () =&gt; {
+  console.log(&apos;Got SIGHUP signal.&apos;);
+});
+
+setTimeout(() =&gt; {
+  console.log(&apos;Exiting.&apos;);
+  process.exit(0);
+}, 100);
+
+process.kill(process.pid, &apos;SIGHUP&apos;);
+</code></pre><p>When <code>SIGUSR1</code> is received by a Node.js process, Node.js will start the
+debugger. See <a href="http://nodejs.cn/s/hihzhD" rel="nofollow">Signal Events</a>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756321055"><\/script>');
+  </script>
+</body>
+</html>

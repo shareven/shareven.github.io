@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'message' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/dgram/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756302433" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-dgram">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'message' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../dgram.html#dgram_event_message" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/event_message.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.99</span>
+</div><p>&#x5F53;&#x6709;&#x65B0;&#x7684;&#x6570;&#x636E;&#x5305;&#x88AB; socket &#x63A5;&#x6536;&#x65F6;&#xFF0C; <code>&apos;message&apos;</code> &#x4E8B;&#x4EF6;&#x4F1A;&#x88AB;&#x89E6;&#x53D1;&#x3002;<code>msg</code> &#x548C; <code>rinfo</code> &#x4F1A;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x5230;&#x8BE5;&#x4E8B;&#x4EF6;&#x7684;&#x5904;&#x7406;&#x51FD;&#x6570;&#x4E2D;&#x3002;</p><ul>
+<li><code>msg</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> &#x6D88;&#x606F;&#x3002;</li>
+<li>
+<p><code>rinfo</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> &#x8FDC;&#x7A0B;&#x5730;&#x5740;&#x4FE1;&#x606F;&#x3002;</p>
+<ul>
+<li><code>address</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x53D1;&#x9001;&#x65B9;&#x5730;&#x5740;&#x3002;</li>
+<li><code>family</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5730;&#x5740;&#x7C7B;&#x578B; (<code>&apos;IPv4&apos;</code> &#x6216; <code>&apos;IPv6&apos;</code>)&#x3002;</li>
+<li><code>port</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> &#x53D1;&#x9001;&#x8005;&#x7AEF;&#x53E3;&#x3002;</li>
+<li><code>size</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> &#x6D88;&#x606F;&#x5927;&#x5C0F;&#x3002;</li>
+</ul>
+</li>
+</ul></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.99</span>
+</div><p>The <code>&apos;message&apos;</code> event is emitted when a new datagram is available on a socket.
+The event handler function is passed two arguments: <code>msg</code> and <code>rinfo</code>.</p><ul>
+<li><code>msg</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> The message.</li>
+<li>
+<p><code>rinfo</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> Remote address information.</p>
+<ul>
+<li><code>address</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> The sender address.</li>
+<li><code>family</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> The address family (<code>&apos;IPv4&apos;</code> or <code>&apos;IPv6&apos;</code>).</li>
+<li><code>port</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> The sender port.</li>
+<li><code>size</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> The message size.</li>
+</ul>
+</li>
+</ul></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/dgram/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756302433"><\/script>');
+  </script>
+</body>
+</html>

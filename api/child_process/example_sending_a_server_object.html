@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>示例：发送 server 对象 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/child_process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756295951" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-child_process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>示例：发送 server 对象</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../child_process.html#child_process_example_sending_a_server_object" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/child_process/example_sending_a_server_object.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p><code>sendHandle</code> &#x53C2;&#x6570;&#x53EF;&#x7528;&#x4E8E;&#x5C06;&#x4E00;&#x4E2A; TCP server &#x5BF9;&#x8C61;&#x7684;&#x53E5;&#x67C4;&#x4F20;&#x7ED9;&#x5B50;&#x8FDB;&#x7A0B;&#xFF0C;&#x5982;&#x4EE5;&#x4E0B;&#x793A;&#x4F8B;&#x6240;&#x793A;&#xFF1A;</p><pre><code class="language-js">const subprocess = require(&apos;child_process&apos;).fork(&apos;subprocess.js&apos;);
+
+// &#x6253;&#x5F00; server &#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x53D1;&#x9001;&#x8BE5;&#x53E5;&#x67C4;&#x3002;
+const server = require(&apos;net&apos;).createServer();
+server.on(&apos;connection&apos;, (socket) =&gt; {
+  socket.end(&apos;&#x7531;&#x7236;&#x8FDB;&#x7A0B;&#x5904;&#x7406;&apos;);
+});
+server.listen(1337, () =&gt; {
+  subprocess.send(&apos;server&apos;, server);
+});
+</code></pre><p>&#x5B50;&#x8FDB;&#x7A0B;&#x63A5;&#x6536; server &#x5BF9;&#x8C61;&#x5982;&#x4E0B;&#xFF1A;</p><pre><code class="language-js">process.on(&apos;message&apos;, (m, server) =&gt; {
+  if (m === &apos;server&apos;) {
+    server.on(&apos;connection&apos;, (socket) =&gt; {
+      socket.end(&apos;&#x7531;&#x5B50;&#x8FDB;&#x7A0B;&#x5904;&#x7406;&apos;);
+    });
+  }
+});
+</code></pre><p>&#x4E00;&#x65E6;&#x670D;&#x52A1;&#x5668;&#x5728;&#x7236;&#x8FDB;&#x7A0B;&#x548C;&#x5B50;&#x8FDB;&#x7A0B;&#x4E4B;&#x95F4;&#x662F;&#x5171;&#x4EAB;&#x7684;&#xFF0C;&#x5219;&#x4E00;&#x4E9B;&#x8FDE;&#x63A5;&#x53EF;&#x88AB;&#x7236;&#x8FDB;&#x7A0B;&#x5904;&#x7406;&#xFF0C;&#x53E6;&#x4E00;&#x4E9B;&#x53EF;&#x88AB;&#x5B50;&#x8FDB;&#x7A0B;&#x5904;&#x7406;&#x3002;</p><p>&#x4E0A;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x4F7F;&#x7528;&#x4E86;&#x4E00;&#x4E2A;&#x7531; <code>net</code> &#x6A21;&#x5757;&#x521B;&#x5EFA;&#x7684;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x867D;&#x7136; <code>dgram</code> &#x6A21;&#x5757;&#x7684;&#x670D;&#x52A1;&#x5668;&#x4F7F;&#x7528;&#x5B8C;&#x5168;&#x76F8;&#x540C;&#x7684;&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;&#xFF0C;&#x4F46;&#x5B83;&#x76D1;&#x542C; <code>&apos;message&apos;</code> &#x4E8B;&#x4EF6;&#x800C;&#x4E0D;&#x662F; <code>&apos;connection&apos;</code> &#x4E8B;&#x4EF6;&#xFF0C;&#x4E14;&#x4F7F;&#x7528; <code>server.bind()</code> &#x800C;&#x4E0D;&#x662F; <code>server.listen()</code>&#x3002;
+&#x76EE;&#x524D;&#x4EC5;&#x5728; Unix &#x5E73;&#x53F0;&#x4E0A;&#x652F;&#x6301;&#x8FD9;&#x4E00;&#x70B9;&#x3002;</p></div>
+          <div id="content_right"><p>The <code>sendHandle</code> argument can be used, for instance, to pass the handle of
+a TCP server object to the child process as illustrated in the example below:</p><pre><code class="language-js">const subprocess = require(&apos;child_process&apos;).fork(&apos;subprocess.js&apos;);
+
+// Open up the server object and send the handle.
+const server = require(&apos;net&apos;).createServer();
+server.on(&apos;connection&apos;, (socket) =&gt; {
+  socket.end(&apos;handled by parent&apos;);
+});
+server.listen(1337, () =&gt; {
+  subprocess.send(&apos;server&apos;, server);
+});
+</code></pre><p>The child would then receive the server object as:</p><pre><code class="language-js">process.on(&apos;message&apos;, (m, server) =&gt; {
+  if (m === &apos;server&apos;) {
+    server.on(&apos;connection&apos;, (socket) =&gt; {
+      socket.end(&apos;handled by child&apos;);
+    });
+  }
+});
+</code></pre><p>Once the server is now shared between the parent and child, some connections
+can be handled by the parent and some by the child.</p><p>While the example above uses a server created using the <code>net</code> module, <code>dgram</code>
+module servers use exactly the same workflow with the exceptions of listening on
+a <code>&apos;message&apos;</code> event instead of <code>&apos;connection&apos;</code> and using <code>server.bind()</code> instead
+of <code>server.listen()</code>. This is, however, currently only supported on Unix
+platforms.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/child_process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756295951"><\/script>');
+  </script>
+</body>
+</html>

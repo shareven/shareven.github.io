@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>server.address() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/net/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756318317" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-net">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>server.address()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../net.html#net_server_address" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/net/server_address.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.90</span>
+</div><ul>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>&#x5982;&#x679C;&#x5728; IP socket &#x4E0A;&#x76D1;&#x542C;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x62A5;&#x544A;&#x7684;&#x7ED1;&#x5B9A;&#x7684; <code>address</code>&#x3001;&#x5730;&#x5740; <code>family</code> &#x540D;&#x79F0;&#x3001;&#x4EE5;&#x53CA;&#x670D;&#x52A1;&#x5668; <code>port</code>&#xFF08;&#x7528;&#x4E8E;&#x67E5;&#x627E;&#x5728;&#x83B7;&#x53D6;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5206;&#x914D;&#x7684;&#x5730;&#x5740;&#x65F6;&#x5206;&#x914D;&#x7684;&#x7AEF;&#x53E3;&#xFF09;&#xFF1A;<code>{ port: 12346, family: &apos;IPv4&apos;, address: &apos;127.0.0.1&apos; }</code>&#x3002;</p><p>&#x5BF9;&#x4E8E;&#x5728;&#x7BA1;&#x9053;&#x6216; Unix &#x57DF;&#x5957;&#x63A5;&#x5B57;&#x4E0A;&#x76D1;&#x542C;&#x7684; server&#xFF0C;&#x8BE5;&#x540D;&#x79F0;&#x5C06;&#x8FD4;&#x56DE;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p><pre><code class="language-js">const server = net.createServer((socket) =&gt; {
+  socket.end(&apos;&#x518D;&#x89C1;\n&apos;);
+}).on(&apos;error&apos;, (err) =&gt; {
+  // &#x5904;&#x7406;&#x9519;&#x8BEF;
+  throw err;
+});
+
+// &#x83B7;&#x53D6;&#x4EFB;&#x610F;&#x672A;&#x4F7F;&#x7528;&#x7684;&#x7AEF;&#x53E3;&#x3002;
+server.listen(() =&gt; {
+  console.log(&apos;&#x6253;&#x5F00;&#x670D;&#x52A1;&#x5668;&apos;, server.address());
+});
+</code></pre><p>&#x4E0D;&#x8981;&#x5728; <code>&apos;listening&apos;</code> &#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x4E4B;&#x524D;&#x8C03;&#x7528; <code>server.address()</code>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.90</span>
+</div><ul>
+<li>Returns: <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>Returns the bound <code>address</code>, the address <code>family</code> name, and <code>port</code> of the server
+as reported by the operating system if listening on an IP socket
+(useful to find which port was assigned when getting an OS-assigned address):
+<code>{ port: 12346, family: &apos;IPv4&apos;, address: &apos;127.0.0.1&apos; }</code>.</p><p>For a server listening on a pipe or Unix domain socket, the name is returned
+as a string.</p><pre><code class="language-js">const server = net.createServer((socket) =&gt; {
+  socket.end(&apos;goodbye\n&apos;);
+}).on(&apos;error&apos;, (err) =&gt; {
+  // Handle errors here.
+  throw err;
+});
+
+// Grab an arbitrary unused port.
+server.listen(() =&gt; {
+  console.log(&apos;opened server on&apos;, server.address());
+});
+</code></pre><p>Don&apos;t call <code>server.address()</code> until the <code>&apos;listening&apos;</code> event has been emitted.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/net/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756318317"><\/script>');
+  </script>
+</body>
+</html>

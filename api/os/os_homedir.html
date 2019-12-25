@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>os.homedir() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/os/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756318948" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-os">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>os.homedir()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../os.html#os_os_homedir" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/os/os_homedir.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v2.3.0</span>
+</div><ul>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x7528;&#x6237;&#x7684;&#x4E3B;&#x76EE;&#x5F55;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x8DEF;&#x5F84;&#x3002;</p><p>&#x5728; POSIX &#x4E0A;&#xFF0C;&#x4F7F;&#x7528; <code>$HOME</code> &#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF08;&#x5982;&#x679C;&#x6709;&#x5B9A;&#x4E49;&#xFF09;&#x3002;
+&#x5426;&#x5219;&#xFF0C;&#x4F7F;&#x7528;<a href="http://nodejs.cn/s/qnvwQK" rel="nofollow">&#x6709;&#x6548;&#x7684; UID</a> &#x6765;&#x67E5;&#x627E;&#x7528;&#x6237;&#x7684;&#x4E3B;&#x76EE;&#x5F55;&#x3002;</p><p>&#x5728; Windows &#x4E0A;&#xFF0C;&#x4F7F;&#x7528; <code>USERPROFILE</code> &#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF08;&#x5982;&#x679C;&#x6709;&#x5B9A;&#x4E49;&#xFF09;&#x3002;
+&#x5426;&#x5219;&#xFF0C;&#x4F7F;&#x7528;&#x5F53;&#x524D;&#x7528;&#x6237;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x7684;&#x8DEF;&#x5F84;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v2.3.0</span>
+</div><ul>
+<li>Returns: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>Returns the string path of the current user&apos;s home directory.</p><p>On POSIX, it uses the <code>$HOME</code> environment variable if defined. Otherwise it
+uses the <a href="http://nodejs.cn/s/qnvwQK" rel="nofollow">effective UID</a> to look up the user&apos;s home directory.</p><p>On Windows, it uses the <code>USERPROFILE</code> environment variable if defined.
+Otherwise it uses the path to the profile directory of the current user.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/os/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756318948"><\/script>');
+  </script>
+</body>
+</html>

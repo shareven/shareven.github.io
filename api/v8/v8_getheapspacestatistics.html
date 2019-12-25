@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>v8.getHeapSpaceStatistics() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/v8/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756329153" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-v8">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>v8.getHeapSpaceStatistics()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../v8.html#v8_v8_getheapspacestatistics" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/v8/v8_getheapspacestatistics.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v7.5.0</td>
+<td><p>Support values exceeding the 32-bit unsigned integer range.</p></td></tr>
+<tr><td>v6.0.0</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v6.0.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object[]&gt;</a></li>
+</ul><p>&#x8FD4;&#x56DE;&#x6709;&#x5173; V8 &#x5806;&#x7A7A;&#x95F4;&#x7684;&#x7EDF;&#x8BA1;&#x4FE1;&#x606F;&#xFF0C;&#x5373;&#x7EC4;&#x6210; V8 &#x5806;&#x7684;&#x7247;&#x6BB5;&#x3002;
+&#x7531;&#x4E8E;&#x7EDF;&#x8BA1;&#x4FE1;&#x606F;&#x662F;&#x901A;&#x8FC7; V8 &#x7684; <a href="http://nodejs.cn/s/Cqpe5o" rel="nofollow"><code>GetHeapSpaceStatistics</code></a> &#x51FD;&#x6570;&#x63D0;&#x4F9B;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x4FDD;&#x8BC1;&#x5806;&#x7A7A;&#x95F4;&#x7684;&#x6392;&#x5E8F;&#x4EE5;&#x53CA;&#x5806;&#x7A7A;&#x95F4;&#x7684;&#x53EF;&#x7528;&#x6027;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x4ECE;&#x4E00;&#x4E2A; V8 &#x7248;&#x672C;&#x66F4;&#x6539;&#x4E3A;&#x4E0B;&#x4E00;&#x4E2A;&#x7248;&#x672C;&#x3002;</p><p>&#x8FD4;&#x56DE;&#x7684;&#x503C;&#x662F;&#x5305;&#x542B;&#x4EE5;&#x4E0B;&#x5C5E;&#x6027;&#x7684;&#x5BF9;&#x8C61;&#x6570;&#x7EC4;&#xFF1A;</p><ul>
+<li><code>space_name</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>space_size</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>space_used_size</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>space_available_size</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>physical_space_size</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+</ul><pre><code class="language-json">[
+  {
+    &quot;space_name&quot;: &quot;new_space&quot;,
+    &quot;space_size&quot;: 2063872,
+    &quot;space_used_size&quot;: 951112,
+    &quot;space_available_size&quot;: 80824,
+    &quot;physical_space_size&quot;: 2063872
+  },
+  {
+    &quot;space_name&quot;: &quot;old_space&quot;,
+    &quot;space_size&quot;: 3090560,
+    &quot;space_used_size&quot;: 2493792,
+    &quot;space_available_size&quot;: 0,
+    &quot;physical_space_size&quot;: 3090560
+  },
+  {
+    &quot;space_name&quot;: &quot;code_space&quot;,
+    &quot;space_size&quot;: 1260160,
+    &quot;space_used_size&quot;: 644256,
+    &quot;space_available_size&quot;: 960,
+    &quot;physical_space_size&quot;: 1260160
+  },
+  {
+    &quot;space_name&quot;: &quot;map_space&quot;,
+    &quot;space_size&quot;: 1094160,
+    &quot;space_used_size&quot;: 201608,
+    &quot;space_available_size&quot;: 0,
+    &quot;physical_space_size&quot;: 1094160
+  },
+  {
+    &quot;space_name&quot;: &quot;large_object_space&quot;,
+    &quot;space_size&quot;: 0,
+    &quot;space_used_size&quot;: 0,
+    &quot;space_available_size&quot;: 1490980608,
+    &quot;physical_space_size&quot;: 0
+  }
+]
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v7.5.0</td>
+<td><p>Support values exceeding the 32-bit unsigned integer range.</p></td></tr>
+<tr><td>v6.0.0</td>
+<td><p><span>Added in: v6.0.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li>Returns: <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object[]&gt;</a></li>
+</ul><p>Returns statistics about the V8 heap spaces, i.e. the segments which make up
+the V8 heap. Neither the ordering of heap spaces, nor the availability of a
+heap space can be guaranteed as the statistics are provided via the V8
+<a href="http://nodejs.cn/s/Cqpe5o" rel="nofollow"><code>GetHeapSpaceStatistics</code></a> function and may change from one V8 version to the
+next.</p><p>The value returned is an array of objects containing the following properties:</p><ul>
+<li><code>space_name</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>space_size</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>space_used_size</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>space_available_size</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>physical_space_size</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+</ul><pre><code class="language-json">[
+  {
+    &quot;space_name&quot;: &quot;new_space&quot;,
+    &quot;space_size&quot;: 2063872,
+    &quot;space_used_size&quot;: 951112,
+    &quot;space_available_size&quot;: 80824,
+    &quot;physical_space_size&quot;: 2063872
+  },
+  {
+    &quot;space_name&quot;: &quot;old_space&quot;,
+    &quot;space_size&quot;: 3090560,
+    &quot;space_used_size&quot;: 2493792,
+    &quot;space_available_size&quot;: 0,
+    &quot;physical_space_size&quot;: 3090560
+  },
+  {
+    &quot;space_name&quot;: &quot;code_space&quot;,
+    &quot;space_size&quot;: 1260160,
+    &quot;space_used_size&quot;: 644256,
+    &quot;space_available_size&quot;: 960,
+    &quot;physical_space_size&quot;: 1260160
+  },
+  {
+    &quot;space_name&quot;: &quot;map_space&quot;,
+    &quot;space_size&quot;: 1094160,
+    &quot;space_used_size&quot;: 201608,
+    &quot;space_available_size&quot;: 0,
+    &quot;physical_space_size&quot;: 1094160
+  },
+  {
+    &quot;space_name&quot;: &quot;large_object_space&quot;,
+    &quot;space_size&quot;: 0,
+    &quot;space_used_size&quot;: 0,
+    &quot;space_available_size&quot;: 1490980608,
+    &quot;physical_space_size&quot;: 0
+  }
+]
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/v8/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756329153"><\/script>');
+  </script>
+</body>
+</html>

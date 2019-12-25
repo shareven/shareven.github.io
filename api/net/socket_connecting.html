@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>socket.connecting | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/net/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756318384" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-net">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>socket.connecting</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../net.html#net_socket_connecting" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/net/socket_connecting.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v6.1.0</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+</ul><p>&#x5982;&#x679C;&#x4E3A; <code>true</code> &#x5219; <a href="http://nodejs.cn/s/787XLt" rel="nofollow"><code>socket.connect(options[, connectListener])</code></a> &#x88AB;&#x8C03;&#x7528;&#x4F46;&#x8FD8;&#x672A;&#x7ED3;&#x675F;&#x3002;
+&#x5B83;&#x5C06;&#x4FDD;&#x6301;&#x4E3A;&#x771F;&#xFF0C;&#x76F4;&#x5230; socket &#x8FDE;&#x63A5;&#xFF0C;&#x7136;&#x540E;&#x8BBE;&#x7F6E;&#x4E3A; <code>false</code> &#x5E76;&#x89E6;&#x53D1; <code>&apos;connect&apos;</code> &#x4E8B;&#x4EF6;&#x3002;
+&#x6CE8;&#x610F;&#xFF0C;<a href="http://nodejs.cn/s/787XLt" rel="nofollow"><code>socket.connect(options[, connectListener])</code></a> &#x7684;&#x56DE;&#x8C03;&#x662F; <code>&apos;connect&apos;</code> &#x4E8B;&#x4EF6;&#x7684;&#x76D1;&#x542C;&#x5668;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v6.1.0</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+</ul><p>If <code>true</code>,
+<a href="http://nodejs.cn/s/787XLt" rel="nofollow"><code>socket.connect(options[, connectListener])</code></a> was
+called and has not yet finished. It will stay <code>true</code> until the socket becomes
+connected, then it is set to <code>false</code> and the <code>&apos;connect&apos;</code> event is emitted.  Note
+that the
+<a href="http://nodejs.cn/s/787XLt" rel="nofollow"><code>socket.connect(options[, connectListener])</code></a>
+callback is a listener for the <code>&apos;connect&apos;</code> event.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/net/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756318384"><\/script>');
+  </script>
+</body>
+</html>

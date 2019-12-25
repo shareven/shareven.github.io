@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Buffer.from(object[, offsetOrEncoding[, length]]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756294577" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-buffer">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>Buffer.from(object[, offsetOrEncoding[, length]])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../buffer.html#buffer_class_method_buffer_from_object_offsetorencoding_length" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/buffer/class_method_buffer_from_object_offsetorencoding_length.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v8.2.0</span>
+</div><ul>
+<li><code>object</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> &#x652F;&#x6301;&#xA0;<code>Symbol.toPrimitive</code> &#x6216; <code>valueOf()</code> &#x7684;&#x5BF9;&#x8C61;&#x3002;</li>
+<li><code>offsetOrEncoding</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5B57;&#x8282;&#x504F;&#x79FB;&#x91CF;&#x6216;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#xFF0C;&#x53D6;&#x51B3;&#x4E8E; <code>object.valueOf()</code> &#x6216; <code>object[Symbol.toPrimitive]()</code> &#x8FD4;&#x56DE;&#x7684;&#x503C;&#x3002;</li>
+<li><code>length</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x957F;&#x5EA6;&#xFF0C;&#x53D6;&#x51B3;&#x4E8E; <code>object.valueOf()</code> &#x6216; <code>object[Symbol.toPrimitive]()</code> &#x7684;&#x8FD4;&#x56DE;&#x503C;&#x3002;</li>
+</ul><p>&#x5BF9;&#x4E8E; <code>valueOf()</code> &#x8FD4;&#x56DE;&#x503C;&#x4E0D;&#x4E25;&#x683C;&#x7B49;&#x4E8E; <code>object</code> &#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD4;&#x56DE; <code>Buffer.from(object.valueOf(), offsetOrEncoding, length)</code>&#x3002;</p><pre><code class="language-js">const buf = Buffer.from(new String(&apos;this is a test&apos;));
+// &#x6253;&#x5370;: &lt;Buffer 74 68 69 73 20 69 73 20 61 20 74 65 73 74&gt;
+</code></pre><p>&#x5BF9;&#x4E8E;&#x652F;&#x6301; <code>Symbol.toPrimitive</code> &#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x4F1A;&#x8FD4;&#x56DE; <code>Buffer.from(object[Symbol.toPrimitive](), offsetOrEncoding, length)</code>&#x3002;</p><pre><code class="language-js">class Foo {
+  [Symbol.toPrimitive]() {
+    return &apos;this is a test&apos;;
+  }
+}
+
+const buf = Buffer.from(new Foo(), &apos;utf8&apos;);
+// &#x6253;&#x5370;: &lt;Buffer 74 68 69 73 20 69 73 20 61 20 74 65 73 74&gt;
+</code></pre><p>&#x5982;&#x679C; <code>object</code> &#x6CA1;&#x6709;&#x63D0;&#x53CA;&#x7684;&#x65B9;&#x6CD5;&#x3001;&#x6216;&#x9002;&#x7528;&#x4E8E; <code>Buffer.from()</code> &#x53D8;&#x91CF;&#x7684;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#xFF0C;&#x5219;&#x629B;&#x51FA; <code>TypeError</code>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v8.2.0</span>
+</div><ul>
+<li><code>object</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> An object supporting <code>Symbol.toPrimitive</code> or <code>valueOf()</code>.</li>
+<li><code>offsetOrEncoding</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> A byte-offset or encoding, depending on
+the value returned either by <code>object.valueOf()</code> or
+<code>object[Symbol.toPrimitive]()</code>.</li>
+<li><code>length</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> A length, depending on the value returned either by
+<code>object.valueOf()</code> or <code>object[Symbol.toPrimitive]()</code>.</li>
+</ul><p>For objects whose <code>valueOf()</code> function returns a value not strictly equal to
+<code>object</code>, returns <code>Buffer.from(object.valueOf(), offsetOrEncoding, length)</code>.</p><pre><code class="language-js">const buf = Buffer.from(new String(&apos;this is a test&apos;));
+// Prints: &lt;Buffer 74 68 69 73 20 69 73 20 61 20 74 65 73 74&gt;
+</code></pre><p>For objects that support <code>Symbol.toPrimitive</code>, returns
+<code>Buffer.from(object[Symbol.toPrimitive](), offsetOrEncoding, length)</code>.</p><pre><code class="language-js">class Foo {
+  [Symbol.toPrimitive]() {
+    return &apos;this is a test&apos;;
+  }
+}
+
+const buf = Buffer.from(new Foo(), &apos;utf8&apos;);
+// Prints: &lt;Buffer 74 68 69 73 20 69 73 20 61 20 74 65 73 74&gt;
+</code></pre><p>A <code>TypeError</code> will be thrown if <code>object</code> has not mentioned methods or is not of
+other type appropriate for <code>Buffer.from()</code> variants.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756294577"><\/script>');
+  </script>
+</body>
+</html>

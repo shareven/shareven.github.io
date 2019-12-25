@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>rl.prompt([preserveCursor]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/readline/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756322232" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-readline">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>rl.prompt([preserveCursor])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../readline.html#readline_rl_prompt_preservecursor" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/readline/rl_prompt_preservecursor.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.98</span>
+</div><ul>
+<li><code>preserveCursor</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5982;&#x679C;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x963B;&#x6B62;&#x5C06;&#x5149;&#x6807;&#x843D;&#x70B9;&#x91CD;&#x7F6E;&#x4E3A; <code>0</code>&#x3002;</li>
+</ul><p><code>rl.prompt()</code> &#x65B9;&#x6CD5;&#x5C06; <code>readline.Interface</code> &#x5B9E;&#x4F8B;&#x914D;&#x7F6E;&#x7684;&#x63D0;&#x793A;&#x5199;&#x5165; <code>output</code> &#x4E2D;&#x7684;&#x65B0;&#x4E00;&#x884C;&#xFF0C;&#x4EE5;&#x4FBF;&#x4E3A;&#x7528;&#x6237;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x53EF;&#x4F9B;&#x8F93;&#x5165;&#x7684;&#x65B0;&#x4F4D;&#x7F6E;&#x3002;</p><p>&#x5F53;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5982;&#x679C; <code>input</code> &#x6D41;&#x5DF2;&#x6682;&#x505C;&#xFF0C;&#x5219; <code>rl.prompt()</code> &#x5C06;&#x6062;&#x590D;&#x5B83;&#x3002;</p><p>&#x5982;&#x679C; <code>readline.Interface</code> &#x521B;&#x5EFA;&#x65F6; <code>output</code> &#x88AB;&#x8BBE;&#x7F6E;&#x4E3A; <code>null</code> &#x6216; <code>undefined</code>&#xFF0C;&#x5219;&#x4E0D;&#x4F1A;&#x5199;&#x5165;&#x63D0;&#x793A;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.98</span>
+</div><ul>
+<li><code>preserveCursor</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> If <code>true</code>, prevents the cursor placement from
+being reset to <code>0</code>.</li>
+</ul><p>The <code>rl.prompt()</code> method writes the <code>readline.Interface</code> instances configured
+<code>prompt</code> to a new line in <code>output</code> in order to provide a user with a new
+location at which to provide input.</p><p>When called, <code>rl.prompt()</code> will resume the <code>input</code> stream if it has been
+paused.</p><p>If the <code>readline.Interface</code> was created with <code>output</code> set to <code>null</code> or
+<code>undefined</code> the prompt is not written.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/readline/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756322232"><\/script>');
+  </script>
+</body>
+</html>

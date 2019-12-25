@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Buffer（缓冲器） | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756294495" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-buffer">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>Buffer（缓冲器）</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../buffer.html#buffer_buffer" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/buffer/buffer.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p></p><div class="api_stability api_stability_2"><a target="_blank" rel="nofollow" href="../documentation.html#documentation_stability_index">&#x7A33;&#x5B9A;&#x6027;: 2</a> - &#x7A33;&#x5B9A;</div><p></p><p>&#x5728;&#x5F15;&#x5165; <a href="http://nodejs.cn/s/oh3CkV" rel="nofollow"><code>TypedArray</code></a> &#x4E4B;&#x524D;&#xFF0C;JavaScript &#x8BED;&#x8A00;&#x6CA1;&#x6709;&#x7528;&#x4E8E;&#x8BFB;&#x53D6;&#x6216;&#x64CD;&#x4F5C;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;&#x6D41;&#x7684;&#x673A;&#x5236;&#x3002;
+<code>Buffer</code> &#x7C7B;&#x662F;&#x4F5C;&#x4E3A; Node.js API &#x7684;&#x4E00;&#x90E8;&#x5206;&#x5F15;&#x5165;&#x7684;&#xFF0C;&#x7528;&#x4E8E;&#x5728; TCP &#x6D41;&#x3001;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x64CD;&#x4F5C;&#x3001;&#x4EE5;&#x53CA;&#x5176;&#x4ED6;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x4E0E;&#x516B;&#x4F4D;&#x5B57;&#x8282;&#x6D41;&#x8FDB;&#x884C;&#x4EA4;&#x4E92;&#x3002;</p><p>&#x73B0;&#x5728;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/oh3CkV" rel="nofollow"><code>TypedArray</code></a>&#xFF0C; <code>Buffer</code> &#x7C7B;&#x4EE5;&#x66F4;&#x4F18;&#x5316;&#x548C;&#x66F4;&#x9002;&#x5408; Node.js &#x7684;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#x4E86; <a href="http://nodejs.cn/s/ZbDkpm" rel="nofollow"><code>Uint8Array</code></a> API&#x3002;</p><p><code>Buffer</code> &#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x7C7B;&#x4F3C;&#x4E8E;&#x4ECE; <code>0</code> &#x5230; <code>255</code> &#x4E4B;&#x95F4;&#x7684;&#x6574;&#x6570;&#x6570;&#x7EC4;&#xFF08;&#x5176;&#x4ED6;&#x6574;&#x6570;&#x4F1A;&#x901A;&#x8FC7; <code>&#xFF06; 255</code> &#x64CD;&#x4F5C;&#x5F3A;&#x5236;&#x8F6C;&#x6362;&#x5230;&#x6B64;&#x8303;&#x56F4;&#xFF09;&#xFF0C;&#x4F46;&#x5BF9;&#x5E94;&#x4E8E; V8 &#x5806;&#x5916;&#x90E8;&#x7684;&#x56FA;&#x5B9A;&#x5927;&#x5C0F;&#x7684;&#x539F;&#x59CB;&#x5185;&#x5B58;&#x5206;&#x914D;&#x3002;
+<code>Buffer</code> &#x7684;&#x5927;&#x5C0F;&#x5728;&#x521B;&#x5EFA;&#x65F6;&#x786E;&#x5B9A;&#xFF0C;&#x4E14;&#x65E0;&#x6CD5;&#x66F4;&#x6539;&#x3002;</p><p><code>Buffer</code> &#x7C7B;&#x5728;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#xFF0C;&#x56E0;&#x6B64;&#x65E0;&#x9700;&#x4F7F;&#x7528; <code>require(&apos;buffer&apos;).Buffer</code>&#x3002;</p><pre><code class="language-js">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x4E3A; 10&#x3001;&#x4E14;&#x7528;&#x96F6;&#x586B;&#x5145;&#x7684; Buffer&#x3002;
+const buf1 = Buffer.alloc(10);
+
+// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x4E3A; 10&#x3001;&#x4E14;&#x7528; 0x1 &#x586B;&#x5145;&#x7684; Buffer&#x3002; 
+const buf2 = Buffer.alloc(10, 1);
+
+// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x4E3A; 10&#x3001;&#x4E14;&#x672A;&#x521D;&#x59CB;&#x5316;&#x7684; Buffer&#x3002;
+// &#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x6BD4;&#x8C03;&#x7528; Buffer.alloc() &#x66F4;&#x5FEB;&#xFF0C;
+// &#x4F46;&#x8FD4;&#x56DE;&#x7684; Buffer &#x5B9E;&#x4F8B;&#x53EF;&#x80FD;&#x5305;&#x542B;&#x65E7;&#x6570;&#x636E;&#xFF0C;
+// &#x56E0;&#x6B64;&#x9700;&#x8981;&#x4F7F;&#x7528; fill() &#x6216; write() &#x91CD;&#x5199;&#x3002;
+const buf3 = Buffer.allocUnsafe(10);
+
+// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5305;&#x542B; [0x1, 0x2, 0x3] &#x7684; Buffer&#x3002;
+const buf4 = Buffer.from([1, 2, 3]);
+
+// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5305;&#x542B; UTF-8 &#x5B57;&#x8282; [0x74, 0xc3, 0xa9, 0x73, 0x74] &#x7684; Buffer&#x3002;
+const buf5 = Buffer.from(&apos;t&#xE9;st&apos;);
+
+// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5305;&#x542B; Latin-1 &#x5B57;&#x8282; [0x74, 0xe9, 0x73, 0x74] &#x7684; Buffer&#x3002;
+const buf6 = Buffer.from(&apos;t&#xE9;st&apos;, &apos;latin1&apos;);
+</code></pre></div>
+          <div id="content_right"><p></p><div class="api_stability api_stability_2"><a target="_blank" rel="nofollow" href="../documentation.html#documentation_stability_index">Stability: 2</a> - Stable</div><p></p><p>Prior to the introduction of <a href="http://nodejs.cn/s/oh3CkV" rel="nofollow"><code>TypedArray</code></a>, the JavaScript language had no
+mechanism for reading or manipulating streams of binary data. The <code>Buffer</code> class
+was introduced as part of the Node.js API to enable interaction with octet
+streams in TCP streams, file system operations, and other contexts.</p><p>With <a href="http://nodejs.cn/s/oh3CkV" rel="nofollow"><code>TypedArray</code></a> now available, the <code>Buffer</code> class implements the
+<a href="http://nodejs.cn/s/ZbDkpm" rel="nofollow"><code>Uint8Array</code></a> API in a manner that is more optimized and suitable for
+Node.js.</p><p>Instances of the <code>Buffer</code> class are similar to arrays of integers from <code>0</code> to
+<code>255</code> (other integers are coerced to this range by <code>&amp; 255</code> operation) but
+correspond to fixed-sized, raw memory allocations outside the V8 heap.
+The size of the <code>Buffer</code> is established when it is created and cannot be
+changed.</p><p>The <code>Buffer</code> class is within the global scope, making it unlikely that one
+would need to ever use <code>require(&apos;buffer&apos;).Buffer</code>.</p><pre><code class="language-js">// Creates a zero-filled Buffer of length 10.
+const buf1 = Buffer.alloc(10);
+
+// Creates a Buffer of length 10, filled with 0x1.
+const buf2 = Buffer.alloc(10, 1);
+
+// Creates an uninitialized buffer of length 10.
+// This is faster than calling Buffer.alloc() but the returned
+// Buffer instance might contain old data that needs to be
+// overwritten using either fill() or write().
+const buf3 = Buffer.allocUnsafe(10);
+
+// Creates a Buffer containing [0x1, 0x2, 0x3].
+const buf4 = Buffer.from([1, 2, 3]);
+
+// Creates a Buffer containing UTF-8 bytes [0x74, 0xc3, 0xa9, 0x73, 0x74].
+const buf5 = Buffer.from(&apos;t&#xE9;st&apos;);
+
+// Creates a Buffer containing Latin-1 bytes [0x74, 0xe9, 0x73, 0x74].
+const buf6 = Buffer.from(&apos;t&#xE9;st&apos;, &apos;latin1&apos;);
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756294495"><\/script>');
+  </script>
+</body>
+</html>

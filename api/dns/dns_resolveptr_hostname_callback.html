@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>dns.resolvePtr(hostname, callback) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/dns/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756303258" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-dns">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>dns.resolvePtr(hostname, callback)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../dns.html#dns_dns_resolveptr_hostname_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/dns/dns_resolveptr_hostname_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v6.0.0</span>
+</div><ul>
+<li><code>hostname</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>addresses</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string[]&gt;</a></li>
+</ul>
+</li>
+</ul><p>&#x4F7F;&#x7528; DNS &#x534F;&#x8BAE;&#x4E3A; <code>hostname</code> &#x89E3;&#x6790;&#x6307;&#x9488;&#x8BB0;&#x5F55;&#xFF08;<code>PTR</code> &#x8BB0;&#x5F55;&#xFF09;&#x3002;
+&#x4F20;&#x7ED9; <code>callback</code> &#x51FD;&#x6570;&#x7684; <code>addresses</code> &#x53C2;&#x6570;&#x5C06;&#x4F1A;&#x662F;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x56DE;&#x590D;&#x8BB0;&#x5F55;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x6570;&#x7EC4;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v6.0.0</span>
+</div><ul>
+<li><code>hostname</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>addresses</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string[]&gt;</a></li>
+</ul>
+</li>
+</ul><p>Uses the DNS protocol to resolve pointer records (<code>PTR</code> records) for the
+<code>hostname</code>. The <code>addresses</code> argument passed to the <code>callback</code> function will
+be an array of strings containing the reply records.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/dns/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756303258"><\/script>');
+  </script>
+</body>
+</html>

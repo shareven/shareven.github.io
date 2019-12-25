@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>URLSearchParams 类 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/url/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756327582" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-url">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>URLSearchParams 类</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../url.html#url_class_urlsearchparams" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/url/class_urlsearchparams.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>The class is now available on the global object.</p></td></tr>
+<tr><td>v7.5.0, v6.13.0</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v7.5.0, v6.13.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><p><code>URLSearchParams</code> API &#x63D0;&#x4F9B;&#x5BF9; <code>URL</code> &#x67E5;&#x8BE2;&#x90E8;&#x5206;&#x7684;&#x8BFB;&#x5199;&#x6743;&#x9650;&#x3002;
+<code>URLSearchParams</code> &#x7C7B;&#x4E5F;&#x80FD;&#x591F;&#x4E0E;&#x4EE5;&#x4E0B;&#x56DB;&#x4E2A;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x4F7F;&#x7528;&#x3002;
+<code>URLSearchParams</code> &#x7C7B;&#x4E5F;&#x53EF;&#x5728;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#x4E0A;&#x4F7F;&#x7528;&#x3002;</p><p>WHATWG <code>URLSearchParams</code> &#x63A5;&#x53E3;&#x548C; <a href="http://nodejs.cn/s/i23Gdh" rel="nofollow"><code>querystring</code></a> &#x6A21;&#x5757;&#x6709;&#x76F8;&#x4F3C;&#x7684;&#x76EE;&#x7684;&#xFF0C;&#x4F46;&#x662F; <a href="http://nodejs.cn/s/i23Gdh" rel="nofollow"><code>querystring</code></a> &#x6A21;&#x5757;&#x7684;&#x76EE;&#x7684;&#x66F4;&#x52A0;&#x901A;&#x7528;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x53EF;&#x4EE5;&#x5B9A;&#x5236;&#x5206;&#x9694;&#x7B26;&#xFF08;<code>&#xFF06;</code> &#x548C; <code>=</code>&#xFF09;&#x3002;
+&#x4F46;&#x53E6;&#x4E00;&#x65B9;&#x9762;&#xFF0C;&#x8FD9;&#x4E2A; API &#x662F;&#x4E13;&#x95E8;&#x4E3A; URL &#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x800C;&#x8BBE;&#x8BA1;&#x7684;&#x3002;</p><pre><code class="language-js">const myURL = new URL(&apos;https://example.org/?abc=123&apos;);
+console.log(myURL.searchParams.get(&apos;abc&apos;));
+// &#x6253;&#x5370; 123
+
+myURL.searchParams.append(&apos;abc&apos;, &apos;xyz&apos;);
+console.log(myURL.href);
+// &#x6253;&#x5370; https://example.org/?abc=123&amp;abc=xyz
+
+myURL.searchParams.delete(&apos;abc&apos;);
+myURL.searchParams.set(&apos;a&apos;, &apos;b&apos;);
+console.log(myURL.href);
+// &#x6253;&#x5370; https://example.org/?a=b
+
+const newSearchParams = new URLSearchParams(myURL.searchParams);
+// &#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x7B49;&#x540C;&#x4E8E;&#xFF1A;
+// const newSearchParams = new URLSearchParams(myURL.search);
+
+newSearchParams.append(&apos;a&apos;, &apos;c&apos;);
+console.log(myURL.href);
+// &#x6253;&#x5370; https://example.org/?a=b
+console.log(newSearchParams.toString());
+// &#x6253;&#x5370; a=b&amp;a=c
+
+// newSearchParams.toString() &#x4F1A;&#x88AB;&#x9690;&#x5F0F;&#x8C03;&#x7528;&#x3002;
+myURL.search = newSearchParams;
+console.log(myURL.href);
+// &#x6253;&#x5370; https://example.org/?a=b&amp;a=c
+newSearchParams.delete(&apos;a&apos;);
+console.log(myURL.href);
+// &#x6253;&#x5370; https://example.org/?a=b&amp;a=c
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>The class is now available on the global object.</p></td></tr>
+<tr><td>v7.5.0, v6.13.0</td>
+<td><p><span>Added in: v7.5.0, v6.13.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><p>The <code>URLSearchParams</code> API provides read and write access to the query of a
+<code>URL</code>. The <code>URLSearchParams</code> class can also be used standalone with one of the
+four following constructors.
+The <code>URLSearchParams</code> class is also available on the global object.</p><p>The WHATWG <code>URLSearchParams</code> interface and the <a href="http://nodejs.cn/s/i23Gdh" rel="nofollow"><code>querystring</code></a> module have
+similar purpose, but the purpose of the <a href="http://nodejs.cn/s/i23Gdh" rel="nofollow"><code>querystring</code></a> module is more
+general, as it allows the customization of delimiter characters (<code>&amp;</code> and <code>=</code>).
+On the other hand, this API is designed purely for URL query strings.</p><pre><code class="language-js">const myURL = new URL(&apos;https://example.org/?abc=123&apos;);
+console.log(myURL.searchParams.get(&apos;abc&apos;));
+// Prints 123
+
+myURL.searchParams.append(&apos;abc&apos;, &apos;xyz&apos;);
+console.log(myURL.href);
+// Prints https://example.org/?abc=123&amp;abc=xyz
+
+myURL.searchParams.delete(&apos;abc&apos;);
+myURL.searchParams.set(&apos;a&apos;, &apos;b&apos;);
+console.log(myURL.href);
+// Prints https://example.org/?a=b
+
+const newSearchParams = new URLSearchParams(myURL.searchParams);
+// The above is equivalent to
+// const newSearchParams = new URLSearchParams(myURL.search);
+
+newSearchParams.append(&apos;a&apos;, &apos;c&apos;);
+console.log(myURL.href);
+// Prints https://example.org/?a=b
+console.log(newSearchParams.toString());
+// Prints a=b&amp;a=c
+
+// newSearchParams.toString() is implicitly called
+myURL.search = newSearchParams;
+console.log(myURL.href);
+// Prints https://example.org/?a=b&amp;a=c
+newSearchParams.delete(&apos;a&apos;);
+console.log(myURL.href);
+// Prints https://example.org/?a=b&amp;a=c
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/url/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756327582"><\/script>');
+  </script>
+</body>
+</html>

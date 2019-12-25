@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Certificate.verifySpkac(spkac) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/crypto/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756300098" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-crypto">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>Certificate.verifySpkac(spkac)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../crypto.html#crypto_certificate_verifyspkac_spkac" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/crypto/certificate_verifyspkac_spkac.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v9.0.0</span>
+</div><ul>
+<li><code>spkac</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/oh3CkV" target="_blank" rel="nofollow" class="type">&lt;TypedArray&gt;</a> | <a href="http://nodejs.cn/s/yCdVkD" target="_blank" rel="nofollow" class="type">&lt;DataView&gt;</a></li>
+<li>&#x8FD4;&#x56DE; <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5982;&#x679C; <code>spkac</code> &#x6570;&#x636E;&#x7ED3;&#x6784;&#x662F;&#x6709;&#x6548;&#x7684;&#x8FD4;&#x56DE; <code>true</code>&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE; <code>false</code>&#x3002;</li>
+</ul><pre><code class="language-js">const { Certificate } = require(&apos;crypto&apos;);
+const spkac = getSpkacSomehow();
+console.log(Certificate.verifySpkac(Buffer.from(spkac)));
+// &#x6253;&#x5370; true &#x6216; false&#x3002;
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v9.0.0</span>
+</div><ul>
+<li><code>spkac</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/oh3CkV" target="_blank" rel="nofollow" class="type">&lt;TypedArray&gt;</a> | <a href="http://nodejs.cn/s/yCdVkD" target="_blank" rel="nofollow" class="type">&lt;DataView&gt;</a></li>
+<li>Returns: <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <code>true</code> if the given <code>spkac</code> data structure is valid,
+<code>false</code> otherwise.</li>
+</ul><pre><code class="language-js">const { Certificate } = require(&apos;crypto&apos;);
+const spkac = getSpkacSomehow();
+console.log(Certificate.verifySpkac(Buffer.from(spkac)));
+// Prints: true or false
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/crypto/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756300098"><\/script>');
+  </script>
+</body>
+</html>

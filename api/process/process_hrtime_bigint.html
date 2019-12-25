@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>process.hrtime.bigint() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756321051" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>process.hrtime.bigint()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../process.html#process_process_hrtime_bigint" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/process/process_hrtime_bigint.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.7.0</span>
+</div><ul>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/gJMq1y" target="_blank" rel="nofollow" class="type">&lt;bigint&gt;</a></li>
+</ul><p><a href="http://nodejs.cn/s/jfqj7N" rel="nofollow"><code>process.hrtime()</code></a> &#x65B9;&#x6CD5;&#x7684; <code>bigint</code> &#x7248;&#x672C;&#xFF0C;&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x7684;&#x9AD8;&#x7CBE;&#x5EA6;&#x5B9E;&#x9645;&#x65F6;&#x95F4;&#xFF08;&#x4EE5;&#x7EB3;&#x79D2;&#x4E3A;&#x5355;&#x4F4D;&#x7684; <code>bigint</code> &#x578B;&#xFF09;&#x3002;</p><p>&#x4E0E; <a href="http://nodejs.cn/s/jfqj7N" rel="nofollow"><code>process.hrtime()</code></a> &#x4E0D;&#x540C;&#xFF0C;&#x5B83;&#x4E0D;&#x652F;&#x6301;&#x989D;&#x5916;&#x7684; <code>time</code> &#x53C2;&#x6570;&#xFF0C;&#x56E0;&#x4E3A;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x901A;&#x8FC7;&#x4E24;&#x4E2A; <code>bigint</code> &#x76F8;&#x51CF;&#x6765;&#x8BA1;&#x7B97;&#x5DEE;&#x5F02;&#x3002;</p><pre><code class="language-js">const start = process.hrtime.bigint();
+// 191051479007711n
+
+setTimeout(() =&gt; {
+  const end = process.hrtime.bigint();
+  // 191052633396993n
+
+  console.log(`&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x8017;&#x65F6; ${end - start} &#x7EB3;&#x79D2;`);
+  // &#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x8017;&#x65F6; 1154389282 &#x7EB3;&#x79D2;
+}, 1000);
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v10.7.0</span>
+</div><ul>
+<li>Returns: <a href="http://nodejs.cn/s/gJMq1y" target="_blank" rel="nofollow" class="type">&lt;bigint&gt;</a></li>
+</ul><p>The <code>bigint</code> version of the <a href="http://nodejs.cn/s/jfqj7N" rel="nofollow"><code>process.hrtime()</code></a> method returning the
+current high-resolution real time in nanoseconds as a <code>bigint</code>.</p><p>Unlike <a href="http://nodejs.cn/s/jfqj7N" rel="nofollow"><code>process.hrtime()</code></a>, it does not support an additional <code>time</code>
+argument since the difference can just be computed directly
+by subtraction of the two <code>bigint</code>s.</p><pre><code class="language-js">const start = process.hrtime.bigint();
+// 191051479007711n
+
+setTimeout(() =&gt; {
+  const end = process.hrtime.bigint();
+  // 191052633396993n
+
+  console.log(`Benchmark took ${end - start} nanoseconds`);
+  // Benchmark took 1154389282 nanoseconds
+}, 1000);
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756321051"><\/script>');
+  </script>
+</body>
+</html>

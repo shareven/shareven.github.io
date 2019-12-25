@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>console（控制台） | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/console/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756298265" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-console">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>console（控制台）</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../console.html#console_console" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/console/console.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p></p><div class="api_stability api_stability_2"><a target="_blank" rel="nofollow" href="../documentation.html#documentation_stability_index">&#x7A33;&#x5B9A;&#x6027;: 2</a> - &#x7A33;&#x5B9A;</div><p></p><p><code>console</code> &#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x8C03;&#x8BD5;&#x63A7;&#x5236;&#x53F0;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E; Web &#x6D4F;&#x89C8;&#x5668;&#x63D0;&#x4F9B;&#x7684; JavaScript &#x63A7;&#x5236;&#x53F0;&#x3002;</p><p>&#x8BE5;&#x6A21;&#x5757;&#x5BFC;&#x51FA;&#x4E24;&#x4E2A;&#x7279;&#x5B9A;&#x7EC4;&#x4EF6;&#xFF1A;</p><ul>
+<li><code>Console</code> &#x7C7B;&#xFF0C;&#x5305;&#x542B; <code>console.log()</code>&#x3001; <code>console.error()</code> &#x548C; <code>console.warn()</code> &#x7B49;&#x65B9;&#x6CD5;&#xFF0C;&#x53EF;&#x7528;&#x4E8E;&#x5199;&#x5165;&#x4EFB;&#x4F55; Node.js &#x6D41;&#x3002;</li>
+<li>&#x5168;&#x5C40;&#x7684; <code>console</code> &#x5B9E;&#x4F8B;&#xFF0C;&#x914D;&#x7F6E;&#x4E3A;&#x5199;&#x5165; <a href="http://nodejs.cn/s/tQWUzG" rel="nofollow"><code>process.stdout</code></a> &#x548C; <a href="http://nodejs.cn/s/wPv5zY" rel="nofollow"><code>process.stderr</code></a>&#x3002;
+&#x4F7F;&#x7528;&#x65F6;&#x65E0;&#x9700;&#x8C03;&#x7528; <code>require(&apos;console&apos;)</code>&#x3002;</li>
+</ul><p>&#x6CE8;&#x610F;&#xFF1A;&#x5168;&#x5C40;&#x7684; <code>console</code> &#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x65E2;&#x4E0D;&#x50CF;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x7684; API &#x90A3;&#x6837;&#x603B;&#x662F;&#x540C;&#x6B65;&#x7684;&#xFF0C;&#x4E5F;&#x4E0D;&#x50CF;&#x5176;&#x4ED6; Node.js &#x6D41;&#x90A3;&#x6837;&#x603B;&#x662F;&#x5F02;&#x6B65;&#x7684;&#x3002;
+&#x8BE6;&#x89C1;<a href="http://nodejs.cn/s/u5R9ap" rel="nofollow">&#x8FDB;&#x7A0B; I/O</a>&#x3002;</p><p>&#x4F7F;&#x7528;&#x5168;&#x5C40; <code>console</code> &#x7684;&#x793A;&#x4F8B;&#xFF1A;</p><pre><code class="language-js">console.log(&apos;&#x4F60;&#x597D;&#x4E16;&#x754C;&apos;);
+// &#x6253;&#x5370;&#x5230; stdout: &#x4F60;&#x597D;&#x4E16;&#x754C;
+console.log(&apos;&#x4F60;&#x597D;%s&apos;, &apos;&#x4E16;&#x754C;&apos;);
+// &#x6253;&#x5370;&#x5230; stdout: &#x4F60;&#x597D;&#x4E16;&#x754C;
+console.error(new Error(&apos;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&apos;));
+// &#x6253;&#x5370;&#x5230; stderr: [Error: &#x9519;&#x8BEF;&#x4FE1;&#x606F;]
+
+const name = &apos;&#x63CF;&#x8FF0;&apos;;
+console.warn(`&#x8B66;&#x544A;${name}`);
+// &#x6253;&#x5370;&#x5230; stderr: &#x8B66;&#x544A;&#x63CF;&#x8FF0;
+</code></pre><p>&#x4F7F;&#x7528; <code>Console</code> &#x7C7B;&#x7684;&#x793A;&#x4F8B;&#xFF1A;</p><pre><code class="language-js">const out = getStreamSomehow();
+const err = getStreamSomehow();
+const myConsole = new console.Console(out, err);
+
+myConsole.log(&apos;&#x4F60;&#x597D;&#x4E16;&#x754C;&apos;);
+// &#x6253;&#x5370;&#x5230; out: &#x4F60;&#x597D;&#x4E16;&#x754C;
+myConsole.log(&apos;&#x4F60;&#x597D;%s&apos;, &apos;&#x4E16;&#x754C;&apos;);
+// &#x6253;&#x5370;&#x5230; out: &#x4F60;&#x597D;&#x4E16;&#x754C;
+myConsole.error(new Error(&apos;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&apos;));
+// &#x6253;&#x5370;&#x5230; err: [Error: &#x9519;&#x8BEF;&#x4FE1;&#x606F;]
+
+const name = &apos;&#x63CF;&#x8FF0;&apos;;
+myConsole.warn(`&#x8B66;&#x544A;${name}`);
+// &#x6253;&#x5370;&#x5230; err: &#x8B66;&#x544A;&#x63CF;&#x8FF0;
+</code></pre></div>
+          <div id="content_right"><p></p><div class="api_stability api_stability_2"><a target="_blank" rel="nofollow" href="../documentation.html#documentation_stability_index">Stability: 2</a> - Stable</div><p></p><p>The <code>console</code> module provides a simple debugging console that is similar to the
+JavaScript console mechanism provided by web browsers.</p><p>The module exports two specific components:</p><ul>
+<li>A <code>Console</code> class with methods such as <code>console.log()</code>, <code>console.error()</code> and
+<code>console.warn()</code> that can be used to write to any Node.js stream.</li>
+<li>A global <code>console</code> instance configured to write to <a href="http://nodejs.cn/s/tQWUzG" rel="nofollow"><code>process.stdout</code></a> and
+<a href="http://nodejs.cn/s/wPv5zY" rel="nofollow"><code>process.stderr</code></a>. The global <code>console</code> can be used without calling
+<code>require(&apos;console&apos;)</code>.</li>
+</ul><p><strong><em>Warning</em></strong>: The global console object&apos;s methods are neither consistently
+synchronous like the browser APIs they resemble, nor are they consistently
+asynchronous like all other Node.js streams. See the <a href="http://nodejs.cn/s/u5R9ap" rel="nofollow">note on process I/O</a> for
+more information.</p><p>Example using the global <code>console</code>:</p><pre><code class="language-js">console.log(&apos;hello world&apos;);
+// Prints: hello world, to stdout
+console.log(&apos;hello %s&apos;, &apos;world&apos;);
+// Prints: hello world, to stdout
+console.error(new Error(&apos;Whoops, something bad happened&apos;));
+// Prints: [Error: Whoops, something bad happened], to stderr
+
+const name = &apos;Will Robinson&apos;;
+console.warn(`Danger ${name}! Danger!`);
+// Prints: Danger Will Robinson! Danger!, to stderr
+</code></pre><p>Example using the <code>Console</code> class:</p><pre><code class="language-js">const out = getStreamSomehow();
+const err = getStreamSomehow();
+const myConsole = new console.Console(out, err);
+
+myConsole.log(&apos;hello world&apos;);
+// Prints: hello world, to out
+myConsole.log(&apos;hello %s&apos;, &apos;world&apos;);
+// Prints: hello world, to out
+myConsole.error(new Error(&apos;Whoops, something bad happened&apos;));
+// Prints: [Error: Whoops, something bad happened], to err
+
+const name = &apos;Will Robinson&apos;;
+myConsole.warn(`Danger ${name}! Danger!`);
+// Prints: Danger Will Robinson! Danger!, to err
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/console/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756298265"><\/script>');
+  </script>
+</body>
+</html>

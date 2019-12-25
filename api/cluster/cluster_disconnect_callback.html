@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>cluster.disconnect([callback]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/cluster/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756297794" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-cluster">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>cluster.disconnect([callback])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../cluster.html#cluster_cluster_disconnect_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/cluster/cluster_disconnect_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.7</span>
+</div><ul>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x5F53;&#x6240;&#x6709;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x90FD;&#x65AD;&#x5F00;&#x8FDE;&#x63A5;&#x5E76;&#x4E14;&#x6240;&#x6709;&#x53E5;&#x67C4;&#x90FD;&#x5173;&#x95ED;&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;&#x3002;</li>
+</ul><p>&#x5728; <code>cluster.workers</code> &#x7684;&#x6BCF;&#x4E2A;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x4E2D;&#x8C03;&#x7528; <code>.disconnect()</code>&#x3002;</p><p>&#x5F53;&#x6240;&#x6709;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x65AD;&#x5F00;&#x8FDE;&#x63A5;&#x540E;&#xFF0C;&#x6240;&#x6709;&#x5185;&#x90E8;&#x53E5;&#x67C4;&#x5C06;&#x4F1A;&#x5173;&#x95ED;&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x7B49;&#x5F85;&#x4E8B;&#x4EF6;&#x7684;&#x8BDD;&#xFF0C;&#x8FD0;&#x884C;&#x4E3B;&#x8FDB;&#x7A0B;&#x4F18;&#x96C5;&#x5730;&#x5173;&#x95ED;&#x3002;</p><p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x53C2;&#x6570;&#xFF0C;&#x5F53;&#x7ED3;&#x675F;&#x65F6;&#x4F1A;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;</p><p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x53EA;&#x80FD;&#x7531;&#x4E3B;&#x8FDB;&#x7A0B;&#x8C03;&#x7528;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.7.7</span>
+</div><ul>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> Called when all workers are disconnected and handles are
+closed.</li>
+</ul><p>Calls <code>.disconnect()</code> on each worker in <code>cluster.workers</code>.</p><p>When they are disconnected all internal handles will be closed, allowing the
+master process to die gracefully if no other event is waiting.</p><p>The method takes an optional callback argument which will be called when
+finished.</p><p>This can only be called from the master process.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/cluster/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756297794"><\/script>');
+  </script>
+</body>
+</html>

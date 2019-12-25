@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>socket.addMembership(multicastAddress[, multicastInterface]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/dgram/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756302435" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-dgram">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>socket.addMembership(multicastAddress[, multicastInterface])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../dgram.html#dgram_socket_addmembership_multicastaddress_multicastinterface" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/socket_addmembership_multicastaddress_multicastinterface.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.6.9</span>
+</div><ul>
+<li><code>multicastAddress</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>multicastInterface</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>&#x901A;&#x77E5;&#x5185;&#x6838;&#x5C06; <code>multicastAddress</code> &#x548C; <code>multicastInterface</code> &#x63D0;&#x4F9B;&#x7684;&#x591A;&#x8DEF;&#x4F20;&#x9001;&#x96C6;&#x5408;&#x901A;&#x8FC7; <code>IP_ADD_MEMBERSHIP</code> &#x8FD9;&#x4E2A; socket &#x9009;&#x9879;&#x7ED3;&#x5408;&#x8D77;&#x6765;&#x3002;
+&#x82E5; <code>multicastInterface</code> &#x53C2;&#x6570;&#x672A;&#x6307;&#x5B9A;&#xFF0C;&#x5219;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5C06;&#x4F1A;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x5E76;&#x5411;&#x5176;&#x6DFB;&#x52A0;&#x6210;&#x5458;&#x3002;
+&#x8981;&#x4E3A;&#x6240;&#x6709;&#x53EF;&#x7528;&#x7684;&#x63A5;&#x53E3;&#x6DFB;&#x52A0;&#x6210;&#x5458;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x6BCF;&#x4E2A;&#x63A5;&#x53E3;&#x4E0A;&#x8C03;&#x7528;&#x4E00;&#x6B21; <code>addMembership</code> &#x65B9;&#x6CD5;&#x3002;</p><p>&#x5F53;&#x591A;&#x4E2A; <code>cluster</code> &#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x4E4B;&#x95F4;&#x5171;&#x4EAB; UDP socket &#x65F6;&#xFF0C;&#x5219; <code>socket.addMembership()</code> &#x51FD;&#x6570;&#x5FC5;&#x987B;&#x53EA;&#x80FD;&#x88AB;&#x8C03;&#x7528;&#x4E00;&#x6B21;&#xFF0C;&#x5426;&#x5219;&#x5C06;&#x4F1A;&#x53D1;&#x751F; <code>EADDRINUSE</code> &#x9519;&#x8BEF;&#xFF1A;</p><pre><code class="language-js">const cluster = require(&apos;cluster&apos;);
+const dgram = require(&apos;dgram&apos;);
+if (cluster.isMaster) {
+  cluster.fork(); // &#x53EF;&#x5DE5;&#x4F5C;&#x3002;
+  cluster.fork(); // &#x5931;&#x8D25;&#x5E76;&#x629B;&#x51FA; EADDRINUSE&#x3002;
+} else {
+  const s = dgram.createSocket(&apos;udp4&apos;);
+  s.bind(1234, () =&gt; {
+    s.addMembership(&apos;224.0.0.114&apos;);
+  });
+}
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.6.9</span>
+</div><ul>
+<li><code>multicastAddress</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>multicastInterface</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>Tells the kernel to join a multicast group at the given <code>multicastAddress</code> and
+<code>multicastInterface</code> using the <code>IP_ADD_MEMBERSHIP</code> socket option. If the
+<code>multicastInterface</code> argument is not specified, the operating system will choose
+one interface and will add membership to it. To add membership to every
+available interface, call <code>addMembership</code> multiple times, once per interface.</p><p>When sharing a UDP socket across multiple <code>cluster</code> workers, the
+<code>socket.addMembership()</code> function must be called only once or an
+<code>EADDRINUSE</code> error will occur:</p><pre><code class="language-js">const cluster = require(&apos;cluster&apos;);
+const dgram = require(&apos;dgram&apos;);
+if (cluster.isMaster) {
+  cluster.fork(); // Works ok.
+  cluster.fork(); // Fails with EADDRINUSE.
+} else {
+  const s = dgram.createSocket(&apos;udp4&apos;);
+  s.bind(1234, () =&gt; {
+    s.addMembership(&apos;224.0.0.114&apos;);
+  });
+}
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/dgram/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756302435"><\/script>');
+  </script>
+</body>
+</html>

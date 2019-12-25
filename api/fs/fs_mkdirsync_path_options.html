@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>fs.mkdirSync(path[, options]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756309954" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>fs.mkdirSync(path[, options])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_fs_mkdirsync_path_options" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/fs_mkdirsync_path_options.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.12.0</td>
+<td><p>The second argument can now be an <code>options</code> object with <code>recursive</code> and <code>mode</code> properties.</p></td></tr>
+<tr><td>v7.6.0</td>
+<td><p>The <code>path</code> parameter can be a WHATWG <code>URL</code> object using <code>file:</code> protocol. Support is currently still <em>experimental</em>.</p></td></tr>
+<tr><td>v0.1.21</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.21</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></p>
+<ul>
+<li><code>recursive</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#x3002;</li>
+<li><code>mode</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> Windows &#x4E0A;&#x4E0D;&#x652F;&#x6301;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>0o777</code>&#x3002;</li>
+</ul>
+</li>
+</ul><p>&#x540C;&#x6B65;&#x5730;&#x521B;&#x5EFA;&#x76EE;&#x5F55;&#x3002;
+&#x8FD4;&#x56DE; <code>undefined</code>&#x3002;
+<a href="http://nodejs.cn/s/Adhmvz" rel="nofollow"><code>fs.mkdir()</code></a> &#x7684;&#x540C;&#x6B65;&#x7248;&#x672C;&#x3002;</p><p>&#x4E5F;&#x53EF;&#x53C2;&#x9605; <a href="http://nodejs.cn/s/ebLzdi" rel="nofollow"><code>mkdir(2)</code></a>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v10.12.0</td>
+<td><p>The second argument can now be an <code>options</code> object with <code>recursive</code> and <code>mode</code> properties.</p></td></tr>
+<tr><td>v7.6.0</td>
+<td><p>The <code>path</code> parameter can be a WHATWG <code>URL</code> object using <code>file:</code> protocol. Support is currently still <em>experimental</em>.</p></td></tr>
+<tr><td>v0.1.21</td>
+<td><p><span>Added in: v0.1.21</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></p>
+<ul>
+<li><code>recursive</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <strong>Default:</strong> <code>false</code></li>
+<li><code>mode</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> Not supported on Windows. <strong>Default:</strong> <code>0o777</code>.</li>
+</ul>
+</li>
+</ul><p>Synchronously creates a directory. Returns <code>undefined</code>.
+This is the synchronous version of <a href="http://nodejs.cn/s/Adhmvz" rel="nofollow"><code>fs.mkdir()</code></a>.</p><p>See also: <a href="http://nodejs.cn/s/ebLzdi" rel="nofollow"><code>mkdir(2)</code></a>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756309954"><\/script>');
+  </script>
+</body>
+</html>

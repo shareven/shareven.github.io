@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>worker.kill([signal='SIGTERM']) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/cluster/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756297760" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-cluster">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>worker.kill([signal='SIGTERM'])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../cluster.html#cluster_worker_kill_signal_sigterm" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/cluster/worker_kill_signal_sigterm.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.12</span>
+</div><ul>
+<li><code>signal</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x53D1;&#x9001;&#x7ED9;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x7684;&#x6740;&#x6B7B;&#x4FE1;&#x53F7;&#x7684;&#x540D;&#x79F0;&#x3002;</li>
+</ul><p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x5C06;&#x4F1A;&#x6740;&#x6B7B;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x3002;
+&#x5728;&#x4E3B;&#x8FDB;&#x7A0B;&#x4E2D;&#xFF0C;&#x901A;&#x8FC7;&#x65AD;&#x5F00;&#x4E0E; <code>worker.process</code> &#x7684;&#x8FDE;&#x63A5;&#x6765;&#x5B9E;&#x73B0;&#xFF0C;&#x4E00;&#x65E6;&#x65AD;&#x5F00;&#x8FDE;&#x63A5;&#x540E;&#xFF0C;&#x901A;&#x8FC7; <code>signal</code> &#x6765;&#x6740;&#x6B7B;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x3002;
+&#x5728;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x4E2D;&#xFF0C;&#x901A;&#x8FC7;&#x65AD;&#x5F00; IPC &#x7BA1;&#x9053;&#x6765;&#x5B9E;&#x73B0;&#xFF0C;&#x7136;&#x540E;&#x4EE5;&#x4EE3;&#x7801; <code>0</code> &#x9000;&#x51FA;&#x8FDB;&#x7A0B;&#x3002;</p><p>&#x56E0;&#x4E3A; <code>kill()</code> &#x4F1A;&#x5C1D;&#x8BD5;&#x6B63;&#x5E38;&#x5730;&#x65AD;&#x5F00;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#xFF0C;&#x6240;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x65E0;&#x9650;&#x671F;&#x5730;&#x7B49;&#x5F85;&#x65AD;&#x5F00;&#x8FDE;&#x63A5;&#x5B8C;&#x6210;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;&#x5982;&#x679C;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x8FDB;&#x5165;&#x65E0;&#x9650;&#x5FAA;&#x73AF;&#xFF0C;&#x5219;&#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;&#x53D1;&#x751F;&#x6B63;&#x5E38;&#x65AD;&#x5F00;&#x8FDE;&#x63A5;&#x3002;
+&#x5982;&#x679C;&#x4E0D;&#x9700;&#x8981;&#x6B63;&#x5E38;&#x7684;&#x65AD;&#x5F00;&#x8FDE;&#x63A5;&#x884C;&#x4E3A;&#xFF0C;&#x8BF7;&#x4F7F;&#x7528; <code>worker.process.kill()</code>&#x3002;</p><p>&#x5C06;&#x5BFC;&#x81F4; <code>.exitedAfterDisconnect</code> &#x88AB;&#x8BBE;&#x7F6E;&#x3002;</p><p>&#x4E3A;&#x5411;&#x540E;&#x517C;&#x5BB9;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E0E; <code>worker.destroy()</code> &#x7B49;&#x4E49;&#x3002;</p><p>&#x5728;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x4E2D;&#xFF0C;&#x4E5F;&#x5B58;&#x5728; <code>process.kill()</code>&#xFF0C;&#x4F46;&#x5B83;&#x4E0D;&#x662F;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x662F; <a href="http://nodejs.cn/s/JtCRxD" rel="nofollow"><code>kill()</code></a>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.9.12</span>
+</div><ul>
+<li><code>signal</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> Name of the kill signal to send to the worker
+process.</li>
+</ul><p>This function will kill the worker. In the master, it does this by disconnecting
+the <code>worker.process</code>, and once disconnected, killing with <code>signal</code>. In the
+worker, it does it by disconnecting the channel, and then exiting with code <code>0</code>.</p><p>Because <code>kill()</code> attempts to gracefully disconnect the worker process, it is
+susceptible to waiting indefinitely for the disconnect to complete. For example,
+if the worker enters an infinite loop, a graceful disconnect will never occur.
+If the graceful disconnect behavior is not needed, use <code>worker.process.kill()</code>.</p><p>Causes <code>.exitedAfterDisconnect</code> to be set.</p><p>This method is aliased as <code>worker.destroy()</code> for backwards compatibility.</p><p>In a worker, <code>process.kill()</code> exists, but it is not this function;
+it is <a href="http://nodejs.cn/s/JtCRxD" rel="nofollow"><code>kill()</code></a>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/cluster/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756297760"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>修改默认的 TLS 加密组件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/tls/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756326163" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-tls">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>修改默认的 TLS 加密组件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../tls.html#tls_modifying_the_default_tls_cipher_suite" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/tls/modifying_the_default_tls_cipher_suite.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>Node.js &#x6784;&#x9020;&#x65F6;&#x5305;&#x542B;&#x4E86;&#x9ED8;&#x8BA4;&#x7684; TLS &#x5F00;&#x542F;&#x548C;&#x5173;&#x95ED;&#x7684;&#x52A0;&#x5BC6;&#x7EC4;&#x4EF6;&#x3002;
+&#x76EE;&#x524D;&#x9ED8;&#x8BA4;&#x7684;&#x52A0;&#x5BC6;&#x7EC4;&#x4EF6;&#x662F;&#xFF1A;</p><pre><code class="language-txt">TLS_AES_256_GCM_SHA384:
+TLS_CHACHA20_POLY1305_SHA256:
+TLS_AES_128_GCM_SHA256:
+ECDHE-RSA-AES128-GCM-SHA256:
+ECDHE-ECDSA-AES128-GCM-SHA256:
+ECDHE-RSA-AES256-GCM-SHA384:
+ECDHE-ECDSA-AES256-GCM-SHA384:
+DHE-RSA-AES128-GCM-SHA256:
+ECDHE-RSA-AES128-SHA256:
+DHE-RSA-AES128-SHA256:
+ECDHE-RSA-AES256-SHA384:
+DHE-RSA-AES256-SHA384:
+ECDHE-RSA-AES256-SHA256:
+DHE-RSA-AES256-SHA256:
+HIGH:
+!aNULL:
+!eNULL:
+!EXPORT:
+!DES:
+!RC4:
+!MD5:
+!PSK:
+!SRP:
+!CAMELLIA
+</code></pre><p>&#x9ED8;&#x8BA4;&#x52A0;&#x5BC6;&#x7EC4;&#x4EF6;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/wBRnsF" rel="nofollow"><code>--tls-cipher-list</code></a> &#x547D;&#x4EE4;&#x8FDB;&#x884C;&#x66FF;&#x6362;&#xFF08;&#x76F4;&#x63A5;&#x6216;&#x901A;&#x8FC7; <a href="http://nodejs.cn/s/WsPs4q" rel="nofollow"><code>NODE_OPTIONS</code></a> &#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF09;&#x3002;
+&#x6BD4;&#x5982;&#xFF0C;&#x751F;&#x6210; <code>ECDHE-RSA-AES128-GCM-SHA256:!RC4</code> &#x7684; TLS &#x52A0;&#x5BC6;&#x7EC4;&#x4EF6;&#xFF1A;</p><pre><code class="language-sh">node --tls-cipher-list=&quot;ECDHE-RSA-AES128-GCM-SHA256:!RC4&quot; server.js
+
+export NODE_OPTIONS=--tls-cipher-list=&quot;ECDHE-RSA-AES128-GCM-SHA256:!RC4&quot;
+node server.js
+</code></pre><p>&#x9ED8;&#x8BA4;&#x7684;&#x52A0;&#x5BC6;&#x7EC4;&#x4EF6;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5BA2;&#x6237;&#x7AEF;&#x6216;&#x8005;&#x670D;&#x52A1;&#x5668;&#x7684; <a href="http://nodejs.cn/s/Di4SrM" rel="nofollow"><code>tls.createSecureContext()</code></a> &#x65B9;&#x6CD5;&#x7684; <code>ciphers</code> &#x9009;&#x9879;&#x6765;&#x8FDB;&#x884C;&#x66FF;&#x6362;&#xFF0C;<a href="http://nodejs.cn/s/igCzp7" rel="nofollow"><code>tls.createServer()</code></a> &#x65B9;&#x6CD5;&#x548C; <a href="http://nodejs.cn/s/4Pd5zB" rel="nofollow"><code>tls.connect()</code></a> &#x65B9;&#x6CD5;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>ciphers</code> &#x9009;&#x9879;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#xFF0C;&#x5F53;&#x7136;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; <a href="http://nodejs.cn/s/dLcPX8" rel="nofollow"><code>tls.TLSSocket</code></a> &#x65F6;&#x8BBE;&#x7F6E;&#x3002;</p><p>&#x5BC6;&#x7801;&#x5217;&#x8868;&#x53EF;&#x4EE5;&#x5305;&#x542B; TLSv1.3 &#x5BC6;&#x7801;&#x5957;&#x4EF6;&#x540D;&#x79F0;&#x7684;&#x6DF7;&#x5408;&#xFF0C;&#x4EE5; <code>&apos;TLS_&apos;</code> &#x5F00;&#x5934;&#x7684;&#x5BC6;&#x7801;&#xFF0C;&#x4EE5;&#x53CA; TLSv1.2 &#x53CA;&#x4EE5;&#x4E0B;&#x5BC6;&#x7801;&#x5957;&#x4EF6;&#x7684;&#x89C4;&#x8303;&#x3002;
+TLSv1.2 &#x5BC6;&#x7801;&#x652F;&#x6301;&#x4F20;&#x7EDF;&#x89C4;&#x8303;&#x683C;&#x5F0F;&#xFF0C;&#x6709;&#x5173;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x53C2;&#x9605; OpenSSL <a href="http://nodejs.cn/s/XcPHdc" rel="nofollow">&#x5BC6;&#x7801;&#x5217;&#x8868;&#x683C;&#x5F0F;</a>&#x6587;&#x6863;&#xFF0C;&#x4F46;&#x8FD9;&#x4E9B;&#x89C4;&#x8303;&#x4E0D;&#x9002;&#x7528;&#x4E8E; TLSv1.3 &#x5BC6;&#x7801;&#x3002;
+&#x53EA;&#x80FD;&#x901A;&#x8FC7;&#x5728;&#x5BC6;&#x7801;&#x5217;&#x8868;&#x4E2D;&#x5305;&#x542B;&#x5176;&#x5168;&#x540D;&#x6765;&#x542F;&#x7528; TLSv1.3 &#x5957;&#x4EF6;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;&#x5B83;&#x4EEC;&#x4E0D;&#x80FD;&#x901A;&#x8FC7;&#x4F7F;&#x7528;&#x4F20;&#x7EDF;&#x7684; TLSv1.2 <code>&apos;EECDH&apos;</code>&#x6216; <code>&apos;!EECDH&apos;</code> &#x89C4;&#x8303;&#x6765;&#x542F;&#x7528;&#x6216;&#x7981;&#x7528;&#x3002;</p><p>&#x5C3D;&#x7BA1; TLSv1.3 &#x548C; TLSv1.2 &#x5BC6;&#x7801;&#x5957;&#x4EF6;&#x7684;&#x76F8;&#x5BF9;&#x987A;&#x5E8F;&#xFF0C;TLSv1.3 &#x534F;&#x8BAE;&#x660E;&#x663E;&#x6BD4; TLSv1.2 &#x66F4;&#x5B89;&#x5168;&#xFF0C;&#x5E76;&#x4E14;&#x5982;&#x679C;&#x63E1;&#x624B;&#x8868;&#x660E;&#x5B83;&#x53D7;&#x652F;&#x6301;&#xFF0C;&#x5E76;&#x4E14;&#x5982;&#x679C;&#x6709;&#x4EFB;&#x4F55; TLSv1.3 &#x5BC6;&#x7801;&#x5957;&#x4EF6;&#x5DF2;&#x542F;&#x7528;&#xFF0C;&#x5C06;&#x59CB;&#x7EC8;&#x9009;&#x62E9; TLSv1.2 &#x4EE5;&#x4E0A;&#x3002;</p><p>Node.js &#x5305;&#x542B;&#x7684;&#x9ED8;&#x8BA4;&#x7684;&#x52A0;&#x5BC6;&#x7EC4;&#x4EF6;&#x662F;&#x7ECF;&#x8FC7;&#x7CBE;&#x5FC3;&#x6311;&#x9009;&#xFF0C;&#x80FD;&#x4F53;&#x73B0;&#x76EE;&#x524D;&#x6700;&#x597D;&#x7684;&#x5B89;&#x5168;&#x5B9E;&#x8DF5;&#x548C;&#x6700;&#x4F4E;&#x98CE;&#x9669;&#x3002;
+&#x6539;&#x53D8;&#x9ED8;&#x8BA4;&#x7684;&#x52A0;&#x5BC6;&#x7EC4;&#x4EF6;&#x53EF;&#x4EE5;&#x5BF9;&#x5E94;&#x7528;&#x7684;&#x5B89;&#x5168;&#x6027;&#x6709;&#x91CD;&#x5927;&#x7684;&#x5F71;&#x54CD;&#x3002;
+<code>--tls-cipher-list</code> &#x5F00;&#x5173;&#x548C; <code>ciphers</code> &#x9009;&#x9879;&#x5E94;&#x8BE5;&#x53EA;&#x5728;&#x5FC5;&#x8981;&#x7684;&#x65F6;&#x5019;&#x4F7F;&#x7528;&#x3002;</p><p>&#x9ED8;&#x8BA4;&#x52A0;&#x5BC6;&#x7EC4;&#x4EF6;&#x503E;&#x5411;&#x4F7F;&#x7528; GCM &#x52A0;&#x5BC6;&#x4F5C;&#x4E3A; <a href="http://nodejs.cn/s/phZkVM" rel="nofollow">Chrome &#x73B0;&#x4EE3;&#x52A0;&#x5BC6;&#x8BBE;&#x7F6E;</a>&#x7684;&#x9009;&#x9879;&#xFF0C;&#x4E5F;&#x503E;&#x5411;&#x4F7F;&#x7528; ECDHE &#x548C; DHE &#x52A0;&#x5BC6;&#x7B97;&#x6CD5;&#x5B9E;&#x73B0;&#x5B8C;&#x7F8E;&#x7684;&#x524D;&#x5411;&#x5B89;&#x5168;&#xFF0C;&#x540C;&#x65F6;&#x5411;&#x540E;&#x517C;&#x5BB9;&#x3002;</p><p>&#x4F9D;&#x636E;<a href="http://nodejs.cn/s/Ai7HeQ" rel="nofollow">&#x7279;&#x6B8A;&#x653B;&#x51FB;&#x5F71;&#x54CD;&#x66F4;&#x5927;&#x4F4D;&#x6570;&#x7684; AES &#x5BC6;&#x94A5;</a>&#xFF0C;128 &#x4F4D;&#x7684; AES &#x5BC6;&#x94A5;&#x4F18;&#x5148;&#x4E8E; 192 &#x4F4D;&#x548C; 256 &#x4F4D;&#x7684; AES &#x5BC6;&#x94A5;&#x3002;</p><p>&#x8001;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x4F9D;&#x8D56;&#x4E0D;&#x5B89;&#x5168;&#x7684; RC4 &#x6216;&#x8005;&#x57FA;&#x4E8E; DES &#x7684;&#x52A0;&#x5BC6;&#xFF08;&#x6BD4;&#x5982; IE6&#xFF09;&#x4E0D;&#x80FD;&#x7528;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x5B8C;&#x6210;&#x63E1;&#x624B;&#x7684;&#x8FC7;&#x7A0B;&#x3002;
+&#x5982;&#x679C;&#x5FC5;&#x987B;&#x652F;&#x6301;&#x8FD9;&#x4E9B;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;<a href="http://nodejs.cn/s/PLgT7T" rel="nofollow">TLS &#x63A8;&#x8350;&#x89C4;&#x8303;</a>&#x4E5F;&#x8BB8;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x517C;&#x5BB9;&#x7684;&#x52A0;&#x5BC6;&#x7EC4;&#x4EF6;&#x3002;
+&#x6B32;&#x77E5;&#x66F4;&#x591A;&#x7684;&#x683C;&#x5F0F;&#x7684;&#x7EC6;&#x8282;&#x8BF7;&#x53C2;&#x9605; OpenSSL <a href="http://nodejs.cn/s/XcPHdc" rel="nofollow">&#x52A0;&#x5BC6;&#x5217;&#x8868;&#x683C;&#x5F0F;</a>&#x6587;&#x6863;&#x3002;</p><p>&#x53EA;&#x6709; 5 &#x79CD; TLSv1.3 &#x5BC6;&#x7801;&#x5957;&#x4EF6;&#xFF1A;</p><ul>
+<li><code>&apos;TLS_AES_256_GCM_SHA384&apos;</code></li>
+<li><code>&apos;TLS_CHACHA20_POLY1305_SHA256&apos;</code></li>
+<li><code>&apos;TLS_AES_128_GCM_SHA256&apos;</code></li>
+<li><code>&apos;TLS_AES_128_CCM_SHA256&apos;</code></li>
+<li><code>&apos;TLS_AES_128_CCM_8_SHA256&apos;</code></li>
+</ul><p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x542F;&#x7528;&#x524D; 3 &#x4E2A;&#x3002;
+TLSv1.3 &#x652F;&#x6301;&#x6700;&#x540E; 2 &#x4E2A;&#x57FA;&#x4E8E; <code>CCM</code> &#x7684;&#x5957;&#x4EF6;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x5728;&#x53D7;&#x7EA6;&#x675F;&#x7684;&#x7CFB;&#x7EDF;&#x4E0A;&#x53EF;&#x80FD;&#x66F4;&#x5177;&#x6027;&#x80FD;&#xFF0C;&#x4F46;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x5B83;&#x4EEC;&#x4E0D;&#x4F1A;&#x542F;&#x7528;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x63D0;&#x4F9B;&#x7684;&#x5B89;&#x5168;&#x6027;&#x8F83;&#x4F4E;&#x3002;</p></div>
+          <div id="content_right"><p>Node.js is built with a default suite of enabled and disabled TLS ciphers.
+Currently, the default cipher suite is:</p><pre><code class="language-txt">TLS_AES_256_GCM_SHA384:
+TLS_CHACHA20_POLY1305_SHA256:
+TLS_AES_128_GCM_SHA256:
+ECDHE-RSA-AES128-GCM-SHA256:
+ECDHE-ECDSA-AES128-GCM-SHA256:
+ECDHE-RSA-AES256-GCM-SHA384:
+ECDHE-ECDSA-AES256-GCM-SHA384:
+DHE-RSA-AES128-GCM-SHA256:
+ECDHE-RSA-AES128-SHA256:
+DHE-RSA-AES128-SHA256:
+ECDHE-RSA-AES256-SHA384:
+DHE-RSA-AES256-SHA384:
+ECDHE-RSA-AES256-SHA256:
+DHE-RSA-AES256-SHA256:
+HIGH:
+!aNULL:
+!eNULL:
+!EXPORT:
+!DES:
+!RC4:
+!MD5:
+!PSK:
+!SRP:
+!CAMELLIA
+</code></pre><p>This default can be replaced entirely using the <a href="http://nodejs.cn/s/wBRnsF" rel="nofollow"><code>--tls-cipher-list</code></a> command
+line switch (directly, or via the <a href="http://nodejs.cn/s/WsPs4q" rel="nofollow"><code>NODE_OPTIONS</code></a> environment variable). For
+instance, the following makes <code>ECDHE-RSA-AES128-GCM-SHA256:!RC4</code> the default TLS
+cipher suite:</p><pre><code class="language-sh">node --tls-cipher-list=&quot;ECDHE-RSA-AES128-GCM-SHA256:!RC4&quot; server.js
+
+export NODE_OPTIONS=--tls-cipher-list=&quot;ECDHE-RSA-AES128-GCM-SHA256:!RC4&quot;
+node server.js
+</code></pre><p>The default can also be replaced on a per client or server basis using the
+<code>ciphers</code> option from <a href="http://nodejs.cn/s/Di4SrM" rel="nofollow"><code>tls.createSecureContext()</code></a>, which is also available
+in <a href="http://nodejs.cn/s/igCzp7" rel="nofollow"><code>tls.createServer()</code></a>, <a href="http://nodejs.cn/s/4Pd5zB" rel="nofollow"><code>tls.connect()</code></a>, and when creating new
+<a href="http://nodejs.cn/s/dLcPX8" rel="nofollow"><code>tls.TLSSocket</code></a>s.</p><p>The ciphers list can contain a mixture of TLSv1.3 cipher suite names, the ones
+that start with <code>&apos;TLS_&apos;</code>, and specifications for TLSv1.2 and below cipher
+suites.  The TLSv1.2 ciphers support a legacy specification format, consult
+the OpenSSL <a href="http://nodejs.cn/s/XcPHdc" rel="nofollow">cipher list format</a> documentation for details, but those
+specifications do <em>not</em> apply to TLSv1.3 ciphers.  The TLSv1.3 suites can only
+be enabled by including their full name in the cipher list. They cannot, for
+example, be enabled or disabled by using the legacy TLSv1.2 <code>&apos;EECDH&apos;</code> or
+<code>&apos;!EECDH&apos;</code> specification.</p><p>Despite the relative order of TLSv1.3 and TLSv1.2 cipher suites, the TLSv1.3
+protocol is significantly more secure than TLSv1.2, and will always be chosen
+over TLSv1.2 if the handshake indicates it is supported, and if any TLSv1.3
+cipher suites are enabled.</p><p>The default cipher suite included within Node.js has been carefully
+selected to reflect current security best practices and risk mitigation.
+Changing the default cipher suite can have a significant impact on the security
+of an application. The <code>--tls-cipher-list</code> switch and <code>ciphers</code> option should by
+used only if absolutely necessary.</p><p>The default cipher suite prefers GCM ciphers for <a href="http://nodejs.cn/s/phZkVM" rel="nofollow">Chrome&apos;s &apos;modern
+cryptography&apos; setting</a> and also prefers ECDHE and DHE ciphers for Perfect
+Forward Secrecy, while offering <em>some</em> backward compatibility.</p><p>128 bit AES is preferred over 192 and 256 bit AES in light of <a href="http://nodejs.cn/s/Ai7HeQ" rel="nofollow">specific
+attacks affecting larger AES key sizes</a>.</p><p>Old clients that rely on insecure and deprecated RC4 or DES-based ciphers
+(like Internet Explorer 6) cannot complete the handshaking process with
+the default configuration. If these clients <em>must</em> be supported, the
+<a href="http://nodejs.cn/s/PLgT7T" rel="nofollow">TLS recommendations</a> may offer a compatible cipher suite. For more details
+on the format, see the OpenSSL <a href="http://nodejs.cn/s/XcPHdc" rel="nofollow">cipher list format</a> documentation.</p><p>There are only 5 TLSv1.3 cipher suites:</p><ul>
+<li><code>&apos;TLS_AES_256_GCM_SHA384&apos;</code></li>
+<li><code>&apos;TLS_CHACHA20_POLY1305_SHA256&apos;</code></li>
+<li><code>&apos;TLS_AES_128_GCM_SHA256&apos;</code></li>
+<li><code>&apos;TLS_AES_128_CCM_SHA256&apos;</code></li>
+<li><code>&apos;TLS_AES_128_CCM_8_SHA256&apos;</code></li>
+</ul><p>The first 3 are enabled by default. The last 2 <code>CCM</code>-based suites are supported
+by TLSv1.3 because they may be more performant on constrained systems, but they
+are not enabled by default since they offer less security.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/tls/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756326163"><\/script>');
+  </script>
+</body>
+</html>

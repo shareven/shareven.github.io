@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>require.resolve(request[, options]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/modules/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756316027" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-modules">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>require.resolve(request[, options])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../modules.html#modules_require_resolve_request_options" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/modules/require_resolve_request_options.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v8.9.0</td>
+<td><p>The <code>paths</code> option is now supported.</p></td></tr>
+<tr><td>v0.3.0</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.3.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>request</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x9700;&#x8981;&#x89E3;&#x6790;&#x7684;&#x6A21;&#x5757;&#x8DEF;&#x5F84;&#x3002;</li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>paths</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string[]&gt;</a> &#x4ECE;&#x4E2D;&#x89E3;&#x6790;&#x6A21;&#x5757;&#x4F4D;&#x7F6E;&#x7684;&#x8DEF;&#x5F84;&#x3002; 
+&#x5982;&#x679C;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x8DEF;&#x5F84;&#x800C;&#x4E0D;&#x662F;&#x9ED8;&#x8BA4;&#x7684;&#x89E3;&#x6790;&#x8DEF;&#x5F84;&#xFF0C;&#x4F46; <a href="http://nodejs.cn/s/VZY1cn" rel="nofollow">GLOBAL_FOLDERS</a> &#x9664;&#x5916;&#xFF0C;&#x4F8B;&#x5982; <code>$HOME/.node_modules</code>&#xFF0C;&#x5B83;&#x4EEC;&#x603B;&#x662F;&#x5305;&#x542B;&#x5728;&#x5185;&#x3002;
+&#x8FD9;&#x4E9B;&#x8DEF;&#x5F84;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x90FD;&#x7528;&#x4F5C;&#x6A21;&#x5757;&#x89E3;&#x6790;&#x7B97;&#x6CD5;&#x7684;&#x8D77;&#x70B9;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x4ECE;&#x8BE5;&#x4F4D;&#x7F6E;&#x5F00;&#x59CB;&#x68C0;&#x67E5; <code>node_modules</code> &#x5C42;&#x6B21;&#x7ED3;&#x6784;&#x3002;</li>
+</ul>
+</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>&#x4F7F;&#x7528;&#x5185;&#x90E8;&#x7684; <code>require()</code> &#x673A;&#x5236;&#x67E5;&#x8BE2;&#x6A21;&#x5757;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x6B64;&#x64CD;&#x4F5C;&#x53EA;&#x8FD4;&#x56DE;&#x89E3;&#x6790;&#x540E;&#x7684;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x4E0D;&#x4F1A;&#x52A0;&#x8F7D;&#x8BE5;&#x6A21;&#x5757;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v8.9.0</td>
+<td><p>The <code>paths</code> option is now supported.</p></td></tr>
+<tr><td>v0.3.0</td>
+<td><p><span>Added in: v0.3.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>request</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> The module path to resolve.</li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>paths</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string[]&gt;</a> Paths to resolve module location from. If present, these
+paths are used instead of the default resolution paths, with the exception
+of <a href="http://nodejs.cn/s/VZY1cn" rel="nofollow">GLOBAL_FOLDERS</a> like <code>$HOME/.node_modules</code>, which are always
+included. Each of these paths is used as a starting point for
+the module resolution algorithm, meaning that the <code>node_modules</code> hierarchy
+is checked from this location.</li>
+</ul>
+</li>
+<li>Returns: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>Use the internal <code>require()</code> machinery to look up the location of a module,
+but rather than loading the module, just return the resolved filename.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/modules/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756316027"><\/script>');
+  </script>
+</body>
+</html>

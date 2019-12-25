@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>filehandle.write(string[, position[, encoding]]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756310281" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>filehandle.write(string[, position[, encoding]])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_filehandle_write_string_position_encoding" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/filehandle_write_string_position_encoding.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.0.0</span>
+</div><ul>
+<li><code>string</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>position</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;utf8&apos;</code>&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/ri1kj8" target="_blank" rel="nofollow" class="type">&lt;Promise&gt;</a></li>
+</ul><p>&#x5C06; <code>string</code> &#x5199;&#x5165;&#x5230;&#x6587;&#x4EF6;&#x3002;
+&#x5982;&#x679C; <code>string</code> &#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x8BE5;&#x503C;&#x4F1A;&#x88AB;&#x5F3A;&#x5236;&#x8F6C;&#x6362;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p><p><code>Promise</code> &#x4F1A;&#x88AB;&#x89E3;&#x51B3;&#x5E76;&#x5E26;&#x4E0A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5BF9;&#x8C61;&#x5305;&#x542B;&#x4E00;&#x4E2A; <code>bytesWritten</code> &#x5C5E;&#x6027;&#xFF08;&#x6307;&#x5B9A;&#x5199;&#x5165;&#x7684;&#x5B57;&#x8282;&#x6570;&#xFF09;&#x548C;&#x4E00;&#x4E2A; <code>buffer</code> &#x5C5E;&#x6027;&#xFF08;&#x6307;&#x5411;&#x5199;&#x5165;&#x7684; <code>string</code>&#xFF09;&#x3002;</p><p><code>position</code> &#x6307;&#x5B9A;&#x6587;&#x4EF6;&#x5F00;&#x5934;&#x7684;&#x504F;&#x79FB;&#x91CF;&#xFF08;&#x6570;&#x636E;&#x5E94;&#x8BE5;&#x88AB;&#x5199;&#x5165;&#x7684;&#x4F4D;&#x7F6E;&#xFF09;&#x3002;
+&#x5982;&#x679C; <code>position</code> &#x7684;&#x7C7B;&#x578B;&#x4E0D;&#x662F;&#x4E00;&#x4E2A; <code>number</code>&#xFF0C;&#x5219;&#x6570;&#x636E;&#x4F1A;&#x88AB;&#x5199;&#x5165;&#x5F53;&#x524D;&#x7684;&#x4F4D;&#x7F6E;&#x3002;
+&#x53C2;&#x9605; <a href="http://nodejs.cn/s/2qJ9AM" rel="nofollow"><code>pwrite(2)</code></a>&#x3002;</p><p><code>encoding</code> &#x662F;&#x671F;&#x671B;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x7F16;&#x7801;&#x3002;</p><p>&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4E0A;&#x591A;&#x6B21;&#x4F7F;&#x7528; <code>filehandle.write()</code> &#x4E14;&#x4E0D;&#x7B49;&#x5F85; <code>Promise</code> &#x88AB;&#x89E3;&#x51B3;&#xFF08;&#x6216;&#x88AB;&#x62D2;&#x7EDD;&#xFF09;&#x662F;&#x4E0D;&#x5B89;&#x5168;&#x7684;&#x3002;
+&#x5BF9;&#x4E8E;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/VdSJQa" rel="nofollow"><code>fs.createWriteStream()</code></a>&#x3002;</p><p>&#x5728; Linux &#x4E0A;&#xFF0C;&#x5F53;&#x4EE5;&#x8FFD;&#x52A0;&#x6A21;&#x5F0F;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x65F6;&#xFF0C;&#x5199;&#x5165;&#x65E0;&#x6CD5;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x3002;
+&#x5185;&#x6838;&#x4F1A;&#x5FFD;&#x7565;&#x4F4D;&#x7F6E;&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x59CB;&#x7EC8;&#x5C06;&#x6570;&#x636E;&#x8FFD;&#x52A0;&#x5230;&#x6587;&#x4EF6;&#x7684;&#x672B;&#x5C3E;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v10.0.0</span>
+</div><ul>
+<li><code>string</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>position</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> <strong>Default:</strong> <code>&apos;utf8&apos;</code></li>
+<li>Returns: <a href="http://nodejs.cn/s/ri1kj8" target="_blank" rel="nofollow" class="type">&lt;Promise&gt;</a></li>
+</ul><p>Write <code>string</code> to the file. If <code>string</code> is not a string, then
+the value will be coerced to one.</p><p>The <code>Promise</code> is resolved with an object containing a <code>bytesWritten</code> property
+identifying the number of bytes written, and a <code>buffer</code> property containing
+a reference to the <code>string</code> written.</p><p><code>position</code> refers to the offset from the beginning of the file where this data
+should be written. If the type of <code>position</code> is not a <code>number</code> the data
+will be written at the current position. See <a href="http://nodejs.cn/s/2qJ9AM" rel="nofollow"><code>pwrite(2)</code></a>.</p><p><code>encoding</code> is the expected string encoding.</p><p>It is unsafe to use <code>filehandle.write()</code> multiple times on the same file
+without waiting for the <code>Promise</code> to be resolved (or rejected). For this
+scenario, use <a href="http://nodejs.cn/s/VdSJQa" rel="nofollow"><code>fs.createWriteStream()</code></a>.</p><p>On Linux, positional writes do not work when the file is opened in append mode.
+The kernel ignores the position argument and always appends the data to
+the end of the file.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756310281"><\/script>');
+  </script>
+</body>
+</html>

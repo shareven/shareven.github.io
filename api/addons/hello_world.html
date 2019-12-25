@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Hello world | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/addons/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756291581" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-addons">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>Hello world</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../addons.html#addons_hello_world" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/addons/hello_world.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x201C;Hello World&#x201D; &#x793A;&#x4F8B;&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x63D2;&#x4EF6;&#xFF0C;&#x7528; C++ &#x7F16;&#x5199;&#xFF0C;&#x76F8;&#x5F53;&#x4E8E;&#x4EE5;&#x4E0B; JavaScript &#x4EE3;&#x7801;&#xFF1A;</p><pre><code class="language-js">module.exports.hello = () =&gt; &apos;world&apos;;
+</code></pre><p>&#x9996;&#x5148;&#xFF0C;&#x521B;&#x5EFA; <code>hello.cc</code> &#x6587;&#x4EF6;&#xFF1A;</p><pre><code class="language-cpp">// hello.cc
+#include &lt;node.h&gt;
+
+namespace demo {
+
+using v8::FunctionCallbackInfo;
+using v8::Isolate;
+using v8::Local;
+using v8::NewStringType;
+using v8::Object;
+using v8::String;
+using v8::Value;
+
+void Method(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+  args.GetReturnValue().Set(String::NewFromUtf8(
+      isolate, &quot;world&quot;, NewStringType::kNormal).ToLocalChecked());
+}
+
+void Initialize(Local&lt;Object&gt; exports) {
+  NODE_SET_METHOD(exports, &quot;hello&quot;, Method);
+}
+
+NODE_MODULE(NODE_GYP_MODULE_NAME, Initialize)
+
+}  // &#x547D;&#x540D;&#x7A7A;&#x95F4;&#x793A;&#x4F8B;
+</code></pre><p>&#x6CE8;&#x610F;&#xFF0C;&#x6240;&#x6709;&#x7684; Node.js &#x63D2;&#x4EF6;&#x5FC5;&#x987B;&#x5BFC;&#x51FA;&#x4E00;&#x4E2A;&#x5982;&#x4E0B;&#x6A21;&#x5F0F;&#x7684;&#x521D;&#x59CB;&#x5316;&#x51FD;&#x6570;&#xFF1A;</p><pre><code class="language-cpp">void Initialize(Local&lt;Object&gt; exports);
+NODE_MODULE(NODE_GYP_MODULE_NAME, Initialize)
+</code></pre><p><code>NODE_MODULE</code> &#x540E;&#x9762;&#x6CA1;&#x6709;&#x5206;&#x53F7;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF08;&#x8BE6;&#x89C1; <code>node.h</code>&#xFF09;&#x3002;</p><p><code>module_name</code> &#x5FC5;&#x987B;&#x5339;&#x914D;&#x6700;&#x7EC8;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x540D;&#xFF08;&#x4E0D;&#x5305;&#x62EC; <code>.node</code> &#x540E;&#x7F00;&#xFF09;&#x3002;</p><p>&#x5728; <code>hello.cc</code> &#x793A;&#x4F8B;&#x4E2D;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x51FD;&#x6570;&#x662F; <code>Initialize</code>&#xFF0C;&#x63D2;&#x4EF6;&#x6A21;&#x5757;&#x540D;&#x662F; <code>addon</code>&#x3002;</p><p>&#x4F7F;&#x7528; <code>node-gyp</code> &#x6784;&#x5EFA;&#x63D2;&#x4EF6;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;&#x5B8F; <code>NODE_GYP_MODULE_NAME</code> &#x4F5C;&#x4E3A; <code>NODE_MODULE()</code> &#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5C06;&#x786E;&#x4FDD;&#x4F1A;&#x5C06;&#x6700;&#x7EC8;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x79F0;&#x4F20;&#x7ED9; <code>NODE_MODULE()</code>&#x3002;</p></div>
+          <div id="content_right"><p>This &quot;Hello world&quot; example is a simple Addon, written in C++, that is the
+equivalent of the following JavaScript code:</p><pre><code class="language-js">module.exports.hello = () =&gt; &apos;world&apos;;
+</code></pre><p>First, create the file <code>hello.cc</code>:</p><pre><code class="language-cpp">// hello.cc
+#include &lt;node.h&gt;
+
+namespace demo {
+
+using v8::FunctionCallbackInfo;
+using v8::Isolate;
+using v8::Local;
+using v8::NewStringType;
+using v8::Object;
+using v8::String;
+using v8::Value;
+
+void Method(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+  args.GetReturnValue().Set(String::NewFromUtf8(
+      isolate, &quot;world&quot;, NewStringType::kNormal).ToLocalChecked());
+}
+
+void Initialize(Local&lt;Object&gt; exports) {
+  NODE_SET_METHOD(exports, &quot;hello&quot;, Method);
+}
+
+NODE_MODULE(NODE_GYP_MODULE_NAME, Initialize)
+
+}  // namespace demo
+</code></pre><p>All Node.js Addons must export an initialization function following
+the pattern:</p><pre><code class="language-cpp">void Initialize(Local&lt;Object&gt; exports);
+NODE_MODULE(NODE_GYP_MODULE_NAME, Initialize)
+</code></pre><p>There is no semi-colon after <code>NODE_MODULE</code> as it&apos;s not a function (see
+<code>node.h</code>).</p><p>The <code>module_name</code> must match the filename of the final binary (excluding
+the <code>.node</code> suffix).</p><p>In the <code>hello.cc</code> example, then, the initialization function is <code>Initialize</code>
+and the addon module name is <code>addon</code>.</p><p>When building addons with <code>node-gyp</code>, using the macro <code>NODE_GYP_MODULE_NAME</code> as
+the first parameter of <code>NODE_MODULE()</code> will ensure that the name of the final
+binary will be passed to <code>NODE_MODULE()</code>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/addons/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756291581"><\/script>');
+  </script>
+</body>
+</html>

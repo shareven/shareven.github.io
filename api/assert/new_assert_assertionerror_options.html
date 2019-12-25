@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>new assert.AssertionError(options) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/assert/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756292520" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-assert">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>new assert.AssertionError(options)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../assert.html#assert_new_assert_assertionerror_options" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/assert/new_assert_assertionerror_options.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.21</span>
+</div><ul>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>message</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5982;&#x679C;&#x63D0;&#x4F9B;&#xFF0C;&#x5219;&#x5C06;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x8BBE;&#x7F6E;&#x4E3A;&#x6B64;&#x503C;&#x3002;</li>
+<li><code>actual</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> &#x9519;&#x8BEF;&#x5B9E;&#x4F8B;&#x4E0A;&#x7684; <code>actual</code> &#x5C5E;&#x6027;&#x5C06;&#x5305;&#x542B;&#x6B64;&#x503C;&#x3002;</li>
+<li><code>expected</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> &#x9519;&#x8BEF;&#x5B9E;&#x4F8B;&#x4E0A;&#x7684; <code>expected</code> &#x5C5E;&#x6027;&#x5C06;&#x5305;&#x542B;&#x6B64;&#x503C;&#x3002;</li>
+<li><code>operator</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x9519;&#x8BEF;&#x5B9E;&#x4F8B;&#x4E0A;&#x7684; <code>operator</code> &#x5C5E;&#x6027;&#x5C06;&#x5305;&#x542B;&#x6B64;&#x503C;&#x3002;</li>
+<li><code>stackStartFn</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x5982;&#x679C;&#x63D0;&#x4F9B;&#xFF0C;&#x5219;&#x751F;&#x6210;&#x7684;&#x5806;&#x6808;&#x8DDF;&#x8E2A;&#x5C06;&#x79FB;&#x9664;&#x6240;&#x6709;&#x5E27;&#x76F4;&#x5230;&#x63D0;&#x4F9B;&#x7684;&#x51FD;&#x6570;&#x3002;</li>
+</ul>
+</li>
+</ul><p><code>Error</code> &#x7684;&#x5B50;&#x7C7B;&#xFF0C;&#x8868;&#x660E;&#x65AD;&#x8A00;&#x7684;&#x5931;&#x8D25;&#x3002;</p><p>&#x6240;&#x6709;&#x5B9E;&#x4F8B;&#x90FD;&#x5305;&#x542B;&#x5185;&#x7F6E;&#x7684; <code>Error</code> &#x5C5E;&#x6027;&#xFF08;<code>message</code> &#x548C; <code>name</code>&#xFF09;&#x4EE5;&#x53CA;&#xFF1A;</p><ul>
+<li><code>actual</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> &#x8BBE;&#x7F6E;&#x65B9;&#x6CD5;&#x7684; <code>actual</code> &#x53C2;&#x6570;&#xFF0C;&#x4F8B;&#x5982; <a href="http://nodejs.cn/s/bjx9Nb" rel="nofollow"><code>assert.strictEqual()</code></a>&#x3002;</li>
+<li><code>expected</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> &#x8BBE;&#x7F6E;&#x65B9;&#x6CD5;&#x7684; <code>expected</code> &#x53C2;&#x6570;&#xFF0C;&#x4F8B;&#x5982; <a href="http://nodejs.cn/s/bjx9Nb" rel="nofollow"><code>assert.strictEqual()</code></a>&#x3002;</li>
+<li><code>generatedMessage</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x8868;&#x660E;&#x6D88;&#x606F;&#x662F;&#x5426;&#x662F;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#x3002;</li>
+<li><code>code</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x59CB;&#x7EC8;&#x8BBE;&#x7F6E;&#x4E3A;&#x5B57;&#x7B26;&#x4E32; <code>ERR_ASSERTION</code> &#x4EE5;&#x8868;&#x660E;&#x9519;&#x8BEF;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x65AD;&#x8A00;&#x9519;&#x8BEF;&#x3002;</li>
+<li><code>operator</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x8BBE;&#x7F6E;&#x4E3A;&#x4F20;&#x5165;&#x7684;&#x8FD0;&#x7B97;&#x7B26;&#x503C;&#x3002;</li>
+</ul><pre><code class="language-js">const assert = require(&apos;assert&apos;);
+
+// &#x751F;&#x6210; AssertionError &#x4EE5;&#x4FBF;&#x7A0D;&#x540E;&#x6BD4;&#x8F83;&#x9519;&#x8BEF;&#x7684;&#x6D88;&#x606F;&#xFF1A;
+const { message } = new assert.AssertionError({
+  actual: 1,
+  expected: 2,
+  operator: &apos;strictEqual&apos;
+});
+
+// &#x9A8C;&#x8BC1;&#x9519;&#x8BEF;&#x7684;&#x8F93;&#x51FA;&#xFF1A;
+try {
+  assert.strictEqual(1, 2);
+} catch (err) {
+  assert(err instanceof assert.AssertionError);
+  assert.strictEqual(err.message, message);
+  assert.strictEqual(err.name, &apos;AssertionError&apos;);
+  assert.strictEqual(err.actual, 1);
+  assert.strictEqual(err.expected, 2);
+  assert.strictEqual(err.code, &apos;ERR_ASSERTION&apos;);
+  assert.strictEqual(err.operator, &apos;strictEqual&apos;);
+  assert.strictEqual(err.generatedMessage, true);
+}
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.21</span>
+</div><ul>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>message</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> If provided, the error message is set to this value.</li>
+<li><code>actual</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> The <code>actual</code> property on the error instance.</li>
+<li><code>expected</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> The <code>expected</code> property on the error instance.</li>
+<li><code>operator</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> The <code>operator</code> property on the error instance.</li>
+<li><code>stackStartFn</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> If provided, the generated stack trace omits
+frames before this function.</li>
+</ul>
+</li>
+</ul><p>A subclass of <code>Error</code> that indicates the failure of an assertion.</p><p>All instances contain the built-in <code>Error</code> properties (<code>message</code> and <code>name</code>)
+and:</p><ul>
+<li><code>actual</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> Set to the <code>actual</code> argument for methods such as
+<a href="http://nodejs.cn/s/bjx9Nb" rel="nofollow"><code>assert.strictEqual()</code></a>.</li>
+<li><code>expected</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> Set to the <code>expected</code> value for methods such as
+<a href="http://nodejs.cn/s/bjx9Nb" rel="nofollow"><code>assert.strictEqual()</code></a>.</li>
+<li><code>generatedMessage</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> Indicates if the message was auto-generated
+(<code>true</code>) or not.</li>
+<li><code>code</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> Value is always <code>ERR_ASSERTION</code> to show that the error is an
+assertion error.</li>
+<li><code>operator</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> Set to the passed in operator value.</li>
+</ul><pre><code class="language-js">const assert = require(&apos;assert&apos;);
+
+// Generate an AssertionError to compare the error message later:
+const { message } = new assert.AssertionError({
+  actual: 1,
+  expected: 2,
+  operator: &apos;strictEqual&apos;
+});
+
+// Verify error output:
+try {
+  assert.strictEqual(1, 2);
+} catch (err) {
+  assert(err instanceof assert.AssertionError);
+  assert.strictEqual(err.message, message);
+  assert.strictEqual(err.name, &apos;AssertionError&apos;);
+  assert.strictEqual(err.actual, 1);
+  assert.strictEqual(err.expected, 2);
+  assert.strictEqual(err.code, &apos;ERR_ASSERTION&apos;);
+  assert.strictEqual(err.operator, &apos;strictEqual&apos;);
+  assert.strictEqual(err.generatedMessage, true);
+}
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/assert/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756292520"><\/script>');
+  </script>
+</body>
+</html>

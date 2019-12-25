@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Buffer.allocUnsafe(size) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756294542" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-buffer">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>Buffer.allocUnsafe(size)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../buffer.html#buffer_class_method_buffer_allocunsafe_size" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/buffer/class_method_buffer_allocunsafe_size.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v7.0.0</td>
+<td><p>Passing a negative <code>size</code> will now throw an error.</p></td></tr>
+<tr><td>v5.10.0</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v5.10.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>size</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x65B0;&#x5EFA;&#x7684; <code>Buffer</code> &#x7684;&#x957F;&#x5EA6;&#x3002;</li>
+</ul><p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5927;&#x5C0F;&#x4E3A; <code>size</code> &#x5B57;&#x8282;&#x7684;&#x65B0; <code>Buffer</code>&#x3002;
+&#x5982;&#x679C; <code>size</code> &#x5927;&#x4E8E; <a href="http://nodejs.cn/s/aBiAe5" rel="nofollow"><code>buffer.constants.MAX_LENGTH</code></a> &#x6216;&#x5C0F;&#x4E8E; 0&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="http://nodejs.cn/s/ouMFyk" rel="nofollow"><code>ERR_INVALID_OPT_VALUE</code></a>&#x3002;
+&#x5982;&#x679C; <code>size</code> &#x4E3A; 0&#xFF0C;&#x5219;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x4E3A;&#x96F6;&#x7684; <code>Buffer</code>&#x3002;</p><p>&#x4EE5;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x521B;&#x5EFA;&#x7684; <code>Buffer</code> &#x5B9E;&#x4F8B;&#x7684;&#x5E95;&#x5C42;&#x5185;&#x5B58;&#x662F;&#x672A;&#x521D;&#x59CB;&#x5316;&#x7684;&#x3002;
+&#x65B0;&#x521B;&#x5EFA;&#x7684; <code>Buffer</code> &#x7684;&#x5185;&#x5BB9;&#x662F;&#x672A;&#x77E5;&#x7684;&#xFF0C;&#x53EF;&#x80FD;&#x5305;&#x542B;&#x654F;&#x611F;&#x6570;&#x636E;&#x3002;
+&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/Du96og" rel="nofollow"><code>Buffer.alloc()</code></a> &#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x4EE5;&#x96F6;&#x521D;&#x59CB;&#x5316;&#x7684; <code>Buffer</code> &#x5B9E;&#x4F8B;&#x3002;</p><pre><code class="language-js">const buf = Buffer.allocUnsafe(10);
+
+console.log(buf);
+// &#x6253;&#x5370;&#xFF08;&#x5185;&#x5BB9;&#x53EF;&#x80FD;&#x6709;&#x6240;&#x4E0D;&#x540C;&#xFF09;: &lt;Buffer a0 8b 28 3f 01 00 00 00 50 32&gt;
+
+buf.fill(0);
+
+console.log(buf);
+// &#x6253;&#x5370;: &lt;Buffer 00 00 00 00 00 00 00 00 00 00&gt;
+</code></pre><p>&#x5982;&#x679C; <code>size</code> &#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#xFF0C;&#x5219;&#x629B;&#x51FA; <code>TypeError</code>&#x3002;</p><p><code>Buffer</code> &#x6A21;&#x5757;&#x4F1A;&#x9884;&#x5206;&#x914D;&#x4E00;&#x4E2A;&#x5185;&#x90E8;&#x7684;&#x5927;&#x5C0F;&#x4E3A; <a href="http://nodejs.cn/s/dZo4K3" rel="nofollow"><code>Buffer.poolSize</code></a> &#x7684; <code>Buffer</code> &#x5B9E;&#x4F8B;&#xFF0C;&#x4F5C;&#x4E3A;&#x5FEB;&#x901F;&#x5206;&#x914D;&#x7684;&#x5185;&#x5B58;&#x6C60;&#xFF0C;&#x7528;&#x4E8E;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/TWpeWk" rel="nofollow"><code>Buffer.allocUnsafe()</code></a> &#x521B;&#x5EFA;&#x65B0;&#x7684; <code>Buffer</code> &#x5B9E;&#x4F8B;&#x3001;&#x6216;&#x5E9F;&#x5F03;&#x7684; <code>new Buffer(size)</code> &#x6784;&#x9020;&#x5668;&#x4F46;&#x4EC5;&#x5F53; <code>size</code> &#x5C0F;&#x4E8E;&#x6216;&#x7B49;&#x4E8E; <code>Buffer.poolSize &gt;&gt; 1</code>&#xFF08;<a href="http://nodejs.cn/s/dZo4K3" rel="nofollow"><code>Buffer.poolSize</code></a> &#x9664;&#x4EE5;&#x4E8C;&#x518D;&#x5411;&#x4E0B;&#x53D6;&#x6574;&#xFF09;&#x3002;</p><p>&#x5BF9;&#x8FD9;&#x4E2A;&#x9884;&#x5206;&#x914D;&#x7684;&#x5185;&#x90E8;&#x5185;&#x5B58;&#x6C60;&#x7684;&#x4F7F;&#x7528;&#x662F;&#x8C03;&#x7528; <code>Buffer.alloc(size, fill)</code> &#x548C; <code>Buffer.allocUnsafe(size).fill(fill)</code> &#x4E24;&#x8005;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x952E;&#x533A;&#x522B;&#x3002;
+&#x5177;&#x4F53;&#x6765;&#x8BF4;&#xFF0C; <code>Buffer.alloc(size, fill)</code> &#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;&#x4F7F;&#x7528;&#x5185;&#x90E8;&#x7684; <code>Buffer</code> &#x6C60;&#xFF0C;&#x800C; <code>Buffer.allocUnsafe(size).fill(fill)</code> &#x5728; <code>size</code> &#x5C0F;&#x4E8E;&#x6216;&#x7B49;&#x4E8E; <a href="http://nodejs.cn/s/dZo4K3" rel="nofollow"><code>Buffer.poolSize</code></a> &#x7684;&#x4E00;&#x534A;&#x65F6;&#x5C06;&#x4F1A;&#x4F7F;&#x7528;&#x5185;&#x90E8;&#x7684; <code>Buffer</code>&#x6C60;&#x3002;
+&#x8BE5;&#x5DEE;&#x5F02;&#x867D;&#x7136;&#x5F88;&#x5FAE;&#x5999;&#xFF0C;&#x4F46;&#x5F53;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x9700;&#x8981; <a href="http://nodejs.cn/s/TWpeWk" rel="nofollow"><code>Buffer.allocUnsafe()</code></a> &#x63D0;&#x4F9B;&#x7684;&#x989D;&#x5916;&#x6027;&#x80FD;&#x65F6;&#xFF0C;&#x5219;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v7.0.0</td>
+<td><p>Passing a negative <code>size</code> will now throw an error.</p></td></tr>
+<tr><td>v5.10.0</td>
+<td><p><span>Added in: v5.10.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>size</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> The desired length of the new <code>Buffer</code>.</li>
+</ul><p>Allocates a new <code>Buffer</code> of <code>size</code> bytes. If <code>size</code> is larger than
+<a href="http://nodejs.cn/s/aBiAe5" rel="nofollow"><code>buffer.constants.MAX_LENGTH</code></a> or smaller than 0, <a href="http://nodejs.cn/s/ouMFyk" rel="nofollow"><code>ERR_INVALID_OPT_VALUE</code></a>
+is thrown. A zero-length <code>Buffer</code> is created if <code>size</code> is 0.</p><p>The underlying memory for <code>Buffer</code> instances created in this way is <em>not
+initialized</em>. The contents of the newly created <code>Buffer</code> are unknown and
+<em>may contain sensitive data</em>. Use <a href="http://nodejs.cn/s/Du96og" rel="nofollow"><code>Buffer.alloc()</code></a> instead to initialize
+<code>Buffer</code> instances with zeroes.</p><pre><code class="language-js">const buf = Buffer.allocUnsafe(10);
+
+console.log(buf);
+// Prints (contents may vary): &lt;Buffer a0 8b 28 3f 01 00 00 00 50 32&gt;
+
+buf.fill(0);
+
+console.log(buf);
+// Prints: &lt;Buffer 00 00 00 00 00 00 00 00 00 00&gt;
+</code></pre><p>A <code>TypeError</code> will be thrown if <code>size</code> is not a number.</p><p>The <code>Buffer</code> module pre-allocates an internal <code>Buffer</code> instance of
+size <a href="http://nodejs.cn/s/dZo4K3" rel="nofollow"><code>Buffer.poolSize</code></a> that is used as a pool for the fast allocation of new
+<code>Buffer</code> instances created using <a href="http://nodejs.cn/s/TWpeWk" rel="nofollow"><code>Buffer.allocUnsafe()</code></a> and the deprecated
+<code>new Buffer(size)</code> constructor only when <code>size</code> is less than or equal to
+<code>Buffer.poolSize &gt;&gt; 1</code> (floor of <a href="http://nodejs.cn/s/dZo4K3" rel="nofollow"><code>Buffer.poolSize</code></a> divided by two).</p><p>Use of this pre-allocated internal memory pool is a key difference between
+calling <code>Buffer.alloc(size, fill)</code> vs. <code>Buffer.allocUnsafe(size).fill(fill)</code>.
+Specifically, <code>Buffer.alloc(size, fill)</code> will <em>never</em> use the internal <code>Buffer</code>
+pool, while <code>Buffer.allocUnsafe(size).fill(fill)</code> <em>will</em> use the internal
+<code>Buffer</code> pool if <code>size</code> is less than or equal to half <a href="http://nodejs.cn/s/dZo4K3" rel="nofollow"><code>Buffer.poolSize</code></a>. The
+difference is subtle but can be important when an application requires the
+additional performance that <a href="http://nodejs.cn/s/TWpeWk" rel="nofollow"><code>Buffer.allocUnsafe()</code></a> provides.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756294542"><\/script>');
+  </script>
+</body>
+</html>

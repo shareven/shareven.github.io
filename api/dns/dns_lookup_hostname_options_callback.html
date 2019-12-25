@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>dns.lookup(hostname[, options], callback) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/dns/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756303205" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-dns">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>dns.lookup(hostname[, options], callback)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../dns.html#dns_dns_lookup_hostname_options_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/dns/dns_lookup_hostname_options_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v8.5.0</td>
+<td><p>The <code>verbatim</code> option is supported now.</p></td></tr>
+<tr><td>v1.2.0</td>
+<td><p>The <code>all</code> option is supported now.</p></td></tr>
+<tr><td>v0.1.90</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.90</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>hostname</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> | <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>family</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x8BB0;&#x5F55;&#x7684;&#x5730;&#x5740;&#x65CF;&#x3002;&#x5FC5;&#x987B;&#x4E3A; <code>4</code>&#x3001; <code>6</code> &#x6216; <code>0</code>&#x3002;<code>0</code> &#x503C;&#x8868;&#x793A;&#x8FD4;&#x56DE; IPv4 &#x548C; IPv6 &#x5730;&#x5740;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>0</code>&#x3002;</li>
+<li><code>hints</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> &#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;<a href="http://nodejs.cn/s/WpjMXq" rel="nofollow">&#x53D7;&#x652F;&#x6301;&#x7684; <code>getaddrinfo</code> &#x6807;&#x5FD7;</a>&#x3002;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6309;&#x4F4D; <code>OR</code> &#x8FD0;&#x7B97;&#x5B83;&#x4EEC;&#x7684;&#x503C;&#x6765;&#x4F20;&#x9012;&#x591A;&#x4E2A;&#x6807;&#x5FD7;&#x3002;</li>
+<li><code>all</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5F53;&#x4E3A; <code>true</code>  &#x65F6;&#xFF0C;&#x5219;&#x56DE;&#x8C03;&#x5C06;&#x4F1A;&#x8FD4;&#x56DE;&#x6570;&#x7EC4;&#x4E2D;&#x6240;&#x6709;&#x5DF2;&#x89E3;&#x6790;&#x7684;&#x5730;&#x5740;&#x3002;&#x5426;&#x5219;&#xFF0C;&#x8FD4;&#x56DE;&#x5355;&#x4E2A;&#x5730;&#x5740;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;</strong> <code>false</code>&#x3002;</li>
+<li><code>verbatim</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5F53;&#x4E3A; <code>true</code> &#x65F6;&#xFF0C;&#x5219;&#x56DE;&#x8C03;&#x6309; DNS &#x89E3;&#x6790;&#x5668;&#x8FD4;&#x56DE;&#x7684;&#x987A;&#x5E8F;&#x63A5;&#x6536; IPv4 &#x548C; IPv6 &#x5730;&#x5740;&#x3002;&#x5F53;&#x4E3A; <code>false</code> &#x65F6;&#xFF0C;&#x5219; IPv4 &#x5730;&#x5740;&#x653E;&#x5728; IPv6 &#x5730;&#x5740;&#x4E4B;&#x524D;&#x3002;
+<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> &#x5F53;&#x524D;&#x4E3A; <code>false</code>&#xFF08;&#x5730;&#x5740;&#x5DF2;&#x91CD;&#x65B0;&#x6392;&#x5E8F;&#xFF09;&#x4F46;&#x9884;&#x8BA1;&#x5728;&#x4E0D;&#x4E45;&#x7684;&#x5C06;&#x6765;&#x4F1A;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x3002;&#x65B0;&#x4EE3;&#x7801;&#x5E94;&#x4F7F;&#x7528; <code>{ verbatim: true }</code>&#x3002;</li>
+</ul>
+</li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>address</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> IPv4 &#x6216; IPv6 &#x5730;&#x5740;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x8868;&#x793A;&#x5F62;&#x5F0F;&#x3002;</li>
+<li><code>family</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> <code>4</code> &#x6216; <code>6</code>&#xFF0C;&#x8868;&#x793A; <code>address</code> &#x7684;&#x5730;&#x5740;&#x65CF;&#xFF0C;&#x5982;&#x679C;&#x5730;&#x5740;&#x4E0D;&#x662F; IPv4 &#x6216; IPv6 &#x5730;&#x5740;&#xFF0C;&#x5219;&#x4E3A; <code>0</code>&#x3002;<code>0</code> &#x53EF;&#x80FD;&#x662F;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4F7F;&#x7528;&#x7684;&#x540D;&#x79F0;&#x89E3;&#x6790;&#x670D;&#x52A1;&#x4E2D;&#x7684;&#x9519;&#x8BEF;&#x7684;&#x6307;&#x793A;&#x7B26;&#x3002;</li>
+</ul>
+</li>
+</ul><p>&#x89E3;&#x6790;&#x4E3B;&#x673A;&#x540D;&#xFF08;&#x4F8B;&#x5982;&#xFF1A;<code>&apos;nodejs.cn&apos;</code>&#xFF09;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x627E;&#x5230;&#x7684; A&#xFF08;IPv4&#xFF09;&#x6216; AAAA&#xFF08;IPv6&#xFF09;&#x8BB0;&#x5F55;&#x3002;
+&#x6240;&#x6709;&#x7684; <code>option</code> &#x5C5E;&#x6027;&#x90FD;&#x662F;&#x53EF;&#x9009;&#x7684;&#x3002;
+&#x5982;&#x679C; <code>options</code> &#x662F;&#x6574;&#x6570;&#xFF0C;&#x5219;&#x53EA;&#x80FD;&#x662F; <code>4</code> &#x6216; <code>6</code>&#x3002;
+&#x5982;&#x679C; <code>options</code> &#x6CA1;&#x6709;&#x88AB;&#x63D0;&#x4F9B;&#xFF0C;&#x5219; IPv4 &#x548C; IPv6 &#x90FD;&#x662F;&#x6709;&#x6548;&#x7684;&#x3002;</p><p>&#x5F53; <code>all</code> &#x9009;&#x9879;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A; <code>true</code> &#x65F6;&#xFF0C; <code>callback</code> &#x7684;&#x53C2;&#x6570;&#x4F1A;&#x53D8;&#x4E3A; <code>(err, addresses)</code>&#xFF0C;&#x5176;&#x4E2D; <code>addresses</code> &#x53D8;&#x6210;&#x4E00;&#x4E2A;&#x7531; <code>address</code> &#x548C; <code>family</code> &#x5C5E;&#x6027;&#x7EC4;&#x6210;&#x7684;&#x5BF9;&#x8C61;&#x6570;&#x7EC4;&#x3002;</p><p>&#x5F53;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x65F6;&#xFF0C; <code>err</code> &#x662F;&#x4E00;&#x4E2A; <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> &#x5BF9;&#x8C61;&#xFF0C;&#x5176;&#x4E2D; <code>err.code</code> &#x662F;&#x9519;&#x8BEF;&#x7801;&#x3002;
+&#x4E0D;&#x4EC5;&#x5728;&#x4E3B;&#x673A;&#x540D;&#x4E0D;&#x5B58;&#x5728;&#x65F6;&#xFF0C;&#x5728;&#x5982;&#x6CA1;&#x6709;&#x53EF;&#x7528;&#x7684;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x7B49;&#x60C5;&#x51B5;&#x4E0B;&#x67E5;&#x627E;&#x5931;&#x8D25;&#xFF0C; <code>err.code</code> &#x4E5F;&#x4F1A;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A; <code>&apos;ENOTFOUND&apos;</code>&#x3002;</p><p><code>dns.lookup()</code> &#x4E0D;&#x9700;&#x8981;&#x4E0E; DNS &#x534F;&#x8BAE;&#x6709;&#x4EFB;&#x4F55;&#x5173;&#x7CFB;&#x3002;
+&#x5B83;&#x4EC5;&#x4EC5;&#x662F;&#x4E00;&#x4E2A;&#x8FDE;&#x63A5;&#x540D;&#x5B57;&#x548C;&#x5730;&#x5740;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x529F;&#x80FD;&#x3002;
+&#x5728;&#x4EFB;&#x4F55;&#x7684; Node.js &#x7A0B;&#x5E8F;&#x4E2D;&#xFF0C;&#x5B83;&#x7684;&#x5B9E;&#x73B0;&#x5BF9;&#x8868;&#x73B0;&#x6709;&#x4E00;&#x4E9B;&#x5FAE;&#x5999;&#x4F46;&#x662F;&#x91CD;&#x8981;&#x7684;&#x5F71;&#x54CD;&#x3002;
+&#x5728;&#x4F7F;&#x7528; <code>dns.lookup()</code> &#x4E4B;&#x524D;&#x8BF7;&#x82B1;&#x4E9B;&#x65F6;&#x95F4;&#x67E5;&#x8BE2;<a href="http://nodejs.cn/s/fC4ou7" rel="nofollow">&#x5B9E;&#x73B0;&#x7684;&#x6CE8;&#x610F;&#x4E8B;&#x9879;</a>&#x7AE0;&#x8282;&#x3002;</p><p>&#x4F7F;&#x7528;&#x793A;&#x4F8B;&#xFF1A;</p><pre><code class="language-js">const dns = require(&apos;dns&apos;);
+const options = {
+  family: 6,
+  hints: dns.ADDRCONFIG | dns.V4MAPPED,
+};
+dns.lookup(&apos;example.com&apos;, options, (err, address, family) =&gt;
+  console.log(&apos;&#x5730;&#x5740;: %j &#x5730;&#x5740;&#x65CF;: IPv%s&apos;, address, family));
+// &#x5730;&#x5740;: &quot;2606:2800:220:1:248:1893:25c8:1946&quot; &#x5730;&#x5740;&#x65CF;: IPv6
+
+// &#x5F53; options.all &#x4E3A; true &#x65F6;&#xFF0C;&#x5219;&#x7ED3;&#x679C;&#x5C06;&#x4F1A;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x3002;
+options.all = true;
+dns.lookup(&apos;example.com&apos;, options, (err, addresses) =&gt;
+  console.log(&apos;&#x5730;&#x5740;: %j&apos;, addresses));
+// &#x5730;&#x5740;: [{&quot;address&quot;:&quot;2606:2800:220:1:248:1893:25c8:1946&quot;,&quot;family&quot;:6}]
+</code></pre><p>&#x5982;&#x679C;&#x8C03;&#x7528;&#x6B64;&#x65B9;&#x6CD5;&#x7684; <a href="http://nodejs.cn/s/DGMNHh" rel="nofollow"><code>util.promisify()</code></a> &#x5316;&#x7684;&#x7248;&#x672C;&#xFF0C;&#x5E76;&#x4E14; <code>all</code> &#x672A;&#x8BBE;&#x7F6E;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x5B83;&#x8FD4;&#x56DE;&#x7684; Promise &#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5177;&#x6709; <code>address</code> &#x548C; <code>family</code> &#x5C5E;&#x6027;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v8.5.0</td>
+<td><p>The <code>verbatim</code> option is supported now.</p></td></tr>
+<tr><td>v1.2.0</td>
+<td><p>The <code>all</code> option is supported now.</p></td></tr>
+<tr><td>v0.1.90</td>
+<td><p><span>Added in: v0.1.90</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>hostname</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> | <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>family</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> The record family. Must be <code>4</code>, <code>6</code>, or <code>0</code>. The value
+<code>0</code> indicates that IPv4 and IPv6 addresses are both returned. <strong>Default:</strong>
+<code>0</code>.</li>
+<li><code>hints</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> One or more <a href="http://nodejs.cn/s/WpjMXq" rel="nofollow">supported <code>getaddrinfo</code> flags</a>. Multiple
+flags may be passed by bitwise <code>OR</code>ing their values.</li>
+<li><code>all</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> When <code>true</code>, the callback returns all resolved addresses in
+an array. Otherwise, returns a single address. <strong>Default:</strong> <code>false</code>.</li>
+<li><code>verbatim</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> When <code>true</code>, the callback receives IPv4 and IPv6
+addresses in the order the DNS resolver returned them. When <code>false</code>,
+IPv4 addresses are placed before IPv6 addresses.
+<strong>Default:</strong> currently <code>false</code> (addresses are reordered) but this is
+expected to change in the not too distant future.
+New code should use <code>{ verbatim: true }</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>address</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> A string representation of an IPv4 or IPv6 address.</li>
+<li><code>family</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> <code>4</code> or <code>6</code>, denoting the family of <code>address</code>, or <code>0</code> if
+the address is not an IPv4 or IPv6 address. <code>0</code> is a likely indicator of a
+bug in the name resolution service used by the operating system.</li>
+</ul>
+</li>
+</ul><p>Resolves a hostname (e.g. <code>&apos;nodejs.org&apos;</code>) into the first found A (IPv4) or
+AAAA (IPv6) record. All <code>option</code> properties are optional. If <code>options</code> is an
+integer, then it must be <code>4</code> or <code>6</code> &#x2013; if <code>options</code> is not provided, then IPv4
+and IPv6 addresses are both returned if found.</p><p>With the <code>all</code> option set to <code>true</code>, the arguments for <code>callback</code> change to
+<code>(err, addresses)</code>, with <code>addresses</code> being an array of objects with the
+properties <code>address</code> and <code>family</code>.</p><p>On error, <code>err</code> is an <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> object, where <code>err.code</code> is the error code.
+Keep in mind that <code>err.code</code> will be set to <code>&apos;ENOTFOUND&apos;</code> not only when
+the hostname does not exist but also when the lookup fails in other ways
+such as no available file descriptors.</p><p><code>dns.lookup()</code> does not necessarily have anything to do with the DNS protocol.
+The implementation uses an operating system facility that can associate names
+with addresses, and vice versa. This implementation can have subtle but
+important consequences on the behavior of any Node.js program. Please take some
+time to consult the <a href="http://nodejs.cn/s/fC4ou7" rel="nofollow">Implementation considerations section</a> before using
+<code>dns.lookup()</code>.</p><p>Example usage:</p><pre><code class="language-js">const dns = require(&apos;dns&apos;);
+const options = {
+  family: 6,
+  hints: dns.ADDRCONFIG | dns.V4MAPPED,
+};
+dns.lookup(&apos;example.com&apos;, options, (err, address, family) =&gt;
+  console.log(&apos;address: %j family: IPv%s&apos;, address, family));
+// address: &quot;2606:2800:220:1:248:1893:25c8:1946&quot; family: IPv6
+
+// When options.all is true, the result will be an Array.
+options.all = true;
+dns.lookup(&apos;example.com&apos;, options, (err, addresses) =&gt;
+  console.log(&apos;addresses: %j&apos;, addresses));
+// addresses: [{&quot;address&quot;:&quot;2606:2800:220:1:248:1893:25c8:1946&quot;,&quot;family&quot;:6}]
+</code></pre><p>If this method is invoked as its <a href="http://nodejs.cn/s/DGMNHh" rel="nofollow"><code>util.promisify()</code></a>ed version, and <code>all</code>
+is not set to <code>true</code>, it returns a <code>Promise</code> for an <code>Object</code> with <code>address</code> and
+<code>family</code> properties.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/dns/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756303205"><\/script>');
+  </script>
+</body>
+</html>

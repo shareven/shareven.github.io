@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'end' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324160" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-stream">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'end' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../stream.html#stream_event_end" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/stream/event_end.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.4</span>
+</div><p>&#x5F53;&#x6D41;&#x4E2D;&#x6CA1;&#x6709;&#x6570;&#x636E;&#x53EF;&#x4F9B;&#x6D88;&#x8D39;&#x65F6;&#x89E6;&#x53D1;&#x3002;</p><p><code>&apos;end&apos;</code> &#x4E8B;&#x4EF6;&#x53EA;&#x6709;&#x5728;&#x6570;&#x636E;&#x88AB;&#x5B8C;&#x5168;&#x6D88;&#x8D39;&#x6389;&#x540E;&#x624D;&#x4F1A;&#x89E6;&#x53D1;&#x3002;
+&#x8981;&#x60F3;&#x89E6;&#x53D1;&#x8BE5;&#x4E8B;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x6D41;&#x8F6C;&#x6362;&#x5230;&#x6D41;&#x52A8;&#x6A21;&#x5F0F;&#xFF0C;&#x6216;&#x53CD;&#x590D;&#x8C03;&#x7528; <a href="http://nodejs.cn/s/SpgRaa" rel="nofollow"><code>stream.read()</code></a> &#x76F4;&#x5230;&#x6570;&#x636E;&#x88AB;&#x6D88;&#x8D39;&#x5B8C;&#x3002;</p><pre><code class="language-js">const readable = getReadableStreamSomehow();
+readable.on(&apos;data&apos;, (chunk) =&gt; {
+  console.log(`&#x63A5;&#x6536;&#x5230; ${chunk.length} &#x4E2A;&#x5B57;&#x8282;&#x7684;&#x6570;&#x636E;`);
+});
+readable.on(&apos;end&apos;, () =&gt; {
+  console.log(&apos;&#x5DF2;&#x6CA1;&#x6709;&#x6570;&#x636E;&apos;);
+});
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.9.4</span>
+</div><p>The <code>&apos;end&apos;</code> event is emitted when there is no more data to be consumed from
+the stream.</p><p>The <code>&apos;end&apos;</code> event <strong>will not be emitted</strong> unless the data is completely
+consumed. This can be accomplished by switching the stream into flowing mode,
+or by calling <a href="http://nodejs.cn/s/SpgRaa" rel="nofollow"><code>stream.read()</code></a> repeatedly until all data has been
+consumed.</p><pre><code class="language-js">const readable = getReadableStreamSomehow();
+readable.on(&apos;data&apos;, (chunk) =&gt; {
+  console.log(`Received ${chunk.length} bytes of data.`);
+});
+readable.on(&apos;end&apos;, () =&gt; {
+  console.log(&apos;There will be no more data.&apos;);
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324160"><\/script>');
+  </script>
+</body>
+</html>

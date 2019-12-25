@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Node.js 的原生抽象 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/addons/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756291610" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-addons">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>Node.js 的原生抽象</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../addons.html#addons_native_abstractions_for_node_js" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/addons/native_abstractions_for_node_js.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x6587;&#x6863;&#x4E2D;&#x6240;&#x793A;&#x7684;&#x6BCF;&#x4E2A;&#x4F8B;&#x5B50;&#x90FD;&#x76F4;&#x63A5;&#x4F7F;&#x7528; Node.js &#x548C; V8 &#x7684; API &#x6765;&#x5B9E;&#x73B0;&#x63D2;&#x4EF6;&#x3002;
+V8 &#x7684; API &#x53EF;&#x80FD;&#x5E76;&#x4E14;&#x5DF2;&#x7ECF;&#x4E0E;&#x4E0B;&#x4E00;&#x4E2A; V8 &#x7684;&#x53D1;&#x884C;&#x7248;&#x672C;&#x6709;&#x663E;&#x8457;&#x7684;&#x53D8;&#x5316;&#x3002;
+&#x4F34;&#x968F;&#x7740;&#x6BCF;&#x6B21;&#x53D8;&#x5316;&#xFF0C;&#x63D2;&#x4EF6;&#x4E3A;&#x4E86;&#x80FD;&#x591F;&#x7EE7;&#x7EED;&#x5DE5;&#x4F5C;&#xFF0C;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x66F4;&#x65B0;&#x548C;&#x91CD;&#x65B0;&#x7F16;&#x8BD1;&#x3002;
+Node.js &#x7684;&#x53D1;&#x5E03;&#x8BA1;&#x5212;&#x4F1A;&#x5C3D;&#x91CF;&#x51CF;&#x5C11;&#x8FD9;&#x79CD;&#x53D8;&#x5316;&#x7684;&#x9891;&#x7387;&#x548C;&#x5F71;&#x54CD;&#xFF0C;&#x4F46; Node.js &#x76EE;&#x524D;&#x53EF;&#x4EE5;&#x786E;&#x4FDD; V8 API &#x7684;&#x7A33;&#x5B9A;&#x6027;&#x3002;</p><p><a href="http://nodejs.cn/s/TMQ3WL" rel="nofollow">Node.js &#x7684;&#x539F;&#x751F;&#x62BD;&#x8C61;</a>&#xFF08;&#x6216;&#x79F0;&#x4E3A; <code>nan</code>&#xFF09;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x7EC4;&#x5DE5;&#x5177;&#xFF0C;&#x5EFA;&#x8BAE;&#x63D2;&#x4EF6;&#x5F00;&#x53D1;&#x8005;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x5DE5;&#x5177;&#x6765;&#x4FDD;&#x6301;&#x63D2;&#x4EF6;&#x5728;&#x8FC7;&#x5F80;&#x4E0E;&#x5C06;&#x6765;&#x7684; V8 &#x548C; Node.js &#x7684;&#x7248;&#x672C;&#x4E4B;&#x95F4;&#x7684;&#x517C;&#x5BB9;&#x6027;&#x3002;
+&#x67E5;&#x770B; <code>nan</code> <a href="http://nodejs.cn/s/BmESTr" rel="nofollow">&#x793A;&#x4F8B;</a>&#x4E86;&#x89E3;&#x5B83;&#x662F;&#x5982;&#x4F55;&#x88AB;&#x4F7F;&#x7528;&#x7684;&#x3002;</p></div>
+          <div id="content_right"><p>Each of the examples illustrated in this document make direct use of the
+Node.js and V8 APIs for implementing Addons. The V8 API can, and has, changed
+dramatically from one V8 release to the next (and one major Node.js release to
+the next). With each change, Addons may need to be updated and recompiled in
+order to continue functioning. The Node.js release schedule is designed to
+minimize the frequency and impact of such changes but there is little that
+Node.js can do currently to ensure stability of the V8 APIs.</p><p>The <a href="http://nodejs.cn/s/TMQ3WL" rel="nofollow">Native Abstractions for Node.js</a> (or <code>nan</code>) provide a set of tools that
+Addon developers are recommended to use to keep compatibility between past and
+future releases of V8 and Node.js. See the <code>nan</code> <a href="http://nodejs.cn/s/BmESTr" rel="nofollow">examples</a> for an
+illustration of how it can be used.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/addons/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756291610"><\/script>');
+  </script>
+</body>
+</html>

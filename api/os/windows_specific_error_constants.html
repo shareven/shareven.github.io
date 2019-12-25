@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Windows 系统特有的错误常量 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/os/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756318993" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-os">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>Windows 系统特有的错误常量</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../os.html#os_windows_specific_error_constants" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/os/windows_specific_error_constants.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x4E0B;&#x9762;&#x7684;&#x9519;&#x8BEF;&#x7801;&#x4E0E; Windows &#x7CFB;&#x7EDF;&#x76F8;&#x5173;&#x3002;</p><table>
+  <tbody><tr>
+    <th>&#x5E38;&#x91CF;</th>
+    <th>&#x63CF;&#x8FF0;</th>
+  </tr>
+  <tr>
+    <td><code>WSAEINTR</code></td>
+    <td>&#x8868;&#x660E;&#x4E2D;&#x65AD;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEBADF</code></td>
+    <td>&#x8868;&#x660E;&#x4E00;&#x4E2A;&#x65E0;&#x6548;&#x7684;&#x6587;&#x4EF6;&#x53E5;&#x67C4;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEACCES</code></td>
+    <td>&#x8868;&#x660E;&#x6743;&#x9650;&#x4E0D;&#x591F;&#x5B8C;&#x6210;&#x64CD;&#x4F5C;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEFAULT</code></td>
+    <td>&#x8868;&#x660E;&#x65E0;&#x6548;&#x7684;&#x6307;&#x9488;&#x5730;&#x5740;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEINVAL</code></td>
+    <td>&#x8868;&#x660E;&#x65E0;&#x6548;&#x7684;&#x53C2;&#x6570;&#x88AB;&#x4F20;&#x9012;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEMFILE</code></td>
+    <td>&#x8868;&#x660E;&#x6709;&#x592A;&#x591A;&#x6253;&#x5F00;&#x7684;&#x6587;&#x4EF6;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEWOULDBLOCK</code></td>
+    <td>&#x8868;&#x660E;&#x8D44;&#x6E90;&#x6682;&#x65F6;&#x4E0D;&#x53EF;&#x7528;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEINPROGRESS</code></td>
+    <td>&#x8868;&#x660E;&#x64CD;&#x4F5C;&#x5F53;&#x524D;&#x6B63;&#x5728;&#x8FDB;&#x884C;&#x4E2D;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEALREADY</code></td>
+    <td>&#x8868;&#x660E;&#x64CD;&#x4F5C;&#x5DF2;&#x7ECF;&#x5728;&#x8FDB;&#x884C;&#x4E2D;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAENOTSOCK</code></td>
+    <td>&#x8868;&#x660E;&#x8D44;&#x6E90;&#x4E0D;&#x662F; socket&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEDESTADDRREQ</code></td>
+    <td>&#x8868;&#x660E;&#x9700;&#x8981;&#x76EE;&#x7684;&#x5730;&#x5740;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEMSGSIZE</code></td>
+    <td>&#x8868;&#x660E;&#x6D88;&#x606F;&#x592A;&#x957F;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEPROTOTYPE</code></td>
+    <td>&#x8868;&#x660E; socket &#x534F;&#x8BAE;&#x7C7B;&#x578B;&#x9519;&#x8BEF;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAENOPROTOOPT</code></td>
+    <td>&#x8868;&#x660E;&#x9519;&#x8BEF;&#x7684;&#x534F;&#x8BAE;&#x9009;&#x9879;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEPROTONOSUPPORT</code></td>
+    <td>&#x8868;&#x660E;&#x534F;&#x8BAE;&#x4E0D;&#x88AB;&#x652F;&#x6301;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAESOCKTNOSUPPORT</code></td>
+    <td>&#x8868;&#x660E; socket &#x7C7B;&#x578B;&#x4E0D;&#x88AB;&#x652F;&#x6301;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEOPNOTSUPP</code></td>
+    <td>&#x8868;&#x660E;&#x64CD;&#x4F5C;&#x4E0D;&#x88AB;&#x652F;&#x6301;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEPFNOSUPPORT</code></td>
+    <td>&#x8868;&#x660E;&#x534F;&#x8BAE;&#x7C07;&#x4E0D;&#x88AB;&#x652F;&#x6301;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEAFNOSUPPORT</code></td>
+    <td>&#x8868;&#x660E;&#x5730;&#x5740;&#x7C07;&#x4E0D;&#x88AB;&#x652F;&#x6301;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEADDRINUSE</code></td>
+    <td>&#x8868;&#x660E;&#x7F51;&#x7EDC;&#x5730;&#x5740;&#x5DF2;&#x7ECF;&#x5728;&#x4F7F;&#x7528;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEADDRNOTAVAIL</code></td>
+    <td>&#x8868;&#x660E;&#x7F51;&#x7EDC;&#x5730;&#x5740;&#x4E0D;&#x53EF;&#x7528;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAENETDOWN</code></td>
+    <td>&#x8868;&#x660E;&#x7F51;&#x7EDC;&#x5173;&#x95ED;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAENETUNREACH</code></td>
+    <td>&#x8868;&#x660E;&#x7F51;&#x7EDC;&#x4E0D;&#x53EF;&#x8FBE;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAENETRESET</code></td>
+    <td>&#x8868;&#x660E;&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#x88AB;&#x91CD;&#x7F6E;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAECONNABORTED</code></td>
+    <td>&#x8868;&#x660E;&#x8FDE;&#x63A5;&#x88AB;&#x7EC8;&#x6B62;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAECONNRESET</code></td>
+    <td>&#x8868;&#x660E;&#x8FDE;&#x63A5;&#x88AB;&#x540C;&#x4F34;&#x91CD;&#x7F6E;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAENOBUFS</code></td>
+    <td>&#x8868;&#x660E;&#x6CA1;&#x6709;&#x53EF;&#x7528;&#x7684;&#x7F13;&#x5B58;&#x7A7A;&#x95F4;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEISCONN</code></td>
+    <td>&#x8868;&#x660E; socket &#x5DF2;&#x7ECF;&#x8FDE;&#x63A5;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAENOTCONN</code></td>
+    <td>&#x8868;&#x660E; socket &#x6CA1;&#x6709;&#x8FDE;&#x63A5;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAESHUTDOWN</code></td>
+    <td>&#x8868;&#x660E;&#x6570;&#x636E;&#x5728; socket &#x5173;&#x95ED;&#x4E4B;&#x540E;&#xFF0C;&#x4E0D;&#x80FD;&#x88AB;&#x53D1;&#x9001;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAETOOMANYREFS</code></td>
+    <td>&#x8868;&#x660E;&#x6709;&#x592A;&#x591A;&#x7684;&#x5F15;&#x7528;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAETIMEDOUT</code></td>
+    <td>&#x8868;&#x660E;&#x8FDE;&#x63A5;&#x8D85;&#x65F6;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAECONNREFUSED</code></td>
+    <td>&#x8868;&#x660E;&#x8FDE;&#x63A5;&#x88AB;&#x62D2;&#x7EDD;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAELOOP</code></td>
+    <td>&#x8868;&#x660E;&#x540D;&#x5B57;&#x4E0D;&#x80FD;&#x88AB;&#x7FFB;&#x8BD1;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAENAMETOOLONG</code></td>
+    <td>&#x8868;&#x660E;&#x540D;&#x5B57;&#x592A;&#x957F;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEHOSTDOWN</code></td>
+    <td>&#x8868;&#x660E;&#x7F51;&#x7EDC;&#x4E3B;&#x673A;&#x5173;&#x95ED;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEHOSTUNREACH</code></td>
+    <td>&#x8868;&#x660E;&#x6CA1;&#x6709;&#x5230;&#x7F51;&#x7EDC;&#x4E3B;&#x673A;&#x7684;&#x8DEF;&#x7531;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAENOTEMPTY</code></td>
+    <td>&#x8868;&#x660E;&#x76EE;&#x5F55;&#x975E;&#x7A7A;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEPROCLIM</code></td>
+    <td>&#x8868;&#x660E;&#x6709;&#x592A;&#x591A;&#x7684;&#x8FDB;&#x7A0B;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEUSERS</code></td>
+    <td>&#x8868;&#x660E;&#x5DF2;&#x7ECF;&#x8D85;&#x8FC7;&#x7528;&#x6237;&#x6307;&#x6807;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEDQUOT</code></td>
+    <td>&#x8868;&#x660E;&#x5DF2;&#x7ECF;&#x8D85;&#x8FC7;&#x78C1;&#x76D8;&#x6307;&#x6807;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAESTALE</code></td>
+    <td>&#x8868;&#x660E;&#x4E00;&#x4E2A;&#x7A33;&#x5B9A;&#x7684;&#x6587;&#x4EF6;&#x53E5;&#x67C4;&#x5F15;&#x7528;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEREMOTE</code></td>
+    <td>&#x8868;&#x660E;&#x9879;&#x76EE;&#x662F;&#x8FDC;&#x7A0B;&#x7684;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSASYSNOTREADY</code></td>
+    <td>&#x8868;&#x660E;&#x7F51;&#x7EDC;&#x5B50;&#x7CFB;&#x7EDF;&#x5C1A;&#x672A;&#x51C6;&#x5907;&#x597D;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAVERNOTSUPPORTED</code></td>
+    <td>&#x8868;&#x660E; <code>winsock.dll</code> &#x7248;&#x672C;&#x5728;&#x8303;&#x56F4;&#x4E4B;&#x5916;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSANOTINITIALISED</code></td>
+    <td>&#x8868;&#x660E;&#x6210;&#x529F;&#x7684; WSAStartup &#x8FD8;&#x6CA1;&#x6709;&#x88AB;&#x6267;&#x884C;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEDISCON</code></td>
+    <td>&#x8868;&#x660E;&#x4E00;&#x4E2A;&#x4F18;&#x96C5;&#x7684;&#x5173;&#x673A;&#x6B63;&#x5728;&#x8FDB;&#x884C;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAENOMORE</code></td>
+    <td>&#x8868;&#x660E;&#x6CA1;&#x6709;&#x66F4;&#x591A;&#x7684;&#x7ED3;&#x679C;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAECANCELLED</code></td>
+    <td>&#x8868;&#x660E;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#x5DF2;&#x7ECF;&#x88AB;&#x53D6;&#x6D88;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEINVALIDPROCTABLE</code></td>
+    <td>&#x8868;&#x660E;&#x8FC7;&#x7A0B;&#x8C03;&#x7528;&#x8868;&#x662F;&#x65E0;&#x6548;&#x7684;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEINVALIDPROVIDER</code></td>
+    <td>&#x8868;&#x660E;&#x65E0;&#x6548;&#x7684;&#x670D;&#x52A1;&#x63D0;&#x4F9B;&#x8005;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEPROVIDERFAILEDINIT</code></td>
+    <td>&#x8868;&#x660E;&#x670D;&#x52A1;&#x63D0;&#x4F9B;&#x8005;&#x521D;&#x59CB;&#x5316;&#x5931;&#x8D25;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSASYSCALLFAILURE</code></td>
+    <td>&#x8868;&#x660E;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x5931;&#x8D25;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSASERVICE_NOT_FOUND</code></td>
+    <td>&#x8868;&#x660E;&#x670D;&#x52A1;&#x6CA1;&#x6709;&#x88AB;&#x627E;&#x5230;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSATYPE_NOT_FOUND</code></td>
+    <td>&#x8868;&#x660E;&#x7C7B;&#x7C7B;&#x578B;&#x6CA1;&#x6709;&#x88AB;&#x627E;&#x5230;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSA_E_NO_MORE</code></td>
+    <td>&#x8868;&#x660E;&#x6CA1;&#x6709;&#x66F4;&#x591A;&#x7684;&#x7ED3;&#x679C;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSA_E_CANCELLED</code></td>
+    <td>&#x8868;&#x660E;&#x8C03;&#x7528;&#x88AB;&#x53D6;&#x6D88;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>WSAEREFUSED</code></td>
+    <td>&#x8868;&#x660E;&#x6570;&#x636E;&#x5E93;&#x8BF7;&#x6C42;&#x88AB;&#x62D2;&#x7EDD;&#x3002;</td>
+  </tr>
+</tbody></table></div>
+          <div id="content_right"><p>The following error codes are specific to the Windows operating system.</p><table>
+  <tbody><tr>
+    <th>Constant</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>WSAEINTR</code></td>
+    <td>Indicates an interrupted function call.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEBADF</code></td>
+    <td>Indicates an invalid file handle.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEACCES</code></td>
+    <td>Indicates insufficient permissions to complete the operation.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEFAULT</code></td>
+    <td>Indicates an invalid pointer address.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEINVAL</code></td>
+    <td>Indicates that an invalid argument was passed.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEMFILE</code></td>
+    <td>Indicates that there are too many open files.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEWOULDBLOCK</code></td>
+    <td>Indicates that a resource is temporarily unavailable.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEINPROGRESS</code></td>
+    <td>Indicates that an operation is currently in progress.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEALREADY</code></td>
+    <td>Indicates that an operation is already in progress.</td>
+  </tr>
+  <tr>
+    <td><code>WSAENOTSOCK</code></td>
+    <td>Indicates that the resource is not a socket.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEDESTADDRREQ</code></td>
+    <td>Indicates that a destination address is required.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEMSGSIZE</code></td>
+    <td>Indicates that the message size is too long.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEPROTOTYPE</code></td>
+    <td>Indicates the wrong protocol type for the socket.</td>
+  </tr>
+  <tr>
+    <td><code>WSAENOPROTOOPT</code></td>
+    <td>Indicates a bad protocol option.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEPROTONOSUPPORT</code></td>
+    <td>Indicates that the protocol is not supported.</td>
+  </tr>
+  <tr>
+    <td><code>WSAESOCKTNOSUPPORT</code></td>
+    <td>Indicates that the socket type is not supported.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEOPNOTSUPP</code></td>
+    <td>Indicates that the operation is not supported.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEPFNOSUPPORT</code></td>
+    <td>Indicates that the protocol family is not supported.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEAFNOSUPPORT</code></td>
+    <td>Indicates that the address family is not supported.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEADDRINUSE</code></td>
+    <td>Indicates that the network address is already in use.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEADDRNOTAVAIL</code></td>
+    <td>Indicates that the network address is not available.</td>
+  </tr>
+  <tr>
+    <td><code>WSAENETDOWN</code></td>
+    <td>Indicates that the network is down.</td>
+  </tr>
+  <tr>
+    <td><code>WSAENETUNREACH</code></td>
+    <td>Indicates that the network is unreachable.</td>
+  </tr>
+  <tr>
+    <td><code>WSAENETRESET</code></td>
+    <td>Indicates that the network connection has been reset.</td>
+  </tr>
+  <tr>
+    <td><code>WSAECONNABORTED</code></td>
+    <td>Indicates that the connection has been aborted.</td>
+  </tr>
+  <tr>
+    <td><code>WSAECONNRESET</code></td>
+    <td>Indicates that the connection has been reset by the peer.</td>
+  </tr>
+  <tr>
+    <td><code>WSAENOBUFS</code></td>
+    <td>Indicates that there is no buffer space available.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEISCONN</code></td>
+    <td>Indicates that the socket is already connected.</td>
+  </tr>
+  <tr>
+    <td><code>WSAENOTCONN</code></td>
+    <td>Indicates that the socket is not connected.</td>
+  </tr>
+  <tr>
+    <td><code>WSAESHUTDOWN</code></td>
+    <td>Indicates that data cannot be sent after the socket has been
+    shutdown.</td>
+  </tr>
+  <tr>
+    <td><code>WSAETOOMANYREFS</code></td>
+    <td>Indicates that there are too many references.</td>
+  </tr>
+  <tr>
+    <td><code>WSAETIMEDOUT</code></td>
+    <td>Indicates that the connection has timed out.</td>
+  </tr>
+  <tr>
+    <td><code>WSAECONNREFUSED</code></td>
+    <td>Indicates that the connection has been refused.</td>
+  </tr>
+  <tr>
+    <td><code>WSAELOOP</code></td>
+    <td>Indicates that a name cannot be translated.</td>
+  </tr>
+  <tr>
+    <td><code>WSAENAMETOOLONG</code></td>
+    <td>Indicates that a name was too long.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEHOSTDOWN</code></td>
+    <td>Indicates that a network host is down.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEHOSTUNREACH</code></td>
+    <td>Indicates that there is no route to a network host.</td>
+  </tr>
+  <tr>
+    <td><code>WSAENOTEMPTY</code></td>
+    <td>Indicates that the directory is not empty.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEPROCLIM</code></td>
+    <td>Indicates that there are too many processes.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEUSERS</code></td>
+    <td>Indicates that the user quota has been exceeded.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEDQUOT</code></td>
+    <td>Indicates that the disk quota has been exceeded.</td>
+  </tr>
+  <tr>
+    <td><code>WSAESTALE</code></td>
+    <td>Indicates a stale file handle reference.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEREMOTE</code></td>
+    <td>Indicates that the item is remote.</td>
+  </tr>
+  <tr>
+    <td><code>WSASYSNOTREADY</code></td>
+    <td>Indicates that the network subsystem is not ready.</td>
+  </tr>
+  <tr>
+    <td><code>WSAVERNOTSUPPORTED</code></td>
+    <td>Indicates that the <code>winsock.dll</code> version is out of
+    range.</td>
+  </tr>
+  <tr>
+    <td><code>WSANOTINITIALISED</code></td>
+    <td>Indicates that successful WSAStartup has not yet been performed.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEDISCON</code></td>
+    <td>Indicates that a graceful shutdown is in progress.</td>
+  </tr>
+  <tr>
+    <td><code>WSAENOMORE</code></td>
+    <td>Indicates that there are no more results.</td>
+  </tr>
+  <tr>
+    <td><code>WSAECANCELLED</code></td>
+    <td>Indicates that an operation has been canceled.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEINVALIDPROCTABLE</code></td>
+    <td>Indicates that the procedure call table is invalid.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEINVALIDPROVIDER</code></td>
+    <td>Indicates an invalid service provider.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEPROVIDERFAILEDINIT</code></td>
+    <td>Indicates that the service provider failed to initialized.</td>
+  </tr>
+  <tr>
+    <td><code>WSASYSCALLFAILURE</code></td>
+    <td>Indicates a system call failure.</td>
+  </tr>
+  <tr>
+    <td><code>WSASERVICE_NOT_FOUND</code></td>
+    <td>Indicates that a service was not found.</td>
+  </tr>
+  <tr>
+    <td><code>WSATYPE_NOT_FOUND</code></td>
+    <td>Indicates that a class type was not found.</td>
+  </tr>
+  <tr>
+    <td><code>WSA_E_NO_MORE</code></td>
+    <td>Indicates that there are no more results.</td>
+  </tr>
+  <tr>
+    <td><code>WSA_E_CANCELLED</code></td>
+    <td>Indicates that the call was canceled.</td>
+  </tr>
+  <tr>
+    <td><code>WSAEREFUSED</code></td>
+    <td>Indicates that a database query was refused.</td>
+  </tr>
+</tbody></table></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/os/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756318993"><\/script>');
+  </script>
+</body>
+</html>

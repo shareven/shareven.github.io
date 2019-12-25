@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>process.hrtime([time]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756321048" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>process.hrtime([time])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../process.html#process_process_hrtime_time" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/process/process_hrtime_time.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.6</span>
+</div><ul>
+<li><code>time</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer[]&gt;</a> &#x4E0A;&#x4E00;&#x6B21;&#x8C03;&#x7528; <code>process.hrtime()</code> &#x7684;&#x7ED3;&#x679C;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer[]&gt;</a></li>
+</ul><p>&#x8FD9;&#x662F;&#x5728; JavaScript &#x4E2D;&#x5F15;&#x5165; <code>bigint</code> &#x4E4B;&#x524D;&#x7684; <a href="http://nodejs.cn/s/5BTWif" rel="nofollow"><code>process.hrtime.bigint()</code></a> &#x7684;&#x9057;&#x7559;&#x7248;&#x672C;&#x3002;</p><p><code>process.hrtime()</code> &#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x4EE5; <code>[seconds, nanoseconds]</code> &#x5143;&#x6570;&#x7EC4;&#x8868;&#x793A;&#x7684;&#x9AD8;&#x7CBE;&#x5EA6;&#x89E3;&#x6790;&#x503C;&#xFF0C;&#x5176;&#x4E2D; <code>nanoseconds</code> &#x662F;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#x79D2;&#x7684;&#x7CBE;&#x5EA6;&#x8868;&#x793A;&#x7684;&#x5269;&#x4F59;&#x90E8;&#x5206;&#x3002;</p><p><code>time</code> &#x662F;&#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF0C;&#x4F20;&#x5165;&#x7684;&#x503C;&#x662F;&#x4E0A;&#x4E00;&#x6B21;&#x8C03;&#x7528; <code>process.hrtime()</code> &#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x7528;&#x4E8E;&#x4E0E;&#x5F53;&#x6B21;&#x8C03;&#x7528;&#x505A;&#x5DEE;&#x503C;&#x8BA1;&#x7B97;&#x3002;
+&#x5982;&#x679C;&#x6B64;&#x53C2;&#x6570;&#x4F20;&#x5165;&#x7684;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5143;&#x6570;&#x7EC4;&#xFF0C;&#x5219;&#x4F1A;&#x629B;&#x51FA; <code>TypeError</code>&#x3002;
+&#x7ED9;&#x6B64;&#x53C2;&#x6570;&#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x5B9A;&#x4E49;&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4F20;&#x5165;&#x4E0A;&#x6B21;&#x8C03;&#x7528; <code>process.hrtime()</code> &#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x5219;&#x4F1A;&#x5BFC;&#x81F4;&#x672A;&#x5B9A;&#x4E49;&#x7684;&#x884C;&#x4E3A;&#x3002;</p><p>&#x8FD4;&#x56DE;&#x7684;&#x65F6;&#x95F4;&#x90FD;&#x662F;&#x76F8;&#x5BF9;&#x4E8E;&#x8FC7;&#x53BB;&#x67D0;&#x4E00;&#x65F6;&#x523B;&#x7684;&#x503C;&#xFF0C;&#x4E0E;&#x4E00;&#x5929;&#x4E2D;&#x7684;&#x65F6;&#x949F;&#x65F6;&#x95F4;&#x6CA1;&#x6709;&#x5173;&#x7CFB;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x53D7;&#x5236;&#x4E8E;&#x65F6;&#x949F;&#x504F;&#x5DEE;&#x3002;
+&#x6B64;&#x65B9;&#x6CD5;&#x6700;&#x4E3B;&#x8981;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x8861;&#x91CF;&#x95F4;&#x9694;&#x64CD;&#x4F5C;&#x7684;&#x6027;&#x80FD;&#xFF1A;</p><pre><code class="language-js">const NS_PER_SEC = 1e9;
+const time = process.hrtime();
+// [ 1800216, 25 ]
+
+setTimeout(() =&gt; {
+  const diff = process.hrtime(time);
+  // [ 1, 552 ]
+
+  console.log(`&#x57FA;&#x51C6;&#x5DE5;&#x5177; ${diff[0] * NS_PER_SEC + diff[1]} &#x7EB3;&#x79D2;`);
+  // &#x57FA;&#x51C6;&#x5DE5;&#x5177; 1000000552 &#x7EB3;&#x79D2;
+}, 1000);
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.7.6</span>
+</div><ul>
+<li><code>time</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer[]&gt;</a> The result of a previous call to <code>process.hrtime()</code></li>
+<li>Returns: <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer[]&gt;</a></li>
+</ul><p>This is the legacy version of <a href="http://nodejs.cn/s/5BTWif" rel="nofollow"><code>process.hrtime.bigint()</code></a>
+before <code>bigint</code> was introduced in JavaScript.</p><p>The <code>process.hrtime()</code> method returns the current high-resolution real time
+in a <code>[seconds, nanoseconds]</code> tuple <code>Array</code>, where <code>nanoseconds</code> is the
+remaining part of the real time that can&apos;t be represented in second precision.</p><p><code>time</code> is an optional parameter that must be the result of a previous
+<code>process.hrtime()</code> call to diff with the current time. If the parameter
+passed in is not a tuple <code>Array</code>, a <code>TypeError</code> will be thrown. Passing in a
+user-defined array instead of the result of a previous call to
+<code>process.hrtime()</code> will lead to undefined behavior.</p><p>These times are relative to an arbitrary time in the
+past, and not related to the time of day and therefore not subject to clock
+drift. The primary use is for measuring performance between intervals:</p><pre><code class="language-js">const NS_PER_SEC = 1e9;
+const time = process.hrtime();
+// [ 1800216, 25 ]
+
+setTimeout(() =&gt; {
+  const diff = process.hrtime(time);
+  // [ 1, 552 ]
+
+  console.log(`Benchmark took ${diff[0] * NS_PER_SEC + diff[1]} nanoseconds`);
+  // Benchmark took 1000000552 nanoseconds
+}, 1000);
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756321048"><\/script>');
+  </script>
+</body>
+</html>

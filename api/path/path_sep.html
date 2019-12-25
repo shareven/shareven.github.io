@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>path.sep | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/path/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756319406" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-path">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>path.sep</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../path.html#path_path_sep" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/path/path_sep.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.9</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>&#x63D0;&#x4F9B;&#x5E73;&#x53F0;&#x7279;&#x5B9A;&#x7684;&#x8DEF;&#x5F84;&#x7247;&#x6BB5;&#x5206;&#x9694;&#x7B26;&#xFF1A;</p><ul>
+<li>Windows &#x4E0A;&#x662F; <code>\</code>&#x3002;</li>
+<li>POSIX &#x4E0A;&#x662F; <code>/</code>&#x3002;</li>
+</ul><p>&#x4F8B;&#x5982;&#xFF0C;&#x5728; POSIX &#x4E0A;&#xFF1A;</p><pre><code class="language-js">&apos;foo/bar/baz&apos;.split(path.sep);
+// &#x8FD4;&#x56DE;: [&apos;foo&apos;, &apos;bar&apos;, &apos;baz&apos;]
+</code></pre><p>&#x5728; Windows &#x4E0A;&#xFF1A;</p><pre><code class="language-js">&apos;foo\\bar\\baz&apos;.split(path.sep);
+// &#x8FD4;&#x56DE;: [&apos;foo&apos;, &apos;bar&apos;, &apos;baz&apos;]
+</code></pre><p>&#x5728; Windows &#x4E0A;&#xFF0C;&#x6B63;&#x659C;&#x6760;&#xFF08;<code>/</code>&#xFF09;&#x548C;&#x53CD;&#x659C;&#x6760;&#xFF08;<code>\</code>&#xFF09;&#x90FD;&#x88AB;&#x63A5;&#x53D7;&#x4E3A;&#x8DEF;&#x5F84;&#x7247;&#x6BB5;&#x5206;&#x9694;&#x7B26;&#x3002;
+&#x4F46;&#x662F;&#xFF0C; <code>path</code> &#x65B9;&#x6CD5;&#x53EA;&#x6DFB;&#x52A0;&#x53CD;&#x659C;&#x6760;&#xFF08;<code>\</code>&#xFF09;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.7.9</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>Provides the platform-specific path segment separator:</p><ul>
+<li><code>\</code> on Windows</li>
+<li><code>/</code> on POSIX</li>
+</ul><p>For example, on POSIX:</p><pre><code class="language-js">&apos;foo/bar/baz&apos;.split(path.sep);
+// Returns: [&apos;foo&apos;, &apos;bar&apos;, &apos;baz&apos;]
+</code></pre><p>On Windows:</p><pre><code class="language-js">&apos;foo\\bar\\baz&apos;.split(path.sep);
+// Returns: [&apos;foo&apos;, &apos;bar&apos;, &apos;baz&apos;]
+</code></pre><p>On Windows, both the forward slash (<code>/</code>) and backward slash (<code>\</code>) are accepted
+as path segment separators; however, the <code>path</code> methods only add backward
+slashes (<code>\</code>).</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/path/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756319406"><\/script>');
+  </script>
+</body>
+</html>

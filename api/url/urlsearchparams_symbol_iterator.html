@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>urlSearchParams[Symbol.iterator]() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/url/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756327610" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-url">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>urlSearchParams[Symbol.iterator]()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../url.html#url_urlsearchparams_symbol_iterator" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/url/urlsearchparams_symbol_iterator.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><ul>
+<li>Returns: <a href="http://nodejs.cn/s/Y2SE1q" target="_blank" rel="nofollow" class="type">&lt;Iterator&gt;</a></li>
+</ul><p>&#x6839;&#x636E;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x952E;&#x503C;&#x5BF9;&#x5F62;&#x5F0F;&#x7684; ES6 <code>Iterator</code>&#x3002;
+&#x6BCF;&#x4E2A;&#x8FED;&#x4EE3;&#x5668;&#x7684;&#x9879;&#x662F;&#x4E00;&#x4E2A; JavaScript <code>Array</code>&#x3002;
+&#x5176;&#x4E2D;&#xFF0C; <code>Array</code> &#x7684;&#x7B2C;&#x4E00;&#x9879;&#x662F; <code>name</code>&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x662F; <code>value</code>&#x3002;</p><p><a href="http://nodejs.cn/s/qW6kzi" rel="nofollow"><code>urlSearchParams.entries()</code></a> &#x7684;&#x522B;&#x540D;&#x3002;</p><pre><code class="language-js">const params = new URLSearchParams(&apos;foo=bar&amp;xyz=baz&apos;);
+for (const [name, value] of params) {
+  console.log(name, value);
+}
+// &#x6253;&#x5370;:
+//   foo bar
+//   xyz baz
+</code></pre></div>
+          <div id="content_right"><ul>
+<li>Returns: <a href="http://nodejs.cn/s/Y2SE1q" target="_blank" rel="nofollow" class="type">&lt;Iterator&gt;</a></li>
+</ul><p>Returns an ES6 <code>Iterator</code> over each of the name-value pairs in the query string.
+Each item of the iterator is a JavaScript <code>Array</code>. The first item of the <code>Array</code>
+is the <code>name</code>, the second item of the <code>Array</code> is the <code>value</code>.</p><p>Alias for <a href="http://nodejs.cn/s/qW6kzi" rel="nofollow"><code>urlSearchParams.entries()</code></a>.</p><pre><code class="language-js">const params = new URLSearchParams(&apos;foo=bar&amp;xyz=baz&apos;);
+for (const [name, value] of params) {
+  console.log(name, value);
+}
+// Prints:
+//   foo bar
+//   xyz baz
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/url/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756327610"><\/script>');
+  </script>
+</body>
+</html>

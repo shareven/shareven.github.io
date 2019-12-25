@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>require(id) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/modules/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756316020" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-modules">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>require(id)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../modules.html#modules_require_id" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/modules/require_id.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.13</span>
+</div><ul>
+<li><code>id</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x6A21;&#x5757;&#x7684;&#x540D;&#x79F0;&#x6216;&#x8DEF;&#x5F84;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> &#x5BFC;&#x5165;&#x7684;&#x6A21;&#x5757;&#x5185;&#x5BB9;&#x3002;</li>
+</ul><p>&#x7528;&#x4E8E;&#x5F15;&#x5165;&#x6A21;&#x5757;&#x3001; <code>JSON</code>&#x3001;&#x6216;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x3002;
+&#x53EF;&#x4EE5;&#x4ECE; <code>node_modules</code> &#x5F15;&#x5165;&#x6A21;&#x5757;&#x3002;
+&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#xFF08;&#x4F8B;&#x5982; <code>./</code>&#x3001; <code>./foo</code>&#x3001; <code>./bar/baz</code>&#x3001; <code>../foo</code>&#xFF09;&#x5F15;&#x5165;&#x672C;&#x5730;&#x6A21;&#x5757;&#x6216; JSON &#x6587;&#x4EF6;&#xFF0C;&#x8DEF;&#x5F84;&#x4F1A;&#x6839;&#x636E; <a href="http://nodejs.cn/s/etUQhi" rel="nofollow"><code>__dirname</code></a> &#x5B9A;&#x4E49;&#x7684;&#x76EE;&#x5F55;&#x540D;&#x6216;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x3002;</p><pre><code class="language-js">// &#x5F15;&#x5165;&#x672C;&#x5730;&#x6A21;&#x5757;&#xFF1A;
+const myLocalModule = require(&apos;./path/myLocalModule&apos;);
+
+// &#x5F15;&#x5165; JSON &#x6587;&#x4EF6;&#xFF1A;
+const jsonData = require(&apos;./path/filename.json&apos;);
+
+// &#x5F15;&#x5165; node_modules &#x6A21;&#x5757;&#x6216; Node.js &#x5185;&#x7F6E;&#x6A21;&#x5757;&#xFF1A;
+const crypto = require(&apos;crypto&apos;);
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.13</span>
+</div><ul>
+<li><code>id</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> module name or path</li>
+<li>Returns: <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> exported module content</li>
+</ul><p>Used to import modules, <code>JSON</code>, and local files. Modules can be imported
+from <code>node_modules</code>. Local modules and JSON files can be imported using
+a relative path (e.g. <code>./</code>, <code>./foo</code>, <code>./bar/baz</code>, <code>../foo</code>) that will be
+resolved against the directory named by <a href="http://nodejs.cn/s/etUQhi" rel="nofollow"><code>__dirname</code></a> (if defined) or
+the current working directory.</p><pre><code class="language-js">// Importing a local module:
+const myLocalModule = require(&apos;./path/myLocalModule&apos;);
+
+// Importing a JSON file:
+const jsonData = require(&apos;./path/filename.json&apos;);
+
+// Importing a module from node_modules or Node.js built-in module:
+const crypto = require(&apos;crypto&apos;);
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/modules/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756316020"><\/script>');
+  </script>
+</body>
+</html>

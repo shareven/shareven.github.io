@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>filehandle.readFile(options) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756310253" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>filehandle.readFile(options)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_filehandle_readfile_options" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/filehandle_readfile_options.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.0.0</span>
+</div><ul>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></p>
+<ul>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/334hvC" target="_blank" rel="nofollow" class="type">&lt;null&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>null</code></li>
+<li><code>flag</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x53C2;&#x9605;<a href="http://nodejs.cn/s/JjbY8n" rel="nofollow">&#x652F;&#x6301;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x6807;&#x5FD7;</a>&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;r&apos;</code>&#x3002;</li>
+</ul>
+</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/ri1kj8" target="_blank" rel="nofollow" class="type">&lt;Promise&gt;</a></li>
+</ul><p>&#x5F02;&#x6B65;&#x5730;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x7684;&#x5168;&#x90E8;&#x5185;&#x5BB9;&#x3002;</p><p><code>Promise</code> &#x88AB;&#x89E3;&#x51B3;&#x65F6;&#x4F1A;&#x5E26;&#x4E0A;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#x3002;
+&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6307;&#x5B9A;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#xFF08;&#x4F7F;&#x7528; <code>options.encoding</code>&#xFF09;&#xFF0C;&#x5219;&#x6570;&#x636E;&#x4F1A;&#x4EE5; <code>Buffer</code> &#x5BF9;&#x8C61;&#x8FD4;&#x56DE;&#x3002;
+&#x5426;&#x5219;&#xFF0C;&#x6570;&#x636E;&#x5C06;&#x4F1A;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p><p>&#x5982;&#x679C; <code>options</code> &#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x5B83;&#x6307;&#x5B9A;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x3002;</p><p>&#x5F53; <code>path</code> &#x662F;&#x76EE;&#x5F55;&#x65F6;&#xFF0C; <code>fsPromises.readFile()</code> &#x7684;&#x884C;&#x4E3A;&#x662F;&#x7279;&#x5B9A;&#x4E8E;&#x5E73;&#x53F0;&#x7684;&#x3002;
+&#x5728; macOS&#x3001;Linux &#x548C; Windows &#x4E0A;&#xFF0C;promise &#x5C06;&#x4F1A;&#x88AB;&#x62D2;&#x7EDD;&#x5E76;&#x5E26;&#x4E0A;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x3002;
+&#x5728; FreeBSD &#x4E0A;&#xFF0C;&#x5219;&#x5C06;&#x4F1A;&#x8FD4;&#x56DE;&#x76EE;&#x5F55;&#x5185;&#x5BB9;&#x7684;&#x8868;&#x793A;&#x3002;</p><p><code>FileHandle</code> &#x5FC5;&#x987B;&#x652F;&#x6301;&#x8BFB;&#x53D6;&#x3002;</p><p>&#x5982;&#x679C;&#x5BF9;&#x6587;&#x4EF6;&#x53E5;&#x67C4;&#x8FDB;&#x884C;&#x4E86;&#x4E00;&#x6B21;&#x6216;&#x591A;&#x6B21; <code>filehandle.read()</code> &#x8C03;&#x7528;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x8C03;&#x7528; <code>filehandle.readFile()</code>&#xFF0C;&#x5219;&#x5C06;&#x4ECE;&#x5F53;&#x524D;&#x4F4D;&#x7F6E;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#xFF0C;&#x76F4;&#x5230;&#x6587;&#x4EF6;&#x7ED3;&#x675F;&#x3002;
+&#x5B83;&#x5E76;&#x4E0D;&#x603B;&#x662F;&#x4ECE;&#x6587;&#x4EF6;&#x7684;&#x5F00;&#x5934;&#x8BFB;&#x53D6;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v10.0.0</span>
+</div><ul>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></p>
+<ul>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/334hvC" target="_blank" rel="nofollow" class="type">&lt;null&gt;</a> <strong>Default:</strong> <code>null</code></li>
+<li><code>flag</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> See <a href="http://nodejs.cn/s/JjbY8n" rel="nofollow">support of file system <code>flags</code></a>. <strong>Default:</strong> <code>&apos;r&apos;</code>.</li>
+</ul>
+</li>
+<li>Returns: <a href="http://nodejs.cn/s/ri1kj8" target="_blank" rel="nofollow" class="type">&lt;Promise&gt;</a></li>
+</ul><p>Asynchronously reads the entire contents of a file.</p><p>The <code>Promise</code> is resolved with the contents of the file. If no encoding is
+specified (using <code>options.encoding</code>), the data is returned as a <code>Buffer</code>
+object. Otherwise, the data will be a string.</p><p>If <code>options</code> is a string, then it specifies the encoding.</p><p>When the <code>path</code> is a directory, the behavior of <code>fsPromises.readFile()</code> is
+platform-specific. On macOS, Linux, and Windows, the promise will be rejected
+with an error. On FreeBSD, a representation of the directory&apos;s contents will be
+returned.</p><p>The <code>FileHandle</code> has to support reading.</p><p>If one or more <code>filehandle.read()</code> calls are made on a file handle and then a
+<code>filehandle.readFile()</code> call is made, the data will be read from the current
+position till the end of the file. It doesn&apos;t always read from the beginning
+of the file.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756310253"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>fs.mkdtemp(prefix[, options], callback) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756309960" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>fs.mkdtemp(prefix[, options], callback)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_fs_mkdtemp_prefix_options_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/fs_mkdtemp_prefix_options_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will throw a <code>TypeError</code> at runtime.</p></td></tr>
+<tr><td>v7.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will emit a deprecation warning with id DEP0013.</p></td></tr>
+<tr><td>v6.2.1</td>
+<td><p>The <code>callback</code> parameter is optional now.</p></td></tr>
+<tr><td>v5.10.0</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v5.10.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>prefix</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;utf8&apos;</code>&#x3002;</li>
+</ul>
+</li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>folder</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul>
+</li>
+</ul><p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x552F;&#x4E00;&#x7684;&#x4E34;&#x65F6;&#x76EE;&#x5F55;&#x3002;</p><p>&#x751F;&#x6210;&#x8981;&#x9644;&#x52A0;&#x5728;&#x5FC5;&#x9700;&#x7684; <code>prefix</code> &#x540E;&#x9762;&#x7684;&#x516D;&#x4F4D;&#x968F;&#x673A;&#x5B57;&#x7B26;&#xFF0C;&#x4EE5;&#x521B;&#x5EFA;&#x552F;&#x4E00;&#x7684;&#x4E34;&#x65F6;&#x76EE;&#x5F55;&#x3002;
+&#x7531;&#x4E8E;&#x5E73;&#x53F0;&#x7684;&#x4E0D;&#x4E00;&#x81F4;&#x6027;&#xFF0C;&#x8BF7;&#x907F;&#x514D;&#x5728; <code>prefix</code> &#x4E2D;&#x4EE5; <code>X</code> &#x5B57;&#x7B26;&#x7ED3;&#x5C3E;&#x3002;
+&#x5728;&#x67D0;&#x4E9B;&#x5E73;&#x53F0;&#x4E0A;&#xFF0C;&#x7279;&#x522B;&#x662F; BSD&#xFF0C;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x516D;&#x4E2A;&#x4EE5;&#x4E0A;&#x7684;&#x968F;&#x673A;&#x5B57;&#x7B26;&#xFF0C;&#x5E76;&#x7528;&#x968F;&#x673A;&#x5B57;&#x7B26;&#x66FF;&#x6362; <code>prefix</code> &#x4E2D;&#x7ED3;&#x5C3E;&#x7684; <code>X</code> &#x5B57;&#x7B26;&#x3002;</p><p>&#x521B;&#x5EFA;&#x7684;&#x76EE;&#x5F55;&#x8DEF;&#x5F84;&#x4F5C;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x4F20;&#x7ED9;&#x56DE;&#x8C03;&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x3002;</p><p>&#x53EF;&#x9009;&#x7684; <code>options</code> &#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x662F;&#x6307;&#x5B9A;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x5177;&#x6709;&#x6307;&#x5B9A;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x7684; <code>encoding</code> &#x5C5E;&#x6027;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p><pre><code class="language-js">fs.mkdtemp(path.join(os.tmpdir(), &apos;&#x76EE;&#x5F55;-&apos;), (err, folder) =&gt; {
+  if (err) throw err;
+  console.log(folder);
+  // &#x6253;&#x5370;: /tmp/&#x76EE;&#x5F55;-itXde2 &#x6216; C:\Users\...\AppData\Local\Temp\&#x76EE;&#x5F55;-itXde2
+});
+</code></pre><p><code>fs.mkdtemp()</code> &#x65B9;&#x6CD5;&#x5C06;&#x516D;&#x4F4D;&#x968F;&#x673A;&#x9009;&#x62E9;&#x7684;&#x5B57;&#x7B26;&#x76F4;&#x63A5;&#x9644;&#x52A0;&#x5230; <code>prefix</code> &#x5B57;&#x7B26;&#x4E32;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;&#x7ED9;&#x5B9A;&#x76EE;&#x5F55; <code>/tmp</code>&#xFF0C;&#x5982;&#x679C;&#x6253;&#x7B97;&#x5728; <code>/tmp</code> &#x4E2D;&#x521B;&#x5EFA;&#x4E34;&#x65F6;&#x76EE;&#x5F55;&#xFF0C;&#x5219; <code>prefix</code> &#x5FC5;&#x987B;&#x5728;&#x5C3E;&#x90E8;&#x52A0;&#x4E0A;&#x7279;&#x5B9A;&#x5E73;&#x53F0;&#x7684;&#x8DEF;&#x5F84;&#x5206;&#x9694;&#x7B26;&#xFF08;<code>require(&apos;path&apos;).sep</code>&#xFF09;&#x3002;</p><pre><code class="language-js">// &#x65B0;&#x7684;&#x4E34;&#x65F6;&#x76EE;&#x5F55;&#x7684;&#x7236;&#x76EE;&#x5F55;&#x3002;
+const tmpDir = os.tmpdir();
+
+// &#x6B64;&#x7528;&#x6CD5;&#x662F;&#x9519;&#x8BEF;&#x7684;&#xFF1A;
+fs.mkdtemp(tmpDir, (err, folder) =&gt; {
+  if (err) throw err;
+  console.log(folder);
+  // &#x8F93;&#x51FA;&#x7C7B;&#x4F3C; `/tmpabc123`&#x3002;
+  // &#x65B0;&#x7684;&#x4E34;&#x65F6;&#x76EE;&#x5F55;&#x4F1A;&#x88AB;&#x521B;&#x5EFA;&#x5728;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x6839;&#x76EE;&#x5F55;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5728; /tmp &#x76EE;&#x5F55;&#x4E2D;&#x3002;
+});
+
+// &#x6B64;&#x7528;&#x6CD5;&#x662F;&#x6B63;&#x786E;&#x7684;&#xFF1A;
+const { sep } = require(&apos;path&apos;);
+fs.mkdtemp(`${tmpDir}${sep}`, (err, folder) =&gt; {
+  if (err) throw err;
+  console.log(folder);
+  // &#x8F93;&#x51FA;&#x7C7B;&#x4F3C; `/tmp/abc123`&#x3002;
+  // &#x65B0;&#x7684;&#x4E34;&#x65F6;&#x76EE;&#x5F55;&#x4F1A;&#x88AB;&#x521B;&#x5EFA;&#x5728; /tmp &#x76EE;&#x5F55;&#x4E2D;&#x3002;
+});
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will throw a <code>TypeError</code> at runtime.</p></td></tr>
+<tr><td>v7.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will emit a deprecation warning with id DEP0013.</p></td></tr>
+<tr><td>v6.2.1</td>
+<td><p>The <code>callback</code> parameter is optional now.</p></td></tr>
+<tr><td>v5.10.0</td>
+<td><p><span>Added in: v5.10.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>prefix</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> <strong>Default:</strong> <code>&apos;utf8&apos;</code></li>
+</ul>
+</li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>folder</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul>
+</li>
+</ul><p>Creates a unique temporary directory.</p><p>Generates six random characters to be appended behind a required
+<code>prefix</code> to create a unique temporary directory. Due to platform
+inconsistencies, avoid trailing <code>X</code> characters in <code>prefix</code>. Some platforms,
+notably the BSDs, can return more than six random characters, and replace
+trailing <code>X</code> characters in <code>prefix</code> with random characters.</p><p>The created folder path is passed as a string to the callback&apos;s second
+parameter.</p><p>The optional <code>options</code> argument can be a string specifying an encoding, or an
+object with an <code>encoding</code> property specifying the character encoding to use.</p><pre><code class="language-js">fs.mkdtemp(path.join(os.tmpdir(), &apos;foo-&apos;), (err, folder) =&gt; {
+  if (err) throw err;
+  console.log(folder);
+  // Prints: /tmp/foo-itXde2 or C:\Users\...\AppData\Local\Temp\foo-itXde2
+});
+</code></pre><p>The <code>fs.mkdtemp()</code> method will append the six randomly selected characters
+directly to the <code>prefix</code> string. For instance, given a directory <code>/tmp</code>, if the
+intention is to create a temporary directory <em>within</em> <code>/tmp</code>, the <code>prefix</code>
+must end with a trailing platform-specific path separator
+(<code>require(&apos;path&apos;).sep</code>).</p><pre><code class="language-js">// The parent directory for the new temporary directory
+const tmpDir = os.tmpdir();
+
+// This method is *INCORRECT*:
+fs.mkdtemp(tmpDir, (err, folder) =&gt; {
+  if (err) throw err;
+  console.log(folder);
+  // Will print something similar to `/tmpabc123`.
+  // A new temporary directory is created at the file system root
+  // rather than *within* the /tmp directory.
+});
+
+// This method is *CORRECT*:
+const { sep } = require(&apos;path&apos;);
+fs.mkdtemp(`${tmpDir}${sep}`, (err, folder) =&gt; {
+  if (err) throw err;
+  console.log(folder);
+  // Will print something similar to `/tmp/abc123`.
+  // A new temporary directory is created within
+  // the /tmp directory.
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756309960"><\/script>');
+  </script>
+</body>
+</html>

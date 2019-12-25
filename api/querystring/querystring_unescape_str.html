@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>querystring.unescape(str) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/querystring/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756321779" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-querystring">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>querystring.unescape(str)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../querystring.html#querystring_querystring_unescape_str" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/querystring/querystring_unescape_str.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.25</span>
+</div><ul>
+<li><code>str</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p><code>querystring.unescape()</code> &#x65B9;&#x6CD5;&#x5728;&#x7ED9;&#x5B9A;&#x7684; <code>str</code> &#x4E0A;&#x6267;&#x884C; URL &#x767E;&#x5206;&#x6BD4;&#x7F16;&#x7801;&#x5B57;&#x7B26;&#x7684;&#x89E3;&#x7801;&#x3002;</p><p><code>querystring.unescape()</code> &#x65B9;&#x6CD5;&#x7531; <code>querystring.parse()</code> &#x4F7F;&#x7528;&#xFF0C;&#x901A;&#x5E38;&#x4E0D;&#x4F1A;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x5B83;&#x3002;
+&#x5B83;&#x7684;&#x5BFC;&#x51FA;&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x5141;&#x8BB8;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x5728;&#x5FC5;&#x8981;&#x65F6;&#x901A;&#x8FC7;&#x5C06; <code>querystring.unescape</code> &#x5206;&#x914D;&#x7ED9;&#x66FF;&#x4EE3;&#x51FD;&#x6570;&#x6765;&#x63D0;&#x4F9B;&#x66FF;&#x6362;&#x7684;&#x89E3;&#x7801;&#x5B9E;&#x73B0;&#x3002;</p><p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C; <code>querystring.unescape()</code> &#x65B9;&#x6CD5;&#x5C06;&#x5C1D;&#x8BD5;&#x4F7F;&#x7528; JavaScript &#x5185;&#x7F6E;&#x7684; <code>decodeURIComponent()</code> &#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x89E3;&#x7801;&#x3002;
+&#x5982;&#x679C;&#x5931;&#x8D25;&#xFF0C;&#x5C06;&#x4F7F;&#x7528;&#x66F4;&#x5B89;&#x5168;&#x7684;&#x4E0D;&#x4F1A;&#x4E22;&#x5931;&#x683C;&#x5F0F;&#x9519;&#x8BEF;&#x7684; URL &#x7684;&#x7B49;&#x4EF7;&#x65B9;&#x6CD5;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.25</span>
+</div><ul>
+<li><code>str</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>The <code>querystring.unescape()</code> method performs decoding of URL percent-encoded
+characters on the given <code>str</code>.</p><p>The <code>querystring.unescape()</code> method is used by <code>querystring.parse()</code> and is
+generally not expected to be used directly. It is exported primarily to allow
+application code to provide a replacement decoding implementation if
+necessary by assigning <code>querystring.unescape</code> to an alternative function.</p><p>By default, the <code>querystring.unescape()</code> method will attempt to use the
+JavaScript built-in <code>decodeURIComponent()</code> method to decode. If that fails,
+a safer equivalent that does not throw on malformed URLs will be used.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/querystring/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756321779"><\/script>');
+  </script>
+</body>
+</html>

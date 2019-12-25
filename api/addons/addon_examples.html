@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>插件示例 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/addons/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756291616" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-addons">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>插件示例</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../addons.html#addons_addon_examples" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/addons/addon_examples.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x4EE5;&#x4E0B;&#x662F;&#x4E00;&#x4E9B;&#x63D2;&#x4EF6;&#x793A;&#x4F8B;&#xFF0C;&#x7528;&#x4E8E;&#x5E2E;&#x52A9;&#x5F00;&#x53D1;&#x8005;&#x5165;&#x95E8;&#x3002;
+&#x8FD9;&#x4E9B;&#x4F8B;&#x5B50;&#x4F7F;&#x7528;&#x4E86; V8 &#x7684; API&#x3002;
+&#x67E5;&#x770B;&#x5728;&#x7EBF;&#x7684; <a href="http://nodejs.cn/s/FngRok" rel="nofollow">V8 &#x6587;&#x6863;</a>&#x6709;&#x52A9;&#x4E8E;&#x4E86;&#x89E3;&#x5404;&#x79CD; V8 &#x8C03;&#x7528;&#xFF0C;V8 &#x7684;<a href="http://nodejs.cn/s/k6sAad" rel="nofollow">&#x5D4C;&#x5165;&#x5668;&#x6307;&#x5357;</a>&#x89E3;&#x91CA;&#x4E86;&#x53E5;&#x67C4;&#x3001;&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x51FD;&#x6570;&#x6A21;&#x677F;&#x7B49;&#x7684;&#x4E00;&#x4E9B;&#x6982;&#x5FF5;&#x3002;</p><p>&#x6BCF;&#x4E2A;&#x793A;&#x4F8B;&#x90FD;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x7684; <code>binding.gyp</code> &#x6587;&#x4EF6;&#xFF1A;</p><pre><code class="language-json">{
+  &quot;targets&quot;: [
+    {
+      &quot;target_name&quot;: &quot;addon&quot;,
+      &quot;sources&quot;: [ &quot;addon.cc&quot; ]
+    }
+  ]
+}
+</code></pre><p>&#x5982;&#x679C;&#x6709;&#x4E00;&#x4E2A;&#x4EE5;&#x4E0A;&#x7684; <code>.cc</code> &#x6587;&#x4EF6;&#xFF0C;&#x5219;&#x53EA;&#x9700;&#x6DFB;&#x52A0;&#x989D;&#x5916;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x5230; <code>sources</code> &#x6570;&#x7EC4;&#x3002;
+&#x4F8B;&#x5982;&#xFF1A;</p><pre><code class="language-json">&quot;sources&quot;: [&quot;addon.cc&quot;, &quot;myexample.cc&quot;]
+</code></pre><p>&#x5F53; <code>binding.gyp</code> &#x6587;&#x4EF6;&#x51C6;&#x5907;&#x5C31;&#x7EEA;&#xFF0C;&#x5219;&#x63D2;&#x4EF6;&#x793A;&#x4F8B;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>node-gyp</code> &#x8FDB;&#x884C;&#x914D;&#x7F6E;&#x548C;&#x6784;&#x5EFA;&#xFF1A;</p><pre><code class="language-console">$ node-gyp configure build
+</code></pre></div>
+          <div id="content_right"><p>Following are some example Addons intended to help developers get started. The
+examples make use of the V8 APIs. Refer to the online <a href="http://nodejs.cn/s/FngRok" rel="nofollow">V8 reference</a>
+for help with the various V8 calls, and V8&apos;s <a href="http://nodejs.cn/s/k6sAad" rel="nofollow">Embedder&apos;s Guide</a> for an
+explanation of several concepts used such as handles, scopes, function
+templates, etc.</p><p>Each of these examples using the following <code>binding.gyp</code> file:</p><pre><code class="language-json">{
+  &quot;targets&quot;: [
+    {
+      &quot;target_name&quot;: &quot;addon&quot;,
+      &quot;sources&quot;: [ &quot;addon.cc&quot; ]
+    }
+  ]
+}
+</code></pre><p>In cases where there is more than one <code>.cc</code> file, simply add the additional
+filename to the <code>sources</code> array:</p><pre><code class="language-json">&quot;sources&quot;: [&quot;addon.cc&quot;, &quot;myexample.cc&quot;]
+</code></pre><p>Once the <code>binding.gyp</code> file is ready, the example Addons can be configured and
+built using <code>node-gyp</code>:</p><pre><code class="language-console">$ node-gyp configure build
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/addons/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756291616"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>worker.isDead() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/cluster/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756297757" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-cluster">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>worker.isDead()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../cluster.html#cluster_worker_isdead" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/cluster/worker_isdead.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.14</span>
+</div><p>&#x5F53;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x88AB;&#x7EC8;&#x6B62;&#x65F6;&#xFF08;&#x5305;&#x62EC;&#x81EA;&#x52A8;&#x9000;&#x51FA;&#x6216;&#x88AB;&#x53D1;&#x9001;&#x4FE1;&#x53F7;&#xFF09;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE; <code>true</code>&#x3002;
+&#x5426;&#x5219;&#xFF0C;&#x8FD4;&#x56DE; <code>false</code>&#x3002;</p><pre><code class="language-js">const cluster = require(&apos;cluster&apos;);
+const http = require(&apos;http&apos;);
+const numCPUs = require(&apos;os&apos;).cpus().length;
+
+if (cluster.isMaster) {
+  console.log(`&#x4E3B;&#x8FDB;&#x7A0B; ${process.pid} &#x6B63;&#x5728;&#x8FD0;&#x884C;`);
+
+  // &#x884D;&#x751F;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x3002;
+  for (let i = 0; i &lt; numCPUs; i++) {
+    cluster.fork();
+  }
+
+  cluster.on(&apos;fork&apos;, (worker) =&gt; {
+    console.log(&apos;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x5DF2;&#x5173;&#x95ED;:&apos;, worker.isDead());
+  });
+
+  cluster.on(&apos;exit&apos;, (worker, code, signal) =&gt; {
+    console.log(&apos;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x5DF2;&#x5173;&#x95ED;:&apos;, worker.isDead());
+  });
+} else {
+  // &#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x53EF;&#x4EE5;&#x5171;&#x4EAB;&#x4EFB;&#x4F55; TCP &#x8FDE;&#x63A5;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x4E2A; HTTP &#x670D;&#x52A1;&#x5668;&#x3002;
+  http.createServer((req, res) =&gt; {
+    res.writeHead(200);
+    res.end(`&#x5F53;&#x524D;&#x8FDB;&#x7A0B;\n ${process.pid}`);
+    process.kill(process.pid);
+  }).listen(8000);
+}
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.11.14</span>
+</div><p>This function returns <code>true</code> if the worker&apos;s process has terminated (either
+because of exiting or being signaled). Otherwise, it returns <code>false</code>.</p><pre><code class="language-js">const cluster = require(&apos;cluster&apos;);
+const http = require(&apos;http&apos;);
+const numCPUs = require(&apos;os&apos;).cpus().length;
+
+if (cluster.isMaster) {
+  console.log(`Master ${process.pid} is running`);
+
+  // Fork workers.
+  for (let i = 0; i &lt; numCPUs; i++) {
+    cluster.fork();
+  }
+
+  cluster.on(&apos;fork&apos;, (worker) =&gt; {
+    console.log(&apos;worker is dead:&apos;, worker.isDead());
+  });
+
+  cluster.on(&apos;exit&apos;, (worker, code, signal) =&gt; {
+    console.log(&apos;worker is dead:&apos;, worker.isDead());
+  });
+} else {
+  // Workers can share any TCP connection. In this case, it is an HTTP server.
+  http.createServer((req, res) =&gt; {
+    res.writeHead(200);
+    res.end(`Current process\n ${process.pid}`);
+    process.kill(process.pid);
+  }).listen(8000);
+}
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/cluster/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756297757"><\/script>');
+  </script>
+</body>
+</html>

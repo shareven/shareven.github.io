@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>对象工厂 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/addons/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756291624" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-addons">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>对象工厂</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../addons.html#addons_object_factory" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/addons/object_factory.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x63D2;&#x4EF6;&#x53EF;&#x4ECE; C++ &#x51FD;&#x6570;&#x4E2D;&#x521B;&#x5EFA;&#x5E76;&#x8FD4;&#x56DE;&#x65B0;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5982;&#x4EE5;&#x4E0B;&#x4F8B;&#x5B50;&#x6240;&#x793A;&#x3002;
+&#x4E00;&#x4E2A;&#x5E26;&#x6709; <code>msg</code> &#x5C5E;&#x6027;&#x7684;&#x5BF9;&#x8C61;&#x88AB;&#x521B;&#x5EFA;&#x5E76;&#x8FD4;&#x56DE;&#xFF0C;&#x8BE5;&#x5C5E;&#x6027;&#x4F1A;&#x8F93;&#x51FA;&#x4F20;&#x5165; <code>createObject()</code> &#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF1A;</p><pre><code class="language-cpp">// addon.cc
+#include &lt;node.h&gt;
+
+namespace demo {
+
+using v8::Context;
+using v8::FunctionCallbackInfo;
+using v8::Isolate;
+using v8::Local;
+using v8::NewStringType;
+using v8::Object;
+using v8::String;
+using v8::Value;
+
+void CreateObject(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+  Local&lt;Context&gt; context = isolate-&gt;GetCurrentContext();
+
+  Local&lt;Object&gt; obj = Object::New(isolate);
+  obj-&gt;Set(context,
+           String::NewFromUtf8(isolate,
+                               &quot;msg&quot;,
+                               NewStringType::kNormal).ToLocalChecked(),
+                               args[0]-&gt;ToString(context).ToLocalChecked())
+           .FromJust();
+
+  args.GetReturnValue().Set(obj);
+}
+
+void Init(Local&lt;Object&gt; exports, Local&lt;Object&gt; module) {
+  NODE_SET_METHOD(module, &quot;exports&quot;, CreateObject);
+}
+
+NODE_MODULE(NODE_GYP_MODULE_NAME, Init)
+
+}  // namespace demo
+</code></pre><p>&#x5728; JavaScript &#x4E2D;&#x6D4B;&#x8BD5;&#x5B83;&#xFF1A;</p><pre><code class="language-js">// test.js
+const addon = require(&apos;./build/Release/addon&apos;);
+
+const obj1 = addon(&apos;hello&apos;);
+const obj2 = addon(&apos;world&apos;);
+console.log(obj1.msg, obj2.msg);
+// &#x6253;&#x5370;: &apos;hello world&apos;
+</code></pre></div>
+          <div id="content_right"><p>Addons can create and return new objects from within a C++ function as
+illustrated in the following example. An object is created and returned with a
+property <code>msg</code> that echoes the string passed to <code>createObject()</code>:</p><pre><code class="language-cpp">// addon.cc
+#include &lt;node.h&gt;
+
+namespace demo {
+
+using v8::Context;
+using v8::FunctionCallbackInfo;
+using v8::Isolate;
+using v8::Local;
+using v8::NewStringType;
+using v8::Object;
+using v8::String;
+using v8::Value;
+
+void CreateObject(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+  Local&lt;Context&gt; context = isolate-&gt;GetCurrentContext();
+
+  Local&lt;Object&gt; obj = Object::New(isolate);
+  obj-&gt;Set(context,
+           String::NewFromUtf8(isolate,
+                               &quot;msg&quot;,
+                               NewStringType::kNormal).ToLocalChecked(),
+                               args[0]-&gt;ToString(context).ToLocalChecked())
+           .FromJust();
+
+  args.GetReturnValue().Set(obj);
+}
+
+void Init(Local&lt;Object&gt; exports, Local&lt;Object&gt; module) {
+  NODE_SET_METHOD(module, &quot;exports&quot;, CreateObject);
+}
+
+NODE_MODULE(NODE_GYP_MODULE_NAME, Init)
+
+}  // namespace demo
+</code></pre><p>To test it in JavaScript:</p><pre><code class="language-js">// test.js
+const addon = require(&apos;./build/Release/addon&apos;);
+
+const obj1 = addon(&apos;hello&apos;);
+const obj2 = addon(&apos;world&apos;);
+console.log(obj1.msg, obj2.msg);
+// Prints: &apos;hello world&apos;
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/addons/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756291624"><\/script>');
+  </script>
+</body>
+</html>

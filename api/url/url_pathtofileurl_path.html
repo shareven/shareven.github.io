@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>url.pathToFileURL(path) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/url/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756327621" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-url">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>url.pathToFileURL(path)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../url.html#url_url_pathtofileurl_path" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/url/url_pathtofileurl_path.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.12.0</span>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x8981;&#x8F6C;&#x6362;&#x4E3A;&#x6587;&#x4EF6; URL &#x7684;&#x8DEF;&#x5F84;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a> &#x6587;&#x4EF6; URL &#x5BF9;&#x8C61;&#x3002;</li>
+</ul><p>&#x6B64;&#x51FD;&#x6570;&#x53EF;&#x786E;&#x4FDD; <code>path</code> &#x4F1A;&#x88AB;&#x89E3;&#x6790;&#x4E3A;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x5E76;&#x5728;&#x8F6C;&#x6362;&#x4E3A;&#x6587;&#x4EF6; URL &#x65F6;&#x6B63;&#x786E;&#x7F16;&#x7801; URL &#x63A7;&#x5236;&#x5B57;&#x7B26;&#x3002;</p><pre><code class="language-js">new URL(__filename);                // &#x9519;&#x8BEF;: throws (POSIX)
+new URL(__filename);                // &#x9519;&#x8BEF;: C:\... (Windows)
+pathToFileURL(__filename);          // &#x6B63;&#x786E;:   file:///... (POSIX)
+pathToFileURL(__filename);          // &#x6B63;&#x786E;:   file:///C:/... (Windows)
+
+new URL(&apos;/foo#1&apos;, &apos;file:&apos;);         // &#x9519;&#x8BEF;: file:///foo#1
+pathToFileURL(&apos;/foo#1&apos;);            // &#x6B63;&#x786E;:   file:///foo%231 (POSIX)
+
+new URL(&apos;/some/path%.js&apos;, &apos;file:&apos;); // &#x9519;&#x8BEF;: file:///some/path%
+pathToFileURL(&apos;/some/path%.js&apos;);    // &#x6B63;&#x786E;:   file:///some/path%25 (POSIX)
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v10.12.0</span>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> The path to convert to a File URL.</li>
+<li>Returns: <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a> The file URL object.</li>
+</ul><p>This function ensures that <code>path</code> is resolved absolutely, and that the URL
+control characters are correctly encoded when converting into a File URL.</p><pre><code class="language-js">new URL(__filename);                // Incorrect: throws (POSIX)
+new URL(__filename);                // Incorrect: C:\... (Windows)
+pathToFileURL(__filename);          // Correct:   file:///... (POSIX)
+pathToFileURL(__filename);          // Correct:   file:///C:/... (Windows)
+
+new URL(&apos;/foo#1&apos;, &apos;file:&apos;);         // Incorrect: file:///foo#1
+pathToFileURL(&apos;/foo#1&apos;);            // Correct:   file:///foo%231 (POSIX)
+
+new URL(&apos;/some/path%.js&apos;, &apos;file:&apos;); // Incorrect: file:///some/path%
+pathToFileURL(&apos;/some/path%.js&apos;);    // Correct:   file:///some/path%25 (POSIX)
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/url/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756327621"><\/script>');
+  </script>
+</body>
+</html>

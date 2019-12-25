@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>process.cpuUsage([previousValue]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756321000" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>process.cpuUsage([previousValue])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../process.html#process_process_cpuusage_previousvalue" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/process/process_cpuusage_previousvalue.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v6.1.0</span>
+</div><ul>
+<li><code>previousValue</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> &#x4E0A;&#x4E00;&#x6B21;&#x8C03;&#x7528; <code>process.cpuUsage()</code> &#x7684;&#x8FD4;&#x56DE;&#x503C;&#x3002;</li>
+<li>
+<p>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>user</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>system</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+</ul>
+</li>
+</ul><p><code>process.cpuUsage()</code> &#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x5305;&#x542B;&#x5F53;&#x524D;&#x8FDB;&#x7A0B;&#x7684;&#x7528;&#x6237; CPU &#x65F6;&#x95F4;&#x548C;&#x7CFB;&#x7EDF; CPU &#x65F6;&#x95F4;&#x7684;&#x5BF9;&#x8C61;&#x3002;
+&#x6B64;&#x5BF9;&#x8C61;&#x5305;&#x542B; <code>user</code> &#x548C; <code>system</code> &#x5C5E;&#x6027;&#xFF0C;&#x5C5E;&#x6027;&#x503C;&#x7684;&#x5355;&#x4F4D;&#x90FD;&#x662F;&#x5FAE;&#x79D2;&#xFF08;&#x767E;&#x4E07;&#x5206;&#x4E4B;&#x4E00;&#x79D2;&#xFF09;&#x3002;
+&#x7528;&#x6237;&#x548C;&#x7CFB;&#x7EDF;&#x7684;&#x5C5E;&#x6027;&#x503C;&#x5206;&#x522B;&#x8BA1;&#x7B97;&#x4E86;&#x6267;&#x884C;&#x7528;&#x6237;&#x7A0B;&#x5E8F;&#x548C;&#x7CFB;&#x7EDF;&#x7A0B;&#x5E8F;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x5982;&#x679C;&#x6B64;&#x8FDB;&#x7A0B;&#x5728;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x65F6;&#x662F;&#x57FA;&#x4E8E;&#x591A;&#x6838; CPU&#xFF0C;&#x503C;&#x53EF;&#x80FD;&#x6BD4;&#x5B9E;&#x9645;&#x82B1;&#x8D39;&#x7684;&#x65F6;&#x95F4;&#x8981;&#x5927;&#x3002;</p><p>&#x4E0A;&#x4E00;&#x6B21;&#x8C03;&#x7528; <code>process.cpuUsage()</code> &#x65B9;&#x6CD5;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x503C;&#x4F20;&#x9012;&#x7ED9;&#x6B64;&#x65B9;&#x6CD5;&#xFF0C;&#x5F97;&#x5230;&#x7684;&#x7ED3;&#x679C;&#x662F;&#x4E0E;&#x4E0A;&#x4E00;&#x6B21;&#x7684;&#x5DEE;&#x503C;&#x3002;</p><pre><code class="language-js">const startUsage = process.cpuUsage();
+// { user: 38579, system: 6986 }
+
+// &#x5C06; CPU &#x65CB;&#x8F6C; 500 &#x6BEB;&#x79D2;&#x3002;
+const now = Date.now();
+while (Date.now() - now &lt; 500);
+
+console.log(process.cpuUsage(startUsage));
+// { user: 514883, system: 11226 }
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v6.1.0</span>
+</div><ul>
+<li><code>previousValue</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> A previous return value from calling
+<code>process.cpuUsage()</code></li>
+<li>
+<p>Returns: <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>user</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>system</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+</ul>
+</li>
+</ul><p>The <code>process.cpuUsage()</code> method returns the user and system CPU time usage of
+the current process, in an object with properties <code>user</code> and <code>system</code>, whose
+values are microsecond values (millionth of a second). These values measure time
+spent in user and system code respectively, and may end up being greater than
+actual elapsed time if multiple CPU cores are performing work for this process.</p><p>The result of a previous call to <code>process.cpuUsage()</code> can be passed as the
+argument to the function, to get a diff reading.</p><pre><code class="language-js">const startUsage = process.cpuUsage();
+// { user: 38579, system: 6986 }
+
+// spin the CPU for 500 milliseconds
+const now = Date.now();
+while (Date.now() - now &lt; 500);
+
+console.log(process.cpuUsage(startUsage));
+// { user: 514883, system: 11226 }
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756321000"><\/script>');
+  </script>
+</body>
+</html>

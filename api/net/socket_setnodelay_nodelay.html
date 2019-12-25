@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>socket.setNoDelay([noDelay]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/net/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756318407" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-net">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>socket.setNoDelay([noDelay])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../net.html#net_socket_setnodelay_nodelay" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/net/socket_setnodelay_nodelay.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.90</span>
+</div><ul>
+<li><code>noDelay</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>true</code>&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/wsJ1o1" target="_blank" rel="nofollow" class="type">&lt;net.Socket&gt;</a> Socket &#x672C;&#x8EAB;&#x3002;</li>
+</ul><p>&#x7981;&#x6B62; Nagle &#x7B97;&#x6CD5;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B; TCP &#x8FDE;&#x63A5;&#x4F7F;&#x7528; Nagle &#x7B97;&#x6CD5;&#xFF0C;&#x5728;&#x53D1;&#x9001;&#x4E4B;&#x524D;&#x7F13;&#x51B2;&#x6570;&#x636E;&#x3002;&#x5C06; <code>noDelay</code> &#x8BBE;&#x7F6E;&#x4E3A; <code>true</code> &#x5C06;&#x4F1A;&#x5728;&#x6BCF;&#x6B21; <code>socket.write()</code> &#x88AB;&#x8C03;&#x7528;&#x7684;&#x65F6;&#x5019;&#x7ACB;&#x5373;&#x53D1;&#x9001;&#x6570;&#x636E;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.90</span>
+</div><ul>
+<li><code>noDelay</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <strong>Default:</strong> <code>true</code></li>
+<li>Returns: <a href="http://nodejs.cn/s/wsJ1o1" target="_blank" rel="nofollow" class="type">&lt;net.Socket&gt;</a> The socket itself.</li>
+</ul><p>Disables the Nagle algorithm. By default TCP connections use the Nagle
+algorithm, they buffer data before sending it off. Setting <code>true</code> for
+<code>noDelay</code> will immediately fire off data each time <code>socket.write()</code> is called.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/net/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756318407"><\/script>');
+  </script>
+</body>
+</html>

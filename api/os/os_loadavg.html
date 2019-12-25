@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>os.loadavg() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/os/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756318951" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-os">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>os.loadavg()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../os.html#os_os_loadavg" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/os/os_loadavg.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.3</span>
+</div><ul>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number[]&gt;</a></li>
+</ul><p>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x5305;&#x542B; 1&#x3001;5 &#x548C; 15 &#x5206;&#x949F;&#x7684;&#x5E73;&#x5747;&#x8D1F;&#x8F7D;&#x3002;</p><p>&#x5E73;&#x5747;&#x8D1F;&#x8F7D;&#x662F;&#x7CFB;&#x7EDF;&#x6D3B;&#x52A8;&#x6027;&#x7684;&#x6D4B;&#x91CF;&#xFF0C;&#x7531;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x8BA1;&#x7B97;&#x5F97;&#x51FA;&#xFF0C;&#x5E76;&#x8868;&#x73B0;&#x4E3A;&#x4E00;&#x4E2A;&#x5206;&#x6570;&#x3002;</p><p>&#x5E73;&#x5747;&#x8D1F;&#x8F7D;&#x662F; UNIX &#x7279;&#x5B9A;&#x7684;&#x6982;&#x5FF5;&#x3002;
+&#x5728; Windows &#x4E0A;&#xFF0C;&#x5176;&#x8FD4;&#x56DE;&#x503C;&#x59CB;&#x7EC8;&#x4E3A; <code>[0, 0, 0]</code>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.3.3</span>
+</div><ul>
+<li>Returns: <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number[]&gt;</a></li>
+</ul><p>Returns an array containing the 1, 5, and 15 minute load averages.</p><p>The load average is a measure of system activity calculated by the operating
+system and expressed as a fractional number.</p><p>The load average is a Unix-specific concept. On Windows, the return value is
+always <code>[0, 0, 0]</code>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/os/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756318951"><\/script>');
+  </script>
+</body>
+</html>

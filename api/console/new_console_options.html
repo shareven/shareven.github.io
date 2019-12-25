@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>new Console(options) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/console/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756298272" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-console">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>new Console(options)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../console.html#console_new_console_options" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/console/new_console_options.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v11.7.0</td>
+<td><p>The <code>inspectOptions</code> option is introduced.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p>The <code>Console</code> constructor now supports an <code>options</code> argument, and the <code>colorMode</code> option was introduced.</p></td></tr>
+<tr><td>v8.0.0</td>
+<td><p>The <code>ignoreErrors</code> option was introduced.</p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>stdout</code> <a href="http://nodejs.cn/s/9JUnJ8" target="_blank" rel="nofollow" class="type">&lt;stream.Writable&gt;</a></li>
+<li><code>stderr</code> <a href="http://nodejs.cn/s/9JUnJ8" target="_blank" rel="nofollow" class="type">&lt;stream.Writable&gt;</a></li>
+<li><code>ignoreErrors</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5728;&#x5199;&#x5165;&#x5E95;&#x5C42;&#x6D41;&#x65F6;&#x5FFD;&#x7565;&#x9519;&#x8BEF;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>true</code>&#x3002;</li>
+<li><code>colorMode</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x6B64; <code>Console</code> &#x5B9E;&#x4F8B;&#x8BBE;&#x7F6E;&#x989C;&#x8272;&#x652F;&#x6301;&#x3002;
+&#x8BBE;&#x7F6E;&#x4E3A; <code>true</code> &#x4F1A;&#x5728;&#x68C0;&#x67E5;&#x503C;&#x65F6;&#x542F;&#x7528;&#x7740;&#x8272;&#xFF0C;&#x8BBE;&#x7F6E;&#x4E3A; <code>&apos;auto&apos;</code> &#x5C06;&#x4F7F;&#x989C;&#x8272;&#x652F;&#x6301;&#x53D6;&#x51B3; <code>isTTY</code> &#x5C5E;&#x6027;&#x7684;&#x503C;&#x548C; <code>getColorDepth()</code> &#x5728;&#x76F8;&#x5E94;&#x6D41;&#x4E0A;&#x8FD4;&#x56DE;&#x7684;&#x503C;&#x3002;
+&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86; <code>inspectOptions.colors</code>&#xFF0C;&#x5219;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;&#x6B64;&#x9009;&#x9879;&#x3002;
+<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;auto&apos;</code>&#x3002;</li>
+<li><code>inspectOptions</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> &#x6307;&#x5B9A;&#x4F20;&#x7ED9; <a href="http://nodejs.cn/s/fHaJzA" rel="nofollow"><code>util.inspect()</code></a> &#x7684;&#x9009;&#x9879;&#x3002;</li>
+</ul>
+</li>
+</ul><p>&#x521B;&#x5EFA;&#x5177;&#x6709;&#x4E00;&#x4E2A;&#x6216;&#x4E24;&#x4E2A;&#x53EF;&#x5199;&#x6D41;&#x5B9E;&#x4F8B;&#x7684;&#x65B0; <code>Console</code>&#x3002;
+<code>stdout</code> &#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x5199;&#x6D41;&#xFF0C;&#x7528;&#x4E8E;&#x6253;&#x5370;&#x65E5;&#x5FD7;&#x6216;&#x4FE1;&#x606F;&#x8F93;&#x51FA;&#x3002;
+<code>stderr</code> &#x7528;&#x4E8E;&#x8B66;&#x544A;&#x6216;&#x9519;&#x8BEF;&#x8F93;&#x51FA;&#x3002;
+&#x5982;&#x679C;&#x672A;&#x63D0;&#x4F9B; <code>stderr</code>&#xFF0C;&#x5219; <code>stdout</code> &#x7528;&#x4E8E; <code>stderr</code>&#x3002;</p><pre><code class="language-js">const output = fs.createWriteStream(&apos;./stdout.log&apos;);
+const errorOutput = fs.createWriteStream(&apos;./stderr.log&apos;);
+// &#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x7B80;&#x5355;&#x8BB0;&#x5F55;&#x5668;&#x3002;
+const logger = new Console({ stdout: output, stderr: errorOutput });
+// &#x50CF;&#x63A7;&#x5236;&#x53F0;&#x4E00;&#x6837;&#x4F7F;&#x7528;&#x5B83;&#x3002;
+const count = 5;
+logger.log(&apos;count: %d&apos;, count);
+// &#x5728; stdout.log &#x4E2D;: count 5
+</code></pre><p>&#x5168;&#x5C40;&#x7684; <code>console</code> &#x662F;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x7684; <code>Console</code>&#xFF0C;&#x5176;&#x8F93;&#x51FA;&#x53D1;&#x9001;&#x5230; <a href="http://nodejs.cn/s/tQWUzG" rel="nofollow"><code>process.stdout</code></a> &#x548C; <a href="http://nodejs.cn/s/wPv5zY" rel="nofollow"><code>process.stderr</code></a>&#x3002;
+&#x76F8;&#x5F53;&#x4E8E;&#x8C03;&#x7528;&#xFF1A;</p><pre><code class="language-js">new Console({ stdout: process.stdout, stderr: process.stderr });
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v11.7.0</td>
+<td><p>The <code>inspectOptions</code> option is introduced.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p>The <code>Console</code> constructor now supports an <code>options</code> argument, and the <code>colorMode</code> option was introduced.</p></td></tr>
+<tr><td>v8.0.0</td>
+<td><p>The <code>ignoreErrors</code> option was introduced.</p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>stdout</code> <a href="http://nodejs.cn/s/9JUnJ8" target="_blank" rel="nofollow" class="type">&lt;stream.Writable&gt;</a></li>
+<li><code>stderr</code> <a href="http://nodejs.cn/s/9JUnJ8" target="_blank" rel="nofollow" class="type">&lt;stream.Writable&gt;</a></li>
+<li><code>ignoreErrors</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> Ignore errors when writing to the underlying
+streams. <strong>Default:</strong> <code>true</code>.</li>
+<li><code>colorMode</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> Set color support for this <code>Console</code> instance.
+Setting to <code>true</code> enables coloring while inspecting values, setting to
+<code>&apos;auto&apos;</code> will make color support depend on the value of the <code>isTTY</code> property
+and the value returned by <code>getColorDepth()</code> on the respective stream. This
+option can not be used, if <code>inspectOptions.colors</code> is set as well.
+<strong>Default:</strong> <code>&apos;auto&apos;</code>.</li>
+<li><code>inspectOptions</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> Specifies options that are passed along to
+<a href="http://nodejs.cn/s/fHaJzA" rel="nofollow"><code>util.inspect()</code></a>.</li>
+</ul>
+</li>
+</ul><p>Creates a new <code>Console</code> with one or two writable stream instances. <code>stdout</code> is a
+writable stream to print log or info output. <code>stderr</code> is used for warning or
+error output. If <code>stderr</code> is not provided, <code>stdout</code> is used for <code>stderr</code>.</p><pre><code class="language-js">const output = fs.createWriteStream(&apos;./stdout.log&apos;);
+const errorOutput = fs.createWriteStream(&apos;./stderr.log&apos;);
+// Custom simple logger
+const logger = new Console({ stdout: output, stderr: errorOutput });
+// use it like console
+const count = 5;
+logger.log(&apos;count: %d&apos;, count);
+// In stdout.log: count 5
+</code></pre><p>The global <code>console</code> is a special <code>Console</code> whose output is sent to
+<a href="http://nodejs.cn/s/tQWUzG" rel="nofollow"><code>process.stdout</code></a> and <a href="http://nodejs.cn/s/wPv5zY" rel="nofollow"><code>process.stderr</code></a>. It is equivalent to calling:</p><pre><code class="language-js">new Console({ stdout: process.stdout, stderr: process.stderr });
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/console/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756298272"><\/script>');
+  </script>
+</body>
+</html>

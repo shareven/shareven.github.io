@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>fs.unwatchFile(filename[, listener]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756310120" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>fs.unwatchFile(filename[, listener])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_fs_unwatchfile_filename_listener" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/fs_unwatchfile_filename_listener.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.31</span>
+</div><ul>
+<li><code>filename</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li><code>listener</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x53EF;&#x9009;&#x7684;&#xFF0C;&#x4E4B;&#x524D;&#x4F7F;&#x7528; <code>fs.watchFile()</code> &#x7ED1;&#x5B9A;&#x7684;&#x76D1;&#x542C;&#x5668;&#x3002;</li>
+</ul><p>&#x505C;&#x6B62;&#x76D1;&#x89C6; <code>filename</code> &#x7684;&#x53D8;&#x5316;&#x3002;
+&#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86; <code>listener</code>&#xFF0C;&#x5219;&#x4EC5;&#x79FB;&#x9664;&#x6B64;&#x7279;&#x5B9A;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x5426;&#x5219;&#xFF0C;&#x5C06;&#x79FB;&#x9664;&#x6240;&#x6709;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x4ECE;&#x800C;&#x505C;&#x6B62;&#x76D1;&#x89C6; <code>filename</code>&#x3002;</p><p>&#x5BF9;&#x672A;&#x88AB;&#x76D1;&#x89C6;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x8C03;&#x7528; <code>fs.unwatchFile()</code> &#x5C06;&#x662F;&#x7A7A;&#x64CD;&#x4F5C;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x9519;&#x8BEF;&#x3002;</p><p>&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/h2QY7Q" rel="nofollow"><code>fs.watch()</code></a> &#x6BD4; <code>fs.watchFile()</code> &#x548C; <code>fs.unwatchFile()</code> &#x66F4;&#x9AD8;&#x6548;&#x3002;
+&#x5E94;&#x5C3D;&#x53EF;&#x80FD;&#x4F7F;&#x7528; <code>fs.watch()</code> &#x4EE3;&#x66FF; <code>fs.watchFile()</code> &#x548C; <code>fs.unwatchFile()</code>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.31</span>
+</div><ul>
+<li><code>filename</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li><code>listener</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> Optional, a listener previously attached using
+<code>fs.watchFile()</code></li>
+</ul><p>Stop watching for changes on <code>filename</code>. If <code>listener</code> is specified, only that
+particular listener is removed. Otherwise, <em>all</em> listeners are removed,
+effectively stopping watching of <code>filename</code>.</p><p>Calling <code>fs.unwatchFile()</code> with a filename that is not being watched is a
+no-op, not an error.</p><p>Using <a href="http://nodejs.cn/s/h2QY7Q" rel="nofollow"><code>fs.watch()</code></a> is more efficient than <code>fs.watchFile()</code> and
+<code>fs.unwatchFile()</code>. <code>fs.watch()</code> should be used instead of <code>fs.watchFile()</code>
+and <code>fs.unwatchFile()</code> when possible.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756310120"><\/script>');
+  </script>
+</body>
+</html>

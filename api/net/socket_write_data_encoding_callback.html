@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>socket.write(data[, encoding][, callback]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/net/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756318415" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-net">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>socket.write(data[, encoding][, callback])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../net.html#net_socket_write_data_encoding_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/net/socket_write_data_encoding_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.90</span>
+</div><ul>
+<li><code>data</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/ZbDkpm" target="_blank" rel="nofollow" class="type">&lt;Uint8Array&gt;</a></li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x4EC5;&#x5728;&#x6570;&#x636E;&#x4E3A; <code>string</code> &#x65F6;&#x4F7F;&#x7528;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>utf8</code>&#x3002;</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+</ul><p>&#x5728; socket &#x4E0A;&#x53D1;&#x9001;&#x6570;&#x636E;&#x3002;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x5236;&#x5B9A;&#x4E86;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x7F16;&#x7801; - &#x9ED8;&#x8BA4;&#x662F; UTF8 &#x7F16;&#x7801;&#x3002;</p><p>&#x5982;&#x679C;&#x5168;&#x90E8;&#x6570;&#x636E;&#x90FD;&#x6210;&#x529F;&#x5237;&#x65B0;&#x5230;&#x5185;&#x6838;&#x7684;&#x7F13;&#x51B2;&#x5219;&#x8FD4;&#x56DE; <code>true</code>&#x3002;&#x5982;&#x679C;&#x5168;&#x90E8;&#x6216;&#x90E8;&#x5206;&#x6570;&#x636E;&#x5728;&#x7528;&#x6237;&#x5185;&#x4E2D;&#x6392;&#x961F;&#xFF0C;&#x5219;&#x8FD4;&#x56DE; <code>false</code>&#x3002;&#x5F53;&#x7F13;&#x51B2;&#x518D;&#x6B21;&#x7A7A;&#x95F2;&#x7684;&#x65F6;&#x5019;&#x5C06;&#x89E6;&#x53D1; <a href="http://nodejs.cn/s/GyDS4X" rel="nofollow"><code>&apos;drain&apos;</code></a> &#x4E8B;&#x4EF6;&#x3002;</p><p>&#x5F53;&#x6570;&#x636E;&#x6700;&#x7EC8;&#x90FD;&#x88AB;&#x5199;&#x51FA;&#x4E4B;&#x540E;&#xFF0C;&#x53EF;&#x9009;&#x7684; <code>callback</code> &#x53C2;&#x6570;&#x5C06;&#x4F1A;&#x88AB;&#x6267;&#x884C;&#xFF08;&#x53EF;&#x80FD;&#x4E0D;&#x4F1A;&#x7ACB;&#x5373;&#x6267;&#x884C;&#xFF09;&#x3002;</p><p>&#x8BE6;&#x89C1; <code>Writable</code> &#x6D41;&#x7684; <a href="http://nodejs.cn/s/doppiK" rel="nofollow"><code>write()</code></a> &#x65B9;&#x6CD5;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.90</span>
+</div><ul>
+<li><code>data</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/ZbDkpm" target="_blank" rel="nofollow" class="type">&lt;Uint8Array&gt;</a></li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> Only used when data is <code>string</code>. <strong>Default:</strong> <code>utf8</code>.</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></li>
+<li>Returns: <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+</ul><p>Sends data on the socket. The second parameter specifies the encoding in the
+case of a string &#x2014; it defaults to UTF8 encoding.</p><p>Returns <code>true</code> if the entire data was flushed successfully to the kernel
+buffer. Returns <code>false</code> if all or part of the data was queued in user memory.
+<a href="http://nodejs.cn/s/GyDS4X" rel="nofollow"><code>&apos;drain&apos;</code></a> will be emitted when the buffer is again free.</p><p>The optional <code>callback</code> parameter will be executed when the data is finally
+written out, which may not be immediately.</p><p>See <code>Writable</code> stream <a href="http://nodejs.cn/s/doppiK" rel="nofollow"><code>write()</code></a> method for more
+information.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/net/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756318415"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>stream.Readable.from(iterable, [options]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324235" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-stream">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>stream.Readable.from(iterable, [options])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../stream.html#stream_stream_readable_from_iterable_options" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/stream/stream_readable_from_iterable_options.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v12.3.0</span>
+</div><ul>
+<li><code>iterable</code> <a href="http://nodejs.cn/s/mQfCyy" target="_blank" rel="nofollow" class="type">&lt;Iterable&gt;</a> &#x5B9E;&#x73B0; <code>Symbol.asyncIterator</code> &#x6216; <code>Symbol.iterator</code> &#x53EF;&#x8FED;&#x4EE3;&#x534F;&#x8BAE;&#x7684;&#x5BF9;&#x8C61;&#x3002;</li>
+<li><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> &#x63D0;&#x4F9B;&#x7ED9; <code>new stream.Readable([options])</code> &#x7684;&#x9009;&#x9879;&#x3002;
+&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C; <code>Readable.from()</code> &#x4F1A;&#x5C06; <code>options.objectMode</code> &#x8BBE;&#x7F6E;&#x4E3A; <code>true</code>&#xFF0C;&#x9664;&#x975E;&#x901A;&#x8FC7;&#x5C06; <code>options.objectMode</code> &#x8BBE;&#x7F6E;&#x4E3A; <code>false</code> &#x663E;&#x5F0F;&#x5730;&#x9009;&#x62E9;&#x6B64;&#x9009;&#x9879;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/YuDKX1" target="_blank" rel="nofollow" class="type">&lt;stream.Readable&gt;</a></li>
+</ul><p>&#x4E00;&#x4E2A;&#x4ECE;&#x8FED;&#x4EE3;&#x5668;&#x4E2D;&#x521B;&#x5EFA;&#x53EF;&#x8BFB;&#x6D41;&#x7684;&#x5B9E;&#x7528;&#x65B9;&#x6CD5;&#x3002;</p><pre><code class="language-js">const { Readable } = require(&apos;stream&apos;);
+
+async function * generate() {
+  yield &apos;hello&apos;;
+  yield &apos;streams&apos;;
+}
+
+const readable = Readable.from(generate());
+
+readable.on(&apos;data&apos;, (chunk) =&gt; {
+  console.log(chunk);
+});
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v12.3.0</span>
+</div><ul>
+<li><code>iterable</code> <a href="http://nodejs.cn/s/mQfCyy" target="_blank" rel="nofollow" class="type">&lt;Iterable&gt;</a> Object implementing the <code>Symbol.asyncIterator</code> or
+<code>Symbol.iterator</code> iterable protocol.</li>
+<li><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> Options provided to <code>new stream.Readable([options])</code>.
+By default, <code>Readable.from()</code> will set <code>options.objectMode</code> to <code>true</code>, unless
+this is explicitly opted out by setting <code>options.objectMode</code> to <code>false</code>.</li>
+<li>Returns: <a href="http://nodejs.cn/s/YuDKX1" target="_blank" rel="nofollow" class="type">&lt;stream.Readable&gt;</a></li>
+</ul><p>A utility method for creating Readable Streams out of iterators.</p><pre><code class="language-js">const { Readable } = require(&apos;stream&apos;);
+
+async function * generate() {
+  yield &apos;hello&apos;;
+  yield &apos;streams&apos;;
+}
+
+const readable = Readable.from(generate());
+
+readable.on(&apos;data&apos;, (chunk) =&gt; {
+  console.log(chunk);
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324235"><\/script>');
+  </script>
+</body>
+</html>

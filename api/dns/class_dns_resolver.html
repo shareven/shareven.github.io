@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>dns.Resolver 类 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/dns/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756303194" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-dns">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>dns.Resolver 类</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../dns.html#dns_class_dns_resolver" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/dns/class_dns_resolver.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v8.3.0</span>
+</div><p>DNS &#x8BF7;&#x6C42;&#x7684;&#x72EC;&#x7ACB;&#x89E3;&#x6790;&#x7A0B;&#x5E8F;&#x3002;</p><p>&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7684;&#x8BBE;&#x7F6E;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x89E3;&#x6790;&#x7A0B;&#x5E8F;&#x3002;
+&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/K4y1Dd" rel="nofollow"><code>resolver.setServers()</code></a> &#x4E3A;&#x89E3;&#x6790;&#x7A0B;&#x5E8F;&#x8BBE;&#x7F6E;&#x4F7F;&#x7528;&#x7684;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5219;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x5176;&#x4ED6;&#x7684;&#x89E3;&#x6790;&#x7A0B;&#x5E8F;&#xFF1A;</p><pre><code class="language-js">const { Resolver } = require(&apos;dns&apos;);
+const resolver = new Resolver();
+resolver.setServers([&apos;4.4.4.4&apos;]);
+
+// &#x6B64;&#x8BF7;&#x6C42;&#x5C06;&#x4F7F;&#x7528; 4.4.4.4 &#x4E2D;&#x7684;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x4E0E;&#x5168;&#x5C40;&#x8BBE;&#x7F6E;&#x65E0;&#x5173;&#x3002;
+resolver.resolve4(&apos;example.org&apos;, (err, addresses) =&gt; {
+  // ...
+});
+</code></pre><p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7684; <code>dns</code> &#x6A21;&#x5757;&#x7684;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p><ul>
+<li><a href="http://nodejs.cn/s/b9Wj32" rel="nofollow"><code>resolver.getServers()</code></a></li>
+<li><a href="http://nodejs.cn/s/wWS6mS" rel="nofollow"><code>resolver.resolve()</code></a></li>
+<li><a href="http://nodejs.cn/s/bkouRT" rel="nofollow"><code>resolver.resolve4()</code></a></li>
+<li><a href="http://nodejs.cn/s/uWo3QT" rel="nofollow"><code>resolver.resolve6()</code></a></li>
+<li><a href="http://nodejs.cn/s/AhgtkV" rel="nofollow"><code>resolver.resolveAny()</code></a></li>
+<li><a href="http://nodejs.cn/s/UwXGoo" rel="nofollow"><code>resolver.resolveCname()</code></a></li>
+<li><a href="http://nodejs.cn/s/Xm7Kak" rel="nofollow"><code>resolver.resolveMx()</code></a></li>
+<li><a href="http://nodejs.cn/s/uCLTRh" rel="nofollow"><code>resolver.resolveNaptr()</code></a></li>
+<li><a href="http://nodejs.cn/s/623FRf" rel="nofollow"><code>resolver.resolveNs()</code></a></li>
+<li><a href="http://nodejs.cn/s/USS5jX" rel="nofollow"><code>resolver.resolvePtr()</code></a></li>
+<li><a href="http://nodejs.cn/s/QgkH6F" rel="nofollow"><code>resolver.resolveSoa()</code></a></li>
+<li><a href="http://nodejs.cn/s/mmTjFF" rel="nofollow"><code>resolver.resolveSrv()</code></a></li>
+<li><a href="http://nodejs.cn/s/oQKPWT" rel="nofollow"><code>resolver.resolveTxt()</code></a></li>
+<li><a href="http://nodejs.cn/s/EByarc" rel="nofollow"><code>resolver.reverse()</code></a></li>
+<li><a href="http://nodejs.cn/s/K4y1Dd" rel="nofollow"><code>resolver.setServers()</code></a></li>
+</ul></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v8.3.0</span>
+</div><p>An independent resolver for DNS requests.</p><p>Creating a new resolver uses the default server settings. Setting
+the servers used for a resolver using
+<a href="http://nodejs.cn/s/K4y1Dd" rel="nofollow"><code>resolver.setServers()</code></a> does not affect
+other resolvers:</p><pre><code class="language-js">const { Resolver } = require(&apos;dns&apos;);
+const resolver = new Resolver();
+resolver.setServers([&apos;4.4.4.4&apos;]);
+
+// This request will use the server at 4.4.4.4, independent of global settings.
+resolver.resolve4(&apos;example.org&apos;, (err, addresses) =&gt; {
+  // ...
+});
+</code></pre><p>The following methods from the <code>dns</code> module are available:</p><ul>
+<li><a href="http://nodejs.cn/s/b9Wj32" rel="nofollow"><code>resolver.getServers()</code></a></li>
+<li><a href="http://nodejs.cn/s/wWS6mS" rel="nofollow"><code>resolver.resolve()</code></a></li>
+<li><a href="http://nodejs.cn/s/bkouRT" rel="nofollow"><code>resolver.resolve4()</code></a></li>
+<li><a href="http://nodejs.cn/s/uWo3QT" rel="nofollow"><code>resolver.resolve6()</code></a></li>
+<li><a href="http://nodejs.cn/s/AhgtkV" rel="nofollow"><code>resolver.resolveAny()</code></a></li>
+<li><a href="http://nodejs.cn/s/UwXGoo" rel="nofollow"><code>resolver.resolveCname()</code></a></li>
+<li><a href="http://nodejs.cn/s/Xm7Kak" rel="nofollow"><code>resolver.resolveMx()</code></a></li>
+<li><a href="http://nodejs.cn/s/uCLTRh" rel="nofollow"><code>resolver.resolveNaptr()</code></a></li>
+<li><a href="http://nodejs.cn/s/623FRf" rel="nofollow"><code>resolver.resolveNs()</code></a></li>
+<li><a href="http://nodejs.cn/s/USS5jX" rel="nofollow"><code>resolver.resolvePtr()</code></a></li>
+<li><a href="http://nodejs.cn/s/QgkH6F" rel="nofollow"><code>resolver.resolveSoa()</code></a></li>
+<li><a href="http://nodejs.cn/s/mmTjFF" rel="nofollow"><code>resolver.resolveSrv()</code></a></li>
+<li><a href="http://nodejs.cn/s/oQKPWT" rel="nofollow"><code>resolver.resolveTxt()</code></a></li>
+<li><a href="http://nodejs.cn/s/EByarc" rel="nofollow"><code>resolver.reverse()</code></a></li>
+<li><a href="http://nodejs.cn/s/K4y1Dd" rel="nofollow"><code>resolver.setServers()</code></a></li>
+</ul></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/dns/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756303194"><\/script>');
+  </script>
+</body>
+</html>

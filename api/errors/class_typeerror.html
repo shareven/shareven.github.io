@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>TypeError 类 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/errors/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756305187" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-errors">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>TypeError 类</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../errors.html#errors_class_typeerror" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/errors/class_typeerror.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><ul>
+<li>&#x7EE7;&#x627F;&#x81EA; <a href="http://nodejs.cn/s/FLTm19" target="_blank" rel="nofollow" class="type">&lt;errors.Error&gt;</a></li>
+</ul><p>&#x8868;&#x660E;&#x63D0;&#x4F9B;&#x7684;&#x53C2;&#x6570;&#x4E0D;&#x662F;&#x88AB;&#x5141;&#x8BB8;&#x7684;&#x7C7B;&#x578B;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;&#x5C06;&#x51FD;&#x6570;&#x4F20;&#x7ED9;&#x671F;&#x671B;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5C06;&#x4F1A;&#x88AB;&#x89C6;&#x4E3A; <code>TypeError</code>&#x3002;</p><pre><code class="language-js">require(&apos;url&apos;).parse(() =&gt; { });
+// &#x629B;&#x51FA; TypeError&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x671F;&#x671B;&#x7684;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+</code></pre><p>Node.js &#x5C06;&#x4F1A;&#x4EE5;&#x53C2;&#x6570;&#x9A8C;&#x8BC1;&#x7684;&#x5F62;&#x5F0F;&#x7ACB;&#x5373;&#x5730;&#x751F;&#x6210;&#x5E76;&#x629B;&#x51FA; <code>TypeError</code> &#x5B9E;&#x4F8B;&#x3002;</p></div>
+          <div id="content_right"><ul>
+<li>Extends <a href="http://nodejs.cn/s/FLTm19" target="_blank" rel="nofollow" class="type">&lt;errors.Error&gt;</a></li>
+</ul><p>Indicates that a provided argument is not an allowable type. For example,
+passing a function to a parameter which expects a string would be considered
+a <code>TypeError</code>.</p><pre><code class="language-js">require(&apos;url&apos;).parse(() =&gt; { });
+// Throws TypeError, since it expected a string.
+</code></pre><p>Node.js will generate and throw <code>TypeError</code> instances <em>immediately</em> as a form
+of argument validation.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/errors/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756305187"><\/script>');
+  </script>
+</body>
+</html>

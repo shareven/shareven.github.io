@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>require.cache | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/modules/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756316022" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-modules">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>require.cache</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../modules.html#modules_require_cache" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/modules/require_cache.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.0</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></li>
+</ul><p>&#x88AB;&#x5F15;&#x5165;&#x7684;&#x6A21;&#x5757;&#x5C06;&#x88AB;&#x7F13;&#x5B58;&#x5728;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x4E2D;&#x3002;
+&#x4ECE;&#x6B64;&#x5BF9;&#x8C61;&#x4E2D;&#x5220;&#x9664;&#x952E;&#x503C;&#x5BF9;&#x5C06;&#x4F1A;&#x5BFC;&#x81F4;&#x4E0B;&#x4E00;&#x6B21; <code>require</code> &#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x88AB;&#x5220;&#x9664;&#x7684;&#x6A21;&#x5757;&#x3002;
+&#x8FD9;&#x4E0D;&#x9002;&#x7528;&#x4E8E;<a href="http://nodejs.cn/s/91ni6i" rel="nofollow">&#x539F;&#x751F;&#x63D2;&#x4EF6;</a>&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x7684;&#x91CD;&#x8F7D;&#x5C06;&#x4F1A;&#x5BFC;&#x81F4;&#x9519;&#x8BEF;&#x3002;</p><p>&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x6216;&#x66FF;&#x6362;&#x5165;&#x53E3;&#x3002;
+&#x5728;&#x52A0;&#x8F7D;&#x539F;&#x751F;&#x6A21;&#x5757;&#x4E4B;&#x524D;&#x4F1A;&#x68C0;&#x67E5;&#x6B64;&#x7F13;&#x5B58;&#xFF0C;&#x5982;&#x679C;&#x5C06;&#x4E0E;&#x539F;&#x751F;&#x6A21;&#x5757;&#x5339;&#x914D;&#x7684;&#x540D;&#x79F0;&#x6DFB;&#x52A0;&#x5230;&#x7F13;&#x5B58;&#x4E2D;&#xFF0C;&#x5219;&#x5F15;&#x5165;&#x8C03;&#x7528;&#x5C06;&#x4E0D;&#x518D;&#x83B7;&#x53D6;&#x539F;&#x751F;&#x6A21;&#x5757;&#x3002;
+&#x8C28;&#x614E;&#x4F7F;&#x7528;&#xFF01;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.3.0</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></li>
+</ul><p>Modules are cached in this object when they are required. By deleting a key
+value from this object, the next <code>require</code> will reload the module.
+This does not apply to <a href="http://nodejs.cn/s/91ni6i" rel="nofollow">native addons</a>, for which reloading will result in an
+error.</p><p>Adding or replacing entries is also possible. This cache is checked before
+native modules and if a name matching a native module is added to the cache,
+no require call is
+going to receive the native module anymore. Use with care!</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/modules/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756316022"><\/script>');
+  </script>
+</body>
+</html>

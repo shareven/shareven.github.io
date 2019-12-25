@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>buffer.transcode(source, fromEnc, toEnc) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756294848" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-buffer">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>buffer.transcode(source, fromEnc, toEnc)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../buffer.html#buffer_buffer_transcode_source_fromenc_toenc" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/buffer/buffer_transcode_source_fromenc_toenc.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v8.0.0</td>
+<td><p>The <code>source</code> parameter can now be a <code>Uint8Array</code>.</p></td></tr>
+<tr><td>v7.1.0</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v7.1.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>source</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/ZbDkpm" target="_blank" rel="nofollow" class="type">&lt;Uint8Array&gt;</a> &#x4E00;&#x4E2A; <code>Buffer</code> &#x6216; <code>Uint8Array</code> &#x5B9E;&#x4F8B;&#x3002;</li>
+<li><code>fromEnc</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5F53;&#x524D;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x3002;</li>
+<li><code>toEnc</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x76EE;&#x6807;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a></li>
+</ul><p>&#x5C06;&#x6307;&#x5B9A;&#x7684; <code>Buffer</code> &#x6216; <code>Uint8Array</code> &#x5B9E;&#x4F8B;&#x4ECE;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x91CD;&#x65B0;&#x7F16;&#x7801;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x3002;
+&#x8FD4;&#x56DE;&#x65B0;&#x7684; <code>Buffer</code> &#x5B9E;&#x4F8B;&#x3002;</p><p>&#x5982;&#x679C; <code>fromEnc</code> &#x6216; <code>toEnc</code> &#x6307;&#x5B9A;&#x4E86;&#x65E0;&#x6548;&#x7684;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#xFF0C;&#x6216;&#x8005;&#x65E0;&#x6CD5;&#x4ECE; <code>fromEnc</code> &#x8F6C;&#x6362;&#x4E3A; <code>toEnc</code>&#xFF0C;&#x5219;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x3002;</p><p><code>buffer.transcode()</code> &#x652F;&#x6301;&#x7684;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x6709; <code>&apos;ascii&apos;</code>&#x3001; <code>&apos;utf8&apos;</code>&#x3001; <code>&apos;utf16le&apos;</code>&#x3001; <code>&apos;ucs2&apos;</code>&#x3001; <code>&apos;latin1&apos;</code> &#x4E0E; <code>&apos;binary&apos;</code>&#x3002;</p><p>&#x5982;&#x679C;&#x6307;&#x5B9A;&#x7684;&#x5B57;&#x8282;&#x5E8F;&#x5217;&#x65E0;&#x6CD5;&#x7528;&#x76EE;&#x6807;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x8868;&#x793A;&#xFF0C;&#x5219;&#x8F6C;&#x7801;&#x8FC7;&#x7A0B;&#x4F1A;&#x4F7F;&#x7528;&#x66FF;&#x4EE3;&#x7684;&#x5B57;&#x7B26;&#x3002;
+&#x4F8B;&#x5982;&#xFF1A;</p><pre><code class="language-js">const buffer = require(&apos;buffer&apos;);
+
+const newBuf = buffer.transcode(Buffer.from(&apos;&#x20AC;&apos;), &apos;utf8&apos;, &apos;ascii&apos;);
+console.log(newBuf.toString(&apos;ascii&apos;));
+// &#x6253;&#x5370;: &apos;?&apos;
+</code></pre><p>&#x56E0;&#x4E3A;&#x6B27;&#x5143;&#x7B26;&#x53F7;&#xFF08;<code>&#x20AC;</code>&#xFF09;&#x65E0;&#x6CD5;&#x5728; US-ASCII &#x4E2D;&#x8868;&#x793A;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x8F6C;&#x7801; <code>Buffer</code> &#x65F6;&#x4F7F;&#x7528; <code>?</code> &#x4EE3;&#x66FF;&#x3002;</p><p>&#x8BE5;&#x5C5E;&#x6027;&#x662F;&#x5728; <code>require(&apos;buffer&apos;)</code> &#x8FD4;&#x56DE;&#x7684; <code>buffer</code> &#x6A21;&#x5757;&#x4E0A;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5728; <code>Buffer</code> &#x5168;&#x5C40;&#x53D8;&#x91CF;&#x6216; <code>Buffer</code> &#x5B9E;&#x4F8B;&#x4E0A;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v8.0.0</td>
+<td><p>The <code>source</code> parameter can now be a <code>Uint8Array</code>.</p></td></tr>
+<tr><td>v7.1.0</td>
+<td><p><span>Added in: v7.1.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>source</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/ZbDkpm" target="_blank" rel="nofollow" class="type">&lt;Uint8Array&gt;</a> A <code>Buffer</code> or <code>Uint8Array</code> instance.</li>
+<li><code>fromEnc</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> The current encoding.</li>
+<li><code>toEnc</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> To target encoding.</li>
+<li>Returns: <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a></li>
+</ul><p>Re-encodes the given <code>Buffer</code> or <code>Uint8Array</code> instance from one character
+encoding to another. Returns a new <code>Buffer</code> instance.</p><p>Throws if the <code>fromEnc</code> or <code>toEnc</code> specify invalid character encodings or if
+conversion from <code>fromEnc</code> to <code>toEnc</code> is not permitted.</p><p>Encodings supported by <code>buffer.transcode()</code> are: <code>&apos;ascii&apos;</code>, <code>&apos;utf8&apos;</code>,
+<code>&apos;utf16le&apos;</code>, <code>&apos;ucs2&apos;</code>, <code>&apos;latin1&apos;</code>, and <code>&apos;binary&apos;</code>.</p><p>The transcoding process will use substitution characters if a given byte
+sequence cannot be adequately represented in the target encoding. For instance:</p><pre><code class="language-js">const buffer = require(&apos;buffer&apos;);
+
+const newBuf = buffer.transcode(Buffer.from(&apos;&#x20AC;&apos;), &apos;utf8&apos;, &apos;ascii&apos;);
+console.log(newBuf.toString(&apos;ascii&apos;));
+// Prints: &apos;?&apos;
+</code></pre><p>Because the Euro (<code>&#x20AC;</code>) sign is not representable in US-ASCII, it is replaced
+with <code>?</code> in the transcoded <code>Buffer</code>.</p><p>This is a property on the <code>buffer</code> module returned by
+<code>require(&apos;buffer&apos;)</code>, not on the <code>Buffer</code> global or a <code>Buffer</code> instance.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756294848"><\/script>');
+  </script>
+</body>
+</html>

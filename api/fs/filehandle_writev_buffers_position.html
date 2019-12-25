@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>filehandle.writev(buffers[, position]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756310288" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>filehandle.writev(buffers[, position])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_filehandle_writev_buffers_position" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/filehandle_writev_buffers_position.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v12.9.0</span>
+</div><ul>
+<li><code>buffers</code> <a href="http://nodejs.cn/s/Xiwgzs" target="_blank" rel="nofollow" class="type">&lt;ArrayBufferView[]&gt;</a></li>
+<li><code>position</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/ri1kj8" target="_blank" rel="nofollow" class="type">&lt;Promise&gt;</a></li>
+</ul><p>&#x5C06; <code>ArrayBufferViews</code> &#x6570;&#x7EC4;&#x5199;&#x5165;&#x8BE5;&#x6587;&#x4EF6;&#x3002;</p><p><code>Promise</code> &#x4F1A;&#x88AB;&#x89E3;&#x51B3;&#x5E76;&#x5E26;&#x4E0A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5BF9;&#x8C61;&#x5305;&#x542B;&#x4E00;&#x4E2A; <code>bytesWritten</code> &#x5C5E;&#x6027;&#xFF08;&#x8868;&#x660E;&#x5199;&#x5165;&#x7684;&#x5B57;&#x8282;&#x6570;&#xFF09;&#x548C;&#x4E00;&#x4E2A; <code>buffers</code> &#x5C5E;&#x6027;&#xFF08;&#x6307;&#x5411; <code>buffers</code> &#x8F93;&#x5165;&#xFF09;&#x3002;</p><p><code>position</code> &#x6307;&#x5B9A;&#x6587;&#x4EF6;&#x5F00;&#x5934;&#x7684;&#x504F;&#x79FB;&#x91CF;&#xFF08;&#x6570;&#x636E;&#x5E94;&#x8BE5;&#x88AB;&#x5199;&#x5165;&#x7684;&#x4F4D;&#x7F6E;&#xFF09;&#x3002;
+&#x5982;&#x679C; <code>typeof position !== &apos;number&apos;</code>&#xFF0C;&#x5219;&#x6570;&#x636E;&#x4F1A;&#x88AB;&#x5199;&#x5165;&#x5F53;&#x524D;&#x7684;&#x4F4D;&#x7F6E;&#x3002; </p><p>&#x5728;&#x540C;&#x4E00;&#x6587;&#x4EF6;&#x4E0A;&#x591A;&#x6B21;&#x8C03;&#x7528; <code>writev()</code> &#x4E14;&#x4E0D;&#x7B49;&#x5F85;&#x524D;&#x9762;&#x7684;&#x64CD;&#x4F5C;&#x5B8C;&#x6210;&#xFF0C;&#x8FD9;&#x662F;&#x4E0D;&#x5B89;&#x5168;&#x7684;&#x3002;</p><p>&#x5728; Linux &#x4E0A;&#xFF0C;&#x5F53;&#x4EE5;&#x8FFD;&#x52A0;&#x6A21;&#x5F0F;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x65F6;&#xFF0C;&#x5199;&#x5165;&#x65E0;&#x6CD5;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x3002;
+&#x5185;&#x6838;&#x4F1A;&#x5FFD;&#x7565;&#x4F4D;&#x7F6E;&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x59CB;&#x7EC8;&#x5C06;&#x6570;&#x636E;&#x8FFD;&#x52A0;&#x5230;&#x6587;&#x4EF6;&#x7684;&#x672B;&#x5C3E;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v12.9.0</span>
+</div><ul>
+<li><code>buffers</code> <a href="http://nodejs.cn/s/Xiwgzs" target="_blank" rel="nofollow" class="type">&lt;ArrayBufferView[]&gt;</a></li>
+<li><code>position</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li>Returns: <a href="http://nodejs.cn/s/ri1kj8" target="_blank" rel="nofollow" class="type">&lt;Promise&gt;</a></li>
+</ul><p>Write an array of <code>ArrayBufferView</code>s to the file.</p><p>The <code>Promise</code> is resolved with an object containing a <code>bytesWritten</code> property
+identifying the number of bytes written, and a <code>buffers</code> property containing
+a reference to the <code>buffers</code> input.</p><p><code>position</code> is the offset from the beginning of the file where this data
+should be written. If <code>typeof position !== &apos;number&apos;</code>, the data will be written
+at the current position.</p><p>It is unsafe to call <code>writev()</code> multiple times on the same file without waiting
+for the previous operation to complete.</p><p>On Linux, positional writes don&apos;t work when the file is opened in append mode.
+The kernel ignores the position argument and always appends the data to
+the end of the file.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756310288"><\/script>');
+  </script>
+</body>
+</html>

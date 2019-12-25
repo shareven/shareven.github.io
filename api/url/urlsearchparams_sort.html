@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>urlSearchParams.sort() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/url/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756327605" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-url">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>urlSearchParams.sort()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../url.html#url_urlsearchparams_sort" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/url/urlsearchparams_sort.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v7.7.0, v6.13.0</span>
+</div><p>&#x6309;&#x73B0;&#x6709;&#x540D;&#x79F0;&#x5C31;&#x5730;&#x6392;&#x5217;&#x6240;&#x6709;&#x7684;&#x540D;&#x79F0;-&#x503C;&#x5BF9;&#x3002;
+&#x4F7F;&#x7528;<a href="http://nodejs.cn/s/bDYCiv" rel="nofollow">&#x7A33;&#x5B9A;&#x6392;&#x5E8F;&#x7B97;&#x6CD5;</a>&#x5B8C;&#x6210;&#x6392;&#x5E8F;&#xFF0C;&#x56E0;&#x6B64;&#x4FDD;&#x7559;&#x5177;&#x6709;&#x76F8;&#x540C;&#x540D;&#x79F0;&#x7684;&#x540D;&#x79F0;-&#x503C;&#x5BF9;&#x4E4B;&#x95F4;&#x7684;&#x76F8;&#x5BF9;&#x987A;&#x5E8F;&#x3002;</p><p>&#x8BE5;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x589E;&#x52A0;&#x7F13;&#x5B58;&#x547D;&#x4E2D;&#x3002;</p><pre><code class="language-js">const params = new URLSearchParams(&apos;query[]=abc&amp;type=search&amp;query[]=123&apos;);
+params.sort();
+console.log(params.toString());
+// &#x6253;&#x5370; query%5B%5D=abc&amp;query%5B%5D=123&amp;type=search
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v7.7.0, v6.13.0</span>
+</div><p>Sort all existing name-value pairs in-place by their names. Sorting is done
+with a <a href="http://nodejs.cn/s/bDYCiv" rel="nofollow">stable sorting algorithm</a>, so relative order between name-value pairs
+with the same name is preserved.</p><p>This method can be used, in particular, to increase cache hits.</p><pre><code class="language-js">const params = new URLSearchParams(&apos;query[]=abc&amp;type=search&amp;query[]=123&apos;);
+params.sort();
+console.log(params.toString());
+// Prints query%5B%5D=abc&amp;query%5B%5D=123&amp;type=search
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/url/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756327605"><\/script>');
+  </script>
+</body>
+</html>

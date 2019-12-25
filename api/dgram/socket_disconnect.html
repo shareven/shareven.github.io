@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>socket.disconnect() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/dgram/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756302451" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-dgram">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>socket.disconnect()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../dgram.html#dgram_socket_disconnect" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/socket_disconnect.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v12.0.0</span>
+</div><p>&#x4E00;&#x4E2A;&#x5C06;&#x76F8;&#x8FDE;&#x7684; <code>dgram.Socket</code> &#x4E0E;&#x8FDC;&#x7A0B;&#x5730;&#x5740;&#x65AD;&#x6389;&#x7684;&#x540C;&#x6B65;&#x51FD;&#x6570;&#x3002;
+&#x5728;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x672A;&#x8FDE;&#x63A5;&#x7684; socket &#x4E0A;&#x5C1D;&#x8BD5;&#x8C03;&#x7528; <code>disconnect()</code> &#x4F1A;&#x5BFC;&#x81F4;&#x4E00;&#x4E2A; <a href="http://nodejs.cn/s/MDim3s" rel="nofollow"><code>ERR_SOCKET_DGRAM_NOT_CONNECTED</code></a> &#x5F02;&#x5E38;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v12.0.0</span>
+</div><p>A synchronous function that disassociates a connected <code>dgram.Socket</code> from
+its remote address. Trying to call <code>disconnect()</code> on an already disconnected
+socket will result in an <a href="http://nodejs.cn/s/MDim3s" rel="nofollow"><code>ERR_SOCKET_DGRAM_NOT_CONNECTED</code></a> exception.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/dgram/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756302451"><\/script>');
+  </script>
+</body>
+</html>

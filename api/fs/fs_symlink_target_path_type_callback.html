@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>fs.symlink(target, path[, type], callback) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756310087" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>fs.symlink(target, path[, type], callback)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_fs_symlink_target_path_type_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/fs_symlink_target_path_type_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v12.0.0</td>
+<td><p>If the <code>type</code> argument is left undefined, Node will autodetect <code>target</code> type and automatically select <code>dir</code> or <code>file</code></p></td></tr>
+<tr><td>v7.6.0</td>
+<td><p>The <code>target</code> and <code>path</code> parameters can be WHATWG <code>URL</code> objects using <code>file:</code> protocol. Support is currently still <em>experimental</em>.</p></td></tr>
+<tr><td>v0.1.31</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.31</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>target</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li><code>type</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+</ul>
+</li>
+</ul><p>&#x5F02;&#x6B65;&#x7684; <a href="http://nodejs.cn/s/th7NwY" rel="nofollow"><code>symlink(2)</code></a>&#xFF0C;&#x5B83;&#x4F1A;&#x521B;&#x5EFA;&#x540D;&#x4E3A; <code>path</code> &#x7684;&#x94FE;&#x63A5;&#xFF0C;&#x8BE5;&#x94FE;&#x63A5;&#x6307;&#x5411; <code>target</code>&#x3002;
+&#x9664;&#x4E86;&#x53EF;&#x80FD;&#x7684;&#x5F02;&#x5E38;&#xFF0C;&#x5B8C;&#x6210;&#x56DE;&#x8C03;&#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x53C2;&#x6570;&#x3002;</p><p><code>type</code> &#x53C2;&#x6570;&#x4EC5;&#x5728; Windows &#x4E0A;&#x53EF;&#x7528;&#xFF0C;&#x5728;&#x5176;&#x4ED6;&#x5E73;&#x53F0;&#x4E0A;&#x5219;&#x4F1A;&#x88AB;&#x5FFD;&#x7565;&#x3002;
+&#x5B83;&#x53EF;&#x4EE5;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A; <code>&apos;dir&apos;</code>&#x3001; <code>&apos;file&apos;</code> &#x6216; <code>&apos;junction&apos;</code>&#x3002;
+&#x5982;&#x679C;&#x672A;&#x8BBE;&#x7F6E; <code>type</code> &#x53C2;&#x6570;&#xFF0C;&#x5219; Node &#x5C06;&#x4F1A;&#x81EA;&#x52A8;&#x68C0;&#x6D4B; <code>target</code> &#x7684;&#x7C7B;&#x578B;&#x5E76;&#x4F7F;&#x7528; <code>&apos;file&apos;</code> &#x6216; <code>&apos;dir&apos;</code>&#x3002;
+&#x5982;&#x679C; <code>target</code> &#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x5C06;&#x4F1A;&#x4F7F;&#x7528; <code>&apos;file&apos;</code>&#x3002;
+Windows &#x4E0A;&#x7684;&#x8FDE;&#x63A5;&#x70B9;&#x8981;&#x6C42;&#x76EE;&#x6807;&#x8DEF;&#x5F84;&#x662F;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;
+&#x5F53;&#x4F7F;&#x7528; <code>&apos;junction&apos;</code> &#x65F6;&#xFF0C; <code>target</code> &#x53C2;&#x6570;&#x5C06;&#x4F1A;&#x81EA;&#x52A8;&#x5730;&#x6807;&#x51C6;&#x5316;&#x4E3A;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;</p><p>&#x76F8;&#x5BF9;&#x76EE;&#x6807;&#x662F;&#x76F8;&#x5BF9;&#x4E8E;&#x94FE;&#x63A5;&#x7684;&#x7236;&#x76EE;&#x5F55;&#x3002;</p><pre><code class="language-js">fs.symlink(&apos;./mew&apos;, &apos;./example/mewtwo&apos;, callback);
+</code></pre><p>&#x4E0A;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;&#x5728; <code>example</code> &#x4E2D;&#x521B;&#x5EFA;&#x4E86;&#x7B26;&#x53F7;&#x94FE;&#x63A5; <code>mewtwo</code>&#xFF0C;&#x5B83;&#x6307;&#x5411;&#x540C;&#x4E00;&#x76EE;&#x5F55;&#x4E2D;&#x7684; <code>mew</code>&#xFF1A;</p><pre><code class="language-bash">$ tree example/
+example/
+&#x251C;&#x2500;&#x2500; mew
+&#x2514;&#x2500;&#x2500; mewtwo -&gt; ./mew
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v12.0.0</td>
+<td><p>If the <code>type</code> argument is left undefined, Node will autodetect <code>target</code> type and automatically select <code>dir</code> or <code>file</code></p></td></tr>
+<tr><td>v7.6.0</td>
+<td><p>The <code>target</code> and <code>path</code> parameters can be WHATWG <code>URL</code> objects using <code>file:</code> protocol. Support is currently still <em>experimental</em>.</p></td></tr>
+<tr><td>v0.1.31</td>
+<td><p><span>Added in: v0.1.31</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>target</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li><code>type</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+</ul>
+</li>
+</ul><p>Asynchronous <a href="http://nodejs.cn/s/th7NwY" rel="nofollow"><code>symlink(2)</code></a> which creates the link called <code>path</code> pointing to
+<code>target</code>.  No arguments other than a possible exception are given to the
+completion callback.</p><p>The <code>type</code> argument is only available on Windows and ignored on other platforms.
+It can be set to <code>&apos;dir&apos;</code>, <code>&apos;file&apos;</code>, or <code>&apos;junction&apos;</code>. If the <code>type</code> argument is
+not set, Node will autodetect <code>target</code> type and use <code>&apos;file&apos;</code> or <code>&apos;dir&apos;</code>. If the
+<code>target</code> does not exist, <code>&apos;file&apos;</code> will be used. Windows junction points require
+the destination path to be absolute.  When using <code>&apos;junction&apos;</code>, the <code>target</code>
+argument will automatically be normalized to absolute path.</p><p>Relative targets are relative to the link&#x2019;s parent directory.</p><pre><code class="language-js">fs.symlink(&apos;./mew&apos;, &apos;./example/mewtwo&apos;, callback);
+</code></pre><p>The above example creates a symbolic link <code>mewtwo</code> in the <code>example</code> which points
+to <code>mew</code> in the same directory:</p><pre><code class="language-bash">$ tree example/
+example/
+&#x251C;&#x2500;&#x2500; mew
+&#x2514;&#x2500;&#x2500; mewtwo -&gt; ./mew
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756310087"><\/script>');
+  </script>
+</body>
+</html>

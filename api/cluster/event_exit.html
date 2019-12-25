@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'exit' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/cluster/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756297737" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-cluster">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'exit' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../cluster.html#cluster_event_exit" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/cluster/event_exit.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.2</span>
+</div><ul>
+<li><code>code</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> &#x6B63;&#x5E38;&#x9000;&#x51FA;&#x65F6;&#x7684;&#x9000;&#x51FA;&#x4EE3;&#x7801;&#x3002;</li>
+<li><code>signal</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5BFC;&#x81F4;&#x8FDB;&#x7A0B;&#x88AB;&#x6740;&#x6B7B;&#x7684;&#x4FE1;&#x53F7;&#x540D;&#x79F0; (&#x4F8B;&#x5982; <code>&apos;SIGHUP&apos;</code>)&#x3002;</li>
+</ul><p>&#x7C7B;&#x4F3C;&#x4E8E; <code>cluster.on(&apos;exit&apos;)</code> &#x4E8B;&#x4EF6;&#xFF0C;&#x4F46;&#x7279;&#x5B9A;&#x4E8E;&#x6B64;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x3002; </p><pre><code class="language-js">const worker = cluster.fork();
+worker.on(&apos;exit&apos;, (code, signal) =&gt; {
+  if (signal) {
+    console.log(`&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x5DF2;&#x88AB;&#x4FE1;&#x53F7; ${signal} &#x6740;&#x6B7B;`);
+  } else if (code !== 0) {
+    console.log(`&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x9000;&#x51FA;&#xFF0C;&#x9000;&#x51FA;&#x7801;: ${code}`);
+  } else {
+    console.log(&apos;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x6210;&#x529F;&#x9000;&#x51FA;&apos;);
+  }
+});
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.11.2</span>
+</div><ul>
+<li><code>code</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> The exit code, if it exited normally.</li>
+<li><code>signal</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> The name of the signal (e.g. <code>&apos;SIGHUP&apos;</code>) that caused
+the process to be killed.</li>
+</ul><p>Similar to the <code>cluster.on(&apos;exit&apos;)</code> event, but specific to this worker.</p><pre><code class="language-js">const worker = cluster.fork();
+worker.on(&apos;exit&apos;, (code, signal) =&gt; {
+  if (signal) {
+    console.log(`worker was killed by signal: ${signal}`);
+  } else if (code !== 0) {
+    console.log(`worker exited with error code: ${code}`);
+  } else {
+    console.log(&apos;worker success!&apos;);
+  }
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/cluster/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756297737"><\/script>');
+  </script>
+</body>
+</html>

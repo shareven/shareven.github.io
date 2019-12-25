@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'newSession' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/tls/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756326171" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-tls">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'newSession' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../tls.html#tls_event_newsession" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/tls/event_newsession.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.2</span>
+</div><p><code>&apos;newSession&apos;</code> &#x4E8B;&#x4EF6;&#x5728;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684; TLS &#x4F1A;&#x8BDD;&#x65F6;&#x89E6;&#x53D1;&#x3002;
+&#x8FD9;&#x53EF;&#x80FD;&#x7528;&#x4E8E;&#x5728;&#x5916;&#x90E8;&#x5B58;&#x50A8;&#x4FDD;&#x5B58;&#x4F1A;&#x8BDD;&#x3002;
+&#x6570;&#x636E;&#x4F1A;&#x88AB;&#x63D0;&#x4F9B;&#x7ED9; <a href="http://nodejs.cn/s/GHghQC" rel="nofollow"><code>&apos;resumeSession&apos;</code></a> &#x56DE;&#x8C03;&#x3002;</p><p>&#x76D1;&#x542C;&#x5668;&#x56DE;&#x8C03;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#x4F20;&#x5165;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;</p><ul>
+<li><code>sessionId</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> TLS &#x4F1A;&#x8BDD;&#x8BC6;&#x522B;&#x7B26;&#x3002;</li>
+<li><code>sessionData</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> TLS &#x4F1A;&#x8BDD;&#x6570;&#x636E;&#x3002;</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x5728;&#x5B89;&#x5168;&#x8FDE;&#x63A5;&#x65F6;&#x4E3A;&#x4E86;&#x53D1;&#x9001;&#x6216;&#x8005;&#x63A5;&#x6536;&#x6570;&#x636E;&#xFF0C;&#x65E0;&#x53C2;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5FC5;&#x987B;&#x88AB;&#x8C03;&#x7528;&#x3002;</li>
+</ul><p>&#x6DFB;&#x52A0;&#x76D1;&#x542C;&#x5668;&#x540E;&#xFF0C;&#x76D1;&#x542C;&#x5668;&#x53EA;&#x5728;&#x8FDE;&#x63A5;&#x5EFA;&#x7ACB;&#x540E;&#x751F;&#x6548;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.9.2</span>
+</div><p>The <code>&apos;newSession&apos;</code> event is emitted upon creation of a new TLS session. This may
+be used to store sessions in external storage. The data should be provided to
+the <a href="http://nodejs.cn/s/GHghQC" rel="nofollow"><code>&apos;resumeSession&apos;</code></a> callback.</p><p>The listener callback is passed three arguments when called:</p><ul>
+<li><code>sessionId</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> The TLS session identifier</li>
+<li><code>sessionData</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> The TLS session data</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> A callback function taking no arguments that must be
+invoked in order for data to be sent or received over the secure connection.</li>
+</ul><p>Listening for this event will have an effect only on connections established
+after the addition of the event listener.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/tls/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756326171"><\/script>');
+  </script>
+</body>
+</html>

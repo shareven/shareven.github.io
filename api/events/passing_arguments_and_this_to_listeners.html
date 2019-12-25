@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>将参数和 this 传给监听器 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/events/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756306991" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-events">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>将参数和 this 传给监听器</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../events.html#events_passing_arguments_and_this_to_listeners" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/events/passing_arguments_and_this_to_listeners.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p><code>eventEmitter.emit()</code> &#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x4F20;&#x4EFB;&#x610F;&#x6570;&#x91CF;&#x7684;&#x53C2;&#x6570;&#x5230;&#x76D1;&#x542C;&#x5668;&#x51FD;&#x6570;&#x3002;
+&#x5F53;&#x76D1;&#x542C;&#x5668;&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#xFF0C; <code>this</code> &#x5173;&#x952E;&#x8BCD;&#x4F1A;&#x88AB;&#x6307;&#x5411;&#x76D1;&#x542C;&#x5668;&#x6240;&#x7ED1;&#x5B9A;&#x7684; <code>EventEmitter</code> &#x5B9E;&#x4F8B;&#x3002;</p><pre><code class="language-js">const myEmitter = new MyEmitter();
+myEmitter.on(&apos;event&apos;, function(a, b) {
+  console.log(a, b, this, this === myEmitter);
+  // &#x6253;&#x5370;:
+  //   a b MyEmitter {
+  //     domain: null,
+  //     _events: { event: [Function] },
+  //     _eventsCount: 1,
+  //     _maxListeners: undefined } true
+});
+myEmitter.emit(&apos;event&apos;, &apos;a&apos;, &apos;b&apos;);
+</code></pre><p>&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; ES6 &#x7684;&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x76D1;&#x542C;&#x5668;&#x3002;&#x4F46; <code>this</code> &#x5173;&#x952E;&#x8BCD;&#x4E0D;&#x4F1A;&#x6307;&#x5411; <code>EventEmitter</code> &#x5B9E;&#x4F8B;&#xFF1A;</p><pre><code class="language-js">const myEmitter = new MyEmitter();
+myEmitter.on(&apos;event&apos;, (a, b) =&gt; {
+  console.log(a, b, this);
+  // &#x6253;&#x5370;: a b {}
+});
+myEmitter.emit(&apos;event&apos;, &apos;a&apos;, &apos;b&apos;);
+</code></pre></div>
+          <div id="content_right"><p>The <code>eventEmitter.emit()</code> method allows an arbitrary set of arguments to be
+passed to the listener functions. Keep in mind that when
+an ordinary listener function is called, the standard <code>this</code> keyword
+is intentionally set to reference the <code>EventEmitter</code> instance to which the
+listener is attached.</p><pre><code class="language-js">const myEmitter = new MyEmitter();
+myEmitter.on(&apos;event&apos;, function(a, b) {
+  console.log(a, b, this, this === myEmitter);
+  // Prints:
+  //   a b MyEmitter {
+  //     domain: null,
+  //     _events: { event: [Function] },
+  //     _eventsCount: 1,
+  //     _maxListeners: undefined } true
+});
+myEmitter.emit(&apos;event&apos;, &apos;a&apos;, &apos;b&apos;);
+</code></pre><p>It is possible to use ES6 Arrow Functions as listeners, however, when doing so,
+the <code>this</code> keyword will no longer reference the <code>EventEmitter</code> instance:</p><pre><code class="language-js">const myEmitter = new MyEmitter();
+myEmitter.on(&apos;event&apos;, (a, b) =&gt; {
+  console.log(a, b, this);
+  // Prints: a b {}
+});
+myEmitter.emit(&apos;event&apos;, &apos;a&apos;, &apos;b&apos;);
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/events/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756306991"><\/script>');
+  </script>
+</body>
+</html>

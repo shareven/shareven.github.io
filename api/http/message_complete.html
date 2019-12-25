@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>message.complete | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/http/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756312055" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-http">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>message.complete</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../http.html#http_message_complete" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/http/message_complete.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.0</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+</ul><p>&#x5982;&#x679C;&#x5DF2;&#x6536;&#x5230;&#x5E76;&#x6210;&#x529F;&#x89E3;&#x6790;&#x5B8C;&#x6574;&#x7684; HTTP &#x6D88;&#x606F;&#xFF0C;&#x5219; <code>message.complete</code> &#x5C5E;&#x6027;&#x5C06;&#x4E3A; <code>true</code>&#x3002;</p><p>&#x6B64;&#x5C5E;&#x6027;&#x53EF;&#x7528;&#x4E8E;&#x5224;&#x65AD;&#x5BA2;&#x6237;&#x7AEF;&#x6216;&#x670D;&#x52A1;&#x5668;&#x5728;&#x8FDE;&#x63A5;&#x7EC8;&#x6B62;&#x4E4B;&#x524D;&#x662F;&#x5426;&#x5B8C;&#x5168;&#x4F20;&#x8F93;&#x6D88;&#x606F;&#xFF1A;</p><pre><code class="language-js">const req = http.request({
+  host: &apos;127.0.0.1&apos;,
+  port: 8080,
+  method: &apos;POST&apos;
+}, (res) =&gt; {
+  res.resume();
+  res.on(&apos;end&apos;, () =&gt; {
+    if (!res.complete)
+      console.error(
+        &apos;&#x6D88;&#x606F;&#x4ECD;&#x5728;&#x53D1;&#x9001;&#x65F6;&#x7EC8;&#x6B62;&#x4E86;&#x8FDE;&#x63A5;&apos;);
+  });
+});
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.3.0</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+</ul><p>The <code>message.complete</code> property will be <code>true</code> if a complete HTTP message has
+been received and successfully parsed.</p><p>This property is particularly useful as a means of determining if a client or
+server fully transmitted a message before a connection was terminated:</p><pre><code class="language-js">const req = http.request({
+  host: &apos;127.0.0.1&apos;,
+  port: 8080,
+  method: &apos;POST&apos;
+}, (res) =&gt; {
+  res.resume();
+  res.on(&apos;end&apos;, () =&gt; {
+    if (!res.complete)
+      console.error(
+        &apos;The connection was terminated while the message was still being sent&apos;);
+  });
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/http/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756312055"><\/script>');
+  </script>
+</body>
+</html>

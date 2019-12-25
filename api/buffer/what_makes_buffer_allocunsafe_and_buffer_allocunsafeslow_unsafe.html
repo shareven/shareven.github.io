@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Buffer.allocUnsafe() 与 Buffer.allocUnsafeSlow() 不安全的原因 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756294516" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-buffer">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>Buffer.allocUnsafe() 与 Buffer.allocUnsafeSlow() 不安全的原因</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../buffer.html#buffer_what_makes_buffer_allocunsafe_and_buffer_allocunsafeslow_unsafe" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/buffer/what_makes_buffer_allocunsafe_and_buffer_allocunsafeslow_unsafe.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x5F53;&#x8C03;&#x7528; <a href="http://nodejs.cn/s/TWpeWk" rel="nofollow"><code>Buffer.allocUnsafe()</code></a> &#x548C; <a href="http://nodejs.cn/s/PUENLw" rel="nofollow"><code>Buffer.allocUnsafeSlow()</code></a> &#x65F6;&#xFF0C;&#x5206;&#x914D;&#x7684;&#x5185;&#x5B58;&#x7247;&#x6BB5;&#x662F;&#x672A;&#x521D;&#x59CB;&#x5316;&#x7684;&#xFF08;&#x6CA1;&#x6709;&#x88AB;&#x6E05;&#x96F6;&#xFF09;&#x3002;
+&#x867D;&#x7136;&#x8FD9;&#x6837;&#x7684;&#x8BBE;&#x8BA1;&#x4F7F;&#x5F97;&#x5185;&#x5B58;&#x7684;&#x5206;&#x914D;&#x975E;&#x5E38;&#x5FEB;&#xFF0C;&#x4F46;&#x5206;&#x914D;&#x7684;&#x5185;&#x5B58;&#x53EF;&#x80FD;&#x5305;&#x542B;&#x654F;&#x611F;&#x7684;&#x65E7;&#x6570;&#x636E;&#x3002;
+&#x4F7F;&#x7528;&#x7531; <a href="http://nodejs.cn/s/TWpeWk" rel="nofollow"><code>Buffer.allocUnsafe()</code></a> &#x521B;&#x5EFA;&#x7684; <code>Buffer</code> &#x6CA1;&#x6709;&#x5B8C;&#x5168;&#x91CD;&#x5199;&#x5185;&#x5B58;&#xFF0C;&#x5F53;&#x8BFB;&#x53D6; <code>Buffer</code> &#x7684;&#x5185;&#x5B58;&#x65F6;&#xFF0C;&#x53EF;&#x80FD;&#x4F7F;&#x65E7;&#x6570;&#x636E;&#x6CC4;&#x9732;&#x3002;</p><p>&#x867D;&#x7136;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/TWpeWk" rel="nofollow"><code>Buffer.allocUnsafe()</code></a> &#x6709;&#x660E;&#x663E;&#x7684;&#x6027;&#x80FD;&#x4F18;&#x52BF;&#xFF0C;&#x4F46;&#x5FC5;&#x987B;&#x683C;&#x5916;&#x5C0F;&#x5FC3;&#xFF0C;&#x4EE5;&#x907F;&#x514D;&#x5C06;&#x5B89;&#x5168;&#x6F0F;&#x6D1E;&#x5F15;&#x5165;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002;</p></div>
+          <div id="content_right"><p>When calling <a href="http://nodejs.cn/s/TWpeWk" rel="nofollow"><code>Buffer.allocUnsafe()</code></a> and <a href="http://nodejs.cn/s/PUENLw" rel="nofollow"><code>Buffer.allocUnsafeSlow()</code></a>, the
+segment of allocated memory is <em>uninitialized</em> (it is not zeroed-out). While
+this design makes the allocation of memory quite fast, the allocated segment of
+memory might contain old data that is potentially sensitive. Using a <code>Buffer</code>
+created by <a href="http://nodejs.cn/s/TWpeWk" rel="nofollow"><code>Buffer.allocUnsafe()</code></a> without <em>completely</em> overwriting the
+memory can allow this old data to be leaked when the <code>Buffer</code> memory is read.</p><p>While there are clear performance advantages to using
+<a href="http://nodejs.cn/s/TWpeWk" rel="nofollow"><code>Buffer.allocUnsafe()</code></a>, extra care <em>must</em> be taken in order to avoid
+introducing security vulnerabilities into an application.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756294516"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>readline（逐行读取） | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/readline/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756322206" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-readline">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>readline（逐行读取）</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../readline.html#readline_readline" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/readline/readline.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p></p><div class="api_stability api_stability_2"><a target="_blank" rel="nofollow" href="../documentation.html#documentation_stability_index">&#x7A33;&#x5B9A;&#x6027;: 2</a> - &#x7A33;&#x5B9A;</div><p></p><p><code>readline</code> &#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x7528;&#x4E8E;&#x4E00;&#x6B21;&#x4E00;&#x884C;&#x5730;&#x8BFB;&#x53D6;<a href="http://nodejs.cn/s/zz7Dx3" rel="nofollow">&#x53EF;&#x8BFB;&#x6D41;</a>&#xFF08;&#x4F8B;&#x5982; <a href="http://nodejs.cn/s/gagmJq" rel="nofollow"><code>process.stdin</code></a>&#xFF09;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x3002;
+&#x5B83;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x65B9;&#x5F0F;&#x8BBF;&#x95EE;&#xFF1A;</p><pre><code class="language-js">const readline = require(&apos;readline&apos;);
+</code></pre><p>&#x4EE5;&#x4E0B;&#x7684;&#x7B80;&#x5355;&#x793A;&#x4F8B;&#x8BF4;&#x660E;&#x4E86; <code>readline</code> &#x6A21;&#x5757;&#x7684;&#x57FA;&#x672C;&#x7528;&#x6CD5;&#x3002;</p><pre><code class="language-js">const readline = require(&apos;readline&apos;);
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.question(&apos;&#x4F60;&#x5982;&#x4F55;&#x770B;&#x5F85; Node.js &#x4E2D;&#x6587;&#x7F51;&#xFF1F;&apos;, (answer) =&gt; {
+  // TODO&#xFF1A;&#x5C06;&#x7B54;&#x6848;&#x8BB0;&#x5F55;&#x5728;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x3002;
+  console.log(`&#x611F;&#x8C22;&#x60A8;&#x7684;&#x5B9D;&#x8D35;&#x610F;&#x89C1;&#xFF1A;${answer}`);
+
+  rl.close();
+});
+</code></pre><p>&#x4E00;&#x65E6;&#x8C03;&#x7528;&#x6B64;&#x4EE3;&#x7801;&#xFF0C;Node.js &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5C06;&#x4E0D;&#x4F1A;&#x7EC8;&#x6B62;&#xFF0C;&#x76F4;&#x5230; <code>readline.Interface</code> &#x5173;&#x95ED;&#xFF0C;&#x56E0;&#x4E3A;&#x63A5;&#x53E3;&#x5728; <code>input</code> &#x6D41;&#x4E0A;&#x7B49;&#x5F85;&#x63A5;&#x6536;&#x6570;&#x636E;&#x3002;</p></div>
+          <div id="content_right"><p></p><div class="api_stability api_stability_2"><a target="_blank" rel="nofollow" href="../documentation.html#documentation_stability_index">Stability: 2</a> - Stable</div><p></p><p>The <code>readline</code> module provides an interface for reading data from a <a href="http://nodejs.cn/s/zz7Dx3" rel="nofollow">Readable</a>
+stream (such as <a href="http://nodejs.cn/s/gagmJq" rel="nofollow"><code>process.stdin</code></a>) one line at a time. It can be accessed
+using:</p><pre><code class="language-js">const readline = require(&apos;readline&apos;);
+</code></pre><p>The following simple example illustrates the basic use of the <code>readline</code> module.</p><pre><code class="language-js">const readline = require(&apos;readline&apos;);
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.question(&apos;What do you think of Node.js? &apos;, (answer) =&gt; {
+  // TODO: Log the answer in a database
+  console.log(`Thank you for your valuable feedback: ${answer}`);
+
+  rl.close();
+});
+</code></pre><p>Once this code is invoked, the Node.js application will not terminate until the
+<code>readline.Interface</code> is closed because the interface waits for data to be
+received on the <code>input</code> stream.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/readline/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756322206"><\/script>');
+  </script>
+</body>
+</html>

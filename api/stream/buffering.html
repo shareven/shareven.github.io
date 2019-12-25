@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>缓冲 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324091" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-stream">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>缓冲</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../stream.html#stream_buffering" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/stream/buffering.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p><a href="http://nodejs.cn/s/9JUnJ8" rel="nofollow">&#x53EF;&#x5199;&#x6D41;</a>&#x548C;<a href="http://nodejs.cn/s/YuDKX1" rel="nofollow">&#x53EF;&#x8BFB;&#x6D41;</a>&#x90FD;&#x4F1A;&#x5728;&#x5185;&#x90E8;&#x7684;&#x7F13;&#x51B2;&#x5668;&#x4E2D;&#x5B58;&#x50A8;&#x6570;&#x636E;&#xFF0C;&#x53EF;&#x4EE5;&#x5206;&#x522B;&#x4F7F;&#x7528;&#x7684; <code>writable.writableBuffer</code> &#x6216; <code>readable.readableBuffer</code> &#x6765;&#x83B7;&#x53D6;&#x3002;</p><p>&#x53EF;&#x7F13;&#x51B2;&#x7684;&#x6570;&#x636E;&#x5927;&#x5C0F;&#x53D6;&#x51B3;&#x4E8E;&#x4F20;&#x5165;&#x6D41;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684; <code>highWaterMark</code> &#x9009;&#x9879;&#x3002;
+&#x5BF9;&#x4E8E;&#x666E;&#x901A;&#x7684;&#x6D41;&#xFF0C; <code>highWaterMark</code> &#x6307;&#x5B9A;&#x4E86;<a href="http://nodejs.cn/s/K499k3" rel="nofollow">&#x5B57;&#x8282;&#x7684;&#x603B;&#x6570;</a>&#x3002;
+&#x5BF9;&#x4E8E;&#x5BF9;&#x8C61;&#x6A21;&#x5F0F;&#x7684;&#x6D41;&#xFF0C; <code>highWaterMark</code> &#x6307;&#x5B9A;&#x4E86;&#x5BF9;&#x8C61;&#x7684;&#x603B;&#x6570;&#x3002;</p><p>&#x5F53;&#x8C03;&#x7528; <a href="http://nodejs.cn/s/8s3paZ" rel="nofollow"><code>stream.push(chunk)</code></a> &#x65F6;&#xFF0C;&#x6570;&#x636E;&#x4F1A;&#x88AB;&#x7F13;&#x51B2;&#x5728;&#x53EF;&#x8BFB;&#x6D41;&#x4E2D;&#x3002;
+&#x5982;&#x679C;&#x6D41;&#x7684;&#x6D88;&#x8D39;&#x8005;&#x6CA1;&#x6709;&#x8C03;&#x7528; <a href="http://nodejs.cn/s/SpgRaa" rel="nofollow"><code>stream.read()</code></a>&#xFF0C;&#x5219;&#x6570;&#x636E;&#x4F1A;&#x4FDD;&#x7559;&#x5728;&#x5185;&#x90E8;&#x961F;&#x5217;&#x4E2D;&#x76F4;&#x5230;&#x88AB;&#x6D88;&#x8D39;&#x3002;</p><p>&#x4E00;&#x65E6;&#x5185;&#x90E8;&#x7684;&#x53EF;&#x8BFB;&#x7F13;&#x51B2;&#x7684;&#x603B;&#x5927;&#x5C0F;&#x8FBE;&#x5230; <code>highWaterMark</code> &#x6307;&#x5B9A;&#x7684;&#x9608;&#x503C;&#x65F6;&#xFF0C;&#x6D41;&#x4F1A;&#x6682;&#x65F6;&#x505C;&#x6B62;&#x4ECE;&#x5E95;&#x5C42;&#x8D44;&#x6E90;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#xFF0C;&#x76F4;&#x5230;&#x5F53;&#x524D;&#x7F13;&#x51B2;&#x7684;&#x6570;&#x636E;&#x88AB;&#x6D88;&#x8D39;
+&#xFF08;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x6D41;&#x4F1A;&#x505C;&#x6B62;&#x8C03;&#x7528;&#x5185;&#x90E8;&#x7684;&#x7528;&#x4E8E;&#x586B;&#x5145;&#x53EF;&#x8BFB;&#x7F13;&#x51B2;&#x7684; <code>readable._read()</code>&#xFF09;&#x3002;</p><p>&#x5F53;&#x8C03;&#x7528; <a href="http://nodejs.cn/s/doppiK" rel="nofollow"><code>writable.write(chunk)</code></a> &#x65F6;&#xFF0C;&#x6570;&#x636E;&#x4F1A;&#x88AB;&#x7F13;&#x51B2;&#x5728;&#x53EF;&#x5199;&#x6D41;&#x4E2D;&#x3002;
+&#x5F53;&#x5185;&#x90E8;&#x7684;&#x53EF;&#x5199;&#x7F13;&#x51B2;&#x7684;&#x603B;&#x5927;&#x5C0F;&#x5C0F;&#x4E8E; <code>highWaterMark</code> &#x8BBE;&#x7F6E;&#x7684;&#x9608;&#x503C;&#x65F6;&#xFF0C;&#x8C03;&#x7528; <code>writable.write()</code> &#x4F1A;&#x8FD4;&#x56DE; <code>true</code>&#x3002;
+&#x4E00;&#x65E6;&#x5185;&#x90E8;&#x7F13;&#x51B2;&#x7684;&#x5927;&#x5C0F;&#x8FBE;&#x5230;&#x6216;&#x8D85;&#x8FC7; <code>highWaterMark</code> &#x65F6;&#xFF0C;&#x5219;&#x4F1A;&#x8FD4;&#x56DE; <code>false</code>&#x3002;</p><p><code>stream</code> API &#x7684;&#x4E3B;&#x8981;&#x76EE;&#x6807;&#xFF0C;&#x7279;&#x522B;&#x662F; <a href="http://nodejs.cn/s/Ea2ZNW" rel="nofollow"><code>stream.pipe()</code></a>&#xFF0C;&#x662F;&#x4E3A;&#x4E86;&#x9650;&#x5236;&#x6570;&#x636E;&#x7684;&#x7F13;&#x51B2;&#x5230;&#x53EF;&#x63A5;&#x53D7;&#x7684;&#x7A0B;&#x5EA6;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BFB;&#x5199;&#x901F;&#x5EA6;&#x4E0D;&#x4E00;&#x81F4;&#x7684;&#x6E90;&#x5934;&#x4E0E;&#x76EE;&#x7684;&#x5730;&#x4E0D;&#x4F1A;&#x538B;&#x57AE;&#x5185;&#x5B58;&#x3002;</p><p>&#x56E0;&#x4E3A; <a href="http://nodejs.cn/s/2iRabr" rel="nofollow"><code>Duplex</code></a> &#x548C; <a href="http://nodejs.cn/s/fhVJQM" rel="nofollow"><code>Transform</code></a> &#x90FD;&#x662F;&#x53EF;&#x8BFB;&#x53C8;&#x53EF;&#x5199;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5B83;&#x4EEC;&#x5404;&#x81EA;&#x7EF4;&#x62A4;&#x7740;&#x4E24;&#x4E2A;&#x76F8;&#x4E92;&#x72EC;&#x7ACB;&#x7684;&#x5185;&#x90E8;&#x7F13;&#x51B2;&#x5668;&#x7528;&#x4E8E;&#x8BFB;&#x53D6;&#x548C;&#x5199;&#x5165;&#xFF0C;
+&#x8FD9;&#x4F7F;&#x5F97;&#x5B83;&#x4EEC;&#x5728;&#x7EF4;&#x62A4;&#x6570;&#x636E;&#x6D41;&#x65F6;&#xFF0C;&#x8BFB;&#x53D6;&#x548C;&#x5199;&#x5165;&#x4E24;&#x8FB9;&#x53EF;&#x4EE5;&#x5404;&#x81EA;&#x72EC;&#x7ACB;&#x5730;&#x8FD0;&#x4F5C;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;<a href="http://nodejs.cn/s/wsJ1o1" rel="nofollow"><code>net.Socket</code></a> &#x5B9E;&#x4F8B;&#x662F; <a href="http://nodejs.cn/s/2iRabr" rel="nofollow"><code>Duplex</code></a> &#x6D41;&#xFF0C;&#x5B83;&#x7684;&#x53EF;&#x8BFB;&#x7AEF;&#x53EF;&#x4EE5;&#x6D88;&#x8D39;&#x4ECE; socket &#x63A5;&#x6536;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x800C;&#x53EF;&#x5199;&#x7AEF;&#x5219;&#x53EF;&#x4EE5;&#x5C06;&#x6570;&#x636E;&#x5199;&#x5165;&#x5230; socket&#x3002;
+&#x56E0;&#x4E3A;&#x6570;&#x636E;&#x5199;&#x5165;&#x5230; socket &#x7684;&#x901F;&#x5EA6;&#x53EF;&#x80FD;&#x6BD4;&#x63A5;&#x6536;&#x6570;&#x636E;&#x7684;&#x901F;&#x5EA6;&#x5FEB;&#x6216;&#x8005;&#x6162;&#xFF0C;&#x6240;&#x4EE5;&#x8BFB;&#x5199;&#x4E24;&#x7AEF;&#x5E94;&#x8BE5;&#x72EC;&#x7ACB;&#x5730;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF08;&#x6216;&#x7F13;&#x51B2;&#xFF09;&#x3002;</p></div>
+          <div id="content_right"><p>Both <a href="http://nodejs.cn/s/9JUnJ8" rel="nofollow"><code>Writable</code></a> and <a href="http://nodejs.cn/s/YuDKX1" rel="nofollow"><code>Readable</code></a> streams will store data in an internal
+buffer that can be retrieved using <code>writable.writableBuffer</code> or
+<code>readable.readableBuffer</code>, respectively.</p><p>The amount of data potentially buffered depends on the <code>highWaterMark</code> option
+passed into the stream&apos;s constructor. For normal streams, the <code>highWaterMark</code>
+option specifies a <a href="http://nodejs.cn/s/K499k3" rel="nofollow">total number of bytes</a>. For streams operating
+in object mode, the <code>highWaterMark</code> specifies a total number of objects.</p><p>Data is buffered in <code>Readable</code> streams when the implementation calls
+<a href="http://nodejs.cn/s/8s3paZ" rel="nofollow"><code>stream.push(chunk)</code></a>. If the consumer of the Stream does not
+call <a href="http://nodejs.cn/s/SpgRaa" rel="nofollow"><code>stream.read()</code></a>, the data will sit in the internal
+queue until it is consumed.</p><p>Once the total size of the internal read buffer reaches the threshold specified
+by <code>highWaterMark</code>, the stream will temporarily stop reading data from the
+underlying resource until the data currently buffered can be consumed (that is,
+the stream will stop calling the internal <code>readable._read()</code> method that is
+used to fill the read buffer).</p><p>Data is buffered in <code>Writable</code> streams when the
+<a href="http://nodejs.cn/s/doppiK" rel="nofollow"><code>writable.write(chunk)</code></a> method is called repeatedly. While the
+total size of the internal write buffer is below the threshold set by
+<code>highWaterMark</code>, calls to <code>writable.write()</code> will return <code>true</code>. Once
+the size of the internal buffer reaches or exceeds the <code>highWaterMark</code>, <code>false</code>
+will be returned.</p><p>A key goal of the <code>stream</code> API, particularly the <a href="http://nodejs.cn/s/Ea2ZNW" rel="nofollow"><code>stream.pipe()</code></a> method,
+is to limit the buffering of data to acceptable levels such that sources and
+destinations of differing speeds will not overwhelm the available memory.</p><p>Because <a href="http://nodejs.cn/s/2iRabr" rel="nofollow"><code>Duplex</code></a> and <a href="http://nodejs.cn/s/fhVJQM" rel="nofollow"><code>Transform</code></a> streams are both <code>Readable</code> and
+<code>Writable</code>, each maintains <em>two</em> separate internal buffers used for reading and
+writing, allowing each side to operate independently of the other while
+maintaining an appropriate and efficient flow of data. For example,
+<a href="http://nodejs.cn/s/wsJ1o1" rel="nofollow"><code>net.Socket</code></a> instances are <a href="http://nodejs.cn/s/2iRabr" rel="nofollow"><code>Duplex</code></a> streams whose <code>Readable</code> side allows
+consumption of data received <em>from</em> the socket and whose <code>Writable</code> side allows
+writing data <em>to</em> the socket. Because data may be written to the socket at a
+faster or slower rate than data is received, each side should
+operate (and buffer) independently of the other.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324091"><\/script>');
+  </script>
+</body>
+</html>

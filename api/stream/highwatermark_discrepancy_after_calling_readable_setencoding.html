@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>调用 `readable.setEncoding()` 之后 `highWaterMark` 的差异 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324313" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-stream">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>调用 `readable.setEncoding()` 之后 `highWaterMark` 的差异</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../stream.html#stream_highwatermark_discrepancy_after_calling_readable_setencoding" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/stream/highwatermark_discrepancy_after_calling_readable_setencoding.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x4F7F;&#x7528; <code>readable.setEncoding()</code> &#x4F1A;&#x6539;&#x53D8; <code>highWaterMark</code> &#x5C5E;&#x6027;&#x5728;&#x975E;&#x5BF9;&#x8C61;&#x6A21;&#x5F0F;&#x4E2D;&#x7684;&#x4F5C;&#x7528;&#x3002;</p><p>&#x4E00;&#x822C;&#x800C;&#x8A00;&#xFF0C;&#x5F53;&#x524D;&#x7F13;&#x51B2;&#x7684;&#x5927;&#x5C0F;&#x662F;&#x4EE5;&#x5B57;&#x8282;&#x4E3A;&#x5355;&#x4F4D;&#x8DDF; <code>highWaterMark</code> &#x6BD4;&#x8F83;&#x7684;&#x3002;
+&#x4F46;&#x662F;&#x8C03;&#x7528; <code>setEncoding()</code> &#x4E4B;&#x540E;&#xFF0C;&#x4F1A;&#x5F00;&#x59CB;&#x4EE5;&#x5B57;&#x7B26;&#x4E3A;&#x5355;&#x4F4D;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#x3002;</p><p>&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F7F;&#x7528; <code>latin1</code> &#x6216; <code>ascii</code> &#x65F6;&#x662F;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x7684;&#x3002;
+&#x4F46;&#x5728;&#x5904;&#x7406;&#x542B;&#x6709;&#x591A;&#x5B57;&#x8282;&#x5B57;&#x7B26;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x5C0F;&#x5FC3;&#x3002;</p></div>
+          <div id="content_right"><p>The use of <code>readable.setEncoding()</code> will change the behavior of how the
+<code>highWaterMark</code> operates in non-object mode.</p><p>Typically, the size of the current buffer is measured against the
+<code>highWaterMark</code> in <em>bytes</em>. However, after <code>setEncoding()</code> is called, the
+comparison function will begin to measure the buffer&apos;s size in <em>characters</em>.</p><p>This is not a problem in common cases with <code>latin1</code> or <code>ascii</code>. But it is
+advised to be mindful about this behavior when working with strings that could
+contain multi-byte characters.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324313"><\/script>');
+  </script>
+</body>
+</html>

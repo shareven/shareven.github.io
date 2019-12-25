@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>fs.realpathSync(path[, options]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756310040" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>fs.realpathSync(path[, options])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_fs_realpathsync_path_options" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/fs_realpathsync_path_options.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v8.0.0</td>
+<td><p>Pipe/Socket resolve support was added.</p></td></tr>
+<tr><td>v7.6.0</td>
+<td><p>The <code>path</code> parameter can be a WHATWG <code>URL</code> object using <code>file:</code> protocol. Support is currently still <em>experimental</em>.</p></td></tr>
+<tr><td>v6.4.0</td>
+<td><p>Calling <code>realpathSync</code> now works again for various edge cases on Windows.</p></td></tr>
+<tr><td>v6.0.0</td>
+<td><p>The <code>cache</code> parameter was removed.</p></td></tr>
+<tr><td>v0.1.31</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.31</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;utf8&apos;</code>&#x3002;</li>
+</ul>
+</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a></li>
+</ul><p>&#x8FD4;&#x56DE;&#x5DF2;&#x89E3;&#x6790;&#x7684;&#x8DEF;&#x5F84;&#x540D;&#x3002;</p><p>&#x6709;&#x5173;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x53C2;&#x9605;&#x6B64; API &#x7684;&#x5F02;&#x6B65;&#x7248;&#x672C;&#x7684;&#x6587;&#x6863;&#xFF1A;<a href="http://nodejs.cn/s/ML4Vqb" rel="nofollow"><code>fs.realpath()</code></a>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v8.0.0</td>
+<td><p>Pipe/Socket resolve support was added.</p></td></tr>
+<tr><td>v7.6.0</td>
+<td><p>The <code>path</code> parameter can be a WHATWG <code>URL</code> object using <code>file:</code> protocol. Support is currently still <em>experimental</em>.</p></td></tr>
+<tr><td>v6.4.0</td>
+<td><p>Calling <code>realpathSync</code> now works again for various edge cases on Windows.</p></td></tr>
+<tr><td>v6.0.0</td>
+<td><p>The <code>cache</code> parameter was removed.</p></td></tr>
+<tr><td>v0.1.31</td>
+<td><p><span>Added in: v0.1.31</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> <strong>Default:</strong> <code>&apos;utf8&apos;</code></li>
+</ul>
+</li>
+<li>Returns: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a></li>
+</ul><p>Returns the resolved pathname.</p><p>For detailed information, see the documentation of the asynchronous version of
+this API: <a href="http://nodejs.cn/s/ML4Vqb" rel="nofollow"><code>fs.realpath()</code></a>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756310040"><\/script>');
+  </script>
+</body>
+</html>

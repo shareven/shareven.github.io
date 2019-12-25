@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>os.userInfo([options]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/os/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756318980" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-os">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>os.userInfo([options])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../os.html#os_os_userinfo_options" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/os/os_userinfo_options.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v6.0.0</span>
+</div><ul>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x7528;&#x4E8E;&#x89E3;&#x91CA;&#x7ED3;&#x679C;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x3002;&#x5982;&#x679C;&#x5C06; <code>encoding</code> &#x8BBE;&#x7F6E;&#x4E3A; <code>&apos;buffer&apos;</code>&#xFF0C;&#x5219; <code>username</code>&#x3001; <code>shell</code> &#x548C; <code>homedir</code> &#x7684;&#x503C;&#x5C06;&#x4F1A;&#x662F; <code>Buffer</code> &#x5B9E;&#x4F8B;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;utf8&apos;</code>&#x3002;</li>
+</ul>
+</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></li>
+</ul><p>&#x8FD4;&#x56DE;&#x5173;&#x4E8E;&#x5F53;&#x524D;&#x6709;&#x6548;&#x7528;&#x6237;&#x7684;&#x4FE1;&#x606F;&#x3002;
+&#x5728; POSIX &#x5E73;&#x53F0;&#x4E0A;&#xFF0C;&#x8FD9;&#x901A;&#x5E38;&#x662F;&#x5BC6;&#x7801;&#x6587;&#x4EF6;&#x7684;&#x5B50;&#x96C6;&#x3002;
+&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#x5305;&#x542B; <code>username</code>&#x3001; <code>uid</code>&#x3001; <code>gid</code>&#x3001; <code>shell</code> &#x548C; <code>homedir</code>&#x3002;
+&#x5728; Windows &#x4E0A;&#xFF0C;&#x5219; <code>uid</code> &#x548C; <code>gid</code> &#x5B57;&#x6BB5;&#x4E3A; <code>-1</code>&#xFF0C;&#x4E14; <code>shell</code> &#x4E3A; <code>null</code>&#x3002;</p><p><code>os.userInfo()</code> &#x8FD4;&#x56DE;&#x7684; <code>homedir</code> &#x7684;&#x503C;&#x7531;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x63D0;&#x4F9B;&#x3002;
+&#x8FD9;&#x4E0E; <code>os.homedir()</code> &#x7684;&#x7ED3;&#x679C;&#x4E0D;&#x540C;&#xFF0C;&#x5176;&#x662F;&#x5728;&#x8FD4;&#x56DE;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x54CD;&#x5E94;&#x4E4B;&#x524D;&#x4F1A;&#x5148;&#x67E5;&#x8BE2;&#x4E3B;&#x76EE;&#x5F55;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x3002;</p><p>&#x5982;&#x679C;&#x7528;&#x6237;&#x6CA1;&#x6709; <code>username</code> &#x6216; <code>homedir</code>&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="http://nodejs.cn/s/UDLUCx" rel="nofollow"><code>SystemError</code></a>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v6.0.0</span>
+</div><ul>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> Character encoding used to interpret resulting strings.
+If <code>encoding</code> is set to <code>&apos;buffer&apos;</code>, the <code>username</code>, <code>shell</code>, and <code>homedir</code>
+values will be <code>Buffer</code> instances. <strong>Default:</strong> <code>&apos;utf8&apos;</code>.</li>
+</ul>
+</li>
+<li>Returns: <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></li>
+</ul><p>Returns information about the currently effective user. On POSIX platforms,
+this is typically a subset of the password file. The returned object includes
+the <code>username</code>, <code>uid</code>, <code>gid</code>, <code>shell</code>, and <code>homedir</code>. On Windows, the <code>uid</code> and
+<code>gid</code> fields are <code>-1</code>, and <code>shell</code> is <code>null</code>.</p><p>The value of <code>homedir</code> returned by <code>os.userInfo()</code> is provided by the operating
+system. This differs from the result of <code>os.homedir()</code>, which queries
+environment variables for the home directory before falling back to the
+operating system response.</p><p>Throws a <a href="http://nodejs.cn/s/UDLUCx" rel="nofollow"><code>SystemError</code></a> if a user has no <code>username</code> or <code>homedir</code>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/os/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756318980"><\/script>');
+  </script>
+</body>
+</html>

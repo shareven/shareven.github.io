@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>WHATWG 接口 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/url/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756327632" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-url">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>WHATWG 接口</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../url.html#url_whatwg_api" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/url/whatwg_api.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p><a href="http://nodejs.cn/s/fKgW8d" rel="nofollow">WHATWG URL &#x6807;&#x5FD7;</a>&#x4F7F;&#x7528;&#x6BD4;&#x9057;&#x7559;&#x7684; API &#x66F4;&#x5177;&#x9009;&#x62E9;&#x6027;&#x548C;&#x66F4;&#x7CBE;&#x7EC6;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x9009;&#x62E9;&#x4F7F;&#x7528;&#x7684;&#x7F16;&#x7801;&#x5B57;&#x7B26;&#x3002;</p><p>WHATWG &#x7B97;&#x6CD5;&#x5B9A;&#x4E49;&#x4E86;&#x56DB;&#x4E2A;&#x201C;&#x767E;&#x5206;&#x6BD4;&#x7F16;&#x7801;&#x96C6;&#x201D;&#xFF0C;&#x5B83;&#x4EEC;&#x63CF;&#x8FF0;&#x4E86;&#x5FC5;&#x987B;&#x8FDB;&#x884C;&#x767E;&#x5206;&#x7F16;&#x7801;&#x7684;&#x5B57;&#x7B26;&#x8303;&#x56F4;&#xFF1A;</p><ul>
+<li>
+<p>C0 &#x63A7;&#x5236;&#x767E;&#x5206;&#x6BD4;&#x7F16;&#x7801;&#x96C6;&#xFF0C;&#x5305;&#x62EC;&#x8303;&#x56F4;&#x5728; U+0000 &#x81F3; U+001F&#xFF08;&#x542B;&#xFF09;&#x7684;&#x4EE3;&#x7801;&#x70B9;&#xFF0C;&#x4EE5;&#x53CA;&#x5927;&#x4E8E; U+007E &#x7684;&#x6240;&#x6709;&#x4EE3;&#x7801;&#x70B9;&#x3002;</p>
+</li>
+<li>
+<p>&#x7247;&#x6BB5;&#x767E;&#x5206;&#x6BD4;&#x7F16;&#x7801;&#x96C6;&#xFF0C;&#x5305;&#x62EC; C0 &#x63A7;&#x5236;&#x767E;&#x5206;&#x6BD4;&#x7F16;&#x7801;&#x96C6;&#xFF0C;&#x4EE5;&#x53CA;&#x4EE3;&#x7801;&#x70B9; U+0020&#x3001;U+0022&#x3001;U+003C&#x3001;U+003E &#x548C; U+006&#x3002;</p>
+</li>
+<li>
+<p>&#x8DEF;&#x5F84;&#x767E;&#x5206;&#x6BD4;&#x7F16;&#x7801;&#x96C6;&#xFF0C;&#x5305;&#x62EC; C0 &#x63A7;&#x5236;&#x767E;&#x5206;&#x6BD4;&#x7F16;&#x7801;&#x96C6;&#xFF0C;&#x4EE5;&#x53CA;&#x4EE3;&#x7801;&#x70B9; U+0020&#x3001;U+0022&#x3001;U+0023&#x3001;U+003C&#x3001;U+003E&#x3001;U+003F&#x3001;U+0060&#x3001;U+007B &#x548C; U+007D&#x3002;</p>
+</li>
+<li>
+<p>&#x7528;&#x6237;&#x4FE1;&#x606F;&#x7F16;&#x7801;&#x96C6;&#xFF0C;&#x5305;&#x62EC;&#x8DEF;&#x5F84;&#x767E;&#x5206;&#x6BD4;&#x7F16;&#x7801;&#x96C6;&#xFF0C;&#x4EE5;&#x53CA;&#x4EE3;&#x7801;&#x70B9; U+002F&#x3001;U+003A&#x3001;U+003B&#x3001;U+003D&#x3001;U+0040&#x3001;U+005B&#x3001;U+005C&#x3001;U+005D&#x3001;U+005E &#x548C; U+007C&#x3002;</p>
+</li>
+</ul><p>&#x7528;&#x6237;&#x4FE1;&#x606F;&#x767E;&#x5206;&#x6BD4;&#x7F16;&#x7801;&#x96C6;&#x4E13;&#x95E8;&#x7528;&#x4E8E; URL &#x4E2D;&#x7528;&#x6237;&#x540D;&#x548C;&#x5BC6;&#x7801;&#x90E8;&#x5206;&#x7684;&#x7F16;&#x7801;&#x3002;
+&#x8DEF;&#x5F84;&#x767E;&#x5206;&#x6BD4;&#x7F16;&#x7801;&#x96C6;&#x7528;&#x4E8E;&#x5927;&#x591A;&#x6570; URL &#x7684;&#x8DEF;&#x5F84;&#x90E8;&#x5206;&#x7F16;&#x7801;&#x3002;
+C0 &#x63A7;&#x5236;&#x767E;&#x5206;&#x6BD4;&#x7F16;&#x7801;&#x96C6;&#x5219;&#x7528;&#x4E8E;&#x6240;&#x6709;&#x5176;&#x4ED6;&#x60C5;&#x51B5;&#x7684;&#x7F16;&#x7801;&#xFF0C;&#x7279;&#x522B;&#x5305;&#x62EC; URL &#x7684;&#x5206;&#x6BB5;&#x90E8;&#x5206;&#xFF0C;&#x7279;&#x6B8A;&#x6761;&#x4EF6;&#x4E0B;&#x4E5F;&#x5305;&#x62EC;&#x4E3B;&#x673A;&#x53CA;&#x8DEF;&#x5F84;&#x90E8;&#x5206;&#x3002;</p><p>&#x5F53;&#x4E3B;&#x673A;&#x540D;&#x4E2D;&#x51FA;&#x73B0;&#x975E; ASCII &#x5B57;&#x7B26;&#x65F6;&#xFF0C;&#x4E3B;&#x673A;&#x540D;&#x5C06;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/C2g98n" rel="nofollow">Punycode</a> &#x7B97;&#x6CD5;&#x8FDB;&#x884C;&#x7F16;&#x7801;&#x3002;
+&#x4F46;&#x662F;&#xFF0C;&#x4E3B;&#x673A;&#x540D;&#x53EF;&#x80FD;&#x540C;&#x65F6;&#x5305;&#x542B; Punycode &#x7F16;&#x7801;&#x548C;&#x767E;&#x5206;&#x6BD4;&#x7F16;&#x7801;&#x7684;&#x5B57;&#x7B26;&#xFF1A;</p><pre><code class="language-js">const myURL = new URL(&apos;https://%CF%80.example.com/foo&apos;);
+console.log(myURL.href);
+// &#x6253;&#x5370; https://xn--1xa.example.com/foo
+console.log(myURL.origin);
+// &#x6253;&#x5370; https://xn--1xa.example.com
+</code></pre></div>
+          <div id="content_right"><p>The <a href="http://nodejs.cn/s/fKgW8d" rel="nofollow">WHATWG URL Standard</a> uses a more selective and fine grained approach to
+selecting encoded characters than that used by the Legacy API.</p><p>The WHATWG algorithm defines four &quot;percent-encode sets&quot; that describe ranges
+of characters that must be percent-encoded:</p><ul>
+<li>
+<p>The <em>C0 control percent-encode set</em> includes code points in range U+0000 to
+U+001F (inclusive) and all code points greater than U+007E.</p>
+</li>
+<li>
+<p>The <em>fragment percent-encode set</em> includes the <em>C0 control percent-encode set</em>
+and code points U+0020, U+0022, U+003C, U+003E, and U+0060.</p>
+</li>
+<li>
+<p>The <em>path percent-encode set</em> includes the <em>C0 control percent-encode set</em>
+and code points U+0020, U+0022, U+0023, U+003C, U+003E, U+003F, U+0060,
+U+007B, and U+007D.</p>
+</li>
+<li>
+<p>The <em>userinfo encode set</em> includes the <em>path percent-encode set</em> and code
+points U+002F, U+003A, U+003B, U+003D, U+0040, U+005B, U+005C, U+005D,
+U+005E, and U+007C.</p>
+</li>
+</ul><p>The <em>userinfo percent-encode set</em> is used exclusively for username and
+passwords encoded within the URL. The <em>path percent-encode set</em> is used for the
+path of most URLs. The <em>fragment percent-encode set</em> is used for URL fragments.
+The <em>C0 control percent-encode set</em> is used for host and path under certain
+specific conditions, in addition to all other cases.</p><p>When non-ASCII characters appear within a hostname, the hostname is encoded
+using the <a href="http://nodejs.cn/s/C2g98n" rel="nofollow">Punycode</a> algorithm. Note, however, that a hostname <em>may</em> contain
+<em>both</em> Punycode encoded and percent-encoded characters:</p><pre><code class="language-js">const myURL = new URL(&apos;https://%CF%80.example.com/foo&apos;);
+console.log(myURL.href);
+// Prints https://xn--1xa.example.com/foo
+console.log(myURL.origin);
+// Prints https://xn--1xa.example.com
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/url/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756327632"><\/script>');
+  </script>
+</body>
+</html>

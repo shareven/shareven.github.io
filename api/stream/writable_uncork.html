@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>writable.uncork() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324127" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-stream">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>writable.uncork()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../stream.html#stream_writable_uncork" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/stream/writable_uncork.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.2</span>
+</div><p><code>writable.uncork()</code> &#x65B9;&#x6CD5;&#x5C06;&#x8C03;&#x7528; <a href="http://nodejs.cn/s/HbaGHW" rel="nofollow"><code>stream.cork()</code></a> &#x540E;&#x7F13;&#x51B2;&#x7684;&#x6240;&#x6709;&#x6570;&#x636E;&#x8F93;&#x51FA;&#x5230;&#x76EE;&#x6807;&#x3002;</p><p>&#x5F53;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/HbaGHW" rel="nofollow"><code>writable.cork()</code></a> &#x548C; <code>writable.uncork()</code> &#x6765;&#x7BA1;&#x7406;&#x6D41;&#x7684;&#x5199;&#x5165;&#x7F13;&#x51B2;&#x65F6;&#xFF0C;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528; <code>process.nextTick()</code> &#x6765;&#x5EF6;&#x8FDF;&#x8C03;&#x7528; <code>writable.uncork()</code>&#x3002;
+&#x901A;&#x8FC7;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x5BF9;&#x5355;&#x4E2A; Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4E2D;&#x8C03;&#x7528;&#x7684;&#x6240;&#x6709; <code>writable.write()</code> &#x8FDB;&#x884C;&#x6279;&#x5904;&#x7406;&#x3002;</p><pre><code class="language-js">stream.cork();
+stream.write(&apos;&#x4E00;&#x4E9B; &apos;);
+stream.write(&apos;&#x6570;&#x636E; &apos;);
+process.nextTick(() =&gt; stream.uncork());
+</code></pre><p>&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x6D41;&#x4E0A;&#x591A;&#x6B21;&#x8C03;&#x7528; <a href="http://nodejs.cn/s/HbaGHW" rel="nofollow"><code>writable.cork()</code></a>&#xFF0C;&#x5219;&#x5FC5;&#x987B;&#x8C03;&#x7528;&#x540C;&#x6837;&#x6B21;&#x6570;&#x7684; <code>writable.uncork()</code> &#x624D;&#x80FD;&#x8F93;&#x51FA;&#x7F13;&#x51B2;&#x7684;&#x6570;&#x636E;&#x3002;</p><pre><code class="language-js">stream.cork();
+stream.write(&apos;&#x4E00;&#x4E9B; &apos;);
+stream.cork();
+stream.write(&apos;&#x6570;&#x636E; &apos;);
+process.nextTick(() =&gt; {
+  stream.uncork();
+  // &#x6570;&#x636E;&#x4E0D;&#x4F1A;&#x88AB;&#x8F93;&#x51FA;&#xFF0C;&#x76F4;&#x5230;&#x7B2C;&#x4E8C;&#x6B21;&#x8C03;&#x7528; uncork()&#x3002;
+  stream.uncork();
+});
+</code></pre><p>&#x4E5F;&#x53EF;&#x53C2;&#x9605;&#xFF1A;<a href="http://nodejs.cn/s/HbaGHW" rel="nofollow"><code>writable.cork()</code></a>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.11.2</span>
+</div><p>The <code>writable.uncork()</code> method flushes all data buffered since
+<a href="http://nodejs.cn/s/HbaGHW" rel="nofollow"><code>stream.cork()</code></a> was called.</p><p>When using <a href="http://nodejs.cn/s/HbaGHW" rel="nofollow"><code>writable.cork()</code></a> and <code>writable.uncork()</code> to manage the buffering
+of writes to a stream, it is recommended that calls to <code>writable.uncork()</code> be
+deferred using <code>process.nextTick()</code>. Doing so allows batching of all
+<code>writable.write()</code> calls that occur within a given Node.js event loop phase.</p><pre><code class="language-js">stream.cork();
+stream.write(&apos;some &apos;);
+stream.write(&apos;data &apos;);
+process.nextTick(() =&gt; stream.uncork());
+</code></pre><p>If the <a href="http://nodejs.cn/s/HbaGHW" rel="nofollow"><code>writable.cork()</code></a> method is called multiple times on a stream, the
+same number of calls to <code>writable.uncork()</code> must be called to flush the buffered
+data.</p><pre><code class="language-js">stream.cork();
+stream.write(&apos;some &apos;);
+stream.cork();
+stream.write(&apos;data &apos;);
+process.nextTick(() =&gt; {
+  stream.uncork();
+  // The data will not be flushed until uncork() is called a second time.
+  stream.uncork();
+});
+</code></pre><p>See also: <a href="http://nodejs.cn/s/HbaGHW" rel="nofollow"><code>writable.cork()</code></a>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324127"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>emitter.prependOnceListener(eventName, listener) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/events/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756307031" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-events">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>emitter.prependOnceListener(eventName, listener)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../events.html#events_emitter_prependoncelistener_eventname_listener" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/events/emitter_prependoncelistener_eventname_listener.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v6.0.0</span>
+</div><ul>
+<li><code>eventName</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/i5E1UH" target="_blank" rel="nofollow" class="type">&lt;symbol&gt;</a> &#x4E8B;&#x4EF6;&#x540D;&#x79F0;&#x3002;</li>
+<li><code>listener</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/pGAddE" target="_blank" rel="nofollow" class="type">&lt;EventEmitter&gt;</a></li>
+</ul><p>&#x6DFB;&#x52A0;&#x5355;&#x6B21;&#x76D1;&#x542C;&#x5668; <code>listener</code> &#x5230;&#x540D;&#x4E3A; <code>eventName</code> &#x7684;&#x4E8B;&#x4EF6;&#x7684;&#x76D1;&#x542C;&#x5668;&#x6570;&#x7EC4;&#x7684;&#x5F00;&#x5934;&#x3002;
+&#x5F53; <code>eventName</code> &#x4E8B;&#x4EF6;&#x4E0B;&#x6B21;&#x89E6;&#x53D1;&#x65F6;&#xFF0C;&#x76D1;&#x542C;&#x5668;&#x4F1A;&#x5148;&#x88AB;&#x79FB;&#x9664;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x8C03;&#x7528;&#x3002;</p><pre><code class="language-js">server.prependOnceListener(&apos;connection&apos;, (stream) =&gt; {
+  console.log(&apos;&#x7B2C;&#x4E00;&#x6B21;&#x8C03;&#x7528;&apos;);
+});
+</code></pre><p>&#x8FD4;&#x56DE;&#x5BF9; <code>EventEmitter</code> &#x7684;&#x5F15;&#x7528;&#xFF0C;&#x4EE5;&#x4FBF;&#x53EF;&#x4EE5;&#x94FE;&#x5F0F;&#x8C03;&#x7528;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v6.0.0</span>
+</div><ul>
+<li><code>eventName</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/i5E1UH" target="_blank" rel="nofollow" class="type">&lt;symbol&gt;</a> The name of the event.</li>
+<li><code>listener</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> The callback function</li>
+<li>Returns: <a href="http://nodejs.cn/s/pGAddE" target="_blank" rel="nofollow" class="type">&lt;EventEmitter&gt;</a></li>
+</ul><p>Adds a <strong>one-time</strong> <code>listener</code> function for the event named <code>eventName</code> to the
+<em>beginning</em> of the listeners array. The next time <code>eventName</code> is triggered, this
+listener is removed, and then invoked.</p><pre><code class="language-js">server.prependOnceListener(&apos;connection&apos;, (stream) =&gt; {
+  console.log(&apos;Ah, we have our first user!&apos;);
+});
+</code></pre><p>Returns a reference to the <code>EventEmitter</code>, so that calls can be chained.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/events/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756307031"><\/script>');
+  </script>
+</body>
+</html>

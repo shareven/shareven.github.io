@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>zlib.flush([kind, ]callback) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/zlib/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756330970" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-zlib">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>zlib.flush([kind, ]callback)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../zlib.html#zlib_zlib_flush_kind_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/zlib/zlib_flush_kind_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.5.8</span>
+</div><ul>
+<li><code>kind</code> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> &#x5BF9;&#x4E8E;&#x57FA;&#x4E8E; zlib &#x7684;&#x6D41;&#x662F; <code>zlib.constants.Z_FULL_FLUSH</code>&#xFF0C;&#x5BF9;&#x4E8E;&#x57FA;&#x4E8E; Brotli &#x7684;&#x6D41;&#x662F; <code>zlib.constants.BROTLI_OPERATION_FLUSH</code>&#x3002;</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></li>
+</ul><p>&#x5237;&#x65B0;&#x6302;&#x8D77;&#x7684;&#x6570;&#x636E;&#x3002;
+&#x4E0D;&#x8981;&#x8F7B;&#x6613;&#x7684;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x8FC7;&#x65E9;&#x7684;&#x5237;&#x65B0;&#x4F1A;&#x5BF9;&#x538B;&#x7F29;&#x7B97;&#x6CD5;&#x9020;&#x6210;&#x8D1F;&#x9762;&#x5F71;&#x54CD;&#x3002;</p><p>&#x6267;&#x884C;&#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#x53EA;&#x4F1A;&#x4ECE; <code>zlib</code> &#x5185;&#x90E8;&#x72B6;&#x6001;&#x5237;&#x65B0;&#x6570;&#x636E;&#xFF0C;&#x4E0D;&#x4F1A;&#x5728;&#x6D41;&#x7EA7;&#x522B;&#x4E0A;&#x6267;&#x884C;&#x4EFB;&#x4F55;&#x7C7B;&#x578B;&#x7684;&#x5237;&#x65B0;&#x3002;
+&#x76F8;&#x53CD;&#xFF0C;&#x5B83;&#x7684;&#x8868;&#x73B0;&#x7C7B;&#x4F3C;&#x6B63;&#x5E38;&#x7684; <code>.write()</code> &#x8C03;&#x7528;&#xFF0C;&#x5373;&#x5B83;&#x5C06;&#x5728;&#x961F;&#x5217;&#x4E2D;&#x5176;&#x4ED6;&#x6570;&#x636E;&#x5199;&#x5165;&#x64CD;&#x4F5C;&#x4E4B;&#x540E;&#x6267;&#x884C;&#xFF0C;&#x5E76;&#x4E14;&#x53EA;&#x4F1A;&#x5728;&#x4ECE;&#x6D41;&#x4E2D;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x4E4B;&#x540E;&#x624D;&#x4EA7;&#x751F;&#x8F93;&#x51FA;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.5.8</span>
+</div><ul>
+<li><code>kind</code> <strong>Default:</strong> <code>zlib.constants.Z_FULL_FLUSH</code> for zlib-based streams,
+<code>zlib.constants.BROTLI_OPERATION_FLUSH</code> for Brotli-based streams.</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></li>
+</ul><p>Flush pending data. Don&apos;t call this frivolously, premature flushes negatively
+impact the effectiveness of the compression algorithm.</p><p>Calling this only flushes data from the internal <code>zlib</code> state, and does not
+perform flushing of any kind on the streams level. Rather, it behaves like a
+normal call to <code>.write()</code>, i.e. it will be queued up behind other pending
+writes and will only produce output when data is being read from the stream.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/zlib/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756330970"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>总结 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/modules/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756315988" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-modules">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>总结</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../modules.html#modules_all_together" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/modules/all_together.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x60F3;&#x8981;&#x83B7;&#x5F97;&#x8C03;&#x7528; <code>require()</code> &#x65F6;&#x52A0;&#x8F7D;&#x7684;&#x786E;&#x5207;&#x7684;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x4F7F;&#x7528; <code>require.resolve()</code> &#x51FD;&#x6570;&#x3002;</p><p>&#x7EFC;&#x4E0A;&#x6240;&#x8FF0;&#xFF0C;&#x4EE5;&#x4E0B;&#x7528;&#x4F2A;&#x4EE3;&#x7801;&#x63CF;&#x8FF0;&#x7684;&#x9AD8;&#x7EA7;&#x7B97;&#x6CD5;&#xFF0C;&#x89E3;&#x91CA; <code>resolve()</code> &#x505A;&#x4E86;&#x4E9B;&#x4EC0;&#x4E48;&#xFF1A;</p><pre><code class="language-txt">require(X) from module at path Y
+1. If X is a core module,
+   a. return the core module
+   b. STOP
+2. If X begins with &apos;/&apos;
+   a. set Y to be the filesystem root
+3. If X begins with &apos;./&apos; or &apos;/&apos; or &apos;../&apos;
+   a. LOAD_AS_FILE(Y + X)
+   b. LOAD_AS_DIRECTORY(Y + X)
+   c. THROW &quot;not found&quot;
+4. LOAD_NODE_MODULES(X, dirname(Y))
+5. THROW &quot;not found&quot;
+
+LOAD_AS_FILE(X)
+1. If X is a file, load X as JavaScript text.  STOP
+2. If X.js is a file, load X.js as JavaScript text.  STOP
+3. If X.json is a file, parse X.json to a JavaScript Object.  STOP
+4. If X.node is a file, load X.node as binary addon.  STOP
+
+LOAD_INDEX(X)
+1. If X/index.js is a file, load X/index.js as JavaScript text.  STOP
+2. If X/index.json is a file, parse X/index.json to a JavaScript object. STOP
+3. If X/index.node is a file, load X/index.node as binary addon.  STOP
+
+LOAD_AS_DIRECTORY(X)
+1. If X/package.json is a file,
+   a. Parse X/package.json, and look for &quot;main&quot; field.
+   b. If &quot;main&quot; is a falsy value, GOTO 2.
+   c. let M = X + (json main field)
+   d. LOAD_AS_FILE(M)
+   e. LOAD_INDEX(M)
+   f. LOAD_INDEX(X) DEPRECATED
+   g. THROW &quot;not found&quot;
+2. LOAD_INDEX(X)
+
+LOAD_NODE_MODULES(X, START)
+1. let DIRS = NODE_MODULES_PATHS(START)
+2. for each DIR in DIRS:
+   a. LOAD_AS_FILE(DIR/X)
+   b. LOAD_AS_DIRECTORY(DIR/X)
+
+NODE_MODULES_PATHS(START)
+1. let PARTS = path split(START)
+2. let I = count of PARTS - 1
+3. let DIRS = [GLOBAL_FOLDERS]
+4. while I &gt;= 0,
+   a. if PARTS[I] = &quot;node_modules&quot; CONTINUE
+   b. DIR = path join(PARTS[0 .. I] + &quot;node_modules&quot;)
+   c. DIRS = DIRS + DIR
+   d. let I = I - 1
+5. return DIRS
+</code></pre><p>&#x5982;&#x679C;&#x542F;&#x7528;&#x4E86; <code>--experimental-exports</code>&#xFF0C;&#x5219; Node.js &#x5141;&#x8BB8;&#x901A;&#x8FC7; <code>LOAD_NODE_MODULES</code> &#x52A0;&#x8F7D;&#x7684;&#x5305;&#x663E;&#x5F0F;&#x5730;&#x58F0;&#x660E;&#x8981;&#x5BFC;&#x5165;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4EE5;&#x53CA;&#x5982;&#x4F55;&#x89E3;&#x6790;&#x5B83;&#x4EEC;&#x3002;
+&#x8FD9;&#x6269;&#x5C55;&#x4E86;&#x4F7F;&#x7528; <code>main</code> &#x5B57;&#x6BB5;&#x5DF2;&#x7ECF;&#x62E5;&#x6709;&#x7684;&#x63A7;&#x4EF6;&#x5305;&#x3002; </p><p>&#x542F;&#x7528;&#x6B64;&#x529F;&#x80FD;&#x540E;&#xFF0C; <code>LOAD_NODE_MODULES</code> &#x5C06;&#x66F4;&#x6539;&#x4E3A;&#xFF1A;</p><pre><code class="language-txt">LOAD_NODE_MODULES(X, START)
+1. let DIRS = NODE_MODULES_PATHS(START)
+2. for each DIR in DIRS:
+   a. let FILE_PATH = RESOLVE_BARE_SPECIFIER(DIR, X)
+   a. LOAD_AS_FILE(FILE_PATH)
+   b. LOAD_AS_DIRECTORY(FILE_PATH)
+
+RESOLVE_BARE_SPECIFIER(DIR, X)
+1. Try to interpret X as a combination of name and subpath where the name
+   may have a @scope/ prefix and the subpath begins with a slash (`/`).
+2. If X matches this pattern and DIR/name/package.json is a file:
+   a. Parse DIR/name/package.json, and look for &quot;exports&quot; field.
+   b. If &quot;exports&quot; is null or undefined, GOTO 3.
+   c. Find the longest key in &quot;exports&quot; that the subpath starts with.
+   d. If no such key can be found, throw &quot;not found&quot;.
+   e. let RESOLVED_URL =
+        PACKAGE_EXPORTS_TARGET_RESOLVE(pathToFileURL(DIR/name), exports[key],
+        subpath.slice(key.length)), as defined in the esm resolver.
+   f. return fileURLToPath(RESOLVED_URL)
+3. return DIR/X
+</code></pre><p>&#x53EA;&#x6709;&#x5F53;&#x52A0;&#x8F7D;&#x4E0A;&#x9762;&#x5B9A;&#x4E49;&#x7684;&#x5305;&#x540D;&#x65F6;&#x624D;&#x4F1A;&#x9075;&#x5B88; <code>&quot;exports&quot;</code>&#x3002;
+&#x5D4C;&#x5957;&#x76EE;&#x5F55;&#x548C;&#x5305;&#x4E2D;&#x7684;&#x4EFB;&#x4F55; <code>&quot;exports&quot;</code> &#x503C;&#x5FC5;&#x987B;&#x7531;&#x8D1F;&#x8D23;&#x540D;&#x79F0;&#x7684; <code>package.json</code> &#x58F0;&#x660E;&#x3002;</p></div>
+          <div id="content_right"><p>To get the exact filename that will be loaded when <code>require()</code> is called, use
+the <code>require.resolve()</code> function.</p><p>Putting together all of the above, here is the high-level algorithm
+in pseudocode of what <code>require()</code> does:</p><pre><code class="language-txt">require(X) from module at path Y
+1. If X is a core module,
+   a. return the core module
+   b. STOP
+2. If X begins with &apos;/&apos;
+   a. set Y to be the filesystem root
+3. If X begins with &apos;./&apos; or &apos;/&apos; or &apos;../&apos;
+   a. LOAD_AS_FILE(Y + X)
+   b. LOAD_AS_DIRECTORY(Y + X)
+   c. THROW &quot;not found&quot;
+4. LOAD_NODE_MODULES(X, dirname(Y))
+5. THROW &quot;not found&quot;
+
+LOAD_AS_FILE(X)
+1. If X is a file, load X as JavaScript text.  STOP
+2. If X.js is a file, load X.js as JavaScript text.  STOP
+3. If X.json is a file, parse X.json to a JavaScript Object.  STOP
+4. If X.node is a file, load X.node as binary addon.  STOP
+
+LOAD_INDEX(X)
+1. If X/index.js is a file, load X/index.js as JavaScript text.  STOP
+2. If X/index.json is a file, parse X/index.json to a JavaScript object. STOP
+3. If X/index.node is a file, load X/index.node as binary addon.  STOP
+
+LOAD_AS_DIRECTORY(X)
+1. If X/package.json is a file,
+   a. Parse X/package.json, and look for &quot;main&quot; field.
+   b. If &quot;main&quot; is a falsy value, GOTO 2.
+   c. let M = X + (json main field)
+   d. LOAD_AS_FILE(M)
+   e. LOAD_INDEX(M)
+   f. LOAD_INDEX(X) DEPRECATED
+   g. THROW &quot;not found&quot;
+2. LOAD_INDEX(X)
+
+LOAD_NODE_MODULES(X, START)
+1. let DIRS = NODE_MODULES_PATHS(START)
+2. for each DIR in DIRS:
+   a. LOAD_AS_FILE(DIR/X)
+   b. LOAD_AS_DIRECTORY(DIR/X)
+
+NODE_MODULES_PATHS(START)
+1. let PARTS = path split(START)
+2. let I = count of PARTS - 1
+3. let DIRS = [GLOBAL_FOLDERS]
+4. while I &gt;= 0,
+   a. if PARTS[I] = &quot;node_modules&quot; CONTINUE
+   b. DIR = path join(PARTS[0 .. I] + &quot;node_modules&quot;)
+   c. DIRS = DIRS + DIR
+   d. let I = I - 1
+5. return DIRS
+</code></pre><p>If <code>--experimental-exports</code> is enabled, Node.js allows packages loaded via
+<code>LOAD_NODE_MODULES</code> to explicitly declare which file paths to expose and how
+they should be interpreted. This expands on the control packages already had
+using the <code>main</code> field.</p><p>With this feature enabled, the <code>LOAD_NODE_MODULES</code> changes are:</p><pre><code class="language-txt">LOAD_NODE_MODULES(X, START)
+1. let DIRS = NODE_MODULES_PATHS(START)
+2. for each DIR in DIRS:
+   a. let FILE_PATH = RESOLVE_BARE_SPECIFIER(DIR, X)
+   a. LOAD_AS_FILE(FILE_PATH)
+   b. LOAD_AS_DIRECTORY(FILE_PATH)
+
+RESOLVE_BARE_SPECIFIER(DIR, X)
+1. Try to interpret X as a combination of name and subpath where the name
+   may have a @scope/ prefix and the subpath begins with a slash (`/`).
+2. If X matches this pattern and DIR/name/package.json is a file:
+   a. Parse DIR/name/package.json, and look for &quot;exports&quot; field.
+   b. If &quot;exports&quot; is null or undefined, GOTO 3.
+   c. Find the longest key in &quot;exports&quot; that the subpath starts with.
+   d. If no such key can be found, throw &quot;not found&quot;.
+   e. let RESOLVED_URL =
+        PACKAGE_EXPORTS_TARGET_RESOLVE(pathToFileURL(DIR/name), exports[key],
+        subpath.slice(key.length)), as defined in the esm resolver.
+   f. return fileURLToPath(RESOLVED_URL)
+3. return DIR/X
+</code></pre><p><code>&quot;exports&quot;</code> is only honored when loading a package &quot;name&quot; as defined above. Any
+<code>&quot;exports&quot;</code> values within nested directories and packages must be declared by
+the <code>package.json</code> responsible for the &quot;name&quot;.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/modules/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756315988"><\/script>');
+  </script>
+</body>
+</html>

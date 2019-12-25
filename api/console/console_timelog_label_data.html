@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>console.timeLog([label][, ...data]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/console/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756298312" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-console">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>console.timeLog([label][, ...data])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../console.html#console_console_timelog_label_data" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/console/console_timelog_label_data.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.7.0</span>
+</div><ul>
+<li><code>label</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;default&apos;</code>&#x3002;</li>
+<li><code>...data</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+</ul><p>&#x5BF9;&#x4E8E;&#x5148;&#x524D;&#x901A;&#x8FC7;&#x8C03;&#x7528; <a href="http://nodejs.cn/s/boWJXg" rel="nofollow"><code>console.time()</code></a> &#x542F;&#x52A8;&#x7684;&#x8BA1;&#x65F6;&#x5668;&#xFF0C;&#x5C06;&#x7ECF;&#x8FC7;&#x65F6;&#x95F4;&#x548C;&#x5176;&#x4ED6; <code>data</code> &#x53C2;&#x6570;&#x6253;&#x5370;&#x5230; <code>stdout</code>&#xFF1A;</p><pre><code class="language-js">console.time(&apos;process&apos;);
+const value = expensiveProcess1(); // &#x8FD4;&#x56DE; 42
+console.timeLog(&apos;process&apos;, value);
+// &#x6253;&#x5370; &quot;process: 365.227ms 42&quot;&#x3002;
+doExpensiveProcess2(value);
+console.timeEnd(&apos;process&apos;);
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v10.7.0</span>
+</div><ul>
+<li><code>label</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> <strong>Default:</strong> <code>&apos;default&apos;</code></li>
+<li><code>...data</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+</ul><p>For a timer that was previously started by calling <a href="http://nodejs.cn/s/boWJXg" rel="nofollow"><code>console.time()</code></a>, prints
+the elapsed time and other <code>data</code> arguments to <code>stdout</code>:</p><pre><code class="language-js">console.time(&apos;process&apos;);
+const value = expensiveProcess1(); // Returns 42
+console.timeLog(&apos;process&apos;, value);
+// Prints &quot;process: 365.227ms 42&quot;.
+doExpensiveProcess2(value);
+console.timeEnd(&apos;process&apos;);
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/console/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756298312"><\/script>');
+  </script>
+</body>
+</html>

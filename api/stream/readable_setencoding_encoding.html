@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>readable.setEncoding(encoding) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324205" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-stream">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>readable.setEncoding(encoding)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../stream.html#stream_readable_setencoding_encoding" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/stream/readable_setencoding_encoding.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.4</span>
+</div><ul>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5B57;&#x7B26;&#x7F16;&#x7801;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/v7Fsu2" target="_blank" rel="nofollow" class="type">&lt;this&gt;</a></li>
+</ul><p><code>readable.setEncoding()</code> &#x65B9;&#x6CD5;&#x4E3A;&#x4ECE;&#x53EF;&#x8BFB;&#x6D41;&#x8BFB;&#x53D6;&#x7684;&#x6570;&#x636E;&#x8BBE;&#x7F6E;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x3002;</p><p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x6CA1;&#x6709;&#x8BBE;&#x7F6E;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#xFF0C;&#x6D41;&#x6570;&#x636E;&#x8FD4;&#x56DE;&#x7684;&#x662F; <code>Buffer</code> &#x5BF9;&#x8C61;&#x3002;
+&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#xFF0C;&#x5219;&#x6D41;&#x6570;&#x636E;&#x8FD4;&#x56DE;&#x6307;&#x5B9A;&#x7F16;&#x7801;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;&#x8C03;&#x7528; <code>readable.setEncoding(&apos;utf-8&apos;)</code> &#x4F1A;&#x5C06;&#x6570;&#x636E;&#x89E3;&#x6790;&#x4E3A; UTF-8 &#x6570;&#x636E;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x8C03;&#x7528; <code>readable.setEncoding(&apos;hex&apos;)</code> &#x5219;&#x4F1A;&#x5C06;&#x6570;&#x636E;&#x7F16;&#x7801;&#x6210;&#x5341;&#x516D;&#x8FDB;&#x5236;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p><p>&#x53EF;&#x8BFB;&#x6D41;&#x5C06;&#x4F1A;&#x6B63;&#x786E;&#x5730;&#x5904;&#x7406;&#x901A;&#x8FC7;&#x6D41;&#x4F20;&#x9012;&#x7684;&#x591A;&#x5B57;&#x8282;&#x5B57;&#x7B26;&#xFF0C;&#x5426;&#x5219;&#x5982;&#x679C;&#x7B80;&#x5355;&#x5730;&#x4ECE;&#x6D41;&#x4E2D;&#x4F5C;&#x4E3A; <code>Buffer</code> &#x5BF9;&#x8C61;&#x62C9;&#x51FA;&#xFF0C;&#x5219;&#x4F1A;&#x88AB;&#x4E0D;&#x6B63;&#x786E;&#x5730;&#x89E3;&#x7801;&#x3002;</p><pre><code class="language-js">const readable = getReadableStreamSomehow();
+readable.setEncoding(&apos;utf8&apos;);
+readable.on(&apos;data&apos;, (chunk) =&gt; {
+  assert.equal(typeof chunk, &apos;string&apos;);
+  console.log(&apos;&#x8BFB;&#x53D6;&#x5230; %d &#x4E2A;&#x5B57;&#x7B26;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x6570;&#x636E;&apos;, chunk.length);
+});
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.9.4</span>
+</div><ul>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> The encoding to use.</li>
+<li>Returns: <a href="http://nodejs.cn/s/v7Fsu2" target="_blank" rel="nofollow" class="type">&lt;this&gt;</a></li>
+</ul><p>The <code>readable.setEncoding()</code> method sets the character encoding for
+data read from the <code>Readable</code> stream.</p><p>By default, no encoding is assigned and stream data will be returned as
+<code>Buffer</code> objects. Setting an encoding causes the stream data
+to be returned as strings of the specified encoding rather than as <code>Buffer</code>
+objects. For instance, calling <code>readable.setEncoding(&apos;utf8&apos;)</code> will cause the
+output data to be interpreted as UTF-8 data, and passed as strings. Calling
+<code>readable.setEncoding(&apos;hex&apos;)</code> will cause the data to be encoded in hexadecimal
+string format.</p><p>The <code>Readable</code> stream will properly handle multi-byte characters delivered
+through the stream that would otherwise become improperly decoded if simply
+pulled from the stream as <code>Buffer</code> objects.</p><pre><code class="language-js">const readable = getReadableStreamSomehow();
+readable.setEncoding(&apos;utf8&apos;);
+readable.on(&apos;data&apos;, (chunk) =&gt; {
+  assert.equal(typeof chunk, &apos;string&apos;);
+  console.log(&apos;Got %d characters of string data:&apos;, chunk.length);
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324205"><\/script>');
+  </script>
+</body>
+</html>

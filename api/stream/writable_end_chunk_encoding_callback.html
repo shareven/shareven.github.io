@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>writable.end([chunk[, encoding]][, callback]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324123" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-stream">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>writable.end([chunk[, encoding]][, callback])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../stream.html#stream_writable_end_chunk_encoding_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/stream/writable_end_chunk_encoding_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>This method now returns a reference to <code>writable</code>.</p></td></tr>
+<tr><td>v8.0.0</td>
+<td><p>The <code>chunk</code> argument can now be a <code>Uint8Array</code> instance.</p></td></tr>
+<tr><td>v0.9.4</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.9.4</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>chunk</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/ZbDkpm" target="_blank" rel="nofollow" class="type">&lt;Uint8Array&gt;</a> | <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> &#x8981;&#x5199;&#x5165;&#x7684;&#x6570;&#x636E;&#x3002;
+		&#x5BF9;&#x4E8E;&#x975E;&#x5BF9;&#x8C61;&#x6A21;&#x5F0F;&#x7684;&#x6D41;&#xFF0C; <code>chunk</code> &#x5FC5;&#x987B;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x3001; <code>Buffer</code>&#x3001;&#x6216; <code>Uint8Array</code>&#x3002;
+&#x5BF9;&#x4E8E;&#x5BF9;&#x8C61;&#x6A21;&#x5F0F;&#x7684;&#x6D41;&#xFF0C; <code>chunk</code> &#x53EF;&#x4EE5;&#x662F;&#x4EFB;&#x4F55; JavaScript &#x503C;&#xFF0C;&#x9664;&#x4E86; <code>null</code>&#x3002;</li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5982;&#x679C; <code>chunk</code> &#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x6307;&#x5B9A;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x3002;</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x5F53;&#x6D41;&#x7ED3;&#x675F;&#x65F6;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/v7Fsu2" target="_blank" rel="nofollow" class="type">&lt;this&gt;</a></li>
+</ul><p>&#x8C03;&#x7528; <code>writable.end()</code> &#x8868;&#x660E;&#x5DF2;&#x6CA1;&#x6709;&#x6570;&#x636E;&#x8981;&#x88AB;&#x5199;&#x5165;<a href="http://nodejs.cn/s/9JUnJ8" rel="nofollow">&#x53EF;&#x5199;&#x6D41;</a>&#x3002;
+&#x53EF;&#x9009;&#x7684; <code>chunk</code> &#x548C; <code>encoding</code> &#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x5728;&#x5173;&#x95ED;&#x6D41;&#x4E4B;&#x524D;&#x518D;&#x5199;&#x5165;&#x4E00;&#x5757;&#x6570;&#x636E;&#x3002;
+&#x5982;&#x679C;&#x4F20;&#x5165;&#x4E86; <code>callback</code> &#x51FD;&#x6570;&#xFF0C;&#x5219;&#x4F1A;&#x505A;&#x4E3A;&#x76D1;&#x542C;&#x5668;&#x6DFB;&#x52A0;&#x5230; <a href="http://nodejs.cn/s/VBJRc8" rel="nofollow"><code>&apos;finish&apos;</code></a> &#x4E8B;&#x4EF6;&#x3002;</p><p>&#x8C03;&#x7528; <a href="http://nodejs.cn/s/nvArK4" rel="nofollow"><code>stream.end()</code></a> &#x4E4B;&#x540E;&#x518D;&#x8C03;&#x7528; <a href="http://nodejs.cn/s/doppiK" rel="nofollow"><code>stream.write()</code></a> &#x4F1A;&#x5BFC;&#x81F4;&#x9519;&#x8BEF;&#x3002;</p><pre><code class="language-js">// &#x5148;&#x5199;&#x5165; &apos;hello, &apos;&#xFF0C;&#x7ED3;&#x675F;&#x524D;&#x518D;&#x5199;&#x5165; &apos;world!&apos;&#x3002;
+const fs = require(&apos;fs&apos;);
+const file = fs.createWriteStream(&apos;&#x4F8B;&#x5B50;.txt&apos;);
+file.write(&apos;hello, &apos;);
+file.end(&apos;world!&apos;);
+// &#x540E;&#x9762;&#x4E0D;&#x5141;&#x8BB8;&#x518D;&#x5199;&#x5165;&#x6570;&#x636E;&#xFF01;
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>This method now returns a reference to <code>writable</code>.</p></td></tr>
+<tr><td>v8.0.0</td>
+<td><p>The <code>chunk</code> argument can now be a <code>Uint8Array</code> instance.</p></td></tr>
+<tr><td>v0.9.4</td>
+<td><p><span>Added in: v0.9.4</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>chunk</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/ZbDkpm" target="_blank" rel="nofollow" class="type">&lt;Uint8Array&gt;</a> | <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> Optional data to write. For streams
+not operating in object mode, <code>chunk</code> must be a string, <code>Buffer</code> or
+<code>Uint8Array</code>. For object mode streams, <code>chunk</code> may be any JavaScript value
+other than <code>null</code>.</li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> The encoding if <code>chunk</code> is a string</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> Optional callback for when the stream is finished</li>
+<li>Returns: <a href="http://nodejs.cn/s/v7Fsu2" target="_blank" rel="nofollow" class="type">&lt;this&gt;</a></li>
+</ul><p>Calling the <code>writable.end()</code> method signals that no more data will be written
+to the <a href="http://nodejs.cn/s/9JUnJ8" rel="nofollow"><code>Writable</code></a>. The optional <code>chunk</code> and <code>encoding</code> arguments allow one
+final additional chunk of data to be written immediately before closing the
+stream. If provided, the optional <code>callback</code> function is attached as a listener
+for the <a href="http://nodejs.cn/s/VBJRc8" rel="nofollow"><code>&apos;finish&apos;</code></a> event.</p><p>Calling the <a href="http://nodejs.cn/s/doppiK" rel="nofollow"><code>stream.write()</code></a> method after calling
+<a href="http://nodejs.cn/s/nvArK4" rel="nofollow"><code>stream.end()</code></a> will raise an error.</p><pre><code class="language-js">// Write &apos;hello, &apos; and then end with &apos;world!&apos;.
+const fs = require(&apos;fs&apos;);
+const file = fs.createWriteStream(&apos;example.txt&apos;);
+file.write(&apos;hello, &apos;);
+file.end(&apos;world!&apos;);
+// Writing more now is not allowed!
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324123"><\/script>');
+  </script>
+</body>
+</html>

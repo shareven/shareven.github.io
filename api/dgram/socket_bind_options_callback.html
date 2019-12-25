@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>socket.bind(options[, callback]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/dgram/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756302444" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-dgram">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>socket.bind(options[, callback])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../dgram.html#dgram_socket_bind_options_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/socket_bind_options_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.14</span>
+</div><ul>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> &#x5FC5;&#x8981;&#x7684;&#x3002;&#x5305;&#x542B;&#x4EE5;&#x4E0B;&#x5C5E;&#x6027;</p>
+<ul>
+<li><code>port</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>address</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>exclusive</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+<li><code>fd</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+</ul>
+</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></li>
+</ul><p>&#x5BF9;&#x4E8E; UDP socket&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x4F1A;&#x4EE4; <code>dgram.Socket</code> &#x5728;&#x6307;&#x5B9A;&#x7684; <code>port</code> &#x548C;&#x53EF;&#x9009;&#x7684; <code>address</code> &#x4E0A;&#x76D1;&#x542C;&#x6570;&#x636E;&#x5305;&#x4FE1;&#x606F;&#x3002;
+&#x82E5; <code>port</code> &#x672A;&#x6307;&#x5B9A;&#x6216;&#x4E3A; <code>0</code>&#xFF0C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4F1A;&#x5C1D;&#x8BD5;&#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x7684;&#x7AEF;&#x53E3;&#x3002;
+&#x82E5; <code>address</code> &#x672A;&#x6307;&#x5B9A;&#xFF0C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4F1A;&#x5C1D;&#x8BD5;&#x5728;&#x6240;&#x6709;&#x5730;&#x5740;&#x4E0A;&#x76D1;&#x542C;&#x3002;
+&#x7ED1;&#x5B9A;&#x5B8C;&#x6210;&#x65F6;&#x4F1A;&#x89E6;&#x53D1;&#x4E00;&#x4E2A; <code>&apos;listening&apos;</code> &#x4E8B;&#x4EF6;&#xFF0C;&#x5E76;&#x4F1A;&#x8C03;&#x7528; <code>callback</code> &#x65B9;&#x6CD5;&#x3002;</p><p><code>options</code> &#x5BF9;&#x8C61;&#x53EF;&#x80FD;&#x5305;&#x542B; <code>fd</code> &#x5C5E;&#x6027;&#x3002;
+&#x5F53;&#x8BBE;&#x7F6E;&#x5927;&#x4E8E; <code>0</code> &#x7684; <code>fd</code> &#x65F6;&#xFF0C;&#x5B83;&#x5C06;&#x4F1A;&#x4F7F;&#x7528;&#x7ED9;&#x5B9A;&#x7684;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x5C01;&#x88C5;&#x4E00;&#x4E2A;&#x73B0;&#x6709;&#x7684; socket&#x3002;
+&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C; <code>port</code> &#x548C; <code>address</code> &#x7684;&#x5C5E;&#x6027;&#x5C06;&#x4F1A;&#x5FFD;&#x7565;&#x3002;</p><p>&#x540C;&#x65F6;&#x76D1;&#x542C; <code>&apos;listening&apos;</code> &#x4E8B;&#x4EF6;&#x548C;&#x5728; <code>socket.bind()</code> &#x65B9;&#x6CD5;&#x4E2D;&#x4F20;&#x5165; <code>callback</code> &#x53C2;&#x6570;&#x5E76;&#x4E0D;&#x4F1A;&#x5E26;&#x6765;&#x574F;&#x5904;&#xFF0C;&#x4F46;&#x4E5F;&#x4E0D;&#x662F;&#x5F88;&#x6709;&#x7528;&#x3002;</p><p>&#x5728;&#x914D;&#x5408; <a href="http://nodejs.cn/s/4cbAVb" rel="nofollow"><code>cluster</code></a> &#x6A21;&#x5757;&#x4F7F;&#x7528; <code>dgram.Socket</code> &#x5BF9;&#x8C61;&#x65F6;&#xFF0C; <code>options</code> &#x5BF9;&#x8C61;&#x53EF;&#x80FD;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x9644;&#x52A0;&#x7684; <code>exclusive</code> &#x5C5E;&#x6027;&#x3002;
+&#x5F53; <code>exclusive</code> &#x88AB;&#x8BBE;&#x4E3A; <code>false</code>&#xFF08;&#x9ED8;&#x8BA4;&#x503C;&#xFF09;&#x65F6;&#xFF0C;&#x96C6;&#x7FA4;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x4F1A;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684; socket &#x53E5;&#x67C4;&#x6765;&#x5171;&#x4EAB;&#x8FDE;&#x63A5;&#x5904;&#x7406;&#x4F5C;&#x4E1A;&#x3002;
+&#x5F53; <code>exclusive</code> &#x88AB;&#x8BBE;&#x4E3A; <code>true</code> &#x65F6;&#xFF0C;&#x8BE5;&#x53E5;&#x67C4;&#x5C06;&#x4E0D;&#x4F1A;&#x88AB;&#x5171;&#x4EAB;&#xFF0C;&#x800C;&#x5C1D;&#x8BD5;&#x5171;&#x4EAB;&#x7AEF;&#x53E3;&#x5219;&#x4F1A;&#x9020;&#x6210;&#x9519;&#x8BEF;&#x3002;</p><p>&#x4E00;&#x4E2A;&#x7ED1;&#x5B9A;&#x7684;&#x6570;&#x636E;&#x62A5; socket &#x4F1A;&#x4F7F; Node.js &#x8FDB;&#x7A0B;&#x6301;&#x7EED;&#x8FD0;&#x884C;&#x4EE5;&#x63A5;&#x53D7;&#x6570;&#x636E;&#x62A5;&#x6D88;&#x606F;&#x3002;</p><p>&#x5982;&#x679C;&#x7ED1;&#x5B9A;&#x5931;&#x8D25;&#xFF0C;&#x4E00;&#x4E2A; <code>&apos;error&apos;</code> &#x4E8B;&#x4EF6;&#x4F1A;&#x4EA7;&#x751F;&#x3002;&#x5728;&#x6781;&#x5C11;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#xFF08;&#x4F8B;&#x5982;&#x5C1D;&#x8BD5;&#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x5173;&#x95ED;&#x7684; socket&#xFF09;&#xFF0C;&#x4E00;&#x4E2A; <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> &#x53EF;&#x80FD;&#x629B;&#x51FA;&#x3002;</p><p>&#x4E00;&#x4E2A;&#x4E0D;&#x5171;&#x4EAB;&#x7AEF;&#x53E3;&#x7684; socket &#x7684;&#x4F8B;&#x5B50;&#x5982;&#x4E0B;&#x6587;&#x6240;&#x793A;&#x3002;</p><pre><code class="language-js">socket.bind({
+  address: &apos;localhost&apos;,
+  port: 8000,
+  exclusive: true
+});
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.11.14</span>
+</div><ul>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> Required. Supports the following properties:</p>
+<ul>
+<li><code>port</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>address</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>exclusive</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+<li><code>fd</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+</ul>
+</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></li>
+</ul><p>For UDP sockets, causes the <code>dgram.Socket</code> to listen for datagram
+messages on a named <code>port</code> and optional <code>address</code> that are passed as
+properties of an <code>options</code> object passed as the first argument. If
+<code>port</code> is not specified or is <code>0</code>, the operating system will attempt
+to bind to a random port. If <code>address</code> is not specified, the operating
+system will attempt to listen on all addresses. Once binding is
+complete, a <code>&apos;listening&apos;</code> event is emitted and the optional <code>callback</code>
+function is called.</p><p>The <code>options</code> object may contain a <code>fd</code> property. When a <code>fd</code> greater
+than <code>0</code> is set, it will wrap around an existing socket with the given
+file descriptor. In this case, the properties of <code>port</code> and <code>address</code>
+will be ignored.</p><p>Specifying both a <code>&apos;listening&apos;</code> event listener and passing a
+<code>callback</code> to the <code>socket.bind()</code> method is not harmful but not very
+useful.</p><p>The <code>options</code> object may contain an additional <code>exclusive</code> property that is
+used when using <code>dgram.Socket</code> objects with the <a href="http://nodejs.cn/s/4cbAVb" rel="nofollow"><code>cluster</code></a> module. When
+<code>exclusive</code> is set to <code>false</code> (the default), cluster workers will use the same
+underlying socket handle allowing connection handling duties to be shared.
+When <code>exclusive</code> is <code>true</code>, however, the handle is not shared and attempted
+port sharing results in an error.</p><p>A bound datagram socket keeps the Node.js process running to receive
+datagram messages.</p><p>If binding fails, an <code>&apos;error&apos;</code> event is generated. In rare case (e.g.
+attempting to bind with a closed socket), an <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> may be thrown.</p><p>An example socket listening on an exclusive port is shown below.</p><pre><code class="language-js">socket.bind({
+  address: &apos;localhost&apos;,
+  port: 8000,
+  exclusive: true
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/dgram/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756302444"><\/script>');
+  </script>
+</body>
+</html>

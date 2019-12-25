@@ -1,0 +1,725 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>worker_threads | Node.js API &#x6587;&#x6863;</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756330156" rel="stylesheet">')
+  </script>
+  
+</head>
+<body class="alt apidoc" id="page_api">
+  <div id="api-section-worker_threads">
+    <div id="content" class="clearfix">
+      <div id="column2" class="interior">
+        <div id="intro" class="interior">
+          <a href="http://nodejs.cn/" rel="nofollow">
+            Node.js &#x4E2D;&#x6587;&#x7F51;
+          </a>
+          <a href="index.html" rel="nofollow">
+            v12.14.0
+          </a>
+          <div id="biz_nav"><a title="&#x5F00;&#x8BFE;&#x5427;" target="_blank" href="https://datayi.cn/w/LPd57bYo" rel="nofollow"><img></a></div>
+        </div>
+        <div class="line"></div>
+        <ul>
+<li><a href="assert.html" class="nav-assert" rel="nofollow">assert - &#x65AD;&#x8A00;</a></li>
+<li><a href="async_hooks.html" class="nav-async_hooks" rel="nofollow">async_hooks - &#x5F02;&#x6B65;&#x94A9;&#x5B50;</a></li>
+<li><a href="buffer.html" class="nav-buffer" rel="nofollow">Buffer - &#x7F13;&#x51B2;&#x5668;</a></li>
+<li><a href="child_process.html" class="nav-child_process" rel="nofollow">child_process - &#x5B50;&#x8FDB;&#x7A0B;</a></li>
+<li><a href="cluster.html" class="nav-cluster" rel="nofollow">cluster - &#x96C6;&#x7FA4;</a></li>
+<li><a href="console.html" class="nav-console" rel="nofollow">console - &#x63A7;&#x5236;&#x53F0;</a></li>
+<li><a href="crypto.html" class="nav-crypto" rel="nofollow">crypto - &#x52A0;&#x5BC6;</a></li>
+<li><a href="debugger.html" class="nav-debugger" rel="nofollow">debugger - &#x8C03;&#x8BD5;&#x5668;</a></li>
+<li><a href="dgram.html" class="nav-dgram" rel="nofollow">dgram - &#x6570;&#x636E;&#x62A5;</a></li>
+<li><a href="dns.html" class="nav-dns" rel="nofollow">dns - &#x57DF;&#x540D;&#x670D;&#x52A1;&#x5668;</a></li>
+<li><a href="domain.html" class="nav-domain" rel="nofollow">domain - &#x57DF;</a></li>
+<li><a href="errors.html" class="nav-errors" rel="nofollow">Error - &#x5F02;&#x5E38;</a></li>
+<li><a href="events.html" class="nav-events" rel="nofollow">events - &#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x5668;</a></li>
+<li><a href="fs.html" class="nav-fs" rel="nofollow">fs - &#x6587;&#x4EF6;&#x7CFB;&#x7EDF;</a></li>
+<li><a href="globals.html" class="nav-globals" rel="nofollow">global - &#x5168;&#x5C40;&#x53D8;&#x91CF;</a></li>
+<li><a href="http.html" class="nav-http" rel="nofollow">http - HTTP</a></li>
+<li><a href="http2.html" class="nav-http2" rel="nofollow">http2 - HTTP/2</a></li>
+<li><a href="https.html" class="nav-https" rel="nofollow">https - HTTPS</a></li>
+<li><a href="inspector.html" class="nav-inspector" rel="nofollow">inspector - &#x68C0;&#x67E5;&#x5668;</a></li>
+<li><a href="modules.html" class="nav-modules" rel="nofollow">module - &#x6A21;&#x5757;</a></li>
+<li><a href="net.html" class="nav-net" rel="nofollow">net - &#x7F51;&#x7EDC;</a></li>
+<li><a href="os.html" class="nav-os" rel="nofollow">os - &#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;</a></li>
+<li><a href="path.html" class="nav-path" rel="nofollow">path - &#x8DEF;&#x5F84;</a></li>
+<li><a href="perf_hooks.html" class="nav-perf_hooks" rel="nofollow">perf_hooks - &#x6027;&#x80FD;&#x94A9;&#x5B50;</a></li>
+<li><a href="process.html" class="nav-process" rel="nofollow">process - &#x8FDB;&#x7A0B;</a></li>
+<li><a href="punycode.html" class="nav-punycode" rel="nofollow">punycode - &#x57DF;&#x540D;&#x4EE3;&#x7801;</a></li>
+<li><a href="querystring.html" class="nav-querystring" rel="nofollow">querystring - &#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;</a></li>
+<li><a href="readline.html" class="nav-readline" rel="nofollow">readline - &#x9010;&#x884C;&#x8BFB;&#x53D6;</a></li>
+<li><a href="repl.html" class="nav-repl" rel="nofollow">repl - &#x4EA4;&#x4E92;&#x5F0F;&#x89E3;&#x91CA;&#x5668;</a></li>
+<li><a href="stream.html" class="nav-stream" rel="nofollow">stream - &#x6D41;</a></li>
+<li><a href="string_decoder.html" class="nav-string_decoder" rel="nofollow">string_decoder - &#x5B57;&#x7B26;&#x4E32;&#x89E3;&#x7801;&#x5668;</a></li>
+<li><a href="timers.html" class="nav-timers" rel="nofollow">timer - &#x5B9A;&#x65F6;&#x5668;</a></li>
+<li><a href="tls.html" class="nav-tls" rel="nofollow">tls - &#x5B89;&#x5168;&#x4F20;&#x8F93;&#x5C42;</a></li>
+<li><a href="tracing.html" class="nav-tracing" rel="nofollow">trace_events - &#x8DDF;&#x8E2A;&#x4E8B;&#x4EF6;</a></li>
+<li><a href="tty.html" class="nav-tty" rel="nofollow">tty - &#x7EC8;&#x7AEF;</a></li>
+<li><a href="url.html" class="nav-url" rel="nofollow">url - URL</a></li>
+<li><a href="util.html" class="nav-util" rel="nofollow">util - &#x5B9E;&#x7528;&#x5DE5;&#x5177;</a></li>
+<li><a href="v8.html" class="nav-v8" rel="nofollow">v8 - V8&#x5F15;&#x64CE;</a></li>
+<li><a href="vm.html" class="nav-vm" rel="nofollow">vm - &#x865A;&#x62DF;&#x673A;</a></li>
+<li><a href="worker_threads.html" class="nav-worker_threads active" rel="nofollow">worker_threads - &#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;</a></li>
+<li><a href="zlib.html" class="nav-zlib" rel="nofollow">zlib - &#x538B;&#x7F29;</a></li>
+</ul>
+<div class="line"></div>
+<ul>
+<li><a href="documentation.html" class="nav-documentation" rel="nofollow">&#x5173;&#x4E8E;&#x672C;&#x6587;&#x6863;</a></li>
+<li><a href="synopsis.html" class="nav-synopsis" rel="nofollow">&#x7528;&#x6CD5;&#x4E0E;&#x793A;&#x4F8B;</a></li>
+<li><a href="addons.html" class="nav-addons" rel="nofollow">C++&#x63D2;&#x4EF6;</a></li>
+<li><a href="n-api.html" class="nav-n-api" rel="nofollow">N-API</a></li>
+<li><a href="cli.html" class="nav-cli" rel="nofollow">&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;</a></li>
+<li><a href="esm.html" class="nav-esm" rel="nofollow">ECMAScript &#x6A21;&#x5757;</a></li>
+<li><a href="policy.html" class="nav-policy" rel="nofollow">&#x5B89;&#x5168;&#x7B56;&#x7565;</a></li>
+<li><a href="report.html" class="nav-report" rel="nofollow">&#x8BCA;&#x65AD;&#x62A5;&#x8868;</a></li>
+<li><a href="intl.html" class="nav-intl" rel="nofollow">&#x56FD;&#x9645;&#x5316;&#x652F;&#x6301;</a></li>
+<li><a href="deprecations.html" class="nav-deprecations" rel="nofollow">&#x5E9F;&#x5F03;&#x7684; API</a></li>
+</ul>
+        
+      </div>
+  
+      <div id="column1" data-id="worker_threads" class="interior">
+        <header>
+          <h1>Node.js v12.14.0 &#x6587;&#x6863;</h1>
+          <div id="gtoc">
+            <ul>
+              <li>
+                <a href="index.html" name="toc">&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x9996;&#x9875;</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">&#x641C;&#x7D22;</a>
+              </li>
+              <!-- 
+    <li class="version-picker">
+      <a href="#">查看其他版本 <span>&#x25bc;</span></a>
+      <ol class="version-picker"><li><a href="/latest-api/worker_threads.html">12.x</a></li>
+<li><a href="/api/worker_threads.html">10.x</a></li></ol>
+    </li>
+   -->
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        
+        
+        <div id="toc">
+          <h2>&#x76EE;&#x5F55;</h2>
+          <ul>
+<li>
+<p><span class="stability_2"><a href="worker_threads.html#worker_threads_worker_threads">worker_threads&#xFF08;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#xFF09;</a></span></p>
+<ul>
+<li><a href="worker_threads.html#worker_threads_worker_ismainthread">worker.isMainThread</a></li>
+<li><a href="worker_threads.html#worker_threads_worker_movemessageporttocontext_port_contextifiedsandbox">worker.moveMessagePortToContext(port, contextifiedSandbox)</a></li>
+<li><a href="worker_threads.html#worker_threads_worker_parentport">worker.parentPort</a></li>
+<li><a href="worker_threads.html#worker_threads_worker_receivemessageonport_port">worker.receiveMessageOnPort(port)</a></li>
+<li><a href="worker_threads.html#worker_threads_worker_share_env">worker.SHARE_ENV</a></li>
+<li><a href="worker_threads.html#worker_threads_worker_threadid">worker.threadId</a></li>
+<li><a href="worker_threads.html#worker_threads_worker_workerdata">worker.workerData</a></li>
+<li><a href="worker_threads.html#worker_threads_class_messagechannel">MessageChannel &#x7C7B;</a></li>
+<li>
+<p><a href="worker_threads.html#worker_threads_class_messageport">MessagePort &#x7C7B;</a></p>
+<ul>
+<li><a href="worker_threads.html#worker_threads_event_close">&apos;close&apos; &#x4E8B;&#x4EF6;</a></li>
+<li><a href="worker_threads.html#worker_threads_event_message">&apos;message&apos; &#x4E8B;&#x4EF6;</a></li>
+<li><a href="worker_threads.html#worker_threads_port_close">port.close()</a></li>
+<li><a href="worker_threads.html#worker_threads_port_postmessage_value_transferlist">port.postMessage(value[, transferList])</a></li>
+<li><a href="worker_threads.html#worker_threads_port_ref">port.ref()</a></li>
+<li><a href="worker_threads.html#worker_threads_port_start">port.start()</a></li>
+<li><a href="worker_threads.html#worker_threads_port_unref">port.unref()</a></li>
+</ul>
+</li>
+<li>
+<p><a href="worker_threads.html#worker_threads_class_worker">Worker &#x7C7B;</a></p>
+<ul>
+<li><a href="worker_threads.html#worker_threads_new_worker_filename_options">new Worker(filename[, options])</a></li>
+<li><a href="worker_threads.html#worker_threads_event_error">&apos;error&apos; &#x4E8B;&#x4EF6;</a></li>
+<li><a href="worker_threads.html#worker_threads_event_exit">&apos;exit&apos; &#x4E8B;&#x4EF6;</a></li>
+<li><a href="worker_threads.html#worker_threads_event_message_1">&apos;message&apos; &#x4E8B;&#x4EF6;</a></li>
+<li><a href="worker_threads.html#worker_threads_event_online">&apos;online&apos; &#x4E8B;&#x4EF6;</a></li>
+<li><a href="worker_threads.html#worker_threads_worker_postmessage_value_transferlist">worker.postMessage(value[, transferList])</a></li>
+<li><a href="worker_threads.html#worker_threads_worker_ref">worker.ref()</a></li>
+<li><a href="worker_threads.html#worker_threads_worker_stderr">worker.stderr</a></li>
+<li><a href="worker_threads.html#worker_threads_worker_stdin">worker.stdin</a></li>
+<li><a href="worker_threads.html#worker_threads_worker_stdout">worker.stdout</a></li>
+<li><a href="worker_threads.html#worker_threads_worker_terminate">worker.terminate()</a></li>
+<li><a href="worker_threads.html#worker_threads_worker_threadid_1">worker.threadId</a></li>
+<li><a href="worker_threads.html#worker_threads_worker_unref">worker.unref()</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+        </div>
+
+        <!-- <div id="biz_content">
+          <a href="http://www.tp-shop.cn/index.php?http_referer=node" target="_blank">
+            <img src="//static.nodejs.cn/_static/img/ad/api_content_tpshop.jpg" />
+          </a>
+        </div> -->
+  
+        <div id="apicontent">
+          <h1>worker_threads&#xFF08;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#xFF09;<span><a class="mark" href="worker_threads.html#worker_threads_worker_threads" id="worker_threads_worker_threads">#</a></span></h1><p class="tip_wrap"><a href="worker_threads/worker_threads.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/worker_threads.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<!--introduced_in=v10.5.0-->
+<p></p><div class="api_stability api_stability_2"><a target="_blank" rel="nofollow" href="documentation.html#documentation_stability_index">&#x7A33;&#x5B9A;&#x6027;: 2</a> - &#x7A33;&#x5B9A;</div><p></p>
+<p><code>worker_threads</code> &#x6A21;&#x5757;&#x5141;&#x8BB8;&#x4F7F;&#x7528;&#x5E76;&#x884C;&#x5730;&#x6267;&#x884C; JavaScript &#x7684;&#x7EBF;&#x7A0B;&#x3002;
+&#x8981;&#x8BBF;&#x95EE;&#x5B83;&#xFF1A;</p>
+<pre><code class="language-js">const worker = require(&apos;worker_threads&apos;);
+</code></pre>
+<p>&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x5BF9;&#x4E8E;&#x6267;&#x884C; CPU &#x5BC6;&#x96C6;&#x578B;&#x7684; JavaScript &#x64CD;&#x4F5C;&#x975E;&#x5E38;&#x6709;&#x7528;&#x3002;
+&#x5B83;&#x4EEC;&#x5728; I/O &#x5BC6;&#x96C6;&#x578B;&#x7684;&#x5DE5;&#x4F5C;&#x4E2D;&#x7528;&#x9014;&#x4E0D;&#x5927;&#x3002;
+Node.js &#x7684;&#x5185;&#x7F6E;&#x7684;&#x5F02;&#x6B65; I/O &#x64CD;&#x4F5C;&#x6BD4;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x6548;&#x7387;&#x66F4;&#x9AD8;&#x3002;</p>
+<p>&#x4E0E; <code>child_process</code> &#x6216; <code>cluster</code> &#x4E0D;&#x540C;&#xFF0C; <code>worker_threads</code> &#x53EF;&#x4EE5;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x3002;
+&#x5B83;&#x4EEC;&#x901A;&#x8FC7;&#x4F20;&#x8F93; <code>ArrayBuffer</code> &#x5B9E;&#x4F8B;&#x6216;&#x5171;&#x4EAB; <code>SharedArrayBuffer</code> &#x5B9E;&#x4F8B;&#x6765;&#x5B9E;&#x73B0;&#x3002;</p>
+<pre><code class="language-js">const {
+  Worker, isMainThread, parentPort, workerData
+} = require(&apos;worker_threads&apos;);
+
+if (isMainThread) {
+  module.exports = function parseJSAsync(script) {
+    return new Promise((resolve, reject) =&gt; {
+      const worker = new Worker(__filename, {
+        workerData: script
+      });
+      worker.on(&apos;message&apos;, resolve);
+      worker.on(&apos;error&apos;, reject);
+      worker.on(&apos;exit&apos;, (code) =&gt; {
+        if (code !== 0)
+          reject(new Error(`&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x4F7F;&#x7528;&#x9000;&#x51FA;&#x7801; ${code} &#x505C;&#x6B62;`));
+      });
+    });
+  };
+} else {
+  const { parse } = require(&apos;&#x4E00;&#x4E9B; js &#x89E3;&#x6790;&#x5E93;&apos;);
+  const script = workerData;
+  parentPort.postMessage(parse(script));
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x4E3A;&#x6BCF;&#x4E2A; <code>parse()</code> &#x8C03;&#x7528;&#x884D;&#x751F;&#x4E00;&#x4E2A;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x3002;
+&#x5728;&#x5B9E;&#x9645;&#x7684;&#x5B9E;&#x8DF5;&#x4E2D;&#xFF0C;&#x5E94;&#x4F7F;&#x7528;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x6C60;&#x4EE3;&#x66FF;&#x8FD9;&#x4E9B;&#x4EFB;&#x52A1;&#x3002;
+&#x5426;&#x5219;&#xFF0C;&#x521B;&#x5EFA;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x7684;&#x5F00;&#x9500;&#x53EF;&#x80FD;&#x4F1A;&#x8D85;&#x51FA;&#x5176;&#x6536;&#x76CA;&#x3002;</p>
+<p>&#x5F53;&#x5B9E;&#x73B0;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x6C60;&#x65F6;&#xFF0C;&#x53EF;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/zYdyon" rel="nofollow"><code>AsyncResource</code></a> API &#x6765;&#x901A;&#x77E5;&#x8BCA;&#x65AD;&#x7684;&#x5DE5;&#x5177;&#xFF08;&#x4F8B;&#x5982;&#x4E3A;&#x4E86;&#x63D0;&#x4F9B;&#x5F02;&#x6B65;&#x7684;&#x5806;&#x6808;&#x8DDF;&#x8E2A;&#xFF09;&#x6709;&#x5173;&#x4EFB;&#x52A1;&#x53CA;&#x5176;&#x7ED3;&#x679C;&#x4E4B;&#x95F4;&#x7684;&#x76F8;&#x5173;&#x6027;&#x3002;</p>
+<h2>worker.isMainThread<span><a class="mark" href="worker_threads.html#worker_threads_worker_ismainthread" id="worker_threads_worker_ismainthread">#</a></span></h2><p class="tip_wrap"><a href="worker_threads/worker_ismainthread.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/worker_ismainthread.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span>
+</div>
+<ul>
+<li><a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+</ul>
+<p>&#x5982;&#x679C;&#x6B64;&#x4EE3;&#x7801;&#x4E0D;&#x5728; <a href="http://nodejs.cn/s/S15DqM" rel="nofollow"><code>Worker</code></a> &#x7EBF;&#x7A0B;&#x5185;&#x8FD0;&#x884C;&#xFF0C;&#x5219;&#x4E3A; <code>true</code>&#x3002;</p>
+<pre><code class="language-js">const { Worker, isMainThread } = require(&apos;worker_threads&apos;);
+
+if (isMainThread) {
+  // &#x8FD9;&#x4F1A;&#x5728;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x5B9E;&#x4F8B;&#x4E2D;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x5F53;&#x524D;&#x6587;&#x4EF6;&#x3002;
+  new Worker(__filename);
+} else {
+  console.log(&apos;&#x5728;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x4E2D;&apos;);
+  console.log(isMainThread);  // &#x6253;&#x5370; &apos;false&apos;&#x3002;
+}
+</code></pre>
+<h2>worker.moveMessagePortToContext(port, contextifiedSandbox)<span><a class="mark" href="worker_threads.html#worker_threads_worker_movemessageporttocontext_port_contextifiedsandbox" id="worker_threads_worker_movemessageporttocontext_port_contextifiedsandbox">#</a></span></h2><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/worker_movemessageporttocontext_port_contextifiedsandbox.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v11.13.0</span>
+</div>
+<ul>
+<li>
+<p><code>port</code> <a href="http://nodejs.cn/s/wt864Y" target="_blank" rel="nofollow" class="type">&lt;MessagePort&gt;</a> The message port which will be transferred.</p>
+</li>
+<li>
+<p><code>contextifiedSandbox</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> A <a href="http://nodejs.cn/s/x6KGQQ" rel="nofollow">contextified</a> object as returned by the
+<code>vm.createContext()</code> method.</p>
+</li>
+<li>
+<p>Returns: <a href="http://nodejs.cn/s/wt864Y" target="_blank" rel="nofollow" class="type">&lt;MessagePort&gt;</a></p>
+</li>
+</ul>
+<p>Transfer a <code>MessagePort</code> to a different <a href="http://nodejs.cn/s/KzZKwm" rel="nofollow"><code>vm</code></a> Context. The original <code>port</code>
+object will be rendered unusable, and the returned <code>MessagePort</code> instance will
+take its place.</p>
+<p>The returned <code>MessagePort</code> will be an object in the target context, and will
+inherit from its global <code>Object</code> class. Objects passed to the
+<a href="http://nodejs.cn/s/4K42hk" rel="nofollow"><code>port.onmessage()</code></a> listener will also be created in the target context
+and inherit from its global <code>Object</code> class.</p>
+<p>However, the created <code>MessagePort</code> will no longer inherit from
+<a href="http://nodejs.cn/s/7fRp3e" rel="nofollow"><code>EventEmitter</code></a>, and only <a href="http://nodejs.cn/s/4K42hk" rel="nofollow"><code>port.onmessage()</code></a> can be used to receive
+events using it.</p>
+<h2>worker.parentPort<span><a class="mark" href="worker_threads.html#worker_threads_worker_parentport" id="worker_threads_worker_parentport">#</a></span></h2><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/worker_parentport.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span>
+</div>
+<ul>
+<li><a href="http://nodejs.cn/s/334hvC" target="_blank" rel="nofollow" class="type">&lt;null&gt;</a> | <a href="http://nodejs.cn/s/wt864Y" target="_blank" rel="nofollow" class="type">&lt;MessagePort&gt;</a></li>
+</ul>
+<p>If this thread was spawned as a <a href="http://nodejs.cn/s/S15DqM" rel="nofollow"><code>Worker</code></a>, this will be a <a href="http://nodejs.cn/s/wt864Y" rel="nofollow"><code>MessagePort</code></a>
+allowing communication with the parent thread. Messages sent using
+<code>parentPort.postMessage()</code> will be available in the parent thread
+using <code>worker.on(&apos;message&apos;)</code>, and messages sent from the parent thread
+using <code>worker.postMessage()</code> will be available in this thread using
+<code>parentPort.on(&apos;message&apos;)</code>.</p>
+<pre><code class="language-js">const { Worker, isMainThread, parentPort } = require(&apos;worker_threads&apos;);
+
+if (isMainThread) {
+  const worker = new Worker(__filename);
+  worker.once(&apos;message&apos;, (message) =&gt; {
+    console.log(message);  // Prints &apos;Hello, world!&apos;.
+  });
+  worker.postMessage(&apos;Hello, world!&apos;);
+} else {
+  // When a message from the parent thread is received, send it back:
+  parentPort.once(&apos;message&apos;, (message) =&gt; {
+    parentPort.postMessage(message);
+  });
+}
+</code></pre>
+<h2>worker.receiveMessageOnPort(port)<span><a class="mark" href="worker_threads.html#worker_threads_worker_receivemessageonport_port" id="worker_threads_worker_receivemessageonport_port">#</a></span></h2><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/worker_receivemessageonport_port.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v12.3.0</span>
+</div>
+<ul>
+<li>
+<p><code>port</code> <a href="http://nodejs.cn/s/wt864Y" target="_blank" rel="nofollow" class="type">&lt;MessagePort&gt;</a></p>
+</li>
+<li>
+<p>Returns: <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/8ym6ow" target="_blank" rel="nofollow" class="type">&lt;undefined&gt;</a></p>
+</li>
+</ul>
+<p>Receive a single message from a given <code>MessagePort</code>. If no message is available,
+<code>undefined</code> is returned, otherwise an object with a single <code>message</code> property
+that contains the message payload, corresponding to the oldest message in the
+<code>MessagePort</code>&#x2019;s queue.</p>
+<pre><code class="language-js">const { MessageChannel, receiveMessageOnPort } = require(&apos;worker_threads&apos;);
+const { port1, port2 } = new MessageChannel();
+port1.postMessage({ hello: &apos;world&apos; });
+
+console.log(receiveMessageOnPort(port2));
+// Prints: { message: { hello: &apos;world&apos; } }
+console.log(receiveMessageOnPort(port2));
+// Prints: undefined
+</code></pre>
+<p>When this function is used, no <code>&apos;message&apos;</code> event will be emitted and the
+<code>onmessage</code> listener will not be invoked.</p>
+<h2>worker.SHARE_ENV<span><a class="mark" href="worker_threads.html#worker_threads_worker_share_env" id="worker_threads_worker_share_env">#</a></span></h2><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/worker_share_env.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v11.14.0</span>
+</div>
+<ul>
+<li><a href="http://nodejs.cn/s/i5E1UH" target="_blank" rel="nofollow" class="type">&lt;symbol&gt;</a></li>
+</ul>
+<p>A special value that can be passed as the <code>env</code> option of the <a href="http://nodejs.cn/s/S15DqM" rel="nofollow"><code>Worker</code></a>
+constructor, to indicate that the current thread and the Worker thread should
+share read and write access to the same set of environment variables.</p>
+<pre><code class="language-js">const { Worker, SHARE_ENV } = require(&apos;worker_threads&apos;);
+new Worker(&apos;process.env.SET_IN_WORKER = &quot;foo&quot;&apos;, { eval: true, env: SHARE_ENV })
+  .on(&apos;exit&apos;, () =&gt; {
+    console.log(process.env.SET_IN_WORKER);  // Prints &apos;foo&apos;.
+  });
+</code></pre>
+<h2>worker.threadId<span><a class="mark" href="worker_threads.html#worker_threads_worker_threadid" id="worker_threads_worker_threadid">#</a></span></h2><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/worker_threadid.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span>
+</div>
+<ul>
+<li><a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+</ul>
+<p>An integer identifier for the current thread. On the corresponding worker object
+(if there is any), it is available as <a href="http://nodejs.cn/s/KmShiL" rel="nofollow"><code>worker.threadId</code></a>.
+This value is unique for each <a href="http://nodejs.cn/s/S15DqM" rel="nofollow"><code>Worker</code></a> instance inside a single process.</p>
+<h2>worker.workerData<span><a class="mark" href="worker_threads.html#worker_threads_worker_workerdata" id="worker_threads_worker_workerdata">#</a></span></h2><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/worker_workerdata.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span>
+</div>
+<p>An arbitrary JavaScript value that contains a clone of the data passed
+to this thread&#x2019;s <code>Worker</code> constructor.</p>
+<p>The data is cloned as if using <a href="http://nodejs.cn/s/cMmBBF" rel="nofollow"><code>postMessage()</code></a>,
+according to the <a href="http://nodejs.cn/s/SLsDHc" rel="nofollow">HTML structured clone algorithm</a>.</p>
+<pre><code class="language-js">const { Worker, isMainThread, workerData } = require(&apos;worker_threads&apos;);
+
+if (isMainThread) {
+  const worker = new Worker(__filename, { workerData: &apos;Hello, world!&apos; });
+} else {
+  console.log(workerData);  // Prints &apos;Hello, world!&apos;.
+}
+</code></pre>
+<h2>MessageChannel &#x7C7B;<span><a class="mark" href="worker_threads.html#worker_threads_class_messagechannel" id="worker_threads_class_messagechannel">#</a></span></h2><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/class_messagechannel.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span>
+</div>
+<p>Instances of the <code>worker.MessageChannel</code> class represent an asynchronous,
+two-way communications channel.
+The <code>MessageChannel</code> has no methods of its own. <code>new MessageChannel()</code>
+yields an object with <code>port1</code> and <code>port2</code> properties, which refer to linked
+<a href="http://nodejs.cn/s/wt864Y" rel="nofollow"><code>MessagePort</code></a> instances.</p>
+<pre><code class="language-js">const { MessageChannel } = require(&apos;worker_threads&apos;);
+
+const { port1, port2 } = new MessageChannel();
+port1.on(&apos;message&apos;, (message) =&gt; console.log(&apos;received&apos;, message));
+port2.postMessage({ foo: &apos;bar&apos; });
+// Prints: received { foo: &apos;bar&apos; } from the `port1.on(&apos;message&apos;)` listener
+</code></pre>
+<h2>MessagePort &#x7C7B;<span><a class="mark" href="worker_threads.html#worker_threads_class_messageport" id="worker_threads_class_messageport">#</a></span></h2><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/class_messageport.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span>
+</div>
+<ul>
+<li>Extends: <a href="http://nodejs.cn/s/pGAddE" target="_blank" rel="nofollow" class="type">&lt;EventEmitter&gt;</a></li>
+</ul>
+<p>Instances of the <code>worker.MessagePort</code> class represent one end of an
+asynchronous, two-way communications channel. It can be used to transfer
+structured data, memory regions and other <code>MessagePort</code>s between different
+<a href="http://nodejs.cn/s/S15DqM" rel="nofollow"><code>Worker</code></a>s.</p>
+<p>With the exception of <code>MessagePort</code>s being <a href="http://nodejs.cn/s/7fRp3e" rel="nofollow"><code>EventEmitter</code></a>s rather
+than <a href="http://nodejs.cn/s/iXXayi" rel="nofollow"><code>EventTarget</code></a>s, this implementation matches <a href="http://nodejs.cn/s/beVAtP" rel="nofollow">browser <code>MessagePort</code></a>s.</p>
+<h3>&apos;close&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="worker_threads.html#worker_threads_event_close" id="worker_threads_event_close">#</a></span></h3><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/event_close.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span>
+</div>
+<p>The <code>&apos;close&apos;</code> event is emitted once either side of the channel has been
+disconnected.</p>
+<pre><code class="language-js">const { MessageChannel } = require(&apos;worker_threads&apos;);
+const { port1, port2 } = new MessageChannel();
+
+// Prints:
+//   foobar
+//   closed!
+port2.on(&apos;message&apos;, (message) =&gt; console.log(message));
+port2.on(&apos;close&apos;, () =&gt; console.log(&apos;closed!&apos;));
+
+port1.postMessage(&apos;foobar&apos;);
+port1.close();
+</code></pre>
+<h3>&apos;message&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="worker_threads.html#worker_threads_event_message" id="worker_threads_event_message">#</a></span></h3><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/event_message.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span>
+</div>
+<ul>
+<li><code>value</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> The transmitted value</li>
+</ul>
+<p>The <code>&apos;message&apos;</code> event is emitted for any incoming message, containing the cloned
+input of <a href="http://nodejs.cn/s/cMmBBF" rel="nofollow"><code>port.postMessage()</code></a>.</p>
+<p>Listeners on this event will receive a clone of the <code>value</code> parameter as passed
+to <code>postMessage()</code> and no further arguments.</p>
+<h3>port.close()<span><a class="mark" href="worker_threads.html#worker_threads_port_close" id="worker_threads_port_close">#</a></span></h3><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/port_close.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span>
+</div>
+<p>Disables further sending of messages on either side of the connection.
+This method can be called when no further communication will happen over this
+<code>MessagePort</code>.</p>
+<p>The <a href="http://nodejs.cn/s/8yRPSZ" rel="nofollow"><code>&apos;close&apos;</code> event</a> will be emitted on both <code>MessagePort</code> instances that
+are part of the channel.</p>
+<h3>port.postMessage(value[, transferList])<span><a class="mark" href="worker_threads.html#worker_threads_port_postmessage_value_transferlist" id="worker_threads_port_postmessage_value_transferlist">#</a></span></h3><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/port_postmessage_value_transferlist.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span>
+</div>
+<ul>
+<li><code>value</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>transferList</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object[]&gt;</a></li>
+</ul>
+<p>Sends a JavaScript value to the receiving side of this channel.
+<code>value</code> will be transferred in a way which is compatible with
+the <a href="http://nodejs.cn/s/SLsDHc" rel="nofollow">HTML structured clone algorithm</a>.</p>
+<p>In particular, the significant differences to <code>JSON</code> are:</p>
+<ul>
+<li><code>value</code> may contain circular references.</li>
+<li><code>value</code> may contain instances of builtin JS types such as <code>RegExp</code>s,
+<code>BigInt</code>s, <code>Map</code>s, <code>Set</code>s, etc.</li>
+<li><code>value</code> may contain typed arrays, both using <code>ArrayBuffer</code>s
+and <code>SharedArrayBuffer</code>s.</li>
+<li><code>value</code> may contain <a href="http://nodejs.cn/s/jrrZmy" rel="nofollow"><code>WebAssembly.Module</code></a> instances.</li>
+<li><code>value</code> may not contain native (C++-backed) objects other than <code>MessagePort</code>s.</li>
+</ul>
+<pre><code class="language-js">const { MessageChannel } = require(&apos;worker_threads&apos;);
+const { port1, port2 } = new MessageChannel();
+
+port1.on(&apos;message&apos;, (message) =&gt; console.log(message));
+
+const circularData = {};
+circularData.foo = circularData;
+// Prints: { foo: [Circular] }
+port2.postMessage(circularData);
+</code></pre>
+<p><code>transferList</code> may be a list of <code>ArrayBuffer</code> and <code>MessagePort</code> objects.
+After transferring, they will not be usable on the sending side of the channel
+anymore (even if they are not contained in <code>value</code>). Unlike with
+<a href="http://nodejs.cn/s/73VVnB" rel="nofollow">child processes</a>, transferring handles such as network sockets is currently
+not supported.</p>
+<p>If <code>value</code> contains <a href="http://nodejs.cn/s/6J6LBy" rel="nofollow"><code>SharedArrayBuffer</code></a> instances, those will be accessible
+from either thread. They cannot be listed in <code>transferList</code>.</p>
+<p><code>value</code> may still contain <code>ArrayBuffer</code> instances that are not in
+<code>transferList</code>; in that case, the underlying memory is copied rather than moved.</p>
+<pre><code class="language-js">const { MessageChannel } = require(&apos;worker_threads&apos;);
+const { port1, port2 } = new MessageChannel();
+
+port1.on(&apos;message&apos;, (message) =&gt; console.log(message));
+
+const uint8Array = new Uint8Array([ 1, 2, 3, 4 ]);
+// This posts a copy of `uint8Array`:
+port2.postMessage(uint8Array);
+// This does not copy data, but renders `uint8Array` unusable:
+port2.postMessage(uint8Array, [ uint8Array.buffer ]);
+
+// The memory for the `sharedUint8Array` will be accessible from both the
+// original and the copy received by `.on(&apos;message&apos;)`:
+const sharedUint8Array = new Uint8Array(new SharedArrayBuffer(4));
+port2.postMessage(sharedUint8Array);
+
+// This transfers a freshly created message port to the receiver.
+// This can be used, for example, to create communication channels between
+// multiple `Worker` threads that are children of the same parent thread.
+const otherChannel = new MessageChannel();
+port2.postMessage({ port: otherChannel.port1 }, [ otherChannel.port1 ]);
+</code></pre>
+<p>Because the object cloning uses the structured clone algorithm,
+non-enumerable properties, property accessors, and object prototypes are
+not preserved. In particular, <a href="http://nodejs.cn/s/FP4oTy" rel="nofollow"><code>Buffer</code></a> objects will be read as
+plain <a href="http://nodejs.cn/s/ZbDkpm" rel="nofollow"><code>Uint8Array</code></a>s on the receiving side.</p>
+<p>The message object will be cloned immediately, and can be modified after
+posting without having side effects.</p>
+<p>For more information on the serialization and deserialization mechanisms
+behind this API, see the <a href="http://nodejs.cn/s/cMzSNF" rel="nofollow">serialization API of the <code>v8</code> module</a>.</p>
+<h3>port.ref()<span><a class="mark" href="worker_threads.html#worker_threads_port_ref" id="worker_threads_port_ref">#</a></span></h3><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/port_ref.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span>
+</div>
+<p>Opposite of <code>unref()</code>. Calling <code>ref()</code> on a previously <code>unref()</code>ed port will
+<em>not</em> let the program exit if it&apos;s the only active handle left (the default
+behavior). If the port is <code>ref()</code>ed, calling <code>ref()</code> again will have no effect.</p>
+<p>If listeners are attached or removed using <code>.on(&apos;message&apos;)</code>, the port will
+be <code>ref()</code>ed and <code>unref()</code>ed automatically depending on whether
+listeners for the event exist.</p>
+<h3>port.start()<span><a class="mark" href="worker_threads.html#worker_threads_port_start" id="worker_threads_port_start">#</a></span></h3><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/port_start.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span>
+</div>
+<p>Starts receiving messages on this <code>MessagePort</code>. When using this port
+as an event emitter, this will be called automatically once <code>&apos;message&apos;</code>
+listeners are attached.</p>
+<p>This method exists for parity with the Web <code>MessagePort</code> API. In Node.js,
+it is only useful for ignoring messages when no event listener is present.
+Node.js also diverges in its handling of <code>.onmessage</code>. Setting it will
+automatically call <code>.start()</code>, but unsetting it will let messages queue up
+until a new handler is set or the port is discarded.</p>
+<h3>port.unref()<span><a class="mark" href="worker_threads.html#worker_threads_port_unref" id="worker_threads_port_unref">#</a></span></h3><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/port_unref.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span>
+</div>
+<p>Calling <code>unref()</code> on a port will allow the thread to exit if this is the only
+active handle in the event system. If the port is already <code>unref()</code>ed calling
+<code>unref()</code> again will have no effect.</p>
+<p>If listeners are attached or removed using <code>.on(&apos;message&apos;)</code>, the port will
+be <code>ref()</code>ed and <code>unref()</code>ed automatically depending on whether
+listeners for the event exist.</p>
+<h2>Worker &#x7C7B;<span><a class="mark" href="worker_threads.html#worker_threads_class_worker" id="worker_threads_class_worker">#</a></span></h2><p class="tip_wrap"><a href="worker_threads/class_worker.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/class_worker.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span>
+</div>
+<ul>
+<li>&#x7EE7;&#x627F;&#x81EA;: <a href="http://nodejs.cn/s/pGAddE" target="_blank" rel="nofollow" class="type">&lt;EventEmitter&gt;</a></li>
+</ul>
+<p><code>Worker</code> &#x7C7B;&#x4EE3;&#x8868;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB;&#x7684; JavaScript &#x6267;&#x884C;&#x7EBF;&#x7A0B;&#x3002;
+&#x5927;&#x591A;&#x6570; Node.js API &#x90FD;&#x5728;&#x5176;&#x4E2D;&#x53EF;&#x7528;&#x3002;</p>
+<p>&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x73AF;&#x5883;&#x4E2D;&#x7684;&#x663E;&#x7740;&#x5DEE;&#x5F02;&#x662F;&#xFF1A;</p>
+<ul>
+<li>&#x7236;&#x7EBF;&#x7A0B;&#x53EF;&#x4EE5;&#x91CD;&#x5B9A;&#x5411; <a href="http://nodejs.cn/s/gagmJq" rel="nofollow"><code>process.stdin</code></a>&#x3001;<a href="http://nodejs.cn/s/tQWUzG" rel="nofollow"><code>process.stdout</code></a> &#x548C; <a href="http://nodejs.cn/s/wPv5zY" rel="nofollow"><code>process.stderr</code></a>&#x3002;</li>
+<li><a href="http://nodejs.cn/s/FbvjZe" rel="nofollow"><code>require(&apos;worker_threads&apos;).isMainThread</code></a> &#x5C5E;&#x6027;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A; <code>false</code>&#x3002;</li>
+<li><a href="http://nodejs.cn/s/2CDmwz" rel="nofollow"><code>require(&apos;worker_threads&apos;).parentPort</code></a> &#x6D88;&#x606F;&#x7AEF;&#x53E3;&#x53EF;&#x7528;&#x3002;</li>
+<li><a href="http://nodejs.cn/s/53qrEa" rel="nofollow"><code>process.exit()</code></a> &#x4E0D;&#x4F1A;&#x505C;&#x6B62;&#x6574;&#x4E2A;&#x7A0B;&#x5E8F;&#xFF0C;&#x4EC5;&#x505C;&#x6B62;&#x5355;&#x4E2A;&#x7EBF;&#x7A0B;&#xFF0C;&#x4E14; <a href="http://nodejs.cn/s/aNv9tA" rel="nofollow"><code>process.abort()</code></a> &#x4E0D;&#x53EF;&#x7528;&#x3002;</li>
+<li><a href="http://nodejs.cn/s/4ikeoU" rel="nofollow"><code>process.chdir()</code></a> &#x548C;&#x8BBE;&#x7F6E;&#x7FA4;&#x7EC4;&#x6216;&#x7528;&#x6237;&#x6807;&#x8BC6;&#x7684; <code>process</code> &#x65B9;&#x6CD5;&#x4E0D;&#x53EF;&#x7528;&#x3002;</li>
+<li><a href="http://nodejs.cn/s/vFJ6HL" rel="nofollow"><code>process.env</code></a> &#x662F;&#x7236;&#x7EBF;&#x7A0B;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x7684;&#x526F;&#x672C;&#xFF0C;&#x9664;&#x975E;&#x53E6;&#x5916;&#x6307;&#x5B9A;&#x3002;
+&#x5BF9;&#x4E00;&#x4E2A;&#x526F;&#x672C;&#x7684;&#x66F4;&#x6539;&#x5C06;&#x4F1A;&#x5728;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x4E2D;&#x4E0D;&#x53EF;&#x89C1;&#xFF0C;&#x5E76;&#x4E14;&#x5BF9;&#x539F;&#x751F;&#x63D2;&#x4EF6;&#x4E5F;&#x4E0D;&#x53EF;&#x89C1;&#xFF08;&#x9664;&#x975E; <a href="http://nodejs.cn/s/n2nUmb" rel="nofollow"><code>worker.SHARE_ENV</code></a> &#x4F5C;&#x4E3A; <code>env</code> &#x9009;&#x9879;&#x4F20;&#x7ED9; <a href="http://nodejs.cn/s/S15DqM" rel="nofollow"><code>Worker</code></a> &#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF09;&#x3002;</li>
+<li><a href="http://nodejs.cn/s/zJmsMj" rel="nofollow"><code>process.title</code></a> &#x65E0;&#x6CD5;&#x88AB;&#x4FEE;&#x6539;&#x3002;</li>
+<li>&#x4FE1;&#x53F7;&#x5C06;&#x4E0D;&#x4F1A;&#x901A;&#x8FC7; <a href="http://nodejs.cn/s/hihzhD" rel="nofollow"><code>process.on(&apos;...&apos;)</code></a> &#x4F20;&#x9012;&#x3002;</li>
+<li>&#x8C03;&#x7528; <a href="http://nodejs.cn/s/ngxSk1" rel="nofollow"><code>worker.terminate()</code></a> &#x53EF;&#x80FD;&#x4F1A;&#x968F;&#x65F6;&#x505C;&#x6B62;&#x6267;&#x884C;&#x3002;</li>
+<li>&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x7236;&#x8FDB;&#x7A0B;&#x7684; IPC &#x901A;&#x9053;&#x3002;</li>
+<li>&#x4E0D;&#x652F;&#x6301; <a href="http://nodejs.cn/s/y3vAhJ" rel="nofollow"><code>trace_events</code></a> &#x6A21;&#x5757;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x539F;&#x751F;&#x63D2;&#x4EF6;&#x6EE1;&#x8DB3;<a href="http://nodejs.cn/s/k8H7ev" rel="nofollow">&#x7279;&#x5B9A;&#x6761;&#x4EF6;</a>&#xFF0C;&#x5219;&#x53EA;&#x80FD;&#x4ECE;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x4E2D;&#x52A0;&#x8F7D;&#x5B83;&#x4EEC;&#x3002;</li>
+</ul>
+<p>&#x53EF;&#x4EE5;&#x5728;&#x5176;&#x4ED6; <code>Worker</code> &#x5B9E;&#x4F8B;&#x4E2D;&#x521B;&#x5EFA; <code>Worker</code> &#x5B9E;&#x4F8B;&#x3002;</p>
+<p>&#x4E0E; <a href="http://nodejs.cn/s/skL7X7" rel="nofollow">Web &#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;</a>&#x548C; <a href="http://nodejs.cn/s/4cbAVb" rel="nofollow"><code>cluster</code> &#x6A21;&#x5757;</a>&#x4E00;&#x6837;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7EBF;&#x7A0B;&#x95F4;&#x7684;&#x6D88;&#x606F;&#x4F20;&#x9012;&#x6765;&#x5B9E;&#x73B0;&#x53CC;&#x5411;&#x901A;&#x4FE1;&#x3002;
+&#x5728;&#x5185;&#x90E8;&#xFF0C;&#x4E00;&#x4E2A; <code>Worker</code> &#x5177;&#x6709;&#x4E00;&#x5BF9;&#x5185;&#x7F6E;&#x7684; <a href="http://nodejs.cn/s/wt864Y" rel="nofollow"><code>MessagePort</code></a>&#xFF0C;&#x5728;&#x521B;&#x5EFA;&#x8BE5; <code>Worker</code> &#x65F6;&#x5B83;&#x4EEC;&#x5DF2;&#x7ECF;&#x76F8;&#x4E92;&#x5173;&#x8054;&#x3002;
+&#x867D;&#x7136;&#x7236;&#x7AEF;&#x7684; <code>MessagePort</code> &#x5BF9;&#x8C61;&#x6CA1;&#x6709;&#x76F4;&#x63A5;&#x516C;&#x5F00;&#xFF0C;&#x4F46;&#x5176;&#x529F;&#x80FD;&#x662F;&#x901A;&#x8FC7;&#x7236;&#x7EBF;&#x7A0B;&#x7684; <code>Worker</code> &#x5BF9;&#x8C61;&#x4E0A;&#x7684; <a href="http://nodejs.cn/s/U2WeKZ" rel="nofollow"><code>worker.postMessage()</code></a> &#x548C; <a href="http://nodejs.cn/s/mF5JVx" rel="nofollow"><code>worker.on(&apos;message&apos;)</code></a> &#x4E8B;&#x4EF6;&#x516C;&#x5F00;&#x7684;&#x3002;</p>
+<p>&#x8981;&#x521B;&#x5EFA;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x6D88;&#x606F;&#x4F20;&#x9012;&#x901A;&#x9053;&#xFF08;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x7684;&#x5168;&#x5C40;&#x901A;&#x9053;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x4FC3;&#x8FDB;&#x5173;&#x8054;&#x70B9;&#x7684;&#x5206;&#x79BB;&#xFF09;&#xFF0C;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x5728;&#x4EFB;&#x4E00;&#x7EBF;&#x7A0B;&#x4E0A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; <code>MessageChannel</code> &#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x5C06;&#x8BE5; <code>MessageChannel</code> &#x4E0A;&#x7684; <code>MessagePort</code> &#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x901A;&#x8FC7;&#x9884;&#x5148;&#x5B58;&#x5728;&#x7684;&#x901A;&#x9053;&#x4F20;&#x7ED9;&#x53E6;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#xFF0C;&#x4F8B;&#x5982;&#x5168;&#x5C40;&#x7684;&#x901A;&#x9053;&#x3002;</p>
+<p>&#x6709;&#x5173;&#x5982;&#x4F55;&#x4F20;&#x9012;&#x6D88;&#x606F;&#x4EE5;&#x53CA;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7EBF;&#x7A0B;&#x5C4F;&#x969C;&#x6210;&#x529F;&#x5730;&#x4F20;&#x8F93;&#x54EA;&#x7C7B; JavaScript &#x503C;&#x7684;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x53C2;&#x9605; <a href="http://nodejs.cn/s/cMmBBF" rel="nofollow"><code>port.postMessage()</code></a>&#x3002;</p>
+<pre><code class="language-js">const assert = require(&apos;assert&apos;);
+const {
+  Worker, MessageChannel, MessagePort, isMainThread, parentPort
+} = require(&apos;worker_threads&apos;);
+if (isMainThread) {
+  const worker = new Worker(__filename);
+  const subChannel = new MessageChannel();
+  worker.postMessage({ hereIsYourPort: subChannel.port1 }, [subChannel.port1]);
+  subChannel.port2.on(&apos;message&apos;, (value) =&gt; {
+    console.log(&apos;&#x63A5;&#x6536;&#x5230;:&apos;, value);
+  });
+} else {
+  parentPort.once(&apos;message&apos;, (value) =&gt; {
+    assert(value.hereIsYourPort instanceof MessagePort);
+    value.hereIsYourPort.postMessage(&apos;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x6B63;&#x5728;&#x53D1;&#x9001;&#x6B64;&#x6D88;&#x606F;&apos;);
+    value.hereIsYourPort.close();
+  });
+}
+</code></pre>
+<h3>new Worker(filename[, options])<span><a class="mark" href="worker_threads.html#worker_threads_new_worker_filename_options" id="worker_threads_new_worker_filename_options">#</a></span></h3><p class="tip_wrap"><a href="worker_threads/new_worker_filename_options.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/new_worker_filename_options.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<ul>
+<li><code>filename</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x4E3B;&#x811A;&#x672C;&#x7684;&#x8DEF;&#x5F84;&#x3002;&#x5FC5;&#x987B;&#x662F;&#x4EE5; <code>./</code> &#x6216; <code>../</code> &#x5F00;&#x5934;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x6216;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#xFF08;&#x5373;&#x76F8;&#x5BF9;&#x4E8E;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#xFF09;&#x3002;
+&#x5982;&#x679C; <code>options.eval</code> &#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5305;&#x542B; JavaScript &#x4EE3;&#x7801;&#x800C;&#x4E0D;&#x662F;&#x8DEF;&#x5F84;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;</li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>env</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> &#x5982;&#x679C;&#x8BBE;&#x7F6E;&#xFF0C;&#x5219;&#x6307;&#x5B9A;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x4E2D; <code>process.env</code> &#x7684;&#x521D;&#x59CB;&#x503C;&#x3002;
+&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x503C;&#xFF0C;<a href="http://nodejs.cn/s/n2nUmb" rel="nofollow"><code>worker.SHARE_ENV</code></a> &#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x7236;&#x7EBF;&#x7A0B;&#x548C;&#x5B50;&#x7EBF;&#x7A0B;&#x5E94;&#x8BE5;&#x5171;&#x4EAB;&#x5B83;&#x4EEC;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x3002;
+&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5BF9;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x7684; <code>process.env</code> &#x5BF9;&#x8C61;&#x7684;&#x66F4;&#x6539;&#x4E5F;&#x4F1A;&#x5F71;&#x54CD;&#x53E6;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x3002;
+<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>process.env</code>&#x3002;</li>
+<li><code>eval</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5982;&#x679C;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x5C06;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x89E3;&#x91CA;&#x4E3A;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x8054;&#x673A;&#x540E;&#x6267;&#x884C;&#x7684;&#x811A;&#x672C;&#x3002;</li>
+<li><code>execArgv</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string[]&gt;</a> &#x4F20;&#x9012;&#x7ED9;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x7684; node CLI &#x9009;&#x9879;&#x7684;&#x5217;&#x8868;&#x3002;
+ &#x4E0D;&#x652F;&#x6301; V8 &#x9009;&#x9879;&#xFF08;&#x4F8B;&#x5982; <code>--max-old-space-size</code>&#xFF09;&#x548C;&#x5F71;&#x54CD;&#x8FDB;&#x7A0B;&#x7684;&#x9009;&#x9879;&#xFF08;&#x4F8B;&#x5982; <code>--title</code>&#xFF09;&#x3002;
+&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#xFF0C;&#x5219;&#x5B83;&#x5C06;&#x4F1A;&#x4F5C;&#x4E3A;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x5185;&#x90E8;&#x7684; <a href="http://nodejs.cn/s/WvEcDG" rel="nofollow"><code>process.execArgv</code></a> &#x63D0;&#x4F9B;&#x3002;
+&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x9009;&#x9879;&#x5C06;&#x4F1A;&#x4ECE;&#x7236;&#x7EBF;&#x7A0B;&#x7EE7;&#x627F;&#x3002;</li>
+<li><code>stdin</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5982;&#x679C;&#x5C06;&#x5176;&#x8BBE;&#x7F6E;&#x4E3A; <code>true</code>&#xFF0C;&#x5219; <code>worker.stdin</code> &#x5C06;&#x4F1A;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x53EF;&#x5199;&#x6D41;&#xFF0C;&#x5176;&#x5185;&#x5BB9;&#x5C06;&#x4F1A;&#x5728;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x4E2D;&#x4EE5; <code>process.stdin</code> &#x51FA;&#x73B0;&#x3002;
+&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4E0D;&#x63D0;&#x4F9B;&#x4EFB;&#x4F55;&#x6570;&#x636E;&#x3002;</li>
+<li><code>stdout</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5982;&#x679C;&#x5C06;&#x5176;&#x8BBE;&#x7F6E;&#x4E3A; <code>true</code>&#xFF0C;&#x5219; <code>worker.stdout</code> &#x5C06;&#x4E0D;&#x4F1A;&#x81EA;&#x52A8;&#x5730;&#x901A;&#x8FC7;&#x7BA1;&#x9053;&#x4F20;&#x9012;&#x5230;&#x7236;&#x7EBF;&#x7A0B;&#x4E2D;&#x7684; <code>process.stdout</code>&#x3002;</li>
+<li><code>stderr</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5982;&#x679C;&#x5C06;&#x5176;&#x8BBE;&#x7F6E;&#x4E3A; <code>true</code>&#xFF0C;&#x5219; <code>worker.stderr</code> &#x5C06;&#x4E0D;&#x4F1A;&#x81EA;&#x52A8;&#x5730;&#x901A;&#x8FC7;&#x7BA1;&#x9053;&#x4F20;&#x9012;&#x5230;&#x7236;&#x7EBF;&#x7A0B;&#x4E2D;&#x7684; <code>process.stderr</code>&#x3002;</li>
+<li><code>workerData</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> &#x80FD;&#x88AB;&#x514B;&#x9686;&#x5E76;&#x4F5C;&#x4E3A; <a href="http://nodejs.cn/s/SeSr3Z" rel="nofollow"><code>require(&apos;worker_threads&apos;).workerData</code></a> &#x7684;&#x4EFB;&#x4F55; JavaScript &#x503C;&#x3002;
+&#x514B;&#x9686;&#x5C06;&#x4F1A;&#x6309;&#x7167; <a href="http://nodejs.cn/s/SLsDHc" rel="nofollow">HTML &#x7ED3;&#x6784;&#x5316;&#x514B;&#x9686;&#x7B97;&#x6CD5;</a>&#x4E2D;&#x63CF;&#x8FF0;&#x7684;&#x8FDB;&#x884C;&#xFF0C;&#x5982;&#x679C;&#x5BF9;&#x8C61;&#x65E0;&#x6CD5;&#x88AB;&#x514B;&#x9686;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x5305;&#x542B; <code>function</code>&#xFF09;&#xFF0C;&#x5219;&#x4F1A;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<h3>&apos;error&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="worker_threads.html#worker_threads_event_error" id="worker_threads_event_error">#</a></span></h3><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/event_error.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span>
+</div>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+</ul>
+<p>The <code>&apos;error&apos;</code> event is emitted if the worker thread throws an uncaught
+exception. In that case, the worker will be terminated.</p>
+<h3>&apos;exit&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="worker_threads.html#worker_threads_event_exit" id="worker_threads_event_exit">#</a></span></h3><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/event_exit.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span>
+</div>
+<ul>
+<li><code>exitCode</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+</ul>
+<p>The <code>&apos;exit&apos;</code> event is emitted once the worker has stopped. If the worker
+exited by calling <a href="http://nodejs.cn/s/53qrEa" rel="nofollow"><code>process.exit()</code></a>, the <code>exitCode</code> parameter will be the
+passed exit code. If the worker was terminated, the <code>exitCode</code> parameter will
+be <code>1</code>.</p>
+<h3>&apos;message&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="worker_threads.html#worker_threads_event_message_1" id="worker_threads_event_message_1">#</a></span></h3><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/event_message_1.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span>
+</div>
+<ul>
+<li><code>value</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> The transmitted value</li>
+</ul>
+<p>The <code>&apos;message&apos;</code> event is emitted when the worker thread has invoked
+<a href="http://nodejs.cn/s/U2WeKZ" rel="nofollow"><code>require(&apos;worker_threads&apos;).parentPort.postMessage()</code></a>.
+See the <a href="http://nodejs.cn/s/UAGAfe" rel="nofollow"><code>port.on(&apos;message&apos;)</code></a> event for more details.</p>
+<h3>&apos;online&apos; &#x4E8B;&#x4EF6;<span><a class="mark" href="worker_threads.html#worker_threads_event_online" id="worker_threads_event_online">#</a></span></h3><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/event_online.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span>
+</div>
+<p>The <code>&apos;online&apos;</code> event is emitted when the worker thread has started executing
+JavaScript code.</p>
+<h3>worker.postMessage(value[, transferList])<span><a class="mark" href="worker_threads.html#worker_threads_worker_postmessage_value_transferlist" id="worker_threads_worker_postmessage_value_transferlist">#</a></span></h3><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/worker_postmessage_value_transferlist.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span>
+</div>
+<ul>
+<li><code>value</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>transferList</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object[]&gt;</a></li>
+</ul>
+<p>Send a message to the worker that will be received via
+<a href="http://nodejs.cn/s/UAGAfe" rel="nofollow"><code>require(&apos;worker_threads&apos;).parentPort.on(&apos;message&apos;)</code></a>.
+See <a href="http://nodejs.cn/s/cMmBBF" rel="nofollow"><code>port.postMessage()</code></a> for more details.</p>
+<h3>worker.ref()<span><a class="mark" href="worker_threads.html#worker_threads_worker_ref" id="worker_threads_worker_ref">#</a></span></h3><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/worker_ref.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span>
+</div>
+<p>Opposite of <code>unref()</code>, calling <code>ref()</code> on a previously <code>unref()</code>ed worker will
+<em>not</em> let the program exit if it&apos;s the only active handle left (the default
+behavior). If the worker is <code>ref()</code>ed, calling <code>ref()</code> again will have
+no effect.</p>
+<h3>worker.stderr<span><a class="mark" href="worker_threads.html#worker_threads_worker_stderr" id="worker_threads_worker_stderr">#</a></span></h3><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/worker_stderr.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span>
+</div>
+<ul>
+<li><a href="http://nodejs.cn/s/YuDKX1" target="_blank" rel="nofollow" class="type">&lt;stream.Readable&gt;</a></li>
+</ul>
+<p>This is a readable stream which contains data written to <a href="http://nodejs.cn/s/wPv5zY" rel="nofollow"><code>process.stderr</code></a>
+inside the worker thread. If <code>stderr: true</code> was not passed to the
+<a href="http://nodejs.cn/s/S15DqM" rel="nofollow"><code>Worker</code></a> constructor, then data will be piped to the parent thread&apos;s
+<a href="http://nodejs.cn/s/wPv5zY" rel="nofollow"><code>process.stderr</code></a> stream.</p>
+<h3>worker.stdin<span><a class="mark" href="worker_threads.html#worker_threads_worker_stdin" id="worker_threads_worker_stdin">#</a></span></h3><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/worker_stdin.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span>
+</div>
+<ul>
+<li><a href="http://nodejs.cn/s/334hvC" target="_blank" rel="nofollow" class="type">&lt;null&gt;</a> | <a href="http://nodejs.cn/s/9JUnJ8" target="_blank" rel="nofollow" class="type">&lt;stream.Writable&gt;</a></li>
+</ul>
+<p>If <code>stdin: true</code> was passed to the <a href="http://nodejs.cn/s/S15DqM" rel="nofollow"><code>Worker</code></a> constructor, this is a
+writable stream. The data written to this stream will be made available in
+the worker thread as <a href="http://nodejs.cn/s/gagmJq" rel="nofollow"><code>process.stdin</code></a>.</p>
+<h3>worker.stdout<span><a class="mark" href="worker_threads.html#worker_threads_worker_stdout" id="worker_threads_worker_stdout">#</a></span></h3><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/worker_stdout.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span>
+</div>
+<ul>
+<li><a href="http://nodejs.cn/s/YuDKX1" target="_blank" rel="nofollow" class="type">&lt;stream.Readable&gt;</a></li>
+</ul>
+<p>This is a readable stream which contains data written to <a href="http://nodejs.cn/s/tQWUzG" rel="nofollow"><code>process.stdout</code></a>
+inside the worker thread. If <code>stdout: true</code> was not passed to the
+<a href="http://nodejs.cn/s/S15DqM" rel="nofollow"><code>Worker</code></a> constructor, then data will be piped to the parent thread&apos;s
+<a href="http://nodejs.cn/s/tQWUzG" rel="nofollow"><code>process.stdout</code></a> stream.</p>
+<h3>worker.terminate()<span><a class="mark" href="worker_threads.html#worker_threads_worker_terminate" id="worker_threads_worker_terminate">#</a></span></h3><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/worker_terminate.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v12.5.0</td>
+<td><p>This function now returns a Promise. Passing a callback is deprecated, and was useless up to this version, as the Worker was actually terminated synchronously. Terminating is now a fully asynchronous operation.</p></td></tr>
+<tr><td>v10.5.0</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div>
+<ul>
+<li>Returns: <a href="http://nodejs.cn/s/ri1kj8" target="_blank" rel="nofollow" class="type">&lt;Promise&gt;</a></li>
+</ul>
+<p>Stop all JavaScript execution in the worker thread as soon as possible.
+Returns a Promise for the exit code that is fulfilled when the
+<a href="http://nodejs.cn/s/KQeRej" rel="nofollow"><code>&apos;exit&apos;</code> event</a> is emitted.</p>
+<h3>worker.threadId<span><a class="mark" href="worker_threads.html#worker_threads_worker_threadid_1" id="worker_threads_worker_threadid_1">#</a></span></h3><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/worker_threadid_1.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span>
+</div>
+<ul>
+<li><a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+</ul>
+<p>An integer identifier for the referenced thread. Inside the worker thread,
+it is available as <a href="http://nodejs.cn/s/Cg381u" rel="nofollow"><code>require(&apos;worker_threads&apos;).threadId</code></a>.
+This value is unique for each <code>Worker</code> instance inside a single process.</p>
+<h3>worker.unref()<span><a class="mark" href="worker_threads.html#worker_threads_worker_unref" id="worker_threads_worker_unref">#</a></span></h3><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/worker_unref.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span>
+</div>
+<p>Calling <code>unref()</code> on a worker will allow the thread to exit if this is the only
+active handle in the event system. If the worker is already <code>unref()</code>ed calling
+<code>unref()</code> again will have no effect.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 搜索弹窗 -->
+  <!-- <div id="search_modal"></div> -->
+  <!-- js -->
+  <!--[if lt IE 10]><script src="/static/lib/placeholders.js?20170426"></script><![endif]-->
+  
+  <script>
+    document.write('<script src="http://nodejs.cn/api/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756330156"><\/script>');
+  </script>
+
+</body></html>

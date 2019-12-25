@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>subprocess.unref() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/child_process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756295976" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-child_process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>subprocess.unref()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../child_process.html#child_process_subprocess_unref" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/child_process/subprocess_unref.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.10</span>
+</div><p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7236;&#x8FDB;&#x7A0B;&#x5C06;&#x4F1A;&#x7B49;&#x5F85;&#x5DF2;&#x5206;&#x79BB;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#x9000;&#x51FA;&#x3002;
+&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x7236;&#x8FDB;&#x7A0B;&#x7B49;&#x5F85;&#x7ED9;&#x5B9A;&#x7684; <code>subprocess</code> &#x9000;&#x51FA;&#xFF0C;&#x53EF;&#x4F7F;&#x7528; <code>subprocess.unref()</code> &#x65B9;&#x6CD5;&#x3002;
+&#x8FD9;&#x6837;&#x505A;&#x5C06;&#x4F1A;&#x5BFC;&#x81F4;&#x7236;&#x8FDB;&#x7A0B;&#x7684;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4E0D;&#x4F1A;&#x5728;&#x5176;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x4E2D;&#x5305;&#x62EC;&#x5B50;&#x8FDB;&#x7A0B;&#xFF0C;&#x5141;&#x8BB8;&#x7236;&#x8FDB;&#x7A0B;&#x72EC;&#x7ACB;&#x4E8E;&#x5B50;&#x8FDB;&#x7A0B;&#x9000;&#x51FA;&#xFF0C;&#x9664;&#x975E;&#x5B50;&#x8FDB;&#x7A0B;&#x4E0E;&#x7236;&#x8FDB;&#x7A0B;&#x4E4B;&#x95F4;&#x5DF2;&#x5EFA;&#x7ACB;&#x4E86; IPC &#x901A;&#x9053;&#x3002;</p><pre><code class="language-js">const { spawn } = require(&apos;child_process&apos;);
+
+const subprocess = spawn(process.argv[0], [&apos;child_program.js&apos;], {
+  detached: true,
+  stdio: &apos;ignore&apos;
+});
+
+subprocess.unref();
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.7.10</span>
+</div><p>By default, the parent will wait for the detached child to exit. To prevent the
+parent from waiting for a given <code>subprocess</code> to exit, use the
+<code>subprocess.unref()</code> method. Doing so will cause the parent&apos;s event loop to not
+include the child in its reference count, allowing the parent to exit
+independently of the child, unless there is an established IPC channel between
+the child and the parent.</p><pre><code class="language-js">const { spawn } = require(&apos;child_process&apos;);
+
+const subprocess = spawn(process.argv[0], [&apos;child_program.js&apos;], {
+  detached: true,
+  stdio: &apos;ignore&apos;
+});
+
+subprocess.unref();
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/child_process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756295976"><\/script>');
+  </script>
+</body>
+</html>

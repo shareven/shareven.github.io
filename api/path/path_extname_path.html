@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>path.extname(path) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/path/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756319382" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-path">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>path.extname(path)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../path.html#path_path_extname_path" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/path/path_extname_path.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v6.0.0</td>
+<td><p>Passing a non-string as the <code>path</code> argument will throw now.</p></td></tr>
+<tr><td>v0.1.25</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.25</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p><code>path.extname()</code> &#x65B9;&#x6CD5;&#x8FD4;&#x56DE; <code>path</code> &#x7684;&#x6269;&#x5C55;&#x540D;&#xFF0C;&#x4ECE;&#x6700;&#x540E;&#x4E00;&#x6B21;&#x51FA;&#x73B0; <code>.</code>&#xFF08;&#x53E5;&#x70B9;&#xFF09;&#x5B57;&#x7B26;&#x5230; <code>path</code> &#x6700;&#x540E;&#x4E00;&#x90E8;&#x5206;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x7ED3;&#x675F;&#x3002;
+&#x5982;&#x679C;&#x5728; <code>path</code> &#x7684;&#x6700;&#x540E;&#x4E00;&#x90E8;&#x5206;&#x4E2D;&#x6CA1;&#x6709; <code>.</code> &#xFF0C;&#x6216;&#x8005;&#x5982;&#x679C; <code>path</code> &#x7684;&#x57FA;&#x672C;&#x540D;&#x79F0;&#xFF08;&#x53C2;&#x9605; <code>path.basename()</code>&#xFF09;&#x9664;&#x4E86;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4EE5;&#x5916;&#x6CA1;&#x6709; <code>.</code>&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p><pre><code class="language-js">path.extname(&apos;index.html&apos;);
+// &#x8FD4;&#x56DE;: &apos;.html&apos;
+
+path.extname(&apos;index.coffee.md&apos;);
+// &#x8FD4;&#x56DE;: &apos;.md&apos;
+
+path.extname(&apos;index.&apos;);
+// &#x8FD4;&#x56DE;: &apos;.&apos;
+
+path.extname(&apos;index&apos;);
+// &#x8FD4;&#x56DE;: &apos;&apos;
+
+path.extname(&apos;.index&apos;);
+// &#x8FD4;&#x56DE;: &apos;&apos;
+
+path.extname(&apos;.index.md&apos;);
+// &#x8FD4;&#x56DE;: &apos;.md&apos;
+</code></pre><p>&#x5982;&#x679C; <code>path</code> &#x4E0D;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="http://nodejs.cn/s/Z7Lqyj" rel="nofollow"><code>TypeError</code></a>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v6.0.0</td>
+<td><p>Passing a non-string as the <code>path</code> argument will throw now.</p></td></tr>
+<tr><td>v0.1.25</td>
+<td><p><span>Added in: v0.1.25</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li>Returns: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>The <code>path.extname()</code> method returns the extension of the <code>path</code>, from the last
+occurrence of the <code>.</code> (period) character to end of string in the last portion of
+the <code>path</code>. If there is no <code>.</code> in the last portion of the <code>path</code>, or if
+there are no <code>.</code> characters other than the first character of
+the basename of <code>path</code> (see <code>path.basename()</code>) , an empty string is returned.</p><pre><code class="language-js">path.extname(&apos;index.html&apos;);
+// Returns: &apos;.html&apos;
+
+path.extname(&apos;index.coffee.md&apos;);
+// Returns: &apos;.md&apos;
+
+path.extname(&apos;index.&apos;);
+// Returns: &apos;.&apos;
+
+path.extname(&apos;index&apos;);
+// Returns: &apos;&apos;
+
+path.extname(&apos;.index&apos;);
+// Returns: &apos;&apos;
+
+path.extname(&apos;.index.md&apos;);
+// Returns: &apos;.md&apos;
+</code></pre><p>A <a href="http://nodejs.cn/s/Z7Lqyj" rel="nofollow"><code>TypeError</code></a> is thrown if <code>path</code> is not a string.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/path/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756319382"><\/script>');
+  </script>
+</body>
+</html>

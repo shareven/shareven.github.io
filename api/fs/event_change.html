@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'change' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756309553" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'change' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_event_change" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/event_change.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.5.8</span>
+</div><ul>
+<li><code>eventType</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5DF2;&#x53D1;&#x751F;&#x7684;&#x66F4;&#x6539;&#x4E8B;&#x4EF6;&#x7684;&#x7C7B;&#x578B;&#x3002;</li>
+<li><code>filename</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> &#x66F4;&#x6539;&#x7684;&#x6587;&#x4EF6;&#x540D;&#xFF08;&#x5982;&#x679C;&#x76F8;&#x5173;&#x6216;&#x53EF;&#x7528;&#xFF09;&#x3002;</li>
+</ul><p>&#x5F53;&#x76D1;&#x89C6;&#x7684;&#x76EE;&#x5F55;&#x6216;&#x6587;&#x4EF6;&#x4E2D;&#x53D1;&#x751F;&#x66F4;&#x6539;&#x65F6;&#x89E6;&#x53D1;&#x3002;
+&#x5728; <a href="http://nodejs.cn/s/h2QY7Q" rel="nofollow"><code>fs.watch()</code></a> &#x4E2D;&#x67E5;&#x770B;&#x66F4;&#x591A;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#x3002;</p><p>&#x53EF;&#x80FD;&#x4E0D;&#x63D0;&#x4F9B; <code>filename</code> &#x53C2;&#x6570;&#xFF0C;&#x8FD9;&#x53D6;&#x51B3;&#x4E8E;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x652F;&#x6301;&#x3002;
+&#x5982;&#x679C;&#x63D0;&#x4F9B;&#x4E86; <code>filename</code>&#xFF0C;&#x5219;&#x5F53;&#x8C03;&#x7528; <code>fs.watch()</code> &#x5E76;&#x5C06;&#x5176; <code>encoding</code> &#x9009;&#x9879;&#x8BBE;&#x7F6E;&#x4E3A; <code>&apos;buffer&apos;</code> &#x65F6;&#xFF0C; <code>filename</code> &#x5C06;&#x662F;&#x4E00;&#x4E2A; <code>Buffer</code>&#xFF0C;&#x5426;&#x5219; <code>filename</code> &#x5C06;&#x662F; UTF-8 &#x5B57;&#x7B26;&#x4E32;&#x3002;</p><pre><code class="language-js">// &#x4F7F;&#x7528; fs.watch&#xFF08;&#xFF09;&#x76D1;&#x542C;&#x5668;&#x7684;&#x793A;&#x4F8B;&#x3002;
+fs.watch(&apos;./tmp&apos;, { encoding: &apos;buffer&apos; }, (eventType, filename) =&gt; {
+  if (filename) {
+    console.log(filename);
+    // &#x6253;&#x5370;: &lt;Buffer ...&gt;
+  }
+});
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.5.8</span>
+</div><ul>
+<li><code>eventType</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> The type of change event that has occurred</li>
+<li><code>filename</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> The filename that changed (if relevant/available)</li>
+</ul><p>Emitted when something changes in a watched directory or file.
+See more details in <a href="http://nodejs.cn/s/h2QY7Q" rel="nofollow"><code>fs.watch()</code></a>.</p><p>The <code>filename</code> argument may not be provided depending on operating system
+support. If <code>filename</code> is provided, it will be provided as a <code>Buffer</code> if
+<code>fs.watch()</code> is called with its <code>encoding</code> option set to <code>&apos;buffer&apos;</code>, otherwise
+<code>filename</code> will be a UTF-8 string.</p><pre><code class="language-js">// Example when handled through fs.watch() listener
+fs.watch(&apos;./tmp&apos;, { encoding: &apos;buffer&apos; }, (eventType, filename) =&gt; {
+  if (filename) {
+    console.log(filename);
+    // Prints: &lt;Buffer ...&gt;
+  }
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756309553"><\/script>');
+  </script>
+</body>
+</html>

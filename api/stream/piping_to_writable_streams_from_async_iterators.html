@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>从异步迭代器传送到可写流 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324308" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-stream">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>从异步迭代器传送到可写流</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../stream.html#stream_piping_to_writable_streams_from_async_iterators" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/stream/piping_to_writable_streams_from_async_iterators.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x5728;&#x4ECE;&#x5F02;&#x6B65;&#x8FED;&#x4EE3;&#x5668;&#x5199;&#x5165;&#x53EF;&#x5199;&#x6D41;&#x7684;&#x573A;&#x666F;&#x4E2D;&#xFF0C;&#x5E94;&#x786E;&#x4FDD;&#x6B63;&#x786E;&#x5730;&#x5904;&#x7406;&#x80CC;&#x538B;&#x548C;&#x9519;&#x8BEF;&#x3002;</p><pre><code class="language-js">const { once } = require(&apos;events&apos;);
+const finished = util.promisify(stream.finished);
+
+const writable = fs.createWriteStream(&apos;./file&apos;);
+
+(async function() {
+  for await (const chunk of iterator) {
+    // &#x5904;&#x7406; write() &#x4E0A;&#x7684;&#x80CC;&#x538B;&#x3002;
+    if (!writable.write(chunk))
+      await once(writable, &apos;drain&apos;);
+  }
+  writable.end();
+  // &#x786E;&#x4FDD;&#x5B8C;&#x6210;&#x6CA1;&#x6709;&#x9519;&#x8BEF;&#x3002;
+  await finished(writable);
+})();
+</code></pre><p>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C; <code>once()</code> &#x76D1;&#x542C;&#x5668;&#x4F1A;&#x4E3A; <code>&apos;drain&apos;</code> &#x4E8B;&#x4EF6;&#x6355;&#x83B7;&#x5E76;&#x629B;&#x51FA; <code>write()</code> &#x4E0A;&#x7684;&#x9519;&#x8BEF;&#xFF0C;&#x56E0;&#x4E3A; <code>once()</code> &#x4E5F;&#x4F1A;&#x5904;&#x7406; <code>&apos;error&apos;</code> &#x4E8B;&#x4EF6;&#x3002;
+&#x4E3A;&#x4E86;&#x786E;&#x4FDD;&#x5199;&#x5165;&#x6D41;&#x7684;&#x5B8C;&#x6210;&#x4E14;&#x6CA1;&#x6709;&#x9519;&#x8BEF;&#xFF0C;&#x4F7F;&#x7528;&#x4E0A;&#x9762;&#x7684; <code>finished()</code> &#x65B9;&#x6CD5;&#x6BD4;&#x4F7F;&#x7528; <code>&apos;finish&apos;</code> &#x4E8B;&#x4EF6;&#x7684; <code>once()</code> &#x76D1;&#x542C;&#x5668;&#x66F4;&#x4E3A;&#x5B89;&#x5168;&#x3002;
+&#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C; <code>&apos;finish&apos;</code> &#x4E4B;&#x540E;&#x53EF;&#x5199;&#x6D41;&#x53EF;&#x80FD;&#x4F1A;&#x89E6;&#x53D1; <code>&apos;error&apos;</code> &#x4E8B;&#x4EF6;&#xFF0C;&#x5E76;&#x4E14; <code>once()</code> &#x5C06;&#x4F1A;&#x5728;&#x5904;&#x7406; <code>&apos;finish&apos;</code> &#x4E8B;&#x4EF6;&#x65F6;&#x91CA;&#x653E; <code>&apos;error&apos;</code> &#x5904;&#x7406;&#x7A0B;&#x5E8F;&#xFF0C;&#x8FD9;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x672A;&#x5904;&#x7406;&#x7684;&#x9519;&#x8BEF;&#x3002;</p><p>&#x53E6;&#x5916;&#xFF0C;&#x53EF;&#x8BFB;&#x6D41;&#x53EF;&#x4EE5;&#x7528; <code>Readable.from()</code> &#x5C01;&#x88C5;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7; <code>.pipe()</code> &#x4F20;&#x9001;&#xFF1A;</p><pre><code class="language-js">const finished = util.promisify(stream.finished);
+
+const writable = fs.createWriteStream(&apos;./file&apos;);
+
+(async function() {
+  const readable = Readable.from(iterator);
+  readable.pipe(writable);
+  // &#x786E;&#x4FDD;&#x5B8C;&#x6210;&#x6CA1;&#x6709;&#x9519;&#x8BEF;&#x3002;
+  await finished(writable);
+})();
+</code></pre><p>&#x6216;&#x8005;&#xFF0C;&#x4F7F;&#x7528; <code>stream.pipeline()</code> &#x4F20;&#x9001;&#x6D41;&#xFF1A;</p><pre><code class="language-js">const pipeline = util.promisify(stream.pipeline);
+
+const writable = fs.createWriteStream(&apos;./file&apos;);
+
+(async function() {
+  const readable = Readable.from(iterator);
+  await pipeline(readable, writable);
+})();
+</code></pre></div>
+          <div id="content_right"><p>In the scenario of writing to a writable stream from an async iterator, ensure
+the correct handling of backpressure and errors.</p><pre><code class="language-js">const { once } = require(&apos;events&apos;);
+const finished = util.promisify(stream.finished);
+
+const writable = fs.createWriteStream(&apos;./file&apos;);
+
+(async function() {
+  for await (const chunk of iterator) {
+    // Handle backpressure on write().
+    if (!writable.write(chunk))
+      await once(writable, &apos;drain&apos;);
+  }
+  writable.end();
+  // Ensure completion without errors.
+  await finished(writable);
+})();
+</code></pre><p>In the above, errors on <code>write()</code> would be caught and thrown by the
+<code>once()</code> listener for the <code>&apos;drain&apos;</code> event, since <code>once()</code> will also handle the
+<code>&apos;error&apos;</code> event. To ensure completion of the write stream without errors,
+it is safer to use the <code>finished()</code> method as above, instead of using the
+<code>once()</code> listener for the <code>&apos;finish&apos;</code> event. Under certain cases, an <code>&apos;error&apos;</code>
+event could be emitted by the writable stream after <code>&apos;finish&apos;</code> and as <code>once()</code>
+will release the <code>&apos;error&apos;</code> handler on handling the <code>&apos;finish&apos;</code> event, it could
+result in an unhandled error.</p><p>Alternatively, the readable stream could be wrapped with <code>Readable.from()</code> and
+then piped via <code>.pipe()</code>:</p><pre><code class="language-js">const finished = util.promisify(stream.finished);
+
+const writable = fs.createWriteStream(&apos;./file&apos;);
+
+(async function() {
+  const readable = Readable.from(iterator);
+  readable.pipe(writable);
+  // Ensure completion without errors.
+  await finished(writable);
+})();
+</code></pre><p>Or, using <code>stream.pipeline()</code> to pipe streams:</p><pre><code class="language-js">const pipeline = util.promisify(stream.pipeline);
+
+const writable = fs.createWriteStream(&apos;./file&apos;);
+
+(async function() {
+  const readable = Readable.from(iterator);
+  await pipeline(readable, writable);
+})();
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324308"><\/script>');
+  </script>
+</body>
+</html>

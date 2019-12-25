@@ -1,0 +1,681 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>report | Node.js API &#x6587;&#x6863;</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756322998" rel="stylesheet">')
+  </script>
+  
+</head>
+<body class="alt apidoc" id="page_api">
+  <div id="api-section-report">
+    <div id="content" class="clearfix">
+      <div id="column2" class="interior">
+        <div id="intro" class="interior">
+          <a href="http://nodejs.cn/" rel="nofollow">
+            Node.js &#x4E2D;&#x6587;&#x7F51;
+          </a>
+          <a href="index.html" rel="nofollow">
+            v12.14.0
+          </a>
+          <div id="biz_nav"><a title="&#x5F00;&#x8BFE;&#x5427;" target="_blank" href="https://datayi.cn/w/LPd57bYo" rel="nofollow"><img></a></div>
+        </div>
+        <div class="line"></div>
+        <ul>
+<li><a href="assert.html" class="nav-assert" rel="nofollow">assert - &#x65AD;&#x8A00;</a></li>
+<li><a href="async_hooks.html" class="nav-async_hooks" rel="nofollow">async_hooks - &#x5F02;&#x6B65;&#x94A9;&#x5B50;</a></li>
+<li><a href="buffer.html" class="nav-buffer" rel="nofollow">Buffer - &#x7F13;&#x51B2;&#x5668;</a></li>
+<li><a href="child_process.html" class="nav-child_process" rel="nofollow">child_process - &#x5B50;&#x8FDB;&#x7A0B;</a></li>
+<li><a href="cluster.html" class="nav-cluster" rel="nofollow">cluster - &#x96C6;&#x7FA4;</a></li>
+<li><a href="console.html" class="nav-console" rel="nofollow">console - &#x63A7;&#x5236;&#x53F0;</a></li>
+<li><a href="crypto.html" class="nav-crypto" rel="nofollow">crypto - &#x52A0;&#x5BC6;</a></li>
+<li><a href="debugger.html" class="nav-debugger" rel="nofollow">debugger - &#x8C03;&#x8BD5;&#x5668;</a></li>
+<li><a href="dgram.html" class="nav-dgram" rel="nofollow">dgram - &#x6570;&#x636E;&#x62A5;</a></li>
+<li><a href="dns.html" class="nav-dns" rel="nofollow">dns - &#x57DF;&#x540D;&#x670D;&#x52A1;&#x5668;</a></li>
+<li><a href="domain.html" class="nav-domain" rel="nofollow">domain - &#x57DF;</a></li>
+<li><a href="errors.html" class="nav-errors" rel="nofollow">Error - &#x5F02;&#x5E38;</a></li>
+<li><a href="events.html" class="nav-events" rel="nofollow">events - &#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x5668;</a></li>
+<li><a href="fs.html" class="nav-fs" rel="nofollow">fs - &#x6587;&#x4EF6;&#x7CFB;&#x7EDF;</a></li>
+<li><a href="globals.html" class="nav-globals" rel="nofollow">global - &#x5168;&#x5C40;&#x53D8;&#x91CF;</a></li>
+<li><a href="http.html" class="nav-http" rel="nofollow">http - HTTP</a></li>
+<li><a href="http2.html" class="nav-http2" rel="nofollow">http2 - HTTP/2</a></li>
+<li><a href="https.html" class="nav-https" rel="nofollow">https - HTTPS</a></li>
+<li><a href="inspector.html" class="nav-inspector" rel="nofollow">inspector - &#x68C0;&#x67E5;&#x5668;</a></li>
+<li><a href="modules.html" class="nav-modules" rel="nofollow">module - &#x6A21;&#x5757;</a></li>
+<li><a href="net.html" class="nav-net" rel="nofollow">net - &#x7F51;&#x7EDC;</a></li>
+<li><a href="os.html" class="nav-os" rel="nofollow">os - &#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;</a></li>
+<li><a href="path.html" class="nav-path" rel="nofollow">path - &#x8DEF;&#x5F84;</a></li>
+<li><a href="perf_hooks.html" class="nav-perf_hooks" rel="nofollow">perf_hooks - &#x6027;&#x80FD;&#x94A9;&#x5B50;</a></li>
+<li><a href="process.html" class="nav-process" rel="nofollow">process - &#x8FDB;&#x7A0B;</a></li>
+<li><a href="punycode.html" class="nav-punycode" rel="nofollow">punycode - &#x57DF;&#x540D;&#x4EE3;&#x7801;</a></li>
+<li><a href="querystring.html" class="nav-querystring" rel="nofollow">querystring - &#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;</a></li>
+<li><a href="readline.html" class="nav-readline" rel="nofollow">readline - &#x9010;&#x884C;&#x8BFB;&#x53D6;</a></li>
+<li><a href="repl.html" class="nav-repl" rel="nofollow">repl - &#x4EA4;&#x4E92;&#x5F0F;&#x89E3;&#x91CA;&#x5668;</a></li>
+<li><a href="stream.html" class="nav-stream" rel="nofollow">stream - &#x6D41;</a></li>
+<li><a href="string_decoder.html" class="nav-string_decoder" rel="nofollow">string_decoder - &#x5B57;&#x7B26;&#x4E32;&#x89E3;&#x7801;&#x5668;</a></li>
+<li><a href="timers.html" class="nav-timers" rel="nofollow">timer - &#x5B9A;&#x65F6;&#x5668;</a></li>
+<li><a href="tls.html" class="nav-tls" rel="nofollow">tls - &#x5B89;&#x5168;&#x4F20;&#x8F93;&#x5C42;</a></li>
+<li><a href="tracing.html" class="nav-tracing" rel="nofollow">trace_events - &#x8DDF;&#x8E2A;&#x4E8B;&#x4EF6;</a></li>
+<li><a href="tty.html" class="nav-tty" rel="nofollow">tty - &#x7EC8;&#x7AEF;</a></li>
+<li><a href="url.html" class="nav-url" rel="nofollow">url - URL</a></li>
+<li><a href="util.html" class="nav-util" rel="nofollow">util - &#x5B9E;&#x7528;&#x5DE5;&#x5177;</a></li>
+<li><a href="v8.html" class="nav-v8" rel="nofollow">v8 - V8&#x5F15;&#x64CE;</a></li>
+<li><a href="vm.html" class="nav-vm" rel="nofollow">vm - &#x865A;&#x62DF;&#x673A;</a></li>
+<li><a href="worker_threads.html" class="nav-worker_threads" rel="nofollow">worker_threads - &#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;</a></li>
+<li><a href="zlib.html" class="nav-zlib" rel="nofollow">zlib - &#x538B;&#x7F29;</a></li>
+</ul>
+<div class="line"></div>
+<ul>
+<li><a href="documentation.html" class="nav-documentation" rel="nofollow">&#x5173;&#x4E8E;&#x672C;&#x6587;&#x6863;</a></li>
+<li><a href="synopsis.html" class="nav-synopsis" rel="nofollow">&#x7528;&#x6CD5;&#x4E0E;&#x793A;&#x4F8B;</a></li>
+<li><a href="addons.html" class="nav-addons" rel="nofollow">C++&#x63D2;&#x4EF6;</a></li>
+<li><a href="n-api.html" class="nav-n-api" rel="nofollow">N-API</a></li>
+<li><a href="cli.html" class="nav-cli" rel="nofollow">&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;</a></li>
+<li><a href="esm.html" class="nav-esm" rel="nofollow">ECMAScript &#x6A21;&#x5757;</a></li>
+<li><a href="policy.html" class="nav-policy" rel="nofollow">&#x5B89;&#x5168;&#x7B56;&#x7565;</a></li>
+<li><a href="report.html" class="nav-report active" rel="nofollow">&#x8BCA;&#x65AD;&#x62A5;&#x8868;</a></li>
+<li><a href="intl.html" class="nav-intl" rel="nofollow">&#x56FD;&#x9645;&#x5316;&#x652F;&#x6301;</a></li>
+<li><a href="deprecations.html" class="nav-deprecations" rel="nofollow">&#x5E9F;&#x5F03;&#x7684; API</a></li>
+</ul>
+        
+      </div>
+  
+      <div id="column1" data-id="report" class="interior">
+        <header>
+          <h1>Node.js v12.14.0 &#x6587;&#x6863;</h1>
+          <div id="gtoc">
+            <ul>
+              <li>
+                <a href="index.html" name="toc">&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x9996;&#x9875;</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">&#x641C;&#x7D22;</a>
+              </li>
+              <!-- 
+    <li class="version-picker">
+      <a href="#">查看其他版本 <span>&#x25bc;</span></a>
+      <ol class="version-picker"><li><a href="/latest-api/report.html">12.x</a></li></ol>
+    </li>
+   -->
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        
+        
+        <div id="toc">
+          <h2>&#x76EE;&#x5F55;</h2>
+          <ul>
+<li>
+<p><span class="stability_1"><a href="report.html#report_diagnostic_report">Diagnostic Report</a></span></p>
+<ul>
+<li><a href="report.html#report_usage">Usage</a></li>
+<li><a href="report.html#report_configuration">Configuration</a></li>
+</ul>
+</li>
+</ul>
+        </div>
+
+        <!-- <div id="biz_content">
+          <a href="http://www.tp-shop.cn/index.php?http_referer=node" target="_blank">
+            <img src="//static.nodejs.cn/_static/img/ad/api_content_tpshop.jpg" />
+          </a>
+        </div> -->
+  
+        <div id="apicontent">
+          <h1>Diagnostic Report<span><a class="mark" href="report.html#report_diagnostic_report" id="report_diagnostic_report">#</a></span></h1><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span></p>
+<!--introduced_in=v11.8.0-->
+<!-- type=misc -->
+<p></p><div class="api_stability api_stability_1"><a target="_blank" rel="nofollow" href="documentation.html#documentation_stability_index">&#x7A33;&#x5B9A;&#x6027;: 1</a> - &#x8BD5;&#x9A8C;</div><p></p>
+<!-- name=report -->
+<p>Delivers a JSON-formatted diagnostic summary, written to a file.</p>
+<p>The report is intended for development, test and production use, to capture
+and preserve information for problem determination. It includes JavaScript
+and native stack traces, heap statistics, platform information, resource
+usage etc. With the report option enabled, diagnostic reports can be triggered
+on unhandled exceptions, fatal errors and user signals, in addition to
+triggering programmatically through API calls.</p>
+<p>A complete example report that was generated on an uncaught exception
+is provided below for reference.</p>
+<pre><code class="language-json">{
+  &quot;header&quot;: {
+    &quot;reportVersion&quot;: 1,
+    &quot;event&quot;: &quot;exception&quot;,
+    &quot;trigger&quot;: &quot;Exception&quot;,
+    &quot;filename&quot;: &quot;report.20181221.005011.8974.0.001.json&quot;,
+    &quot;dumpEventTime&quot;: &quot;2018-12-21T00:50:11Z&quot;,
+    &quot;dumpEventTimeStamp&quot;: &quot;1545371411331&quot;,
+    &quot;processId&quot;: 8974,
+    &quot;cwd&quot;: &quot;/home/nodeuser/project/node&quot;,
+    &quot;commandLine&quot;: [
+      &quot;/home/nodeuser/project/node/out/Release/node&quot;,
+      &quot;--experimental-report&quot;,
+      &quot;--report-uncaught-exception&quot;,
+      &quot;/home/nodeuser/project/node/test/report/test-exception.js&quot;,
+      &quot;child&quot;
+    ],
+    &quot;nodejsVersion&quot;: &quot;v12.0.0-pre&quot;,
+    &quot;glibcVersionRuntime&quot;: &quot;2.17&quot;,
+    &quot;glibcVersionCompiler&quot;: &quot;2.17&quot;,
+    &quot;wordSize&quot;: &quot;64 bit&quot;,
+    &quot;arch&quot;: &quot;x64&quot;,
+    &quot;platform&quot;: &quot;linux&quot;,
+    &quot;componentVersions&quot;: {
+      &quot;node&quot;: &quot;12.0.0-pre&quot;,
+      &quot;v8&quot;: &quot;7.1.302.28-node.5&quot;,
+      &quot;uv&quot;: &quot;1.24.1&quot;,
+      &quot;zlib&quot;: &quot;1.2.11&quot;,
+      &quot;ares&quot;: &quot;1.15.0&quot;,
+      &quot;modules&quot;: &quot;68&quot;,
+      &quot;nghttp2&quot;: &quot;1.34.0&quot;,
+      &quot;napi&quot;: &quot;3&quot;,
+      &quot;llhttp&quot;: &quot;1.0.1&quot;,
+      &quot;http_parser&quot;: &quot;2.8.0&quot;,
+      &quot;openssl&quot;: &quot;1.1.0j&quot;
+    },
+    &quot;release&quot;: {
+      &quot;name&quot;: &quot;node&quot;
+    },
+    &quot;osName&quot;: &quot;Linux&quot;,
+    &quot;osRelease&quot;: &quot;3.10.0-862.el7.x86_64&quot;,
+    &quot;osVersion&quot;: &quot;#1 SMP Wed Mar 21 18:14:51 EDT 2018&quot;,
+    &quot;osMachine&quot;: &quot;x86_64&quot;,
+    &quot;cpus&quot;: [
+      {
+        &quot;model&quot;: &quot;Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz&quot;,
+        &quot;speed&quot;: 2700,
+        &quot;user&quot;: 88902660,
+        &quot;nice&quot;: 0,
+        &quot;sys&quot;: 50902570,
+        &quot;idle&quot;: 241732220,
+        &quot;irq&quot;: 0
+      },
+      {
+        &quot;model&quot;: &quot;Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz&quot;,
+        &quot;speed&quot;: 2700,
+        &quot;user&quot;: 88902660,
+        &quot;nice&quot;: 0,
+        &quot;sys&quot;: 50902570,
+        &quot;idle&quot;: 241732220,
+        &quot;irq&quot;: 0
+      }
+    ],
+    &quot;networkInterfaces&quot;: [
+      {
+        &quot;name&quot;: &quot;en0&quot;,
+        &quot;internal&quot;: false,
+        &quot;mac&quot;: &quot;13:10:de:ad:be:ef&quot;,
+        &quot;address&quot;: &quot;10.0.0.37&quot;,
+        &quot;netmask&quot;: &quot;255.255.255.0&quot;,
+        &quot;family&quot;: &quot;IPv4&quot;
+      }
+    ],
+    &quot;host&quot;: &quot;test_machine&quot;
+  },
+  &quot;javascriptStack&quot;: {
+    &quot;message&quot;: &quot;Error: *** test-exception.js: throwing uncaught Error&quot;,
+    &quot;stack&quot;: [
+      &quot;at myException (/home/nodeuser/project/node/test/report/test-exception.js:9:11)&quot;,
+      &quot;at Object.&lt;anonymous&gt; (/home/nodeuser/project/node/test/report/test-exception.js:12:3)&quot;,
+      &quot;at Module._compile (internal/modules/cjs/loader.js:718:30)&quot;,
+      &quot;at Object.Module._extensions..js (internal/modules/cjs/loader.js:729:10)&quot;,
+      &quot;at Module.load (internal/modules/cjs/loader.js:617:32)&quot;,
+      &quot;at tryModuleLoad (internal/modules/cjs/loader.js:560:12)&quot;,
+      &quot;at Function.Module._load (internal/modules/cjs/loader.js:552:3)&quot;,
+      &quot;at Function.Module.runMain (internal/modules/cjs/loader.js:771:12)&quot;,
+      &quot;at executeUserCode (internal/bootstrap/node.js:332:15)&quot;
+    ]
+  },
+  &quot;nativeStack&quot;: [
+    {
+      &quot;pc&quot;: &quot;0x000055b57f07a9ef&quot;,
+      &quot;symbol&quot;: &quot;report::GetNodeReport(v8::Isolate*, node::Environment*, char const*, char const*, v8::Local&lt;v8::String&gt;, std::ostream&amp;) [./node]&quot;
+    },
+    {
+      &quot;pc&quot;: &quot;0x000055b57f07cf03&quot;,
+      &quot;symbol&quot;: &quot;report::GetReport(v8::FunctionCallbackInfo&lt;v8::Value&gt; const&amp;) [./node]&quot;
+    },
+    {
+      &quot;pc&quot;: &quot;0x000055b57f1bccfd&quot;,
+      &quot;symbol&quot;: &quot; [./node]&quot;
+    },
+    {
+      &quot;pc&quot;: &quot;0x000055b57f1be048&quot;,
+      &quot;symbol&quot;: &quot;v8::internal::Builtin_HandleApiCall(int, v8::internal::Object**, v8::internal::Isolate*) [./node]&quot;
+    },
+    {
+      &quot;pc&quot;: &quot;0x000055b57feeda0e&quot;,
+      &quot;symbol&quot;: &quot; [./node]&quot;
+    }
+  ],
+  &quot;javascriptHeap&quot;: {
+    &quot;totalMemory&quot;: 6127616,
+    &quot;totalCommittedMemory&quot;: 4357352,
+    &quot;usedMemory&quot;: 3221136,
+    &quot;availableMemory&quot;: 1521370240,
+    &quot;memoryLimit&quot;: 1526909922,
+    &quot;heapSpaces&quot;: {
+      &quot;read_only_space&quot;: {
+        &quot;memorySize&quot;: 524288,
+        &quot;committedMemory&quot;: 39208,
+        &quot;capacity&quot;: 515584,
+        &quot;used&quot;: 30504,
+        &quot;available&quot;: 485080
+      },
+      &quot;new_space&quot;: {
+        &quot;memorySize&quot;: 2097152,
+        &quot;committedMemory&quot;: 2019312,
+        &quot;capacity&quot;: 1031168,
+        &quot;used&quot;: 985496,
+        &quot;available&quot;: 45672
+      },
+      &quot;old_space&quot;: {
+        &quot;memorySize&quot;: 2273280,
+        &quot;committedMemory&quot;: 1769008,
+        &quot;capacity&quot;: 1974640,
+        &quot;used&quot;: 1725488,
+        &quot;available&quot;: 249152
+      },
+      &quot;code_space&quot;: {
+        &quot;memorySize&quot;: 696320,
+        &quot;committedMemory&quot;: 184896,
+        &quot;capacity&quot;: 152128,
+        &quot;used&quot;: 152128,
+        &quot;available&quot;: 0
+      },
+      &quot;map_space&quot;: {
+        &quot;memorySize&quot;: 536576,
+        &quot;committedMemory&quot;: 344928,
+        &quot;capacity&quot;: 327520,
+        &quot;used&quot;: 327520,
+        &quot;available&quot;: 0
+      },
+      &quot;large_object_space&quot;: {
+        &quot;memorySize&quot;: 0,
+        &quot;committedMemory&quot;: 0,
+        &quot;capacity&quot;: 1520590336,
+        &quot;used&quot;: 0,
+        &quot;available&quot;: 1520590336
+      },
+      &quot;new_large_object_space&quot;: {
+        &quot;memorySize&quot;: 0,
+        &quot;committedMemory&quot;: 0,
+        &quot;capacity&quot;: 0,
+        &quot;used&quot;: 0,
+        &quot;available&quot;: 0
+      }
+    }
+  },
+  &quot;resourceUsage&quot;: {
+    &quot;userCpuSeconds&quot;: 0.069595,
+    &quot;kernelCpuSeconds&quot;: 0.019163,
+    &quot;cpuConsumptionPercent&quot;: 0.000000,
+    &quot;maxRss&quot;: 18079744,
+    &quot;pageFaults&quot;: {
+      &quot;IORequired&quot;: 0,
+      &quot;IONotRequired&quot;: 4610
+    },
+    &quot;fsActivity&quot;: {
+      &quot;reads&quot;: 0,
+      &quot;writes&quot;: 0
+    }
+  },
+  &quot;uvthreadResourceUsage&quot;: {
+    &quot;userCpuSeconds&quot;: 0.068457,
+    &quot;kernelCpuSeconds&quot;: 0.019127,
+    &quot;cpuConsumptionPercent&quot;: 0.000000,
+    &quot;fsActivity&quot;: {
+      &quot;reads&quot;: 0,
+      &quot;writes&quot;: 0
+    }
+  },
+  &quot;libuv&quot;: [
+    {
+      &quot;type&quot;: &quot;async&quot;,
+      &quot;is_active&quot;: true,
+      &quot;is_referenced&quot;: false,
+      &quot;address&quot;: &quot;0x0000000102910900&quot;,
+      &quot;details&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;timer&quot;,
+      &quot;is_active&quot;: false,
+      &quot;is_referenced&quot;: false,
+      &quot;address&quot;: &quot;0x00007fff5fbfeab0&quot;,
+      &quot;repeat&quot;: 0,
+      &quot;firesInMsFromNow&quot;: 94403548320796,
+      &quot;expired&quot;: true
+    },
+    {
+      &quot;type&quot;: &quot;check&quot;,
+      &quot;is_active&quot;: true,
+      &quot;is_referenced&quot;: false,
+      &quot;address&quot;: &quot;0x00007fff5fbfeb48&quot;
+    },
+    {
+      &quot;type&quot;: &quot;idle&quot;,
+      &quot;is_active&quot;: false,
+      &quot;is_referenced&quot;: true,
+      &quot;address&quot;: &quot;0x00007fff5fbfebc0&quot;
+    },
+    {
+      &quot;type&quot;: &quot;prepare&quot;,
+      &quot;is_active&quot;: false,
+      &quot;is_referenced&quot;: false,
+      &quot;address&quot;: &quot;0x00007fff5fbfec38&quot;
+    },
+    {
+      &quot;type&quot;: &quot;check&quot;,
+      &quot;is_active&quot;: false,
+      &quot;is_referenced&quot;: false,
+      &quot;address&quot;: &quot;0x00007fff5fbfecb0&quot;
+    },
+    {
+      &quot;type&quot;: &quot;async&quot;,
+      &quot;is_active&quot;: true,
+      &quot;is_referenced&quot;: false,
+      &quot;address&quot;: &quot;0x000000010188f2e0&quot;
+    },
+    {
+      &quot;type&quot;: &quot;tty&quot;,
+      &quot;is_active&quot;: false,
+      &quot;is_referenced&quot;: true,
+      &quot;address&quot;: &quot;0x000055b581db0e18&quot;,
+      &quot;width&quot;: 204,
+      &quot;height&quot;: 55,
+      &quot;fd&quot;: 17,
+      &quot;writeQueueSize&quot;: 0,
+      &quot;readable&quot;: true,
+      &quot;writable&quot;: true
+    },
+    {
+      &quot;type&quot;: &quot;signal&quot;,
+      &quot;is_active&quot;: true,
+      &quot;is_referenced&quot;: false,
+      &quot;address&quot;: &quot;0x000055b581d80010&quot;,
+      &quot;signum&quot;: 28,
+      &quot;signal&quot;: &quot;SIGWINCH&quot;
+    },
+    {
+      &quot;type&quot;: &quot;tty&quot;,
+      &quot;is_active&quot;: true,
+      &quot;is_referenced&quot;: true,
+      &quot;address&quot;: &quot;0x000055b581df59f8&quot;,
+      &quot;width&quot;: 204,
+      &quot;height&quot;: 55,
+      &quot;fd&quot;: 19,
+      &quot;writeQueueSize&quot;: 0,
+      &quot;readable&quot;: true,
+      &quot;writable&quot;: true
+    },
+    {
+      &quot;type&quot;: &quot;loop&quot;,
+      &quot;is_active&quot;: true,
+      &quot;address&quot;: &quot;0x000055fc7b2cb180&quot;
+    }
+  ],
+  &quot;environmentVariables&quot;: {
+    &quot;REMOTEHOST&quot;: &quot;REMOVED&quot;,
+    &quot;MANPATH&quot;: &quot;/opt/rh/devtoolset-3/root/usr/share/man:&quot;,
+    &quot;XDG_SESSION_ID&quot;: &quot;66126&quot;,
+    &quot;HOSTNAME&quot;: &quot;test_machine&quot;,
+    &quot;HOST&quot;: &quot;test_machine&quot;,
+    &quot;TERM&quot;: &quot;xterm-256color&quot;,
+    &quot;SHELL&quot;: &quot;/bin/csh&quot;,
+    &quot;SSH_CLIENT&quot;: &quot;REMOVED&quot;,
+    &quot;PERL5LIB&quot;: &quot;/opt/rh/devtoolset-3/root//usr/lib64/perl5/vendor_perl:/opt/rh/devtoolset-3/root/usr/lib/perl5:/opt/rh/devtoolset-3/root//usr/share/perl5/vendor_perl&quot;,
+    &quot;OLDPWD&quot;: &quot;/home/nodeuser/project/node/src&quot;,
+    &quot;JAVACONFDIRS&quot;: &quot;/opt/rh/devtoolset-3/root/etc/java:/etc/java&quot;,
+    &quot;SSH_TTY&quot;: &quot;/dev/pts/0&quot;,
+    &quot;PCP_DIR&quot;: &quot;/opt/rh/devtoolset-3/root&quot;,
+    &quot;GROUP&quot;: &quot;normaluser&quot;,
+    &quot;USER&quot;: &quot;nodeuser&quot;,
+    &quot;LD_LIBRARY_PATH&quot;: &quot;/opt/rh/devtoolset-3/root/usr/lib64:/opt/rh/devtoolset-3/root/usr/lib&quot;,
+    &quot;HOSTTYPE&quot;: &quot;x86_64-linux&quot;,
+    &quot;XDG_CONFIG_DIRS&quot;: &quot;/opt/rh/devtoolset-3/root/etc/xdg:/etc/xdg&quot;,
+    &quot;MAIL&quot;: &quot;/var/spool/mail/nodeuser&quot;,
+    &quot;PATH&quot;: &quot;/home/nodeuser/project/node:/opt/rh/devtoolset-3/root/usr/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin&quot;,
+    &quot;PWD&quot;: &quot;/home/nodeuser/project/node&quot;,
+    &quot;LANG&quot;: &quot;en_US.UTF-8&quot;,
+    &quot;PS1&quot;: &quot;\\u@\\h : \\[\\e[31m\\]\\w\\[\\e[m\\] &gt;  &quot;,
+    &quot;SHLVL&quot;: &quot;2&quot;,
+    &quot;HOME&quot;: &quot;/home/nodeuser&quot;,
+    &quot;OSTYPE&quot;: &quot;linux&quot;,
+    &quot;VENDOR&quot;: &quot;unknown&quot;,
+    &quot;PYTHONPATH&quot;: &quot;/opt/rh/devtoolset-3/root/usr/lib64/python2.7/site-packages:/opt/rh/devtoolset-3/root/usr/lib/python2.7/site-packages&quot;,
+    &quot;MACHTYPE&quot;: &quot;x86_64&quot;,
+    &quot;LOGNAME&quot;: &quot;nodeuser&quot;,
+    &quot;XDG_DATA_DIRS&quot;: &quot;/opt/rh/devtoolset-3/root/usr/share:/usr/local/share:/usr/share&quot;,
+    &quot;LESSOPEN&quot;: &quot;||/usr/bin/lesspipe.sh %s&quot;,
+    &quot;INFOPATH&quot;: &quot;/opt/rh/devtoolset-3/root/usr/share/info&quot;,
+    &quot;XDG_RUNTIME_DIR&quot;: &quot;/run/user/50141&quot;,
+    &quot;_&quot;: &quot;./node&quot;
+  },
+  &quot;userLimits&quot;: {
+    &quot;core_file_size_blocks&quot;: {
+      &quot;soft&quot;: &quot;&quot;,
+      &quot;hard&quot;: &quot;unlimited&quot;
+    },
+    &quot;data_seg_size_kbytes&quot;: {
+      &quot;soft&quot;: &quot;unlimited&quot;,
+      &quot;hard&quot;: &quot;unlimited&quot;
+    },
+    &quot;file_size_blocks&quot;: {
+      &quot;soft&quot;: &quot;unlimited&quot;,
+      &quot;hard&quot;: &quot;unlimited&quot;
+    },
+    &quot;max_locked_memory_bytes&quot;: {
+      &quot;soft&quot;: &quot;unlimited&quot;,
+      &quot;hard&quot;: 65536
+    },
+    &quot;max_memory_size_kbytes&quot;: {
+      &quot;soft&quot;: &quot;unlimited&quot;,
+      &quot;hard&quot;: &quot;unlimited&quot;
+    },
+    &quot;open_files&quot;: {
+      &quot;soft&quot;: &quot;unlimited&quot;,
+      &quot;hard&quot;: 4096
+    },
+    &quot;stack_size_bytes&quot;: {
+      &quot;soft&quot;: &quot;unlimited&quot;,
+      &quot;hard&quot;: &quot;unlimited&quot;
+    },
+    &quot;cpu_time_seconds&quot;: {
+      &quot;soft&quot;: &quot;unlimited&quot;,
+      &quot;hard&quot;: &quot;unlimited&quot;
+    },
+    &quot;max_user_processes&quot;: {
+      &quot;soft&quot;: &quot;unlimited&quot;,
+      &quot;hard&quot;: 4127290
+    },
+    &quot;virtual_memory_kbytes&quot;: {
+      &quot;soft&quot;: &quot;unlimited&quot;,
+      &quot;hard&quot;: &quot;unlimited&quot;
+    }
+  },
+  &quot;sharedObjects&quot;: [
+    &quot;/lib64/libdl.so.2&quot;,
+    &quot;/lib64/librt.so.1&quot;,
+    &quot;/lib64/libstdc++.so.6&quot;,
+    &quot;/lib64/libm.so.6&quot;,
+    &quot;/lib64/libgcc_s.so.1&quot;,
+    &quot;/lib64/libpthread.so.0&quot;,
+    &quot;/lib64/libc.so.6&quot;,
+    &quot;/lib64/ld-linux-x86-64.so.2&quot;
+  ]
+}
+</code></pre>
+<h2>Usage<span><a class="mark" href="report.html#report_usage" id="report_usage">#</a></span></h2><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span></p>
+<pre><code class="language-bash">node --experimental-report --report-uncaught-exception \
+  --report-on-signal --report-on-fatalerror app.js
+</code></pre>
+<ul>
+<li>
+<p><code>--experimental-report</code> Enables the diagnostic report feature.
+In the absence of this flag, use of all other related options will result in
+an error.</p>
+</li>
+<li>
+<p><code>--report-uncaught-exception</code> Enables report to be generated on
+un-caught exceptions. Useful when inspecting JavaScript stack in conjunction
+with native stack and other runtime environment data.</p>
+</li>
+<li>
+<p><code>--report-on-signal</code> Enables report to be generated upon receiving
+the specified (or predefined) signal to the running Node.js process. (See below
+on how to modify the signal that triggers the report.) Default signal is <code>SIGUSR2</code>.
+Useful when a report needs to be triggered from another program.
+Application monitors may leverage this feature to collect report at regular
+intervals and plot rich set of internal runtime data to their views.</p>
+</li>
+</ul>
+<p>Signal based report generation is not supported in Windows.</p>
+<p>Under normal circumstances, there is no need to modify the report triggering
+signal. However, if <code>SIGUSR2</code> is already used for other purposes, then this
+flag helps to change the signal for report generation and preserve the original
+meaning of <code>SIGUSR2</code> for the said purposes.</p>
+<ul>
+<li>
+<p><code>--report-on-fatalerror</code> Enables the report to be triggered on
+fatal errors (internal errors within the Node.js runtime, such as out of memory)
+that leads to termination of the application. Useful to inspect various
+diagnostic data elements such as heap, stack, event loop state, resource
+consumption etc. to reason about the fatal error.</p>
+</li>
+<li>
+<p><code>--report-directory</code> Location at which the report will be
+generated.</p>
+</li>
+<li>
+<p><code>--report-filename</code> Name of the file to which the report will be
+written.</p>
+</li>
+<li>
+<p><code>--report-signal</code> Sets or resets the signal for report generation
+(not supported on Windows). Default signal is <code>SIGUSR2</code>.</p>
+</li>
+</ul>
+<p>A report can also be triggered via an API call from a JavaScript application:</p>
+<pre><code class="language-js">process.report.writeReport();
+</code></pre>
+<p>This function takes an optional additional argument <code>filename</code>, which is
+the name of a file into which the report is written.</p>
+<pre><code class="language-js">process.report.writeReport(&apos;./foo.json&apos;);
+</code></pre>
+<p>This function takes an optional additional argument <code>err</code> which is an <code>Error</code>
+object that will be used as the context for the JavaScript stack printed in the
+report. When using report to handle errors in a callback or an exception
+handler, this allows the report to include the location of the original error as
+well as where it was handled.</p>
+<pre><code class="language-js">try {
+  process.chdir(&apos;/non-existent-path&apos;);
+} catch (err) {
+  process.report.writeReport(err);
+}
+// Any other code
+</code></pre>
+<p>If both filename and error object are passed to <code>writeReport()</code> the
+error object must be the second parameter.</p>
+<pre><code class="language-js">try {
+  process.chdir(&apos;/non-existent-path&apos;);
+} catch (err) {
+  process.report.writeReport(filename, err);
+}
+// Any other code
+</code></pre>
+<p>The content of the diagnostic report can be returned as a JavaScript Object
+via an API call from a JavaScript application:</p>
+<pre><code class="language-js">const report = process.report.getReport();
+console.log(typeof report === &apos;object&apos;); // true
+
+// Similar to process.report.writeReport() output
+console.log(JSON.stringify(report, null, 2));
+</code></pre>
+<p>This function takes an optional additional argument <code>err</code>, which is an <code>Error</code>
+object that will be used as the context for the JavaScript stack printed in the
+report.</p>
+<pre><code class="language-js">const report = process.report.getReport(new Error(&apos;custom error&apos;));
+console.log(typeof report === &apos;object&apos;); // true
+</code></pre>
+<p>The API versions are useful when inspecting the runtime state from within
+the application, in expectation of self-adjusting the resource consumption,
+load balancing, monitoring etc.</p>
+<p>The content of the report consists of a header section containing the event
+type, date, time, PID and Node.js version, sections containing JavaScript and
+native stack traces, a section containing V8 heap information, a section
+containing <code>libuv</code> handle information and an OS platform information section
+showing CPU and memory usage and system limits. An example report can be
+triggered using the Node.js REPL:</p>
+<pre><code class="language-raw">$ node
+&gt; process.report.writeReport();
+Writing Node.js report to file: report.20181126.091102.8480.0.001.json
+Node.js report completed
+&gt;
+</code></pre>
+<p>When a report is written, start and end messages are issued to stderr
+and the filename of the report is returned to the caller. The default filename
+includes the date, time, PID and a sequence number. The sequence number helps
+in associating the report dump with the runtime state if generated multiple
+times for the same Node.js process.</p>
+<h2>Configuration<span><a class="mark" href="report.html#report_configuration" id="report_configuration">#</a></span></h2><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span></p>
+<p>Additional runtime configuration of report generation is available via
+the following properties of <code>process.report</code>:</p>
+<p><code>reportOnFatalError</code> triggers diagnostic reporting on fatal errors when <code>true</code>.
+Defaults to <code>false</code>.</p>
+<p><code>reportOnSignal</code> triggers diagnostic reporting on signal when <code>true</code>. This is
+not supported on Windows. Defaults to <code>false</code>.</p>
+<p><code>reportOnUncaughtException</code> triggers diagnostic reporting on uncaught exception
+when <code>true</code>. Defaults to <code>false</code>.</p>
+<p><code>signal</code> specifies the POSIX signal identifier that will be used
+to intercept external triggers for report generation. Defaults to
+<code>&apos;SIGUSR2&apos;</code>.</p>
+<p><code>filename</code> specifies the name of the output file in the file system.
+Special meaning is attached to <code>stdout</code> and <code>stderr</code>. Usage of these
+will result in report being written to the associated standard streams.
+In cases where standard streams are used, the value in <code>directory</code> is ignored.
+URLs are not supported. Defaults to a composite filename that contains
+timestamp, PID and sequence number.</p>
+<p><code>directory</code> specifies the filesystem directory where the report will be written.
+URLs are not supported. Defaults to the current working directory of the
+Node.js process.</p>
+<pre><code class="language-js">// Trigger report only on uncaught exceptions.
+process.report.reportOnFatalError = false;
+process.report.reportOnSignal = false;
+process.report.reportOnUncaughtException = true;
+
+// Trigger report for both internal errors as well as external signal.
+process.report.reportOnFatalError = true;
+process.report.reportOnSignal = true;
+process.report.reportOnUncaughtException = false;
+
+// Change the default signal to &apos;SIGQUIT&apos; and enable it.
+process.report.reportOnFatalError = false;
+process.report.reportOnUncaughtException = false;
+process.report.reportOnSignal = true;
+process.report.signal = &apos;SIGQUIT&apos;;
+</code></pre>
+<p>Configuration on module initialization is also available via
+environment variables:</p>
+<pre><code class="language-bash">NODE_OPTIONS=&quot;--experimental-report --report-uncaught-exception \
+  --report-on-fatalerror --report-on-signal \
+  --report-signal=SIGUSR2  --report-filename=./report.json \
+  --report-directory=/home/nodeuser&quot;
+</code></pre>
+<p>Specific API documentation can be found under
+<a href="http://nodejs.cn/s/ksJALm" rel="nofollow"><code>process API documentation</code></a> section.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 搜索弹窗 -->
+  <!-- <div id="search_modal"></div> -->
+  <!-- js -->
+  <!--[if lt IE 10]><script src="/static/lib/placeholders.js?20170426"></script><![endif]-->
+  
+  <script>
+    document.write('<script src="http://nodejs.cn/api/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756322998"><\/script>');
+  </script>
+
+</body></html>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>服务器端示例 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/http2/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756313712" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-http2">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>服务器端示例</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../http2.html#http2_server_side_example" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/http2/server_side_example.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x4EE5;&#x4E0B;&#x4E3E;&#x4F8B;&#x8BF4;&#x660E;&#x4E86;&#x4E00;&#x4E2A;&#x4F7F;&#x7528;&#x6838;&#x5FC3; API &#x7684;&#x7B80;&#x5355;&#x7684; HTTP/2 &#x670D;&#x52A1;&#x5668;&#x3002;
+&#x7531;&#x4E8E;&#x6CA1;&#x6709;&#x5DF2;&#x77E5;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x652F;&#x6301;<a href="http://nodejs.cn/s/yfVdqh" rel="nofollow">&#x672A;&#x52A0;&#x5BC6;&#x7684; HTTP/2</a>&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x4E0E;&#x6D4F;&#x89C8;&#x5668;&#x5BA2;&#x6237;&#x7AEF;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#x65F6;&#x5FC5;&#x987B;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/zQgH8T" rel="nofollow"><code>http2.createSecureServer()</code></a>&#x3002;</p><pre><code class="language-js">const http2 = require(&apos;http2&apos;);
+const fs = require(&apos;fs&apos;);
+
+const server = http2.createSecureServer({
+  key: fs.readFileSync(&apos;&#x5BC6;&#x94A5;.pem&apos;),
+  cert: fs.readFileSync(&apos;&#x8BC1;&#x4E66;.pem&apos;)
+});
+server.on(&apos;error&apos;, (err) =&gt; console.error(err));
+
+server.on(&apos;stream&apos;, (stream, headers) =&gt; {
+  // &#x6D41;&#x662F;&#x4E00;&#x4E2A;&#x53CC;&#x5DE5;&#x6D41;&#x3002;
+  stream.respond({
+    &apos;content-type&apos;: &apos;text/html&apos;,
+    &apos;:status&apos;: 200
+  });
+  stream.end(&apos;&lt;h1&gt;&#x4F60;&#x597D;&#x4E16;&#x754C;&lt;/h1&gt;&apos;);
+});
+
+server.listen(8443);
+</code></pre><p>&#x8981;&#x751F;&#x6210;&#x6B64;&#x793A;&#x4F8B;&#x7684;&#x8BC1;&#x4E66;&#x548C;&#x5BC6;&#x94A5;&#xFF0C;&#x53EF;&#x4EE5;&#x8FD0;&#x884C;&#xFF1A;</p><pre><code class="language-bash">openssl req -x509 -newkey rsa:2048 -nodes -sha256 -subj &apos;/CN=localhost&apos; \
+  -keyout &#x5BC6;&#x94A5;.pem -out &#x8BC1;&#x4E66;.pem
+</code></pre></div>
+          <div id="content_right"><p>The following illustrates a simple HTTP/2 server using the Core API.
+Since there are no browsers known that support
+<a href="http://nodejs.cn/s/yfVdqh" rel="nofollow">unencrypted HTTP/2</a>, the use of
+<a href="http://nodejs.cn/s/zQgH8T" rel="nofollow"><code>http2.createSecureServer()</code></a> is necessary when communicating
+with browser clients.</p><pre><code class="language-js">const http2 = require(&apos;http2&apos;);
+const fs = require(&apos;fs&apos;);
+
+const server = http2.createSecureServer({
+  key: fs.readFileSync(&apos;localhost-privkey.pem&apos;),
+  cert: fs.readFileSync(&apos;localhost-cert.pem&apos;)
+});
+server.on(&apos;error&apos;, (err) =&gt; console.error(err));
+
+server.on(&apos;stream&apos;, (stream, headers) =&gt; {
+  // stream is a Duplex
+  stream.respond({
+    &apos;content-type&apos;: &apos;text/html&apos;,
+    &apos;:status&apos;: 200
+  });
+  stream.end(&apos;&lt;h1&gt;Hello World&lt;/h1&gt;&apos;);
+});
+
+server.listen(8443);
+</code></pre><p>To generate the certificate and key for this example, run:</p><pre><code class="language-bash">openssl req -x509 -newkey rsa:2048 -nodes -sha256 -subj &apos;/CN=localhost&apos; \
+  -keyout localhost-privkey.pem -out localhost-cert.pem
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/http2/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756313712"><\/script>');
+  </script>
+</body>
+</html>

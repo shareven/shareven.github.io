@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>文件可访问性的常量 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756310406" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>文件可访问性的常量</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_file_access_constants" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/file_access_constants.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x4EE5;&#x4E0B;&#x5E38;&#x91CF;&#x9002;&#x7528;&#x4E8E; <a href="http://nodejs.cn/s/NCPsM3" rel="nofollow"><code>fs.access()</code></a>&#x3002;</p><table>
+  <tbody><tr>
+    <th>&#x5E38;&#x91CF;</th>
+    <th>&#x8BF4;&#x660E;</th>
+  </tr>
+  <tr>
+    <td><code>F_OK</code></td>
+    <td>&#x8868;&#x660E;&#x6587;&#x4EF6;&#x5BF9;&#x8C03;&#x7528;&#x8FDB;&#x7A0B;&#x53EF;&#x89C1;&#x3002;
+    &#x8FD9;&#x5BF9;&#x4E8E;&#x5224;&#x65AD;&#x6587;&#x4EF6;&#x662F;&#x5426;&#x5B58;&#x5728;&#x5F88;&#x6709;&#x7528;&#xFF0C;&#x4F46;&#x5BF9; <code>rwx</code> &#x6743;&#x9650;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x8BF4;&#x660E;&#x3002; 
+    &#x5982;&#x679C;&#x672A;&#x6307;&#x5B9A;&#x6A21;&#x5F0F;&#xFF0C;&#x5219;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;&#x8BE5;&#x503C;&#x3002;
+    </td>
+  </tr>
+  <tr>
+    <td><code>R_OK</code></td>
+    <td>&#x8868;&#x660E;&#x8C03;&#x7528;&#x8FDB;&#x7A0B;&#x53EF;&#x4EE5;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>W_OK</code></td>
+    <td>&#x8868;&#x660E;&#x8C03;&#x7528;&#x8FDB;&#x7A0B;&#x53EF;&#x4EE5;&#x5199;&#x5165;&#x6587;&#x4EF6;&#x3002;</td>
+  </tr>
+  <tr>
+    <td><code>X_OK</code></td>
+    <td>&#x8868;&#x660E;&#x8C03;&#x7528;&#x8FDB;&#x7A0B;&#x53EF;&#x4EE5;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x3002;
+    &#x5728; Windows &#x4E0A;&#x65E0;&#x6548;&#xFF08;&#x8868;&#x73B0;&#x5F97;&#x50CF; <code>fs.constants.F_OK</code>&#xFF09;&#x3002;
+    </td>
+  </tr>
+</tbody></table></div>
+          <div id="content_right"><p>The following constants are meant for use with <a href="http://nodejs.cn/s/NCPsM3" rel="nofollow"><code>fs.access()</code></a>.</p><table>
+  <tbody><tr>
+    <th>Constant</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>F_OK</code></td>
+    <td>Flag indicating that the file is visible to the calling process.
+     This is useful for determining if a file exists, but says nothing
+     about <code>rwx</code> permissions. Default if no mode is specified.</td>
+  </tr>
+  <tr>
+    <td><code>R_OK</code></td>
+    <td>Flag indicating that the file can be read by the calling process.</td>
+  </tr>
+  <tr>
+    <td><code>W_OK</code></td>
+    <td>Flag indicating that the file can be written by the calling
+    process.</td>
+  </tr>
+  <tr>
+    <td><code>X_OK</code></td>
+    <td>Flag indicating that the file can be executed by the calling
+    process. This has no effect on Windows
+    (will behave like <code>fs.constants.F_OK</code>).</td>
+  </tr>
+</tbody></table></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756310406"><\/script>');
+  </script>
+</body>
+</html>

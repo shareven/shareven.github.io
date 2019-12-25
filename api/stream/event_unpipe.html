@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'unpipe' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324112" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-stream">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'unpipe' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../stream.html#stream_event_unpipe" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/stream/event_unpipe.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.4</span>
+</div><ul>
+<li><code>src</code> <a href="http://nodejs.cn/s/YuDKX1" target="_blank" rel="nofollow" class="type">&lt;stream.Readable&gt;</a> &#x8981;<a href="http://nodejs.cn/s/35GqHX" rel="nofollow">&#x79FB;&#x9664;</a>&#x53EF;&#x5199;&#x6D41;&#x7BA1;&#x9053;&#x7684;&#x6765;&#x6E90;&#x6D41;&#x3002;</li>
+</ul><p>&#x5728;&#x53EF;&#x8BFB;&#x6D41;&#x4E0A;&#x8C03;&#x7528; <a href="http://nodejs.cn/s/35GqHX" rel="nofollow"><code>stream.unpipe()</code></a> &#x65B9;&#x6CD5;&#x65F6;&#x4F1A;&#x53D1;&#x51FA; <code>&apos;unpipe&apos;</code>&#x4E8B;&#x4EF6;&#xFF0C;&#x4ECE;&#x5176;&#x76EE;&#x6807;&#x96C6;&#x4E2D;&#x79FB;&#x9664;&#x6B64;&#x53EF;&#x5199;&#x6D41;&#x3002;</p><p>&#x5F53;&#x53EF;&#x8BFB;&#x6D41;&#x901A;&#x8FC7;&#x7BA1;&#x9053;&#x6D41;&#x5411;&#x53EF;&#x5199;&#x6D41;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x65F6;&#xFF0C;&#x4E5F;&#x4F1A;&#x89E6;&#x53D1;&#x6B64;&#x4E8B;&#x4EF6;&#x3002;</p><pre><code class="language-js">const writer = getWritableStreamSomehow();
+const reader = getReadableStreamSomehow();
+writer.on(&apos;unpipe&apos;, (src) =&gt; {
+  console.log(&apos;&#x5DF2;&#x79FB;&#x9664;&#x53EF;&#x5199;&#x6D41;&#x7BA1;&#x9053;&apos;);
+  assert.equal(src, reader);
+});
+reader.pipe(writer);
+reader.unpipe(writer);
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.9.4</span>
+</div><ul>
+<li><code>src</code> <a href="http://nodejs.cn/s/YuDKX1" target="_blank" rel="nofollow" class="type">&lt;stream.Readable&gt;</a> The source stream that
+<a href="http://nodejs.cn/s/35GqHX" rel="nofollow">unpiped</a> this writable</li>
+</ul><p>The <code>&apos;unpipe&apos;</code> event is emitted when the <a href="http://nodejs.cn/s/35GqHX" rel="nofollow"><code>stream.unpipe()</code></a> method is called
+on a <a href="http://nodejs.cn/s/YuDKX1" rel="nofollow"><code>Readable</code></a> stream, removing this <a href="http://nodejs.cn/s/9JUnJ8" rel="nofollow"><code>Writable</code></a> from its set of
+destinations.</p><p>This is also emitted in case this <a href="http://nodejs.cn/s/9JUnJ8" rel="nofollow"><code>Writable</code></a> stream emits an error when a
+<a href="http://nodejs.cn/s/YuDKX1" rel="nofollow"><code>Readable</code></a> stream pipes into it.</p><pre><code class="language-js">const writer = getWritableStreamSomehow();
+const reader = getReadableStreamSomehow();
+writer.on(&apos;unpipe&apos;, (src) =&gt; {
+  console.log(&apos;Something has stopped piping into the writer.&apos;);
+  assert.equal(src, reader);
+});
+reader.pipe(writer);
+reader.unpipe(writer);
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324112"><\/script>');
+  </script>
+</body>
+</html>

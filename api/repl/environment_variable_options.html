@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>环境变量选项 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/repl/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756322738" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-repl">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>环境变量选项</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../repl.html#repl_environment_variable_options" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/repl/environment_variable_options.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49; Node.js REPL &#x7684;&#x5404;&#x79CD;&#x884C;&#x4E3A;&#xFF1A;</p><ul>
+<li><code>NODE_REPL_HISTORY</code> - &#x5F53;&#x7ED9;&#x5B9A;&#x4E86;&#x4E00;&#x4E2A;&#x6709;&#x6548;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x5219; REPL &#x7684;&#x5386;&#x53F2;&#x8BB0;&#x5F55;&#x5C06;&#x88AB;&#x4FDD;&#x5B58;&#x5230;&#x6307;&#x5B9A;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x7528;&#x6237;&#x76EE;&#x5F55;&#x4E0B;&#x7684; <code>.node_repl_history</code> &#x6587;&#x4EF6;&#x3002;
+&#x8BBE;&#x4E3A; <code>&apos;&apos;</code>&#xFF08;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#xFF09;&#x5C06;&#x4F1A;&#x7981;&#x7528;&#x6301;&#x4E45;&#x7684; REPL &#x5386;&#x53F2;&#x8BB0;&#x5F55;&#x3002;
+&#x503C;&#x4E24;&#x5934;&#x7684;&#x7A7A;&#x683C;&#x952E;&#x4F1A;&#x88AB;&#x53BB;&#x6389;&#x3002;
+&#x5728; Windows &#x5E73;&#x53F0;&#x4E0A;&#xFF0C;&#x5177;&#x6709;&#x7A7A;&#x503C;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x662F;&#x65E0;&#x6548;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x5C06;&#x6B64;&#x53D8;&#x91CF;&#x8BBE;&#x7F6E;&#x4E3A;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x7A7A;&#x683C;&#x53EF;&#x4EE5;&#x7981;&#x7528;&#x6301;&#x4E45;&#x7684; REPL &#x5386;&#x53F2;&#x8BB0;&#x5F55;&#x3002;</li>
+<li><code>NODE_REPL_HISTORY_SIZE</code> - &#x63A7;&#x5236;&#x5386;&#x53F2;&#x8BB0;&#x5F55;&#x7684;&#x6700;&#x5927;&#x884C;&#x6570;&#x3002;&#x5FC5;&#x987B;&#x662F;&#x6B63;&#x6570;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>1000</code>&#x3002;</li>
+<li><code>NODE_REPL_MODE</code> - &#x53EF;&#x4EE5;&#x662F; <code>&apos;sloppy&apos;</code> &#x6216; <code>&apos;strict&apos;</code>&#x3002;
+&#xA0;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;sloppy&apos;</code>&#xFF0C;&#x5141;&#x8BB8;&#x4EE3;&#x7801;&#x5728;&#x975E;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x4E0B;&#x8FD0;&#x884C;&#x3002;</li>
+</ul></div>
+          <div id="content_right"><p>Various behaviors of the Node.js REPL can be customized using the following
+environment variables:</p><ul>
+<li><code>NODE_REPL_HISTORY</code>: When a valid path is given, persistent REPL history
+will be saved to the specified file rather than <code>.node_repl_history</code> in the
+user&apos;s home directory. Setting this value to <code>&apos;&apos;</code> (an empty string) will
+disable persistent REPL history. Whitespace will be trimmed from the value.
+On Windows platforms environment variables with empty values are invalid so
+set this variable to one or more spaces to disable persistent REPL history.</li>
+<li><code>NODE_REPL_HISTORY_SIZE</code>: Controls how many lines of history will be
+persisted if history is available. Must be a positive number.
+<strong>Default:</strong> <code>1000</code>.</li>
+<li><code>NODE_REPL_MODE</code>: May be either <code>&apos;sloppy&apos;</code> or <code>&apos;strict&apos;</code>. <strong>Default:</strong>
+<code>&apos;sloppy&apos;</code>, which will allow non-strict mode code to be run.</li>
+</ul></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/repl/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756322738"><\/script>');
+  </script>
+</body>
+</html>

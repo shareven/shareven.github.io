@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>v8.getHeapStatistics() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/v8/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756329157" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-v8">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>v8.getHeapStatistics()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../v8.html#v8_v8_getheapstatistics" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/v8/v8_getheapstatistics.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v7.5.0</td>
+<td><p>Support values exceeding the 32-bit unsigned integer range.</p></td></tr>
+<tr><td>v7.2.0</td>
+<td><p>Added <code>malloced_memory</code>, <code>peak_malloced_memory</code>, and <code>does_zap_garbage</code>.</p></td></tr>
+<tr><td>v1.0.0</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v1.0.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></li>
+</ul><p>&#x8FD4;&#x56DE;&#x5177;&#x6709;&#x4EE5;&#x4E0B;&#x5C5E;&#x6027;&#x7684;&#x5BF9;&#x8C61;&#xFF1A;</p><ul>
+<li><code>total_heap_size</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>total_heap_size_executable</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>total_physical_size</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>total_available_size</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>used_heap_size</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>heap_size_limit</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>malloced_memory</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>peak_malloced_memory</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>does_zap_garbage</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>number_of_native_contexts</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>number_of_detached_contexts</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+</ul><p><code>does_zap_garbage</code> &#x662F;&#x4E00;&#x4E2A; 0/1 &#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x8868;&#x793A;&#x662F;&#x5426;&#x542F;&#x7528;&#x4E86; <code>--zap_code_space</code> &#x9009;&#x9879;&#x3002;
+&#x8FD9;&#x4F7F;&#x5F97; V8 &#x7528;&#x4F4D;&#x6A21;&#x5F0F;&#x8986;&#x76D6;&#x5806;&#x5783;&#x573E;&#x3002;
+RSS &#x5360;&#x7528;&#x7A7A;&#x95F4;&#xFF08;&#x5E38;&#x9A7B;&#x5185;&#x5B58;&#x96C6;&#xFF09;&#x4F1A;&#x53D8;&#x5F97;&#x8D8A;&#x6765;&#x8D8A;&#x5927;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4E0D;&#x65AD;&#x89E6;&#x53CA;&#x6240;&#x6709;&#x5806;&#x9875;&#x9762;&#xFF0C;&#x8FD9;&#x4F7F;&#x5F97;&#x5B83;&#x4EEC;&#x4E0D;&#x592A;&#x53EF;&#x80FD;&#x88AB;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4EA4;&#x6362;&#x51FA;&#x3002;</p><p><code>number_of_native_contexts</code> native_context &#x7684;&#x503C;&#x662F;&#x5F53;&#x524D;&#x6D3B;&#x52A8;&#x7684;&#x9876;&#x5C42;&#x4E0A;&#x4E0B;&#x6587;&#x7684;&#x6570;&#x91CF;&#x3002;
+&#x968F;&#x7740;&#x65F6;&#x95F4;&#x7684;&#x63A8;&#x79FB;&#xFF0C;&#x6B64;&#x6570;&#x5B57;&#x7684;&#x589E;&#x52A0;&#x8868;&#x793A;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x3002;</p><p><code>number_of_detached_contexts</code> detached_context &#x7684;&#x503C;&#x662F;&#x5DF2;&#x5206;&#x79BB;&#x4F46;&#x5C1A;&#x672A;&#x56DE;&#x6536;&#x5783;&#x573E;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x6570;&#x3002;
+&#x8BE5;&#x6570;&#x5B57;&#x4E0D;&#x4E3A;&#x96F6;&#x8868;&#x793A;&#x6F5C;&#x5728;&#x7684;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x3002;</p><pre><code class="language-js">{
+  total_heap_size: 7326976,
+  total_heap_size_executable: 4194304,
+  total_physical_size: 7326976,
+  total_available_size: 1152656,
+  used_heap_size: 3476208,
+  heap_size_limit: 1535115264,
+  malloced_memory: 16384,
+  peak_malloced_memory: 1127496,
+  does_zap_garbage: 0,
+  number_of_native_contexts: 1,
+  number_of_detached_contexts: 0
+}
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v7.5.0</td>
+<td><p>Support values exceeding the 32-bit unsigned integer range.</p></td></tr>
+<tr><td>v7.2.0</td>
+<td><p>Added <code>malloced_memory</code>, <code>peak_malloced_memory</code>, and <code>does_zap_garbage</code>.</p></td></tr>
+<tr><td>v1.0.0</td>
+<td><p><span>Added in: v1.0.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li>Returns: <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></li>
+</ul><p>Returns an object with the following properties:</p><ul>
+<li><code>total_heap_size</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>total_heap_size_executable</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>total_physical_size</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>total_available_size</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>used_heap_size</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>heap_size_limit</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>malloced_memory</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>peak_malloced_memory</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>does_zap_garbage</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>number_of_native_contexts</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>number_of_detached_contexts</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+</ul><p><code>does_zap_garbage</code> is a 0/1 boolean, which signifies whether the
+<code>--zap_code_space</code> option is enabled or not. This makes V8 overwrite heap
+garbage with a bit pattern. The RSS footprint (resident memory set) gets bigger
+because it continuously touches all heap pages and that makes them less likely
+to get swapped out by the operating system.</p><p><code>number_of_native_contexts</code> The value of native_context is the number of the
+top-level contexts currently active. Increase of this number over time indicates
+a memory leak.</p><p><code>number_of_detached_contexts</code> The value of detached_context is the number
+of contexts that were detached and not yet garbage collected. This number
+being non-zero indicates a potential memory leak.</p><pre><code class="language-js">{
+  total_heap_size: 7326976,
+  total_heap_size_executable: 4194304,
+  total_physical_size: 7326976,
+  total_available_size: 1152656,
+  used_heap_size: 3476208,
+  heap_size_limit: 1535115264,
+  malloced_memory: 16384,
+  peak_malloced_memory: 1127496,
+  does_zap_garbage: 0,
+  number_of_native_contexts: 1,
+  number_of_detached_contexts: 0
+}
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/v8/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756329157"><\/script>');
+  </script>
+</body>
+</html>

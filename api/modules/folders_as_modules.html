@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>目录作为模块 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/modules/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756315999" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-modules">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>目录作为模块</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../modules.html#modules_folders_as_modules" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/modules/folders_as_modules.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x53EF;&#x4EE5;&#x628A;&#x7A0B;&#x5E8F;&#x548C;&#x5E93;&#x653E;&#x5230;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x76EE;&#x5F55;&#xFF0C;&#x7136;&#x540E;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x5355;&#x4E00;&#x7684;&#x5165;&#x53E3;&#x6765;&#x6307;&#x5411;&#x5B83;&#x3002;
+&#x628A;&#x76EE;&#x5F55;&#x9012;&#x7ED9; <code>require()</code> &#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x6709;&#x4E09;&#x79CD;&#x65B9;&#x5F0F;&#x3002;</p><p>&#x7B2C;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x662F;&#x5728;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; <code>package.json</code> &#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x6307;&#x5B9A;&#x4E00;&#x4E2A; <code>main</code> &#x6A21;&#x5757;&#x3002;
+&#x4F8B;&#x5B50;&#xFF0C; <code>package.json</code> &#x6587;&#x4EF6;&#x7C7B;&#x4F3C;&#xFF1A;</p><pre><code class="language-json">{ &quot;name&quot; : &quot;some-library&quot;,
+  &quot;main&quot; : &quot;./lib/some-library.js&quot; }
+</code></pre><p>&#x5982;&#x679C;&#x8FD9;&#x662F;&#x5728; <code>./some-library</code> &#x76EE;&#x5F55;&#x4E2D;&#xFF0C;&#x5219; <code>require(&apos;./some-library&apos;)</code> &#x4F1A;&#x8BD5;&#x56FE;&#x52A0;&#x8F7D; <code>./some-library/lib/some-library.js</code>&#x3002;</p><p>&#x8FD9;&#x5C31;&#x662F; Node.js &#x5904;&#x7406; <code>package.json</code> &#x6587;&#x4EF6;&#x7684;&#x65B9;&#x5F0F;&#x3002;</p><p>&#x5982;&#x679C;&#x76EE;&#x5F55;&#x91CC;&#x6CA1;&#x6709; <code>package.json</code> &#x6587;&#x4EF6;&#xFF0C;&#x6216;&#x8005; <code>&apos;main&apos;</code> &#x5165;&#x53E3;&#x4E0D;&#x5B58;&#x5728;&#x6216;&#x65E0;&#x6CD5;&#x89E3;&#x6790;&#xFF0C;&#x5219; Node.js &#x5C06;&#x4F1A;&#x8BD5;&#x56FE;&#x52A0;&#x8F7D;&#x76EE;&#x5F55;&#x4E0B;&#x7684; <code>index.js</code> &#x6216; <code>index.node</code> &#x6587;&#x4EF6;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;&#x5982;&#x679C;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#x6CA1;&#x6709; <code>package.json</code> &#x6587;&#x4EF6;&#xFF0C;&#x5219; <code>require(&apos;./some-library&apos;)</code> &#x4F1A;&#x8BD5;&#x56FE;&#x52A0;&#x8F7D;&#xFF1A;</p><ul>
+<li><code>./some-library/index.js</code></li>
+<li><code>./some-library/index.node</code></li>
+</ul><p>&#x5982;&#x679C;&#x8FD9;&#x4E9B;&#x5C1D;&#x8BD5;&#x5931;&#x8D25;&#xFF0C;&#x5219; Node.js &#x5C06;&#x4F1A;&#x4F7F;&#x7528;&#x9ED8;&#x8BA4;&#x9519;&#x8BEF;&#x62A5;&#x544A;&#x6574;&#x4E2A;&#x6A21;&#x5757;&#x7684;&#x7F3A;&#x5931;&#xFF1A;</p><pre><code class="language-txt">Error: Cannot find module &apos;some-library&apos;
+</code></pre></div>
+          <div id="content_right"><p>It is convenient to organize programs and libraries into self-contained
+directories, and then provide a single entry point to those directories.
+There are three ways in which a folder may be passed to <code>require()</code> as
+an argument.</p><p>The first is to create a <code>package.json</code> file in the root of the folder,
+which specifies a <code>main</code> module. An example <code>package.json</code> file might
+look like this:</p><pre><code class="language-json">{ &quot;name&quot; : &quot;some-library&quot;,
+  &quot;main&quot; : &quot;./lib/some-library.js&quot; }
+</code></pre><p>If this was in a folder at <code>./some-library</code>, then
+<code>require(&apos;./some-library&apos;)</code> would attempt to load
+<code>./some-library/lib/some-library.js</code>.</p><p>This is the extent of Node.js&apos;s awareness of <code>package.json</code> files.</p><p>If there is no <code>package.json</code> file present in the directory, or if the
+<code>&apos;main&apos;</code> entry is missing or cannot be resolved, then Node.js
+will attempt to load an <code>index.js</code> or <code>index.node</code> file out of that
+directory. For example, if there was no <code>package.json</code> file in the above
+example, then <code>require(&apos;./some-library&apos;)</code> would attempt to load:</p><ul>
+<li><code>./some-library/index.js</code></li>
+<li><code>./some-library/index.node</code></li>
+</ul><p>If these attempts fail, then Node.js will report the entire module as missing
+with the default error:</p><pre><code class="language-txt">Error: Cannot find module &apos;some-library&apos;
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/modules/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756315999"><\/script>');
+  </script>
+</body>
+</html>

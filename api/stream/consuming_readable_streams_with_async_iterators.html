@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>使用异步迭代器消费可读流 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324304" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-stream">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>使用异步迭代器消费可读流</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../stream.html#stream_consuming_readable_streams_with_async_iterators" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/stream/consuming_readable_streams_with_async_iterators.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><pre><code class="language-js">(async function() {
+  for await (const chunk of readable) {
+    console.log(chunk);
+  }
+})();
+</code></pre><p>&#x5F02;&#x6B65;&#x8FED;&#x4EE3;&#x5668;&#x5728;&#x6D41;&#x4E0A;&#x6CE8;&#x518C;&#x4E00;&#x4E2A;&#x6C38;&#x4E45;&#x7684;&#x9519;&#x8BEF;&#x5904;&#x7406;&#x7A0B;&#x5E8F;&#xFF0C;&#x4EE5;&#x9632;&#x6B62;&#x4EFB;&#x4F55;&#x672A;&#x5904;&#x7406;&#x7684; post-destroy &#x9519;&#x8BEF;&#x3002;</p></div>
+          <div id="content_right"><pre><code class="language-js">(async function() {
+  for await (const chunk of readable) {
+    console.log(chunk);
+  }
+})();
+</code></pre><p>Async iterators register a permanent error handler on the stream to prevent any
+unhandled post-destroy errors.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324304"><\/script>');
+  </script>
+</body>
+</html>

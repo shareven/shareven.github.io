@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>示例 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/synopsis/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324903" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-synopsis">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>示例</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../synopsis.html#synopsis_example" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/synopsis/example.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x4F7F;&#x7528; Node.js &#x7F16;&#x5199; <a href="http://nodejs.cn/s/2Nw5aN" rel="nofollow">web&#x670D;&#x52A1;&#x5668;</a>&#x7684;&#x793A;&#x4F8B;&#xFF0C;&#x54CD;&#x5E94;&#x8FD4;&#x56DE; <code>&apos;Hello World&apos;</code>&#xFF1A;</p><p>&#x672C;&#x6587;&#x6863;&#x4E2D;&#x7684;&#x547D;&#x4EE4;&#x4EE5; <code>$</code> &#x6216; <code>&gt;</code> &#x5F00;&#x5934;&#xFF0C;&#x4EE5;&#x590D;&#x73B0;&#x5B83;&#x4EEC;&#x5728;&#x7528;&#x6237;&#x7EC8;&#x7AEF;&#x4E2D;&#x7684;&#x663E;&#x793A;&#x65B9;&#x5F0F;&#x3002;
+&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x65F6;&#x4E0D;&#x8981;&#x5305;&#x542B; <code>$</code> &#x548C; <code>&gt;</code> &#x5B57;&#x7B26;&#x3002;
+&#x5B83;&#x4EEC;&#x7528;&#x4E8E;&#x663E;&#x793A;&#x6BCF;&#x4E2A;&#x547D;&#x4EE4;&#x7684;&#x5F00;&#x59CB;&#x3002;</p><p>&#x4E0D;&#x4EE5; <code>$</code> &#x6216; <code>&gt;</code> &#x5B57;&#x7B26;&#x5F00;&#x5934;&#x7684;&#x4EE3;&#x7801;&#x884C;&#x663E;&#x793A;&#x4E0A;&#x4E00;&#x4E2A;&#x547D;&#x4EE4;&#x7684;&#x8F93;&#x51FA;&#x3002;</p><p>&#x9996;&#x5148;&#xFF0C;&#x786E;&#x4FDD;&#x5DF2;&#x7ECF;&#x4E0B;&#x8F7D;&#x5E76;&#x5B89;&#x88C5;&#x4E86; Node.js&#x3002;
+&#x6709;&#x5173;&#x66F4;&#x591A;&#x5B89;&#x88C5;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x53C2;&#x9605;<a href="http://nodejs.cn/s/2R2WWC" rel="nofollow">&#x672C;&#x6307;&#x5357;</a>&#x3002;</p><p>&#x73B0;&#x5728;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; <code>projects</code> &#x7684;&#x7A7A;&#x9879;&#x76EE;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x7136;&#x540E;&#x5BFC;&#x822A;&#x5230;&#x5B83;&#x3002;</p><p>&#x5728; Linux &#x548C; Mac &#x4E0A;&#xFF1A;</p><pre><code class="language-console">$ mkdir ~/projects
+$ cd ~/projects
+</code></pre><p>&#x5728; Windows CMD &#x4E0A;&#xFF1A;</p><pre><code class="language-console">&gt; mkdir %USERPROFILE%\projects
+&gt; cd %USERPROFILE%\projects
+</code></pre><p>&#x5728; Windows PowerShell &#x4E0A;&#xFF1A;</p><pre><code class="language-console">&gt; mkdir $env:USERPROFILE\projects
+&gt; cd $env:USERPROFILE\projects
+</code></pre><p>&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x5728; <code>projects</code> &#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x6E90;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x547D;&#x540D;&#x4E3A; <code>hello-world.js</code>&#x3002;</p><p>&#x5728;&#x4EFB;&#x4F55;&#x9996;&#x9009;&#x6587;&#x672C;&#x7F16;&#x8F91;&#x5668;&#x4E2D;&#x6253;&#x5F00; <code>hello-world.js</code> &#x5E76;&#x7C98;&#x8D34;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;</p><pre><code class="language-js">const http = require(&apos;http&apos;);
+
+const hostname = &apos;127.0.0.1&apos;;
+const port = 3000;
+
+const server = http.createServer((req, res) =&gt; {
+  res.statusCode = 200;
+  res.setHeader(&apos;Content-Type&apos;, &apos;text/plain&apos;);
+  res.end(&apos;Hello, World!\n&apos;);
+});
+
+server.listen(port, hostname, () =&gt; {
+  console.log(`&#x670D;&#x52A1;&#x5668;&#x8FD0;&#x884C;&#x5728; http://${hostname}:${port}/`);
+});
+</code></pre><p>&#x4FDD;&#x5B58;&#x6587;&#x4EF6;&#xFF0C;&#x8FD4;&#x56DE;&#x7EC8;&#x7AEF;&#x7A97;&#x53E3;&#xFF0C;&#x7136;&#x540E;&#x8F93;&#x5165;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#xFF1A;</p><pre><code class="language-console">$ node hello-world.js
+</code></pre><p>&#x7EC8;&#x7AEF;&#x4E2D;&#x4F1A;&#x8F93;&#x51FA;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;</p><pre><code class="language-console">&#x670D;&#x52A1;&#x5668;&#x8FD0;&#x884C;&#x5728; http://127.0.0.1:3000/
+</code></pre><p>&#x73B0;&#x5728;&#xFF0C;&#x6253;&#x5F00;&#x4EFB;&#x4F55;&#x9996;&#x9009;&#x7684; Web &#x6D4F;&#x89C8;&#x5668;&#x5E76;&#x8BBF;&#x95EE; <code>http://127.0.0.1:3000</code>&#x3002;</p><p>&#x5982;&#x679C;&#x6D4F;&#x89C8;&#x5668;&#x663E;&#x793A;&#x5B57;&#x7B26;&#x4E32; <code>Hello&#xFF0C;World!</code>&#xFF0C;&#x5219;&#x8868;&#x660E;&#x670D;&#x52A1;&#x5668;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x3002;</p></div>
+          <div id="content_right"><p>An example of a <a href="http://nodejs.cn/s/2Nw5aN" rel="nofollow">web server</a> written with Node.js which responds with
+<code>&apos;Hello, World!&apos;</code>:</p><p>Commands in this document start with <code>$</code> or <code>&gt;</code> to replicate how they would
+appear in a user&apos;s terminal. Do not include the <code>$</code> and <code>&gt;</code> characters. They are
+there to show the start of each command.</p><p>Lines that don&#x2019;t start with <code>$</code> or <code>&gt;</code> character show the output of the previous
+command.</p><p>First, make sure to have downloaded and installed Node.js. See <a href="http://nodejs.cn/s/2R2WWC" rel="nofollow">this guide</a>
+for further install information.</p><p>Now, create an empty project folder called <code>projects</code>, then navigate into it.</p><p>Linux and Mac:</p><pre><code class="language-console">$ mkdir ~/projects
+$ cd ~/projects
+</code></pre><p>Windows CMD:</p><pre><code class="language-console">&gt; mkdir %USERPROFILE%\projects
+&gt; cd %USERPROFILE%\projects
+</code></pre><p>Windows PowerShell:</p><pre><code class="language-console">&gt; mkdir $env:USERPROFILE\projects
+&gt; cd $env:USERPROFILE\projects
+</code></pre><p>Next, create a new source file in the <code>projects</code>
+folder and call it <code>hello-world.js</code>.</p><p>Open <code>hello-world.js</code> in any preferred text editor and
+paste in the following content:</p><pre><code class="language-js">const http = require(&apos;http&apos;);
+
+const hostname = &apos;127.0.0.1&apos;;
+const port = 3000;
+
+const server = http.createServer((req, res) =&gt; {
+  res.statusCode = 200;
+  res.setHeader(&apos;Content-Type&apos;, &apos;text/plain&apos;);
+  res.end(&apos;Hello, World!\n&apos;);
+});
+
+server.listen(port, hostname, () =&gt; {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
+</code></pre><p>Save the file, go back to the terminal window, and enter the following command:</p><pre><code class="language-console">$ node hello-world.js
+</code></pre><p>Output like this should appear in the terminal:</p><pre><code class="language-console">Server running at http://127.0.0.1:3000/
+</code></pre><p>Now, open any preferred web browser and visit <code>http://127.0.0.1:3000</code>.</p><p>If the browser displays the string <code>Hello, World!</code>, that indicates
+the server is working.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/synopsis/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324903"><\/script>');
+  </script>
+</body>
+</html>

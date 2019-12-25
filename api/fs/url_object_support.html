@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>URL 对象的支持 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756309472" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>URL 对象的支持</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_url_object_support" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/url_object_support.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v7.6.0</span>
+</div><p>&#x5BF9;&#x4E8E;&#x5927;&#x591A;&#x6570; <code>fs</code> &#x6A21;&#x5757;&#x7684;&#x51FD;&#x6570;&#xFF0C; <code>path</code> &#x6216; <code>filename</code> &#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x4F20;&#x5165; WHATWG <a href="http://nodejs.cn/s/5dwq7G" rel="nofollow"><code>URL</code></a> &#x5BF9;&#x8C61;&#x3002;
+&#x4EC5;&#x652F;&#x6301;&#x4F7F;&#x7528; <code>file:</code> &#x534F;&#x8BAE;&#x7684; <a href="http://nodejs.cn/s/5dwq7G" rel="nofollow"><code>URL</code></a> &#x5BF9;&#x8C61;&#x3002;</p><pre><code class="language-js">const fs = require(&apos;fs&apos;);
+const fileUrl = new URL(&apos;file:///tmp/hello&apos;);
+
+fs.readFileSync(fileUrl);
+</code></pre><p><code>file:</code> URL &#x59CB;&#x7EC8;&#x662F;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;</p><p>&#x4F7F;&#x7528; WHATWG <a href="http://nodejs.cn/s/5dwq7G" rel="nofollow"><code>URL</code></a> &#x5BF9;&#x8C61;&#x53EF;&#x80FD;&#x4F1A;&#x91C7;&#x7528;&#x7279;&#x5B9A;&#x4E8E;&#x5E73;&#x53F0;&#x7684;&#x884C;&#x4E3A;&#x3002;</p><p>&#x5728; Windows &#x4E0A;&#xFF0C;&#x5E26;&#x6709;&#x4E3B;&#x673A;&#x540D;&#x7684; <code>file:</code> URL &#x8F6C;&#x6362;&#x4E3A; UNC &#x8DEF;&#x5F84;&#xFF0C;&#x800C;&#x5E26;&#x6709;&#x9A71;&#x52A8;&#x5668;&#x53F7;&#x7684; <code>file:</code> URL &#x8F6C;&#x6362;&#x4E3A;&#x672C;&#x5730;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;
+&#x6CA1;&#x6709;&#x4E3B;&#x673A;&#x540D;&#x548C;&#x9A71;&#x52A8;&#x5668;&#x53F7;&#x7684; <code>file:</code> URL &#x5C06;&#x5BFC;&#x81F4;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#xFF1A;</p><pre><code class="language-js">// &#x5728; Windows &#x4E0A;&#xFF1A;
+
+// - &#x5E26;&#x6709;&#x4E3B;&#x673A;&#x540D;&#x7684; WHATWG &#x6587;&#x4EF6;&#x7684; URL &#x8F6C;&#x6362;&#x4E3A; UNC &#x8DEF;&#x5F84;&#x3002;
+// file://hostname/p/a/t/h/file =&gt; \\hostname\p\a\t\h\file
+fs.readFileSync(new URL(&apos;file://hostname/p/a/t/h/file&apos;));
+
+// - &#x5E26;&#x6709;&#x9A71;&#x52A8;&#x5668;&#x53F7;&#x7684; WHATWG &#x6587;&#x4EF6;&#x7684; URL &#x8F6C;&#x6362;&#x4E3A;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;
+// file:///C:/tmp/hello =&gt; C:\tmp\hello
+fs.readFileSync(new URL(&apos;file:///C:/tmp/hello&apos;));
+
+// - &#x6CA1;&#x6709;&#x4E3B;&#x673A;&#x540D;&#x7684; WHATWG &#x6587;&#x4EF6;&#x7684; URL &#x5FC5;&#x987B;&#x5305;&#x542B;&#x9A71;&#x52A8;&#x5668;&#x53F7;&#x3002;
+fs.readFileSync(new URL(&apos;file:///notdriveletter/p/a/t/h/file&apos;));
+fs.readFileSync(new URL(&apos;file:///c/p/a/t/h/file&apos;));
+// TypeError [ERR_INVALID_FILE_URL_PATH]: File URL path must be absolute
+</code></pre><p>&#x5E26;&#x6709;&#x9A71;&#x52A8;&#x5668;&#x53F7;&#x7684; <code>file:</code> URL &#x5FC5;&#x987B;&#x4F7F;&#x7528; <code>:</code> &#x4F5C;&#x4E3A;&#x9A71;&#x52A8;&#x5668;&#x53F7;&#x540E;&#x9762;&#x7684;&#x5206;&#x9694;&#x7B26;&#x3002;
+&#x4F7F;&#x7528;&#x5176;&#x4ED6;&#x5206;&#x9694;&#x7B26;&#x5C06;&#x5BFC;&#x81F4;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x3002;</p><p>&#x5728;&#x6240;&#x6709;&#x5176;&#x4ED6;&#x5E73;&#x53F0;&#x4E0A;&#xFF0C;&#x4E0D;&#x652F;&#x6301;&#x5E26;&#x6709;&#x4E3B;&#x673A;&#x540D;&#x7684; <code>file:</code> URL&#xFF0C;&#x4F7F;&#x7528;&#x65F6;&#x5C06;&#x5BFC;&#x81F4;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#xFF1A;</p><pre><code class="language-js">// &#x5728;&#x5176;&#x4ED6;&#x5E73;&#x53F0;&#x4E0A;&#xFF1A;
+
+// - &#x4E0D;&#x652F;&#x6301;&#x5E26;&#x6709;&#x4E3B;&#x673A;&#x540D;&#x7684; WHATWG &#x6587;&#x4EF6;&#x7684; URL&#x3002;
+// file://hostname/p/a/t/h/file =&gt; throw!
+fs.readFileSync(new URL(&apos;file://hostname/p/a/t/h/file&apos;));
+// TypeError [ERR_INVALID_FILE_URL_PATH]: must be absolute
+
+// - WHATWG &#x6587;&#x4EF6;&#x7684; URL &#x8F6C;&#x6362;&#x4E3A;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;
+// file:///tmp/hello =&gt; /tmp/hello
+fs.readFileSync(new URL(&apos;file:///tmp/hello&apos;));
+</code></pre><p>&#x5305;&#x542B;&#x7F16;&#x7801;&#x540E;&#x7684;&#x659C;&#x6746;&#x5B57;&#x7B26;&#xFF08;<code>%2F</code>&#xFF09;&#x7684; <code>file:</code> URL &#x5728;&#x6240;&#x6709;&#x5E73;&#x53F0;&#x4E0A;&#x90FD;&#x5C06;&#x5BFC;&#x81F4;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#xFF1A;</p><pre><code class="language-js">// &#x5728; Windows &#x4E0A;&#xFF1A;
+fs.readFileSync(new URL(&apos;file:///C:/p/a/t/h/%2F&apos;));
+fs.readFileSync(new URL(&apos;file:///C:/p/a/t/h/%2f&apos;));
+/* TypeError [ERR_INVALID_FILE_URL_PATH]: File URL path must not include encoded
+\ or / characters */
+
+// &#x5728; POSIX &#x4E0A;&#xFF1A;
+fs.readFileSync(new URL(&apos;file:///p/a/t/h/%2F&apos;));
+fs.readFileSync(new URL(&apos;file:///p/a/t/h/%2f&apos;));
+/* TypeError [ERR_INVALID_FILE_URL_PATH]: File URL path must not include encoded
+/ characters */
+</code></pre><p>&#x5728; Windows &#x4E0A;&#xFF0C;&#x5305;&#x542B;&#x7F16;&#x7801;&#x540E;&#x7684;&#x53CD;&#x659C;&#x6746;&#x5B57;&#x7B26;&#xFF08;<code>%5C</code>&#xFF09;&#x7684; <code>file:</code> URL &#x5C06;&#x5BFC;&#x81F4;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#xFF1A; </p><pre><code class="language-js">// &#x5728; Windows &#x4E0A;&#xFF1A;
+fs.readFileSync(new URL(&apos;file:///C:/path/%5C&apos;));
+fs.readFileSync(new URL(&apos;file:///C:/path/%5c&apos;));
+/* TypeError [ERR_INVALID_FILE_URL_PATH]: File URL path must not include encoded
+\ or / characters */
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v7.6.0</span>
+</div><p>For most <code>fs</code> module functions, the <code>path</code> or <code>filename</code> argument may be passed
+as a WHATWG <a href="http://nodejs.cn/s/5dwq7G" rel="nofollow"><code>URL</code></a> object. Only <a href="http://nodejs.cn/s/5dwq7G" rel="nofollow"><code>URL</code></a> objects using the <code>file:</code> protocol
+are supported.</p><pre><code class="language-js">const fs = require(&apos;fs&apos;);
+const fileUrl = new URL(&apos;file:///tmp/hello&apos;);
+
+fs.readFileSync(fileUrl);
+</code></pre><p><code>file:</code> URLs are always absolute paths.</p><p>Using WHATWG <a href="http://nodejs.cn/s/5dwq7G" rel="nofollow"><code>URL</code></a> objects might introduce platform-specific behaviors.</p><p>On Windows, <code>file:</code> URLs with a hostname convert to UNC paths, while <code>file:</code>
+URLs with drive letters convert to local absolute paths. <code>file:</code> URLs without a
+hostname nor a drive letter will result in a throw:</p><pre><code class="language-js">// On Windows :
+
+// - WHATWG file URLs with hostname convert to UNC path
+// file://hostname/p/a/t/h/file =&gt; \\hostname\p\a\t\h\file
+fs.readFileSync(new URL(&apos;file://hostname/p/a/t/h/file&apos;));
+
+// - WHATWG file URLs with drive letters convert to absolute path
+// file:///C:/tmp/hello =&gt; C:\tmp\hello
+fs.readFileSync(new URL(&apos;file:///C:/tmp/hello&apos;));
+
+// - WHATWG file URLs without hostname must have a drive letters
+fs.readFileSync(new URL(&apos;file:///notdriveletter/p/a/t/h/file&apos;));
+fs.readFileSync(new URL(&apos;file:///c/p/a/t/h/file&apos;));
+// TypeError [ERR_INVALID_FILE_URL_PATH]: File URL path must be absolute
+</code></pre><p><code>file:</code> URLs with drive letters must use <code>:</code> as a separator just after
+the drive letter. Using another separator will result in a throw.</p><p>On all other platforms, <code>file:</code> URLs with a hostname are unsupported and will
+result in a throw:</p><pre><code class="language-js">// On other platforms:
+
+// - WHATWG file URLs with hostname are unsupported
+// file://hostname/p/a/t/h/file =&gt; throw!
+fs.readFileSync(new URL(&apos;file://hostname/p/a/t/h/file&apos;));
+// TypeError [ERR_INVALID_FILE_URL_PATH]: must be absolute
+
+// - WHATWG file URLs convert to absolute path
+// file:///tmp/hello =&gt; /tmp/hello
+fs.readFileSync(new URL(&apos;file:///tmp/hello&apos;));
+</code></pre><p>A <code>file:</code> URL having encoded slash characters will result in a throw on all
+platforms:</p><pre><code class="language-js">// On Windows
+fs.readFileSync(new URL(&apos;file:///C:/p/a/t/h/%2F&apos;));
+fs.readFileSync(new URL(&apos;file:///C:/p/a/t/h/%2f&apos;));
+/* TypeError [ERR_INVALID_FILE_URL_PATH]: File URL path must not include encoded
+\ or / characters */
+
+// On POSIX
+fs.readFileSync(new URL(&apos;file:///p/a/t/h/%2F&apos;));
+fs.readFileSync(new URL(&apos;file:///p/a/t/h/%2f&apos;));
+/* TypeError [ERR_INVALID_FILE_URL_PATH]: File URL path must not include encoded
+/ characters */
+</code></pre><p>On Windows, <code>file:</code> URLs having encoded backslash will result in a throw:</p><pre><code class="language-js">// On Windows
+fs.readFileSync(new URL(&apos;file:///C:/path/%5C&apos;));
+fs.readFileSync(new URL(&apos;file:///C:/path/%5c&apos;));
+/* TypeError [ERR_INVALID_FILE_URL_PATH]: File URL path must not include encoded
+\ or / characters */
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756309472"><\/script>');
+  </script>
+</body>
+</html>

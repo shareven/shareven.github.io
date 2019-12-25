@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>创建同步的进程 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/child_process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756295888" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-child_process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>创建同步的进程</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../child_process.html#child_process_synchronous_process_creation" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/child_process/synchronous_process_creation.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p><a href="http://nodejs.cn/s/bmkUrE" rel="nofollow"><code>child_process.spawnSync()</code></a>&#x3001;<a href="http://nodejs.cn/s/i6KxMV" rel="nofollow"><code>child_process.execSync()</code></a> &#x548C; <a href="http://nodejs.cn/s/ed75fU" rel="nofollow"><code>child_process.execFileSync()</code></a> &#x65B9;&#x6CD5;&#x662F;&#x540C;&#x6B65;&#x7684;&#xFF0C;&#x5E76;&#x4E14;&#x5C06;&#x4F1A;&#x963B;&#x585E; Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x3001;&#x6682;&#x505C;&#x4EFB;&#x4F55;&#x5176;&#x4ED6;&#x4EE3;&#x7801;&#x7684;&#x6267;&#x884C;&#xFF0C;&#x76F4;&#x5230;&#x884D;&#x751F;&#x7684;&#x8FDB;&#x7A0B;&#x9000;&#x51FA;&#x3002;</p><p>&#x963B;&#x585E;&#x8FD9;&#x4E9B;&#x8C03;&#x7528;&#x5BF9;&#x4E8E;&#x7B80;&#x5316;&#x901A;&#x7528;&#x7684;&#x811A;&#x672C;&#x4EFB;&#x52A1;&#x548C;&#x7B80;&#x5316;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x914D;&#x7F6E;&#x5728;&#x542F;&#x52A8;&#x65F6;&#x7684;&#x52A0;&#x8F7D;&#x6216;&#x5904;&#x7406;&#x90FD;&#x975E;&#x5E38;&#x6709;&#x7528;&#x3002;</p></div>
+          <div id="content_right"><p>The <a href="http://nodejs.cn/s/bmkUrE" rel="nofollow"><code>child_process.spawnSync()</code></a>, <a href="http://nodejs.cn/s/i6KxMV" rel="nofollow"><code>child_process.execSync()</code></a>, and
+<a href="http://nodejs.cn/s/ed75fU" rel="nofollow"><code>child_process.execFileSync()</code></a> methods are synchronous and will block the
+Node.js event loop, pausing execution of any additional code until the spawned
+process exits.</p><p>Blocking calls like these are mostly useful for simplifying general-purpose
+scripting tasks and for simplifying the loading/processing of application
+configuration at startup.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/child_process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756295888"><\/script>');
+  </script>
+</body>
+</html>

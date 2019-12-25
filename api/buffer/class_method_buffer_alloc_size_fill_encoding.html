@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Buffer.alloc(size[, fill[, encoding]]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756294536" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-buffer">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>Buffer.alloc(size[, fill[, encoding]])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../buffer.html#buffer_class_method_buffer_alloc_size_fill_encoding" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/buffer/class_method_buffer_alloc_size_fill_encoding.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>Attempting to fill a non-zero length buffer with a zero length buffer triggers a thrown exception.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p>Specifying an invalid string for <code>fill</code> triggers a thrown exception.</p></td></tr>
+<tr><td>v8.9.3</td>
+<td><p>Specifying an invalid string for <code>fill</code> now results in a zero-filled buffer.</p></td></tr>
+<tr><td>v5.10.0</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v5.10.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>size</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x65B0; <code>Buffer</code> &#x7684;&#x6240;&#x9700;&#x957F;&#x5EA6;&#x3002;</li>
+<li><code>fill</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/ZbDkpm" target="_blank" rel="nofollow" class="type">&lt;Uint8Array&gt;</a> | <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x7528;&#x4E8E;&#x9884;&#x586B;&#x5145;&#x65B0; <code>Buffer</code> &#x7684;&#x503C;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>0</code>&#x3002;</li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5982;&#x679C; <code>fill</code> &#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x8FD9;&#x662F;&#x5B83;&#x7684;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;utf8&apos;</code>&#x3002;</li>
+</ul><p>&#x5206;&#x914D;&#x4E00;&#x4E2A;&#x5927;&#x5C0F;&#x4E3A; <code>size</code> &#x5B57;&#x8282;&#x7684;&#x65B0; <code>Buffer</code>&#x3002;
+&#x5982;&#x679C; <code>fill</code> &#x4E3A; <code>undefined</code>&#xFF0C;&#x5219;&#x7528;&#x96F6;&#x586B;&#x5145; <code>Buffer</code>&#x3002;</p><pre><code class="language-js">const buf = Buffer.alloc(5);
+
+console.log(buf);
+// &#x6253;&#x5370;: &lt;Buffer 00 00 00 00 00&gt;
+</code></pre><p>&#x5982;&#x679C; <code>size</code> &#x5927;&#x4E8E; <a href="http://nodejs.cn/s/aBiAe5" rel="nofollow"><code>buffer.constants.MAX_LENGTH</code></a> &#x6216;&#x5C0F;&#x4E8E; 0&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="http://nodejs.cn/s/ouMFyk" rel="nofollow"><code>ERR_INVALID_OPT_VALUE</code></a>&#x3002;
+&#x5982;&#x679C; <code>size</code> &#x4E3A; 0&#xFF0C;&#x5219;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x96F6;&#x957F;&#x5EA6;&#x7684; <code>Buffer</code>&#x3002;</p><p>&#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86; <code>fill</code>&#xFF0C;&#x5219;&#x5206;&#x914D;&#x7684; <code>Buffer</code> &#x901A;&#x8FC7;&#x8C03;&#x7528; <a href="http://nodejs.cn/s/2dLJk5" rel="nofollow"><code>buf.fill(fill)</code></a> &#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x3002;</p><pre><code class="language-js">const buf = Buffer.alloc(5, &apos;a&apos;);
+
+console.log(buf);
+// &#x6253;&#x5370;: &lt;Buffer 61 61 61 61 61&gt;
+</code></pre><p>&#x5982;&#x679C;&#x540C;&#x65F6;&#x6307;&#x5B9A;&#x4E86; <code>fill</code> &#x548C; <code>encoding</code>&#xFF0C;&#x5219;&#x5206;&#x914D;&#x7684; <code>Buffer</code> &#x901A;&#x8FC7;&#x8C03;&#x7528; <a href="http://nodejs.cn/s/2dLJk5" rel="nofollow"><code>buf.fill(fill, encoding)</code></a> &#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316; &#x3002;</p><pre><code class="language-js">const buf = Buffer.alloc(11, &apos;aGVsbG8gd29ybGQ=&apos;, &apos;base64&apos;);
+
+console.log(buf);
+// &#x6253;&#x5370;: &lt;Buffer 68 65 6c 6c 6f 20 77 6f 72 6c 64&gt;
+</code></pre><p>&#x8C03;&#x7528; <a href="http://nodejs.cn/s/Du96og" rel="nofollow"><code>Buffer.alloc()</code></a> &#x53EF;&#x80FD;&#x6BD4;&#x66FF;&#x4EE3;&#x7684; <a href="http://nodejs.cn/s/TWpeWk" rel="nofollow"><code>Buffer.allocUnsafe()</code></a> &#x6162;&#x5F97;&#x591A;&#xFF0C;&#x4F46;&#x80FD;&#x786E;&#x4FDD;&#x65B0;&#x521B;&#x5EFA;&#x7684; <code>Buffer</code> &#x5B9E;&#x4F8B;&#x7684;&#x5185;&#x5BB9;&#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;&#x5305;&#x542B;&#x654F;&#x611F;&#x7684;&#x6570;&#x636E;&#x3002;</p><p>&#x5982;&#x679C; <code>size</code> &#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#xFF0C;&#x5219;&#x629B;&#x51FA; <code>TypeError</code>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>Attempting to fill a non-zero length buffer with a zero length buffer triggers a thrown exception.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p>Specifying an invalid string for <code>fill</code> triggers a thrown exception.</p></td></tr>
+<tr><td>v8.9.3</td>
+<td><p>Specifying an invalid string for <code>fill</code> now results in a zero-filled buffer.</p></td></tr>
+<tr><td>v5.10.0</td>
+<td><p><span>Added in: v5.10.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>size</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> The desired length of the new <code>Buffer</code>.</li>
+<li><code>fill</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/ZbDkpm" target="_blank" rel="nofollow" class="type">&lt;Uint8Array&gt;</a> | <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> A value to pre-fill the new <code>Buffer</code>
+with. <strong>Default:</strong> <code>0</code>.</li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> If <code>fill</code> is a string, this is its encoding.
+<strong>Default:</strong> <code>&apos;utf8&apos;</code>.</li>
+</ul><p>Allocates a new <code>Buffer</code> of <code>size</code> bytes. If <code>fill</code> is <code>undefined</code>, the
+<code>Buffer</code> will be <em>zero-filled</em>.</p><pre><code class="language-js">const buf = Buffer.alloc(5);
+
+console.log(buf);
+// Prints: &lt;Buffer 00 00 00 00 00&gt;
+</code></pre><p>If <code>size</code> is larger than
+<a href="http://nodejs.cn/s/aBiAe5" rel="nofollow"><code>buffer.constants.MAX_LENGTH</code></a> or smaller than 0, <a href="http://nodejs.cn/s/ouMFyk" rel="nofollow"><code>ERR_INVALID_OPT_VALUE</code></a>
+is thrown. A zero-length <code>Buffer</code> is created if <code>size</code> is 0.</p><p>If <code>fill</code> is specified, the allocated <code>Buffer</code> will be initialized by calling
+<a href="http://nodejs.cn/s/2dLJk5" rel="nofollow"><code>buf.fill(fill)</code></a>.</p><pre><code class="language-js">const buf = Buffer.alloc(5, &apos;a&apos;);
+
+console.log(buf);
+// Prints: &lt;Buffer 61 61 61 61 61&gt;
+</code></pre><p>If both <code>fill</code> and <code>encoding</code> are specified, the allocated <code>Buffer</code> will be
+initialized by calling <a href="http://nodejs.cn/s/2dLJk5" rel="nofollow"><code>buf.fill(fill, encoding)</code></a>.</p><pre><code class="language-js">const buf = Buffer.alloc(11, &apos;aGVsbG8gd29ybGQ=&apos;, &apos;base64&apos;);
+
+console.log(buf);
+// Prints: &lt;Buffer 68 65 6c 6c 6f 20 77 6f 72 6c 64&gt;
+</code></pre><p>Calling <a href="http://nodejs.cn/s/Du96og" rel="nofollow"><code>Buffer.alloc()</code></a> can be significantly slower than the alternative
+<a href="http://nodejs.cn/s/TWpeWk" rel="nofollow"><code>Buffer.allocUnsafe()</code></a> but ensures that the newly created <code>Buffer</code> instance
+contents will <em>never contain sensitive data</em>.</p><p>A <code>TypeError</code> will be thrown if <code>size</code> is not a number.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756294536"><\/script>');
+  </script>
+</body>
+</html>

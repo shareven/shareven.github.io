@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>https.get(url[, options][, callback]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/https/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756314635" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-https">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>https.get(url[, options][, callback])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../https.html#https_https_get_url_options_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/https/https_get_url_options_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.9.0</td>
+<td><p>The <code>url</code> parameter can now be passed along with a separate <code>options</code> object.</p></td></tr>
+<tr><td>v7.5.0</td>
+<td><p>The <code>options</code> parameter can be a WHATWG <code>URL</code> object.</p></td></tr>
+<tr><td>v0.3.6</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.3.6</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>url</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a> &#x63A5;&#x53D7;&#x4E0E; <a href="http://nodejs.cn/s/uhSMcR" rel="nofollow"><code>https.request()</code></a> &#x76F8;&#x540C;&#x7684; <code>options</code>, <code>method</code> &#x59CB;&#x7EC8;&#x8BBE;&#x7F6E;&#x4E3A; <code>GET</code>&#x3002;</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></li>
+</ul><p>&#x7C7B;&#x4F3C; <a href="http://nodejs.cn/s/MV8Bd1" rel="nofollow"><code>http.get()</code></a>&#xFF0C;&#x4F46;&#x662F;&#x7528;&#x4E8E; HTTPS&#x3002;</p><p><code>options</code> &#x53EF;&#x4EE5;&#x662F;&#x5BF9;&#x8C61;&#x3001;&#x5B57;&#x7B26;&#x4E32;&#x3001;&#x6216; <a href="http://nodejs.cn/s/5dwq7G" rel="nofollow"><code>URL</code></a> &#x5BF9;&#x8C61;&#x3002;
+&#x5982;&#x679C; <code>options</code> &#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;, &#x5219;&#x81EA;&#x52A8;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/a19aPx" rel="nofollow"><code>new URL()</code></a> &#x89E3;&#x6790;&#x5B83;&#x3002;
+&#x5982;&#x679C;&#x5B83;&#x662F;&#x4E00;&#x4E2A; <a href="http://nodejs.cn/s/5dwq7G" rel="nofollow"><code>URL</code></a> &#x5BF9;&#x8C61;&#xFF0C;&#x5219;&#x5C06;&#x81EA;&#x52A8;&#x8F6C;&#x6362;&#x4E3A;&#x666E;&#x901A;&#x7684; <code>options</code> &#x5BF9;&#x8C61;&#x3002;</p><pre><code class="language-js">const https = require(&apos;https&apos;);
+
+https.get(&apos;https://encrypted.google.com/&apos;, (res) =&gt; {
+  console.log(&apos;&#x72B6;&#x6001;&#x7801;:&apos;, res.statusCode);
+  console.log(&apos;&#x8BF7;&#x6C42;&#x5934;:&apos;, res.headers);
+
+  res.on(&apos;data&apos;, (d) =&gt; {
+    process.stdout.write(d);
+  });
+
+}).on(&apos;error&apos;, (e) =&gt; {
+  console.error(e);
+});
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v10.9.0</td>
+<td><p>The <code>url</code> parameter can now be passed along with a separate <code>options</code> object.</p></td></tr>
+<tr><td>v7.5.0</td>
+<td><p>The <code>options</code> parameter can be a WHATWG <code>URL</code> object.</p></td></tr>
+<tr><td>v0.3.6</td>
+<td><p><span>Added in: v0.3.6</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>url</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a> Accepts the same <code>options</code> as
+<a href="http://nodejs.cn/s/uhSMcR" rel="nofollow"><code>https.request()</code></a>, with the <code>method</code> always set to <code>GET</code>.</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></li>
+</ul><p>Like <a href="http://nodejs.cn/s/MV8Bd1" rel="nofollow"><code>http.get()</code></a> but for HTTPS.</p><p><code>options</code> can be an object, a string, or a <a href="http://nodejs.cn/s/5dwq7G" rel="nofollow"><code>URL</code></a> object. If <code>options</code> is a
+string, it is automatically parsed with <a href="http://nodejs.cn/s/a19aPx" rel="nofollow"><code>new URL()</code></a>. If it is a <a href="http://nodejs.cn/s/5dwq7G" rel="nofollow"><code>URL</code></a>
+object, it will be automatically converted to an ordinary <code>options</code> object.</p><pre><code class="language-js">const https = require(&apos;https&apos;);
+
+https.get(&apos;https://encrypted.google.com/&apos;, (res) =&gt; {
+  console.log(&apos;statusCode:&apos;, res.statusCode);
+  console.log(&apos;headers:&apos;, res.headers);
+
+  res.on(&apos;data&apos;, (d) =&gt; {
+    process.stdout.write(d);
+  });
+
+}).on(&apos;error&apos;, (e) =&gt; {
+  console.error(e);
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/https/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756314635"><\/script>');
+  </script>
+</body>
+</html>

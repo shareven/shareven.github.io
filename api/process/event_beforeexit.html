@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'beforeExit' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756320942" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'beforeExit' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../process.html#process_event_beforeexit" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/process/event_beforeexit.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.12</span>
+</div><p>&#x5F53; Node.js &#x6E05;&#x7A7A;&#x5176;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x5E76;&#x4E14;&#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x5DE5;&#x4F5C;&#x8981;&#x5B89;&#x6392;&#x65F6;&#xFF0C;&#x4F1A;&#x89E6;&#x53D1; <code>&apos;beforeExit&apos;</code> &#x4E8B;&#x4EF6;&#x3002;
+&#x901A;&#x5E38;&#xFF0C;Node.js &#x8FDB;&#x7A0B;&#x5C06;&#x5728;&#x6CA1;&#x6709;&#x8C03;&#x5EA6;&#x5DE5;&#x4F5C;&#x65F6;&#x9000;&#x51FA;&#xFF0C;&#x4F46;&#x662F;&#x5728; <code>&apos;beforeExit&apos;</code> &#x4E8B;&#x4EF6;&#x4E0A;&#x6CE8;&#x518C;&#x7684;&#x76D1;&#x542C;&#x5668;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x5F02;&#x6B65;&#x8C03;&#x7528;&#xFF0C;&#x4ECE;&#x800C;&#x5BFC;&#x81F4; Node.js &#x8FDB;&#x7A0B;&#x7EE7;&#x7EED;&#x3002;</p><p>&#x8C03;&#x7528;&#x76D1;&#x542C;&#x5668;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x65F6;&#x4F1A;&#x5C06; <a href="http://nodejs.cn/s/TMxzzD" rel="nofollow"><code>process.exitCode</code></a> &#x7684;&#x503C;&#x4F5C;&#x4E3A;&#x552F;&#x4E00;&#x53C2;&#x6570;&#x4F20;&#x5165;&#x3002;</p><p>&#x5BF9;&#x4E8E;&#x5BFC;&#x81F4;&#x663E;&#x5F0F;&#x7EC8;&#x6B62;&#x7684;&#x6761;&#x4EF6;&#xFF0C;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1; <code>&apos;beforeExit&apos;</code> &#x4E8B;&#x4EF6;&#xFF0C;&#x4F8B;&#x5982;&#x8C03;&#x7528; <a href="http://nodejs.cn/s/53qrEa" rel="nofollow"><code>process.exit()</code></a> &#x6216;&#x672A;&#x6355;&#x83B7;&#x7684;&#x5F02;&#x5E38;&#x3002;</p><p>&#x9664;&#x975E;&#x6253;&#x7B97;&#x5B89;&#x6392;&#x989D;&#x5916;&#x7684;&#x5DE5;&#x4F5C;&#xFF0C;&#x5426;&#x5219;&#x4E0D;&#x5E94;&#x5C06; <code>&apos;beforeExit&apos;</code> &#x7528;&#x4F5C; <code>&apos;exit&apos;</code> &#x4E8B;&#x4EF6;&#x7684;&#x66FF;&#x4EE3;&#x65B9;&#x6848;&#x3002;</p><pre><code class="language-js">process.on(&apos;beforeExit&apos;, (code) =&gt; {
+  console.log(&apos;&#x8FDB;&#x7A0B; beforeExit &#x4E8B;&#x4EF6;&#x7684;&#x4EE3;&#x7801;: &apos;, code);
+});
+
+process.on(&apos;exit&apos;, (code) =&gt; {
+  console.log(&apos;&#x8FDB;&#x7A0B; exit &#x4E8B;&#x4EF6;&#x7684;&#x4EE3;&#x7801;: &apos;, code);
+});
+
+console.log(&apos;&#x6B64;&#x6D88;&#x606F;&#x6700;&#x65B0;&#x663E;&#x793A;&apos;);
+
+// &#x6253;&#x5370;:
+// &#x6B64;&#x6D88;&#x606F;&#x6700;&#x65B0;&#x663E;&#x793A;
+// &#x8FDB;&#x7A0B; beforeExit &#x4E8B;&#x4EF6;&#x7684;&#x4EE3;&#x7801;: 0
+// &#x8FDB;&#x7A0B; exit &#x4E8B;&#x4EF6;&#x7684;&#x4EE3;&#x7801;: 0
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.11.12</span>
+</div><p>The <code>&apos;beforeExit&apos;</code> event is emitted when Node.js empties its event loop and has
+no additional work to schedule. Normally, the Node.js process will exit when
+there is no work scheduled, but a listener registered on the <code>&apos;beforeExit&apos;</code>
+event can make asynchronous calls, and thereby cause the Node.js process to
+continue.</p><p>The listener callback function is invoked with the value of
+<a href="http://nodejs.cn/s/TMxzzD" rel="nofollow"><code>process.exitCode</code></a> passed as the only argument.</p><p>The <code>&apos;beforeExit&apos;</code> event is <em>not</em> emitted for conditions causing explicit
+termination, such as calling <a href="http://nodejs.cn/s/53qrEa" rel="nofollow"><code>process.exit()</code></a> or uncaught exceptions.</p><p>The <code>&apos;beforeExit&apos;</code> should <em>not</em> be used as an alternative to the <code>&apos;exit&apos;</code> event
+unless the intention is to schedule additional work.</p><pre><code class="language-js">process.on(&apos;beforeExit&apos;, (code) =&gt; {
+  console.log(&apos;Process beforeExit event with code: &apos;, code);
+});
+
+process.on(&apos;exit&apos;, (code) =&gt; {
+  console.log(&apos;Process exit event with code: &apos;, code);
+});
+
+console.log(&apos;This message is displayed first.&apos;);
+
+// Prints:
+// This message is displayed first.
+// Process beforeExit event with code: 0
+// Process exit event with code: 0
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756320942"><\/script>');
+  </script>
+</body>
+</html>

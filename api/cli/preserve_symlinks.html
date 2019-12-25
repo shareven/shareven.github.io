@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>--preserve-symlinks | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/cli/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756296907" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-cli">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>--preserve-symlinks</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../cli.html#cli_preserve_symlinks" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/cli/preserve_symlinks.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v6.3.0</span>
+</div><p>&#x5F53;&#x89E3;&#x6790;&#x548C;&#x7F13;&#x5B58;&#x6A21;&#x5757;&#x65F6;&#xFF0C;&#x547D;&#x4EE4;&#x6A21;&#x5757;&#x52A0;&#x8F7D;&#x5668;&#x4FDD;&#x6301;&#x7B26;&#x53F7;&#x8FDE;&#x63A5;&#x3002;</p><p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5F53; Node.js &#x4ECE;&#x4E00;&#x4E2A;&#x88AB;&#x7B26;&#x53F7;&#x8FDE;&#x63A5;&#x5230;&#x53E6;&#x4E00;&#x5757;&#x78C1;&#x76D8;&#x4F4D;&#x7F6E;&#x7684;&#x8DEF;&#x5F84;&#x52A0;&#x8F7D;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x65F6;&#xFF0C;Node.js &#x4F1A;&#x89E3;&#x5F15;&#x7528;&#x8BE5;&#x8FDE;&#x63A5;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;&#x6A21;&#x5757;&#x7684;&#x771F;&#x5B9E;&#x78C1;&#x76D8;&#x7684;&#x5B9E;&#x9645;&#x8DEF;&#x5F84;&#xFF0C;&#x4F5C;&#x4E3A;&#x5B9A;&#x4F4D;&#x5176;&#x4ED6;&#x4F9D;&#x8D56;&#x6A21;&#x5757;&#x7684;&#x6807;&#x8BC6;&#x7B26;&#x548C;&#x6839;&#x8DEF;&#x5F84;&#x3002;
+&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#x662F;&#x53EF;&#x63A5;&#x53D7;&#x7684;&#x3002;
+&#x4F46;&#x662F;&#xFF0C;&#x5F53;&#x4F7F;&#x7528;&#x7B26;&#x53F7;&#x8FDE;&#x63A5;&#x7684;&#x540C;&#x884C;&#x4F9D;&#x8D56;&#xFF0C;&#x5982;&#x4E0B;&#x4F8B;&#x5B50;&#x6240;&#x63CF;&#x8FF0;&#x7684;&#xFF0C;&#x5982;&#x679C; <code>moduleA</code> &#x8BD5;&#x56FE;&#x5F15;&#x5165; <code>moduleB</code> &#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x540C;&#x884C;&#x4F9D;&#x8D56;&#xFF0C;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#x5C31;&#x4F1A;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#xFF1A;</p><pre><code class="language-text">{appDir}
+ &#x251C;&#x2500;&#x2500; app
+ &#x2502;   &#x251C;&#x2500;&#x2500; index.js
+ &#x2502;   &#x2514;&#x2500;&#x2500; node_modules
+ &#x2502;       &#x251C;&#x2500;&#x2500; moduleA -&gt; {appDir}/moduleA
+ &#x2502;       &#x2514;&#x2500;&#x2500; moduleB
+ &#x2502;           &#x251C;&#x2500;&#x2500; index.js
+ &#x2502;           &#x2514;&#x2500;&#x2500; package.json
+ &#x2514;&#x2500;&#x2500; moduleA
+     &#x251C;&#x2500;&#x2500; index.js
+     &#x2514;&#x2500;&#x2500; package.json
+</code></pre><p><code>--preserve-symlinks</code> &#x547D;&#x4EE4;&#x884C;&#x6807;&#x5FD7;&#x547D;&#x4EE4; Node.js &#x4F7F;&#x7528;&#x6A21;&#x5757;&#x7684;&#x7B26;&#x53F7;&#x8DEF;&#x5F84;&#x800C;&#x4E0D;&#x662F;&#x771F;&#x5B9E;&#x8DEF;&#x5F84;&#xFF0C;&#x662F;&#x7B26;&#x53F7;&#x8FDE;&#x63A5;&#x7684;&#x540C;&#x884C;&#x4F9D;&#x8D56;&#x80FD;&#x88AB;&#x627E;&#x5230;&#x3002;</p><p>&#x6CE8;&#x610F;&#xFF0C;&#x4F7F;&#x7528; <code>--preserve-symlinks</code> &#x4F1A;&#x6709;&#x5176;&#x4ED6;&#x65B9;&#x9762;&#x7684;&#x5F71;&#x54CD;&#x3002;
+&#x6BD4;&#x5982;&#xFF0C;&#x5982;&#x679C;&#x7B26;&#x53F7;&#x8FDE;&#x63A5;&#x7684;&#x539F;&#x751F;&#x6A21;&#x5757;&#x5728;&#x4F9D;&#x8D56;&#x6811;&#x91CC;&#x6765;&#x81EA;&#x8D85;&#x8FC7;&#x4E00;&#x4E2A;&#x4F4D;&#x7F6E;&#xFF0C;&#x5B83;&#x4EEC;&#x4F1A;&#x52A0;&#x8F7D;&#x5931;&#x8D25;&#x3002;
+&#xFF08;Node.js &#x4F1A;&#x5C06;&#x5B83;&#x4EEC;&#x89C6;&#x4E3A;&#x4E24;&#x4E2A;&#x72EC;&#x7ACB;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x4E14;&#x4F1A;&#x8BD5;&#x56FE;&#x591A;&#x6B21;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#xFF0C;&#x9020;&#x6210;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x3002;&#xFF09;</p><p><code>--preserve-symlinks</code> &#x6807;&#x5FD7;&#x4E0D;&#x9002;&#x7528;&#x4E8E;&#x4E3B;&#x6A21;&#x5757;&#xFF0C;&#x5B83;&#x5141;&#x8BB8; <code>node --preserve-symlinks node_module/.bin/&lt;foo&gt;</code> &#x5DE5;&#x4F5C;&#x3002;
+&#x8981;&#x5BF9;&#x4E3B;&#x6A21;&#x5757;&#x5E94;&#x7528;&#x76F8;&#x540C;&#x7684;&#x884C;&#x4E3A;&#xFF0C;&#x4E5F;&#x53EF;&#x4F7F;&#x7528; <code>--preserve-symlinks-main</code>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v6.3.0</span>
+</div><p>Instructs the module loader to preserve symbolic links when resolving and
+caching modules.</p><p>By default, when Node.js loads a module from a path that is symbolically linked
+to a different on-disk location, Node.js will dereference the link and use the
+actual on-disk &quot;real path&quot; of the module as both an identifier and as a root
+path to locate other dependency modules. In most cases, this default behavior
+is acceptable. However, when using symbolically linked peer dependencies, as
+illustrated in the example below, the default behavior causes an exception to
+be thrown if <code>moduleA</code> attempts to require <code>moduleB</code> as a peer dependency:</p><pre><code class="language-text">{appDir}
+ &#x251C;&#x2500;&#x2500; app
+ &#x2502;   &#x251C;&#x2500;&#x2500; index.js
+ &#x2502;   &#x2514;&#x2500;&#x2500; node_modules
+ &#x2502;       &#x251C;&#x2500;&#x2500; moduleA -&gt; {appDir}/moduleA
+ &#x2502;       &#x2514;&#x2500;&#x2500; moduleB
+ &#x2502;           &#x251C;&#x2500;&#x2500; index.js
+ &#x2502;           &#x2514;&#x2500;&#x2500; package.json
+ &#x2514;&#x2500;&#x2500; moduleA
+     &#x251C;&#x2500;&#x2500; index.js
+     &#x2514;&#x2500;&#x2500; package.json
+</code></pre><p>The <code>--preserve-symlinks</code> command line flag instructs Node.js to use the
+symlink path for modules as opposed to the real path, allowing symbolically
+linked peer dependencies to be found.</p><p>Note, however, that using <code>--preserve-symlinks</code> can have other side effects.
+Specifically, symbolically linked <em>native</em> modules can fail to load if those
+are linked from more than one location in the dependency tree (Node.js would
+see those as two separate modules and would attempt to load the module multiple
+times, causing an exception to be thrown).</p><p>The <code>--preserve-symlinks</code> flag does not apply to the main module, which allows
+<code>node --preserve-symlinks node_module/.bin/&lt;foo&gt;</code> to work. To apply the same
+behavior for the main module, also use <code>--preserve-symlinks-main</code>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/cli/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756296907"><\/script>');
+  </script>
+</body>
+</html>

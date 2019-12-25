@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>stream.pipeline(...streams, callback) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324233" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-stream">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>stream.pipeline(...streams, callback)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../stream.html#stream_stream_pipeline_streams_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/stream/stream_pipeline_streams_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.0.0</span>
+</div><ul>
+<li><code>...streams</code> <a href="http://nodejs.cn/s/t73H94" target="_blank" rel="nofollow" class="type">&lt;Stream&gt;</a> &#x8981;&#x4F7F;&#x7528;&#x7BA1;&#x9053;&#x4F20;&#x9001;&#x7684;&#x4E24;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x6D41;&#x3002;</li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x5F53;&#x7BA1;&#x9053;&#x5B8C;&#x5168;&#x5730;&#x5B8C;&#x6210;&#x65F6;&#x8C03;&#x7528;&#x3002;</p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+</ul>
+</li>
+</ul><p>&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x65B9;&#x6CD5;&#xFF0C;&#x4F7F;&#x7528;&#x7BA1;&#x9053;&#x4F20;&#x9001;&#x591A;&#x4E2A;&#x6D41;&#xFF0C;&#x5E76;&#x8F6C;&#x53D1;&#x9519;&#x8BEF;&#x548C;&#x6B63;&#x786E;&#x5730;&#x6E05;&#x7406;&#xFF0C;&#x5F53;&#x7BA1;&#x9053;&#x5B8C;&#x6210;&#x65F6;&#x63D0;&#x4F9B;&#x56DE;&#x8C03;&#x3002;</p><pre><code class="language-js">const { pipeline } = require(&apos;stream&apos;);
+const fs = require(&apos;fs&apos;);
+const zlib = require(&apos;zlib&apos;);
+
+// &#x4F7F;&#x7528; pipeline API &#x8F7B;&#x677E;&#x5730;&#x5C06;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x6D41;&#x901A;&#x8FC7;&#x7BA1;&#x9053;&#x4E00;&#x8D77;&#x4F20;&#x9001;&#xFF0C;&#x5E76;&#x5728;&#x7BA1;&#x9053;&#x5B8C;&#x5168;&#x5730;&#x5B8C;&#x6210;&#x65F6;&#x83B7;&#x5F97;&#x901A;&#x77E5;&#x3002;
+
+// &#x4F7F;&#x7528; pipeline &#x53EF;&#x4EE5;&#x6709;&#x6548;&#x5730;&#x538B;&#x7F29;&#x4E00;&#x4E2A;&#x53EF;&#x80FD;&#x5F88;&#x5927;&#x7684; tar &#x6587;&#x4EF6;&#xFF1A;
+
+pipeline(
+  fs.createReadStream(&apos;archive.tar&apos;),
+  zlib.createGzip(),
+  fs.createWriteStream(&apos;archive.tar.gz&apos;),
+  (err) =&gt; {
+    if (err) {
+      console.error(&apos;&#x7BA1;&#x9053;&#x4F20;&#x9001;&#x5931;&#x8D25;&apos;, err);
+    } else {
+      console.log(&apos;&#x7BA1;&#x9053;&#x4F20;&#x9001;&#x6210;&#x529F;&apos;);
+    }
+  }
+);
+</code></pre><p><code>pipeline</code> API &#x4E5F;&#x53EF;&#x4EE5; promise &#x5316;&#xFF1A;</p><pre><code class="language-js">const pipeline = util.promisify(stream.pipeline);
+
+async function run() {
+  await pipeline(
+    fs.createReadStream(&apos;archive.tar&apos;),
+    zlib.createGzip(),
+    fs.createWriteStream(&apos;archive.tar.gz&apos;)
+  );
+  console.log(&apos;&#x7BA1;&#x9053;&#x4F20;&#x9001;&#x6210;&#x529F;&apos;);
+}
+
+run().catch(console.error);
+</code></pre><p><code>stream.pipeline()</code> &#x5C06;&#x4F1A;&#x5728;&#x6240;&#x6709;&#x7684;&#x6D41;&#x4E0A;&#x8C03;&#x7528; <code>stream.destroy(err)</code>&#xFF0C;&#x9664;&#x4E86;&#xFF1A;</p><ul>
+<li>&#x5DF2;&#x89E6;&#x53D1; <code>&apos;end&apos;</code> &#x6216; <code>&apos;close&apos;</code> &#x7684; <code>Readable</code> &#x6D41;&#x3002;</li>
+<li>&#x5DF2;&#x89E6;&#x53D1; <code>&apos;finish&apos;</code> &#x6216; <code>&apos;close&apos;</code> &#x7684; <code>Writable</code> &#x6D41;&#x3002;</li>
+</ul><p>&#x5728;&#x8C03;&#x7528; <code>callback</code> &#x4E4B;&#x540E;&#xFF0C; <code>stream.pipeline()</code> &#x4F1A;&#x5C06;&#x60AC;&#x6302;&#x7684;&#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x5668;&#x7559;&#x5728;&#x6D41;&#x4E0A;&#x3002;
+&#x5728;&#x5931;&#x8D25;&#x540E;&#x91CD;&#x65B0;&#x4F7F;&#x7528;&#x6D41;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8FD9;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x5668;&#x6CC4;&#x6F0F;&#x548C;&#x8BEF;&#x541E;&#x7684;&#x9519;&#x8BEF;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v10.0.0</span>
+</div><ul>
+<li><code>...streams</code> <a href="http://nodejs.cn/s/t73H94" target="_blank" rel="nofollow" class="type">&lt;Stream&gt;</a> Two or more streams to pipe between.</li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> Called when the pipeline is fully done.</p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+</ul>
+</li>
+</ul><p>A module method to pipe between streams forwarding errors and properly cleaning
+up and provide a callback when the pipeline is complete.</p><pre><code class="language-js">const { pipeline } = require(&apos;stream&apos;);
+const fs = require(&apos;fs&apos;);
+const zlib = require(&apos;zlib&apos;);
+
+// Use the pipeline API to easily pipe a series of streams
+// together and get notified when the pipeline is fully done.
+
+// A pipeline to gzip a potentially huge tar file efficiently:
+
+pipeline(
+  fs.createReadStream(&apos;archive.tar&apos;),
+  zlib.createGzip(),
+  fs.createWriteStream(&apos;archive.tar.gz&apos;),
+  (err) =&gt; {
+    if (err) {
+      console.error(&apos;Pipeline failed.&apos;, err);
+    } else {
+      console.log(&apos;Pipeline succeeded.&apos;);
+    }
+  }
+);
+</code></pre><p>The <code>pipeline</code> API is promisify-able as well:</p><pre><code class="language-js">const pipeline = util.promisify(stream.pipeline);
+
+async function run() {
+  await pipeline(
+    fs.createReadStream(&apos;archive.tar&apos;),
+    zlib.createGzip(),
+    fs.createWriteStream(&apos;archive.tar.gz&apos;)
+  );
+  console.log(&apos;Pipeline succeeded.&apos;);
+}
+
+run().catch(console.error);
+</code></pre><p><code>stream.pipeline()</code> will call <code>stream.destroy(err)</code> on all streams except:</p><ul>
+<li><code>Readable</code> streams which have emitted <code>&apos;end&apos;</code> or <code>&apos;close&apos;</code>.</li>
+<li><code>Writable</code> streams which have emitted <code>&apos;finish&apos;</code> or <code>&apos;close&apos;</code>.</li>
+</ul><p><code>stream.pipeline()</code> leaves dangling event listeners on the streams
+after the <code>callback</code> has been invoked. In the case of reuse of streams after
+failure, this can cause event listener leaks and swallowed errors.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324233"><\/script>');
+  </script>
+</body>
+</html>

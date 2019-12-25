@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>net.createConnection(options[, connectListener]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/net/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756318431" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-net">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>net.createConnection(options[, connectListener])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../net.html#net_net_createconnection_options_connectlistener" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/net/net_createconnection_options_connectlistener.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.90</span>
+</div><ul>
+<li><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> &#x5FC5;&#x987B;&#x3002;&#x8C03;&#x7528; <a href="http://nodejs.cn/s/t2zSKD" rel="nofollow"><code>new net.Socket([options])</code></a> &#x548C; <a href="http://nodejs.cn/s/787XLt" rel="nofollow"><code>socket.connect(options[, connectListener])</code></a> &#x65B9;&#x6CD5;&#x90FD;&#x4F1A;&#x4F20;&#x5165;&#x3002;</li>
+<li><code>connectListener</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> <a href="http://nodejs.cn/s/RTNxdX" rel="nofollow"><code>net.createConnection()</code></a> &#x65B9;&#x6CD5;&#x7684;&#x901A;&#x7528;&#x53C2;&#x6570;&#x3002;&#x5982;&#x679C;&#x5236;&#x5B9A;&#x4E86;&#xFF0C;&#x5C06;&#x88AB;&#x6DFB;&#x52A0;&#x4E3A;&#x8FD4;&#x56DE; socket &#x4E0A;&#x7684; <a href="http://nodejs.cn/s/BwGGNR" rel="nofollow"><code>&apos;connect&apos;</code></a> &#x4E8B;&#x4EF6;&#x4E0A;&#x7684;&#x76D1;&#x542C;&#x5668;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/wsJ1o1" target="_blank" rel="nofollow" class="type">&lt;net.Socket&gt;</a> &#x65B0;&#x521B;&#x5EFA;&#x7684; socket&#xFF0C;&#x7528;&#x4E8E;&#x5F00;&#x59CB;&#x8FDE;&#x63A5;&#x3002;</li>
+</ul><p>&#x53EF;&#x9009;&#x7684;&#x9009;&#x9879;&#xFF0C;&#x67E5;&#x770B; <a href="http://nodejs.cn/s/t2zSKD" rel="nofollow"><code>new net.Socket([options])</code></a> &#x548C; <a href="http://nodejs.cn/s/787XLt" rel="nofollow"><code>socket.connect(options[, connectListener])</code></a>&#x3002;</p><p>&#x9644;&#x52A0;&#x7684;&#x9009;&#x9879;&#xFF1A;</p><ul>
+<li><code>timeout</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> &#x5982;&#x679C;&#x8BBE;&#x7F6E;&#xFF0C;&#x5C06;&#x4F1A;&#x7528;&#x6765;&#x5728; socket&#xA0;&#x521B;&#x5EFA;&#x4E4B;&#x540E;&#x8FDE;&#x63A5;&#x5F00;&#x59CB;&#x4E4B;&#x524D;&#x8C03;&#x7528; <a href="http://nodejs.cn/s/XC4Yyj" rel="nofollow"><code>socket.setTimeout(timeout)</code></a>&#x3002;</li>
+</ul><p>&#x4E0B;&#x9762;&#x662F;&#x5728; <a href="http://nodejs.cn/s/e8cikS" rel="nofollow"><code>net.createServer()</code></a> &#x7AE0;&#x8282;&#x63CF;&#x8FF0;&#x7684; server &#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x793A;&#x4F8B;&#xFF1A;</p><pre><code class="language-js">const net = require(&apos;net&apos;);
+const client = net.createConnection({ port: 8124 }, () =&gt; {
+  // &apos;connect&apos; &#x76D1;&#x542C;&#x5668;
+  console.log(&apos;&#x5DF2;&#x8FDE;&#x63A5;&#x5230;&#x670D;&#x52A1;&#x5668;&apos;);
+  client.write(&apos;&#x4F60;&#x597D;&#x4E16;&#x754C;!\r\n&apos;);
+});
+client.on(&apos;data&apos;, (data) =&gt; {
+  console.log(data.toString());
+  client.end();
+});
+client.on(&apos;end&apos;, () =&gt; {
+  console.log(&apos;&#x5DF2;&#x4ECE;&#x670D;&#x52A1;&#x5668;&#x65AD;&#x5F00;&apos;);
+});
+</code></pre><p>&#x5982;&#x679C;&#x8981;&#x8FDE;&#x63A5;&#x5230; <code>/tmp/echo.sock</code>&#xFF0C;&#x7B2C;&#x4E8C;&#x884C;&#x53EA;&#x9700;&#x8981;&#x6539;&#x4E3A;&#xFF1A;</p><pre><code class="language-js">const client = net.createConnection({ path: &apos;/tmp/echo.sock&apos; });
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.90</span>
+</div><ul>
+<li><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> Required. Will be passed to both the
+<a href="http://nodejs.cn/s/t2zSKD" rel="nofollow"><code>new net.Socket([options])</code></a> call and the
+<a href="http://nodejs.cn/s/787XLt" rel="nofollow"><code>socket.connect(options[, connectListener])</code></a>
+method.</li>
+<li><code>connectListener</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> Common parameter of the
+<a href="http://nodejs.cn/s/RTNxdX" rel="nofollow"><code>net.createConnection()</code></a> functions. If supplied, will be added as
+a listener for the <a href="http://nodejs.cn/s/BwGGNR" rel="nofollow"><code>&apos;connect&apos;</code></a> event on the returned socket once.</li>
+<li>Returns: <a href="http://nodejs.cn/s/wsJ1o1" target="_blank" rel="nofollow" class="type">&lt;net.Socket&gt;</a> The newly created socket used to start the connection.</li>
+</ul><p>For available options, see
+<a href="http://nodejs.cn/s/t2zSKD" rel="nofollow"><code>new net.Socket([options])</code></a>
+and <a href="http://nodejs.cn/s/787XLt" rel="nofollow"><code>socket.connect(options[, connectListener])</code></a>.</p><p>Additional options:</p><ul>
+<li><code>timeout</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> If set, will be used to call
+<a href="http://nodejs.cn/s/XC4Yyj" rel="nofollow"><code>socket.setTimeout(timeout)</code></a> after the socket is created, but before
+it starts the connection.</li>
+</ul><p>Following is an example of a client of the echo server described
+in the <a href="http://nodejs.cn/s/e8cikS" rel="nofollow"><code>net.createServer()</code></a> section:</p><pre><code class="language-js">const net = require(&apos;net&apos;);
+const client = net.createConnection({ port: 8124 }, () =&gt; {
+  // &apos;connect&apos; listener.
+  console.log(&apos;connected to server!&apos;);
+  client.write(&apos;world!\r\n&apos;);
+});
+client.on(&apos;data&apos;, (data) =&gt; {
+  console.log(data.toString());
+  client.end();
+});
+client.on(&apos;end&apos;, () =&gt; {
+  console.log(&apos;disconnected from server&apos;);
+});
+</code></pre><p>To connect on the socket <code>/tmp/echo.sock</code> the second line would just be
+changed to:</p><pre><code class="language-js">const client = net.createConnection({ path: &apos;/tmp/echo.sock&apos; });
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/net/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756318431"><\/script>');
+  </script>
+</body>
+</html>

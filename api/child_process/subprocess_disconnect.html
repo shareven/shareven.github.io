@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>subprocess.disconnect() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/child_process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756295929" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-child_process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>subprocess.disconnect()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../child_process.html#child_process_subprocess_disconnect" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/child_process/subprocess_disconnect.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.2</span>
+</div><p>&#x5173;&#x95ED;&#x7236;&#x8FDB;&#x7A0B;&#x4E0E;&#x5B50;&#x8FDB;&#x7A0B;&#x4E4B;&#x95F4;&#x7684; IPC &#x901A;&#x9053;&#xFF0C;&#x4E00;&#x65E6;&#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x7684;&#x8FDE;&#x63A5;&#x4F7F;&#x5176;&#x4FDD;&#x6301;&#x6D3B;&#x8DC3;&#xFF0C;&#x5219;&#x5141;&#x8BB8;&#x5B50;&#x8FDB;&#x7A0B;&#x6B63;&#x5E38;&#x9000;&#x51FA;&#x3002;
+&#x8C03;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;&#x540E;&#xFF0C;&#x5219;&#x7236;&#x8FDB;&#x7A0B;&#x548C;&#x5B50;&#x8FDB;&#x7A0B;&#x4E0A;&#x5404;&#x81EA;&#x7684; <code>subprocess.connected</code> &#x548C; <code>process.connected</code> &#x5C5E;&#x6027;&#x90FD;&#x4F1A;&#x88AB;&#x8BBE;&#x4E3A; <code>false</code>&#xFF0C;&#x4E14;&#x8FDB;&#x7A0B;&#x4E4B;&#x95F4;&#x4E0D;&#x80FD;&#x518D;&#x4F20;&#x9012;&#x6D88;&#x606F;&#x3002;</p><p>&#x5F53;&#x8FDB;&#x7A0B;&#x4E2D;&#x6CA1;&#x6709;&#x6B63;&#x88AB;&#x63A5;&#x6536;&#x7684;&#x6D88;&#x606F;&#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x89E6;&#x53D1; <code>&apos;disconnect&apos;</code> &#x4E8B;&#x4EF6;&#x3002;
+&#x8FD9;&#x7ECF;&#x5E38;&#x5728;&#x8C03;&#x7528; <code>subprocess.disconnect()</code> &#x540E;&#x88AB;&#x7ACB;&#x5373;&#x89E6;&#x53D1;&#x3002;</p><p>&#x5F53;&#x5B50;&#x8FDB;&#x7A0B;&#x662F;&#x4E00;&#x4E2A; Node.js &#x5B9E;&#x4F8B;&#x65F6;&#xFF08;&#x4F8B;&#x5982;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/VDCJMa" rel="nofollow"><code>child_process.fork()</code></a> &#x884D;&#x751F;&#xFF09;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x5B50;&#x8FDB;&#x7A0B;&#x4E2D;&#x8C03;&#x7528; <code>process.disconnect()</code> &#x65B9;&#x6CD5;&#x6765;&#x5173;&#x95ED; IPC &#x901A;&#x9053;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.7.2</span>
+</div><p>Closes the IPC channel between parent and child, allowing the child to exit
+gracefully once there are no other connections keeping it alive. After calling
+this method the <code>subprocess.connected</code> and <code>process.connected</code> properties in
+both the parent and child (respectively) will be set to <code>false</code>, and it will be
+no longer possible to pass messages between the processes.</p><p>The <code>&apos;disconnect&apos;</code> event will be emitted when there are no messages in the
+process of being received. This will most often be triggered immediately after
+calling <code>subprocess.disconnect()</code>.</p><p>When the child process is a Node.js instance (e.g. spawned using
+<a href="http://nodejs.cn/s/VDCJMa" rel="nofollow"><code>child_process.fork()</code></a>), the <code>process.disconnect()</code> method can be invoked
+within the child process to close the IPC channel as well.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/child_process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756295929"><\/script>');
+  </script>
+</body>
+</html>

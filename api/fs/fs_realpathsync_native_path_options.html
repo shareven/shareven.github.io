@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>fs.realpathSync.native(path[, options]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756310043" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>fs.realpathSync.native(path[, options])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_fs_realpathsync_native_path_options" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/fs_realpathsync_native_path_options.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v9.2.0</span>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;utf8&apos;</code>&#x3002;</li>
+</ul>
+</li>
+<li>Returns: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a></li>
+</ul><p>&#x540C;&#x6B65;&#x7684; <a href="http://nodejs.cn/s/k8V6gK" rel="nofollow"><code>realpath(3)</code></a>&#x3002;</p><p>&#x4EC5;&#x652F;&#x6301;&#x53EF;&#x8F6C;&#x6362;&#x4E3A; UTF8 &#x5B57;&#x7B26;&#x4E32;&#x7684;&#x8DEF;&#x5F84;&#x3002;</p><p>&#x53EF;&#x9009;&#x7684; <code>options</code> &#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x662F;&#x6307;&#x5B9A;&#x7F16;&#x7801;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x5177;&#x6709; <code>encoding</code> &#x5C5E;&#x6027;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x8BE5;&#x5C5E;&#x6027;&#x6307;&#x5B9A;&#x7528;&#x4E8E;&#x4F20;&#x9012;&#x7ED9;&#x56DE;&#x8C03;&#x7684;&#x8DEF;&#x5F84;&#x7684;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x3002;
+&#x5982;&#x679C; <code>encoding</code> &#x8BBE;&#x7F6E;&#x4E3A; <code>&apos;buffer&apos;</code>&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x7684;&#x8DEF;&#x5F84;&#x5C06;&#x4F5C;&#x4E3A; <code>Buffer</code> &#x5BF9;&#x8C61;&#x4F20;&#x5165;&#x3002;</p><p>&#x5728; Linux &#x4E0A;&#xFF0C;&#x5F53; Node.js &#x4E0E; musl libc &#x94FE;&#x63A5;&#x65F6;&#xFF0C;procfs &#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x5FC5;&#x987B;&#x6302;&#x8F7D;&#x5728; <code>/proc</code> &#x4E0A;&#x624D;&#x80FD;&#x4F7F;&#x6B64;&#x529F;&#x80FD;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;&#x3002;
+Glibc &#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x9650;&#x5236;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v9.2.0</span>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> <strong>Default:</strong> <code>&apos;utf8&apos;</code></li>
+</ul>
+</li>
+<li>Returns: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a></li>
+</ul><p>Synchronous <a href="http://nodejs.cn/s/k8V6gK" rel="nofollow"><code>realpath(3)</code></a>.</p><p>Only paths that can be converted to UTF8 strings are supported.</p><p>The optional <code>options</code> argument can be a string specifying an encoding, or an
+object with an <code>encoding</code> property specifying the character encoding to use for
+the path returned. If the <code>encoding</code> is set to <code>&apos;buffer&apos;</code>,
+the path returned will be passed as a <code>Buffer</code> object.</p><p>On Linux, when Node.js is linked against musl libc, the procfs file system must
+be mounted on <code>/proc</code> in order for this function to work. Glibc does not have
+this restriction.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756310043"><\/script>');
+  </script>
+</body>
+</html>

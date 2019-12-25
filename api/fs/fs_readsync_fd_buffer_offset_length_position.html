@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>fs.readSync(fd, buffer, offset, length, position) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756310028" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>fs.readSync(fd, buffer, offset, length, position)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_fs_readsync_fd_buffer_offset_length_position" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/fs_readsync_fd_buffer_offset_length_position.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.10.0</td>
+<td><p>The <code>buffer</code> parameter can now be any <code>TypedArray</code> or a <code>DataView</code>.</p></td></tr>
+<tr><td>v6.0.0</td>
+<td><p>The <code>length</code> parameter can now be <code>0</code>.</p></td></tr>
+<tr><td>v0.1.21</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.21</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>fd</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>buffer</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/oh3CkV" target="_blank" rel="nofollow" class="type">&lt;TypedArray&gt;</a> | <a href="http://nodejs.cn/s/yCdVkD" target="_blank" rel="nofollow" class="type">&lt;DataView&gt;</a></li>
+<li><code>offset</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>length</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>position</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+</ul><p>&#x8FD4;&#x56DE; <code>bytesRead</code> &#x7684;&#x6570;&#x91CF;&#x3002;</p><p>&#x6709;&#x5173;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x53C2;&#x9605;&#x6B64; API &#x5F02;&#x6B65;&#x7248;&#x672C;&#x7684;&#x6587;&#x6863;&#xFF1A;<a href="http://nodejs.cn/s/XF12iY" rel="nofollow"><code>fs.read()</code></a>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v10.10.0</td>
+<td><p>The <code>buffer</code> parameter can now be any <code>TypedArray</code> or a <code>DataView</code>.</p></td></tr>
+<tr><td>v6.0.0</td>
+<td><p>The <code>length</code> parameter can now be <code>0</code>.</p></td></tr>
+<tr><td>v0.1.21</td>
+<td><p><span>Added in: v0.1.21</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>fd</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>buffer</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/oh3CkV" target="_blank" rel="nofollow" class="type">&lt;TypedArray&gt;</a> | <a href="http://nodejs.cn/s/yCdVkD" target="_blank" rel="nofollow" class="type">&lt;DataView&gt;</a></li>
+<li><code>offset</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>length</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>position</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li>Returns: <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+</ul><p>Returns the number of <code>bytesRead</code>.</p><p>For detailed information, see the documentation of the asynchronous version of
+this API: <a href="http://nodejs.cn/s/XF12iY" rel="nofollow"><code>fs.read()</code></a>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756310028"><\/script>');
+  </script>
+</body>
+</html>

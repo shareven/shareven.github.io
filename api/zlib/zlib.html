@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>zlib（压缩） | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/zlib/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756330911" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-zlib">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>zlib（压缩）</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../zlib.html#zlib_zlib" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/zlib/zlib.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p></p><div class="api_stability api_stability_2"><a target="_blank" rel="nofollow" href="../documentation.html#documentation_stability_index">&#x7A33;&#x5B9A;&#x6027;: 2</a> - &#x7A33;&#x5B9A;</div><p></p><p><code>zlib</code> &#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x901A;&#x8FC7; Gzip &#x548C; Deflate/Inflate &#x5B9E;&#x73B0;&#x7684;&#x538B;&#x7F29;&#x529F;&#x80FD;&#xFF0C;Brotli &#x4E5F;&#x662F;&#x5982;&#x6B64;&#x3002;
+&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8FD9;&#x6837;&#x4F7F;&#x7528;&#x5B83;&#xFF1A;</p><pre><code class="language-js">const zlib = require(&apos;zlib&apos;);
+</code></pre><p>&#x538B;&#x7F29;&#x6216;&#x8005;&#x89E3;&#x538B;&#x6570;&#x636E;&#x6D41;&#xFF08;&#x4F8B;&#x5982;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF09;&#x901A;&#x8FC7; <code>zlib</code> &#x6D41;&#x5C06;&#x6E90;&#x6570;&#x636E;&#x6D41;&#x4F20;&#x8F93;&#x5230;&#x76EE;&#x6807;&#x6D41;&#x4E2D;&#x6765;&#x5B8C;&#x6210;&#x3002;</p><pre><code class="language-js">const gzip = zlib.createGzip();
+const fs = require(&apos;fs&apos;);
+const inp = fs.createReadStream(&apos;input.txt&apos;);
+const out = fs.createWriteStream(&apos;input.txt.gz&apos;);
+
+inp.pipe(gzip)
+  .on(&apos;error&apos;, () =&gt; {
+    // &#x5904;&#x7406;&#x9519;&#x8BEF;
+  })
+  .pipe(out)
+  .on(&apos;error&apos;, () =&gt; {
+    // &#x5904;&#x7406;&#x9519;&#x8BEF;
+  });
+</code></pre><p>&#x6570;&#x636E;&#x7684;&#x538B;&#x7F29;&#x6216;&#x89E3;&#x538B;&#x7F29;&#x4E5F;&#x53EF;&#x4EE5;&#x53EA;&#x7528;&#x4E00;&#x4E2A;&#x6B65;&#x9AA4;&#x5B8C;&#x6210;&#xFF1A;</p><pre><code class="language-js">const input = &apos;.................................&apos;;
+zlib.deflate(input, (err, buffer) =&gt; {
+  if (!err) {
+    console.log(buffer.toString(&apos;base64&apos;));
+  } else {
+    // &#x5904;&#x7406;&#x9519;&#x8BEF;
+  }
+});
+
+const buffer = Buffer.from(&apos;eJzT0yMAAGTvBe8=&apos;, &apos;base64&apos;);
+zlib.unzip(buffer, (err, buffer) =&gt; {
+  if (!err) {
+    console.log(buffer.toString());
+  } else {
+    // &#x5904;&#x7406;&#x9519;&#x8BEF;
+  }
+});
+</code></pre></div>
+          <div id="content_right"><p></p><div class="api_stability api_stability_2"><a target="_blank" rel="nofollow" href="../documentation.html#documentation_stability_index">Stability: 2</a> - Stable</div><p></p><p>The <code>zlib</code> module provides compression functionality implemented using Gzip and
+Deflate/Inflate, as well as Brotli. It can be accessed using:</p><pre><code class="language-js">const zlib = require(&apos;zlib&apos;);
+</code></pre><p>Compressing or decompressing a stream (such as a file) can be accomplished by
+piping the source stream data through a <code>zlib</code> stream into a destination stream:</p><pre><code class="language-js">const gzip = zlib.createGzip();
+const fs = require(&apos;fs&apos;);
+const inp = fs.createReadStream(&apos;input.txt&apos;);
+const out = fs.createWriteStream(&apos;input.txt.gz&apos;);
+
+inp.pipe(gzip)
+  .on(&apos;error&apos;, () =&gt; {
+    // handle error
+  })
+  .pipe(out)
+  .on(&apos;error&apos;, () =&gt; {
+    // handle error
+  });
+</code></pre><p>It is also possible to compress or decompress data in a single step:</p><pre><code class="language-js">const input = &apos;.................................&apos;;
+zlib.deflate(input, (err, buffer) =&gt; {
+  if (!err) {
+    console.log(buffer.toString(&apos;base64&apos;));
+  } else {
+    // handle error
+  }
+});
+
+const buffer = Buffer.from(&apos;eJzT0yMAAGTvBe8=&apos;, &apos;base64&apos;);
+zlib.unzip(buffer, (err, buffer) =&gt; {
+  if (!err) {
+    console.log(buffer.toString());
+  } else {
+    // handle error
+  }
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/zlib/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756330911"><\/script>');
+  </script>
+</body>
+</html>

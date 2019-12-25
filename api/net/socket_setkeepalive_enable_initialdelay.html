@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>socket.setKeepAlive([enable][, initialDelay]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/net/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756318405" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-net">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>socket.setKeepAlive([enable][, initialDelay])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../net.html#net_socket_setkeepalive_enable_initialdelay" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/net/socket_setkeepalive_enable_initialdelay.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.92</span>
+</div><ul>
+<li><code>enable</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#x3002;</li>
+<li><code>initialDelay</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>0</code>&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/wsJ1o1" target="_blank" rel="nofollow" class="type">&lt;net.Socket&gt;</a> Socket &#x672C;&#x8EAB;&#x3002;</li>
+</ul><p>&#x542F;&#x7528;/&#x7981;&#x7528;&#x957F;&#x8FDE;&#x63A5;&#x529F;&#x80FD;&#xFF0C; &#x5E76;&#x4E14;&#x5728;&#x7B2C;&#x4E00;&#x4E2A;&#x957F;&#x8FDE;&#x63A5;&#x63A2;&#x9488;&#x88AB;&#x53D1;&#x9001;&#x5230;&#x4E00;&#x4E2A;&#x7A7A;&#x95F2;&#x7684; socket &#x4E4B;&#x524D;&#x53EF;&#x9009;&#x5219;&#x914D;&#x7F6E;&#x521D;&#x59CB;&#x5EF6;&#x8FDF;&#x3002;</p><p><code>initialDelay</code>&#xFF08;&#x6BEB;&#x79D2;&#xFF09;&#x7528;&#x6765;&#x8BBE;&#x7F6E;&#x63A5;&#x6536;&#x5230;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5305;&#x548C;&#x53D1;&#x9001;&#x7B2C;&#x4E00;&#x4E2A;&#x957F;&#x8FDE;&#x63A5;&#x63A2;&#x9488;&#x4E4B;&#x95F4;&#x7684;&#x5EF6;&#x8FDF;&#x3002;&#x5C06; <code>initialDelay</code> &#x8BBE;&#x7F6E;&#x4E3A; <code>0</code>&#xFF0C;&#x5219;&#x4F1A;&#x4FDD;&#x6301;&#x9ED8;&#x8BA4;&#x503C;&#xFF08;&#x6216;&#x4E4B;&#x524D;&#x8BBE;&#x7F6E;&#x7684;&#x503C;&#xFF09;&#x4E0D;&#x53D8;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.92</span>
+</div><ul>
+<li><code>enable</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <strong>Default:</strong> <code>false</code></li>
+<li><code>initialDelay</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> <strong>Default:</strong> <code>0</code></li>
+<li>Returns: <a href="http://nodejs.cn/s/wsJ1o1" target="_blank" rel="nofollow" class="type">&lt;net.Socket&gt;</a> The socket itself.</li>
+</ul><p>Enable/disable keep-alive functionality, and optionally set the initial
+delay before the first keepalive probe is sent on an idle socket.</p><p>Set <code>initialDelay</code> (in milliseconds) to set the delay between the last
+data packet received and the first keepalive probe. Setting <code>0</code> for
+<code>initialDelay</code> will leave the value unchanged from the default
+(or previous) setting.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/net/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756318405"><\/script>');
+  </script>
+</body>
+</html>

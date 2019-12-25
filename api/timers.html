@@ -1,0 +1,359 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>timer | Node.js API &#x6587;&#x6863;</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756325211" rel="stylesheet">')
+  </script>
+  
+</head>
+<body class="alt apidoc" id="page_api">
+  <div id="api-section-timers">
+    <div id="content" class="clearfix">
+      <div id="column2" class="interior">
+        <div id="intro" class="interior">
+          <a href="http://nodejs.cn/" rel="nofollow">
+            Node.js &#x4E2D;&#x6587;&#x7F51;
+          </a>
+          <a href="index.html" rel="nofollow">
+            v12.14.0
+          </a>
+          <div id="biz_nav"><a title="&#x5F00;&#x8BFE;&#x5427;" target="_blank" href="https://datayi.cn/w/LPd57bYo" rel="nofollow"><img></a></div>
+        </div>
+        <div class="line"></div>
+        <ul>
+<li><a href="assert.html" class="nav-assert" rel="nofollow">assert - &#x65AD;&#x8A00;</a></li>
+<li><a href="async_hooks.html" class="nav-async_hooks" rel="nofollow">async_hooks - &#x5F02;&#x6B65;&#x94A9;&#x5B50;</a></li>
+<li><a href="buffer.html" class="nav-buffer" rel="nofollow">Buffer - &#x7F13;&#x51B2;&#x5668;</a></li>
+<li><a href="child_process.html" class="nav-child_process" rel="nofollow">child_process - &#x5B50;&#x8FDB;&#x7A0B;</a></li>
+<li><a href="cluster.html" class="nav-cluster" rel="nofollow">cluster - &#x96C6;&#x7FA4;</a></li>
+<li><a href="console.html" class="nav-console" rel="nofollow">console - &#x63A7;&#x5236;&#x53F0;</a></li>
+<li><a href="crypto.html" class="nav-crypto" rel="nofollow">crypto - &#x52A0;&#x5BC6;</a></li>
+<li><a href="debugger.html" class="nav-debugger" rel="nofollow">debugger - &#x8C03;&#x8BD5;&#x5668;</a></li>
+<li><a href="dgram.html" class="nav-dgram" rel="nofollow">dgram - &#x6570;&#x636E;&#x62A5;</a></li>
+<li><a href="dns.html" class="nav-dns" rel="nofollow">dns - &#x57DF;&#x540D;&#x670D;&#x52A1;&#x5668;</a></li>
+<li><a href="domain.html" class="nav-domain" rel="nofollow">domain - &#x57DF;</a></li>
+<li><a href="errors.html" class="nav-errors" rel="nofollow">Error - &#x5F02;&#x5E38;</a></li>
+<li><a href="events.html" class="nav-events" rel="nofollow">events - &#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x5668;</a></li>
+<li><a href="fs.html" class="nav-fs" rel="nofollow">fs - &#x6587;&#x4EF6;&#x7CFB;&#x7EDF;</a></li>
+<li><a href="globals.html" class="nav-globals" rel="nofollow">global - &#x5168;&#x5C40;&#x53D8;&#x91CF;</a></li>
+<li><a href="http.html" class="nav-http" rel="nofollow">http - HTTP</a></li>
+<li><a href="http2.html" class="nav-http2" rel="nofollow">http2 - HTTP/2</a></li>
+<li><a href="https.html" class="nav-https" rel="nofollow">https - HTTPS</a></li>
+<li><a href="inspector.html" class="nav-inspector" rel="nofollow">inspector - &#x68C0;&#x67E5;&#x5668;</a></li>
+<li><a href="modules.html" class="nav-modules" rel="nofollow">module - &#x6A21;&#x5757;</a></li>
+<li><a href="net.html" class="nav-net" rel="nofollow">net - &#x7F51;&#x7EDC;</a></li>
+<li><a href="os.html" class="nav-os" rel="nofollow">os - &#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;</a></li>
+<li><a href="path.html" class="nav-path" rel="nofollow">path - &#x8DEF;&#x5F84;</a></li>
+<li><a href="perf_hooks.html" class="nav-perf_hooks" rel="nofollow">perf_hooks - &#x6027;&#x80FD;&#x94A9;&#x5B50;</a></li>
+<li><a href="process.html" class="nav-process" rel="nofollow">process - &#x8FDB;&#x7A0B;</a></li>
+<li><a href="punycode.html" class="nav-punycode" rel="nofollow">punycode - &#x57DF;&#x540D;&#x4EE3;&#x7801;</a></li>
+<li><a href="querystring.html" class="nav-querystring" rel="nofollow">querystring - &#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;</a></li>
+<li><a href="readline.html" class="nav-readline" rel="nofollow">readline - &#x9010;&#x884C;&#x8BFB;&#x53D6;</a></li>
+<li><a href="repl.html" class="nav-repl" rel="nofollow">repl - &#x4EA4;&#x4E92;&#x5F0F;&#x89E3;&#x91CA;&#x5668;</a></li>
+<li><a href="stream.html" class="nav-stream" rel="nofollow">stream - &#x6D41;</a></li>
+<li><a href="string_decoder.html" class="nav-string_decoder" rel="nofollow">string_decoder - &#x5B57;&#x7B26;&#x4E32;&#x89E3;&#x7801;&#x5668;</a></li>
+<li><a href="timers.html" class="nav-timers active" rel="nofollow">timer - &#x5B9A;&#x65F6;&#x5668;</a></li>
+<li><a href="tls.html" class="nav-tls" rel="nofollow">tls - &#x5B89;&#x5168;&#x4F20;&#x8F93;&#x5C42;</a></li>
+<li><a href="tracing.html" class="nav-tracing" rel="nofollow">trace_events - &#x8DDF;&#x8E2A;&#x4E8B;&#x4EF6;</a></li>
+<li><a href="tty.html" class="nav-tty" rel="nofollow">tty - &#x7EC8;&#x7AEF;</a></li>
+<li><a href="url.html" class="nav-url" rel="nofollow">url - URL</a></li>
+<li><a href="util.html" class="nav-util" rel="nofollow">util - &#x5B9E;&#x7528;&#x5DE5;&#x5177;</a></li>
+<li><a href="v8.html" class="nav-v8" rel="nofollow">v8 - V8&#x5F15;&#x64CE;</a></li>
+<li><a href="vm.html" class="nav-vm" rel="nofollow">vm - &#x865A;&#x62DF;&#x673A;</a></li>
+<li><a href="worker_threads.html" class="nav-worker_threads" rel="nofollow">worker_threads - &#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;</a></li>
+<li><a href="zlib.html" class="nav-zlib" rel="nofollow">zlib - &#x538B;&#x7F29;</a></li>
+</ul>
+<div class="line"></div>
+<ul>
+<li><a href="documentation.html" class="nav-documentation" rel="nofollow">&#x5173;&#x4E8E;&#x672C;&#x6587;&#x6863;</a></li>
+<li><a href="synopsis.html" class="nav-synopsis" rel="nofollow">&#x7528;&#x6CD5;&#x4E0E;&#x793A;&#x4F8B;</a></li>
+<li><a href="addons.html" class="nav-addons" rel="nofollow">C++&#x63D2;&#x4EF6;</a></li>
+<li><a href="n-api.html" class="nav-n-api" rel="nofollow">N-API</a></li>
+<li><a href="cli.html" class="nav-cli" rel="nofollow">&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;</a></li>
+<li><a href="esm.html" class="nav-esm" rel="nofollow">ECMAScript &#x6A21;&#x5757;</a></li>
+<li><a href="policy.html" class="nav-policy" rel="nofollow">&#x5B89;&#x5168;&#x7B56;&#x7565;</a></li>
+<li><a href="report.html" class="nav-report" rel="nofollow">&#x8BCA;&#x65AD;&#x62A5;&#x8868;</a></li>
+<li><a href="intl.html" class="nav-intl" rel="nofollow">&#x56FD;&#x9645;&#x5316;&#x652F;&#x6301;</a></li>
+<li><a href="deprecations.html" class="nav-deprecations" rel="nofollow">&#x5E9F;&#x5F03;&#x7684; API</a></li>
+</ul>
+        
+      </div>
+  
+      <div id="column1" data-id="timers" class="interior">
+        <header>
+          <h1>Node.js v12.14.0 &#x6587;&#x6863;</h1>
+          <div id="gtoc">
+            <ul>
+              <li>
+                <a href="index.html" name="toc">&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x9996;&#x9875;</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">&#x641C;&#x7D22;</a>
+              </li>
+              <!-- 
+    <li class="version-picker">
+      <a href="#">查看其他版本 <span>&#x25bc;</span></a>
+      <ol class="version-picker"><li><a href="/latest-api/timers.html">12.x</a></li>
+<li><a href="/api/timers.html">10.x</a></li></ol>
+    </li>
+   -->
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        
+        
+        <div id="toc">
+          <h2>&#x76EE;&#x5F55;</h2>
+          <ul>
+<li>
+<p><span class="stability_2"><a href="timers.html#timers_timers">timer&#xFF08;&#x5B9A;&#x65F6;&#x5668;&#xFF09;</a></span></p>
+<ul>
+<li>
+<p><a href="timers.html#timers_class_immediate">Immediate &#x7C7B;</a></p>
+<ul>
+<li><a href="timers.html#timers_immediate_hasref">immediate.hasRef()</a></li>
+<li><a href="timers.html#timers_immediate_ref">immediate.ref()</a></li>
+<li><a href="timers.html#timers_immediate_unref">immediate.unref()</a></li>
+</ul>
+</li>
+<li>
+<p><a href="timers.html#timers_class_timeout">Timeout &#x7C7B;</a></p>
+<ul>
+<li><a href="timers.html#timers_timeout_hasref">timeout.hasRef()</a></li>
+<li><a href="timers.html#timers_timeout_ref">timeout.ref()</a></li>
+<li><a href="timers.html#timers_timeout_refresh">timeout.refresh()</a></li>
+<li><a href="timers.html#timers_timeout_unref">timeout.unref()</a></li>
+</ul>
+</li>
+<li>
+<p><a href="timers.html#timers_scheduling_timers">&#x9884;&#x5B9A;&#x5B9A;&#x65F6;&#x5668;</a></p>
+<ul>
+<li><a href="timers.html#timers_setimmediate_callback_args">setImmediate(callback[, ...args])</a></li>
+<li><a href="timers.html#timers_setinterval_callback_delay_args">setInterval(callback, delay[, ...args])</a></li>
+<li><a href="timers.html#timers_settimeout_callback_delay_args">setTimeout(callback, delay[, ...args])</a></li>
+</ul>
+</li>
+<li>
+<p><a href="timers.html#timers_cancelling_timers">&#x53D6;&#x6D88;&#x5B9A;&#x65F6;&#x5668;</a></p>
+<ul>
+<li><a href="timers.html#timers_clearimmediate_immediate">clearImmediate(immediate)</a></li>
+<li><a href="timers.html#timers_clearinterval_timeout">clearInterval(timeout)</a></li>
+<li><a href="timers.html#timers_cleartimeout_timeout">clearTimeout(timeout)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+        </div>
+
+        <!-- <div id="biz_content">
+          <a href="http://www.tp-shop.cn/index.php?http_referer=node" target="_blank">
+            <img src="//static.nodejs.cn/_static/img/ad/api_content_tpshop.jpg" />
+          </a>
+        </div> -->
+  
+        <div id="apicontent">
+          <h1>timer&#xFF08;&#x5B9A;&#x65F6;&#x5668;&#xFF09;<span><a class="mark" href="timers.html#timers_timers" id="timers_timers">#</a></span></h1><p class="tip_wrap"><a href="timers/timers.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/timers.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<!--introduced_in=v0.10.0-->
+<p></p><div class="api_stability api_stability_2"><a target="_blank" rel="nofollow" href="documentation.html#documentation_stability_index">&#x7A33;&#x5B9A;&#x6027;: 2</a> - &#x7A33;&#x5B9A;</div><p></p>
+<p><code>timer</code> &#x6A21;&#x5757;&#x66B4;&#x9732;&#x4E86;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x7684; API&#xFF0C;&#x7528;&#x4E8E;&#x9884;&#x5B9A;&#x5728;&#x5C06;&#x6765;&#x67D0;&#x4E2A;&#x65F6;&#x95F4;&#x6BB5;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#x3002;
+&#x56E0;&#x4E3A;&#x5B9A;&#x65F6;&#x5668;&#x51FD;&#x6570;&#x662F;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x9700;&#x8981;&#x8C03;&#x7528; <code>require(&apos;timers&apos;)</code> &#x6765;&#x4F7F;&#x7528; API&#x3002;</p>
+<p>Node.js &#x4E2D;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#x51FD;&#x6570;&#x5B9E;&#x73B0;&#x4E86;&#x4E0E; Web &#x6D4F;&#x89C8;&#x5668;&#x63D0;&#x4F9B;&#x7684;&#x5B9A;&#x65F6;&#x5668; API &#x7C7B;&#x4F3C;&#x7684; API&#xFF0C;&#x4F46;&#x662F;&#x4F7F;&#x7528;&#x4E86;&#x4E0D;&#x540C;&#x7684;&#x5185;&#x90E8;&#x5B9E;&#x73B0;&#xFF08;&#x57FA;&#x4E8E; Node.js <a href="http://nodejs.cn/s/eeiBdr" rel="nofollow">&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;</a>&#x6784;&#x5EFA;&#xFF09;&#x3002;</p>
+<h2>Immediate &#x7C7B;<span><a class="mark" href="timers.html#timers_class_immediate" id="timers_class_immediate">#</a></span></h2><p class="tip_wrap"><a href="timers/class_immediate.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/class_immediate.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<p>&#x6B64;&#x5BF9;&#x8C61;&#x5728;&#x5185;&#x90E8;&#x521B;&#x5EFA;&#xFF0C;&#x5E76;&#x4ECE; <a href="http://nodejs.cn/s/Cjc23N" rel="nofollow"><code>setImmediate()</code></a> &#x8FD4;&#x56DE;&#x3002;
+&#x5B83;&#x53EF;&#x4EE5;&#x4F20;&#x7ED9; <a href="http://nodejs.cn/s/tn26EY" rel="nofollow"><code>clearImmediate()</code></a> &#x4EE5;&#x53D6;&#x6D88;&#x8BA1;&#x5212;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5F53;&#x9884;&#x5B9A; immediate &#x65F6;&#xFF0C;&#x53EA;&#x8981; immediate &#x6FC0;&#x6D3B;&#xFF0C;Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x5C06;&#x7EE7;&#x7EED;&#x8FD0;&#x884C;&#x3002;
+<a href="http://nodejs.cn/s/Cjc23N" rel="nofollow"><code>setImmediate()</code></a> &#x8FD4;&#x56DE;&#x7684; <code>Immediate</code> &#x5BF9;&#x8C61;&#x5BFC;&#x51FA; <code>immediate.ref()</code> &#x548C; <code>immediate.unref()</code> &#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x4E9B;&#x51FD;&#x6570;&#x53EF;&#x7528;&#x4E8E;&#x63A7;&#x5236;&#x6B64;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#x3002;</p>
+<h3>immediate.hasRef()<span><a class="mark" href="timers.html#timers_immediate_hasref" id="timers_immediate_hasref">#</a></span></h3><p class="tip_wrap"><a href="timers/immediate_hasref.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/immediate_hasref.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v11.0.0</span>
+</div>
+<ul>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+</ul>
+<p>&#x5982;&#x679C;&#x4E3A; true&#xFF0C;&#x5219; <code>Immediate</code> &#x5BF9;&#x8C61;&#x5C06;&#x4F1A;&#x4F7F; Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4FDD;&#x6301;&#x6D3B;&#x52A8;&#x72B6;&#x6001;&#x3002;</p>
+<h3>immediate.ref()<span><a class="mark" href="timers.html#timers_immediate_ref" id="timers_immediate_ref">#</a></span></h3><p class="tip_wrap"><a href="timers/immediate_ref.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/immediate_ref.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v9.7.0</span>
+</div>
+<ul>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/SvSBDC" target="_blank" rel="nofollow" class="type">&lt;Immediate&gt;</a> &#x5BF9; <code>immediate</code> &#x7684;&#x5F15;&#x7528;&#x3002;</li>
+</ul>
+<p>&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x53EA;&#x8981; <code>Immediate</code> &#x5904;&#x4E8E;&#x6D3B;&#x52A8;&#x72B6;&#x6001;&#xFF0C;&#x5C31;&#x4F1A;&#x8BF7;&#x6C42; Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4E0D;&#x4F1A;&#x9000;&#x51FA;&#x3002;
+&#x591A;&#x6B21;&#x8C03;&#x7528; <code>immediate.ref()</code> &#x5C06;&#x65E0;&#x6548;&#x3002;</p>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6240;&#x6709; <code>Immediate</code> &#x5BF9;&#x8C61;&#x90FD;&#x662F; ref &#x7684;&#xFF0C;&#x901A;&#x5E38;&#x4E0D;&#x9700;&#x8981;&#x8C03;&#x7528; <code>immediate.ref()</code>&#xFF0C;&#x9664;&#x975E;&#x4E4B;&#x524D;&#x8C03;&#x7528;&#x4E86; <code>immediate.unref()</code>&#x3002;</p>
+<h3>immediate.unref()<span><a class="mark" href="timers.html#timers_immediate_unref" id="timers_immediate_unref">#</a></span></h3><p class="tip_wrap"><a href="timers/immediate_unref.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/immediate_unref.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v9.7.0</span>
+</div>
+<ul>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/SvSBDC" target="_blank" rel="nofollow" class="type">&lt;Immediate&gt;</a> &#x5BF9; <code>immediate</code> &#x7684;&#x5F15;&#x7528;&#x3002;</li>
+</ul>
+<p>&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x6D3B;&#x52A8;&#x7684; <code>Immediate</code> &#x5BF9;&#x8C61;&#x4E0D;&#x9700;&#x8981; Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4FDD;&#x6301;&#x6D3B;&#x52A8;&#x72B6;&#x6001;&#x3002;
+&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x6D3B;&#x52A8;&#x4FDD;&#x6301;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x8FD0;&#x884C;&#xFF0C;&#x5219;&#x8FDB;&#x7A0B;&#x53EF;&#x4EE5;&#x5728;&#x8C03;&#x7528; <code>Immediate</code> &#x5BF9;&#x8C61;&#x7684;&#x56DE;&#x8C03;&#x4E4B;&#x524D;&#x9000;&#x51FA;&#x3002;
+&#x591A;&#x6B21;&#x8C03;&#x7528; <code>immediate.unref()</code> &#x5C06;&#x65E0;&#x6548;&#x3002;</p>
+<h2>Timeout &#x7C7B;<span><a class="mark" href="timers.html#timers_class_timeout" id="timers_class_timeout">#</a></span></h2><p class="tip_wrap"><a href="timers/class_timeout.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/class_timeout.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<p>&#x6B64;&#x5BF9;&#x8C61;&#x5728;&#x5185;&#x90E8;&#x521B;&#x5EFA;&#xFF0C;&#x5E76;&#x4ECE; <a href="http://nodejs.cn/s/UxXb1y" rel="nofollow"><code>setTimeout()</code></a> &#x548C; <a href="http://nodejs.cn/s/hWCq4X" rel="nofollow"><code>setInterval()</code></a> &#x8FD4;&#x56DE;&#x3002;
+&#x5B83;&#x53EF;&#x4EE5;&#x4F20;&#x7ED9; <a href="http://nodejs.cn/s/L4L2Xr" rel="nofollow"><code>clearTimeout()</code></a> &#x6216; <a href="http://nodejs.cn/s/zRW98q" rel="nofollow"><code>clearInterval()</code></a> &#x4EE5;&#x53D6;&#x6D88;&#x8BA1;&#x5212;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5F53;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/UxXb1y" rel="nofollow"><code>setTimeout()</code></a> &#x6216; <a href="http://nodejs.cn/s/hWCq4X" rel="nofollow"><code>setInterval()</code></a> &#x9884;&#x5B9A;&#x5B9A;&#x65F6;&#x5668;&#x65F6;&#xFF0C;&#x53EA;&#x8981;&#x5B9A;&#x65F6;&#x5668;&#x5904;&#x4E8E;&#x6D3B;&#x52A8;&#x72B6;&#x6001;&#xFF0C;Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x5C06;&#x7EE7;&#x7EED;&#x8FD0;&#x884C;&#x3002;
+&#x8FD9;&#x4E9B;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x7684;&#x6BCF;&#x4E2A; <code>Timeout</code> &#x5BF9;&#x8C61;&#x90FD;&#x4F1A;&#x5BFC;&#x51FA; <code>timeout.ref()</code> &#x548C; <code>timeout.unref()</code> &#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x4E9B;&#x51FD;&#x6570;&#x53EF;&#x7528;&#x4E8E;&#x63A7;&#x5236;&#x6B64;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#x3002;</p>
+<h3>timeout.hasRef()<span><a class="mark" href="timers.html#timers_timeout_hasref" id="timers_timeout_hasref">#</a></span></h3><p class="tip_wrap"><a href="timers/timeout_hasref.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/timeout_hasref.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v11.0.0</span>
+</div>
+<ul>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+</ul>
+<p>&#x5982;&#x679C;&#x4E3A; true&#xFF0C;&#x5219; <code>Timeout</code> &#x5BF9;&#x8C61;&#x5C06;&#x4F1A;&#x4F7F; Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4FDD;&#x6301;&#x6D3B;&#x52A8;&#x72B6;&#x6001;&#x3002;</p>
+<h3>timeout.ref()<span><a class="mark" href="timers.html#timers_timeout_ref" id="timers_timeout_ref">#</a></span></h3><p class="tip_wrap"><a href="timers/timeout_ref.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/timeout_ref.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.1</span>
+</div>
+<ul>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/ezS7LR" target="_blank" rel="nofollow" class="type">&lt;Timeout&gt;</a> &#x5BF9; <code>timeout</code> &#x7684;&#x5F15;&#x7528;&#x3002;</li>
+</ul>
+<p>&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x53EA;&#x8981; <code>Timeout</code> &#x5904;&#x4E8E;&#x6D3B;&#x52A8;&#x72B6;&#x6001;&#xFF0C;&#x5C31;&#x4F1A;&#x8BF7;&#x6C42; Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4E0D;&#x4F1A;&#x9000;&#x51FA;&#x3002;
+&#x591A;&#x6B21;&#x8C03;&#x7528; <code>timeout.ref()</code> &#x5C06;&#x65E0;&#x6548;&#x3002;</p>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6240;&#x6709; <code>Timeout</code> &#x5BF9;&#x8C61;&#x90FD;&#x662F; ref &#x7684;&#xFF0C;&#x901A;&#x5E38;&#x4E0D;&#x9700;&#x8981;&#x8C03;&#x7528; <code>timeout.ref()</code>&#xFF0C;&#x9664;&#x975E;&#x4E4B;&#x524D;&#x8C03;&#x7528;&#x4E86; <code>timeout.unref()</code>&#x3002;</p>
+<h3>timeout.refresh()<span><a class="mark" href="timers.html#timers_timeout_refresh" id="timers_timeout_refresh">#</a></span></h3><p class="tip_wrap"><a href="timers/timeout_refresh.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/timeout_refresh.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.2.0</span>
+</div>
+<ul>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/ezS7LR" target="_blank" rel="nofollow" class="type">&lt;Timeout&gt;</a> &#x5BF9; <code>timeout</code> &#x7684;&#x5F15;&#x7528;&#x3002;</li>
+</ul>
+<p>&#x5C06;&#x5B9A;&#x65F6;&#x5668;&#x7684;&#x5F00;&#x59CB;&#x65F6;&#x95F4;&#x8BBE;&#x7F6E;&#x4E3A;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#xFF0C;&#x5E76;&#x91CD;&#x65B0;&#x5B89;&#x6392;&#x5B9A;&#x65F6;&#x5668;&#x4EE5;&#x5728;&#x4E4B;&#x524D;&#x6307;&#x5B9A;&#x7684;&#x6301;&#x7EED;&#x65F6;&#x95F4;&#x5185;&#x8C03;&#x7528;&#x5176;&#x56DE;&#x8C03;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x8C03;&#x6574;&#x4E3A;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x3002;
+&#x8FD9;&#x5BF9;&#x4E8E;&#x5728;&#x4E0D;&#x5206;&#x914D;&#x65B0; JavaScript &#x5BF9;&#x8C61;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x5237;&#x65B0;&#x5B9A;&#x65F6;&#x5668;&#x975E;&#x5E38;&#x6709;&#x7528;&#x3002;</p>
+<p>&#x5728;&#x5DF2;&#x8C03;&#x7528;&#x5176;&#x56DE;&#x8C03;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#x4E0A;&#x4F7F;&#x7528;&#x6B64;&#x9009;&#x9879;&#x5C06;&#x91CD;&#x65B0;&#x6FC0;&#x6D3B;&#x5B9A;&#x65F6;&#x5668;&#x3002;</p>
+<h3>timeout.unref()<span><a class="mark" href="timers.html#timers_timeout_unref" id="timers_timeout_unref">#</a></span></h3><p class="tip_wrap"><a href="timers/timeout_unref.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/timeout_unref.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.1</span>
+</div>
+<ul>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/ezS7LR" target="_blank" rel="nofollow" class="type">&lt;Timeout&gt;</a> &#x5BF9; <code>timeout</code> &#x7684;&#x5F15;&#x7528;&#x3002;</li>
+</ul>
+<p>&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x6D3B;&#x52A8;&#x7684; <code>Timeout</code> &#x5BF9;&#x8C61;&#x4E0D;&#x9700;&#x8981; Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4FDD;&#x6301;&#x6D3B;&#x52A8;&#x72B6;&#x6001;&#x3002;
+&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x6D3B;&#x52A8;&#x4FDD;&#x6301;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x8FD0;&#x884C;&#xFF0C;&#x5219;&#x8FDB;&#x7A0B;&#x53EF;&#x4EE5;&#x5728;&#x8C03;&#x7528; <code>Timeout</code> &#x5BF9;&#x8C61;&#x7684;&#x56DE;&#x8C03;&#x4E4B;&#x524D;&#x9000;&#x51FA;&#x3002;
+&#x591A;&#x6B21;&#x8C03;&#x7528; <code>timeout.unref()</code> &#x5C06;&#x65E0;&#x6548;&#x3002;</p>
+<p>&#x8C03;&#x7528; <code>timeout.unref()</code> &#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5185;&#x90E8;&#x5B9A;&#x65F6;&#x5668;&#xFF0C;&#x5B83;&#x5C06;&#x5524;&#x9192; Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x3002;
+&#x521B;&#x5EFA;&#x592A;&#x591A;&#x8FD9;&#x4E9B;&#x5B9A;&#x65F6;&#x5668;&#x53EF;&#x80FD;&#x4F1A;&#x5BF9; Node.js &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x6027;&#x80FD;&#x4EA7;&#x751F;&#x8D1F;&#x9762;&#x5F71;&#x54CD;&#x3002;</p>
+<h2>&#x9884;&#x5B9A;&#x5B9A;&#x65F6;&#x5668;<span><a class="mark" href="timers.html#timers_scheduling_timers" id="timers_scheduling_timers">#</a></span></h2><p class="tip_wrap"><a href="timers/scheduling_timers.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/scheduling_timers.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<p>Node.js &#x4E2D;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#x662F;&#x4E00;&#x79CD;&#x4F1A;&#x5728;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x540E;&#x8C03;&#x7528;&#x7ED9;&#x5B9A;&#x7684;&#x51FD;&#x6570;&#x7684;&#x5185;&#x90E8;&#x6784;&#x9020;&#x3002;
+&#x4F55;&#x65F6;&#x8C03;&#x7528;&#x5B9A;&#x65F6;&#x5668;&#x51FD;&#x6570;&#x53D6;&#x51B3;&#x4E8E;&#x7528;&#x6765;&#x521B;&#x5EFA;&#x5B9A;&#x65F6;&#x5668;&#x7684;&#x65B9;&#x6CD5;&#x4EE5;&#x53CA; Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x6B63;&#x5728;&#x6267;&#x884C;&#x7684;&#x5176;&#x4ED6;&#x5DE5;&#x4F5C;&#x3002;</p>
+<h3>setImmediate(callback[, ...args])<span><a class="mark" href="timers.html#timers_setimmediate_callback_args" id="timers_setimmediate_callback_args">#</a></span></h3><p class="tip_wrap"><a href="timers/setimmediate_callback_args.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/setimmediate_callback_args.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.1</span>
+</div>
+<ul>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x5728;&#x5F53;&#x524D;&#x56DE;&#x5408;&#x7684; <a href="http://nodejs.cn/s/eeiBdr" rel="nofollow">Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;</a>&#x7ED3;&#x675F;&#x65F6;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#x3002;</li>
+<li><code>...args</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> &#x5F53;&#x8C03;&#x7528; <code>callback</code> &#x65F6;&#x4F20;&#x5165;&#x7684;&#x53EF;&#x9009;&#x53C2;&#x6570;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/SvSBDC" target="_blank" rel="nofollow" class="type">&lt;Immediate&gt;</a> &#x7528;&#x4E8E; <a href="http://nodejs.cn/s/tn26EY" rel="nofollow"><code>clearImmediate()</code></a>&#x3002;</li>
+</ul>
+<p>&#x9884;&#x5B9A;&#x5728; I/O &#x4E8B;&#x4EF6;&#x7684;&#x56DE;&#x8C03;&#x4E4B;&#x540E;&#x7ACB;&#x5373;&#x6267;&#x884C;&#x7684; <code>callback</code>&#x3002;</p>
+<p>&#x5F53;&#x591A;&#x6B21;&#x8C03;&#x7528; <code>setImmediate()</code> &#x65F6;&#xFF0C; <code>callback</code> &#x51FD;&#x6570;&#x5C06;&#x6309;&#x7167;&#x521B;&#x5EFA;&#x5B83;&#x4EEC;&#x7684;&#x987A;&#x5E8F;&#x6392;&#x961F;&#x7B49;&#x5F85;&#x6267;&#x884C;&#x3002;
+&#x6BCF;&#x6B21;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x8FED;&#x4EE3;&#x90FD;&#x4F1A;&#x5904;&#x7406;&#x6574;&#x4E2A;&#x56DE;&#x8C03;&#x961F;&#x5217;&#x3002;
+&#x5982;&#x679C;&#x7ACB;&#x5373;&#x5B9A;&#x65F6;&#x5668;&#x662F;&#x4ECE;&#x6B63;&#x5728;&#x6267;&#x884C;&#x7684;&#x56DE;&#x8C03;&#x6392;&#x5165;&#x961F;&#x5217;&#xFF0C;&#x5219;&#x76F4;&#x5230;&#x4E0B;&#x4E00;&#x6B21;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x8FED;&#x4EE3;&#x624D;&#x4F1A;&#x89E6;&#x53D1;&#x3002;</p>
+<p>&#x5982;&#x679C; <code>callback</code> &#x4E0D;&#x662F;&#x51FD;&#x6570;&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="http://nodejs.cn/s/Z7Lqyj" rel="nofollow"><code>TypeError</code></a>&#x3002;</p>
+<p>&#x6B64;&#x65B9;&#x6CD5;&#x5177;&#x6709;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/DGMNHh" rel="nofollow"><code>util.promisify()</code></a> &#x7684;&#x7528;&#x4E8E; Promise &#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x53D8;&#x4F53;&#xFF1A;</p>
+<pre><code class="language-js">const util = require(&apos;util&apos;);
+const setImmediatePromise = util.promisify(setImmediate);
+
+setImmediatePromise(&apos;foobar&apos;).then((value) =&gt; {
+  // value === &apos;foobar&apos; &#xFF08;&#x4F20;&#x503C;&#x662F;&#x53EF;&#x9009;&#x7684;&#xFF09;
+  // &#x5728;&#x6240;&#x6709; I/O &#x56DE;&#x8C03;&#x4E4B;&#x540E;&#x6267;&#x884C;&#x3002;
+});
+
+// &#x6216;&#x4F7F;&#x7528;&#x5F02;&#x6B65;&#x529F;&#x80FD;&#x3002;
+async function timerExample() {
+  console.log(&apos;&#x5728; I/O &#x56DE;&#x8C03;&#x4E4B;&#x524D;&apos;);
+  await setImmediatePromise();
+  console.log(&apos;&#x5728; I/O &#x56DE;&#x8C03;&#x4E4B;&#x540E;&apos;);
+}
+timerExample();
+</code></pre>
+<h3>setInterval(callback, delay[, ...args])<span><a class="mark" href="timers.html#timers_setinterval_callback_delay_args" id="timers_setinterval_callback_delay_args">#</a></span></h3><p class="tip_wrap"><a href="timers/setinterval_callback_delay_args.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/setinterval_callback_delay_args.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.0.1</span>
+</div>
+<ul>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x5F53;&#x5B9A;&#x65F6;&#x5668;&#x5230;&#x70B9;&#x65F6;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#x3002;</li>
+<li><code>delay</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> &#x8C03;&#x7528; <code>callback</code> &#x4E4B;&#x524D;&#x7B49;&#x5F85;&#x7684;&#x6BEB;&#x79D2;&#x6570;&#x3002;</li>
+<li><code>...args</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> &#x5F53;&#x8C03;&#x7528; <code>callback</code> &#x65F6;&#x4F20;&#x5165;&#x7684;&#x53EF;&#x9009;&#x53C2;&#x6570;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/ezS7LR" target="_blank" rel="nofollow" class="type">&lt;Timeout&gt;</a> &#x7528;&#x4E8E; <a href="http://nodejs.cn/s/zRW98q" rel="nofollow"><code>clearInterval()</code></a>&#x3002;</li>
+</ul>
+<p>&#x9884;&#x5B9A;&#x6BCF;&#x9694; <code>delay</code> &#x6BEB;&#x79D2;&#x91CD;&#x590D;&#x6267;&#x884C; <code>callback</code>&#x3002;</p>
+<p>&#x5F53; <code>delay</code> &#x5927;&#x4E8E; <code>2147483647</code> &#x6216;&#x5C0F;&#x4E8E; <code>1</code> &#x65F6;&#xFF0C; <code>delay</code> &#x5C06;&#x8BBE;&#x7F6E;&#x4E3A; <code>1</code>&#x3002;
+&#x975E;&#x6574;&#x6570;&#x7684;&#x5EF6;&#x8FDF;&#x4F1A;&#x88AB;&#x622A;&#x65AD;&#x4E3A;&#x6574;&#x6570;&#x3002;</p>
+<p>&#x5982;&#x679C; <code>callback</code> &#x4E0D;&#x662F;&#x51FD;&#x6570;&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="http://nodejs.cn/s/Z7Lqyj" rel="nofollow"><code>TypeError</code></a>&#x3002;</p>
+<h3>setTimeout(callback, delay[, ...args])<span><a class="mark" href="timers.html#timers_settimeout_callback_delay_args" id="timers_settimeout_callback_delay_args">#</a></span></h3><p class="tip_wrap"><a href="timers/settimeout_callback_delay_args.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/settimeout_callback_delay_args.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.0.1</span>
+</div>
+<ul>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x5F53;&#x5B9A;&#x65F6;&#x5668;&#x5230;&#x70B9;&#x65F6;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#x3002;</li>
+<li><code>delay</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> &#x8C03;&#x7528; <code>callback</code> &#x4E4B;&#x524D;&#x7B49;&#x5F85;&#x7684;&#x6BEB;&#x79D2;&#x6570;&#x3002;</li>
+<li><code>...args</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> &#x5F53;&#x8C03;&#x7528; <code>callback</code> &#x65F6;&#x4F20;&#x5165;&#x7684;&#x53EF;&#x9009;&#x53C2;&#x6570;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/ezS7LR" target="_blank" rel="nofollow" class="type">&lt;Timeout&gt;</a> &#x7528;&#x4E8E; <a href="http://nodejs.cn/s/L4L2Xr" rel="nofollow"><code>clearTimeout()</code></a>&#x3002;</li>
+</ul>
+<p>&#x9884;&#x5B9A;&#x5728; <code>delay</code> &#x6BEB;&#x79D2;&#x4E4B;&#x540E;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x6027;&#x7684; <code>callback</code>&#x3002;</p>
+<p>&#x53EF;&#x80FD;&#x4E0D;&#x4F1A;&#x7CBE;&#x786E;&#x5730;&#x5728; <code>delay</code> &#x6BEB;&#x79D2;&#x65F6;&#x8C03;&#x7528; <code>callback</code>&#x3002;
+Node.js &#x4E0D;&#x4FDD;&#x8BC1;&#x56DE;&#x8C03;&#x88AB;&#x89E6;&#x53D1;&#x7684;&#x786E;&#x5207;&#x65F6;&#x95F4;&#xFF0C;&#x4E5F;&#x4E0D;&#x4FDD;&#x8BC1;&#x5B83;&#x4EEC;&#x7684;&#x987A;&#x5E8F;&#x3002;
+&#x56DE;&#x8C03;&#x4F1A;&#x5728;&#x5C3D;&#x53EF;&#x80FD;&#x63A5;&#x8FD1;&#x6307;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x8C03;&#x7528;&#x3002;</p>
+<p>&#x5F53; <code>delay</code> &#x5927;&#x4E8E; <code>2147483647</code> &#x6216;&#x5C0F;&#x4E8E; <code>1</code> &#x65F6;&#xFF0C; <code>delay</code> &#x5C06;&#x8BBE;&#x7F6E;&#x4E3A; <code>1</code>&#x3002;
+&#x975E;&#x6574;&#x6570;&#x7684;&#x5EF6;&#x8FDF;&#x4F1A;&#x88AB;&#x622A;&#x65AD;&#x4E3A;&#x6574;&#x6570;&#x3002;</p>
+<p>&#x5982;&#x679C; <code>callback</code> &#x4E0D;&#x662F;&#x51FD;&#x6570;&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="http://nodejs.cn/s/Z7Lqyj" rel="nofollow"><code>TypeError</code></a>&#x3002;</p>
+<p>&#x6B64;&#x65B9;&#x6CD5;&#x5177;&#x6709;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/DGMNHh" rel="nofollow"><code>util.promisify()</code></a> &#x7684;&#x7528;&#x4E8E; Promise &#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x53D8;&#x4F53;&#xFF1A;</p>
+<pre><code class="language-js">const util = require(&apos;util&apos;);
+const setTimeoutPromise = util.promisify(setTimeout);
+
+setTimeoutPromise(40, &apos;foobar&apos;).then((value) =&gt; {
+  // value === &apos;foobar&apos; &#xFF08;&#x4F20;&#x503C;&#x662F;&#x53EF;&#x9009;&#x7684;&#xFF09;
+  // &#x5728;&#x5927;&#x7EA6; 40 &#x6BEB;&#x79D2;&#x540E;&#x6267;&#x884C;&#x3002;
+});
+</code></pre>
+<h2>&#x53D6;&#x6D88;&#x5B9A;&#x65F6;&#x5668;<span><a class="mark" href="timers.html#timers_cancelling_timers" id="timers_cancelling_timers">#</a></span></h2><p class="tip_wrap"><a href="timers/cancelling_timers.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/cancelling_timers.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<p><a href="http://nodejs.cn/s/Cjc23N" rel="nofollow"><code>setImmediate()</code></a>&#x3001;<a href="http://nodejs.cn/s/hWCq4X" rel="nofollow"><code>setInterval()</code></a> &#x548C; <a href="http://nodejs.cn/s/UxXb1y" rel="nofollow"><code>setTimeout()</code></a> &#x65B9;&#x6CD5;&#x5404;&#x81EA;&#x8FD4;&#x56DE;&#x8868;&#x793A;&#x9884;&#x5B9A;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#x7684;&#x5BF9;&#x8C61;&#x3002;
+&#x5B83;&#x4EEC;&#x53EF;&#x7528;&#x4E8E;&#x53D6;&#x6D88;&#x5B9A;&#x65F6;&#x5668;&#x5E76;&#x9632;&#x6B62;&#x5176;&#x89E6;&#x53D1;&#x3002;</p>
+<p>&#x65E0;&#x6CD5;&#x53D6;&#x6D88;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/Cjc23N" rel="nofollow"><code>setImmediate()</code></a>&#x3001;<a href="http://nodejs.cn/s/UxXb1y" rel="nofollow"><code>setTimeout()</code></a> &#x7684; Promise &#x5316;&#x7684;&#x53D8;&#x4F53;&#x521B;&#x5EFA;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#x3002;</p>
+<h3>clearImmediate(immediate)<span><a class="mark" href="timers.html#timers_clearimmediate_immediate" id="timers_clearimmediate_immediate">#</a></span></h3><p class="tip_wrap"><a href="timers/clearimmediate_immediate.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/clearimmediate_immediate.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.1</span>
+</div>
+<ul>
+<li><code>immediate</code> <a href="http://nodejs.cn/s/SvSBDC" target="_blank" rel="nofollow" class="type">&lt;Immediate&gt;</a> <a href="http://nodejs.cn/s/Cjc23N" rel="nofollow"><code>setImmediate()</code></a> &#x8FD4;&#x56DE;&#x7684; <code>Immediate</code> &#x5BF9;&#x8C61;&#x3002; </li>
+</ul>
+<p>&#x53D6;&#x6D88;&#x7531; <a href="http://nodejs.cn/s/Cjc23N" rel="nofollow"><code>setImmediate()</code></a> &#x521B;&#x5EFA;&#x7684; <code>Immediate</code> &#x5BF9;&#x8C61;&#x3002;</p>
+<h3>clearInterval(timeout)<span><a class="mark" href="timers.html#timers_clearinterval_timeout" id="timers_clearinterval_timeout">#</a></span></h3><p class="tip_wrap"><a href="timers/clearinterval_timeout.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/clearinterval_timeout.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.0.1</span>
+</div>
+<ul>
+<li><code>timeout</code> <a href="http://nodejs.cn/s/ezS7LR" target="_blank" rel="nofollow" class="type">&lt;Timeout&gt;</a> <a href="http://nodejs.cn/s/hWCq4X" rel="nofollow"><code>setInterval()</code></a> &#x8FD4;&#x56DE;&#x7684; <code>Timeout</code> &#x5BF9;&#x8C61;&#x3002; </li>
+</ul>
+<p>&#x53D6;&#x6D88;&#x7531; <a href="http://nodejs.cn/s/hWCq4X" rel="nofollow"><code>setInterval()</code></a> &#x521B;&#x5EFA;&#x7684; <code>Timeout</code> &#x5BF9;&#x8C61;&#x3002;</p>
+<h3>clearTimeout(timeout)<span><a class="mark" href="timers.html#timers_cleartimeout_timeout" id="timers_cleartimeout_timeout">#</a></span></h3><p class="tip_wrap"><a href="timers/cleartimeout_timeout.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/timers/cleartimeout_timeout.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.0.1</span>
+</div>
+<ul>
+<li><code>timeout</code> <a href="http://nodejs.cn/s/ezS7LR" target="_blank" rel="nofollow" class="type">&lt;Timeout&gt;</a> <a href="http://nodejs.cn/s/UxXb1y" rel="nofollow"><code>setTimeout()</code></a> &#x8FD4;&#x56DE;&#x7684; <code>Timeout</code> &#x5BF9;&#x8C61;&#x3002; </li>
+</ul>
+<p>&#x53D6;&#x6D88;&#x7531; <a href="http://nodejs.cn/s/UxXb1y" rel="nofollow"><code>setTimeout()</code></a> &#x521B;&#x5EFA;&#x7684; <code>Timeout</code> &#x5BF9;&#x8C61;&#x3002;</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 搜索弹窗 -->
+  <!-- <div id="search_modal"></div> -->
+  <!-- js -->
+  <!--[if lt IE 10]><script src="/static/lib/placeholders.js?20170426"></script><![endif]-->
+  
+  <script>
+    document.write('<script src="http://nodejs.cn/api/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756325211"><\/script>');
+  </script>
+
+</body></html>

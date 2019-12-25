@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>process.umask([mask]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756321110" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>process.umask([mask])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../process.html#process_process_umask_mask" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/process/process_umask_mask.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.19</span>
+</div><ul>
+<li><code>mask</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+</ul><p><code>process.umask()</code>&#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x8FD4;&#x56DE;&#x6216;&#x8BBE;&#x7F6E;Node.js&#x8FDB;&#x7A0B;&#x7684;&#x9ED8;&#x8BA4;&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x7684;&#x6743;&#x9650;&#x63A9;&#x7801;&#x3002;&#x5B50;&#x8FDB;&#x7A0B;&#x4ECE;&#x7236;&#x8FDB;&#x7A0B;&#x7EE7;&#x627F;&#x8FD9;&#x4E2A;&#x63A9;&#x7801;&#x3002;
+&#x4E0D;&#x4F20;&#x53C2;&#x6570;&#x65F6;&#xFF0C;&#x9ED8;&#x8BA4;&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x63A9;&#x7801;&#xFF0C;&#x5982;&#x679C;&#x4F20;&#x9012;&#x4E86;&#x53C2;&#x6570;&#xFF0C;&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x63A9;&#x7801;&#x5C31;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A;&#x53C2;&#x6570;&#x503C;&#xFF0C;&#x5E76;&#x4E14;&#x8FD4;&#x56DE;&#x4E4B;&#x524D;&#x7684;&#x63A9;&#x7801;&#x3002;</p><pre><code class="language-js">const newmask = 0o022;
+const oldmask = process.umask(newmask);
+console.log(
+  `&#x5C06; umask &#x4ECE; ${oldmask.toString(8)} &#x66F4;&#x6539;&#x4E3A; ${newmask.toString(8)}`
+);
+</code></pre><p><a href="http://nodejs.cn/s/S15DqM" rel="nofollow"><code>Worker</code></a> &#x7EBF;&#x7A0B;&#x80FD;&#x591F;&#x8BFB;&#x53D6; umask&#xFF0C;&#x4F46;&#x662F;&#x5C1D;&#x8BD5;&#x8BBE;&#x7F6E; umask &#x5C06;&#x4F1A;&#x5BFC;&#x81F4;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.19</span>
+</div><ul>
+<li><code>mask</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+</ul><p>The <code>process.umask()</code> method sets or returns the Node.js process&apos;s file mode
+creation mask. Child processes inherit the mask from the parent process. Invoked
+without an argument, the current mask is returned, otherwise the umask is set to
+the argument value and the previous mask is returned.</p><pre><code class="language-js">const newmask = 0o022;
+const oldmask = process.umask(newmask);
+console.log(
+  `Changed umask from ${oldmask.toString(8)} to ${newmask.toString(8)}`
+);
+</code></pre><p><a href="http://nodejs.cn/s/S15DqM" rel="nofollow"><code>Worker</code></a> threads are able to read the umask, however attempting to set the
+umask will result in a thrown exception.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756321110"><\/script>');
+  </script>
+</body>
+</html>

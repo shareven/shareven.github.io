@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>工作线程的支持 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/addons/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756291591" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-addons">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>工作线程的支持</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../addons.html#addons_worker_support" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/addons/worker_support.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x4E3A;&#x4E86;&#x652F;&#x6301; <a href="http://nodejs.cn/s/S15DqM" rel="nofollow"><code>Worker</code></a> &#x7EBF;&#x7A0B;&#xFF0C;&#x63D2;&#x4EF6;&#x9700;&#x8981;&#x6E05;&#x7406;&#x53EF;&#x80FD;&#x5206;&#x914D;&#x7684;&#x4EFB;&#x4F55;&#x8D44;&#x6E90;&#xFF08;&#x5F53;&#x5B58;&#x5728;&#x8FD9;&#x6837;&#x7684;&#x7EBF;&#x7A0B;&#x65F6;&#xFF09;&#x3002;
+&#x8FD9;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4F7F;&#x7528; <code>AddEnvironmentCleanupHook()</code> &#x51FD;&#x6570;&#x6765;&#x5B9E;&#x73B0;&#xFF1A;</p><pre><code class="language-c++">void AddEnvironmentCleanupHook(v8::Isolate* isolate,
+                               void (*fun)(void* arg),
+                               void* arg);
+</code></pre><p>&#x6B64;&#x51FD;&#x6570;&#x6DFB;&#x52A0;&#x4E86;&#x4E00;&#x4E2A;&#x94A9;&#x5B50;&#xFF0C;&#x8BE5;&#x94A9;&#x5B50;&#x5C06;&#x5728;&#x7ED9;&#x5B9A;&#x7684; Node.js &#x5B9E;&#x4F8B;&#x5173;&#x95ED;&#x4E4B;&#x524D;&#x8FD0;&#x884C;&#x3002;
+&#x5982;&#x6709;&#x5FC5;&#x8981;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x8FD0;&#x884C;&#x4E4B;&#x524D;&#x4F7F;&#x7528; <code>RemoveEnvironmentCleanupHook()</code> &#x5220;&#x9664;&#x6B64;&#x7C7B;&#x6302;&#x94A9;&#xFF0C;&#x5B83;&#x4EEC;&#x5177;&#x6709;&#x76F8;&#x540C;&#x7684;&#x7B7E;&#x540D;&#x3002;</p><p>&#x4E3A;&#x4E86;&#x4ECE;&#x591A;&#x4E2A; Node.js &#x73AF;&#x5883;&#x52A0;&#x8F7D;&#xFF0C;&#x4F8B;&#x5982;&#x4E3B;&#x7EBF;&#x7A0B;&#x548C;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#xFF0C;&#x63D2;&#x4EF6;&#x8FD8;&#x9700;&#x8981;&#xFF1A;</p><ul>
+<li>&#x662F;&#x4E00;&#x4E2A; N-API &#x63D2;&#x4EF6;&#xFF0C;&#x6216;</li>
+<li>&#x5982;&#x4E0A;&#x6240;&#x8FF0;&#xFF0C;&#x4F7F;&#x7528; <code>NODE_MODULE_INIT()</code> &#x58F0;&#x660E;&#x4E3A;&#x4E0A;&#x4E0B;&#x6587;&#x611F;&#x77E5;&#x3002;</li>
+</ul></div>
+          <div id="content_right"><p>In order to support <a href="http://nodejs.cn/s/S15DqM" rel="nofollow"><code>Worker</code></a> threads, addons need to clean up any resources
+they may have allocated when such a thread exists. This can be achieved through
+the usage of the <code>AddEnvironmentCleanupHook()</code> function:</p><pre><code class="language-c++">void AddEnvironmentCleanupHook(v8::Isolate* isolate,
+                               void (*fun)(void* arg),
+                               void* arg);
+</code></pre><p>This function adds a hook that will run before a given Node.js instance shuts
+down. If necessary, such hooks can be removed using
+<code>RemoveEnvironmentCleanupHook()</code> before they are run, which has the same
+signature.</p><p>In order to be loaded from multiple Node.js environments,
+such as a main thread and a Worker thread, an add-on needs to either:</p><ul>
+<li>Be an N-API addon, or</li>
+<li>Be declared as context-aware using <code>NODE_MODULE_INIT()</code> as described above</li>
+</ul></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/addons/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756291591"><\/script>');
+  </script>
+</body>
+</html>

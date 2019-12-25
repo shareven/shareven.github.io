@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>文件模块 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/modules/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756315996" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-modules">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>文件模块</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../modules.html#modules_file_modules" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/modules/file_modules.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x5982;&#x679C;&#x6309;&#x786E;&#x5207;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x6A21;&#x5757;&#xFF0C;&#x5219; Node.js &#x4F1A;&#x5C1D;&#x8BD5;&#x5E26;&#x4E0A; <code>.js</code>&#x3001; <code>.json</code> &#x6216; <code>.node</code> &#x62D3;&#x5C55;&#x540D;&#x518D;&#x52A0;&#x8F7D;&#x3002;</p><p><code>.js</code> &#x6587;&#x4EF6;&#x4F1A;&#x88AB;&#x89E3;&#x6790;&#x4E3A; JavaScript &#x6587;&#x672C;&#x6587;&#x4EF6;&#xFF0C; <code>.json</code> &#x6587;&#x4EF6;&#x4F1A;&#x88AB;&#x89E3;&#x6790;&#x4E3A; JSON &#x6587;&#x672C;&#x6587;&#x4EF6;&#x3002;
+<code>.node</code> &#x6587;&#x4EF6;&#x4F1A;&#x88AB;&#x89E3;&#x6790;&#x4E3A;&#x901A;&#x8FC7; <code>process.dlopen()</code> &#x52A0;&#x8F7D;&#x7684;&#x7F16;&#x8BD1;&#x540E;&#x7684;&#x63D2;&#x4EF6;&#x6A21;&#x5757;&#x3002;</p><p>&#x4EE5; <code>&apos;/&apos;</code> &#x4E3A;&#x524D;&#x7F00;&#x7684;&#x6A21;&#x5757;&#x662F;&#x6587;&#x4EF6;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C; <code>require(&apos;/home/marco/foo.js&apos;)</code> &#x4F1A;&#x52A0;&#x8F7D; <code>/home/marco/foo.js</code> &#x6587;&#x4EF6;&#x3002;</p><p>&#x4EE5; <code>&apos;./&apos;</code> &#x4E3A;&#x524D;&#x7F00;&#x7684;&#x6A21;&#x5757;&#x662F;&#x76F8;&#x5BF9;&#x4E8E;&#x8C03;&#x7528; <code>require()</code> &#x7684;&#x6587;&#x4EF6;&#x7684;&#x3002;
+&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C; <code>circle.js</code> &#x5FC5;&#x987B;&#x548C; <code>foo.js</code> &#x5728;&#x540C;&#x4E00;&#x76EE;&#x5F55;&#x4E0B;&#x4EE5;&#x4FBF;&#x4E8E; <code>require(&apos;./circle&apos;)</code> &#x627E;&#x5230;&#x5B83;&#x3002;</p><p>&#x5F53;&#x6CA1;&#x6709;&#x4EE5; <code>&apos;/&apos;</code>&#x3001; <code>&apos;./&apos;</code> &#x6216; <code>&apos;../&apos;</code> &#x5F00;&#x5934;&#x6765;&#x8868;&#x793A;&#x6587;&#x4EF6;&#x65F6;&#xFF0C;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x5FC5;&#x987B;&#x662F;&#x4E00;&#x4E2A;&#x6838;&#x5FC3;&#x6A21;&#x5757;&#x6216;&#x52A0;&#x8F7D;&#x81EA; <code>node_modules</code> &#x76EE;&#x5F55;&#x3002;</p><p>&#x5982;&#x679C;&#x7ED9;&#x5B9A;&#x7684;&#x8DEF;&#x5F84;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5219; <code>require()</code> &#x4F1A;&#x629B;&#x51FA;&#x4E00;&#x4E2A; <code>code</code> &#x5C5E;&#x6027;&#x4E3A; <code>&apos;MODULE_NOT_FOUND&apos;</code> &#x7684; <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a>&#x3002;</p></div>
+          <div id="content_right"><p>If the exact filename is not found, then Node.js will attempt to load the
+required filename with the added extensions: <code>.js</code>, <code>.json</code>, and finally
+<code>.node</code>.</p><p><code>.js</code> files are interpreted as JavaScript text files, and <code>.json</code> files are
+parsed as JSON text files. <code>.node</code> files are interpreted as compiled addon
+modules loaded with <code>process.dlopen()</code>.</p><p>A required module prefixed with <code>&apos;/&apos;</code> is an absolute path to the file. For
+example, <code>require(&apos;/home/marco/foo.js&apos;)</code> will load the file at
+<code>/home/marco/foo.js</code>.</p><p>A required module prefixed with <code>&apos;./&apos;</code> is relative to the file calling
+<code>require()</code>. That is, <code>circle.js</code> must be in the same directory as <code>foo.js</code> for
+<code>require(&apos;./circle&apos;)</code> to find it.</p><p>Without a leading <code>&apos;/&apos;</code>, <code>&apos;./&apos;</code>, or <code>&apos;../&apos;</code> to indicate a file, the module must
+either be a core module or is loaded from a <code>node_modules</code> folder.</p><p>If the given path does not exist, <code>require()</code> will throw an <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> with its
+<code>code</code> property set to <code>&apos;MODULE_NOT_FOUND&apos;</code>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/modules/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756315996"><\/script>');
+  </script>
+</body>
+</html>

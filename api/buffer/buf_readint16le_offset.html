@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>buf.readInt16LE([offset]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756294665" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-buffer">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>buf.readInt16LE([offset])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../buffer.html#buffer_buf_readint16le_offset" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/buffer/buf_readint16le_offset.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>Removed <code>noAssert</code> and no implicit coercion of the offset to <code>uint32</code> anymore.</p></td></tr>
+<tr><td>v0.5.5</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.5.5</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>offset</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x5F00;&#x59CB;&#x8BFB;&#x53D6;&#x4E4B;&#x524D;&#x8981;&#x8DF3;&#x8FC7;&#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;&#x5FC5;&#x987B;&#x6EE1;&#x8DB3;<code>0 &lt;= offset &lt;= buf.length - 2</code>&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>0</code>&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+</ul><p>&#x7528;&#x6307;&#x5B9A;&#x7684;&#x5B57;&#x8282;&#x5E8F;&#x683C;&#x5F0F;&#xFF08;<code>readInt16BE()</code> &#x8FD4;&#x56DE;&#x5927;&#x7AEF;&#x5E8F;&#xFF0C; <code>readInt16LE()</code> &#x8FD4;&#x56DE;&#x5C0F;&#x7AEF;&#x5E8F;&#xFF09;&#x4ECE; <code>buf</code> &#x4E2D;&#x6307;&#x5B9A;&#x7684; <code>offset</code> &#x8BFB;&#x53D6;&#x4E00;&#x4E2A;&#x6709;&#x7B26;&#x53F7;&#x7684; 16 &#x4F4D;&#x6574;&#x6570;&#x503C;&#x3002;</p><p>&#x4ECE; <code>Buffer</code> &#x4E2D;&#x8BFB;&#x53D6;&#x7684;&#x6574;&#x6570;&#x503C;&#x4F1A;&#x88AB;&#x89E3;&#x6790;&#x4E3A;&#x4E8C;&#x8FDB;&#x5236;&#x8865;&#x7801;&#x503C;&#x3002;</p><pre><code class="language-js">const buf = Buffer.from([0, 5]);
+
+console.log(buf.readInt16BE(0));
+// &#x6253;&#x5370;: 5
+console.log(buf.readInt16LE(0));
+// &#x6253;&#x5370;: 1280
+console.log(buf.readInt16LE(1));
+// &#x629B;&#x51FA;&#x5F02;&#x5E38; ERR_OUT_OF_RANGE&#x3002;
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>Removed <code>noAssert</code> and no implicit coercion of the offset to <code>uint32</code> anymore.</p></td></tr>
+<tr><td>v0.5.5</td>
+<td><p><span>Added in: v0.5.5</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>offset</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> Number of bytes to skip before starting to read. Must
+satisfy <code>0 &lt;= offset &lt;= buf.length - 2</code>. <strong>Default:</strong> <code>0</code>.</li>
+<li>Returns: <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+</ul><p>Reads a signed 16-bit integer from <code>buf</code> at the specified <code>offset</code> with
+the specified endian format (<code>readInt16BE()</code> returns big endian,
+<code>readInt16LE()</code> returns little endian).</p><p>Integers read from a <code>Buffer</code> are interpreted as two&apos;s complement signed values.</p><pre><code class="language-js">const buf = Buffer.from([0, 5]);
+
+console.log(buf.readInt16BE(0));
+// Prints: 5
+console.log(buf.readInt16LE(0));
+// Prints: 1280
+console.log(buf.readInt16LE(1));
+// Throws ERR_OUT_OF_RANGE.
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756294665"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Node.js的V8检查器集成 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/debugger/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756300773" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-debugger">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>Node.js的V8检查器集成</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../debugger.html#debugger_v8_inspector_integration_for_node_js" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/debugger/v8_inspector_integration_for_node_js.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>V8 &#x68C0;&#x67E5;&#x5668;&#x96C6;&#x6210;&#x5141;&#x8BB8;&#x5C06; Chrome &#x5F00;&#x53D1;&#x8005;&#x5DE5;&#x5177;&#x9644;&#x52A0;&#x5230; Node.js &#x5B9E;&#x4F8B;&#x4EE5;&#x8FDB;&#x884C;&#x8C03;&#x8BD5;&#x548C;&#x6027;&#x80FD;&#x5206;&#x6790;&#x3002;
+&#x5B83;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/YpFEVu" rel="nofollow">Chrome&#x5F00;&#x53D1;&#x8005;&#x5DE5;&#x5177;&#x534F;&#x8BAE;</a>&#x3002;</p><p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5728;&#x542F;&#x52A8; Node.js &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x65F6;&#x4F20;&#x5165; <code>--inspect</code> &#x6807;&#x5FD7;&#x6765;&#x542F;&#x7528; V8 &#x68C0;&#x67E5;&#x5668;&#x3002;
+&#x4E5F;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x5E26;&#x6709;&#x8BE5;&#x6807;&#x5FD7;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x7AEF;&#x53E3;&#xFF0C;&#x4F8B;&#x5982; <code>--inspect=9222</code> &#x5C06;&#x63A5;&#x53D7;&#x7AEF;&#x53E3; 9222 &#x4E0A;&#x7684;&#x5F00;&#x53D1;&#x8005;&#x5DE5;&#x5177;&#x8FDE;&#x63A5;&#x3002;</p><p>&#x8981;&#x5728;&#x5E94;&#x7528;&#x4EE3;&#x7801;&#x7684;&#x7B2C;&#x4E00;&#x884C;&#x65AD;&#x5F00;&#xFF0C;&#x8BF7;&#x4F20;&#x5165; <code>--inspect-brk</code> &#x6807;&#x5FD7;&#x800C;&#x4E0D;&#x662F; <code>--inspect</code>&#x3002;</p><pre><code class="language-console">$ node --inspect index.js
+Debugger listening on 127.0.0.1:9229.
+To start debugging, open the following URL in Chrome:
+    chrome-devtools://devtools/bundled/js_app.html?experiments=true&amp;v8only=true&amp;ws=127.0.0.1:9229/dc9010dd-f8b8-4ac5-a510-c1a114ec7d29
+</code></pre><p>&#xFF08;&#x5728;&#x4E0A;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;URL &#x672B;&#x5C3E;&#x7684; UUID dc9010dd-f8b8-4ac5-a510-c1a114ec7d29 &#x662F;&#x52A8;&#x6001;&#x751F;&#x6210;&#x7684;&#xFF0C;&#x5B83;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x8C03;&#x8BD5;&#x4F1A;&#x8BDD;&#x4E2D;&#x4F1A;&#x6709;&#x6240;&#x4E0D;&#x540C;&#x3002;&#xFF09;</p><p>&#x5982;&#x679C; Chrome &#x6D4F;&#x89C8;&#x5668;&#x7684;&#x7248;&#x672C;&#x4F4E;&#x4E8E; 66.0.3345.0&#xFF0C;&#x8BF7;&#x5728;&#x4E0A;&#x8FF0;&#x7F51;&#x5740;&#x4E2D;&#x4F7F;&#x7528; <code>inspector.html</code> &#x800C;&#x4E0D;&#x662F; <code>js_app.html</code>&#x3002;</p></div>
+          <div id="content_right"><p>V8 Inspector integration allows attaching Chrome DevTools to Node.js
+instances for debugging and profiling. It uses the
+<a href="http://nodejs.cn/s/YpFEVu" rel="nofollow">Chrome DevTools Protocol</a>.</p><p>V8 Inspector can be enabled by passing the <code>--inspect</code> flag when starting a
+Node.js application. It is also possible to supply a custom port with that flag,
+e.g. <code>--inspect=9222</code> will accept DevTools connections on port 9222.</p><p>To break on the first line of the application code, pass the <code>--inspect-brk</code>
+flag instead of <code>--inspect</code>.</p><pre><code class="language-console">$ node --inspect index.js
+Debugger listening on 127.0.0.1:9229.
+To start debugging, open the following URL in Chrome:
+    chrome-devtools://devtools/bundled/js_app.html?experiments=true&amp;v8only=true&amp;ws=127.0.0.1:9229/dc9010dd-f8b8-4ac5-a510-c1a114ec7d29
+</code></pre><p>(In the example above, the UUID dc9010dd-f8b8-4ac5-a510-c1a114ec7d29
+at the end of the URL is generated on the fly, it varies in different
+debugging sessions.)</p><p>If the Chrome browser is older than 66.0.3345.0,
+use <code>inspector.html</code> instead of <code>js_app.html</code> in the above URL.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/debugger/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756300773"><\/script>');
+  </script>
+</body>
+</html>

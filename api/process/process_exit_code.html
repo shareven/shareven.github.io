@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>process.exit([code]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756321034" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>process.exit([code])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../process.html#process_process_exit_code" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/process/process_exit_code.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.13</span>
+</div><ul>
+<li><code>code</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x9000;&#x51FA;&#x7801;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>0</code>&#x3002;</li>
+</ul><p><code>process.exit()</code> &#x65B9;&#x6CD5;&#x4EE5;&#x9000;&#x51FA;&#x72B6;&#x6001; <code>code</code> &#x6307;&#x793A; Node.js &#x540C;&#x6B65;&#x5730;&#x7EC8;&#x6B62;&#x8FDB;&#x7A0B;&#x3002;
+&#x5982;&#x679C;&#x7701;&#x7565; <code>code</code>&#xFF0C;&#x5219;&#x4F7F;&#x7528;&#x6210;&#x529F;&#x4EE3;&#x7801; <code>0</code> &#x6216; <code>process.exitCode</code> &#x7684;&#x503C;&#xFF08;&#x5982;&#x679C;&#x5DF2;&#x8BBE;&#x7F6E;&#xFF09;&#x9000;&#x51FA;&#x3002;
+&#x5728;&#x8C03;&#x7528;&#x6240;&#x6709;&#x7684; <a href="http://nodejs.cn/s/YpyNLc" rel="nofollow"><code>&apos;exit&apos;</code></a> &#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x5668;&#x4E4B;&#x524D;&#xFF0C;Node.js &#x4E0D;&#x4F1A;&#x7EC8;&#x6B62;&#x3002;</p><p>&#x4F7F;&#x7528;&#x5931;&#x8D25;&#x4EE3;&#x7801;&#x9000;&#x51FA;&#xFF1A;</p><pre><code class="language-js">process.exit(1);
+</code></pre><p>&#x6267;&#x884C; Node.js &#x7684; shell &#x5E94;&#x8BE5;&#x5F97;&#x5230;&#x7684;&#x9000;&#x51FA;&#x7801;&#x4E3A; <code>1</code>&#x3002;</p><p>&#x8C03;&#x7528; <code>process.exit()</code> &#x5C06;&#x5F3A;&#x5236;&#x8FDB;&#x7A0B;&#x5C3D;&#x5FEB;&#x9000;&#x51FA;&#xFF0C;&#x5373;&#x4F7F;&#x8FD8;&#x6709;&#x5C1A;&#x672A;&#x5B8C;&#x5168;&#x5B8C;&#x6210;&#x7684;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#xFF0C;&#x5305;&#x62EC;&#x5BF9; <code>process.stdout</code> &#x548C; <code>process.stderr</code> &#x7684; I/O &#x64CD;&#x4F5C;&#x3002;</p><p>&#x5728;&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x4E0D;&#x5FC5;&#x663E;&#x5F0F;&#x5730;&#x8C03;&#x7528; <code>process.exit()</code>&#x3002;
+&#x5982;&#x679C;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4E2D;&#x6CA1;&#x6709;&#x5F85;&#x5904;&#x7406;&#x7684;&#x989D;&#x5916;&#x5DE5;&#x4F5C;&#xFF0C;&#x5219; Node.js &#x8FDB;&#x7A0B;&#x5C06;&#x81EA;&#x884C;&#x9000;&#x51FA;&#x3002;
+<code>process.exitCode</code> &#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x4E3A;&#x544A;&#x8BC9;&#x8FDB;&#x7A0B;&#x5F53;&#x8FDB;&#x7A0B;&#x6B63;&#x5E38;&#x9000;&#x51FA;&#x65F6;&#x4F7F;&#x7528;&#x54EA;&#x4E2A;&#x9000;&#x51FA;&#x7801;&#x3002;</p><p>&#x4F8B;&#x5982;&#xFF0C;&#x4EE5;&#x4E0B;&#x793A;&#x4F8B;&#x8BF4;&#x660E;&#x4E86; <code>process.exit()</code> &#x65B9;&#x6CD5;&#x7684;&#x9519;&#x8BEF;&#x7528;&#x6CD5;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x6253;&#x5370;&#x5230; stdout &#x7684;&#x6570;&#x636E;&#x88AB;&#x622A;&#x65AD;&#x548C;&#x4E22;&#x5931;&#xFF1A;</p><pre><code class="language-js">// &#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x7528;&#x6CD5;&#x7684;&#x793A;&#x4F8B;&#xFF1A;
+if (someConditionNotMet()) {
+  printUsageToStdout();
+  process.exit(1);
+}
+</code></pre><p>&#x8FD9;&#x662F;&#x6709;&#x95EE;&#x9898;&#x7684;&#x539F;&#x56E0;&#x662F;&#x56E0;&#x4E3A;&#x5BF9; Node.js &#x4E2D;&#x7684; <code>process.stdout</code> &#x7684;&#x5199;&#x5165;&#x6709;&#x65F6;&#x662F;&#x5F02;&#x6B65;&#x7684;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x80FD;&#x53D1;&#x751F;&#x5728; Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x7684;&#x591A;&#x4E2A;&#x65F6;&#x95F4;&#x70B9;&#x4E2D;&#x3002;
+&#x4F46;&#x662F;&#xFF0C;&#x8C03;&#x7528; <code>process.exit()</code> &#x4F1A;&#x5F3A;&#x5236;&#x8FDB;&#x7A0B;&#x9000;&#x51FA;&#xFF0C;&#x7136;&#x540E;&#x624D;&#x80FD;&#x6267;&#x884C;&#x5BF9; <code>stdout</code> &#x7684;&#x5176;&#x4ED6;&#x5199;&#x5165;&#x64CD;&#x4F5C;&#x3002;</p><p>&#x4EE3;&#x7801;&#x4E0D;&#x5E94;&#x76F4;&#x63A5;&#x8C03;&#x7528; <code>process.exit()</code>&#xFF0C;&#x800C;&#x5E94;&#x8BBE;&#x7F6E; <code>process.exitCode</code> &#x5E76;&#x5141;&#x8BB8;&#x8FDB;&#x7A0B;&#x81EA;&#x7136;&#x9000;&#x51FA;&#xFF0C;&#x907F;&#x514D;&#x4E3A;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x8C03;&#x5EA6;&#x4EFB;&#x4F55;&#x5176;&#x4ED6;&#x5DE5;&#x4F5C;&#xFF1A;</p><pre><code class="language-js">// &#x5982;&#x4F55;&#x6B63;&#x786E;&#x8BBE;&#x7F6E;&#x9000;&#x51FA;&#x7801;&#xFF0C;&#x540C;&#x65F6;&#x8BA9;&#x8FDB;&#x7A0B;&#x6B63;&#x5E38;&#x9000;&#x51FA;&#x3002;
+if (someConditionNotMet()) {
+  printUsageToStdout();
+  process.exitCode = 1;
+}
+</code></pre><p>&#x5982;&#x679C;&#x7531;&#x4E8E;&#x9519;&#x8BEF;&#x6761;&#x4EF6;&#x800C;&#x9700;&#x8981;&#x7EC8;&#x6B62; Node.js &#x8FDB;&#x7A0B;&#xFF0C;&#x5219;&#x629B;&#x51FA;&#x672A;&#x88AB;&#x6355;&#x83B7;&#x7684;&#x9519;&#x8BEF;&#x5E76;&#x5141;&#x8BB8;&#x8FDB;&#x7A0B;&#x76F8;&#x5E94;&#x5730;&#x7EC8;&#x6B62;&#xFF0C;&#x8FD9;&#x6BD4;&#x8C03;&#x7528; <code>process.exit()</code> &#x66F4;&#x5B89;&#x5168;&#x3002;</p><p>&#x5728; <a href="http://nodejs.cn/s/S15DqM" rel="nofollow"><code>Worker</code></a> &#x7EBF;&#x7A0B;&#x4E2D;&#xFF0C;&#x6B64;&#x51FD;&#x6570;&#x5C06;&#x505C;&#x6B62;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x800C;&#x4E0D;&#x662F;&#x5F53;&#x524D;&#x8FDB;&#x7A0B;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.13</span>
+</div><ul>
+<li><code>code</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> The exit code. <strong>Default:</strong> <code>0</code>.</li>
+</ul><p>The <code>process.exit()</code> method instructs Node.js to terminate the process
+synchronously with an exit status of <code>code</code>. If <code>code</code> is omitted, exit uses
+either the &apos;success&apos; code <code>0</code> or the value of <code>process.exitCode</code> if it has been
+set. Node.js will not terminate until all the <a href="http://nodejs.cn/s/YpyNLc" rel="nofollow"><code>&apos;exit&apos;</code></a> event listeners are
+called.</p><p>To exit with a &apos;failure&apos; code:</p><pre><code class="language-js">process.exit(1);
+</code></pre><p>The shell that executed Node.js should see the exit code as <code>1</code>.</p><p>Calling <code>process.exit()</code> will force the process to exit as quickly as possible
+even if there are still asynchronous operations pending that have not yet
+completed fully, including I/O operations to <code>process.stdout</code> and
+<code>process.stderr</code>.</p><p>In most situations, it is not actually necessary to call <code>process.exit()</code>
+explicitly. The Node.js process will exit on its own <em>if there is no additional
+work pending</em> in the event loop. The <code>process.exitCode</code> property can be set to
+tell the process which exit code to use when the process exits gracefully.</p><p>For instance, the following example illustrates a <em>misuse</em> of the
+<code>process.exit()</code> method that could lead to data printed to stdout being
+truncated and lost:</p><pre><code class="language-js">// This is an example of what *not* to do:
+if (someConditionNotMet()) {
+  printUsageToStdout();
+  process.exit(1);
+}
+</code></pre><p>The reason this is problematic is because writes to <code>process.stdout</code> in Node.js
+are sometimes <em>asynchronous</em> and may occur over multiple ticks of the Node.js
+event loop. Calling <code>process.exit()</code>, however, forces the process to exit
+<em>before</em> those additional writes to <code>stdout</code> can be performed.</p><p>Rather than calling <code>process.exit()</code> directly, the code <em>should</em> set the
+<code>process.exitCode</code> and allow the process to exit naturally by avoiding
+scheduling any additional work for the event loop:</p><pre><code class="language-js">// How to properly set the exit code while letting
+// the process exit gracefully.
+if (someConditionNotMet()) {
+  printUsageToStdout();
+  process.exitCode = 1;
+}
+</code></pre><p>If it is necessary to terminate the Node.js process due to an error condition,
+throwing an <em>uncaught</em> error and allowing the process to terminate accordingly
+is safer than calling <code>process.exit()</code>.</p><p>In <a href="http://nodejs.cn/s/S15DqM" rel="nofollow"><code>Worker</code></a> threads, this function stops the current thread rather
+than the current process.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756321034"><\/script>');
+  </script>
+</body>
+</html>

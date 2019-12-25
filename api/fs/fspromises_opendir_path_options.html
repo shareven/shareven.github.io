@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>fsPromises.opendir(path[, options]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756310345" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>fsPromises.opendir(path[, options])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_fspromises_opendir_path_options" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/fspromises_opendir_path_options.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v12.12.0</span>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/334hvC" target="_blank" rel="nofollow" class="type">&lt;null&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;utf8&apos;</code>&#x3002;</li>
+</ul>
+</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/ri1kj8" target="_blank" rel="nofollow" class="type">&lt;Promise&gt;</a> &#x5305;&#x542B; <a href="http://nodejs.cn/s/PrNiRv" target="_blank" rel="nofollow" class="type">&lt;fs.Dir&gt;</a>&#x3002;</li>
+</ul><p>&#x5F02;&#x6B65;&#x5730;&#x6253;&#x5F00;&#x76EE;&#x5F55;&#x3002; 
+&#x53C2;&#x9605; <a href="http://nodejs.cn/s/KKZ5fX" rel="nofollow"><code>opendir(3)</code></a>&#x3002;</p><p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A; <a href="http://nodejs.cn/s/PrNiRv" rel="nofollow"><code>fs.Dir</code></a>&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x542B;&#x6240;&#x6709;&#x7528;&#x4E8E;&#x66F4;&#x8FDB;&#x4E00;&#x6B65;&#x8BFB;&#x53D6;&#x548C;&#x6E05;&#x7406;&#x76EE;&#x5F55;&#x7684;&#x7684;&#x51FD;&#x6570;&#x3002;</p><p><code>encoding</code> &#x9009;&#x9879;&#x7528;&#x4E8E;&#x5728;&#x6253;&#x5F00;&#x76EE;&#x5F55;&#x548C;&#x540E;&#x7EED;&#x7684;&#x8BFB;&#x53D6;&#x64CD;&#x4F5C;&#x65F6;&#x8BBE;&#x7F6E; <code>path</code> &#x7684;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x3002;</p><p>&#x4F7F;&#x7528;&#x5F02;&#x6B65;&#x8FED;&#x4EE3;&#x7684;&#x793A;&#x4F8B;&#xFF1A;</p><pre><code class="language-js">const fs = require(&apos;fs&apos;);
+
+async function print(path) {
+  const dir = await fs.promises.opendir(path);
+  for await (const dirent of dir) {
+    console.log(dirent.name);
+  }
+}
+print(&apos;./&apos;).catch(console.error);
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v12.12.0</span>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/334hvC" target="_blank" rel="nofollow" class="type">&lt;null&gt;</a> <strong>Default:</strong> <code>&apos;utf8&apos;</code></li>
+</ul>
+</li>
+<li>Returns: <a href="http://nodejs.cn/s/ri1kj8" target="_blank" rel="nofollow" class="type">&lt;Promise&gt;</a> containing <a href="http://nodejs.cn/s/PrNiRv" target="_blank" rel="nofollow" class="type">&lt;fs.Dir&gt;</a></li>
+</ul><p>Asynchronously open a directory. See <a href="http://nodejs.cn/s/KKZ5fX" rel="nofollow"><code>opendir(3)</code></a>.</p><p>Creates an <a href="http://nodejs.cn/s/PrNiRv" rel="nofollow"><code>fs.Dir</code></a>, which contains all further functions for reading from
+and cleaning up the directory.</p><p>The <code>encoding</code> option sets the encoding for the <code>path</code> while opening the
+directory and subsequent read operations.</p><p>Example using async iteration:</p><pre><code class="language-js">const fs = require(&apos;fs&apos;);
+
+async function print(path) {
+  const dir = await fs.promises.opendir(path);
+  for await (const dirent of dir) {
+    console.log(dirent.name);
+  }
+}
+print(&apos;./&apos;).catch(console.error);
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756310345"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>timeout.refresh() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/timers/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756325260" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-timers">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>timeout.refresh()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../timers.html#timers_timeout_refresh" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/timers/timeout_refresh.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.2.0</span>
+</div><ul>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/ezS7LR" target="_blank" rel="nofollow" class="type">&lt;Timeout&gt;</a> &#x5BF9; <code>timeout</code> &#x7684;&#x5F15;&#x7528;&#x3002;</li>
+</ul><p>&#x5C06;&#x5B9A;&#x65F6;&#x5668;&#x7684;&#x5F00;&#x59CB;&#x65F6;&#x95F4;&#x8BBE;&#x7F6E;&#x4E3A;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#xFF0C;&#x5E76;&#x91CD;&#x65B0;&#x5B89;&#x6392;&#x5B9A;&#x65F6;&#x5668;&#x4EE5;&#x5728;&#x4E4B;&#x524D;&#x6307;&#x5B9A;&#x7684;&#x6301;&#x7EED;&#x65F6;&#x95F4;&#x5185;&#x8C03;&#x7528;&#x5176;&#x56DE;&#x8C03;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x8C03;&#x6574;&#x4E3A;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x3002;
+&#x8FD9;&#x5BF9;&#x4E8E;&#x5728;&#x4E0D;&#x5206;&#x914D;&#x65B0; JavaScript &#x5BF9;&#x8C61;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x5237;&#x65B0;&#x5B9A;&#x65F6;&#x5668;&#x975E;&#x5E38;&#x6709;&#x7528;&#x3002;</p><p>&#x5728;&#x5DF2;&#x8C03;&#x7528;&#x5176;&#x56DE;&#x8C03;&#x7684;&#x5B9A;&#x65F6;&#x5668;&#x4E0A;&#x4F7F;&#x7528;&#x6B64;&#x9009;&#x9879;&#x5C06;&#x91CD;&#x65B0;&#x6FC0;&#x6D3B;&#x5B9A;&#x65F6;&#x5668;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v10.2.0</span>
+</div><ul>
+<li>Returns: <a href="http://nodejs.cn/s/ezS7LR" target="_blank" rel="nofollow" class="type">&lt;Timeout&gt;</a> a reference to <code>timeout</code></li>
+</ul><p>Sets the timer&apos;s start time to the current time, and reschedules the timer to
+call its callback at the previously specified duration adjusted to the current
+time. This is useful for refreshing a timer without allocating a new
+JavaScript object.</p><p>Using this on a timer that has already called its callback will reactivate the
+timer.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/timers/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756325260"><\/script>');
+  </script>
+</body>
+</html>

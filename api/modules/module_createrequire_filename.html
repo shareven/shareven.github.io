@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>module.createRequire(filename) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/modules/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756316053" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-modules">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>module.createRequire(filename)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../modules.html#modules_module_createrequire_filename" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/modules/module_createrequire_filename.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v12.2.0</span>
+</div><ul>
+<li><code>filename</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a> &#x7528;&#x4E8E;&#x6784;&#x9020; require &#x51FD;&#x6570;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x3002;&#x5FC5;&#x987B;&#x662F;&#x4E00;&#x4E2A;&#x6587;&#x4EF6; URL &#x5BF9;&#x8C61;&#x3001;&#x6587;&#x4EF6; URL &#x5B57;&#x7B26;&#x4E32;&#x3001;&#x6216;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x5B57;&#x7B26;&#x4E32;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/bVPMwV" target="_blank" rel="nofollow" class="type">&lt;require&gt;</a> require &#x51FD;&#x6570;&#x3002;</li>
+</ul><pre><code class="language-js">import { createRequire } from &apos;module&apos;;
+const require = createRequire(import.meta.url);
+
+// sibling-module.js &#x662F;&#x4E00;&#x4E2A; CommonJS &#x6A21;&#x5757;&#x3002;
+const siblingModule = require(&apos;./sibling-module&apos;);
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v12.2.0</span>
+</div><ul>
+<li><code>filename</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a> Filename to be used to construct the require
+function. Must be a file URL object, file URL string, or absolute path
+string.</li>
+<li>Returns: <a href="http://nodejs.cn/s/bVPMwV" target="_blank" rel="nofollow" class="type">&lt;require&gt;</a> Require function</li>
+</ul><pre><code class="language-js">import { createRequire } from &apos;module&apos;;
+const require = createRequire(import.meta.url);
+
+// sibling-module.js is a CommonJS module.
+const siblingModule = require(&apos;./sibling-module&apos;);
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/modules/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756316053"><\/script>');
+  </script>
+</body>
+</html>

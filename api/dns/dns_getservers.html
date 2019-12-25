@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>dns.getServers() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/dns/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756303200" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-dns">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>dns.getServers()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../dns.html#dns_dns_getservers" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/dns/dns_getservers.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.3</span>
+</div><ul>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string[]&gt;</a></li>
+</ul><p>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x5F53;&#x524D; DNS &#x89E3;&#x6790;&#x7684; IP &#x5730;&#x5740;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x683C;&#x5F0F;&#x6839;&#x636E; <a href="http://nodejs.cn/s/jzbgfM" rel="nofollow">RFC 5952</a>&#x3002;
+&#x5982;&#x679C;&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x7AEF;&#x53E3;&#xFF0C;&#x5219;&#x5B57;&#x7B26;&#x4E32;&#x5C06;&#x4F1A;&#x5305;&#x62EC;&#x7AEF;&#x53E3;&#x90E8;&#x5206;&#x3002;</p><pre><code class="language-js">[
+  &apos;4.4.4.4&apos;,
+  &apos;2001:4860:4860::8888&apos;,
+  &apos;4.4.4.4:1053&apos;,
+  &apos;[2001:4860:4860::8888]:1053&apos;
+]
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.11.3</span>
+</div><ul>
+<li>Returns: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string[]&gt;</a></li>
+</ul><p>Returns an array of IP address strings, formatted according to <a href="http://nodejs.cn/s/jzbgfM" rel="nofollow">RFC 5952</a>,
+that are currently configured for DNS resolution. A string will include a port
+section if a custom port is used.</p><pre><code class="language-js">[
+  &apos;4.4.4.4&apos;,
+  &apos;2001:4860:4860::8888&apos;,
+  &apos;4.4.4.4:1053&apos;,
+  &apos;[2001:4860:4860::8888]:1053&apos;
+]
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/dns/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756303200"><\/script>');
+  </script>
+</body>
+</html>

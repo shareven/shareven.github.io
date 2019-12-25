@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Windows 默认的 shell | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/child_process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756295983" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-child_process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>Windows 默认的 shell</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../child_process.html#child_process_default_windows_shell" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/child_process/default_windows_shell.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x5C3D;&#x7BA1;&#x5FAE;&#x8F6F;&#x6307;&#x5B9A;&#x5728;&#x6839;&#x73AF;&#x5883;&#x4E2D; <code>%COMSPEC%</code> &#x5FC5;&#x987B;&#x5305;&#x542B; <code>&apos;cmd.exe&apos;</code> &#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x4F46;&#x5B50;&#x8FDB;&#x7A0B;&#x5E76;&#x4E0D;&#x603B;&#x662F;&#x9075;&#x5FAA;&#x76F8;&#x540C;&#x7684;&#x8981;&#x6C42;&#x3002;
+&#x56E0;&#x6B64;&#xFF0C;&#x5728;&#x53EF;&#x4EE5;&#x884D;&#x751F; shell &#x7684; <code>child_process</code> &#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x5982;&#x679C; <code>process.env.ComSpec</code> &#x4E0D;&#x53EF;&#x4EE5;&#xFF0C;&#x5219;&#x4F7F;&#x7528; <code>&apos;cmd.exe&apos;</code> &#x4F5C;&#x4E3A;&#x540E;&#x5907;&#x3002;</p></div>
+          <div id="content_right"><p>Although Microsoft specifies <code>%COMSPEC%</code> must contain the path to
+<code>&apos;cmd.exe&apos;</code> in the root environment, child processes are not always subject to
+the same requirement. Thus, in <code>child_process</code> functions where a shell can be
+spawned, <code>&apos;cmd.exe&apos;</code> is used as a fallback if <code>process.env.ComSpec</code> is
+unavailable.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/child_process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756295983"><\/script>');
+  </script>
+</body>
+</html>

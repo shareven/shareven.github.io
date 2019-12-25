@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>buf.writeUInt8(value[, offset]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756294817" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-buffer">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>buf.writeUInt8(value[, offset])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../buffer.html#buffer_buf_writeuint8_value_offset" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/buffer/buf_writeuint8_value_offset.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>Removed <code>noAssert</code> and no implicit coercion of the offset to <code>uint32</code> anymore.</p></td></tr>
+<tr><td>v0.5.0</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.5.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>value</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x8981;&#x5199;&#x5165; <code>buf</code> &#x7684;&#x6570;&#x503C;&#x3002;</li>
+<li><code>offset</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x5F00;&#x59CB;&#x5199;&#x5165;&#x4E4B;&#x524D;&#x8981;&#x8DF3;&#x8FC7;&#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;&#x5FC5;&#x987B;&#x6EE1;&#x8DB3;<code>0 &lt;= offset &lt;= buf.length - 1</code>&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>0</code>&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> <code>offset</code> &#x52A0;&#x4E0A;&#x5DF2;&#x5199;&#x5165;&#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;</li>
+</ul><p>&#x5C06; <code>value</code> &#x5199;&#x5165;&#x5230; <code>buf</code> &#x4E2D;&#x6307;&#x5B9A;&#x7684; <code>offset</code> &#x4F4D;&#x7F6E;&#x3002;
+<code>value</code> &#x5FC5;&#x987B;&#x662F;&#x65E0;&#x7B26;&#x53F7;&#x7684; 8 &#x4F4D;&#x6574;&#x6570;&#x3002;
+&#x5F53; <code>value</code> &#x4E0D;&#x662F;&#x65E0;&#x7B26;&#x53F7;&#x7684; 8 &#x4F4D;&#x6574;&#x6570;&#x65F6;&#xFF0C;&#x884C;&#x4E3A;&#x662F;&#x672A;&#x5B9A;&#x4E49;&#x7684;&#x3002;</p><pre><code class="language-js">const buf = Buffer.allocUnsafe(4);
+
+buf.writeUInt8(0x3, 0);
+buf.writeUInt8(0x4, 1);
+buf.writeUInt8(0x23, 2);
+buf.writeUInt8(0x42, 3);
+
+console.log(buf);
+// &#x6253;&#x5370;: &lt;Buffer 03 04 23 42&gt;
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>Removed <code>noAssert</code> and no implicit coercion of the offset to <code>uint32</code> anymore.</p></td></tr>
+<tr><td>v0.5.0</td>
+<td><p><span>Added in: v0.5.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>value</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> Number to be written to <code>buf</code>.</li>
+<li><code>offset</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> Number of bytes to skip before starting to write. Must
+satisfy <code>0 &lt;= offset &lt;= buf.length - 1</code>. <strong>Default:</strong> <code>0</code>.</li>
+<li>Returns: <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> <code>offset</code> plus the number of bytes written.</li>
+</ul><p>Writes <code>value</code> to <code>buf</code> at the specified <code>offset</code>. <code>value</code> <em>should</em> be a
+valid unsigned 8-bit integer. Behavior is undefined when <code>value</code> is anything
+other than an unsigned 8-bit integer.</p><pre><code class="language-js">const buf = Buffer.allocUnsafe(4);
+
+buf.writeUInt8(0x3, 0);
+buf.writeUInt8(0x4, 1);
+buf.writeUInt8(0x23, 2);
+buf.writeUInt8(0x42, 3);
+
+console.log(buf);
+// Prints: &lt;Buffer 03 04 23 42&gt;
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756294817"><\/script>');
+  </script>
+</body>
+</html>

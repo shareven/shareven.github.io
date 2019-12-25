@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>response.getHeaders() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/http/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756312006" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-http">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>response.getHeaders()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../http.html#http_response_getheaders" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/http/response_getheaders.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v7.7.0</span>
+</div><ul>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></li>
+</ul><p>&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x4F20;&#x51FA;&#x7684;&#x54CD;&#x5E94;&#x5934;&#x7684;&#x6D45;&#x62F7;&#x8D1D;&#x3002;
+&#x7531;&#x4E8E;&#x4F7F;&#x7528;&#x6D45;&#x62F7;&#x8D1D;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x66F4;&#x6539;&#x6570;&#x7EC4;&#x7684;&#x503C;&#x800C;&#x65E0;&#x9700;&#x989D;&#x5916;&#x8C03;&#x7528;&#x5404;&#x79CD;&#x4E0E;&#x54CD;&#x5E94;&#x5934;&#x76F8;&#x5173;&#x7684; http &#x6A21;&#x5757;&#x65B9;&#x6CD5;&#x3002;
+&#x8FD4;&#x56DE;&#x5BF9;&#x8C61;&#x7684;&#x952E;&#x662F;&#x54CD;&#x5E94;&#x5934;&#x540D;&#x79F0;&#xFF0C;&#x503C;&#x662F;&#x5404;&#x81EA;&#x7684;&#x54CD;&#x5E94;&#x5934;&#x503C;&#x3002;
+&#x6240;&#x6709;&#x54CD;&#x5E94;&#x5934;&#x540D;&#x79F0;&#x90FD;&#x662F;&#x5C0F;&#x5199;&#x7684;&#x3002;</p><p><code>response.getHeaders()</code> &#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#x4E0D;&#x662F;&#x4ECE; JavaScript <code>Object</code> &#x539F;&#x578B;&#x7EE7;&#x627F;&#x7684;&#x3002;
+&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5178;&#x578B;&#x7684; <code>Object</code> &#x65B9;&#x6CD5;&#xFF0C;&#x5982; <code>obj.toString()</code>&#x3001; <code>obj.hasOwnProperty()</code> &#x7B49;&#x90FD;&#x6CA1;&#x6709;&#x5B9A;&#x4E49;&#x5E76;&#x4E14;&#x4E0D;&#x8D77;&#x4F5C;&#x7528;&#x3002;</p><pre><code class="language-js">response.setHeader(&apos;Foo&apos;, &apos;bar&apos;);
+response.setHeader(&apos;Set-Cookie&apos;, [&apos;foo=bar&apos;, &apos;bar=baz&apos;]);
+
+const headers = response.getHeaders();
+// headers === { foo: &apos;bar&apos;, &apos;set-cookie&apos;: [&apos;foo=bar&apos;, &apos;bar=baz&apos;] }
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v7.7.0</span>
+</div><ul>
+<li>Returns: <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></li>
+</ul><p>Returns a shallow copy of the current outgoing headers. Since a shallow copy
+is used, array values may be mutated without additional calls to various
+header-related http module methods. The keys of the returned object are the
+header names and the values are the respective header values. All header names
+are lowercase.</p><p>The object returned by the <code>response.getHeaders()</code> method <em>does not</em>
+prototypically inherit from the JavaScript <code>Object</code>. This means that typical
+<code>Object</code> methods such as <code>obj.toString()</code>, <code>obj.hasOwnProperty()</code>, and others
+are not defined and <em>will not work</em>.</p><pre><code class="language-js">response.setHeader(&apos;Foo&apos;, &apos;bar&apos;);
+response.setHeader(&apos;Set-Cookie&apos;, [&apos;foo=bar&apos;, &apos;bar=baz&apos;]);
+
+const headers = response.getHeaders();
+// headers === { foo: &apos;bar&apos;, &apos;set-cookie&apos;: [&apos;foo=bar&apos;, &apos;bar=baz&apos;] }
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/http/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756312006"><\/script>');
+  </script>
+</body>
+</html>

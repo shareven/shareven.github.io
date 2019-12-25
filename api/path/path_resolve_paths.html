@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>path.resolve([...paths]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/path/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756319404" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-path">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>path.resolve([...paths])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../path.html#path_path_resolve_paths" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/path/path_resolve_paths.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.4</span>
+</div><ul>
+<li><code>...paths</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x8DEF;&#x5F84;&#x6216;&#x8DEF;&#x5F84;&#x7247;&#x6BB5;&#x7684;&#x5E8F;&#x5217;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p><code>path.resolve()</code> &#x65B9;&#x6CD5;&#x5C06;&#x8DEF;&#x5F84;&#x6216;&#x8DEF;&#x5F84;&#x7247;&#x6BB5;&#x7684;&#x5E8F;&#x5217;&#x89E3;&#x6790;&#x4E3A;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;</p><p>&#x7ED9;&#x5B9A;&#x7684;&#x8DEF;&#x5F84;&#x5E8F;&#x5217;&#x4ECE;&#x53F3;&#x5230;&#x5DE6;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x6BCF;&#x4E2A;&#x540E;&#x7EED;&#x7684; <code>path</code> &#x524D;&#x7F6E;&#xFF0C;&#x76F4;&#x5230;&#x6784;&#x9020;&#x51FA;&#x4E00;&#x4E2A;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;&#x7ED9;&#x5B9A;&#x7684;&#x8DEF;&#x5F84;&#x7247;&#x6BB5;&#x5E8F;&#x5217;&#xFF1A;<code>/foo</code>&#x3001; <code>/bar</code>&#x3001; <code>baz</code>&#xFF0C;&#x8C03;&#x7528; <code>path.resolve(&apos;/foo&apos;, &apos;/bar&apos;, &apos;baz&apos;)</code> &#x5C06;&#x8FD4;&#x56DE; <code>/bar/baz</code>&#x3002;</p><p>&#x5982;&#x679C;&#x5728;&#x5904;&#x7406;&#x5B8C;&#x6240;&#x6709;&#x7ED9;&#x5B9A;&#x7684; <code>path</code> &#x7247;&#x6BB5;&#x4E4B;&#x540E;&#x8FD8;&#x672A;&#x751F;&#x6210;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x5219;&#x518D;&#x52A0;&#x4E0A;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x3002;</p><p>&#x751F;&#x6210;&#x7684;&#x8DEF;&#x5F84;&#x5DF2;&#x89C4;&#x8303;&#x5316;&#xFF0C;&#x5E76;&#x4E14;&#x9664;&#x975E;&#x5C06;&#x8DEF;&#x5F84;&#x89E3;&#x6790;&#x4E3A;&#x6839;&#x76EE;&#x5F55;&#xFF0C;&#x5426;&#x5219;&#x5C06;&#x5220;&#x9664;&#x5C3E;&#x90E8;&#x659C;&#x6760;&#x3002;</p><p>&#x96F6;&#x957F;&#x5EA6;&#x7684; <code>path</code> &#x7247;&#x6BB5;&#x4F1A;&#x88AB;&#x5FFD;&#x7565;&#x3002;</p><p>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x4F20;&#x5165; <code>path</code> &#x7247;&#x6BB5;&#xFF0C;&#x5219; <code>path.resolve()</code> &#x5C06;&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;</p><pre><code class="language-js">path.resolve(&apos;/foo/bar&apos;, &apos;./baz&apos;);
+// &#x8FD4;&#x56DE;: &apos;/foo/bar/baz&apos;
+
+path.resolve(&apos;/foo/bar&apos;, &apos;/tmp/file/&apos;);
+// &#x8FD4;&#x56DE;: &apos;/tmp/file&apos;
+
+path.resolve(&apos;wwwroot&apos;, &apos;static_files/png/&apos;, &apos;../gif/image.gif&apos;);
+// &#x5982;&#x679C;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x662F; /home/myself/node&#xFF0C;
+// &#x5219;&#x8FD4;&#x56DE; &apos;/home/myself/node/wwwroot/static_files/gif/image.gif&apos;
+</code></pre><p>&#x5982;&#x679C;&#x4EFB;&#x4F55;&#x53C2;&#x6570;&#x4E0D;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="http://nodejs.cn/s/Z7Lqyj" rel="nofollow"><code>TypeError</code></a>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.3.4</span>
+</div><ul>
+<li><code>...paths</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> A sequence of paths or path segments</li>
+<li>Returns: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>The <code>path.resolve()</code> method resolves a sequence of paths or path segments into
+an absolute path.</p><p>The given sequence of paths is processed from right to left, with each
+subsequent <code>path</code> prepended until an absolute path is constructed.
+For instance, given the sequence of path segments: <code>/foo</code>, <code>/bar</code>, <code>baz</code>,
+calling <code>path.resolve(&apos;/foo&apos;, &apos;/bar&apos;, &apos;baz&apos;)</code> would return <code>/bar/baz</code>.</p><p>If after processing all given <code>path</code> segments an absolute path has not yet
+been generated, the current working directory is used.</p><p>The resulting path is normalized and trailing slashes are removed unless the
+path is resolved to the root directory.</p><p>Zero-length <code>path</code> segments are ignored.</p><p>If no <code>path</code> segments are passed, <code>path.resolve()</code> will return the absolute path
+of the current working directory.</p><pre><code class="language-js">path.resolve(&apos;/foo/bar&apos;, &apos;./baz&apos;);
+// Returns: &apos;/foo/bar/baz&apos;
+
+path.resolve(&apos;/foo/bar&apos;, &apos;/tmp/file/&apos;);
+// Returns: &apos;/tmp/file&apos;
+
+path.resolve(&apos;wwwroot&apos;, &apos;static_files/png/&apos;, &apos;../gif/image.gif&apos;);
+// If the current working directory is /home/myself/node,
+// this returns &apos;/home/myself/node/wwwroot/static_files/gif/image.gif&apos;
+</code></pre><p>A <a href="http://nodejs.cn/s/Z7Lqyj" rel="nofollow"><code>TypeError</code></a> is thrown if any of the arguments is not a string.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/path/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756319404"><\/script>');
+  </script>
+</body>
+</html>

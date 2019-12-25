@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>script.runInContext(contextifiedSandbox[, options]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/vm/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756329774" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-vm">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>script.runInContext(contextifiedSandbox[, options])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../vm.html#vm_script_runincontext_contextifiedsandbox_options" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/vm/script_runincontext_contextifiedsandbox_options.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v6.3.0</td>
+<td><p>The <code>breakOnSigint</code> option is supported now.</p></td></tr>
+<tr><td>v0.3.1</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.3.1</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>contextifiedSandbox</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> &#x7531; <code>vm.createContext()</code> &#x8FD4;&#x56DE;&#x7684;<a href="http://nodejs.cn/s/x6KGQQ" rel="nofollow">&#x4E0A;&#x4E0B;&#x6587;&#x9694;&#x79BB;&#x5316;</a>&#x7684;&#x5BF9;&#x8C61;&#x3002;</li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>displayErrors</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5F53;&#x503C;&#x4E3A; <code>true</code> &#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5047;&#x5982;&#x5728;&#x89E3;&#x6790;&#x4EE3;&#x7801;&#x7684;&#x65F6;&#x5019;&#x53D1;&#x751F;&#x9519;&#x8BEF; <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a>&#xFF0C;&#x5F15;&#x8D77;&#x9519;&#x8BEF;&#x7684;&#x884C;&#x5C06;&#x4F1A;&#x88AB;&#x52A0;&#x5165;&#x5806;&#x6808;&#x8DDF;&#x8E2A;&#x4FE1;&#x606F;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>true</code>&#x3002;</li>
+<li><code>timeout</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x5B9A;&#x4E49;&#x5728;&#x88AB;&#x7EC8;&#x6B62;&#x6267;&#x884C;&#x4E4B;&#x524D;&#x6B64; <code>code</code> &#x88AB;&#x5141;&#x8BB8;&#x6267;&#x884C;&#x7684;&#x6700;&#x5927;&#x6BEB;&#x79D2;&#x6570;&#x3002;&#x5047;&#x5982;&#x6267;&#x884C;&#x88AB;&#x7EC8;&#x6B62;&#xFF0C;&#x5C06;&#x4F1A;&#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x9519;&#x8BEF; <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a>&#x3002;&#x8BE5;&#x503C;&#x5FC5;&#x987B;&#x662F;&#x4E25;&#x683C;&#x6B63;&#x6574;&#x6570;&#x3002;</li>
+<li><code>breakOnSigint</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x82E5;&#x503C;&#x4E3A; <code>true</code>&#xFF0C;&#x5F53;&#x6536;&#x5230; <code>SIGINT</code> (Ctrl+C)&#x4E8B;&#x4EF6;&#x65F6;&#xFF0C;&#x4EE3;&#x7801;&#x4F1A;&#x88AB;&#x7EC8;&#x6B62;&#x6267;&#x884C;&#x3002;
+&#x6B64;&#x5916;&#xFF0C;&#x901A;&#x8FC7; <code>process.on(&apos;SIGINT&apos;)</code> &#x65B9;&#x6CD5;&#x6240;&#x8BBE;&#x7F6E;&#x7684;&#x6D88;&#x606F;&#x54CD;&#x5E94;&#x673A;&#x5236;&#x5728;&#x4EE3;&#x7801;&#x88AB;&#x6267;&#x884C;&#x65F6;&#x4F1A;&#x88AB;&#x5C4F;&#x853D;&#xFF0C;&#x4F46;&#x4EE3;&#x7801;&#x88AB;&#x7EC8;&#x6B62;&#x540E;&#x4F1A;&#x88AB;&#x6062;&#x590D;&#x3002;&#x5982;&#x679C;&#x6267;&#x884C;&#x88AB;&#x7EC8;&#x6B62;&#xFF0C;&#x4E00;&#x4E2A;&#x9519;&#x8BEF; <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> &#x4F1A;&#x88AB;&#x629B;&#x51FA;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#x3002;</li>
+</ul>
+</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> &#x811A;&#x672C;&#x4E2D;&#x6267;&#x884C;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x8BED;&#x53E5;&#x7684;&#x7ED3;&#x679C;&#x3002;</li>
+</ul><p>&#x5728;&#x6307;&#x5B9A;&#x7684; <code>contextifiedSandbox</code> &#x4E2D;&#x6267;&#x884C; <code>vm.Script</code> &#x5BF9;&#x8C61;&#x4E2D;&#x88AB;&#x7F16;&#x8BD1;&#x540E;&#x7684;&#x4EE3;&#x7801;&#x5E76;&#x8FD4;&#x56DE;&#x5176;&#x7ED3;&#x679C;&#x3002;&#x88AB;&#x6267;&#x884C;&#x7684;&#x4EE3;&#x7801;&#x65E0;&#x6CD5;&#x83B7;&#x53D6;&#x672C;&#x5730;&#x4F5C;&#x7528;&#x57DF;&#x3002;</p><p>&#x4EE5;&#x4E0B;&#x7684;&#x4F8B;&#x5B50;&#x4F1A;&#x7F16;&#x8BD1;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;&#xFF0C;&#x8BE5;&#x4EE3;&#x7801;&#x4F1A;&#x9012;&#x589E;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x7ED9;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x8D4B;&#x503C;&#x3002;&#x540C;&#x65F6;&#x8BE5;&#x4EE3;&#x7801;&#x88AB;&#x7F16;&#x8BD1;&#x540E;&#x4F1A;&#x88AB;&#x591A;&#x6B21;&#x6267;&#x884C;&#x3002;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x4F1A;&#x88AB;&#x7F6E;&#x4E8E; <code>sandbox</code> &#x5BF9;&#x8C61;&#x5185;&#x3002;</p><pre><code class="language-js">const util = require(&apos;util&apos;);
+const vm = require(&apos;vm&apos;);
+
+const sandbox = {
+  animal: &apos;cat&apos;,
+  count: 2
+};
+
+const script = new vm.Script(&apos;count += 1; name = &quot;kitty&quot;;&apos;);
+
+const context = vm.createContext(sandbox);
+for (let i = 0; i &lt; 10; ++i) {
+  script.runInContext(context);
+}
+
+console.log(util.inspect(sandbox));
+
+// { animal: &apos;cat&apos;, count: 12, name: &apos;kitty&apos; }
+</code></pre><p>&#x4F7F;&#x7528; <code>timeout</code> &#x6216;&#x8005; <code>breakOnSigint</code> &#x9009;&#x9879;&#x4F1A;&#x5BFC;&#x81F4;&#x82E5;&#x5E72;&#x65B0;&#x7684;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4EE5;&#x53CA;&#x5BF9;&#x5E94;&#x7684;&#x7EBF;&#x7A0B;&#xFF0C;&#x8FD9;&#x6709;&#x4E00;&#x4E2A;&#x975E;&#x96F6;&#x7684;&#x6027;&#x80FD;&#x6D88;&#x8017;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v6.3.0</td>
+<td><p>The <code>breakOnSigint</code> option is supported now.</p></td></tr>
+<tr><td>v0.3.1</td>
+<td><p><span>Added in: v0.3.1</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>contextifiedSandbox</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> A <a href="http://nodejs.cn/s/x6KGQQ" rel="nofollow">contextified</a> object as returned by the
+<code>vm.createContext()</code> method.</li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>displayErrors</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> When <code>true</code>, if an <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> occurs
+while compiling the <code>code</code>, the line of code causing the error is attached
+to the stack trace. <strong>Default:</strong> <code>true</code>.</li>
+<li><code>timeout</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> Specifies the number of milliseconds to execute <code>code</code>
+before terminating execution. If execution is terminated, an <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a>
+will be thrown. This value must be a strictly positive integer.</li>
+<li><code>breakOnSigint</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> If <code>true</code>, the execution will be terminated when
+<code>SIGINT</code> (Ctrl+C) is received. Existing handlers for the
+event that have been attached via <code>process.on(&apos;SIGINT&apos;)</code> will be disabled
+during script execution, but will continue to work after that. If execution
+is terminated, an <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> will be thrown. <strong>Default:</strong> <code>false</code>.</li>
+</ul>
+</li>
+<li>Returns: <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> the result of the very last statement executed in the script.</li>
+</ul><p>Runs the compiled code contained by the <code>vm.Script</code> object within the given
+<code>contextifiedSandbox</code> and returns the result. Running code does not have access
+to local scope.</p><p>The following example compiles code that increments a global variable, sets
+the value of another global variable, then execute the code multiple times.
+The globals are contained in the <code>sandbox</code> object.</p><pre><code class="language-js">const util = require(&apos;util&apos;);
+const vm = require(&apos;vm&apos;);
+
+const sandbox = {
+  animal: &apos;cat&apos;,
+  count: 2
+};
+
+const script = new vm.Script(&apos;count += 1; name = &quot;kitty&quot;;&apos;);
+
+const context = vm.createContext(sandbox);
+for (let i = 0; i &lt; 10; ++i) {
+  script.runInContext(context);
+}
+
+console.log(util.inspect(sandbox));
+
+// { animal: &apos;cat&apos;, count: 12, name: &apos;kitty&apos; }
+</code></pre><p>Using the <code>timeout</code> or <code>breakOnSigint</code> options will result in new event loops
+and corresponding threads being started, which have a non-zero performance
+overhead.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/vm/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756329774"><\/script>');
+  </script>
+</body>
+</html>

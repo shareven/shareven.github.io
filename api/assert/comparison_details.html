@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>比较运算的详细说明 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/assert/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756292543" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-assert">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>比较运算的详细说明</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../assert.html#assert_comparison_details" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/assert/comparison_details.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><ul>
+<li>&#x4F7F;&#x7528;<a href="http://nodejs.cn/s/tiZhGn" rel="nofollow">&#x62BD;&#x8C61;&#x7684;&#x76F8;&#x7B49;&#x6027;&#x6BD4;&#x8F83;</a>&#x6765;&#x6BD4;&#x8F83;&#x539F;&#x59CB;&#x503C;&#x3002;</li>
+<li>&#x5BF9;&#x8C61;&#x7684;<a href="http://nodejs.cn/s/NVhBn1" rel="nofollow">&#x7C7B;&#x578B;&#x6807;&#x7B7E;</a>&#x5E94;&#x8BE5;&#x76F8;&#x540C;&#x3002;</li>
+<li>&#x53EA;&#x8003;&#x8651;<a href="http://nodejs.cn/s/hTNJUJ" rel="nofollow">&#x53EF;&#x679A;&#x4E3E;&#x7684;&#x81EA;&#x8EAB;&#x5C5E;&#x6027;</a>&#x3002;</li>
+<li>&#x59CB;&#x7EC8;&#x6BD4;&#x8F83; <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> &#x7684;&#x540D;&#x79F0;&#x548C;&#x6D88;&#x606F;&#xFF0C;&#x5373;&#x4F7F;&#x8FD9;&#x4E9B;&#x4E0D;&#x662F;&#x53EF;&#x679A;&#x4E3E;&#x7684;&#x5C5E;&#x6027;&#x3002;</li>
+<li><a href="http://nodejs.cn/s/hem2hq" rel="nofollow">&#x5BF9;&#x8C61;&#x5C01;&#x88C5;&#x5668;</a>&#x4F5C;&#x4E3A;&#x5BF9;&#x8C61;&#x548C;&#x89E3;&#x5C01;&#x88C5;&#x540E;&#x7684;&#x503C;&#x90FD;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#x3002;</li>
+<li><code>Object</code> &#x5C5E;&#x6027;&#x7684;&#x6BD4;&#x8F83;&#x662F;&#x65E0;&#x5E8F;&#x7684;&#x3002;</li>
+<li><a href="http://nodejs.cn/s/EnuJtG" rel="nofollow"><code>Map</code></a> &#x952E;&#x540D;&#x4E0E; <a href="http://nodejs.cn/s/yej4PC" rel="nofollow"><code>Set</code></a> &#x5B50;&#x9879;&#x7684;&#x6BD4;&#x8F83;&#x662F;&#x65E0;&#x5E8F;&#x7684;&#x3002;</li>
+<li>&#x5F53;&#x4E24;&#x8FB9;&#x7684;&#x503C;&#x4E0D;&#x76F8;&#x540C;&#x6216;&#x9047;&#x5230;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x65F6;&#xFF0C;&#x9012;&#x5F52;&#x505C;&#x6B62;&#x3002;</li>
+<li>&#x4E0D;&#x6D4B;&#x8BD5;&#x5BF9;&#x8C61;&#x7684; <a href="http://nodejs.cn/s/yzA3TL" rel="nofollow"><code>[[Prototype]]</code></a>&#x3002;</li>
+<li>&#x53EF;&#x679A;&#x4E3E;&#x7684;&#x81EA;&#x8EAB; <a href="http://nodejs.cn/s/SyrFMg" rel="nofollow"><code>Symbol</code></a> &#x5C5E;&#x6027;&#x4E5F;&#x4F1A;&#x6BD4;&#x8F83;&#x3002;</li>
+<li><a href="http://nodejs.cn/s/JkfoVY" rel="nofollow"><code>WeakMap</code></a> &#x548C; <a href="http://nodejs.cn/s/gsMyy2" rel="nofollow"><code>WeakSet</code></a> &#x7684;&#x6BD4;&#x8F83;&#x4E0D;&#x4F9D;&#x8D56;&#x4E8E;&#x5B83;&#x4EEC;&#x7684;&#x503C;&#x3002;</li>
+</ul><p>&#x4EE5;&#x4E0B;&#x793A;&#x4F8B;&#x4E0D;&#x4F1A;&#x629B;&#x51FA; <code>AssertionError</code>&#xFF0C;&#x56E0;&#x4E3A;<a href="http://nodejs.cn/s/tiZhGn" rel="nofollow">&#x62BD;&#x8C61;&#x7684;&#x76F8;&#x7B49;&#x6027;&#x6BD4;&#x8F83;</a>&#xFF08;<code>==</code>&#xFF09;&#x4F1A;&#x5C06;&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x89C6;&#x4E3A;&#x76F8;&#x7B49;&#x3002;</p><pre><code class="language-js">// &#x4E0D;&#x4F1A;&#x629B;&#x51FA; AssertionError&#x3002;
+assert.deepEqual(&apos;+00000000&apos;, false);
+</code></pre><p>&#x201C;&#x6DF1;&#x5EA6;&#x201D;&#x76F8;&#x7B49;&#x610F;&#x5473;&#x7740;&#x8FD8;&#x4F1A;&#x6BD4;&#x8F83;&#x5B50;&#x5BF9;&#x8C61;&#x7684;&#x53EF;&#x679A;&#x4E3E;&#x201C;&#x81EA;&#x6709;&#x201D;&#x5C5E;&#x6027;&#xFF1A;</p><pre><code class="language-js">const assert = require(&apos;assert&apos;);
+
+const obj1 = {
+  a: {
+    b: 1
+  }
+};
+const obj2 = {
+  a: {
+    b: 2
+  }
+};
+const obj3 = {
+  a: {
+    b: 1
+  }
+};
+const obj4 = Object.create(obj1);
+
+assert.deepEqual(obj1, obj1);
+// OK
+
+// b &#x7684;&#x503C;&#x4E0D;&#x540C;&#xFF1A;
+assert.deepEqual(obj1, obj2);
+// &#x629B;&#x51FA; AssertionError: { a: { b: 1 } } deepEqual { a: { b: 2 } }
+
+assert.deepEqual(obj1, obj3);
+// OK
+
+// &#x539F;&#x578B;&#x4F1A;&#x88AB;&#x5FFD;&#x7565;&#xFF1A;
+assert.deepEqual(obj1, obj4);
+// &#x629B;&#x51FA; AssertionError: { a: { b: 1 } } deepEqual {}
+</code></pre><p>&#x5982;&#x679C;&#x503C;&#x4E0D;&#x76F8;&#x7B49;&#xFF0C;&#x5219;&#x629B;&#x51FA; <code>AssertionError</code>&#xFF0C;&#x5E76;&#x5C06; <code>message</code> &#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x4E3A;&#x7B49;&#x4E8E; <code>message</code> &#x53C2;&#x6570;&#x7684;&#x503C;&#x3002;
+&#x5982;&#x679C;&#x672A;&#x5B9A;&#x4E49; <code>message</code> &#x53C2;&#x6570;&#xFF0C;&#x5219;&#x4F1A;&#x5206;&#x914D;&#x9ED8;&#x8BA4;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x3002;
+&#x5982;&#x679C; <code>message</code> &#x53C2;&#x6570;&#x662F; <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> &#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x5C06;&#x88AB;&#x629B;&#x51FA;&#x800C;&#x4E0D;&#x662F; <code>AssertionError</code>&#x3002;</p></div>
+          <div id="content_right"><ul>
+<li>Primitive values are compared with the <a href="http://nodejs.cn/s/tiZhGn" rel="nofollow">Abstract Equality Comparison</a>
+( <code>==</code> ).</li>
+<li><a href="http://nodejs.cn/s/NVhBn1" rel="nofollow">Type tags</a> of objects should be the same.</li>
+<li>Only <a href="http://nodejs.cn/s/hTNJUJ" rel="nofollow">enumerable &quot;own&quot; properties</a> are considered.</li>
+<li><a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> names and messages are always compared, even if these are not
+enumerable properties.</li>
+<li><a href="http://nodejs.cn/s/hem2hq" rel="nofollow">Object wrappers</a> are compared both as objects and unwrapped values.</li>
+<li><code>Object</code> properties are compared unordered.</li>
+<li><a href="http://nodejs.cn/s/EnuJtG" rel="nofollow"><code>Map</code></a> keys and <a href="http://nodejs.cn/s/yej4PC" rel="nofollow"><code>Set</code></a> items are compared unordered.</li>
+<li>Recursion stops when both sides differ or both sides encounter a circular
+reference.</li>
+<li>Implementation does not test the <a href="http://nodejs.cn/s/yzA3TL" rel="nofollow"><code>[[Prototype]]</code></a> of
+objects.</li>
+<li><a href="http://nodejs.cn/s/SyrFMg" rel="nofollow"><code>Symbol</code></a> properties are not compared.</li>
+<li><a href="http://nodejs.cn/s/JkfoVY" rel="nofollow"><code>WeakMap</code></a> and <a href="http://nodejs.cn/s/gsMyy2" rel="nofollow"><code>WeakSet</code></a> comparison does not rely on their values.</li>
+</ul><p>The following example does not throw an <code>AssertionError</code> because the primitives
+are considered equal by the <a href="http://nodejs.cn/s/tiZhGn" rel="nofollow">Abstract Equality Comparison</a> ( <code>==</code> ).</p><pre><code class="language-js">// WARNING: This does not throw an AssertionError!
+assert.deepEqual(&apos;+00000000&apos;, false);
+</code></pre><p>&quot;Deep&quot; equality means that the enumerable &quot;own&quot; properties of child objects
+are evaluated also:</p><pre><code class="language-js">const assert = require(&apos;assert&apos;);
+
+const obj1 = {
+  a: {
+    b: 1
+  }
+};
+const obj2 = {
+  a: {
+    b: 2
+  }
+};
+const obj3 = {
+  a: {
+    b: 1
+  }
+};
+const obj4 = Object.create(obj1);
+
+assert.deepEqual(obj1, obj1);
+// OK
+
+// Values of b are different:
+assert.deepEqual(obj1, obj2);
+// AssertionError: { a: { b: 1 } } deepEqual { a: { b: 2 } }
+
+assert.deepEqual(obj1, obj3);
+// OK
+
+// Prototypes are ignored:
+assert.deepEqual(obj1, obj4);
+// AssertionError: { a: { b: 1 } } deepEqual {}
+</code></pre><p>If the values are not equal, an <code>AssertionError</code> is thrown with a <code>message</code>
+property set equal to the value of the <code>message</code> parameter. If the <code>message</code>
+parameter is undefined, a default error message is assigned. If the <code>message</code>
+parameter is an instance of an <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> then it will be thrown instead of the
+<code>AssertionError</code>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/assert/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756292543"><\/script>');
+  </script>
+</body>
+</html>

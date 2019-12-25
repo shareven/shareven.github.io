@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>crypto.createHash(algorithm[, options]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/crypto/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756300327" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-crypto">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>crypto.createHash(algorithm[, options])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../crypto.html#crypto_crypto_createhash_algorithm_options" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/crypto/crypto_createhash_algorithm_options.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v12.8.0</td>
+<td><p>The <code>outputLength</code> option was added for XOF hash functions.</p></td></tr>
+<tr><td>v0.1.92</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.92</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>algorithm</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> <a href="http://nodejs.cn/s/bSRXmp" rel="nofollow"><code>stream.transform</code> &#x7684;&#x9009;&#x9879;</a>&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/Fd6dt8" target="_blank" rel="nofollow" class="type">&lt;Hash&gt;</a></li>
+</ul><p>&#x521B;&#x5EFA;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; <code>Hash</code> &#x5BF9;&#x8C61;&#xFF0C;&#x8BE5;&#x5BF9;&#x8C61;&#x53EF;&#x7528;&#x4E8E;&#x751F;&#x6210;&#x54C8;&#x5E0C;&#x6458;&#x8981;&#xFF08;&#x4F7F;&#x7528;&#x7ED9;&#x5B9A;&#x7684; <code>algorithm</code>&#xFF09;&#x3002;
+&#x53EF;&#x9009;&#x7684; <code>options</code> &#x53C2;&#x6570;&#x63A7;&#x5236;&#x6D41;&#x7684;&#x884C;&#x4E3A;&#x3002;
+&#x5BF9;&#x4E8E; XOF &#x54C8;&#x5E0C;&#x51FD;&#x6570;&#xFF08;&#x4F8B;&#x5982; <code>&apos;shake256&apos;</code>&#xFF09;&#xFF0C; <code>outputLength</code> &#x9009;&#x9879;&#x53EF;&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x6240;&#x9700;&#x7684;&#x8F93;&#x51FA;&#x957F;&#x5EA6;&#xFF08;&#x4EE5;&#x5B57;&#x8282;&#x4E3A;&#x5355;&#x4F4D;&#xFF09;&#x3002;</p><p><code>algorithm</code> &#x53D6;&#x51B3;&#x4E8E;&#x5E73;&#x53F0;&#x4E0A;&#x7684; OpenSSL &#x7684;&#x7248;&#x672C;&#x6240;&#x652F;&#x6301;&#x7684;&#x53EF;&#x7528;&#x7B97;&#x6CD5;&#x3002;
+&#x4F8B;&#x5982; <code>&apos;sha256&apos;</code>&#x3001; <code>&apos;sha512&apos;</code> &#x7B49;&#x3002;
+&#x5728; OpenSSL &#x7684;&#x6700;&#x65B0;&#x7248;&#x672C;&#x4E2D;&#xFF0C; <code>openssl list -digest-algorithms</code>&#xFF08;&#x5728;&#x8F83;&#x65E7;&#x7248;&#x672C;&#x7684; OpenSSL &#x4E2D;&#x662F; <code>openssl list-message-digest-algorithms</code>&#xFF09;&#x5C06;&#x4F1A;&#x663E;&#x793A;&#x53EF;&#x7528;&#x7684;&#x6458;&#x8981;&#x7B97;&#x6CD5;&#x3002;</p><p>&#x793A;&#x4F8B;&#xFF0C;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x7684; sha256 &#x603B;&#x548C;&#xFF1A;</p><pre><code class="language-js">const filename = process.argv[2];
+const crypto = require(&apos;crypto&apos;);
+const fs = require(&apos;fs&apos;);
+
+const hash = crypto.createHash(&apos;sha256&apos;);
+
+const input = fs.createReadStream(filename);
+input.on(&apos;readable&apos;, () =&gt; {
+  // &#x54C8;&#x5E0C;&#x6D41;&#x53EA;&#x4F1A;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x3002;
+  const data = input.read();
+  if (data)
+    hash.update(data);
+  else {
+    console.log(`${hash.digest(&apos;hex&apos;)} ${filename}`);
+  }
+});
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v12.8.0</td>
+<td><p>The <code>outputLength</code> option was added for XOF hash functions.</p></td></tr>
+<tr><td>v0.1.92</td>
+<td><p><span>Added in: v0.1.92</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>algorithm</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> <a href="http://nodejs.cn/s/bSRXmp" rel="nofollow"><code>stream.transform</code> options</a></li>
+<li>Returns: <a href="http://nodejs.cn/s/Fd6dt8" target="_blank" rel="nofollow" class="type">&lt;Hash&gt;</a></li>
+</ul><p>Creates and returns a <code>Hash</code> object that can be used to generate hash digests
+using the given <code>algorithm</code>. Optional <code>options</code> argument controls stream
+behavior. For XOF hash functions such as <code>&apos;shake256&apos;</code>, the <code>outputLength</code> option
+can be used to specify the desired output length in bytes.</p><p>The <code>algorithm</code> is dependent on the available algorithms supported by the
+version of OpenSSL on the platform. Examples are <code>&apos;sha256&apos;</code>, <code>&apos;sha512&apos;</code>, etc.
+On recent releases of OpenSSL, <code>openssl list -digest-algorithms</code>
+(<code>openssl list-message-digest-algorithms</code> for older versions of OpenSSL) will
+display the available digest algorithms.</p><p>Example: generating the sha256 sum of a file</p><pre><code class="language-js">const filename = process.argv[2];
+const crypto = require(&apos;crypto&apos;);
+const fs = require(&apos;fs&apos;);
+
+const hash = crypto.createHash(&apos;sha256&apos;);
+
+const input = fs.createReadStream(filename);
+input.on(&apos;readable&apos;, () =&gt; {
+  // Only one element is going to be produced by the
+  // hash stream.
+  const data = input.read();
+  if (data)
+    hash.update(data);
+  else {
+    console.log(`${hash.digest(&apos;hex&apos;)} ${filename}`);
+  }
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/crypto/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756300327"><\/script>');
+  </script>
+</body>
+</html>

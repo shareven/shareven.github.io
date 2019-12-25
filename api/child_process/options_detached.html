@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>options.detached | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/child_process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756295880" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-child_process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>options.detached</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../child_process.html#child_process_options_detached" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/child_process/options_detached.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.10</span>
+</div><p>&#x5728; Windows &#x4E0A;&#xFF0C;&#x8BBE;&#x7F6E; <code>options.detached</code> &#x4E3A; <code>true</code> &#x53EF;&#x4EE5;&#x4F7F;&#x5B50;&#x8FDB;&#x7A0B;&#x5728;&#x7236;&#x8FDB;&#x7A0B;&#x9000;&#x51FA;&#x540E;&#x7EE7;&#x7EED;&#x8FD0;&#x884C;&#x3002;
+&#x5B50;&#x8FDB;&#x7A0B;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x63A7;&#x5236;&#x53F0;&#x7A97;&#x53E3;&#x3002;
+&#x4E00;&#x65E6;&#x4E3A;&#x5B50;&#x8FDB;&#x7A0B;&#x542F;&#x7528;&#x5B83;&#xFF0C;&#x5219;&#x65E0;&#x6CD5;&#x88AB;&#x7981;&#x7528;&#x3002;</p><p>&#x5728;&#x975E; Windows &#x5E73;&#x53F0;&#x4E0A;&#xFF0C;&#x5982;&#x679C; <code>options.detached</code> &#x8BBE;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x5B50;&#x8FDB;&#x7A0B;&#x5C06;&#x4F1A;&#x6210;&#x4E3A;&#x65B0;&#x7684;&#x8FDB;&#x7A0B;&#x7EC4;&#x548C;&#x4F1A;&#x8BDD;&#x7684;&#x4E3B;&#x5BFC;&#x8005;&#x3002;
+&#x5B50;&#x8FDB;&#x7A0B;&#x5728;&#x7236;&#x8FDB;&#x7A0B;&#x9000;&#x51FA;&#x540E;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x8FD0;&#x884C;&#xFF0C;&#x4E0D;&#x7BA1;&#x5B83;&#x4EEC;&#x662F;&#x5426;&#x88AB;&#x5206;&#x79BB;&#x3002;
+&#x8BE6;&#x89C1; <a href="http://nodejs.cn/s/sJk7DY" rel="nofollow"><code>setsid(2)</code></a>&#x3002;</p><p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7236;&#x8FDB;&#x7A0B;&#x5C06;&#x4F1A;&#x7B49;&#x5F85;&#x88AB;&#x5206;&#x79BB;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#x9000;&#x51FA;&#x3002;
+&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x7236;&#x8FDB;&#x7A0B;&#x7B49;&#x5F85; <code>subprocess</code>&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>subprocess.unref()</code> &#x65B9;&#x6CD5;&#x3002;
+&#x8FD9;&#x6837;&#x505A;&#x5C06;&#x4F1A;&#x5BFC;&#x81F4;&#x7236;&#x8FDB;&#x7A0B;&#x7684;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4E0D;&#x4F1A;&#x5C06;&#x5B50;&#x8FDB;&#x7A0B;&#x5305;&#x542B;&#x5728;&#x5176;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x4E2D;&#xFF0C;&#x4F7F;&#x5F97;&#x7236;&#x8FDB;&#x7A0B;&#x53EF;&#x4EE5;&#x72EC;&#x7ACB;&#x4E8E;&#x5B50;&#x8FDB;&#x7A0B;&#x9000;&#x51FA;&#xFF0C;&#x9664;&#x975E;&#x5B50;&#x8FDB;&#x7A0B;&#x548C;&#x7236;&#x8FDB;&#x7A0B;&#x4E4B;&#x95F4;&#x5EFA;&#x7ACB;&#x4E86; IPC &#x901A;&#x9053;&#x3002;</p><p>&#x5F53;&#x4F7F;&#x7528; <code>detached</code> &#x9009;&#x9879;&#x6765;&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x957F;&#x671F;&#x8FD0;&#x884C;&#x7684;&#x8FDB;&#x7A0B;&#x65F6;&#xFF0C;&#x8BE5;&#x8FDB;&#x7A0B;&#x5728;&#x7236;&#x8FDB;&#x7A0B;&#x9000;&#x51FA;&#x540E;&#x5C06;&#x4E0D;&#x4F1A;&#x4FDD;&#x6301;&#x5728;&#x540E;&#x53F0;&#x8FD0;&#x884C;&#xFF0C;&#x9664;&#x975E;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x4E0D;&#x8FDE;&#x63A5;&#x5230;&#x7236;&#x8FDB;&#x7A0B;&#x7684; <code>stdio</code> &#x914D;&#x7F6E;&#x3002;
+&#x5982;&#x679C;&#x7236;&#x8FDB;&#x7A0B;&#x7684; <code>stdio</code> &#x662F;&#x7EE7;&#x627F;&#x7684;&#xFF0C;&#x5219;&#x5B50;&#x8FDB;&#x7A0B;&#x5C06;&#x4F1A;&#x4FDD;&#x6301;&#x7ED1;&#x5B9A;&#x5230;&#x63A7;&#x5236;&#x7EC8;&#x7AEF;&#x3002;</p><p>&#x793A;&#x4F8B;&#xFF0C;&#x4E00;&#x4E2A;&#x957F;&#x671F;&#x8FD0;&#x884C;&#x7684;&#x8FDB;&#x7A0B;&#xFF0C;&#x4E3A;&#x4E86;&#x5FFD;&#x89C6;&#x7236;&#x8FDB;&#x7A0B;&#x7684;&#x7EC8;&#x6B62;&#xFF0C;&#x901A;&#x8FC7;&#x5206;&#x79BB;&#x4E14;&#x5FFD;&#x89C6;&#x5176;&#x7236;&#x8FDB;&#x7A0B;&#x7684; <code>stdio</code> &#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x6765;&#x5B9E;&#x73B0;&#xFF1A;</p><pre><code class="language-js">const { spawn } = require(&apos;child_process&apos;);
+
+const subprocess = spawn(process.argv[0], [&apos;child_program.js&apos;], {
+  detached: true,
+  stdio: &apos;ignore&apos;
+});
+
+subprocess.unref();
+</code></pre><p>&#x4E5F;&#x53EF;&#x4EE5;&#x5C06;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x8F93;&#x51FA;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x6587;&#x4EF6;&#xFF1A;</p><pre><code class="language-js">const fs = require(&apos;fs&apos;);
+const { spawn } = require(&apos;child_process&apos;);
+const out = fs.openSync(&apos;./out.log&apos;, &apos;a&apos;);
+const err = fs.openSync(&apos;./out.log&apos;, &apos;a&apos;);
+
+const subprocess = spawn(&apos;prg&apos;, [], {
+  detached: true,
+  stdio: [ &apos;ignore&apos;, out, err ]
+});
+
+subprocess.unref();
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.7.10</span>
+</div><p>On Windows, setting <code>options.detached</code> to <code>true</code> makes it possible for the
+child process to continue running after the parent exits. The child will have
+its own console window. Once enabled for a child process, it cannot be
+disabled.</p><p>On non-Windows platforms, if <code>options.detached</code> is set to <code>true</code>, the child
+process will be made the leader of a new process group and session. Child
+processes may continue running after the parent exits regardless of whether
+they are detached or not. See <a href="http://nodejs.cn/s/sJk7DY" rel="nofollow"><code>setsid(2)</code></a> for more information.</p><p>By default, the parent will wait for the detached child to exit. To prevent the
+parent from waiting for a given <code>subprocess</code> to exit, use the
+<code>subprocess.unref()</code> method. Doing so will cause the parent&apos;s event loop to not
+include the child in its reference count, allowing the parent to exit
+independently of the child, unless there is an established IPC channel between
+the child and the parent.</p><p>When using the <code>detached</code> option to start a long-running process, the process
+will not stay running in the background after the parent exits unless it is
+provided with a <code>stdio</code> configuration that is not connected to the parent.
+If the parent&apos;s <code>stdio</code> is inherited, the child will remain attached to the
+controlling terminal.</p><p>Example of a long-running process, by detaching and also ignoring its parent
+<code>stdio</code> file descriptors, in order to ignore the parent&apos;s termination:</p><pre><code class="language-js">const { spawn } = require(&apos;child_process&apos;);
+
+const subprocess = spawn(process.argv[0], [&apos;child_program.js&apos;], {
+  detached: true,
+  stdio: &apos;ignore&apos;
+});
+
+subprocess.unref();
+</code></pre><p>Alternatively one can redirect the child process&apos; output into files:</p><pre><code class="language-js">const fs = require(&apos;fs&apos;);
+const { spawn } = require(&apos;child_process&apos;);
+const out = fs.openSync(&apos;./out.log&apos;, &apos;a&apos;);
+const err = fs.openSync(&apos;./out.log&apos;, &apos;a&apos;);
+
+const subprocess = spawn(&apos;prg&apos;, [], {
+  detached: true,
+  stdio: [ &apos;ignore&apos;, out, err ]
+});
+
+subprocess.unref();
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/child_process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756295880"><\/script>');
+  </script>
+</body>
+</html>

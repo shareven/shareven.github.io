@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>回调中的 Error 参数 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/errors/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756305127" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-errors">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>回调中的 Error 参数</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../errors.html#errors_error_first_callbacks" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/errors/error_first_callbacks.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x5927;&#x591A;&#x6570; Node.js &#x6838;&#x5FC3; API &#x6240;&#x63D0;&#x4F9B;&#x7684;&#x5F02;&#x6B65;&#x65B9;&#x6CD5;&#x90FD;&#x9075;&#x4ECE;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x4F18;&#x5148;&#x7684;&#x56DE;&#x8C03;&#x6A21;&#x5F0F;&#x60EF;&#x4F8B;&#xFF0C;&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;&#x6709;&#x65F6;&#x4E5F;&#x79F0;&#x4E3A; Node.js &#x5F0F;&#x56DE;&#x8C03;&#x3002;&#x5728;&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;&#x4E2D;&#xFF0C;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x9996;&#x5148;&#x88AB;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x7ED9;&#x5F02;&#x6B65;&#x65B9;&#x6CD5;&#x3002;&#x5F53;&#x8BE5;&#x65B9;&#x6CD5;&#x5B8C;&#x6210;&#x64CD;&#x4F5C;&#x6216;&#x4EA7;&#x751F;&#x9519;&#x8BEF;&#x65F6;&#xFF0C;&#x5B83;&#x4F1A;&#x8C03;&#x7528;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x5E76;&#x5C06;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x7684; <code>Error</code> &#x5BF9;&#x8C61;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4F20;&#x7ED9;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x9519;&#x8BEF;&#x4EA7;&#x751F;&#xFF0C;&#x90A3;&#x4E48;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E3A; <code>null</code> &#x3002;</p><pre><code class="language-js">const fs = require(&apos;fs&apos;);
+
+function errorFirstCallback(err, data) {
+  if (err) {
+    console.error(&apos;&#x51FA;&#x9519;&apos;, err);
+    return;
+  }
+  console.log(data);
+}
+
+fs.readFile(&apos;/some/file/that/does-not-exist&apos;, errorFirstCallback);
+fs.readFile(&apos;/some/file/that/does-exist&apos;, errorFirstCallback);
+</code></pre><p>JavaScript&#x7684; <code>try&#x2026;catch</code> &#x673A;&#x5236;&#x4E0D;&#x80FD;&#x7528;&#x6765;&#x622A;&#x83B7;&#x5F02;&#x6B65;&#x65B9;&#x6CD5;&#x4EA7;&#x751F;&#x7684;&#x9519;&#x8BEF;&#x3002;&#x65B0;&#x624B;&#x7684;&#x5E38;&#x89C1;&#x9519;&#x8BEF;&#x4E4B;&#x4E00;&#x662F;&#x8BD5;&#x56FE;&#x5728;&#x9519;&#x8BEF;&#x4F18;&#x5148;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E2D;&#x4F7F;&#x7528; <code>throw</code> &#xFF1A;</p><pre><code class="language-js">// &#x8FD9;&#x4E0D;&#x53EF;&#x884C;&#xFF1A;
+const fs = require(&apos;fs&apos;);
+
+try {
+  fs.readFile(&apos;/some/file/that/does-not-exist&apos;, (err, data) =&gt; {
+    // &#x9519;&#x8BEF;&#x7684;&#x5047;&#x8BBE;&#xFF1A;&#x5728;&#x8FD9;&#x91CC;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x3002;
+    if (err) {
+      throw err;
+    }
+  });
+} catch (err) {
+  // &#x8FD9;&#x91CC;&#x4E0D;&#x4F1A;&#x622A;&#x83B7;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E2D;&#x7684; throw&#x3002;
+  console.error(err);
+}
+</code></pre><p>&#x8FD9;&#x6837;&#x505A;&#x4E0D;&#x53EF;&#x884C;&#xFF0C;&#x56E0;&#x4E3A;&#x4F20;&#x9012;&#x7ED9; <code>fs.readFile()</code> &#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x662F;&#x5F02;&#x6B65;&#x8C03;&#x7528;&#x7684;&#x3002;
+&#x5F53;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x7A0B;&#x5E8F;&#x65E9;&#x5DF2;&#x9000;&#x51FA;&#x5176;&#x5468;&#x56F4;&#x7684;&#x4EE3;&#x7801;&#xFF08;&#x5305;&#x62EC; <code>try&#x2026;catch</code> &#x90E8;&#x5206;&#xFF09;&#x3002;
+&#x5728;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5185;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x5728;&#x5927;&#x591A;&#x6570;&#x65F6;&#x5019;&#x4F1A;&#x4F7F; Node.js &#x8FDB;&#x7A0B;&#x5D29;&#x6E83;&#x3002;
+&#x4F46;&#x5982;&#x679C;&#x542F;&#x7528;&#x4E86; <a href="http://nodejs.cn/s/cnfQ9s" rel="nofollow">domains</a>&#xFF0C;&#x6216;&#x8005;&#x6709;&#x4E0E; <code>process.on(&apos;uncaughtException&apos;)</code> &#x76F8;&#x5173;&#x8054;&#x7684;&#x5F02;&#x5E38;&#x5904;&#x7406;&#x5668;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x622A;&#x83B7;&#x8FD9;&#x79CD;&#x9519;&#x8BEF;&#x3002;</p></div>
+          <div id="content_right"><p>Most asynchronous methods exposed by the Node.js core API follow an idiomatic
+pattern referred to as an <em>error-first callback</em>. With this pattern, a callback
+function is passed to the method as an argument. When the operation either
+completes or an error is raised, the callback function is called with the
+<code>Error</code> object (if any) passed as the first argument. If no error was raised,
+the first argument will be passed as <code>null</code>.</p><pre><code class="language-js">const fs = require(&apos;fs&apos;);
+
+function errorFirstCallback(err, data) {
+  if (err) {
+    console.error(&apos;There was an error&apos;, err);
+    return;
+  }
+  console.log(data);
+}
+
+fs.readFile(&apos;/some/file/that/does-not-exist&apos;, errorFirstCallback);
+fs.readFile(&apos;/some/file/that/does-exist&apos;, errorFirstCallback);
+</code></pre><p>The JavaScript <code>try&#x2026;catch</code> mechanism <strong>cannot</strong> be used to intercept errors
+generated by asynchronous APIs. A common mistake for beginners is to try to
+use <code>throw</code> inside an error-first callback:</p><pre><code class="language-js">// THIS WILL NOT WORK:
+const fs = require(&apos;fs&apos;);
+
+try {
+  fs.readFile(&apos;/some/file/that/does-not-exist&apos;, (err, data) =&gt; {
+    // Mistaken assumption: throwing here...
+    if (err) {
+      throw err;
+    }
+  });
+} catch (err) {
+  // This will not catch the throw!
+  console.error(err);
+}
+</code></pre><p>This will not work because the callback function passed to <code>fs.readFile()</code> is
+called asynchronously. By the time the callback has been called, the
+surrounding code, including the <code>try&#x2026;catch</code> block, will have already exited.
+Throwing an error inside the callback <strong>can crash the Node.js process</strong> in most
+cases. If <a href="http://nodejs.cn/s/cnfQ9s" rel="nofollow">domains</a> are enabled, or a handler has been registered with
+<code>process.on(&apos;uncaughtException&apos;)</code>, such errors can be intercepted.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/errors/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756305127"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Buffer.allocUnsafeSlow(size) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756294545" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-buffer">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>Buffer.allocUnsafeSlow(size)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../buffer.html#buffer_class_method_buffer_allocunsafeslow_size" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/buffer/class_method_buffer_allocunsafeslow_size.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v5.12.0</span>
+</div><ul>
+<li><code>size</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x65B0;&#x5EFA;&#x7684; <code>Buffer</code> &#x7684;&#x957F;&#x5EA6;&#x3002;</li>
+</ul><p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5927;&#x5C0F;&#x4E3A; <code>size</code> &#x5B57;&#x8282;&#x7684;&#x65B0; <code>Buffer</code>&#x3002;
+&#x5982;&#x679C; <code>size</code> &#x5927;&#x4E8E; <a href="http://nodejs.cn/s/aBiAe5" rel="nofollow"><code>buffer.constants.MAX_LENGTH</code></a> &#x6216;&#x5C0F;&#x4E8E; 0&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="http://nodejs.cn/s/ouMFyk" rel="nofollow"><code>ERR_INVALID_OPT_VALUE</code></a>&#x3002;
+&#x5982;&#x679C; <code>size</code> &#x4E3A; 0&#xFF0C;&#x5219;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x957F;&#x5EA6;&#x4E3A;&#x96F6;&#x7684; <code>Buffer</code>&#x3002;</p><p>&#x4EE5;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x521B;&#x5EFA;&#x7684; <code>Buffer</code> &#x5B9E;&#x4F8B;&#x7684;&#x5E95;&#x5C42;&#x5185;&#x5B58;&#x662F;&#x672A;&#x521D;&#x59CB;&#x5316;&#x7684;&#x3002;
+<code>Buffer</code> &#x7684;&#x5185;&#x5BB9;&#x662F;&#x672A;&#x77E5;&#x7684;&#xFF0C;&#x53EF;&#x80FD;&#x5305;&#x542B;&#x654F;&#x611F;&#x6570;&#x636E;&#x3002;
+&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/2dLJk5" rel="nofollow"><code>buf.fill(0)</code></a> &#x53EF;&#x4EE5;&#x4EE5;&#x96F6;&#x521D;&#x59CB;&#x5316; <code>Buffer</code> &#x5B9E;&#x4F8B;&#x3002;</p><p>&#x5F53;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/TWpeWk" rel="nofollow"><code>Buffer.allocUnsafe()</code></a> &#x521B;&#x5EFA;&#x65B0;&#x7684; <code>Buffer</code> &#x5B9E;&#x4F8B;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x5206;&#x914D;&#x7684;&#x5185;&#x5B58;&#x5C0F;&#x4E8E; 4KB&#xFF0C;&#x5219;&#x4F1A;&#x4ECE;&#x4E00;&#x4E2A;&#x9884;&#x5206;&#x914D;&#x7684; <code>Buffer</code> &#x5207;&#x5272;&#x51FA;&#x6765;&#x3002;
+&#x8FD9;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x5783;&#x573E;&#x56DE;&#x6536;&#x673A;&#x5236;&#x56E0;&#x521B;&#x5EFA;&#x592A;&#x591A;&#x72EC;&#x7ACB;&#x7684; <code>Buffer</code> &#x800C;&#x8FC7;&#x5EA6;&#x4F7F;&#x7528;&#x3002;
+&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x901A;&#x8FC7;&#x6D88;&#x9664;&#x8DDF;&#x8E2A;&#x548C;&#x6E05;&#x7406;&#x7684;&#x9700;&#x8981;&#x6765;&#x6539;&#x8FDB;&#x6027;&#x80FD;&#x548C;&#x5185;&#x5B58;&#x4F7F;&#x7528;&#x3002;</p><p>&#x5F53;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x9700;&#x8981;&#x5728;&#x5185;&#x5B58;&#x6C60;&#x4E2D;&#x4FDD;&#x7559;&#x4E00;&#x5C0F;&#x5757;&#x5185;&#x5B58;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>Buffer.allocUnsafeSlow()</code> &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x975E;&#x5185;&#x5B58;&#x6C60;&#x7684; <code>Buffer</code> &#x5B9E;&#x4F8B;&#x5E76;&#x62F7;&#x8D1D;&#x76F8;&#x5173;&#x7684;&#x6BD4;&#x7279;&#x4F4D;&#x51FA;&#x6765;&#x3002;</p><pre><code class="language-js">// &#x9700;&#x8981;&#x4FDD;&#x7559;&#x4E00;&#x5C0F;&#x5757;&#x5185;&#x5B58;&#x3002;
+const store = [];
+
+socket.on(&apos;readable&apos;, () =&gt; {
+  let data;
+  while (null !== (data = readable.read())) {
+    // &#x4E3A;&#x5269;&#x4E0B;&#x7684;&#x6570;&#x636E;&#x5206;&#x914D;&#x5185;&#x5B58;&#x3002;
+    const sb = Buffer.allocUnsafeSlow(10);
+
+    // &#x62F7;&#x8D1D;&#x6570;&#x636E;&#x5230;&#x65B0;&#x5206;&#x914D;&#x7684;&#x5185;&#x5B58;&#x3002;
+    data.copy(sb, 0, 0, 10);
+
+    store.push(sb);
+  }
+});
+</code></pre><p><code>Buffer.allocUnsafeSlow()</code> &#x5E94;&#x8BE5;&#x53EA;&#x7528;&#x4F5C;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x5DF2;&#x7ECF;&#x5728;&#x5176;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x89C2;&#x5BDF;&#x5230;&#x8FC7;&#x5EA6;&#x7684;&#x5185;&#x5B58;&#x4E4B;&#x540E;&#x7684;&#x6700;&#x540E;&#x624B;&#x6BB5;&#x3002;</p><p>&#x5982;&#x679C; <code>size</code> &#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#xFF0C;&#x5219;&#x629B;&#x51FA; <code>TypeError</code>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v5.12.0</span>
+</div><ul>
+<li><code>size</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> The desired length of the new <code>Buffer</code>.</li>
+</ul><p>Allocates a new <code>Buffer</code> of <code>size</code> bytes. If <code>size</code> is larger than
+<a href="http://nodejs.cn/s/aBiAe5" rel="nofollow"><code>buffer.constants.MAX_LENGTH</code></a> or smaller than 0, <a href="http://nodejs.cn/s/ouMFyk" rel="nofollow"><code>ERR_INVALID_OPT_VALUE</code></a>
+is thrown. A zero-length <code>Buffer</code> is created if <code>size</code> is 0.</p><p>The underlying memory for <code>Buffer</code> instances created in this way is <em>not
+initialized</em>. The contents of the newly created <code>Buffer</code> are unknown and
+<em>may contain sensitive data</em>. Use <a href="http://nodejs.cn/s/2dLJk5" rel="nofollow"><code>buf.fill(0)</code></a> to initialize
+such <code>Buffer</code> instances with zeroes.</p><p>When using <a href="http://nodejs.cn/s/TWpeWk" rel="nofollow"><code>Buffer.allocUnsafe()</code></a> to allocate new <code>Buffer</code> instances,
+allocations under 4KB are sliced from a single pre-allocated <code>Buffer</code>. This
+allows applications to avoid the garbage collection overhead of creating many
+individually allocated <code>Buffer</code> instances. This approach improves both
+performance and memory usage by eliminating the need to track and clean up as
+many persistent objects.</p><p>However, in the case where a developer may need to retain a small chunk of
+memory from a pool for an indeterminate amount of time, it may be appropriate
+to create an un-pooled <code>Buffer</code> instance using <code>Buffer.allocUnsafeSlow()</code> and
+then copying out the relevant bits.</p><pre><code class="language-js">// Need to keep around a few small chunks of memory.
+const store = [];
+
+socket.on(&apos;readable&apos;, () =&gt; {
+  let data;
+  while (null !== (data = readable.read())) {
+    // Allocate for retained data.
+    const sb = Buffer.allocUnsafeSlow(10);
+
+    // Copy the data into the new allocation.
+    data.copy(sb, 0, 0, 10);
+
+    store.push(sb);
+  }
+});
+</code></pre><p><code>Buffer.allocUnsafeSlow()</code> should be used only as a last resort after a
+developer has observed undue memory retention in their applications.</p><p>A <code>TypeError</code> will be thrown if <code>size</code> is not a number.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756294545"><\/script>');
+  </script>
+</body>
+</html>

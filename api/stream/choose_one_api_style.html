@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>选择一种接口风格 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324153" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-stream">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>选择一种接口风格</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../stream.html#stream_choose_one_api_style" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/stream/choose_one_api_style.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x53EF;&#x8BFB;&#x6D41;&#x7684; API &#x8D2F;&#x7A7F;&#x4E86;&#x591A;&#x4E2A; Node.js &#x7248;&#x672C;&#xFF0C;&#x4E14;&#x63D0;&#x4F9B;&#x4E86;&#x591A;&#x79CD;&#x65B9;&#x6CD5;&#x6765;&#x6D88;&#x8D39;&#x6D41;&#x6570;&#x636E;&#x3002;
+&#x5F00;&#x53D1;&#x8005;&#x901A;&#x5E38;&#x5E94;&#x8BE5;&#x9009;&#x62E9;&#x5176;&#x4E2D;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x6765;&#x6D88;&#x8D39;&#x6570;&#x636E;&#xFF0C;&#x4E0D;&#x8981;&#x5728;&#x5355;&#x4E2A;&#x6D41;&#x4F7F;&#x7528;&#x591A;&#x79CD;&#x65B9;&#x6CD5;&#x6765;&#x6D88;&#x8D39;&#x6570;&#x636E;&#x3002;
+&#x6DF7;&#x5408;&#x4F7F;&#x7528; <code>on(&apos;data&apos;)</code>&#x3001; <code>on(&apos;readable&apos;)</code>&#x3001; <code>pipe()</code> &#x6216;&#x5F02;&#x6B65;&#x8FED;&#x4EE3;&#x5668;&#xFF0C;&#x4F1A;&#x5BFC;&#x81F4;&#x4E0D;&#x660E;&#x786E;&#x7684;&#x884C;&#x4E3A;&#x3002;</p><p>&#x5BF9;&#x4E8E;&#x5927;&#x591A;&#x6570;&#x7528;&#x6237;&#xFF0C;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528; <code>readable.pipe()</code>&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x662F;&#x6D88;&#x8D39;&#x6D41;&#x6570;&#x636E;&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x5F0F;&#x3002;
+&#x5982;&#x679C;&#x5F00;&#x53D1;&#x8005;&#x9700;&#x8981;&#x7CBE;&#x7EC6;&#x5730;&#x63A7;&#x5236;&#x6570;&#x636E;&#x7684;&#x4F20;&#x9012;&#x4E0E;&#x4EA7;&#x751F;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/pGAddE" rel="nofollow"><code>EventEmitter</code></a>&#x3001; <code>readable.on(&apos;readable&apos;)</code>/<code>readable.read()</code> &#x6216; <code>readable.pause()</code>/<code>readable.resume()</code>&#x3002;</p></div>
+          <div id="content_right"><p>The <code>Readable</code> stream API evolved across multiple Node.js versions and provides
+multiple methods of consuming stream data. In general, developers should choose
+<em>one</em> of the methods of consuming data and <em>should never</em> use multiple methods
+to consume data from a single stream. Specifically, using a combination
+of <code>on(&apos;data&apos;)</code>, <code>on(&apos;readable&apos;)</code>, <code>pipe()</code>, or async iterators could
+lead to unintuitive behavior.</p><p>Use of the <code>readable.pipe()</code> method is recommended for most users as it has been
+implemented to provide the easiest way of consuming stream data. Developers that
+require more fine-grained control over the transfer and generation of data can
+use the <a href="http://nodejs.cn/s/pGAddE" rel="nofollow"><code>EventEmitter</code></a> and <code>readable.on(&apos;readable&apos;)</code>/<code>readable.read()</code>
+or the <code>readable.pause()</code>/<code>readable.resume()</code> APIs.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324153"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>buf.write(string[, offset[, length]][, encoding]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756294758" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-buffer">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>buf.write(string[, offset[, length]][, encoding])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../buffer.html#buffer_buf_write_string_offset_length_encoding" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/buffer/buf_write_string_offset_length_encoding.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.90</span>
+</div><ul>
+<li><code>string</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x8981;&#x5199;&#x5165; <code>buf</code> &#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;</li>
+<li><code>offset</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x5F00;&#x59CB;&#x5199;&#x5165; <code>string</code> &#x4E4B;&#x524D;&#x8981;&#x8DF3;&#x8FC7;&#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>0</code>&#x3002;</li>
+<li><code>length</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x8981;&#x5199;&#x5165;&#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>buf.length - offset</code>&#x3002;</li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> <code>string</code> &#x7684;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;utf8&apos;</code>&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x5DF2;&#x5199;&#x5165;&#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;</li>
+</ul><p>&#x6839;&#x636E; <code>encoding</code> &#x6307;&#x5B9A;&#x7684;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x5C06; <code>string</code> &#x5199;&#x5165;&#x5230; <code>buf</code> &#x4E2D;&#x7684; <code>offset</code> &#x4F4D;&#x7F6E;&#x3002;
+<code>length</code> &#x53C2;&#x6570;&#x662F;&#x8981;&#x5199;&#x5165;&#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;
+&#x5982;&#x679C; <code>buf</code> &#x6CA1;&#x6709;&#x8DB3;&#x591F;&#x7684;&#x7A7A;&#x95F4;&#x4FDD;&#x5B58;&#x6574;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x53EA;&#x4F1A;&#x5199;&#x5165; <code>string</code> &#x7684;&#x4E00;&#x90E8;&#x5206;&#x3002;
+&#x53EA;&#x7F16;&#x7801;&#x4E86;&#x4E00;&#x90E8;&#x5206;&#x7684;&#x5B57;&#x7B26;&#x4E0D;&#x4F1A;&#x88AB;&#x5199;&#x5165;&#x3002;</p><pre><code class="language-js">const buf = Buffer.alloc(256);
+
+const len = buf.write(&apos;\u00bd + \u00bc = \u00be&apos;, 0);
+
+console.log(`${len} &#x4E2A;&#x5B57;&#x8282;: ${buf.toString(&apos;utf8&apos;, 0, len)}`);
+// &#x6253;&#x5370;: 12 &#x4E2A;&#x5B57;&#x8282;: &#xBD; + &#xBC; = &#xBE;
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.90</span>
+</div><ul>
+<li><code>string</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> String to write to <code>buf</code>.</li>
+<li><code>offset</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> Number of bytes to skip before starting to write <code>string</code>.
+<strong>Default:</strong> <code>0</code>.</li>
+<li><code>length</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> Number of bytes to write. <strong>Default:</strong>
+<code>buf.length - offset</code>.</li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> The character encoding of <code>string</code>. <strong>Default:</strong> <code>&apos;utf8&apos;</code>.</li>
+<li>Returns: <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> Number of bytes written.</li>
+</ul><p>Writes <code>string</code> to <code>buf</code> at <code>offset</code> according to the character encoding in
+<code>encoding</code>. The <code>length</code> parameter is the number of bytes to write. If <code>buf</code> did
+not contain enough space to fit the entire string, only part of <code>string</code> will be
+written. However, partially encoded characters will not be written.</p><pre><code class="language-js">const buf = Buffer.alloc(256);
+
+const len = buf.write(&apos;\u00bd + \u00bc = \u00be&apos;, 0);
+
+console.log(`${len} bytes: ${buf.toString(&apos;utf8&apos;, 0, len)}`);
+// Prints: 12 bytes: &#xBD; + &#xBC; = &#xBE;
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756294758"><\/script>');
+  </script>
+</body>
+</html>

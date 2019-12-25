@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>writable._writev(chunks, callback) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324246" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-stream">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>writable._writev(chunks, callback)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../stream.html#stream_writable_writev_chunks_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/stream/writable_writev_chunks_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><ul>
+<li><code>chunks</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object[]&gt;</a> &#x8981;&#x5199;&#x5165;&#x7684;&#x591A;&#x4E2A;&#x6570;&#x636E;&#x5757;&#x3002;
+&#x6BCF;&#x4E2A;&#x6570;&#x636E;&#x5757;&#x7684;&#x683C;&#x5F0F;&#x4E3A;<code>{ chunk: ..., encoding: ... }</code>&#x3002;</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x5F53;&#x5168;&#x90E8;&#x6570;&#x636E;&#x5757;&#x88AB;&#x5904;&#x7406;&#x5B8C;&#x6210;&#x540E;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;</li>
+</ul><p>&#x8BE5;&#x51FD;&#x6570;&#x4E0D;&#x80FD;&#x88AB;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x3002;
+&#x8BE5;&#x51FD;&#x6570;&#x5E94;&#x8BE5;&#x7531;&#x5B50;&#x7C7B;&#x5B9E;&#x73B0;&#xFF0C;&#x4E14;&#x53EA;&#x80FD;&#x88AB;&#x5185;&#x90E8;&#x7684; <code>Writable</code> &#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x3002;</p><p>&#x9664;&#x4E86;&#x5728;&#x6D41;&#x5B9E;&#x73B0;&#x4E2D;&#x7684; <code>writable._write()</code> &#x4E4B;&#x5916;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0; <code>writable._writev()</code> &#x65B9;&#x6CD5;&#xFF0C;&#x5176;&#x80FD;&#x591F;&#x4E00;&#x6B21;&#x5904;&#x7406;&#x591A;&#x4E2A;&#x6570;&#x636E;&#x5757;&#x3002;
+&#x5982;&#x679C;&#x5B9E;&#x73B0;&#x4E86;&#x8BE5;&#x65B9;&#x6CD5;&#xFF0C;&#x8C03;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;&#x65F6;&#x4F1A;&#x4F20;&#x5165;&#x5F53;&#x524D;&#x7F13;&#x51B2;&#x5728;&#x5199;&#x5165;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x6570;&#x636E;&#x5757;&#x3002;</p><p><code>writable._writev()</code> &#x65B9;&#x6CD5;&#x6709;&#x4E0B;&#x5212;&#x7EBF;&#x524D;&#x7F00;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x662F;&#x5728;&#x5B9A;&#x4E49;&#x5728;&#x7C7B;&#x7684;&#x5185;&#x90E8;&#xFF0C;&#x4E0D;&#x5E94;&#x8BE5;&#x88AB;&#x7528;&#x6237;&#x7A0B;&#x5E8F;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x3002;</p></div>
+          <div id="content_right"><ul>
+<li><code>chunks</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object[]&gt;</a> The chunks to be written. Each chunk has following
+format: <code>{ chunk: ..., encoding: ... }</code>.</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> A callback function (optionally with an error
+argument) to be invoked when processing is complete for the supplied chunks.</li>
+</ul><p>This function MUST NOT be called by application code directly. It should be
+implemented by child classes, and called by the internal <code>Writable</code> class
+methods only.</p><p>The <code>writable._writev()</code> method may be implemented in addition or alternatively
+to <code>writable._write()</code> in stream implementations that are capable of processing
+multiple chunks of data at once. If implemented, the method will be called with
+all chunks of data currently buffered in the write queue.</p><p>The <code>writable._writev()</code> method is prefixed with an underscore because it is
+internal to the class that defines it, and should never be called directly by
+user programs.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324246"><\/script>');
+  </script>
+</body>
+</html>

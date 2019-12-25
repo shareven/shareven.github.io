@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>buf.equals(otherBuffer) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756294615" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-buffer">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>buf.equals(otherBuffer)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../buffer.html#buffer_buf_equals_otherbuffer" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/buffer/buf_equals_otherbuffer.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v8.0.0</td>
+<td><p>The arguments can now be <code>Uint8Array</code>s.</p></td></tr>
+<tr><td>v0.11.13</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.11.13</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>otherBuffer</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> &#x8981;&#x4E0E; <code>bur</code> &#x5BF9;&#x6BD4;&#x7684; <code>Buffer</code> &#x6216; <a href="http://nodejs.cn/s/ZbDkpm" rel="nofollow"><code>Uint8Array</code></a>&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+</ul><p>&#x5982;&#x679C; <code>buf</code> &#x4E0E; <code>otherBuffer</code> &#x5177;&#x6709;&#x5B8C;&#x5168;&#x76F8;&#x540C;&#x7684;&#x5B57;&#x8282;&#xFF0C;&#x5219;&#x8FD4;&#x56DE; <code>true</code>&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE; <code>false</code>&#x3002;</p><pre><code class="language-js">const buf1 = Buffer.from(&apos;ABC&apos;);
+const buf2 = Buffer.from(&apos;414243&apos;, &apos;hex&apos;);
+const buf3 = Buffer.from(&apos;ABCD&apos;);
+
+console.log(buf1.equals(buf2));
+// &#x6253;&#x5370;: true
+console.log(buf1.equals(buf3));
+// &#x6253;&#x5370;: false
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v8.0.0</td>
+<td><p>The arguments can now be <code>Uint8Array</code>s.</p></td></tr>
+<tr><td>v0.11.13</td>
+<td><p><span>Added in: v0.11.13</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>otherBuffer</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/ZbDkpm" target="_blank" rel="nofollow" class="type">&lt;Uint8Array&gt;</a> A <code>Buffer</code> or <a href="http://nodejs.cn/s/ZbDkpm" rel="nofollow"><code>Uint8Array</code></a> with which to
+compare <code>buf</code>.</li>
+<li>Returns: <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+</ul><p>Returns <code>true</code> if both <code>buf</code> and <code>otherBuffer</code> have exactly the same bytes,
+<code>false</code> otherwise.</p><pre><code class="language-js">const buf1 = Buffer.from(&apos;ABC&apos;);
+const buf2 = Buffer.from(&apos;414243&apos;, &apos;hex&apos;);
+const buf3 = Buffer.from(&apos;ABCD&apos;);
+
+console.log(buf1.equals(buf2));
+// Prints: true
+console.log(buf1.equals(buf3));
+// Prints: false
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756294615"><\/script>');
+  </script>
+</body>
+</html>

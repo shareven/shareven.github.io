@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>net.Socket 类 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/net/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756318343" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-net">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>net.Socket 类</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../net.html#net_class_net_socket" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/net/class_net_socket.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.4</span>
+</div><ul>
+<li>&#x7EE7;&#x627F;&#x81EA;: <a href="http://nodejs.cn/s/2iRabr" target="_blank" rel="nofollow" class="type">&lt;stream.Duplex&gt;</a></li>
+</ul><p>&#x6B64;&#x7C7B;&#x662F; TCP &#x5957;&#x63A5;&#x5B57;&#x6216;&#x6D41;&#x5F0F; <a href="http://nodejs.cn/s/rAdYjf" rel="nofollow">IPC</a> &#x7AEF;&#x70B9;&#x7684;&#x62BD;&#x8C61;&#xFF08;&#x5728; Windows &#x4E0A;&#x4F7F;&#x7528;&#x547D;&#x540D;&#x7BA1;&#x9053;&#xFF0C;&#x5426;&#x5219;&#x4F7F;&#x7528; Unix &#x57DF;&#x5957;&#x63A5;&#x5B57;&#xFF09;&#x3002;
+&#x5B83;&#x4E5F;&#x662F;&#x4E00;&#x4E2A; <a href="http://nodejs.cn/s/pGAddE" rel="nofollow"><code>EventEmitter</code></a>&#x3002;</p><p><code>net.Socket</code> &#x53EF;&#x4EE5;&#x7531;&#x7528;&#x6237;&#x521B;&#x5EFA;&#x5E76;&#x4E14;&#x76F4;&#x63A5;&#x5730;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x8FDB;&#x884C;&#x4EA4;&#x4E92;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;&#x5B83;&#x7531; <a href="http://nodejs.cn/s/RTNxdX" rel="nofollow"><code>net.createConnection()</code></a> &#x8FD4;&#x56DE;&#xFF0C;&#x56E0;&#x6B64;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5B83;&#x4E0E;&#x670D;&#x52A1;&#x5668;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#x3002;</p><p>&#x5B83;&#x4E5F;&#x53EF;&#x4EE5;&#x7531; Node.js &#x521B;&#x5EFA;&#xFF0C;&#x5E76;&#x5728;&#x6536;&#x5230;&#x8FDE;&#x63A5;&#x65F6;&#x4F20;&#x7ED9;&#x7528;&#x6237;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;&#x5C06;&#x5B83;&#x4F20;&#x7ED9; <a href="http://nodejs.cn/s/gBYjux" rel="nofollow"><code>net.Server</code></a> &#x4E0A;&#x89E6;&#x53D1;&#x7684; <a href="http://nodejs.cn/s/4qU2j9" rel="nofollow"><code>&apos;connection&apos;</code></a> &#x4E8B;&#x4EF6;&#x7684;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x56E0;&#x6B64;&#x7528;&#x6237;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5B83;&#x4E0E;&#x5BA2;&#x6237;&#x7AEF;&#x8FDB;&#x884C;&#x4EA4;&#x4E92;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.3.4</span>
+</div><ul>
+<li>Extends: <a href="http://nodejs.cn/s/2iRabr" target="_blank" rel="nofollow" class="type">&lt;stream.Duplex&gt;</a></li>
+</ul><p>This class is an abstraction of a TCP socket or a streaming <a href="http://nodejs.cn/s/rAdYjf" rel="nofollow">IPC</a> endpoint
+(uses named pipes on Windows, and Unix domain sockets otherwise). It is also
+an <a href="http://nodejs.cn/s/pGAddE" rel="nofollow"><code>EventEmitter</code></a>.</p><p>A <code>net.Socket</code> can be created by the user and used directly to interact with
+a server. For example, it is returned by <a href="http://nodejs.cn/s/RTNxdX" rel="nofollow"><code>net.createConnection()</code></a>,
+so the user can use it to talk to the server.</p><p>It can also be created by Node.js and passed to the user when a connection
+is received. For example, it is passed to the listeners of a
+<a href="http://nodejs.cn/s/4qU2j9" rel="nofollow"><code>&apos;connection&apos;</code></a> event emitted on a <a href="http://nodejs.cn/s/gBYjux" rel="nofollow"><code>net.Server</code></a>, so the user can use
+it to interact with the client.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/net/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756318343"><\/script>');
+  </script>
+</body>
+</html>

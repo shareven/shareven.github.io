@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>fs.readFile(path[, options], callback) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756309998" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>fs.readFile(path[, options], callback)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_fs_readfile_path_options_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/fs_readfile_path_options_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will throw a <code>TypeError</code> at runtime.</p></td></tr>
+<tr><td>v7.6.0</td>
+<td><p>The <code>path</code> parameter can be a WHATWG <code>URL</code> object using <code>file:</code> protocol. Support is currently still <em>experimental</em>.</p></td></tr>
+<tr><td>v7.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will emit a deprecation warning with id DEP0013.</p></td></tr>
+<tr><td>v5.1.0</td>
+<td><p>The <code>callback</code> will always be called with <code>null</code> as the <code>error</code> parameter in case of success.</p></td></tr>
+<tr><td>v5.0.0</td>
+<td><p>The <code>path</code> parameter can be a file descriptor now.</p></td></tr>
+<tr><td>v0.1.29</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.29</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a> | <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x6587;&#x4EF6;&#x540D;&#x6216;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x3002;</li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></p>
+<ul>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/334hvC" target="_blank" rel="nofollow" class="type">&lt;null&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>null</code>&#x3002;</li>
+<li><code>flag</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x53C2;&#x9605;<a href="http://nodejs.cn/s/JjbY8n" rel="nofollow">&#x652F;&#x6301;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x6807;&#x5FD7;</a>&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;r&apos;</code>&#x3002;</li>
+</ul>
+</li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>data</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a></li>
+</ul>
+</li>
+</ul><p>&#x5F02;&#x6B65;&#x5730;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#x7684;&#x5168;&#x90E8;&#x5185;&#x5BB9;&#x3002;</p><pre><code class="language-js">fs.readFile(&apos;/etc/passwd&apos;, (err, data) =&gt; {
+  if (err) throw err;
+  console.log(data);
+});
+</code></pre><p>&#x56DE;&#x8C03;&#x4F1A;&#x4F20;&#x5165;&#x4E24;&#x4E2A;&#x53C2;&#x6570; <code>(err, data)</code>&#xFF0C;&#x5176;&#x4E2D; <code>data</code> &#x662F;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#x3002;</p><p>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6307;&#x5B9A; <code>encoding</code>&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x539F;&#x59CB;&#x7684; buffer&#x3002;</p><p>&#x5982;&#x679C; <code>options</code> &#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x5B83;&#x6307;&#x5B9A;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#xFF1A;</p><pre><code class="language-js">fs.readFile(&apos;/etc/passwd&apos;, &apos;utf8&apos;, callback);
+</code></pre><p>&#x5F53; <code>path</code> &#x662F;&#x76EE;&#x5F55;&#x65F6;&#xFF0C; <code>fs.readFile()</code> &#x4E0E; <a href="http://nodejs.cn/s/LxKo1q" rel="nofollow"><code>fs.readFileSync()</code></a> &#x7684;&#x884C;&#x4E3A;&#x662F;&#x7279;&#x5B9A;&#x4E8E;&#x5E73;&#x53F0;&#x7684;&#x3002;
+&#x5728; macOS&#x3001;Linux &#x548C; Windows &#x4E0A;&#xFF0C;&#x5C06;&#x8FD4;&#x56DE;&#x9519;&#x8BEF;&#x3002;
+&#x5728; FreeBSD &#x4E0A;&#xFF0C;&#x5C06;&#x8FD4;&#x56DE;&#x76EE;&#x5F55;&#x5185;&#x5BB9;&#x7684;&#x8868;&#x793A;&#x3002;</p><pre><code class="language-js">// &#x5728; macOS&#x3001;Linux &#x548C; Windows &#x4E0A;&#xFF1A;
+fs.readFile(&apos;&lt;&#x76EE;&#x5F55;&gt;&apos;, (err, data) =&gt; {
+  // =&gt; [Error: EISDIR: illegal operation on a directory, read &lt;&#x76EE;&#x5F55;&gt;]
+});
+
+// &#x5728; FreeBSD &#x4E0A;&#xFF1A;
+fs.readFile(&apos;&lt;&#x76EE;&#x5F55;&gt;&apos;, (err, data) =&gt; {
+  // =&gt; null, &lt;data&gt;
+});
+</code></pre><p><code>fs.readFile()</code> &#x51FD;&#x6570;&#x4F1A;&#x7F13;&#x51B2;&#x6574;&#x4E2A;&#x6587;&#x4EF6;&#x3002;
+&#x4E3A;&#x4E86;&#x6700;&#x5C0F;&#x5316;&#x5185;&#x5B58;&#x6210;&#x672C;&#xFF0C;&#x5C3D;&#x53EF;&#x80FD;&#x901A;&#x8FC7; <code>fs.createReadStream()</code> &#x8FDB;&#x884C;&#x6D41;&#x5F0F;&#x4F20;&#x8F93;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will throw a <code>TypeError</code> at runtime.</p></td></tr>
+<tr><td>v7.6.0</td>
+<td><p>The <code>path</code> parameter can be a WHATWG <code>URL</code> object using <code>file:</code> protocol. Support is currently still <em>experimental</em>.</p></td></tr>
+<tr><td>v7.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will emit a deprecation warning with id DEP0013.</p></td></tr>
+<tr><td>v5.1.0</td>
+<td><p>The <code>callback</code> will always be called with <code>null</code> as the <code>error</code> parameter in case of success.</p></td></tr>
+<tr><td>v5.0.0</td>
+<td><p>The <code>path</code> parameter can be a file descriptor now.</p></td></tr>
+<tr><td>v0.1.29</td>
+<td><p><span>Added in: v0.1.29</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a> | <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> filename or file descriptor</li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></p>
+<ul>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/334hvC" target="_blank" rel="nofollow" class="type">&lt;null&gt;</a> <strong>Default:</strong> <code>null</code></li>
+<li><code>flag</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> See <a href="http://nodejs.cn/s/JjbY8n" rel="nofollow">support of file system <code>flags</code></a>. <strong>Default:</strong> <code>&apos;r&apos;</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>data</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a></li>
+</ul>
+</li>
+</ul><p>Asynchronously reads the entire contents of a file.</p><pre><code class="language-js">fs.readFile(&apos;/etc/passwd&apos;, (err, data) =&gt; {
+  if (err) throw err;
+  console.log(data);
+});
+</code></pre><p>The callback is passed two arguments <code>(err, data)</code>, where <code>data</code> is the
+contents of the file.</p><p>If no encoding is specified, then the raw buffer is returned.</p><p>If <code>options</code> is a string, then it specifies the encoding:</p><pre><code class="language-js">fs.readFile(&apos;/etc/passwd&apos;, &apos;utf8&apos;, callback);
+</code></pre><p>When the path is a directory, the behavior of <code>fs.readFile()</code> and
+<a href="http://nodejs.cn/s/LxKo1q" rel="nofollow"><code>fs.readFileSync()</code></a> is platform-specific. On macOS, Linux, and Windows, an
+error will be returned. On FreeBSD, a representation of the directory&apos;s contents
+will be returned.</p><pre><code class="language-js">// macOS, Linux, and Windows
+fs.readFile(&apos;&lt;directory&gt;&apos;, (err, data) =&gt; {
+  // =&gt; [Error: EISDIR: illegal operation on a directory, read &lt;directory&gt;]
+});
+
+//  FreeBSD
+fs.readFile(&apos;&lt;directory&gt;&apos;, (err, data) =&gt; {
+  // =&gt; null, &lt;data&gt;
+});
+</code></pre><p>The <code>fs.readFile()</code> function buffers the entire file. To minimize memory costs,
+when possible prefer streaming via <code>fs.createReadStream()</code>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756309998"><\/script>');
+  </script>
+</body>
+</html>

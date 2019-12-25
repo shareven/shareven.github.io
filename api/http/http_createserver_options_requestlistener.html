@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>http.createServer([options][, requestListener]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/http/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756312101" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-http">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>http.createServer([options][, requestListener])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../http.html#http_http_createserver_options_requestlistener" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/http/http_createserver_options_requestlistener.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v9.6.0, v8.12.0</td>
+<td><p>The <code>options</code> argument is supported now.</p></td></tr>
+<tr><td>v0.1.13</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.13</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>IncomingMessage</code> <a href="http://nodejs.cn/s/2RqpEw" target="_blank" rel="nofollow" class="type">&lt;http.IncomingMessage&gt;</a> &#x6307;&#x5B9A;&#x8981;&#x4F7F;&#x7528;&#x7684; <code>IncomingMessage</code> &#x7C7B;&#x3002;&#x7528;&#x4E8E;&#x6269;&#x5C55;&#x539F;&#x59CB;&#x7684; <code>IncomingMessage</code>&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>IncomingMessage</code>&#x3002;</li>
+<li><code>ServerResponse</code> <a href="http://nodejs.cn/s/rMXoZ1" target="_blank" rel="nofollow" class="type">&lt;http.ServerResponse&gt;</a> &#x6307;&#x5B9A;&#x8981;&#x4F7F;&#x7528;&#x7684; <code>ServerResponse</code> &#x7C7B;&#x3002;&#x7528;&#x4E8E;&#x6269;&#x5C55;&#x539F;&#x59CB; <code>ServerResponse</code>&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>ServerResponse</code>&#x3002;</li>
+</ul>
+</li>
+<li><code>requestListener</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/jLiRTh" target="_blank" rel="nofollow" class="type">&lt;http.Server&gt;</a></li>
+</ul><p>&#x8FD4;&#x56DE;&#x65B0;&#x5EFA;&#x7684; <a href="http://nodejs.cn/s/jLiRTh" rel="nofollow"><code>http.Server</code></a> &#x5B9E;&#x4F8B;&#x3002;</p><p><code>requestListener</code> &#x662F;&#x4E00;&#x4E2A;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;&#x5230; <a href="http://nodejs.cn/s/2qCn57" rel="nofollow"><code>&apos;request&apos;</code></a> &#x4E8B;&#x4EF6;&#x7684;&#x51FD;&#x6570;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v9.6.0, v8.12.0</td>
+<td><p>The <code>options</code> argument is supported now.</p></td></tr>
+<tr><td>v0.1.13</td>
+<td><p><span>Added in: v0.1.13</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>IncomingMessage</code> <a href="http://nodejs.cn/s/2RqpEw" target="_blank" rel="nofollow" class="type">&lt;http.IncomingMessage&gt;</a> Specifies the <code>IncomingMessage</code>
+class to be used. Useful for extending the original <code>IncomingMessage</code>.
+<strong>Default:</strong> <code>IncomingMessage</code>.</li>
+<li><code>ServerResponse</code> <a href="http://nodejs.cn/s/rMXoZ1" target="_blank" rel="nofollow" class="type">&lt;http.ServerResponse&gt;</a> Specifies the <code>ServerResponse</code> class
+to be used. Useful for extending the original <code>ServerResponse</code>. <strong>Default:</strong>
+<code>ServerResponse</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>requestListener</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+</li>
+<li>
+<p>Returns: <a href="http://nodejs.cn/s/jLiRTh" target="_blank" rel="nofollow" class="type">&lt;http.Server&gt;</a></p>
+</li>
+</ul><p>Returns a new instance of <a href="http://nodejs.cn/s/jLiRTh" rel="nofollow"><code>http.Server</code></a>.</p><p>The <code>requestListener</code> is a function which is automatically
+added to the <a href="http://nodejs.cn/s/2qCn57" rel="nofollow"><code>&apos;request&apos;</code></a> event.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/http/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756312101"><\/script>');
+  </script>
+</body>
+</html>

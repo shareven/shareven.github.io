@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>emitter.setMaxListeners(n) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/events/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756307036" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-events">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>emitter.setMaxListeners(n)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../events.html#events_emitter_setmaxlisteners_n" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/events/emitter_setmaxlisteners_n.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.5</span>
+</div><ul>
+<li><code>n</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/pGAddE" target="_blank" rel="nofollow" class="type">&lt;EventEmitter&gt;</a></li>
+</ul><p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5982;&#x679C;&#x4E3A;&#x7279;&#x5B9A;&#x4E8B;&#x4EF6;&#x6DFB;&#x52A0;&#x4E86;&#x8D85;&#x8FC7; <code>10</code> &#x4E2A;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x5219; <code>EventEmitter</code> &#x4F1A;&#x6253;&#x5370;&#x4E00;&#x4E2A;&#x8B66;&#x544A;&#x3002;
+&#x8FD9;&#x6709;&#x52A9;&#x4E8E;&#x53D1;&#x73B0;&#x5185;&#x5B58;&#x6CC4;&#x9732;&#x3002;
+&#x4F46;&#x662F;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x6240;&#x6709;&#x7684;&#x4E8B;&#x4EF6;&#x90FD;&#x8981;&#x9650;&#x5236; <code>10</code> &#x4E2A;&#x76D1;&#x542C;&#x5668;&#x3002;
+<code>emitter.setMaxListeners()</code> &#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x4E3A;&#x6307;&#x5B9A;&#x7684; <code>EventEmitter</code> &#x5B9E;&#x4F8B;&#x4FEE;&#x6539;&#x9650;&#x5236;&#x3002;
+&#x503C;&#x8BBE;&#x4E3A; <code>Infinity</code>&#xFF08;&#x6216; <code>0</code>&#xFF09;&#x8868;&#x793A;&#x4E0D;&#x9650;&#x5236;&#x76D1;&#x542C;&#x5668;&#x7684;&#x6570;&#x91CF;&#x3002;</p><p>&#x8FD4;&#x56DE;&#x5BF9; <code>EventEmitter</code> &#x7684;&#x5F15;&#x7528;&#xFF0C;&#x4EE5;&#x4FBF;&#x53EF;&#x4EE5;&#x94FE;&#x5F0F;&#x8C03;&#x7528;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.3.5</span>
+</div><ul>
+<li><code>n</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li>Returns: <a href="http://nodejs.cn/s/pGAddE" target="_blank" rel="nofollow" class="type">&lt;EventEmitter&gt;</a></li>
+</ul><p>By default <code>EventEmitter</code>s will print a warning if more than <code>10</code> listeners are
+added for a particular event. This is a useful default that helps finding
+memory leaks. Obviously, not all events should be limited to just 10 listeners.
+The <code>emitter.setMaxListeners()</code> method allows the limit to be modified for this
+specific <code>EventEmitter</code> instance. The value can be set to <code>Infinity</code> (or <code>0</code>)
+to indicate an unlimited number of listeners.</p><p>Returns a reference to the <code>EventEmitter</code>, so that calls can be chained.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/events/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756307036"><\/script>');
+  </script>
+</body>
+</html>

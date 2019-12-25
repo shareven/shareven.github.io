@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>worker.process | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/cluster/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756297762" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-cluster">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>worker.process</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../cluster.html#cluster_worker_process" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/cluster/worker_process.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.0</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/yQBM4n" target="_blank" rel="nofollow" class="type">&lt;ChildProcess&gt;</a></li>
+</ul><p>&#x6240;&#x6709;&#x7684;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x90FD;&#x662F;&#x901A;&#x8FC7; <a href="http://nodejs.cn/s/VDCJMa" rel="nofollow"><code>child_process.fork()</code></a> &#x6765;&#x521B;&#x5EFA;&#x7684;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#x88AB;&#x5B58;&#x50A8;&#x4E3A; <code>.process</code>&#x3002;
+&#x5728;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x4E2D;&#xFF0C; <code>process</code> &#x5C5E;&#x4E8E;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#x3002;</p><p>&#x53C2;&#x9605;&#xFF1A;<a href="http://nodejs.cn/s/VDCJMa" rel="nofollow">&#x5B50;&#x8FDB;&#x7A0B;&#x6A21;&#x5757;</a>&#x3002;</p><p>&#x5F53; <code>process</code> &#x4E0A;&#x53D1;&#x751F; <code>&apos;disconnect&apos;</code> &#x4E8B;&#x4EF6;&#xFF0C;&#x5E76;&#x4E14; <code>.exitedAfterDisconnect</code> &#x7684;&#x503C;&#x4E0D;&#x662F; <code>true</code> &#x65F6;&#xFF0C;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x4F1A;&#x8C03;&#x7528; <code>process.exit(0)</code>&#x3002;
+&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x9632;&#x6B62;&#x8FDE;&#x63A5;&#x610F;&#x5916;&#x65AD;&#x5F00;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.7.0</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/yQBM4n" target="_blank" rel="nofollow" class="type">&lt;ChildProcess&gt;</a></li>
+</ul><p>All workers are created using <a href="http://nodejs.cn/s/VDCJMa" rel="nofollow"><code>child_process.fork()</code></a>, the returned object
+from this function is stored as <code>.process</code>. In a worker, the global <code>process</code>
+is stored.</p><p>See: <a href="http://nodejs.cn/s/VDCJMa" rel="nofollow">Child Process module</a>.</p><p>Workers will call <code>process.exit(0)</code> if the <code>&apos;disconnect&apos;</code> event occurs
+on <code>process</code> and <code>.exitedAfterDisconnect</code> is not <code>true</code>. This protects against
+accidental disconnection.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/cluster/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756297762"><\/script>');
+  </script>
+</body>
+</html>

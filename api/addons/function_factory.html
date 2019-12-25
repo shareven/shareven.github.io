@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>函数工厂 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/addons/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756291627" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-addons">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>函数工厂</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../addons.html#addons_function_factory" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/addons/function_factory.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x53E6;&#x4E00;&#x79CD;&#x5E38;&#x89C1;&#x60C5;&#x51B5;&#x662F;&#x521B;&#x5EFA; JavaScript &#x51FD;&#x6570;&#x6765;&#x5305;&#x88C5; C++ &#x51FD;&#x6570;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x5230; JavaScript&#xFF1A;</p><pre><code class="language-cpp">// addon.cc
+#include &lt;node.h&gt;
+
+namespace demo {
+
+using v8::Context;
+using v8::Function;
+using v8::FunctionCallbackInfo;
+using v8::FunctionTemplate;
+using v8::Isolate;
+using v8::Local;
+using v8::NewStringType;
+using v8::Object;
+using v8::String;
+using v8::Value;
+
+void MyFunction(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+  args.GetReturnValue().Set(String::NewFromUtf8(
+      isolate, &quot;hello world&quot;, NewStringType::kNormal).ToLocalChecked());
+}
+
+void CreateFunction(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+
+  Local&lt;Context&gt; context = isolate-&gt;GetCurrentContext();
+  Local&lt;FunctionTemplate&gt; tpl = FunctionTemplate::New(isolate, MyFunction);
+  Local&lt;Function&gt; fn = tpl-&gt;GetFunction(context).ToLocalChecked();
+
+  // &#x53EF;&#x4EE5;&#x7701;&#x7565;&#x8FD9;&#x6B65;&#x4F7F;&#x5B83;&#x533F;&#x540D;
+  fn-&gt;SetName(String::NewFromUtf8(
+      isolate, &quot;theFunction&quot;, NewStringType::kNormal).ToLocalChecked());
+
+  args.GetReturnValue().Set(fn);
+}
+
+void Init(Local&lt;Object&gt; exports, Local&lt;Object&gt; module) {
+  NODE_SET_METHOD(module, &quot;exports&quot;, CreateFunction);
+}
+
+NODE_MODULE(NODE_GYP_MODULE_NAME, Init)
+
+}  // namespace demo
+</code></pre><p>&#x6D4B;&#x8BD5;&#x5B83;&#xFF1A;</p><pre><code class="language-js">// test.js
+const addon = require(&apos;./build/Release/addon&apos;);
+
+const fn = addon();
+console.log(fn());
+// &#x6253;&#x5370;: &apos;hello world&apos;
+</code></pre></div>
+          <div id="content_right"><p>Another common scenario is creating JavaScript functions that wrap C++
+functions and returning those back to JavaScript:</p><pre><code class="language-cpp">// addon.cc
+#include &lt;node.h&gt;
+
+namespace demo {
+
+using v8::Context;
+using v8::Function;
+using v8::FunctionCallbackInfo;
+using v8::FunctionTemplate;
+using v8::Isolate;
+using v8::Local;
+using v8::NewStringType;
+using v8::Object;
+using v8::String;
+using v8::Value;
+
+void MyFunction(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+  args.GetReturnValue().Set(String::NewFromUtf8(
+      isolate, &quot;hello world&quot;, NewStringType::kNormal).ToLocalChecked());
+}
+
+void CreateFunction(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+
+  Local&lt;Context&gt; context = isolate-&gt;GetCurrentContext();
+  Local&lt;FunctionTemplate&gt; tpl = FunctionTemplate::New(isolate, MyFunction);
+  Local&lt;Function&gt; fn = tpl-&gt;GetFunction(context).ToLocalChecked();
+
+  // omit this to make it anonymous
+  fn-&gt;SetName(String::NewFromUtf8(
+      isolate, &quot;theFunction&quot;, NewStringType::kNormal).ToLocalChecked());
+
+  args.GetReturnValue().Set(fn);
+}
+
+void Init(Local&lt;Object&gt; exports, Local&lt;Object&gt; module) {
+  NODE_SET_METHOD(module, &quot;exports&quot;, CreateFunction);
+}
+
+NODE_MODULE(NODE_GYP_MODULE_NAME, Init)
+
+}  // namespace demo
+</code></pre><p>To test:</p><pre><code class="language-js">// test.js
+const addon = require(&apos;./build/Release/addon&apos;);
+
+const fn = addon();
+console.log(fn());
+// Prints: &apos;hello world&apos;
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/addons/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756291627"><\/script>');
+  </script>
+</body>
+</html>

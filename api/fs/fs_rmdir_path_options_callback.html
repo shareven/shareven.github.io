@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>fs.rmdir(path[, options], callback) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756310057" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>fs.rmdir(path[, options], callback)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_fs_rmdir_path_options_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/fs_rmdir_path_options_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v12.10.0</td>
+<td><p>The <code>recursive</code>, <code>maxBusyTries</code>, and <code>emfileWait</code> options are now supported.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will throw a <code>TypeError</code> at runtime.</p></td></tr>
+<tr><td>v7.6.0</td>
+<td><p>The <code>path</code> parameters can be a WHATWG <code>URL</code> object using <code>file:</code> protocol. Support is currently still <em>experimental</em>.</p></td></tr>
+<tr><td>v7.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will emit a deprecation warning with id DEP0013.</p></td></tr>
+<tr><td>v0.0.2</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.0.2</span></p></td></tr>
+</tbody></table>
+</details>
+</div><p></p><div class="api_stability api_stability_1"><a target="_blank" rel="nofollow" href="../documentation.html#documentation_stability_index">&#x7A33;&#x5B9A;&#x6027;: 1</a> - &#x9012;&#x5F52;&#x7684;&#x5220;&#x9664;&#x662F;&#x5B9E;&#x9A8C;&#x6027;&#x7684;&#x3002;</div><p></p><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>emfileWait</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x5982;&#x679C;&#x9047;&#x5230; <code>EMFILE</code> &#x9519;&#x8BEF;&#xFF0C;&#x5219; Node.js &#x5C06;&#x4F1A;&#x5728;&#x6BCF;&#x6B21;&#x5C1D;&#x8BD5;&#x65F6;&#x4EE5; 1 &#x6BEB;&#x79D2;&#x7684;&#x7EBF;&#x6027;&#x56DE;&#x9000;&#x91CD;&#x8BD5;&#x8BE5;&#x64CD;&#x4F5C;&#xFF0C;&#x76F4;&#x5230;&#x8D85;&#x65F6;&#x6301;&#x7EED;&#x65F6;&#x95F4;&#x8D85;&#x8FC7;&#x6B64;&#x9650;&#x5236;&#x3002;
+&#x5982;&#x679C; <code>recursive</code> &#x9009;&#x9879;&#x4E0D;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x5FFD;&#x7565;&#x6B64;&#x9009;&#x9879;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>1000</code>&#x3002;</li>
+<li><code>maxBusyTries</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x5982;&#x679C;&#x9047;&#x5230; <code>EBUSY</code>&#x3001; <code>ENOTEMPTY</code> &#x6216; <code>EPERM</code> &#x9519;&#x8BEF;&#xFF0C;&#x5219; Node.js &#x5C06;&#x4F1A;&#x5728;&#x6BCF;&#x6B21;&#x5C1D;&#x8BD5;&#x65F6;&#x4EE5; 100 &#x6BEB;&#x79D2;&#x7684;&#x7EBF;&#x6027;&#x56DE;&#x9000;&#x7B49;&#x5F85;&#x91CD;&#x8BD5;&#x8BE5;&#x64CD;&#x4F5C;&#x3002;
+&#x6B64;&#x9009;&#x9879;&#x4EE3;&#x8868;&#x91CD;&#x8BD5;&#x7684;&#x6B21;&#x6570;&#x3002;&#x5982;&#x679C; <code>recursive</code> &#x9009;&#x9879;&#x4E0D;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x5FFD;&#x7565;&#x6B64;&#x9009;&#x9879;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>3</code>&#x3002;</li>
+<li><code>recursive</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5982;&#x679C;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x6267;&#x884C;&#x9012;&#x5F52;&#x7684;&#x76EE;&#x5F55;&#x5220;&#x9664;&#x3002;&#x5728;&#x9012;&#x5F52;&#x6A21;&#x5F0F;&#x4E2D;&#xFF0C;&#x5982;&#x679C; <code>path</code> &#x4E0D;&#x5B58;&#x5728;&#x5219;&#x4E0D;&#x62A5;&#x544A;&#x9519;&#x8BEF;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x5931;&#x8D25;&#x65F6;&#x91CD;&#x8BD5;&#x64CD;&#x4F5C;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#x3002;</li>
+</ul>
+</li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+</ul>
+</li>
+</ul><p>&#x5F02;&#x6B65;&#x7684; <a href="http://nodejs.cn/s/BuUYuq" rel="nofollow"><code>rmdir(2)</code></a>&#x3002;
+&#x9664;&#x4E86;&#x53EF;&#x80FD;&#x7684;&#x5F02;&#x5E38;&#xFF0C;&#x5B8C;&#x6210;&#x56DE;&#x8C03;&#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x53C2;&#x6570;&#x3002;</p><p>&#x5728;&#x6587;&#x4EF6;&#xFF08;&#x800C;&#x4E0D;&#x662F;&#x76EE;&#x5F55;&#xFF09;&#x4E0A;&#x4F7F;&#x7528; <code>fs.rmdir()</code> &#x4F1A;&#x5BFC;&#x81F4;&#x5728; Windows &#x4E0A;&#x51FA;&#x73B0; <code>ENOENT</code> &#x9519;&#x8BEF;&#x3001;&#x5728; POSIX &#x4E0A;&#x51FA;&#x73B0; <code>ENOTDIR</code> &#x9519;&#x8BEF;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v12.10.0</td>
+<td><p>The <code>recursive</code>, <code>maxBusyTries</code>, and <code>emfileWait</code> options are now supported.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will throw a <code>TypeError</code> at runtime.</p></td></tr>
+<tr><td>v7.6.0</td>
+<td><p>The <code>path</code> parameters can be a WHATWG <code>URL</code> object using <code>file:</code> protocol. Support is currently still <em>experimental</em>.</p></td></tr>
+<tr><td>v7.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will emit a deprecation warning with id DEP0013.</p></td></tr>
+<tr><td>v0.0.2</td>
+<td><p><span>Added in: v0.0.2</span></p></td></tr>
+</tbody></table>
+</details>
+</div><p></p><div class="api_stability api_stability_1"><a target="_blank" rel="nofollow" href="../documentation.html#documentation_stability_index">Stability: 1</a> - Recursive removal is experimental.</div><p></p><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>emfileWait</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> If an <code>EMFILE</code> error is encountered, Node.js will
+retry the operation with a linear backoff of 1ms longer on each try until the
+timeout duration passes this limit. This option is ignored if the <code>recursive</code>
+option is not <code>true</code>. <strong>Default:</strong> <code>1000</code>.</li>
+<li><code>maxBusyTries</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> If an <code>EBUSY</code>, <code>ENOTEMPTY</code>, or <code>EPERM</code> error is
+encountered, Node.js will retry the operation with a linear backoff wait of
+100ms longer on each try. This option represents the number of retries. This
+option is ignored if the <code>recursive</code> option is not <code>true</code>. <strong>Default:</strong> <code>3</code>.</li>
+<li><code>recursive</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> If <code>true</code>, perform a recursive directory removal. In
+recursive mode, errors are not reported if <code>path</code> does not exist, and
+operations are retried on failure. <strong>Default:</strong> <code>false</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+</ul>
+</li>
+</ul><p>Asynchronous <a href="http://nodejs.cn/s/BuUYuq" rel="nofollow"><code>rmdir(2)</code></a>. No arguments other than a possible exception are given
+to the completion callback.</p><p>Using <code>fs.rmdir()</code> on a file (not a directory) results in an <code>ENOENT</code> error on
+Windows and an <code>ENOTDIR</code> error on POSIX.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756310057"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'upgrade' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/http/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756311943" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-http">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'upgrade' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../http.html#http_event_upgrade_1" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/http/event_upgrade_1.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>Not listening to this event no longer causes the socket to be destroyed if a client sends an Upgrade header.</p></td></tr>
+<tr><td>v0.1.94</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.94</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>request</code> <a href="http://nodejs.cn/s/2RqpEw" target="_blank" rel="nofollow" class="type">&lt;http.IncomingMessage&gt;</a> HTTP &#x8BF7;&#x6C42;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x4E0E; <a href="http://nodejs.cn/s/2qCn57" rel="nofollow"><code>&apos;request&apos;</code></a> &#x4E8B;&#x4EF6;&#x4E2D;&#x7684;&#x4E00;&#x6837;&#x3002;</li>
+<li><code>socket</code> <a href="http://nodejs.cn/s/wsJ1o1" target="_blank" rel="nofollow" class="type">&lt;net.Socket&gt;</a> &#x670D;&#x52A1;&#x5668;&#x4E0E;&#x5BA2;&#x6237;&#x7AEF;&#x4E4B;&#x95F4;&#x7684;&#x7F51;&#x7EDC;&#x5957;&#x63A5;&#x5B57;&#x3002;</li>
+<li><code>head</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> &#x5347;&#x7EA7;&#x540E;&#x7684;&#x6D41;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5305;&#xFF08;&#x53EF;&#x80FD;&#x4E3A;&#x7A7A;&#xFF09;&#x3002;</li>
+</ul><p>&#x6BCF;&#x6B21;&#x5BA2;&#x6237;&#x7AEF;&#x8BF7;&#x6C42; HTTP &#x5347;&#x7EA7;&#x65F6;&#x53D1;&#x51FA;&#x3002;
+&#x76D1;&#x542C;&#x6B64;&#x4E8B;&#x4EF6;&#x662F;&#x53EF;&#x9009;&#x7684;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x65E0;&#x6CD5;&#x575A;&#x6301;&#x66F4;&#x6539;&#x534F;&#x8BAE;&#x3002;</p><p>&#x89E6;&#x53D1;&#x6B64;&#x4E8B;&#x4EF6;&#x540E;&#xFF0C;&#x8BF7;&#x6C42;&#x7684;&#x5957;&#x63A5;&#x5B57;&#x5C06;&#x6CA1;&#x6709; <code>&apos;data&apos;</code> &#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5B83;&#x9700;&#x8981;&#x7ED1;&#x5B9A;&#x624D;&#x80FD;&#x5904;&#x7406;&#x53D1;&#x9001;&#x5230;&#x8BE5;&#x5957;&#x63A5;&#x5B57;&#x4E0A;&#x7684;&#x670D;&#x52A1;&#x5668;&#x7684;&#x6570;&#x636E;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>Not listening to this event no longer causes the socket to be destroyed if a client sends an Upgrade header.</p></td></tr>
+<tr><td>v0.1.94</td>
+<td><p><span>Added in: v0.1.94</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>request</code> <a href="http://nodejs.cn/s/2RqpEw" target="_blank" rel="nofollow" class="type">&lt;http.IncomingMessage&gt;</a> Arguments for the HTTP request, as it is in
+the <a href="http://nodejs.cn/s/2qCn57" rel="nofollow"><code>&apos;request&apos;</code></a> event</li>
+<li><code>socket</code> <a href="http://nodejs.cn/s/wsJ1o1" target="_blank" rel="nofollow" class="type">&lt;net.Socket&gt;</a> Network socket between the server and client</li>
+<li><code>head</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> The first packet of the upgraded stream (may be empty)</li>
+</ul><p>Emitted each time a client requests an HTTP upgrade. Listening to this event
+is optional and clients cannot insist on a protocol change.</p><p>After this event is emitted, the request&apos;s socket will not have a <code>&apos;data&apos;</code>
+event listener, meaning it will need to be bound in order to handle data
+sent to the server on that socket.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/http/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756311943"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'end' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/net/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756318354" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-net">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'end' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../net.html#net_event_end" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/net/event_end.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.90</span>
+</div><p>&#x5F53; socket &#x7684;&#x53E6;&#x4E00;&#x7AEF;&#x53D1;&#x9001;&#x4E00;&#x4E2A; FIN &#x5305;&#x7684;&#x65F6;&#x5019;&#x89E6;&#x53D1;&#xFF0C;&#x4ECE;&#x800C;&#x7ED3;&#x675F; socket &#x7684;&#x53EF;&#x8BFB;&#x7AEF;&#x3002;</p><p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF08;<code>allowHalfOpen</code> &#x4E3A; <code>false</code>&#xFF09;&#xFF0C;socket &#x5C06;&#x53D1;&#x9001;&#x4E00;&#x4E2A; FIN &#x6570;&#x636E;&#x5305;&#xFF0C;&#x5E76;&#x4E14;&#x4E00;&#x65E6;&#x5199;&#x51FA;&#x5B83;&#x7684;&#x7B49;&#x5F85;&#x5199;&#x5165;&#x961F;&#x5217;&#x5C31;&#x9500;&#x6BC1;&#x5B83;&#x7684;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x3002;
+&#x5F53;&#x7136;&#xFF0C;&#x5982;&#x679C; <code>allowHalfOpen</code> &#x4E3A;&#xA0;<code>true</code>&#xFF0C;socket &#x5C31;&#x4E0D;&#x4F1A;&#x81EA;&#x52A8;&#x7ED3;&#x675F; <a href="http://nodejs.cn/s/RyEJPD" rel="nofollow"><code>end()</code></a> &#x5B83;&#x7684;&#x5199;&#x5165;&#x7AEF;&#xFF0C;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x5199;&#x5165;&#x4EFB;&#x610F;&#x6570;&#x91CF;&#x7684;&#x6570;&#x636E;&#x3002;
+&#x7528;&#x6237;&#x5FC5;&#x987B;&#x8C03;&#x7528; <a href="http://nodejs.cn/s/RyEJPD" rel="nofollow"><code>end()</code></a> &#x663E;&#x793A;&#x5730;&#x7ED3;&#x675F;&#x8FD9;&#x4E2A;&#x8FDE;&#x63A5;&#xFF08;&#x4F8B;&#x5982;&#x53D1;&#x9001;&#x4E00;&#x4E2A; FIN &#x6570;&#x636E;&#x5305;&#xFF09;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.90</span>
+</div><p>Emitted when the other end of the socket sends a FIN packet, thus ending the
+readable side of the socket.</p><p>By default (<code>allowHalfOpen</code> is <code>false</code>) the socket will send a FIN packet
+back and destroy its file descriptor once it has written out its pending
+write queue. However, if <code>allowHalfOpen</code> is set to <code>true</code>, the socket will
+not automatically <a href="http://nodejs.cn/s/RyEJPD" rel="nofollow"><code>end()</code></a> its writable side, allowing the
+user to write arbitrary amounts of data. The user must call
+<a href="http://nodejs.cn/s/RyEJPD" rel="nofollow"><code>end()</code></a> explicitly to close the connection (i.e. sending a
+FIN packet back).</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/net/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756318354"><\/script>');
+  </script>
+</body>
+</html>

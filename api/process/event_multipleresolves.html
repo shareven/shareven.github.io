@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'multipleResolves' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756320955" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'multipleResolves' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../process.html#process_event_multipleresolves" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/process/event_multipleresolves.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.12.0</span>
+</div><ul>
+<li><code>type</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x9519;&#x8BEF;&#x7C7B;&#x578B;&#x3002;<code>&apos;resolve&apos;</code> &#x6216; <code>&apos;reject&apos;</code> &#x4E4B;&#x4E00;&#x3002;</li>
+<li><code>promise</code> <a href="http://nodejs.cn/s/ri1kj8" target="_blank" rel="nofollow" class="type">&lt;Promise&gt;</a> &#x4E0D;&#x6B62;&#x4E00;&#x6B21;&#x89E3;&#x51B3;&#x6216;&#x62D2;&#x7EDD;&#x7684; Promise&#x3002;</li>
+<li><code>value</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> &#x5728;&#x539F;&#x59CB;&#x89E3;&#x6790;&#x540E;&#x89E3;&#x51B3;&#x6216;&#x62D2;&#x7EDD;&#x7684; Promise &#x7684;&#x503C;&#x3002;</li>
+</ul><p>&#x53EA;&#x8981; <code>Promise</code> &#x6709;&#x4EE5;&#x4E0B;&#x60C5;&#x51B5;&#xFF0C;&#x5C31;&#x4F1A;&#x89E6;&#x53D1; <code>&apos;multipleResolves&apos;</code> &#x4E8B;&#x4EF6;&#xFF1A;</p><ul>
+<li>&#x89E3;&#x51B3;&#x4E0D;&#x6B62;&#x4E00;&#x6B21;&#x3002;</li>
+<li>&#x62D2;&#x7EDD;&#x4E0D;&#x6B62;&#x4E00;&#x6B21;&#x3002;</li>
+<li>&#x89E3;&#x51B3;&#x540E;&#x62D2;&#x7EDD;&#x3002;</li>
+<li>&#x62D2;&#x7EDD;&#x540E;&#x89E3;&#x51B3;&#x3002;</li>
+</ul><p>&#x8FD9;&#x5BF9;&#x4E8E;&#x5728;&#x4F7F;&#x7528; Promise &#x6784;&#x9020;&#x51FD;&#x6570;&#x65F6;&#x8DDF;&#x8E2A;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684;&#x6F5C;&#x5728;&#x9519;&#x8BEF;&#x975E;&#x5E38;&#x6709;&#x7528;&#xFF0C;&#x56E0;&#x4E3A;&#x4F1A;&#x4EE5;&#x9759;&#x9ED8;&#x65B9;&#x5F0F;&#x541E;&#x6CA1;&#x591A;&#x4E2A;&#x89E3;&#x51B3;&#x3002;
+&#x4F46;&#x662F;&#xFF0C;&#x6B64;&#x4E8B;&#x4EF6;&#x7684;&#x53D1;&#x751F;&#x5E76;&#x4E0D;&#x4E00;&#x5B9A;&#x8868;&#x793A;&#x9519;&#x8BEF;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;<a href="http://nodejs.cn/s/AQtNpt" rel="nofollow"><code>Promise.race()</code></a> &#x53EF;&#x4EE5;&#x89E6;&#x53D1; <code>&apos;multipleResolves&apos;</code> &#x4E8B;&#x4EF6;&#x3002;</p><pre><code class="language-js">process.on(&apos;multipleResolves&apos;, (type, promise, reason) =&gt; {
+  console.error(type, promise, reason);
+  setImmediate(() =&gt; process.exit(1));
+});
+
+async function main() {
+  try {
+    return await new Promise((resolve, reject) =&gt; {
+      resolve(&apos;&#x7B2C;&#x4E00;&#x6B21;&#x8C03;&#x7528;&apos;);
+      resolve(&apos;&#x541E;&#x6CA1;&#x89E3;&#x51B3;&apos;);
+      reject(new Error(&apos;&#x541E;&#x6CA1;&#x89E3;&#x51B3;&apos;));
+    });
+  } catch {
+    throw new Error(&apos;&#x5931;&#x8D25;&apos;);
+  }
+}
+
+main().then(console.log);
+// resolve: Promise { &apos;&#x7B2C;&#x4E00;&#x6B21;&#x8C03;&#x7528;&apos; } &apos;&#x541E;&#x6CA1;&#x89E3;&#x51B3;&apos;
+// reject: Promise { &apos;&#x7B2C;&#x4E00;&#x6B21;&#x8C03;&#x7528;&apos; } Error: &#x541E;&#x6CA1;&#x89E3;&#x51B3;
+//     at Promise (*)
+//     at new Promise (&lt;anonymous&gt;)
+//     at main (*)
+// &#x7B2C;&#x4E00;&#x6B21;&#x8C03;&#x7528;
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v10.12.0</span>
+</div><ul>
+<li><code>type</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> The resolution type. One of <code>&apos;resolve&apos;</code> or <code>&apos;reject&apos;</code>.</li>
+<li><code>promise</code> <a href="http://nodejs.cn/s/ri1kj8" target="_blank" rel="nofollow" class="type">&lt;Promise&gt;</a> The promise that resolved or rejected more than once.</li>
+<li><code>value</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> The value with which the promise was either resolved or
+rejected after the original resolve.</li>
+</ul><p>The <code>&apos;multipleResolves&apos;</code> event is emitted whenever a <code>Promise</code> has been either:</p><ul>
+<li>Resolved more than once.</li>
+<li>Rejected more than once.</li>
+<li>Rejected after resolve.</li>
+<li>Resolved after reject.</li>
+</ul><p>This is useful for tracking potential errors in an application while using the
+<code>Promise</code> constructor, as multiple resolutions are silently swallowed. However,
+the occurrence of this event does not necessarily indicate an error. For
+example, <a href="http://nodejs.cn/s/AQtNpt" rel="nofollow"><code>Promise.race()</code></a> can trigger a <code>&apos;multipleResolves&apos;</code> event.</p><pre><code class="language-js">process.on(&apos;multipleResolves&apos;, (type, promise, reason) =&gt; {
+  console.error(type, promise, reason);
+  setImmediate(() =&gt; process.exit(1));
+});
+
+async function main() {
+  try {
+    return await new Promise((resolve, reject) =&gt; {
+      resolve(&apos;First call&apos;);
+      resolve(&apos;Swallowed resolve&apos;);
+      reject(new Error(&apos;Swallowed reject&apos;));
+    });
+  } catch {
+    throw new Error(&apos;Failed&apos;);
+  }
+}
+
+main().then(console.log);
+// resolve: Promise { &apos;First call&apos; } &apos;Swallowed resolve&apos;
+// reject: Promise { &apos;First call&apos; } Error: Swallowed reject
+//     at Promise (*)
+//     at new Promise (&lt;anonymous&gt;)
+//     at main (*)
+// First call
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756320955"><\/script>');
+  </script>
+</body>
+</html>

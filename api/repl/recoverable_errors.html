@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>可恢复的错误 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/repl/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756322711" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-repl">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>可恢复的错误</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../repl.html#repl_recoverable_errors" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/repl/recoverable_errors.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x5F53;&#x7528;&#x6237;&#x6B63;&#x5728; REPL &#x4E2D;&#x8F93;&#x5165;&#x65F6;&#xFF0C;&#x6309;&#x4E0B; <code>&lt;enter&gt;</code> &#x952E;&#x4F1A;&#x628A;&#x5F53;&#x524D;&#x884C;&#x7684;&#x8F93;&#x5165;&#x53D1;&#x9001;&#x5230; <code>eval</code> &#x51FD;&#x6570;&#x3002;
+&#x4E3A;&#x4E86;&#x652F;&#x6301;&#x591A;&#x884C;&#x8F93;&#x5165;&#xFF0C; <code>eval</code> &#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; <code>repl.Recoverable</code> &#x5B9E;&#x4F8B;&#x7ED9;&#x63D0;&#x4F9B;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF1A;</p><pre><code class="language-js">function myEval(cmd, context, filename, callback) {
+  let result;
+  try {
+    result = vm.runInThisContext(cmd);
+  } catch (e) {
+    if (isRecoverableError(e)) {
+      return callback(new repl.Recoverable(e));
+    }
+  }
+  callback(null, result);
+}
+
+function isRecoverableError(error) {
+  if (error.name === &apos;SyntaxError&apos;) {
+    return /^(Unexpected end of input|Unexpected token)/.test(error.message);
+  }
+  return false;
+}
+</code></pre></div>
+          <div id="content_right"><p>As a user is typing input into the REPL prompt, pressing the <code>&lt;enter&gt;</code> key will
+send the current line of input to the <code>eval</code> function. In order to support
+multi-line input, the eval function can return an instance of <code>repl.Recoverable</code>
+to the provided callback function:</p><pre><code class="language-js">function myEval(cmd, context, filename, callback) {
+  let result;
+  try {
+    result = vm.runInThisContext(cmd);
+  } catch (e) {
+    if (isRecoverableError(e)) {
+      return callback(new repl.Recoverable(e));
+    }
+  }
+  callback(null, result);
+}
+
+function isRecoverableError(error) {
+  if (error.name === &apos;SyntaxError&apos;) {
+    return /^(Unexpected end of input|Unexpected token)/.test(error.message);
+  }
+  return false;
+}
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/repl/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756322711"><\/script>');
+  </script>
+</body>
+</html>

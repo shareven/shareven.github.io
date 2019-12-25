@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>断点 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/debugger/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756300762" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-debugger">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>断点</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../debugger.html#debugger_breakpoints" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/debugger/breakpoints.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><ul>
+<li><code>setBreakpoint()</code>, <code>sb()</code> - &#x5728;&#x5F53;&#x524D;&#x884C;&#x4E0A;&#x8BBE;&#x7F6E;&#x65AD;&#x70B9;&#x3002;</li>
+<li><code>setBreakpoint(line)</code>, <code>sb(line)</code> - &#x5728;&#x7279;&#x5B9A;&#x884C;&#x4E0A;&#x8BBE;&#x7F6E;&#x65AD;&#x70B9;&#x3002;</li>
+<li><code>setBreakpoint(&apos;fn()&apos;)</code>, <code>sb(...)</code> - &#x5728;&#x51FD;&#x6570;&#x4F53;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x8BED;&#x53E5;&#x4E0A;&#x8BBE;&#x7F6E;&#x65AD;&#x70B9;&#x3002;</li>
+<li><code>setBreakpoint(&apos;script.js&apos;, 1)</code>, <code>sb(...)</code> - &#x5728; <code>script.js</code> &#x7684;&#x7B2C;&#x4E00;&#x884C;&#x8BBE;&#x7F6E;&#x65AD;&#x70B9;&#x3002;</li>
+<li><code>clearBreakpoint(&apos;script.js&apos;, 1)</code>, <code>cb(...)</code> - &#x6E05;&#x9664; <code>script.js</code> &#x4E2D;&#x7B2C;&#x4E00;&#x884C;&#x7684;&#x65AD;&#x70B9;&#x3002;</li>
+</ul><p>&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x5C1A;&#x672A;&#x52A0;&#x8F7D;&#x7684;&#x6587;&#x4EF6;&#xFF08;&#x6A21;&#x5757;&#xFF09;&#x4E2D;&#x8BBE;&#x7F6E;&#x65AD;&#x70B9;&#xFF1A;</p><pre><code class="language-console">$ node inspect main.js
+&lt; Debugger listening on ws://127.0.0.1:9229/4e3db158-9791-4274-8909-914f7facf3bd
+&lt; For help, see: https://nodejs.org/en/docs/inspector
+&lt; Debugger attached.
+Break on start in main.js:1
+&gt; 1 (function (exports, require, module, __filename, __dirname) { const mod = require(&apos;./mod.js&apos;);
+  2 mod.hello();
+  3 mod.hello();
+debug&gt; setBreakpoint(&apos;mod.js&apos;, 22)
+Warning: script &apos;mod.js&apos; was not loaded yet.
+debug&gt; c
+break in mod.js:22
+ 20 // USE OR OTHER DEALINGS IN THE SOFTWARE.
+ 21
+&gt;22 exports.hello = function() {
+ 23   return &apos;hello from module&apos;;
+ 24 };
+debug&gt;
+</code></pre></div>
+          <div id="content_right"><ul>
+<li><code>setBreakpoint()</code>, <code>sb()</code>: Set breakpoint on current line</li>
+<li><code>setBreakpoint(line)</code>, <code>sb(line)</code>: Set breakpoint on specific line</li>
+<li><code>setBreakpoint(&apos;fn()&apos;)</code>, <code>sb(...)</code>: Set breakpoint on a first statement in
+functions body</li>
+<li><code>setBreakpoint(&apos;script.js&apos;, 1)</code>, <code>sb(...)</code>: Set breakpoint on first line of
+<code>script.js</code></li>
+<li><code>clearBreakpoint(&apos;script.js&apos;, 1)</code>, <code>cb(...)</code>: Clear breakpoint in <code>script.js</code>
+on line 1</li>
+</ul><p>It is also possible to set a breakpoint in a file (module) that
+is not loaded yet:</p><pre><code class="language-console">$ node inspect main.js
+&lt; Debugger listening on ws://127.0.0.1:9229/4e3db158-9791-4274-8909-914f7facf3bd
+&lt; For help, see: https://nodejs.org/en/docs/inspector
+&lt; Debugger attached.
+Break on start in main.js:1
+&gt; 1 (function (exports, require, module, __filename, __dirname) { const mod = require(&apos;./mod.js&apos;);
+  2 mod.hello();
+  3 mod.hello();
+debug&gt; setBreakpoint(&apos;mod.js&apos;, 22)
+Warning: script &apos;mod.js&apos; was not loaded yet.
+debug&gt; c
+break in mod.js:22
+ 20 // USE OR OTHER DEALINGS IN THE SOFTWARE.
+ 21
+&gt;22 exports.hello = function() {
+ 23   return &apos;hello from module&apos;;
+ 24 };
+debug&gt;
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/debugger/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756300762"><\/script>');
+  </script>
+</body>
+</html>

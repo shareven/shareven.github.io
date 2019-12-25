@@ -1,0 +1,1253 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>assert | Node.js API &#x6587;&#x6863;</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756292199" rel="stylesheet">')
+  </script>
+  
+</head>
+<body class="alt apidoc" id="page_api">
+  <div id="api-section-assert">
+    <div id="content" class="clearfix">
+      <div id="column2" class="interior">
+        <div id="intro" class="interior">
+          <a href="http://nodejs.cn/" rel="nofollow">
+            Node.js &#x4E2D;&#x6587;&#x7F51;
+          </a>
+          <a href="index.html" rel="nofollow">
+            v12.14.0
+          </a>
+          <div id="biz_nav"><a title="&#x5F00;&#x8BFE;&#x5427;" target="_blank" href="https://datayi.cn/w/LPd57bYo" rel="nofollow"><img></a></div>
+        </div>
+        <div class="line"></div>
+        <ul>
+<li><a href="assert.html" class="nav-assert active" rel="nofollow">assert - &#x65AD;&#x8A00;</a></li>
+<li><a href="async_hooks.html" class="nav-async_hooks" rel="nofollow">async_hooks - &#x5F02;&#x6B65;&#x94A9;&#x5B50;</a></li>
+<li><a href="buffer.html" class="nav-buffer" rel="nofollow">Buffer - &#x7F13;&#x51B2;&#x5668;</a></li>
+<li><a href="child_process.html" class="nav-child_process" rel="nofollow">child_process - &#x5B50;&#x8FDB;&#x7A0B;</a></li>
+<li><a href="cluster.html" class="nav-cluster" rel="nofollow">cluster - &#x96C6;&#x7FA4;</a></li>
+<li><a href="console.html" class="nav-console" rel="nofollow">console - &#x63A7;&#x5236;&#x53F0;</a></li>
+<li><a href="crypto.html" class="nav-crypto" rel="nofollow">crypto - &#x52A0;&#x5BC6;</a></li>
+<li><a href="debugger.html" class="nav-debugger" rel="nofollow">debugger - &#x8C03;&#x8BD5;&#x5668;</a></li>
+<li><a href="dgram.html" class="nav-dgram" rel="nofollow">dgram - &#x6570;&#x636E;&#x62A5;</a></li>
+<li><a href="dns.html" class="nav-dns" rel="nofollow">dns - &#x57DF;&#x540D;&#x670D;&#x52A1;&#x5668;</a></li>
+<li><a href="domain.html" class="nav-domain" rel="nofollow">domain - &#x57DF;</a></li>
+<li><a href="errors.html" class="nav-errors" rel="nofollow">Error - &#x5F02;&#x5E38;</a></li>
+<li><a href="events.html" class="nav-events" rel="nofollow">events - &#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x5668;</a></li>
+<li><a href="fs.html" class="nav-fs" rel="nofollow">fs - &#x6587;&#x4EF6;&#x7CFB;&#x7EDF;</a></li>
+<li><a href="globals.html" class="nav-globals" rel="nofollow">global - &#x5168;&#x5C40;&#x53D8;&#x91CF;</a></li>
+<li><a href="http.html" class="nav-http" rel="nofollow">http - HTTP</a></li>
+<li><a href="http2.html" class="nav-http2" rel="nofollow">http2 - HTTP/2</a></li>
+<li><a href="https.html" class="nav-https" rel="nofollow">https - HTTPS</a></li>
+<li><a href="inspector.html" class="nav-inspector" rel="nofollow">inspector - &#x68C0;&#x67E5;&#x5668;</a></li>
+<li><a href="modules.html" class="nav-modules" rel="nofollow">module - &#x6A21;&#x5757;</a></li>
+<li><a href="net.html" class="nav-net" rel="nofollow">net - &#x7F51;&#x7EDC;</a></li>
+<li><a href="os.html" class="nav-os" rel="nofollow">os - &#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;</a></li>
+<li><a href="path.html" class="nav-path" rel="nofollow">path - &#x8DEF;&#x5F84;</a></li>
+<li><a href="perf_hooks.html" class="nav-perf_hooks" rel="nofollow">perf_hooks - &#x6027;&#x80FD;&#x94A9;&#x5B50;</a></li>
+<li><a href="process.html" class="nav-process" rel="nofollow">process - &#x8FDB;&#x7A0B;</a></li>
+<li><a href="punycode.html" class="nav-punycode" rel="nofollow">punycode - &#x57DF;&#x540D;&#x4EE3;&#x7801;</a></li>
+<li><a href="querystring.html" class="nav-querystring" rel="nofollow">querystring - &#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;</a></li>
+<li><a href="readline.html" class="nav-readline" rel="nofollow">readline - &#x9010;&#x884C;&#x8BFB;&#x53D6;</a></li>
+<li><a href="repl.html" class="nav-repl" rel="nofollow">repl - &#x4EA4;&#x4E92;&#x5F0F;&#x89E3;&#x91CA;&#x5668;</a></li>
+<li><a href="stream.html" class="nav-stream" rel="nofollow">stream - &#x6D41;</a></li>
+<li><a href="string_decoder.html" class="nav-string_decoder" rel="nofollow">string_decoder - &#x5B57;&#x7B26;&#x4E32;&#x89E3;&#x7801;&#x5668;</a></li>
+<li><a href="timers.html" class="nav-timers" rel="nofollow">timer - &#x5B9A;&#x65F6;&#x5668;</a></li>
+<li><a href="tls.html" class="nav-tls" rel="nofollow">tls - &#x5B89;&#x5168;&#x4F20;&#x8F93;&#x5C42;</a></li>
+<li><a href="tracing.html" class="nav-tracing" rel="nofollow">trace_events - &#x8DDF;&#x8E2A;&#x4E8B;&#x4EF6;</a></li>
+<li><a href="tty.html" class="nav-tty" rel="nofollow">tty - &#x7EC8;&#x7AEF;</a></li>
+<li><a href="url.html" class="nav-url" rel="nofollow">url - URL</a></li>
+<li><a href="util.html" class="nav-util" rel="nofollow">util - &#x5B9E;&#x7528;&#x5DE5;&#x5177;</a></li>
+<li><a href="v8.html" class="nav-v8" rel="nofollow">v8 - V8&#x5F15;&#x64CE;</a></li>
+<li><a href="vm.html" class="nav-vm" rel="nofollow">vm - &#x865A;&#x62DF;&#x673A;</a></li>
+<li><a href="worker_threads.html" class="nav-worker_threads" rel="nofollow">worker_threads - &#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;</a></li>
+<li><a href="zlib.html" class="nav-zlib" rel="nofollow">zlib - &#x538B;&#x7F29;</a></li>
+</ul>
+<div class="line"></div>
+<ul>
+<li><a href="documentation.html" class="nav-documentation" rel="nofollow">&#x5173;&#x4E8E;&#x672C;&#x6587;&#x6863;</a></li>
+<li><a href="synopsis.html" class="nav-synopsis" rel="nofollow">&#x7528;&#x6CD5;&#x4E0E;&#x793A;&#x4F8B;</a></li>
+<li><a href="addons.html" class="nav-addons" rel="nofollow">C++&#x63D2;&#x4EF6;</a></li>
+<li><a href="n-api.html" class="nav-n-api" rel="nofollow">N-API</a></li>
+<li><a href="cli.html" class="nav-cli" rel="nofollow">&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;</a></li>
+<li><a href="esm.html" class="nav-esm" rel="nofollow">ECMAScript &#x6A21;&#x5757;</a></li>
+<li><a href="policy.html" class="nav-policy" rel="nofollow">&#x5B89;&#x5168;&#x7B56;&#x7565;</a></li>
+<li><a href="report.html" class="nav-report" rel="nofollow">&#x8BCA;&#x65AD;&#x62A5;&#x8868;</a></li>
+<li><a href="intl.html" class="nav-intl" rel="nofollow">&#x56FD;&#x9645;&#x5316;&#x652F;&#x6301;</a></li>
+<li><a href="deprecations.html" class="nav-deprecations" rel="nofollow">&#x5E9F;&#x5F03;&#x7684; API</a></li>
+</ul>
+        
+      </div>
+  
+      <div id="column1" data-id="assert" class="interior">
+        <header>
+          <h1>Node.js v12.14.0 &#x6587;&#x6863;</h1>
+          <div id="gtoc">
+            <ul>
+              <li>
+                <a href="index.html" name="toc">&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x9996;&#x9875;</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">&#x641C;&#x7D22;</a>
+              </li>
+              <!-- 
+    <li class="version-picker">
+      <a href="#">查看其他版本 <span>&#x25bc;</span></a>
+      <ol class="version-picker"><li><a href="/latest-api/assert.html">12.x</a></li>
+<li><a href="/api/assert.html">10.x</a></li></ol>
+    </li>
+   -->
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        
+        
+        <div id="toc">
+          <h2>&#x76EE;&#x5F55;</h2>
+          <ul>
+<li>
+<p><span class="stability_2"><a href="assert.html#assert_assert">assert&#xFF08;&#x65AD;&#x8A00;&#xFF09;</a></span></p>
+<ul>
+<li>
+<p><a href="assert.html#assert_class_assert_assertionerror">assert.AssertionError &#x7C7B;</a></p>
+<ul>
+<li><a href="assert.html#assert_new_assert_assertionerror_options">new assert.AssertionError(options)</a></li>
+</ul>
+</li>
+<li><a href="assert.html#assert_strict_mode">&#x4E25;&#x683C;&#x6A21;&#x5F0F;</a></li>
+<li><a href="assert.html#assert_legacy_mode">&#x9057;&#x7559;&#x6A21;&#x5F0F;</a></li>
+<li><a href="assert.html#assert_assert_value_message">assert(value[, message])</a></li>
+<li>
+<p><a href="assert.html#assert_assert_deepequal_actual_expected_message">assert.deepEqual(actual, expected[, message])</a></p>
+<ul>
+<li><a href="assert.html#assert_comparison_details">&#x6BD4;&#x8F83;&#x8FD0;&#x7B97;&#x7684;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;</a></li>
+</ul>
+</li>
+<li>
+<p><a href="assert.html#assert_assert_deepstrictequal_actual_expected_message">assert.deepStrictEqual(actual, expected[, message])</a></p>
+<ul>
+<li><a href="assert.html#assert_comparison_details_1">&#x6BD4;&#x8F83;&#x8FD0;&#x7B97;&#x7684;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;</a></li>
+</ul>
+</li>
+<li><a href="assert.html#assert_assert_doesnotreject_asyncfn_error_message">assert.doesNotReject(asyncFn[, error][, message])</a></li>
+<li><a href="assert.html#assert_assert_doesnotthrow_fn_error_message">assert.doesNotThrow(fn[, error][, message])</a></li>
+<li><a href="assert.html#assert_assert_equal_actual_expected_message">assert.equal(actual, expected[, message])</a></li>
+<li><a href="assert.html#assert_assert_fail_message">assert.fail([message])</a></li>
+<li><span class="stability_0"><a href="assert.html#assert_assert_fail_actual_expected_message_operator_stackstartfn">assert.fail(actual, expected[, message[, operator[, stackStartFn]]])</a></span></li>
+<li><a href="assert.html#assert_assert_iferror_value">assert.ifError(value)</a></li>
+<li><a href="assert.html#assert_assert_notdeepequal_actual_expected_message">assert.notDeepEqual(actual, expected[, message])</a></li>
+<li><a href="assert.html#assert_assert_notdeepstrictequal_actual_expected_message">assert.notDeepStrictEqual(actual, expected[, message])</a></li>
+<li><a href="assert.html#assert_assert_notequal_actual_expected_message">assert.notEqual(actual, expected[, message])</a></li>
+<li><a href="assert.html#assert_assert_notstrictequal_actual_expected_message">assert.notStrictEqual(actual, expected[, message])</a></li>
+<li><a href="assert.html#assert_assert_ok_value_message">assert.ok(value[, message])</a></li>
+<li><a href="assert.html#assert_assert_rejects_asyncfn_error_message">assert.rejects(asyncFn[, error][, message])</a></li>
+<li><a href="assert.html#assert_assert_strictequal_actual_expected_message">assert.strictEqual(actual, expected[, message])</a></li>
+<li><a href="assert.html#assert_assert_throws_fn_error_message">assert.throws(fn[, error][, message])</a></li>
+</ul>
+</li>
+</ul>
+        </div>
+
+        <!-- <div id="biz_content">
+          <a href="http://www.tp-shop.cn/index.php?http_referer=node" target="_blank">
+            <img src="//static.nodejs.cn/_static/img/ad/api_content_tpshop.jpg" />
+          </a>
+        </div> -->
+  
+        <div id="apicontent">
+          <h1>assert&#xFF08;&#x65AD;&#x8A00;&#xFF09;<span><a class="mark" href="assert.html#assert_assert" id="assert_assert">#</a></span></h1><p class="tip_wrap"><a href="assert/assert.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/assert/assert.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<!--introduced_in=v0.1.21-->
+<p></p><div class="api_stability api_stability_2"><a target="_blank" rel="nofollow" href="documentation.html#documentation_stability_index">&#x7A33;&#x5B9A;&#x6027;: 2</a> - &#x7A33;&#x5B9A;</div><p></p>
+<p><code>assert</code> &#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x7EC4;&#x7B80;&#x5355;&#x7684;&#x65AD;&#x8A00;&#x6D4B;&#x8BD5;&#xFF0C;&#x53EF;&#x7528;&#x4E8E;&#x6D4B;&#x8BD5;&#x4E0D;&#x53D8;&#x91CF;&#x3002;
+&#x8BE5;&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x5EFA;&#x8BAE;&#x7684;<a href="http://nodejs.cn/s/v8AhVr" rel="nofollow">&#x4E25;&#x683C;&#x6A21;&#x5F0F;</a>&#x548C;&#x66F4;&#x5BBD;&#x677E;&#x7684;&#x9057;&#x7559;&#x6A21;&#x5F0F;&#x3002;</p>
+<h2>assert.AssertionError &#x7C7B;<span><a class="mark" href="assert.html#assert_class_assert_assertionerror" id="assert_class_assert_assertionerror">#</a></span></h2><p class="tip_wrap"><a href="assert/class_assert_assertionerror.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/assert/class_assert_assertionerror.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<ul>
+<li>&#x7EE7;&#x627F;&#x81EA;: <a href="http://nodejs.cn/s/FLTm19" target="_blank" rel="nofollow" class="type">&lt;errors.Error&gt;</a></li>
+</ul>
+<p>&#x8868;&#x660E;&#x65AD;&#x8A00;&#x7684;&#x5931;&#x8D25;&#x3002;
+<code>assert</code> &#x6A21;&#x5757;&#x629B;&#x51FA;&#x7684;&#x6240;&#x6709;&#x9519;&#x8BEF;&#x90FD;&#x5C06;&#x662F; <code>AssertionError</code> &#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x3002;</p>
+<h3>new assert.AssertionError(options)<span><a class="mark" href="assert.html#assert_new_assert_assertionerror_options" id="assert_new_assert_assertionerror_options">#</a></span></h3><p class="tip_wrap"><a href="assert/new_assert_assertionerror_options.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/assert/new_assert_assertionerror_options.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.21</span>
+</div>
+<ul>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>message</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5982;&#x679C;&#x63D0;&#x4F9B;&#xFF0C;&#x5219;&#x5C06;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x8BBE;&#x7F6E;&#x4E3A;&#x6B64;&#x503C;&#x3002;</li>
+<li><code>actual</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> &#x9519;&#x8BEF;&#x5B9E;&#x4F8B;&#x4E0A;&#x7684; <code>actual</code> &#x5C5E;&#x6027;&#x5C06;&#x5305;&#x542B;&#x6B64;&#x503C;&#x3002;</li>
+<li><code>expected</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> &#x9519;&#x8BEF;&#x5B9E;&#x4F8B;&#x4E0A;&#x7684; <code>expected</code> &#x5C5E;&#x6027;&#x5C06;&#x5305;&#x542B;&#x6B64;&#x503C;&#x3002;</li>
+<li><code>operator</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x9519;&#x8BEF;&#x5B9E;&#x4F8B;&#x4E0A;&#x7684; <code>operator</code> &#x5C5E;&#x6027;&#x5C06;&#x5305;&#x542B;&#x6B64;&#x503C;&#x3002;</li>
+<li><code>stackStartFn</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x5982;&#x679C;&#x63D0;&#x4F9B;&#xFF0C;&#x5219;&#x751F;&#x6210;&#x7684;&#x5806;&#x6808;&#x8DDF;&#x8E2A;&#x5C06;&#x79FB;&#x9664;&#x6240;&#x6709;&#x5E27;&#x76F4;&#x5230;&#x63D0;&#x4F9B;&#x7684;&#x51FD;&#x6570;&#x3002;</li>
+</ul>
+</li>
+</ul>
+<p><code>Error</code> &#x7684;&#x5B50;&#x7C7B;&#xFF0C;&#x8868;&#x660E;&#x65AD;&#x8A00;&#x7684;&#x5931;&#x8D25;&#x3002;</p>
+<p>&#x6240;&#x6709;&#x5B9E;&#x4F8B;&#x90FD;&#x5305;&#x542B;&#x5185;&#x7F6E;&#x7684; <code>Error</code> &#x5C5E;&#x6027;&#xFF08;<code>message</code> &#x548C; <code>name</code>&#xFF09;&#x4EE5;&#x53CA;&#xFF1A;</p>
+<ul>
+<li><code>actual</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> &#x8BBE;&#x7F6E;&#x65B9;&#x6CD5;&#x7684; <code>actual</code> &#x53C2;&#x6570;&#xFF0C;&#x4F8B;&#x5982; <a href="http://nodejs.cn/s/bjx9Nb" rel="nofollow"><code>assert.strictEqual()</code></a>&#x3002;</li>
+<li><code>expected</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> &#x8BBE;&#x7F6E;&#x65B9;&#x6CD5;&#x7684; <code>expected</code> &#x53C2;&#x6570;&#xFF0C;&#x4F8B;&#x5982; <a href="http://nodejs.cn/s/bjx9Nb" rel="nofollow"><code>assert.strictEqual()</code></a>&#x3002;</li>
+<li><code>generatedMessage</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x8868;&#x660E;&#x6D88;&#x606F;&#x662F;&#x5426;&#x662F;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#x3002;</li>
+<li><code>code</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x59CB;&#x7EC8;&#x8BBE;&#x7F6E;&#x4E3A;&#x5B57;&#x7B26;&#x4E32; <code>ERR_ASSERTION</code> &#x4EE5;&#x8868;&#x660E;&#x9519;&#x8BEF;&#x5B9E;&#x9645;&#x4E0A;&#x662F;&#x65AD;&#x8A00;&#x9519;&#x8BEF;&#x3002;</li>
+<li><code>operator</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x8BBE;&#x7F6E;&#x4E3A;&#x4F20;&#x5165;&#x7684;&#x8FD0;&#x7B97;&#x7B26;&#x503C;&#x3002;</li>
+</ul>
+<pre><code class="language-js">const assert = require(&apos;assert&apos;);
+
+// &#x751F;&#x6210; AssertionError &#x4EE5;&#x4FBF;&#x7A0D;&#x540E;&#x6BD4;&#x8F83;&#x9519;&#x8BEF;&#x7684;&#x6D88;&#x606F;&#xFF1A;
+const { message } = new assert.AssertionError({
+  actual: 1,
+  expected: 2,
+  operator: &apos;strictEqual&apos;
+});
+
+// &#x9A8C;&#x8BC1;&#x9519;&#x8BEF;&#x7684;&#x8F93;&#x51FA;&#xFF1A;
+try {
+  assert.strictEqual(1, 2);
+} catch (err) {
+  assert(err instanceof assert.AssertionError);
+  assert.strictEqual(err.message, message);
+  assert.strictEqual(err.name, &apos;AssertionError&apos;);
+  assert.strictEqual(err.actual, 1);
+  assert.strictEqual(err.expected, 2);
+  assert.strictEqual(err.code, &apos;ERR_ASSERTION&apos;);
+  assert.strictEqual(err.operator, &apos;strictEqual&apos;);
+  assert.strictEqual(err.generatedMessage, true);
+}
+</code></pre>
+<h2>&#x4E25;&#x683C;&#x6A21;&#x5F0F;<span><a class="mark" href="assert.html#assert_strict_mode" id="assert_strict_mode">#</a></span></h2><p class="tip_wrap"><a href="assert/strict_mode.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/assert/strict_mode.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v9.9.0</td>
+<td><p>Added error diffs to the strict mode</p></td></tr>
+<tr><td>v9.9.0</td>
+<td><p>Added strict mode to the assert module.</p></td></tr>
+<tr><td>v9.9.0</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v9.9.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div>
+<p>&#x5728;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x4E2D;&#xFF0C;&#x4EFB;&#x4F55; <code>assert</code> &#x51FD;&#x6570;&#x90FD;&#x5C06;&#x4F7F;&#x7528;&#x4E25;&#x683C;&#x51FD;&#x6570;&#x6A21;&#x5F0F;&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x76F8;&#x7B49;&#x6027;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;<a href="http://nodejs.cn/s/T9fJbF" rel="nofollow"><code>assert.deepEqual()</code></a> &#x5C06;&#x4E0E; <a href="http://nodejs.cn/s/PPMrJo" rel="nofollow"><code>assert.deepStrictEqual()</code></a> &#x4E00;&#x6837;&#x6548;&#x679C;&#x3002;</p>
+<p>&#x5728;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#x4E2D;&#xFF0C;&#x5BF9;&#x8C61;&#x7684;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x4F1A;&#x663E;&#x793A;&#x5DEE;&#x5F02;&#x3002;
+&#x5728;&#x9057;&#x7559;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x5BF9;&#x8C61;&#x7684;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x4F1A;&#x663E;&#x793A;&#x5BF9;&#x8C61;&#xFF0C;&#x901A;&#x5E38;&#x662F;&#x622A;&#x65AD;&#x7684;&#x3002;</p>
+<p>&#x4F7F;&#x7528;&#x4E25;&#x683C;&#x6A21;&#x5F0F;&#xFF1A;</p>
+<pre><code class="language-js">const assert = require(&apos;assert&apos;).strict;
+</code></pre>
+<p>&#x9519;&#x8BEF;&#x5DEE;&#x5F02;&#x7684;&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre><code class="language-js">const assert = require(&apos;assert&apos;).strict;
+
+assert.deepEqual([[[1, 2, 3]], 4, 5], [[[1, 2, &apos;3&apos;]], 4, 5]);
+// AssertionError: Expected inputs to be strictly deep-equal:
+// + actual - expected ... Lines skipped
+//
+//   [
+//     [
+// ...
+//       2,
+// +     3
+// -     &apos;3&apos;
+//     ],
+// ...
+//     5
+//   ]
+</code></pre>
+<p>&#x8981;&#x505C;&#x7528;&#x989C;&#x8272;&#xFF0C;&#x5219;&#x4F7F;&#x7528; <code>NODE_DISABLE_COLORS</code> &#x73AF;&#x5883;&#x53D8;&#x91CF;&#x3002;
+&#x6CE8;&#x610F;&#xFF0C;&#x8FD9;&#x4E5F;&#x5C06;&#x505C;&#x7528; REPL &#x4E2D;&#x7684;&#x989C;&#x8272;&#x3002;</p>
+<h2>&#x9057;&#x7559;&#x6A21;&#x5F0F;<span><a class="mark" href="assert.html#assert_legacy_mode" id="assert_legacy_mode">#</a></span></h2><p class="tip_wrap"><a href="assert/legacy_mode.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/assert/legacy_mode.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<p>&#x9057;&#x7559;&#x6A21;&#x5F0F;&#x5728;&#x4EE5;&#x4E0B;&#x65B9;&#x6CD5;&#x4E2D;&#x4F7F;&#x7528;<a href="http://nodejs.cn/s/tiZhGn" rel="nofollow">&#x62BD;&#x8C61;&#x7684;&#x76F8;&#x7B49;&#x6027;&#x6BD4;&#x8F83;</a>&#xFF1A;</p>
+<ul>
+<li><a href="http://nodejs.cn/s/T9fJbF" rel="nofollow"><code>assert.deepEqual()</code></a></li>
+<li><a href="http://nodejs.cn/s/neDYMi" rel="nofollow"><code>assert.equal()</code></a></li>
+<li><a href="http://nodejs.cn/s/LFn3u5" rel="nofollow"><code>assert.notDeepEqual()</code></a></li>
+<li><a href="http://nodejs.cn/s/cFSVQh" rel="nofollow"><code>assert.notEqual()</code></a></li>
+</ul>
+<p>&#x4F7F;&#x7528;&#x9057;&#x7559;&#x6A21;&#x5F0F;&#xFF1A;</p>
+<pre><code class="language-js">const assert = require(&apos;assert&apos;);
+</code></pre>
+<p>&#x53EA;&#x8981;&#x6709;&#x53EF;&#x80FD;&#xFF0C;&#x8BF7;&#x4F7F;&#x7528;<a href="http://nodejs.cn/s/v8AhVr" rel="nofollow">&#x4E25;&#x683C;&#x6A21;&#x5F0F;</a>&#x3002;
+&#x5426;&#x5219;&#xFF0C;<a href="http://nodejs.cn/s/tiZhGn" rel="nofollow">&#x62BD;&#x8C61;&#x7684;&#x76F8;&#x7B49;&#x6027;&#x6BD4;&#x8F83;</a>&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x610F;&#x5916;&#x7684;&#x7ED3;&#x679C;&#x3002;
+&#x7279;&#x522B;&#x662F;&#x5BF9;&#x4E8E; <a href="http://nodejs.cn/s/T9fJbF" rel="nofollow"><code>assert.deepEqual()</code></a>&#xFF0C;&#x5176;&#x4E2D;&#x7684;&#x6BD4;&#x8F83;&#x89C4;&#x5219;&#x662F;&#x677E;&#x6563;&#x7684;&#xFF1A;</p>
+<pre><code class="language-js">// &#x6CE8;&#x610F;&#xFF1A;&#x8FD9;&#x4E0D;&#x4F1A;&#x629B;&#x51FA; AssertionError&#xFF01;
+assert.deepEqual(/a/gi, new Date());
+</code></pre>
+<h2>assert(value[, message])<span><a class="mark" href="assert.html#assert_assert_value_message" id="assert_assert_value_message">#</a></span></h2><p class="tip_wrap"><a href="assert/assert_value_message.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/assert/assert_value_message.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.5.9</span>
+</div>
+<ul>
+<li><code>value</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> &#x68C0;&#x67E5;&#x662F;&#x5426;&#x4E3A;&#x771F;&#x7684;&#x8F93;&#x5165;&#x3002;</li>
+<li><code>message</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+</ul>
+<p><a href="http://nodejs.cn/s/xzCLSQ" rel="nofollow"><code>assert.ok()</code></a> &#x7684;&#x522B;&#x540D;&#x3002;</p>
+<h2>assert.deepEqual(actual, expected[, message])<span><a class="mark" href="assert.html#assert_assert_deepequal_actual_expected_message" id="assert_assert_deepequal_actual_expected_message">#</a></span></h2><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span></p>
+<div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v12.0.0</td>
+<td><p>The type tags are now properly compared and there are a couple minor comparison adjustments to make the check less surprising.</p></td></tr>
+<tr><td>v9.0.0</td>
+<td><p>The <code>Error</code> names and messages are now properly compared</p></td></tr>
+<tr><td>v8.0.0</td>
+<td><p>The <code>Set</code> and <code>Map</code> content is also compared</p></td></tr>
+<tr><td>v6.4.0, v4.7.1</td>
+<td><p>Typed array slices are handled correctly now.</p></td></tr>
+<tr><td>v6.1.0, v4.5.0</td>
+<td><p>Objects with circular references can be used as inputs now.</p></td></tr>
+<tr><td>v5.10.1, v4.4.3</td>
+<td><p>Handle non-<code>Uint8Array</code> typed arrays correctly.</p></td></tr>
+<tr><td>v0.1.21</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.21</span></p></td></tr>
+</tbody></table>
+</details>
+</div>
+<ul>
+<li><code>actual</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>expected</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>message</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+</ul>
+<p><strong>Strict mode</strong></p>
+<p>An alias of <a href="http://nodejs.cn/s/PPMrJo" rel="nofollow"><code>assert.deepStrictEqual()</code></a>.</p>
+<p><strong>Legacy mode</strong></p>
+<p></p><div class="api_stability api_stability_0"><a target="_blank" rel="nofollow" href="documentation.html#documentation_stability_index">&#x7A33;&#x5B9A;&#x6027;: 0</a> - &#x5E9F;&#x5F03;: &#x6539;&#x4E3A;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/PPMrJo" rel="nofollow"><code>assert.deepStrictEqual()</code></a> &#x3002;</div><p></p>
+<p>Tests for deep equality between the <code>actual</code> and <code>expected</code> parameters. Consider
+using <a href="http://nodejs.cn/s/PPMrJo" rel="nofollow"><code>assert.deepStrictEqual()</code></a> instead. <a href="http://nodejs.cn/s/T9fJbF" rel="nofollow"><code>assert.deepEqual()</code></a> can have
+potentially surprising results.</p>
+<p>&quot;Deep&quot; equality means that the enumerable &quot;own&quot; properties of child objects
+are also recursively evaluated by the following rules.</p>
+<h3>&#x6BD4;&#x8F83;&#x8FD0;&#x7B97;&#x7684;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;<span><a class="mark" href="assert.html#assert_comparison_details" id="assert_comparison_details">#</a></span></h3><p class="tip_wrap"><a href="assert/comparison_details.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/assert/comparison_details.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<ul>
+<li>&#x4F7F;&#x7528;<a href="http://nodejs.cn/s/tiZhGn" rel="nofollow">&#x62BD;&#x8C61;&#x7684;&#x76F8;&#x7B49;&#x6027;&#x6BD4;&#x8F83;</a>&#x6765;&#x6BD4;&#x8F83;&#x539F;&#x59CB;&#x503C;&#x3002;</li>
+<li>&#x5BF9;&#x8C61;&#x7684;<a href="http://nodejs.cn/s/NVhBn1" rel="nofollow">&#x7C7B;&#x578B;&#x6807;&#x7B7E;</a>&#x5E94;&#x8BE5;&#x76F8;&#x540C;&#x3002;</li>
+<li>&#x53EA;&#x8003;&#x8651;<a href="http://nodejs.cn/s/hTNJUJ" rel="nofollow">&#x53EF;&#x679A;&#x4E3E;&#x7684;&#x81EA;&#x8EAB;&#x5C5E;&#x6027;</a>&#x3002;</li>
+<li>&#x59CB;&#x7EC8;&#x6BD4;&#x8F83; <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> &#x7684;&#x540D;&#x79F0;&#x548C;&#x6D88;&#x606F;&#xFF0C;&#x5373;&#x4F7F;&#x8FD9;&#x4E9B;&#x4E0D;&#x662F;&#x53EF;&#x679A;&#x4E3E;&#x7684;&#x5C5E;&#x6027;&#x3002;</li>
+<li><a href="http://nodejs.cn/s/hem2hq" rel="nofollow">&#x5BF9;&#x8C61;&#x5C01;&#x88C5;&#x5668;</a>&#x4F5C;&#x4E3A;&#x5BF9;&#x8C61;&#x548C;&#x89E3;&#x5C01;&#x88C5;&#x540E;&#x7684;&#x503C;&#x90FD;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#x3002;</li>
+<li><code>Object</code> &#x5C5E;&#x6027;&#x7684;&#x6BD4;&#x8F83;&#x662F;&#x65E0;&#x5E8F;&#x7684;&#x3002;</li>
+<li><a href="http://nodejs.cn/s/EnuJtG" rel="nofollow"><code>Map</code></a> &#x952E;&#x540D;&#x4E0E; <a href="http://nodejs.cn/s/yej4PC" rel="nofollow"><code>Set</code></a> &#x5B50;&#x9879;&#x7684;&#x6BD4;&#x8F83;&#x662F;&#x65E0;&#x5E8F;&#x7684;&#x3002;</li>
+<li>&#x5F53;&#x4E24;&#x8FB9;&#x7684;&#x503C;&#x4E0D;&#x76F8;&#x540C;&#x6216;&#x9047;&#x5230;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x65F6;&#xFF0C;&#x9012;&#x5F52;&#x505C;&#x6B62;&#x3002;</li>
+<li>&#x4E0D;&#x6D4B;&#x8BD5;&#x5BF9;&#x8C61;&#x7684; <a href="http://nodejs.cn/s/yzA3TL" rel="nofollow"><code>[[Prototype]]</code></a>&#x3002;</li>
+<li>&#x53EF;&#x679A;&#x4E3E;&#x7684;&#x81EA;&#x8EAB; <a href="http://nodejs.cn/s/SyrFMg" rel="nofollow"><code>Symbol</code></a> &#x5C5E;&#x6027;&#x4E5F;&#x4F1A;&#x6BD4;&#x8F83;&#x3002;</li>
+<li><a href="http://nodejs.cn/s/JkfoVY" rel="nofollow"><code>WeakMap</code></a> &#x548C; <a href="http://nodejs.cn/s/gsMyy2" rel="nofollow"><code>WeakSet</code></a> &#x7684;&#x6BD4;&#x8F83;&#x4E0D;&#x4F9D;&#x8D56;&#x4E8E;&#x5B83;&#x4EEC;&#x7684;&#x503C;&#x3002;</li>
+</ul>
+<p>&#x4EE5;&#x4E0B;&#x793A;&#x4F8B;&#x4E0D;&#x4F1A;&#x629B;&#x51FA; <code>AssertionError</code>&#xFF0C;&#x56E0;&#x4E3A;<a href="http://nodejs.cn/s/tiZhGn" rel="nofollow">&#x62BD;&#x8C61;&#x7684;&#x76F8;&#x7B49;&#x6027;&#x6BD4;&#x8F83;</a>&#xFF08;<code>==</code>&#xFF09;&#x4F1A;&#x5C06;&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x89C6;&#x4E3A;&#x76F8;&#x7B49;&#x3002;</p>
+<pre><code class="language-js">// &#x4E0D;&#x4F1A;&#x629B;&#x51FA; AssertionError&#x3002;
+assert.deepEqual(&apos;+00000000&apos;, false);
+</code></pre>
+<p>&#x201C;&#x6DF1;&#x5EA6;&#x201D;&#x76F8;&#x7B49;&#x610F;&#x5473;&#x7740;&#x8FD8;&#x4F1A;&#x6BD4;&#x8F83;&#x5B50;&#x5BF9;&#x8C61;&#x7684;&#x53EF;&#x679A;&#x4E3E;&#x201C;&#x81EA;&#x6709;&#x201D;&#x5C5E;&#x6027;&#xFF1A;</p>
+<pre><code class="language-js">const assert = require(&apos;assert&apos;);
+
+const obj1 = {
+  a: {
+    b: 1
+  }
+};
+const obj2 = {
+  a: {
+    b: 2
+  }
+};
+const obj3 = {
+  a: {
+    b: 1
+  }
+};
+const obj4 = Object.create(obj1);
+
+assert.deepEqual(obj1, obj1);
+// OK
+
+// b &#x7684;&#x503C;&#x4E0D;&#x540C;&#xFF1A;
+assert.deepEqual(obj1, obj2);
+// &#x629B;&#x51FA; AssertionError: { a: { b: 1 } } deepEqual { a: { b: 2 } }
+
+assert.deepEqual(obj1, obj3);
+// OK
+
+// &#x539F;&#x578B;&#x4F1A;&#x88AB;&#x5FFD;&#x7565;&#xFF1A;
+assert.deepEqual(obj1, obj4);
+// &#x629B;&#x51FA; AssertionError: { a: { b: 1 } } deepEqual {}
+</code></pre>
+<p>&#x5982;&#x679C;&#x503C;&#x4E0D;&#x76F8;&#x7B49;&#xFF0C;&#x5219;&#x629B;&#x51FA; <code>AssertionError</code>&#xFF0C;&#x5E76;&#x5C06; <code>message</code> &#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x4E3A;&#x7B49;&#x4E8E; <code>message</code> &#x53C2;&#x6570;&#x7684;&#x503C;&#x3002;
+&#x5982;&#x679C;&#x672A;&#x5B9A;&#x4E49; <code>message</code> &#x53C2;&#x6570;&#xFF0C;&#x5219;&#x4F1A;&#x5206;&#x914D;&#x9ED8;&#x8BA4;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x3002;
+&#x5982;&#x679C; <code>message</code> &#x53C2;&#x6570;&#x662F; <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> &#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x5C06;&#x88AB;&#x629B;&#x51FA;&#x800C;&#x4E0D;&#x662F; <code>AssertionError</code>&#x3002;</p>
+<h2>assert.deepStrictEqual(actual, expected[, message])<span><a class="mark" href="assert.html#assert_assert_deepstrictequal_actual_expected_message" id="assert_assert_deepstrictequal_actual_expected_message">#</a></span></h2><p class="tip_wrap"><a href="assert/assert_deepstrictequal_actual_expected_message.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/assert/assert_deepstrictequal_actual_expected_message.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v9.0.0</td>
+<td><p>Enumerable symbol properties are now compared.</p></td></tr>
+<tr><td>v9.0.0</td>
+<td><p>The <code>NaN</code> is now compared using the <a href="https://tc39.github.io/ecma262/#sec-samevaluezero">SameValueZero</a> comparison.</p></td></tr>
+<tr><td>v8.5.0</td>
+<td><p>The <code>Error</code> names and messages are now properly compared</p></td></tr>
+<tr><td>v8.0.0</td>
+<td><p>The <code>Set</code> and <code>Map</code> content is also compared</p></td></tr>
+<tr><td>v6.4.0, v4.7.1</td>
+<td><p>Typed array slices are handled correctly now.</p></td></tr>
+<tr><td>v6.1.0</td>
+<td><p>Objects with circular references can be used as inputs now.</p></td></tr>
+<tr><td>v5.10.1, v4.4.3</td>
+<td><p>Handle non-<code>Uint8Array</code> typed arrays correctly.</p></td></tr>
+<tr><td>v1.2.0</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v1.2.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div>
+<ul>
+<li><code>actual</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>expected</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>message</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+</ul>
+<p>&#x6D4B;&#x8BD5; <code>actual</code> &#x53C2;&#x6570;&#x548C; <code>expected</code> &#x53C2;&#x6570;&#x4E4B;&#x95F4;&#x7684;&#x6DF1;&#x5EA6;&#x76F8;&#x7B49;&#x3002;
+&#x6DF1;&#x5EA6;&#x76F8;&#x7B49;&#x610F;&#x5473;&#x7740;&#x5B50;&#x5BF9;&#x8C61;&#x7684;&#x53EF;&#x679A;&#x4E3E;&#x7684;&#x81EA;&#x8EAB;&#x5C5E;&#x6027;&#x4E5F;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x89C4;&#x5219;&#x8FDB;&#x884C;&#x9012;&#x5F52;&#x8BA1;&#x7B97;&#x3002;</p>
+<h3>&#x6BD4;&#x8F83;&#x8FD0;&#x7B97;&#x7684;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;<span><a class="mark" href="assert.html#assert_comparison_details_1" id="assert_comparison_details_1">#</a></span></h3><p class="tip_wrap"><a href="assert/comparison_details_1.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/assert/comparison_details_1.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<ul>
+<li>&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/25ULs2" rel="nofollow">SameValue&#x6BD4;&#x8F83;</a>&#xFF08;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/fQqJVi" rel="nofollow"><code>Object.is()</code></a>&#xFF09;&#x6765;&#x6BD4;&#x8F83;&#x539F;&#x59CB;&#x503C;&#x3002;</li>
+<li>&#x5BF9;&#x8C61;&#x7684;<a href="http://nodejs.cn/s/NVhBn1" rel="nofollow">&#x7C7B;&#x578B;&#x6807;&#x7B7E;</a>&#x5E94;&#x8BE5;&#x76F8;&#x540C;&#x3002;</li>
+<li>&#x4F7F;&#x7528;<a href="http://nodejs.cn/s/jFa5Tv" rel="nofollow">&#x4E25;&#x683C;&#x76F8;&#x7B49;&#x6BD4;&#x8F83;</a>&#x6765;&#x6BD4;&#x8F83;&#x5BF9;&#x8C61;&#x7684;<a href="http://nodejs.cn/s/yzA3TL" rel="nofollow">&#x539F;&#x578B;</a>&#x3002;</li>
+<li>&#x53EA;&#x8003;&#x8651;<a href="http://nodejs.cn/s/hTNJUJ" rel="nofollow">&#x53EF;&#x679A;&#x4E3E;&#x7684;&#x81EA;&#x8EAB;&#x5C5E;&#x6027;</a>&#x3002;</li>
+<li>&#x59CB;&#x7EC8;&#x6BD4;&#x8F83; <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> &#x7684;&#x540D;&#x79F0;&#x548C;&#x6D88;&#x606F;&#xFF0C;&#x5373;&#x4F7F;&#x8FD9;&#x4E9B;&#x4E0D;&#x662F;&#x53EF;&#x679A;&#x4E3E;&#x7684;&#x5C5E;&#x6027;&#x3002;</li>
+<li>&#x53EF;&#x679A;&#x4E3E;&#x7684;&#x81EA;&#x8EAB; <a href="http://nodejs.cn/s/SyrFMg" rel="nofollow"><code>Symbol</code></a> &#x5C5E;&#x6027;&#x4E5F;&#x4F1A;&#x6BD4;&#x8F83;&#x3002;</li>
+<li><a href="http://nodejs.cn/s/hem2hq" rel="nofollow">&#x5BF9;&#x8C61;&#x5C01;&#x88C5;&#x5668;</a>&#x4F5C;&#x4E3A;&#x5BF9;&#x8C61;&#x548C;&#x89E3;&#x5C01;&#x88C5;&#x540E;&#x7684;&#x503C;&#x90FD;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#x3002;</li>
+<li><code>Object</code> &#x5C5E;&#x6027;&#x7684;&#x6BD4;&#x8F83;&#x662F;&#x65E0;&#x5E8F;&#x7684;&#x3002;</li>
+<li><a href="http://nodejs.cn/s/EnuJtG" rel="nofollow"><code>Map</code></a> &#x952E;&#x540D;&#x4E0E; <a href="http://nodejs.cn/s/yej4PC" rel="nofollow"><code>Set</code></a> &#x5B50;&#x9879;&#x7684;&#x6BD4;&#x8F83;&#x662F;&#x65E0;&#x5E8F;&#x7684;&#x3002;</li>
+<li>&#x5F53;&#x4E24;&#x8FB9;&#x7684;&#x503C;&#x4E0D;&#x76F8;&#x540C;&#x6216;&#x9047;&#x5230;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x65F6;&#xFF0C;&#x9012;&#x5F52;&#x505C;&#x6B62;&#x3002;</li>
+<li><a href="http://nodejs.cn/s/JkfoVY" rel="nofollow"><code>WeakMap</code></a> &#x548C; <a href="http://nodejs.cn/s/gsMyy2" rel="nofollow"><code>WeakSet</code></a> &#x7684;&#x6BD4;&#x8F83;&#x4E0D;&#x4F9D;&#x8D56;&#x4E8E;&#x5B83;&#x4EEC;&#x7684;&#x503C;&#x3002;&#x8BF7;&#x53C2;&#x9605;&#x4E0B;&#x6587;&#x4E86;&#x89E3;&#x66F4;&#x591A;&#x8BE6;&#x60C5;&#x3002;</li>
+</ul>
+<pre><code class="language-js">const assert = require(&apos;assert&apos;).strict;
+
+// &#x5931;&#x8D25;&#xFF0C;&#x56E0;&#x4E3A; 1 !== &apos;1&apos;&#x3002;
+assert.deepStrictEqual({ a: 1 }, { a: &apos;1&apos; });
+// AssertionError: Expected inputs to be strictly deep-equal:
+// + actual - expected
+//
+//   {
+// +   a: 1
+// -   a: &apos;1&apos;
+//   }
+
+// &#x4EE5;&#x4E0B;&#x5BF9;&#x8C61;&#x6CA1;&#x6709;&#x81EA;&#x8EAB;&#x5C5E;&#x6027;&#x3002;
+const date = new Date();
+const object = {};
+const fakeDate = {};
+Object.setPrototypeOf(fakeDate, Date.prototype);
+
+// &#x539F;&#x578B;&#x4E0D;&#x540C;&#xFF1A;
+assert.deepStrictEqual(object, fakeDate);
+// AssertionError: Expected inputs to be strictly deep-equal:
+// + actual - expected
+//
+// + {}
+// - Date {}
+
+// &#x7C7B;&#x578B;&#x6807;&#x7B7E;&#x4E0D;&#x540C;&#xFF1A;
+assert.deepStrictEqual(date, fakeDate);
+// AssertionError: Expected inputs to be strictly deep-equal:
+// + actual - expected
+//
+// + 2018-04-26T00:49:08.604Z
+// - Date {}
+
+assert.deepStrictEqual(NaN, NaN);
+// &#x901A;&#x8FC7;&#xFF0C;&#x56E0;&#x4E3A;&#x4F7F;&#x7528; SameValue &#x6BD4;&#x8F83;&#x3002;
+
+// &#x89E3;&#x5C01;&#x88C5;&#x540E;&#x7684;&#x6570;&#x5B57;&#x4E0D;&#x540C;&#xFF1A;
+assert.deepStrictEqual(new Number(1), new Number(2));
+// AssertionError: Expected inputs to be strictly deep-equal:
+// + actual - expected
+//
+// + [Number: 1]
+// - [Number: 2]
+
+assert.deepStrictEqual(new String(&apos;foo&apos;), Object(&apos;foo&apos;));
+// &#x901A;&#x8FC7;&#xFF0C;&#x56E0;&#x4E3A;&#x5BF9;&#x8C61;&#x4E0E;&#x89E3;&#x5C01;&#x88C5;&#x540E;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x90FD;&#x662F;&#x76F8;&#x540C;&#x7684;&#x3002;
+
+assert.deepStrictEqual(-0, -0);
+// &#x901A;&#x8FC7;&#x3002;
+
+// &#x4F7F;&#x7528; SameValue &#x6BD4;&#x8F83;&#x7684;&#x96F6;&#x4E0D;&#x540C;&#xFF1A;
+assert.deepStrictEqual(0, -0);
+// AssertionError: Expected inputs to be strictly deep-equal:
+// + actual - expected
+//
+// + 0
+// - -0
+
+const symbol1 = Symbol();
+const symbol2 = Symbol();
+assert.deepStrictEqual({ [symbol1]: 1 }, { [symbol1]: 1 });
+// &#x901A;&#x8FC7;&#xFF0C;&#x56E0;&#x4E3A;&#x5728;&#x4E24;&#x4E2A;&#x5BF9;&#x8C61;&#x4E0A;&#x7684; symbol &#x76F8;&#x540C;&#x3002;
+assert.deepStrictEqual({ [symbol1]: 1 }, { [symbol2]: 1 });
+// AssertionError [ERR_ASSERTION]: Inputs identical but not reference equal:
+//
+// {
+//   [Symbol()]: 1
+// }
+
+const weakMap1 = new WeakMap();
+const weakMap2 = new WeakMap([[{}, {}]]);
+const weakMap3 = new WeakMap();
+weakMap3.unequal = true;
+
+assert.deepStrictEqual(weakMap1, weakMap2);
+// &#x901A;&#x8FC7;&#xFF0C;&#x56E0;&#x4E3A;&#x65E0;&#x6CD5;&#x6BD4;&#x8F83;&#x6761;&#x76EE;&#x3002;
+
+// &#x5931;&#x8D25;&#xFF0C;&#x56E0;&#x4E3A; weakMap3 &#x6709;&#x4E00;&#x4E2A; weakMap1 &#x4E0D;&#x5305;&#x542B;&#x7684;&#x5C5E;&#x6027;&#xFF1A;
+assert.deepStrictEqual(weakMap1, weakMap3);
+// AssertionError: Expected inputs to be strictly deep-equal:
+// + actual - expected
+//
+//   WeakMap {
+// +   [items unknown]
+// -   [items unknown],
+// -   unequal: true
+//   }
+</code></pre>
+<p>&#x5982;&#x679C;&#x503C;&#x4E0D;&#x76F8;&#x7B49;&#xFF0C;&#x5219;&#x629B;&#x51FA; <code>AssertionError</code>&#xFF0C;&#x5E76;&#x5C06; <code>message</code> &#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x4E3A;&#x7B49;&#x4E8E; <code>message</code> &#x53C2;&#x6570;&#x7684;&#x503C;&#x3002;
+&#x5982;&#x679C;&#x672A;&#x5B9A;&#x4E49; <code>message</code> &#x53C2;&#x6570;&#xFF0C;&#x5219;&#x4F1A;&#x5206;&#x914D;&#x9ED8;&#x8BA4;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x3002;
+&#x5982;&#x679C; <code>message</code> &#x53C2;&#x6570;&#x662F; <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> &#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x5C06;&#x88AB;&#x629B;&#x51FA;&#x800C;&#x4E0D;&#x662F; <code>AssertionError</code>&#x3002;</p>
+<h2>assert.doesNotReject(asyncFn[, error][, message])<span><a class="mark" href="assert.html#assert_assert_doesnotreject_asyncfn_error_message" id="assert_assert_doesnotreject_asyncfn_error_message">#</a></span></h2><p class="tip_wrap"><a href="assert/assert_doesnotreject_asyncfn_error_message.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/assert/assert_doesnotreject_asyncfn_error_message.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.0.0</span>
+</div>
+<ul>
+<li><code>asyncFn</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> | <a href="http://nodejs.cn/s/ri1kj8" target="_blank" rel="nofollow" class="type">&lt;Promise&gt;</a></li>
+<li><code>error</code> <a href="http://nodejs.cn/s/G38byW" target="_blank" rel="nofollow" class="type">&lt;RegExp&gt;</a> | <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></li>
+<li><code>message</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul>
+<p>&#x7B49;&#x5F85; <code>asyncFn</code> Promise&#xFF0C;&#x6216;&#x8005;&#xFF0C;&#x5982;&#x679C; <code>asyncFn</code> &#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5219;&#x7ACB;&#x5373;&#x8C03;&#x7528;&#x8BE5;&#x51FD;&#x6570;&#x5E76;&#x7B49;&#x5F85;&#x8FD4;&#x56DE;&#x7684; Promise &#x5B8C;&#x6210;&#x3002;
+&#x7136;&#x540E;&#x5B83;&#x5C06;&#x68C0;&#x67E5; Promise &#x662F;&#x5426;&#x88AB;&#x62D2;&#x7EDD;&#x3002;</p>
+<p>&#x5982;&#x679C; <code>asyncFn</code> &#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5E76;&#x4E14;&#x5B83;&#x540C;&#x6B65;&#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#xFF0C;&#x5219; <code>assert.doesNotReject()</code> &#x5C06;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5E26;&#x6709;&#x8BE5;&#x9519;&#x8BEF;&#x7684;&#x88AB;&#x62D2;&#x7EDD;&#x7684; <code>Promise</code>&#x3002;
+&#x5982;&#x679C;&#x51FD;&#x6570;&#x672A;&#x8FD4;&#x56DE; Promise&#xFF0C;&#x5219; <code>assert.doesNotReject()</code> &#x5C06;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x88AB;&#x62D2;&#x7EDD;&#x7684; <code>Promise</code>&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x542B; <a href="http://nodejs.cn/s/zKCD5R" rel="nofollow"><code>ERR_INVALID_RETURN_VALUE</code></a> &#x9519;&#x8BEF;&#x3002;
+&#x5728;&#x8FD9;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x90FD;&#x4F1A;&#x8DF3;&#x8FC7;&#x9519;&#x8BEF;&#x5904;&#x7406;&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x4F7F;&#x7528; <code>assert.doesNotReject()</code> &#x5B9E;&#x9645;&#x4E0A;&#x6CA1;&#x6709;&#x7528;&#x5904;&#xFF0C;&#x56E0;&#x4E3A;&#x6355;&#x83B7;&#x62D2;&#x7EDD;&#x7136;&#x540E;&#x518D;&#x6B21;&#x62D2;&#x7EDD;&#x5B83;&#x51E0;&#x4E4E;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x597D;&#x5904;&#x3002;
+&#x5E94;&#x8BE5;&#x8003;&#x8651;&#x5728;&#x4E0D;&#x5E94;&#x62D2;&#x7EDD;&#x7684;&#x7279;&#x5B9A;&#x4EE3;&#x7801;&#x8DEF;&#x5F84;&#x65C1;&#x8FB9;&#x6DFB;&#x52A0;&#x6CE8;&#x91CA;&#xFF0C;&#x5E76;&#x5C3D;&#x53EF;&#x80FD;&#x4FDD;&#x7559;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6307;&#x5B9A;&#xFF0C;&#x5219; <code>error</code> &#x53EF;&#x4EE5;&#x662F; <a href="http://nodejs.cn/s/5wDLcp" rel="nofollow"><code>Class</code></a>&#x3001;<a href="http://nodejs.cn/s/tbQJCP" rel="nofollow"><code>RegExp</code></a> &#x6216;&#x9A8C;&#x8BC1;&#x51FD;&#x6570;&#x3002;
+&#x6709;&#x5173;&#x66F4;&#x591A;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x53C2;&#x89C1; <a href="http://nodejs.cn/s/sGRMSp" rel="nofollow"><code>assert.throws()</code></a>&#x3002;</p>
+<p>&#x9664;&#x4E86;&#x7B49;&#x5F85;&#x7684;&#x5F02;&#x6B65;&#x6027;&#x8D28;&#x4E4B;&#x5916;&#xFF0C;&#x5B8C;&#x6210;&#x884C;&#x4E3A;&#x4E0E; <a href="http://nodejs.cn/s/mm4aoA" rel="nofollow"><code>assert.doesNotThrow()</code></a> &#x5B8C;&#x5168;&#x76F8;&#x540C;&#x3002;</p>
+<!-- eslint-disable no-restricted-syntax -->
+<pre><code class="language-js">(async () =&gt; {
+  await assert.doesNotReject(
+    async () =&gt; {
+      throw new TypeError(&apos;&#x9519;&#x8BEF;&#x503C;&apos;);
+    },
+    SyntaxError
+  );
+})();
+</code></pre>
+<!-- eslint-disable no-restricted-syntax -->
+<pre><code class="language-js">assert.doesNotReject(Promise.reject(new TypeError(&apos;&#x9519;&#x8BEF;&#x503C;&apos;)))
+  .then(() =&gt; {
+    // ...
+  });
+</code></pre>
+<h2>assert.doesNotThrow(fn[, error][, message])<span><a class="mark" href="assert.html#assert_assert_doesnotthrow_fn_error_message" id="assert_assert_doesnotthrow_fn_error_message">#</a></span></h2><p class="tip_wrap"><a href="assert/assert_doesnotthrow_fn_error_message.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/assert/assert_doesnotthrow_fn_error_message.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v5.11.0, v4.4.5</td>
+<td><p>The <code>message</code> parameter is respected now.</p></td></tr>
+<tr><td>v4.2.0</td>
+<td><p>The <code>error</code> parameter can now be an arrow function.</p></td></tr>
+<tr><td>v0.1.21</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.21</span></p></td></tr>
+</tbody></table>
+</details>
+</div>
+<ul>
+<li><code>fn</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></li>
+<li><code>error</code> <a href="http://nodejs.cn/s/G38byW" target="_blank" rel="nofollow" class="type">&lt;RegExp&gt;</a> | <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></li>
+<li><code>message</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul>
+<p>&#x65AD;&#x8A00; <code>fn</code> &#x51FD;&#x6570;&#x4E0D;&#x4F1A;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x3002;</p>
+<p>&#x4F7F;&#x7528; <code>assert.doesNotThrow()</code> &#x5B9E;&#x9645;&#x4E0A;&#x6CA1;&#x6709;&#x7528;&#x5904;&#xFF0C;&#x56E0;&#x4E3A;&#x6355;&#x83B7;&#x9519;&#x8BEF;&#x7136;&#x540E;&#x91CD;&#x65B0;&#x629B;&#x51FA;&#x5B83;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x597D;&#x5904;&#x3002;
+&#x5E94;&#x8BE5;&#x8003;&#x8651;&#x5728;&#x4E0D;&#x5E94;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x7684;&#x7279;&#x5B9A;&#x4EE3;&#x7801;&#x8DEF;&#x5F84;&#x65C1;&#x8FB9;&#x6DFB;&#x52A0;&#x6CE8;&#x91CA;&#xFF0C;&#x5E76;&#x5C3D;&#x53EF;&#x80FD;&#x4FDD;&#x7559;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x3002;</p>
+<p>&#x5F53;&#x8C03;&#x7528; <code>assert.doesNotThrow()</code> &#x65F6;&#xFF0C;&#x5B83;&#x5C06;&#x7ACB;&#x5373;&#x8C03;&#x7528; <code>fn</code> &#x51FD;&#x6570;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x5E76;&#x4E14;&#x5B83;&#x4E0E; <code>error</code> &#x53C2;&#x6570;&#x6307;&#x5B9A;&#x7684;&#x7C7B;&#x578B;&#x76F8;&#x540C;&#xFF0C;&#x5219;&#x629B;&#x51FA; <code>AssertionError</code>&#x3002;
+&#x5982;&#x679C;&#x9519;&#x8BEF;&#x7684;&#x7C7B;&#x578B;&#x4E0D;&#x540C;&#xFF0C;&#x6216;&#x8005; <code>error</code> &#x53C2;&#x6570;&#x672A;&#x5B9A;&#x4E49;&#xFF0C;&#x5219;&#x9519;&#x8BEF;&#x5C06;&#x4F20;&#x64AD;&#x56DE;&#x8C03;&#x7528;&#x65B9;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6307;&#x5B9A;&#xFF0C;&#x5219; <code>error</code> &#x53EF;&#x4EE5;&#x662F; <a href="http://nodejs.cn/s/5wDLcp" rel="nofollow"><code>Class</code></a>&#x3001;<a href="http://nodejs.cn/s/tbQJCP" rel="nofollow"><code>RegExp</code></a> &#x6216;&#x9A8C;&#x8BC1;&#x51FD;&#x6570;&#x3002;
+&#x6709;&#x5173;&#x66F4;&#x591A;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x8BF7;&#x53C2;&#x89C1; <a href="http://nodejs.cn/s/sGRMSp" rel="nofollow"><code>assert.throws()</code></a>&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x4EE5;&#x4E0B;&#x793A;&#x4F8B;&#x5C06;&#x629B;&#x51FA; <a href="http://nodejs.cn/s/Z7Lqyj" rel="nofollow"><code>TypeError</code></a>&#xFF0C;&#x56E0;&#x4E3A;&#x65AD;&#x8A00;&#x4E2D;&#x6CA1;&#x6709;&#x5339;&#x914D;&#x7684;&#x9519;&#x8BEF;&#x7C7B;&#x578B;&#xFF1A;</p>
+<!-- eslint-disable no-restricted-syntax -->
+<pre><code class="language-js">assert.doesNotThrow(
+  () =&gt; {
+    throw new TypeError(&apos;&#x9519;&#x8BEF;&#x503C;&apos;);
+  },
+  SyntaxError
+);
+</code></pre>
+<p>&#x4EE5;&#x4E0B;&#x793A;&#x4F8B;&#x5C06;&#x5BFC;&#x81F4; <code>AssertionError</code>&#xFF0C;&#x5E76;&#x663E;&#x793A;&#x6D88;&#x606F; &apos;Got unwanted exception...&apos;&#xFF1A;</p>
+<!-- eslint-disable no-restricted-syntax -->
+<pre><code class="language-js">assert.doesNotThrow(
+  () =&gt; {
+    throw new TypeError(&apos;&#x9519;&#x8BEF;&#x503C;&apos;);
+  },
+  TypeError
+);
+</code></pre>
+<p>&#x5982;&#x679C;&#x629B;&#x51FA; <code>AssertionError</code> &#x5E76;&#x4E3A; <code>message</code> &#x53C2;&#x6570;&#x63D0;&#x4F9B;&#x4E86;&#x503C;&#xFF0C;&#x5219; <code>message</code> &#x7684;&#x503C;&#x5C06;&#x9644;&#x52A0;&#x5230; <code>AssertionError</code> &#x6D88;&#x606F;&#xFF1A;</p>
+<!-- eslint-disable no-restricted-syntax -->
+<pre><code class="language-js">assert.doesNotThrow(
+  () =&gt; {
+    throw new TypeError(&apos;&#x9519;&#x8BEF;&#x503C;&apos;);
+  },
+  /&#x9519;&#x8BEF;&#x503C;/,
+  &apos;&#x51FA;&#x9519;&#x5566;&apos;
+);
+// AssertionError: Got unwanted exception: &#x51FA;&#x9519;&#x5566;
+</code></pre>
+<h2>assert.equal(actual, expected[, message])<span><a class="mark" href="assert.html#assert_assert_equal_actual_expected_message" id="assert_assert_equal_actual_expected_message">#</a></span></h2><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.21</span>
+</div>
+<ul>
+<li><code>actual</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>expected</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>message</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+</ul>
+<p><strong>Strict mode</strong></p>
+<p>An alias of <a href="http://nodejs.cn/s/bjx9Nb" rel="nofollow"><code>assert.strictEqual()</code></a>.</p>
+<p><strong>Legacy mode</strong></p>
+<p></p><div class="api_stability api_stability_0"><a target="_blank" rel="nofollow" href="documentation.html#documentation_stability_index">&#x7A33;&#x5B9A;&#x6027;: 0</a> - &#x5E9F;&#x5F03;: &#x6539;&#x4E3A;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/bjx9Nb" rel="nofollow"><code>assert.strictEqual()</code></a> &#x3002;</div><p></p>
+<p>Tests shallow, coercive equality between the <code>actual</code> and <code>expected</code> parameters
+using the <a href="http://nodejs.cn/s/tiZhGn" rel="nofollow">Abstract Equality Comparison</a> ( <code>==</code> ).</p>
+<pre><code class="language-js">const assert = require(&apos;assert&apos;);
+
+assert.equal(1, 1);
+// OK, 1 == 1
+assert.equal(1, &apos;1&apos;);
+// OK, 1 == &apos;1&apos;
+
+assert.equal(1, 2);
+// AssertionError: 1 == 2
+assert.equal({ a: { b: 1 } }, { a: { b: 1 } });
+// AssertionError: { a: { b: 1 } } == { a: { b: 1 } }
+</code></pre>
+<p>If the values are not equal, an <code>AssertionError</code> is thrown with a <code>message</code>
+property set equal to the value of the <code>message</code> parameter. If the <code>message</code>
+parameter is undefined, a default error message is assigned. If the <code>message</code>
+parameter is an instance of an <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> then it will be thrown instead of the
+<code>AssertionError</code>.</p>
+<h2>assert.fail([message])<span><a class="mark" href="assert.html#assert_assert_fail_message" id="assert_assert_fail_message">#</a></span></h2><p class="tip_wrap"><a href="assert/assert_fail_message.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/assert/assert_fail_message.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.21</span>
+</div>
+<ul>
+<li><code>message</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;Failed&apos;</code>&#x3002;</li>
+</ul>
+<p>&#x4F7F;&#x7528;&#x63D0;&#x4F9B;&#x7684;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x6216;&#x9ED8;&#x8BA4;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x629B;&#x51FA; <code>AssertionError</code>&#x3002;
+&#x5982;&#x679C; <code>message</code> &#x53C2;&#x6570;&#x662F; <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> &#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x5219;&#x5B83;&#x5C06;&#x88AB;&#x629B;&#x51FA;&#x800C;&#x4E0D;&#x662F; <code>AssertionError</code>&#x3002;</p>
+<pre><code class="language-js">const assert = require(&apos;assert&apos;).strict;
+
+assert.fail();
+// AssertionError [ERR_ASSERTION]: Failed
+
+assert.fail(&apos;&#x5931;&#x8D25;&apos;);
+// AssertionError [ERR_ASSERTION]: &#x5931;&#x8D25;
+
+assert.fail(new TypeError(&apos;&#x9700;&#x8981;&#x6570;&#x7EC4;&apos;));
+// TypeError: &#x9700;&#x8981;&#x6570;&#x7EC4;
+</code></pre>
+<p>&#x4F7F;&#x7528;&#x5E26;&#x6709;&#x4E24;&#x4E2A;&#x4EE5;&#x4E0A;&#x53C2;&#x6570;&#x7684; <code>assert.fail()</code> &#x662F;&#x53EF;&#x80FD;&#x7684;&#xFF0C;&#x4F46;&#x5DF2;&#x5F03;&#x7528;&#x3002;
+&#x8BF7;&#x53C2;&#x9605;&#x4E0B;&#x6587;&#x4E86;&#x89E3;&#x66F4;&#x591A;&#x8BE6;&#x60C5;&#x3002;</p>
+<h2>assert.fail(actual, expected[, message[, operator[, stackStartFn]]])<span><a class="mark" href="assert.html#assert_assert_fail_actual_expected_message_operator_stackstartfn" id="assert_assert_fail_actual_expected_message_operator_stackstartfn">#</a></span></h2><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span></p>
+<div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>Calling <code>assert.fail()</code> with more than one argument is deprecated and emits a warning.</p></td></tr>
+<tr><td>v0.1.21</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.21</span></p></td></tr>
+</tbody></table>
+</details>
+</div>
+<p></p><div class="api_stability api_stability_0"><a target="_blank" rel="nofollow" href="documentation.html#documentation_stability_index">&#x7A33;&#x5B9A;&#x6027;: 0</a> - &#x5E9F;&#x5F03;: &#x6539;&#x4E3A;&#x4F7F;&#x7528; <code>assert.fail([message])</code> &#x6216;&#x5176;&#x4ED6; assert
+&#x51FD;&#x6570;&#x3002;</div><p></p>
+<ul>
+<li><code>actual</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>expected</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>message</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>operator</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> <strong>Default:</strong> <code>&apos;!=&apos;</code></li>
+<li><code>stackStartFn</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> <strong>Default:</strong> <code>assert.fail</code></li>
+</ul>
+<p>If <code>message</code> is falsy, the error message is set as the values of <code>actual</code> and
+<code>expected</code> separated by the provided <code>operator</code>. If just the two <code>actual</code> and
+<code>expected</code> arguments are provided, <code>operator</code> will default to <code>&apos;!=&apos;</code>. If
+<code>message</code> is provided as third argument it will be used as the error message and
+the other arguments will be stored as properties on the thrown object. If
+<code>stackStartFn</code> is provided, all stack frames above that function will be
+removed from stacktrace (see <a href="http://nodejs.cn/s/9NszDq" rel="nofollow"><code>Error.captureStackTrace</code></a>). If no arguments are
+given, the default message <code>Failed</code> will be used.</p>
+<pre><code class="language-js">const assert = require(&apos;assert&apos;).strict;
+
+assert.fail(&apos;a&apos;, &apos;b&apos;);
+// AssertionError [ERR_ASSERTION]: &apos;a&apos; != &apos;b&apos;
+
+assert.fail(1, 2, undefined, &apos;&gt;&apos;);
+// AssertionError [ERR_ASSERTION]: 1 &gt; 2
+
+assert.fail(1, 2, &apos;fail&apos;);
+// AssertionError [ERR_ASSERTION]: fail
+
+assert.fail(1, 2, &apos;whoops&apos;, &apos;&gt;&apos;);
+// AssertionError [ERR_ASSERTION]: whoops
+
+assert.fail(1, 2, new TypeError(&apos;need array&apos;));
+// TypeError: need array
+</code></pre>
+<p>In the last three cases <code>actual</code>, <code>expected</code>, and <code>operator</code> have no
+influence on the error message.</p>
+<p>Example use of <code>stackStartFn</code> for truncating the exception&apos;s stacktrace:</p>
+<pre><code class="language-js">function suppressFrame() {
+  assert.fail(&apos;a&apos;, &apos;b&apos;, undefined, &apos;!==&apos;, suppressFrame);
+}
+suppressFrame();
+// AssertionError [ERR_ASSERTION]: &apos;a&apos; !== &apos;b&apos;
+//     at repl:1:1
+//     at ContextifyScript.Script.runInThisContext (vm.js:44:33)
+//     ...
+</code></pre>
+<h2>assert.ifError(value)<span><a class="mark" href="assert.html#assert_assert_iferror_value" id="assert_assert_iferror_value">#</a></span></h2><p class="tip_wrap"><a href="assert/assert_iferror_value.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/assert/assert_iferror_value.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>Instead of throwing the original error it is now wrapped into an <code>AssertionError</code> that contains the full stack trace.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p>Value may now only be <code>undefined</code> or <code>null</code>. Before all falsy values were handled the same as <code>null</code> and did not throw.</p></td></tr>
+<tr><td>v0.1.97</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.97</span></p></td></tr>
+</tbody></table>
+</details>
+</div>
+<ul>
+<li><code>value</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+</ul>
+<p>&#x5982;&#x679C; <code>value</code> &#x4E0D;&#x4E3A; <code>undefined</code> &#x6216; <code>null</code>&#xFF0C;&#x5219;&#x629B;&#x51FA; <code>value</code>&#x3002;
+&#x5728;&#x56DE;&#x8C03;&#x4E2D;&#x6D4B;&#x8BD5; <code>error</code> &#x53C2;&#x6570;&#x65F6;&#xFF0C;&#x8FD9;&#x5F88;&#x6709;&#x7528;&#x3002;
+&#x5806;&#x6808;&#x8DDF;&#x8E2A;&#x5305;&#x542B;&#x4F20;&#x9012;&#x7ED9; <code>ifError()</code> &#x7684;&#x9519;&#x8BEF;&#x7684;&#x6240;&#x6709;&#x5E27;&#xFF0C;&#x5305;&#x62EC; <code>ifError()</code> &#x672C;&#x8EAB;&#x7684;&#x6F5C;&#x5728;&#x65B0;&#x5E27;&#x3002;</p>
+<pre><code class="language-js">const assert = require(&apos;assert&apos;).strict;
+
+assert.ifError(null);
+// &#x901A;&#x8FC7;&#x3002;
+assert.ifError(0);
+// AssertionError [ERR_ASSERTION]: ifError got unwanted exception: 0
+assert.ifError(&apos;&#x9519;&#x8BEF;&apos;);
+// AssertionError [ERR_ASSERTION]: ifError got unwanted exception: &apos;&#x9519;&#x8BEF;&apos;
+assert.ifError(new Error());
+// AssertionError [ERR_ASSERTION]: ifError got unwanted exception: Error
+
+// &#x521B;&#x5EFA;&#x4E00;&#x4E9B;&#x968F;&#x673A;&#x9519;&#x8BEF;&#x5E27;&#x3002;
+let err;
+(function errorFrame() {
+  err = new Error(&apos;&#x6D4B;&#x8BD5;&#x9519;&#x8BEF;&apos;);
+})();
+
+(function ifErrorFrame() {
+  assert.ifError(err);
+})();
+// AssertionError [ERR_ASSERTION]: ifError got unwanted exception: &#x6D4B;&#x8BD5;&#x9519;&#x8BEF;
+//     at ifErrorFrame
+//     at errorFrame
+</code></pre>
+<h2>assert.notDeepEqual(actual, expected[, message])<span><a class="mark" href="assert.html#assert_assert_notdeepequal_actual_expected_message" id="assert_assert_notdeepequal_actual_expected_message">#</a></span></h2><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span></p>
+<div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v9.0.0</td>
+<td><p>The <code>Error</code> names and messages are now properly compared</p></td></tr>
+<tr><td>v8.0.0</td>
+<td><p>The <code>Set</code> and <code>Map</code> content is also compared</p></td></tr>
+<tr><td>v6.4.0, v4.7.1</td>
+<td><p>Typed array slices are handled correctly now.</p></td></tr>
+<tr><td>v6.1.0, v4.5.0</td>
+<td><p>Objects with circular references can be used as inputs now.</p></td></tr>
+<tr><td>v5.10.1, v4.4.3</td>
+<td><p>Handle non-<code>Uint8Array</code> typed arrays correctly.</p></td></tr>
+<tr><td>v0.1.21</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.21</span></p></td></tr>
+</tbody></table>
+</details>
+</div>
+<ul>
+<li><code>actual</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>expected</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>message</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+</ul>
+<p><strong>Strict mode</strong></p>
+<p>An alias of <a href="http://nodejs.cn/s/BmhNtR" rel="nofollow"><code>assert.notDeepStrictEqual()</code></a>.</p>
+<p><strong>Legacy mode</strong></p>
+<p></p><div class="api_stability api_stability_0"><a target="_blank" rel="nofollow" href="documentation.html#documentation_stability_index">&#x7A33;&#x5B9A;&#x6027;: 0</a> - &#x5E9F;&#x5F03;: &#x6539;&#x4E3A;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/BmhNtR" rel="nofollow"><code>assert.notDeepStrictEqual()</code></a> &#x3002;</div><p></p>
+<p>Tests for any deep inequality. Opposite of <a href="http://nodejs.cn/s/T9fJbF" rel="nofollow"><code>assert.deepEqual()</code></a>.</p>
+<pre><code class="language-js">const assert = require(&apos;assert&apos;);
+
+const obj1 = {
+  a: {
+    b: 1
+  }
+};
+const obj2 = {
+  a: {
+    b: 2
+  }
+};
+const obj3 = {
+  a: {
+    b: 1
+  }
+};
+const obj4 = Object.create(obj1);
+
+assert.notDeepEqual(obj1, obj1);
+// AssertionError: { a: { b: 1 } } notDeepEqual { a: { b: 1 } }
+
+assert.notDeepEqual(obj1, obj2);
+// OK
+
+assert.notDeepEqual(obj1, obj3);
+// AssertionError: { a: { b: 1 } } notDeepEqual { a: { b: 1 } }
+
+assert.notDeepEqual(obj1, obj4);
+// OK
+</code></pre>
+<p>If the values are deeply equal, an <code>AssertionError</code> is thrown with a <code>message</code>
+property set equal to the value of the <code>message</code> parameter. If the <code>message</code>
+parameter is undefined, a default error message is assigned. If the <code>message</code>
+parameter is an instance of an <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> then it will be thrown instead of the
+<code>AssertionError</code>.</p>
+<h2>assert.notDeepStrictEqual(actual, expected[, message])<span><a class="mark" href="assert.html#assert_assert_notdeepstrictequal_actual_expected_message" id="assert_assert_notdeepstrictequal_actual_expected_message">#</a></span></h2><p class="tip_wrap"><a href="assert/assert_notdeepstrictequal_actual_expected_message.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/assert/assert_notdeepstrictequal_actual_expected_message.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v9.0.0</td>
+<td><p>The <code>-0</code> and <code>+0</code> are not considered equal anymore.</p></td></tr>
+<tr><td>v9.0.0</td>
+<td><p>The <code>NaN</code> is now compared using the <a href="https://tc39.github.io/ecma262/#sec-samevaluezero">SameValueZero</a> comparison.</p></td></tr>
+<tr><td>v9.0.0</td>
+<td><p>The <code>Error</code> names and messages are now properly compared</p></td></tr>
+<tr><td>v8.0.0</td>
+<td><p>The <code>Set</code> and <code>Map</code> content is also compared</p></td></tr>
+<tr><td>v6.4.0, v4.7.1</td>
+<td><p>Typed array slices are handled correctly now.</p></td></tr>
+<tr><td>v6.1.0</td>
+<td><p>Objects with circular references can be used as inputs now.</p></td></tr>
+<tr><td>v5.10.1, v4.4.3</td>
+<td><p>Handle non-<code>Uint8Array</code> typed arrays correctly.</p></td></tr>
+<tr><td>v1.2.0</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v1.2.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div>
+<ul>
+<li><code>actual</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>expected</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>message</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+</ul>
+<p>&#x6D4B;&#x8BD5;&#x6DF1;&#x5EA6;&#x4E25;&#x683C;&#x7684;&#x4E0D;&#x5E73;&#x7B49;&#x3002;
+&#x4E0E; <a href="http://nodejs.cn/s/PPMrJo" rel="nofollow"><code>assert.deepStrictEqual()</code></a> &#x76F8;&#x53CD;&#x3002;</p>
+<pre><code class="language-js">const assert = require(&apos;assert&apos;).strict;
+
+assert.notDeepStrictEqual({ a: 1 }, { a: &apos;1&apos; });
+// &#x901A;&#x8FC7;&#x3002;
+</code></pre>
+<p>&#x5982;&#x679C;&#x503C;&#x6DF1;&#x5EA6;&#x4E14;&#x4E25;&#x683C;&#x76F8;&#x7B49;&#xFF0C;&#x5219;&#x629B;&#x51FA; <code>AssertionError</code>&#xFF0C;&#x5E76;&#x5C06; <code>message</code> &#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x4E3A;&#x7B49;&#x4E8E; <code>message</code> &#x53C2;&#x6570;&#x7684;&#x503C;&#x3002;
+&#x5982;&#x679C;&#x672A;&#x5B9A;&#x4E49; <code>message</code> &#x53C2;&#x6570;&#xFF0C;&#x5219;&#x4F1A;&#x5206;&#x914D;&#x9ED8;&#x8BA4;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x3002;
+&#x5982;&#x679C; <code>message</code> &#x53C2;&#x6570;&#x662F; <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> &#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x5219;&#x5B83;&#x5C06;&#x88AB;&#x629B;&#x51FA;&#x800C;&#x4E0D;&#x662F; <code>AssertionError</code>&#x3002;</p>
+<h2>assert.notEqual(actual, expected[, message])<span><a class="mark" href="assert.html#assert_assert_notequal_actual_expected_message" id="assert_assert_notequal_actual_expected_message">#</a></span></h2><p class="tip_wrap"><span class="tip_no_trans">&#x6682;&#x65E0;&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</span></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.21</span>
+</div>
+<ul>
+<li><code>actual</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>expected</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>message</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+</ul>
+<p><strong>Strict mode</strong></p>
+<p>An alias of <a href="http://nodejs.cn/s/2jHY9S" rel="nofollow"><code>assert.notStrictEqual()</code></a>.</p>
+<p><strong>Legacy mode</strong></p>
+<p></p><div class="api_stability api_stability_0"><a target="_blank" rel="nofollow" href="documentation.html#documentation_stability_index">&#x7A33;&#x5B9A;&#x6027;: 0</a> - &#x5E9F;&#x5F03;: &#x6539;&#x4E3A;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/2jHY9S" rel="nofollow"><code>assert.notStrictEqual()</code></a> &#x3002;</div><p></p>
+<p>Tests shallow, coercive inequality with the <a href="http://nodejs.cn/s/tiZhGn" rel="nofollow">Abstract Equality Comparison</a>
+( <code>!=</code> ).</p>
+<pre><code class="language-js">const assert = require(&apos;assert&apos;);
+
+assert.notEqual(1, 2);
+// OK
+
+assert.notEqual(1, 1);
+// AssertionError: 1 != 1
+
+assert.notEqual(1, &apos;1&apos;);
+// AssertionError: 1 != &apos;1&apos;
+</code></pre>
+<p>If the values are equal, an <code>AssertionError</code> is thrown with a <code>message</code> property
+set equal to the value of the <code>message</code> parameter. If the <code>message</code> parameter is
+undefined, a default error message is assigned. If the <code>message</code> parameter is an
+instance of an <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> then it will be thrown instead of the
+<code>AssertionError</code>.</p>
+<h2>assert.notStrictEqual(actual, expected[, message])<span><a class="mark" href="assert.html#assert_assert_notstrictequal_actual_expected_message" id="assert_assert_notstrictequal_actual_expected_message">#</a></span></h2><p class="tip_wrap"><a href="assert/assert_notstrictequal_actual_expected_message.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/assert/assert_notstrictequal_actual_expected_message.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>Used comparison changed from Strict Equality to <code>Object.is()</code></p></td></tr>
+<tr><td>v0.1.21</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.21</span></p></td></tr>
+</tbody></table>
+</details>
+</div>
+<ul>
+<li><code>actual</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>expected</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>message</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+</ul>
+<p>&#x6D4B;&#x8BD5; <code>actual</code> &#x53C2;&#x6570;&#x548C; <code>expected</code> &#x53C2;&#x6570;&#x4E4B;&#x95F4;&#x7684;&#x4E25;&#x683C;&#x4E0D;&#x76F8;&#x7B49;&#xFF0C;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/25ULs2" rel="nofollow">SameValue&#x6BD4;&#x8F83;</a>&#x3002;</p>
+<pre><code class="language-js">const assert = require(&apos;assert&apos;).strict;
+
+assert.notStrictEqual(1, 2);
+// &#x901A;&#x8FC7;&#x3002;
+
+assert.notStrictEqual(1, 1);
+// AssertionError [ERR_ASSERTION]: Expected &quot;actual&quot; to be strictly unequal to:
+//
+// 1
+
+assert.notStrictEqual(1, &apos;1&apos;);
+// &#x901A;&#x8FC7;&#x3002;
+</code></pre>
+<p>&#x5982;&#x679C;&#x503C;&#x4E25;&#x683C;&#x76F8;&#x7B49;&#xFF0C;&#x5219;&#x629B;&#x51FA; <code>AssertionError</code>&#xFF0C;&#x5E76;&#x5C06; <code>message</code> &#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x4E3A;&#x7B49;&#x4E8E; <code>message</code> &#x53C2;&#x6570;&#x7684;&#x503C;&#x3002;
+&#x5982;&#x679C;&#x672A;&#x5B9A;&#x4E49; <code>message</code> &#x53C2;&#x6570;&#xFF0C;&#x5219;&#x4F1A;&#x5206;&#x914D;&#x9ED8;&#x8BA4;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x3002;
+&#x5982;&#x679C; <code>message</code> &#x53C2;&#x6570;&#x662F; <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> &#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x5219;&#x5B83;&#x5C06;&#x88AB;&#x629B;&#x51FA;&#x800C;&#x4E0D;&#x662F; <code>AssertionError</code>&#x3002;</p>
+<h2>assert.ok(value[, message])<span><a class="mark" href="assert.html#assert_assert_ok_value_message" id="assert_assert_ok_value_message">#</a></span></h2><p class="tip_wrap"><a href="assert/assert_ok_value_message.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/assert/assert_ok_value_message.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>The <code>assert.ok()</code> (no arguments) will now use a predefined error message.</p></td></tr>
+<tr><td>v0.1.21</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.21</span></p></td></tr>
+</tbody></table>
+</details>
+</div>
+<ul>
+<li><code>value</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>message</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+</ul>
+<p>&#x6D4B;&#x8BD5; <code>value</code> &#x662F;&#x5426;&#x4E3A;&#x771F;&#x503C;&#x3002;
+&#x7B49;&#x540C;&#x4E8E; <code>assert.equal(!!value, true, message)</code>&#x3002;</p>
+<p>&#x5982;&#x679C; <code>value</code> &#x4E0D;&#x662F;&#x771F;&#x503C;&#xFF0C;&#x5219;&#x629B;&#x51FA; <code>AssertionError</code>&#xFF0C;&#x5E76;&#x5C06; <code>message</code> &#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x4E3A;&#x7B49;&#x4E8E; <code>message</code> &#x53C2;&#x6570;&#x7684;&#x503C;&#x3002;
+&#x5982;&#x679C;&#x672A;&#x5B9A;&#x4E49; <code>message</code> &#x53C2;&#x6570;&#xFF0C;&#x5219;&#x4F1A;&#x5206;&#x914D;&#x9ED8;&#x8BA4;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x3002;
+&#x5982;&#x679C; <code>message</code> &#x53C2;&#x6570;&#x662F; <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> &#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x5219;&#x5B83;&#x5C06;&#x88AB;&#x629B;&#x51FA;&#x800C;&#x4E0D;&#x662F; <code>AssertionError</code>&#x3002;
+&#x5982;&#x679C;&#x6CA1;&#x6709;&#x4F20;&#x5165;&#x4EFB;&#x4F55;&#x53C2;&#x6570;&#xFF0C;&#x5219;&#x5C06; <code>message</code> &#x8BBE;&#x7F6E;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#xFF1A;<code>&apos;No value argument passed to `assert.ok()`&apos;</code>&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x5728; <code>repl</code> &#x4E2D;&#xFF0C;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x5C06;&#x4E0E;&#x6587;&#x4EF6;&#x4E2D;&#x629B;&#x51FA;&#x7684;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x4E0D;&#x540C;&#xFF01;&#x8BF7;&#x53C2;&#x9605;&#x4E0B;&#x6587;&#x4E86;&#x89E3;&#x66F4;&#x591A;&#x8BE6;&#x60C5;&#x3002;</p>
+<pre><code class="language-js">const assert = require(&apos;assert&apos;).strict;
+
+assert.ok(true);
+// OK
+assert.ok(1);
+// OK
+
+assert.ok();
+// AssertionError: No value argument passed to `assert.ok()`
+
+assert.ok(false, &apos;&#x8FD9;&#x662F;&#x5047;&#x503C;&apos;);
+// AssertionError: &#x8FD9;&#x662F;&#x5047;&#x503C;
+
+// &#x5728; repl &#x4E2D;&#xFF1A;
+assert.ok(typeof 123 === &apos;string&apos;);
+// AssertionError: false == true
+
+// &#x5728;&#x6587;&#x4EF6;&#x4E2D;&#xFF08;&#x4F8B;&#x5982; test.js&#xFF09;&#xFF1A;
+assert.ok(typeof 123 === &apos;string&apos;);
+// AssertionError: The expression evaluated to a falsy value:
+//
+//   assert.ok(typeof 123 === &apos;string&apos;)
+
+assert.ok(false);
+// AssertionError: The expression evaluated to a falsy value:
+//
+//   assert.ok(false)
+
+assert.ok(0);
+// AssertionError: The expression evaluated to a falsy value:
+//
+//   assert.ok(0)
+
+// &#x4E0E;&#x4F7F;&#x7528; `assert()` &#x76F8;&#x540C;&#xFF1A;
+assert(0);
+// AssertionError: The expression evaluated to a falsy value:
+//
+//   assert(0)
+</code></pre>
+<h2>assert.rejects(asyncFn[, error][, message])<span><a class="mark" href="assert.html#assert_assert_rejects_asyncfn_error_message" id="assert_assert_rejects_asyncfn_error_message">#</a></span></h2><p class="tip_wrap"><a href="assert/assert_rejects_asyncfn_error_message.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/assert/assert_rejects_asyncfn_error_message.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.0.0</span>
+</div>
+<ul>
+<li><code>asyncFn</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> | <a href="http://nodejs.cn/s/ri1kj8" target="_blank" rel="nofollow" class="type">&lt;Promise&gt;</a></li>
+<li><code>error</code> <a href="http://nodejs.cn/s/G38byW" target="_blank" rel="nofollow" class="type">&lt;RegExp&gt;</a> | <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> | <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>message</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul>
+<p>&#x7B49;&#x5F85; <code>asyncFn</code> Promise&#xFF0C;&#x6216;&#x8005;&#xFF0C;&#x5982;&#x679C; <code>asyncFn</code> &#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5219;&#x7ACB;&#x5373;&#x8C03;&#x7528;&#x8BE5;&#x51FD;&#x6570;&#x5E76;&#x7B49;&#x5F85;&#x8FD4;&#x56DE;&#x7684; Promise &#x5B8C;&#x6210;&#x3002;
+&#x7136;&#x540E;&#x5B83;&#x5C06;&#x68C0;&#x67E5; Promise &#x662F;&#x5426;&#x88AB;&#x62D2;&#x7EDD;&#x3002;</p>
+<p>&#x5982;&#x679C; <code>asyncFn</code> &#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5E76;&#x4E14;&#x5B83;&#x540C;&#x6B65;&#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#xFF0C;&#x5219; <code>assert.rejects()</code> &#x5C06;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5E26;&#x6709;&#x8BE5;&#x9519;&#x8BEF;&#x7684;&#x88AB;&#x62D2;&#x7EDD;&#x7684; <code>Promise</code>&#x3002;
+&#x5982;&#x679C;&#x51FD;&#x6570;&#x672A;&#x8FD4;&#x56DE; Promise&#xFF0C;&#x5219; <code>assert.rejects()</code> &#x5C06;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x88AB;&#x62D2;&#x7EDD;&#x7684; <code>Promise</code>&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x542B; <a href="http://nodejs.cn/s/zKCD5R" rel="nofollow"><code>ERR_INVALID_RETURN_VALUE</code></a> &#x9519;&#x8BEF;&#x3002;
+&#x5728;&#x8FD9;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x90FD;&#x4F1A;&#x8DF3;&#x8FC7;&#x9519;&#x8BEF;&#x5904;&#x7406;&#x51FD;&#x6570;&#x3002;</p>
+<p>&#x9664;&#x4E86;&#x7B49;&#x5F85;&#x7684;&#x5F02;&#x6B65;&#x6027;&#x8D28;&#x4E4B;&#x5916;&#xFF0C;&#x5B8C;&#x6210;&#x884C;&#x4E3A;&#x4E0E; <a href="http://nodejs.cn/s/sGRMSp" rel="nofollow"><code>assert.throws()</code></a> &#x5B8C;&#x5168;&#x76F8;&#x540C;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6307;&#x5B9A;&#xFF0C;&#x5219; <code>error</code> &#x53EF;&#x4EE5;&#x662F; <a href="http://nodejs.cn/s/5wDLcp" rel="nofollow"><code>Class</code></a>&#x3001;<a href="http://nodejs.cn/s/tbQJCP" rel="nofollow"><code>RegExp</code></a>&#x3001;&#x9A8C;&#x8BC1;&#x51FD;&#x6570;&#x3001;&#x5C06;&#x6D4B;&#x8BD5;&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x5BF9;&#x8C61;&#x3001;&#x6216;&#x8005;&#x5C06;&#x6D4B;&#x8BD5;&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#x7684;&#x9519;&#x8BEF;&#x5B9E;&#x4F8B;&#xFF08;&#x5305;&#x62EC;&#x4E0D;&#x53EF;&#x679A;&#x4E3E;&#x7684; <code>message</code> &#x548C; <code>name</code> &#x5C5E;&#x6027;&#xFF09;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6307;&#x5B9A; <code>message</code>&#xFF0C;&#x5219;&#x5F53; <code>asyncFn</code> &#x65E0;&#x6CD5;&#x62D2;&#x7EDD;&#x65F6; <code>message</code> &#x5C06;&#x662F; <code>AssertionError</code> &#x63D0;&#x4F9B;&#x7684;&#x6D88;&#x606F;&#x3002;</p>
+<pre><code class="language-js">(async () =&gt; {
+  await assert.rejects(
+    async () =&gt; {
+      throw new TypeError(&apos;&#x9519;&#x8BEF;&#x503C;&apos;);
+    },
+    {
+      name: &apos;TypeError&apos;,
+      message: &apos;&#x9519;&#x8BEF;&#x503C;&apos;
+    }
+  );
+})();
+</code></pre>
+<pre><code class="language-js">assert.rejects(
+  Promise.reject(new Error(&apos;&#x9519;&#x8BEF;&#x503C;&apos;)),
+  Error
+).then(() =&gt; {
+  // ...
+});
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF0C; <code>error</code> &#x4E0D;&#x80FD;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+&#x5982;&#x679C;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5219;&#x5047;&#x5B9A; <code>error</code> &#x88AB;&#x5FFD;&#x7565;&#xFF0C;&#x800C;&#x5B57;&#x7B26;&#x4E32;&#x5C06;&#x7528;&#x4E8E; <code>message</code>&#x3002;
+&#x8FD9;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x5BB9;&#x6613;&#x9519;&#x8FC7;&#x7684;&#x9519;&#x8BEF;&#x3002;
+&#x5982;&#x679C;&#x8003;&#x8651;&#x4F7F;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x8BF7;&#x4ED4;&#x7EC6;&#x9605;&#x8BFB; <a href="http://nodejs.cn/s/sGRMSp" rel="nofollow"><code>assert.throws()</code></a> &#x4E2D;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<h2>assert.strictEqual(actual, expected[, message])<span><a class="mark" href="assert.html#assert_assert_strictequal_actual_expected_message" id="assert_assert_strictequal_actual_expected_message">#</a></span></h2><p class="tip_wrap"><a href="assert/assert_strictequal_actual_expected_message.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/assert/assert_strictequal_actual_expected_message.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>Used comparison changed from Strict Equality to <code>Object.is()</code></p></td></tr>
+<tr><td>v0.1.21</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.21</span></p></td></tr>
+</tbody></table>
+</details>
+</div>
+<ul>
+<li><code>actual</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>expected</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>message</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+</ul>
+<p>&#x6D4B;&#x8BD5; <code>actual</code> &#x53C2;&#x6570;&#x548C; <code>expected</code> &#x53C2;&#x6570;&#x4E4B;&#x95F4;&#x7684;&#x4E25;&#x683C;&#x76F8;&#x7B49;&#x6027;&#xFF0C;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/25ULs2" rel="nofollow">SameValue&#x6BD4;&#x8F83;</a>&#x3002;</p>
+<pre><code class="language-js">const assert = require(&apos;assert&apos;).strict;
+
+assert.strictEqual(1, 2);
+// AssertionError [ERR_ASSERTION]: Expected inputs to be strictly equal:
+//
+// 1 !== 2
+
+assert.strictEqual(1, 1);
+// OK
+
+assert.strictEqual(&apos;Hello foobar&apos;, &apos;Hello World!&apos;);
+// AssertionError [ERR_ASSERTION]: Expected inputs to be strictly equal:
+// + actual - expected
+//
+// + &apos;Hello foobar&apos;
+// - &apos;Hello World!&apos;
+//          ^
+
+const apples = 1;
+const oranges = 2;
+assert.strictEqual(apples, oranges, `apples ${apples} !== oranges ${oranges}`);
+// AssertionError [ERR_ASSERTION]: apples 1 !== oranges 2
+
+assert.strictEqual(1, &apos;1&apos;, new TypeError(&apos;Inputs are not identical&apos;));
+// TypeError: Inputs are not identical
+</code></pre>
+<p>&#x5982;&#x679C;&#x503C;&#x4E0D;&#x4E25;&#x683C;&#x76F8;&#x7B49;&#xFF0C;&#x5219;&#x629B;&#x51FA; <code>AssertionError</code>&#xFF0C;&#x5E76;&#x5C06; <code>message</code> &#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x4E3A;&#x7B49;&#x4E8E; <code>message</code> &#x53C2;&#x6570;&#x7684;&#x503C;&#x3002;
+&#x5982;&#x679C;&#x672A;&#x5B9A;&#x4E49; <code>message</code> &#x53C2;&#x6570;&#xFF0C;&#x5219;&#x4F1A;&#x5206;&#x914D;&#x9ED8;&#x8BA4;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x3002;
+&#x5982;&#x679C; <code>message</code> &#x53C2;&#x6570;&#x662F; <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> &#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x5219;&#x5B83;&#x5C06;&#x88AB;&#x629B;&#x51FA;&#x800C;&#x4E0D;&#x662F; <code>AssertionError</code>&#x3002;</p>
+<h2>assert.throws(fn[, error][, message])<span><a class="mark" href="assert.html#assert_assert_throws_fn_error_message" id="assert_assert_throws_fn_error_message">#</a></span></h2><p class="tip_wrap"><a href="assert/assert_throws_fn_error_message.html" class="tip_trans">&#x4E2D;&#x82F1;&#x5BF9;&#x7167;</a><a rel="nofollow" target="_blank" href="https://github.com/nodejscn/node-api-cn/edit/master/assert/assert_throws_fn_error_message.md" class="tip_en">&#x63D0;&#x4EA4;&#x4FEE;&#x6539;</a></p>
+<div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.2.0</td>
+<td><p>The <code>error</code> parameter can be an object containing regular expressions now.</p></td></tr>
+<tr><td>v9.9.0</td>
+<td><p>The <code>error</code> parameter can now be an object as well.</p></td></tr>
+<tr><td>v4.2.0</td>
+<td><p>The <code>error</code> parameter can now be an arrow function.</p></td></tr>
+<tr><td>v0.1.21</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.21</span></p></td></tr>
+</tbody></table>
+</details>
+</div>
+<ul>
+<li><code>fn</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></li>
+<li><code>error</code> <a href="http://nodejs.cn/s/G38byW" target="_blank" rel="nofollow" class="type">&lt;RegExp&gt;</a> | <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> | <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>message</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul>
+<p>&#x671F;&#x671B; <code>fn</code> &#x51FD;&#x6570;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6307;&#x5B9A;&#xFF0C;&#x5219; <code>error</code> &#x53EF;&#x4EE5;&#x662F; <a href="http://nodejs.cn/s/5wDLcp" rel="nofollow"><code>Class</code></a>&#x3001;<a href="http://nodejs.cn/s/tbQJCP" rel="nofollow"><code>RegExp</code></a>&#x3001;&#x9A8C;&#x8BC1;&#x51FD;&#x6570;&#xFF0C;&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#x5C06;&#x88AB;&#x6D4B;&#x8BD5;&#x4E25;&#x683C;&#x7684;&#x6DF1;&#x5EA6;&#x76F8;&#x7B49;&#x7684;&#x9A8C;&#x8BC1;&#x5BF9;&#x8C61;&#x3001;&#x6216;&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#xFF08;&#x5305;&#x62EC;&#x4E0D;&#x53EF;&#x679A;&#x4E3E;&#x7684; <code>message</code> &#x548C; <code>name</code> &#x5C5E;&#x6027;&#xFF09;&#x5C06;&#x88AB;&#x6D4B;&#x8BD5;&#x4E25;&#x683C;&#x7684;&#x6DF1;&#x5EA6;&#x76F8;&#x7B49;&#x7684;&#x9519;&#x8BEF;&#x5B9E;&#x4F8B;&#x3002;
+&#x4F7F;&#x7528;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x5728;&#x5BF9;&#x5B57;&#x7B26;&#x4E32;&#x5C5E;&#x6027;&#x8FDB;&#x884C;&#x9A8C;&#x8BC1;&#x65F6;&#x4F7F;&#x7528;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x3002;
+&#x8BF7;&#x53C2;&#x9605;&#x4E0B;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6307;&#x5B9A; <code>message</code>&#xFF0C;&#x5219;&#x5F53; <code>fn</code> &#x8C03;&#x7528;&#x65E0;&#x6CD5;&#x629B;&#x51FA;&#x6216;&#x9519;&#x8BEF;&#x9A8C;&#x8BC1;&#x5931;&#x8D25;&#x65F6;&#xFF0C; <code>message</code> &#x5C06;&#x9644;&#x52A0;&#x5230; <code>AssertionError</code> &#x63D0;&#x4F9B;&#x7684;&#x6D88;&#x606F;&#x3002;</p>
+<p>&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x9A8C;&#x8BC1;&#x5BF9;&#x8C61;/&#x9519;&#x8BEF;&#x5B9E;&#x4F8B;&#xFF1A;</p>
+<pre><code class="language-js">const err = new TypeError(&apos;&#x9519;&#x8BEF;&#x503C;&apos;);
+err.code = 404;
+err.foo = &apos;bar&apos;;
+err.info = {
+  nested: true,
+  baz: &apos;text&apos;
+};
+err.reg = /abc/i;
+
+assert.throws(
+  () =&gt; {
+    throw err;
+  },
+  {
+    name: &apos;TypeError&apos;,
+    message: &apos;&#x9519;&#x8BEF;&#x503C;&apos;,
+    info: {
+      nested: true,
+      baz: &apos;text&apos;
+    }
+    // &#x4EC5;&#x6D4B;&#x8BD5;&#x9A8C;&#x8BC1;&#x5BF9;&#x8C61;&#x4E0A;&#x7684;&#x5C5E;&#x6027;&#x3002;
+&#xA0;&#xA0;&#xA0;&#xA0;// &#x4F7F;&#x7528;&#x5D4C;&#x5957;&#x5BF9;&#x8C61;&#x9700;&#x8981;&#x5B58;&#x5728;&#x6240;&#x6709;&#x5C5E;&#x6027;&#x3002;
+    // &#x5426;&#x5219;&#x9A8C;&#x8BC1;&#x5C06;&#x5931;&#x8D25;&#x3002;
+  }
+);
+
+// &#x4F7F;&#x7528;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x9A8C;&#x8BC1;&#x9519;&#x8BEF;&#x5C5E;&#x6027;&#xFF1A;
+assert.throws(
+  () =&gt; {
+    throw err;
+  },
+  {
+    // `name` &#x548C; `message` &#x5C5E;&#x6027;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x4F7F;&#x7528;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x5C06;&#x5339;&#x914D;&#x5B57;&#x7B26;&#x4E32;&#x3002; 
+    // &#x5982;&#x679C;&#x5931;&#x8D25;&#xFF0C;&#x5219;&#x4F1A;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x3002;
+    name: /^TypeError$/,
+    message: /&#x9519;&#x8BEF;/,
+    foo: &apos;bar&apos;,
+    info: {
+      nested: true,
+      // &#x65E0;&#x6CD5;&#x5BF9;&#x5D4C;&#x5957;&#x5C5E;&#x6027;&#x4F7F;&#x7528;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#xFF01;
+      baz: &apos;text&apos;
+    },
+    // `reg` &#x5C5E;&#x6027;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;
+    // &#x5E76;&#x4E14;&#x53EA;&#x6709;&#x5F53;&#x9A8C;&#x8BC1;&#x5BF9;&#x8C61;&#x5305;&#x542B;&#x76F8;&#x540C;&#x7684;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x65F6;&#xFF0C;
+    // &#x5B83;&#x624D;&#x4F1A;&#x901A;&#x8FC7;&#x3002;
+    reg: /abc/i
+  }
+);
+
+// &#x7531;&#x4E8E; `message` &#x548C; `name` &#x5C5E;&#x6027;&#x4E0D;&#x540C;&#x800C;&#x5931;&#x8D25;&#xFF1A;
+assert.throws(
+  () =&gt; {
+    const otherErr = new Error(&apos;&#x672A;&#x627E;&#x5230;&apos;);
+    otherErr.code = 404;
+    throw otherErr;
+  },
+  err // &#x6D4B;&#x8BD5; `message`&#x3001; `name` &#x548C; `code`&#x3002;
+);
+</code></pre>
+<p>&#x4F7F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x9A8C;&#x8BC1; instanceof&#xFF1A;</p>
+<pre><code class="language-js">assert.throws(
+  () =&gt; {
+    throw new Error(&apos;&#x9519;&#x8BEF;&#x503C;&apos;);
+  },
+  Error
+);
+</code></pre>
+<p>&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/tbQJCP" rel="nofollow"><code>RegExp</code></a> &#x9A8C;&#x8BC1;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#xFF1A;</p>
+<p>&#x4F7F;&#x7528;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x5728;&#x9519;&#x8BEF;&#x5BF9;&#x8C61;&#x4E0A;&#x8FD0;&#x884C; <code>.toString</code>&#xFF0C;&#x56E0;&#x6B64;&#x4E5F;&#x5C06;&#x5305;&#x542B;&#x9519;&#x8BEF;&#x540D;&#x79F0;&#x3002;</p>
+<pre><code class="language-js">assert.throws(
+  () =&gt; {
+    throw new Error(&apos;&#x9519;&#x8BEF;&#x503C;&apos;);
+  },
+  /^Error: &#x9519;&#x8BEF;&#x503C;$/
+);
+</code></pre>
+<p>&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x9519;&#x8BEF;&#x9A8C;&#x8BC1;&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code class="language-js">assert.throws(
+  () =&gt; {
+    throw new Error(&apos;&#x9519;&#x8BEF;&#x503C;&apos;);
+  },
+  (err) =&gt; {
+    assert(err instanceof Error);
+    assert(/value/.test(err));
+    // &#x9664;&#x4E86; `true` &#x4E4B;&#x5916;&#xFF0C;&#x4E0D;&#x5EFA;&#x8BAE;&#x4ECE;&#x9A8C;&#x8BC1;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x4EFB;&#x4F55;&#x5185;&#x5BB9;&#x3002; 
+    // &#x8FD9;&#x6837;&#x505A;&#x4F1A;&#x5BFC;&#x81F4;&#x518D;&#x6B21;&#x629B;&#x51FA;&#x6355;&#x83B7;&#x7684;&#x9519;&#x8BEF;&#x3002; 
+    // &#x8FD9;&#x901A;&#x5E38;&#x4E0D;&#x662F;&#x7406;&#x60F3;&#x7684;&#x7ED3;&#x679C;&#x3002; 
+    // &#x629B;&#x51FA;&#x6709;&#x5173;&#x5931;&#x8D25;&#x7684;&#x7279;&#x5B9A;&#x9A8C;&#x8BC1;&#x7684;&#x9519;&#x8BEF;&#xFF08;&#x5982;&#x672C;&#x4F8B;&#x6240;&#x793A;&#xFF09;&#x3002;
+    return true;
+  },
+  &apos;&#x4E0D;&#x662F;&#x671F;&#x671B;&#x7684;&#x9519;&#x8BEF;&apos;
+);
+</code></pre>
+<p><code>error</code> &#x4E0D;&#x80FD;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+&#x5982;&#x679C;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5219;&#x5047;&#x5B9A; <code>error</code> &#x88AB;&#x5FFD;&#x7565;&#xFF0C;&#x800C;&#x5B57;&#x7B26;&#x4E32;&#x5C06;&#x7528;&#x4E8E; <code>message</code>&#x3002;
+&#x8FD9;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x5BB9;&#x6613;&#x9519;&#x8FC7;&#x7684;&#x9519;&#x8BEF;&#x3002;
+&#x4F7F;&#x7528;&#x4E0E;&#x629B;&#x51FA;&#x7684;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x76F8;&#x540C;&#x7684;&#x6D88;&#x606F;&#x5C06;&#x5BFC;&#x81F4; <code>ERR_AMBIGUOUS_ARGUMENT</code> &#x9519;&#x8BEF;&#x3002;
+&#x5982;&#x679C;&#x4F7F;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x8BF7;&#x4ED4;&#x7EC6;&#x9605;&#x8BFB;&#x4E0B;&#x9762;&#x7684;&#x793A;&#x4F8B;&#xFF1A;</p>
+<!-- eslint-disable no-restricted-syntax -->
+<pre><code class="language-js">function throwingFirst() {
+  throw new Error(&apos;&#x9519;&#x8BEF;&#x4E00;&apos;);
+}
+function throwingSecond() {
+  throw new Error(&apos;&#x9519;&#x8BEF;&#x4E8C;&apos;);
+}
+function notThrowing() {}
+
+// &#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x8F93;&#x5165;&#x51FD;&#x6570;&#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x3002;
+// &#x7B2C;&#x4E00;&#x79CD;&#x60C5;&#x51B5;&#x4E0D;&#x4F1A;&#x629B;&#x51FA;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4E0E;&#x8F93;&#x5165;&#x51FD;&#x6570;&#x629B;&#x51FA;&#x7684;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x4E0D;&#x5339;&#x914D;&#xFF01;
+assert.throws(throwingFirst, &apos;&#x9519;&#x8BEF;&#x4E8C;&apos;);
+// &#x5728;&#x4E0B;&#x4E00;&#x4E2A;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;&#x4F20;&#x5165;&#x7684;&#x6D88;&#x606F;&#x7C7B;&#x4F3C;&#x6765;&#x81EA;&#x9519;&#x8BEF;&#x7684;&#x6D88;&#x606F;&#xFF0C;
+// &#x5E76;&#x4E14;&#x7531;&#x4E8E;&#x4E0D;&#x6E05;&#x695A;&#x7528;&#x6237;&#x662F;&#x5426;&#x6253;&#x7B97;&#x5B9E;&#x9645;&#x5339;&#x914D;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#xFF0C;
+// &#x56E0;&#x6B64; Node.js &#x629B;&#x51FA;&#x4E86; `ERR_AMBIGUOUS_ARGUMENT` &#x9519;&#x8BEF;&#x3002;
+assert.throws(throwingSecond, &apos;&#x9519;&#x8BEF;&#x4E8C;&apos;);
+// TypeError [ERR_AMBIGUOUS_ARGUMENT]
+
+// &#x8BE5;&#x5B57;&#x7B26;&#x4E32;&#x4EC5;&#x5728;&#x51FD;&#x6570;&#x672A;&#x629B;&#x51FA;&#x65F6;&#x4F7F;&#x7528;&#xFF08;&#x4F5C;&#x4E3A;&#x6D88;&#x606F;&#xFF09;&#xFF1A;
+assert.throws(notThrowing, &apos;&#x9519;&#x8BEF;&#x4E8C;&apos;);
+// AssertionError [ERR_ASSERTION]: Missing expected exception: &#x9519;&#x8BEF;&#x4E8C;
+
+// &#x5982;&#x679C;&#x8981;&#x5339;&#x914D;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#xFF0C;&#x8BF7;&#x6267;&#x884C;&#x4EE5;&#x4E0B;&#x64CD;&#x4F5C;&#xFF1A;
+// &#x5B83;&#x4E0D;&#x4F1A;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#xFF0C;&#x56E0;&#x4E3A;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x5339;&#x914D;&#x3002;
+assert.throws(throwingSecond, /&#x9519;&#x8BEF;&#x4E8C;$/);
+
+// &#x5982;&#x679C;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x4E0D;&#x5339;&#x914D;&#xFF0C;&#x5219;&#x4E0D;&#x4F1A;&#x6355;&#x83B7;&#x51FD;&#x6570;&#x5185;&#x7684;&#x9519;&#x8BEF;&#x3002;
+assert.throws(throwingFirst, /&#x9519;&#x8BEF;&#x4E8C;$/);
+// Error: &#x9519;&#x8BEF;&#x4E00;
+//     at throwingFirst (repl:2:9)
+</code></pre>
+<p>&#x7531;&#x4E8E;&#x4EE4;&#x4EBA;&#x56F0;&#x60D1;&#x7684;&#x8868;&#x793A;&#x6CD5;&#xFF0C;&#x5EFA;&#x8BAE;&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x3002;
+&#x8FD9;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x96BE;&#x4EE5;&#x53D1;&#x73B0;&#x7684;&#x9519;&#x8BEF;&#x3002;</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 搜索弹窗 -->
+  <!-- <div id="search_modal"></div> -->
+  <!-- js -->
+  <!--[if lt IE 10]><script src="/static/lib/placeholders.js?20170426"></script><![endif]-->
+  
+  <script>
+    document.write('<script src="http://nodejs.cn/api/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756292199"><\/script>');
+  </script>
+
+</body></html>

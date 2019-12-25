@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>crypto（加密） | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/crypto/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756300083" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-crypto">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>crypto（加密）</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../crypto.html#crypto_crypto" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/crypto/crypto.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p></p><div class="api_stability api_stability_2"><a target="_blank" rel="nofollow" href="../documentation.html#documentation_stability_index">&#x7A33;&#x5B9A;&#x6027;: 2</a> - &#x7A33;&#x5B9A;</div><p></p><p><code>crypto</code> &#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x52A0;&#x5BC6;&#x529F;&#x80FD;&#xFF0C;&#x5305;&#x62EC;&#x5BF9; OpenSSL &#x7684;&#x54C8;&#x5E0C;&#x3001;HMAC&#x3001;&#x52A0;&#x5BC6;&#x3001;&#x89E3;&#x5BC6;&#x3001;&#x7B7E;&#x540D;&#x3001;&#x4EE5;&#x53CA;&#x9A8C;&#x8BC1;&#x529F;&#x80FD;&#x7684;&#x4E00;&#x6574;&#x5957;&#x5C01;&#x88C5;&#x3002;</p><p>&#x4F7F;&#x7528; <code>require(&apos;crypto&apos;)</code> &#x6765;&#x8BBF;&#x95EE;&#x8BE5;&#x6A21;&#x5757;&#x3002;</p><pre><code class="language-js">const crypto = require(&apos;crypto&apos;);
+
+const secret = &apos;abcdefg&apos;;
+const hash = crypto.createHmac(&apos;sha256&apos;, secret)
+                   .update(&apos;I love cupcakes&apos;)
+                   .digest(&apos;hex&apos;);
+console.log(hash);
+// &#x6253;&#x5370;:
+//   c0fa1bc00531bd78ef38c628449c5102aeabd49b5dc3a2a516ea6ea959d6658e
+</code></pre></div>
+          <div id="content_right"><p></p><div class="api_stability api_stability_2"><a target="_blank" rel="nofollow" href="../documentation.html#documentation_stability_index">Stability: 2</a> - Stable</div><p></p><p>The <code>crypto</code> module provides cryptographic functionality that includes a set of
+wrappers for OpenSSL&apos;s hash, HMAC, cipher, decipher, sign, and verify functions.</p><p>Use <code>require(&apos;crypto&apos;)</code> to access this module.</p><pre><code class="language-js">const crypto = require(&apos;crypto&apos;);
+
+const secret = &apos;abcdefg&apos;;
+const hash = crypto.createHmac(&apos;sha256&apos;, secret)
+                   .update(&apos;I love cupcakes&apos;)
+                   .digest(&apos;hex&apos;);
+console.log(hash);
+// Prints:
+//   c0fa1bc00531bd78ef38c628449c5102aeabd49b5dc3a2a516ea6ea959d6658e
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/crypto/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756300083"><\/script>');
+  </script>
+</body>
+</html>

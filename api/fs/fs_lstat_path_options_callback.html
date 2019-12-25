@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>fs.lstat(path[, options], callback) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756309942" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>fs.lstat(path[, options], callback)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_fs_lstat_path_options_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/fs_lstat_path_options_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.5.0</td>
+<td><p>Accepts an additional <code>options</code> object to specify whether the numeric values returned should be bigint.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will throw a <code>TypeError</code> at runtime.</p></td></tr>
+<tr><td>v7.6.0</td>
+<td><p>The <code>path</code> parameter can be a WHATWG <code>URL</code> object using <code>file:</code> protocol. Support is currently still <em>experimental</em>.</p></td></tr>
+<tr><td>v7.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will emit a deprecation warning with id DEP0013.</p></td></tr>
+<tr><td>v0.1.30</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.30</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>bigint</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x8FD4;&#x56DE;&#x7684; <a href="http://nodejs.cn/s/NMuvVx" rel="nofollow"><code>fs.Stats</code></a> &#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x6570;&#x503C;&#x662F;&#x5426;&#x5E94;&#x4E3A; <code>bigint</code> &#x578B;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#x3002;</li>
+</ul>
+</li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>stats</code> <a href="http://nodejs.cn/s/NMuvVx" target="_blank" rel="nofollow" class="type">&lt;fs.Stats&gt;</a></li>
+</ul>
+</li>
+</ul><p>&#x5F02;&#x6B65;&#x7684; <a href="http://nodejs.cn/s/fGaHTu" rel="nofollow"><code>lstat(2)</code></a>&#x3002;
+&#x56DE;&#x8C03;&#x4F1A;&#x4F20;&#x5165;&#x4E24;&#x4E2A;&#x53C2;&#x6570; <code>(err, stats)</code>&#xFF0C;&#x5176;&#x4E2D; <code>stats</code> &#x662F; <a href="http://nodejs.cn/s/NMuvVx" rel="nofollow"><code>fs.Stats</code></a> &#x5BF9;&#x8C61;&#x3002;
+<code>lstat()</code> &#x4E0E; <a href="http://nodejs.cn/s/fdrjxj" rel="nofollow"><code>stat()</code></a> &#x76F8;&#x540C;&#xFF0C;&#x53EA;&#x662F;&#x5982;&#x679C; <code>path</code> &#x662F;&#x7B26;&#x53F7;&#x94FE;&#x63A5;&#xFF0C;&#x5219;&#x67E5;&#x770B;&#x7684;&#x662F;&#x94FE;&#x63A5;&#x81EA;&#x8EAB;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5B83;&#x6307;&#x5411;&#x7684;&#x6587;&#x4EF6;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v10.5.0</td>
+<td><p>Accepts an additional <code>options</code> object to specify whether the numeric values returned should be bigint.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will throw a <code>TypeError</code> at runtime.</p></td></tr>
+<tr><td>v7.6.0</td>
+<td><p>The <code>path</code> parameter can be a WHATWG <code>URL</code> object using <code>file:</code> protocol. Support is currently still <em>experimental</em>.</p></td></tr>
+<tr><td>v7.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will emit a deprecation warning with id DEP0013.</p></td></tr>
+<tr><td>v0.1.30</td>
+<td><p><span>Added in: v0.1.30</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>bigint</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> Whether the numeric values in the returned
+<a href="http://nodejs.cn/s/NMuvVx" rel="nofollow"><code>fs.Stats</code></a> object should be <code>bigint</code>. <strong>Default:</strong> <code>false</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>stats</code> <a href="http://nodejs.cn/s/NMuvVx" target="_blank" rel="nofollow" class="type">&lt;fs.Stats&gt;</a></li>
+</ul>
+</li>
+</ul><p>Asynchronous <a href="http://nodejs.cn/s/fGaHTu" rel="nofollow"><code>lstat(2)</code></a>. The callback gets two arguments <code>(err, stats)</code> where
+<code>stats</code> is a <a href="http://nodejs.cn/s/NMuvVx" rel="nofollow"><code>fs.Stats</code></a> object. <code>lstat()</code> is identical to <code>stat()</code>,
+except that if <code>path</code> is a symbolic link, then the link itself is stat-ed,
+not the file that it refers to.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756309942"><\/script>');
+  </script>
+</body>
+</html>

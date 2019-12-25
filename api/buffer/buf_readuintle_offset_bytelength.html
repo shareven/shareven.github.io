@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>buf.readUIntLE(offset, byteLength) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756294711" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-buffer">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>buf.readUIntLE(offset, byteLength)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../buffer.html#buffer_buf_readuintle_offset_bytelength" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/buffer/buf_readuintle_offset_bytelength.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>Removed <code>noAssert</code> and no implicit coercion of the offset and <code>byteLength</code> to <code>uint32</code> anymore.</p></td></tr>
+<tr><td>v0.11.15</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.11.15</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>offset</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x5F00;&#x59CB;&#x8BFB;&#x53D6;&#x4E4B;&#x524D;&#x8981;&#x8DF3;&#x8FC7;&#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;&#x5FC5;&#x987B;&#x6EE1;&#x8DB3;<code>0 &lt;= offset &lt;= buf.length - byteLength</code>&#x3002;</li>
+<li><code>byteLength</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x8981;&#x8BFB;&#x53D6;&#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;&#x5FC5;&#x987B;&#x6EE1;&#x8DB3;<code>0 &lt; byteLength &lt;= 6</code>&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+</ul><p>&#x4ECE; <code>buf</code> &#x4E2D;&#x6307;&#x5B9A;&#x7684; <code>offset</code> &#x8BFB;&#x53D6; <code>byteLength</code> &#x4E2A;&#x5B57;&#x8282;&#xFF0C;&#x5E76;&#x5C06;&#x8BFB;&#x53D6;&#x7684;&#x503C;&#x89E3;&#x6790;&#x4E3A;&#x65E0;&#x7B26;&#x53F7;&#x7684;&#x6574;&#x6570;&#x3002;
+&#x6700;&#x9AD8;&#x652F;&#x6301; 48 &#x4F4D;&#x7CBE;&#x5EA6;&#x3002;</p><pre><code class="language-js">const buf = Buffer.from([0x12, 0x34, 0x56, 0x78, 0x90, 0xab]);
+
+console.log(buf.readUIntBE(0, 6).toString(16));
+// &#x6253;&#x5370;: 1234567890ab
+console.log(buf.readUIntLE(0, 6).toString(16));
+// &#x6253;&#x5370;: ab9078563412
+console.log(buf.readUIntBE(1, 6).toString(16));
+//&#x629B;&#x51FA;&#x5F02;&#x5E38; ERR_OUT_OF_RANGE&#x3002;
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>Removed <code>noAssert</code> and no implicit coercion of the offset and <code>byteLength</code> to <code>uint32</code> anymore.</p></td></tr>
+<tr><td>v0.11.15</td>
+<td><p><span>Added in: v0.11.15</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>offset</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> Number of bytes to skip before starting to read. Must
+satisfy <code>0 &lt;= offset &lt;= buf.length - byteLength</code>.</li>
+<li><code>byteLength</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> Number of bytes to read. Must satisfy
+<code>0 &lt; byteLength &lt;= 6</code>.</li>
+<li>Returns: <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+</ul><p>Reads <code>byteLength</code> number of bytes from <code>buf</code> at the specified <code>offset</code>
+and interprets the result as an unsigned integer. Supports up to 48
+bits of accuracy.</p><pre><code class="language-js">const buf = Buffer.from([0x12, 0x34, 0x56, 0x78, 0x90, 0xab]);
+
+console.log(buf.readUIntBE(0, 6).toString(16));
+// Prints: 1234567890ab
+console.log(buf.readUIntLE(0, 6).toString(16));
+// Prints: ab9078563412
+console.log(buf.readUIntBE(1, 6).toString(16));
+// Throws ERR_OUT_OF_RANGE.
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756294711"><\/script>');
+  </script>
+</body>
+</html>

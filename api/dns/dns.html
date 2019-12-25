@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>dns（域名服务器） | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/dns/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756303190" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-dns">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>dns（域名服务器）</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../dns.html#dns_dns" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/dns/dns.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p></p><div class="api_stability api_stability_2"><a target="_blank" rel="nofollow" href="../documentation.html#documentation_stability_index">&#x7A33;&#x5B9A;&#x6027;: 2</a> - &#x7A33;&#x5B9A;</div><p></p><p><code>dns</code> &#x6A21;&#x5757;&#x5305;&#x542B;&#x5C5E;&#x4E8E;&#x4E24;&#x4E2A;&#x4E0D;&#x540C;&#x7C7B;&#x522B;&#x7684;&#x51FD;&#x6570;&#xFF1A;</p><ol>
+<li>
+<p>&#x4F7F;&#x7528;&#x5E95;&#x5C42;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5DE5;&#x5177;&#x6267;&#x884C;&#x540D;&#x79F0;&#x89E3;&#x6790;&#x4F46;&#x4E0D;&#x4E00;&#x5B9A;&#x6267;&#x884C;&#x4EFB;&#x4F55;&#x7F51;&#x7EDC;&#x901A;&#x4FE1;&#x7684;&#x51FD;&#x6570;&#x3002;
+&#x6B64;&#x7C7B;&#x522B;&#x4EC5;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF1A;<a href="http://nodejs.cn/s/LJLsTL" rel="nofollow"><code>dns.lookup()</code></a>&#x3002;
+&#x5E0C;&#x671B;&#x4EE5;&#x4E0E;&#x540C;&#x4E00;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E0A;&#x7684;&#x5176;&#x4ED6;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x76F8;&#x540C;&#x7684;&#x65B9;&#x5F0F;&#x6267;&#x884C;&#x540D;&#x79F0;&#x89E3;&#x6790;&#x7684;&#x5F00;&#x53D1;&#x8005;&#x5E94;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/LJLsTL" rel="nofollow"><code>dns.lookup()</code></a>&#x3002;</p>
+<p>&#x793A;&#x4F8B;&#xFF0C;&#x67E5;&#x627E; <code>iana.org</code>&#xFF1A;</p>
+<pre><code class="language-js">const dns = require(&apos;dns&apos;);
+
+dns.lookup(&apos;iana.org&apos;, (err, address, family) =&gt; {
+  console.log(&apos;&#x5730;&#x5740;: %j &#x5730;&#x5740;&#x65CF;: IPv%s&apos;, address, family);
+});
+// &#x5730;&#x5740;: &quot;192.0.43.8&quot; &#x5730;&#x5740;&#x65CF;: IPv4
+</code></pre>
+</li>
+<li>
+<p>&#x8FDE;&#x63A5;&#x5230;&#x5B9E;&#x9645; DNS &#x670D;&#x52A1;&#x5668;&#x4EE5;&#x6267;&#x884C;&#x540D;&#x79F0;&#x89E3;&#x6790;&#x5E76;&#x59CB;&#x7EC8;&#x4F7F;&#x7528;&#x7F51;&#x7EDC;&#x6267;&#x884C; DNS &#x67E5;&#x8BE2;&#x7684;&#x51FD;&#x6570;&#x3002;
+&#x6B64;&#x7C7B;&#x522B;&#x5305;&#x542B; <code>dns</code> &#x6A21;&#x5757;&#x4E2D;&#x9664; <a href="http://nodejs.cn/s/LJLsTL" rel="nofollow"><code>dns.lookup()</code></a> &#x4E4B;&#x5916;&#x7684;&#x6240;&#x6709;&#x51FD;&#x6570;&#x3002;
+&#x8FD9;&#x4E9B;&#x51FD;&#x6570;&#x4E0D;&#x4F7F;&#x7528;&#x4E0E; <a href="http://nodejs.cn/s/LJLsTL" rel="nofollow"><code>dns.lookup()</code></a> &#x4F7F;&#x7528;&#x7684;&#x540C;&#x4E00;&#x7EC4;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF08;&#x4F8B;&#x5982; <code>/etc/hosts</code>&#xFF09;&#x3002;
+&#x8FD9;&#x4E9B;&#x51FD;&#x6570;&#x5E94;&#x8BE5;&#x7531;&#x4E0D;&#x5E0C;&#x671B;&#x4F7F;&#x7528;&#x5E95;&#x5C42;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x5DE5;&#x5177;&#x8FDB;&#x884C;&#x540D;&#x79F0;&#x89E3;&#x6790;&#x3001;&#x800C;&#x5E0C;&#x671B;&#x59CB;&#x7EC8;&#x6267;&#x884C; DNS &#x67E5;&#x8BE2;&#x7684;&#x5F00;&#x53D1;&#x8005;&#x4F7F;&#x7528;&#xFF0C;&#x3002;</p>
+<p>&#x793A;&#x4F8B;&#xFF0C;&#x89E3;&#x6790; <code>&apos;archive.org&apos;</code> &#x7136;&#x540E;&#x9006;&#x5411;&#x89E3;&#x6790;&#x8FD4;&#x56DE;&#x7684; IP &#x5730;&#x5740;&#xFF1A;</p>
+<pre><code class="language-js">const dns = require(&apos;dns&apos;);
+
+dns.resolve4(&apos;archive.org&apos;, (err, addresses) =&gt; {
+  if (err) throw err;
+
+  console.log(`&#x5730;&#x5740;: ${JSON.stringify(addresses)}`);
+
+  addresses.forEach((a) =&gt; {
+    dns.reverse(a, (err, hostnames) =&gt; {
+      if (err) {
+        throw err;
+      }
+      console.log(`&#x5730;&#x5740; ${a} &#x9006;&#x5411;&#x89E3;&#x6790;&#x5230;&#x57DF;&#x540D;: ${JSON.stringify(hostnames)}`);
+    });
+  });
+});
+</code></pre>
+</li>
+</ol><p>&#x4E24;&#x7C7B;&#x51FD;&#x6570;&#x6709;&#x5FAE;&#x5999;&#x7684;&#x5DEE;&#x522B;&#xFF0C;&#x8BE6;&#x89C1;<a href="http://nodejs.cn/s/fC4ou7" rel="nofollow">&#x5B9E;&#x73B0;&#x7684;&#x6CE8;&#x610F;&#x4E8B;&#x9879;</a>&#x3002;</p></div>
+          <div id="content_right"><p></p><div class="api_stability api_stability_2"><a target="_blank" rel="nofollow" href="../documentation.html#documentation_stability_index">Stability: 2</a> - Stable</div><p></p><p>The <code>dns</code> module contains functions belonging to two different categories:</p><ol>
+<li>
+<p>Functions that use the underlying operating system facilities to perform
+name resolution, and that do not necessarily perform any network
+communication.
+This category contains only one function: <a href="http://nodejs.cn/s/LJLsTL" rel="nofollow"><code>dns.lookup()</code></a>. <strong>Developers
+looking to perform name resolution in the same way that other applications
+on the same operating system behave should use <a href="http://nodejs.cn/s/LJLsTL" rel="nofollow"><code>dns.lookup()</code></a>.</strong></p>
+<p>For example, looking up <code>iana.org</code>.</p>
+<pre><code class="language-js">const dns = require(&apos;dns&apos;);
+
+dns.lookup(&apos;iana.org&apos;, (err, address, family) =&gt; {
+  console.log(&apos;address: %j family: IPv%s&apos;, address, family);
+});
+// address: &quot;192.0.43.8&quot; family: IPv4
+</code></pre>
+</li>
+<li>
+<p>Functions that connect to an actual DNS server to perform name resolution,
+and that <em>always</em> use the network to perform DNS queries. This category
+contains all functions in the <code>dns</code> module <em>except</em> <a href="http://nodejs.cn/s/LJLsTL" rel="nofollow"><code>dns.lookup()</code></a>.
+These functions do not use the same set of configuration files used by
+<a href="http://nodejs.cn/s/LJLsTL" rel="nofollow"><code>dns.lookup()</code></a> (e.g. <code>/etc/hosts</code>). These functions should be used by
+developers who do not want to use the underlying operating system&apos;s
+facilities for name resolution, and instead want to <em>always</em> perform DNS
+queries.</p>
+<p>Below is an example that resolves <code>&apos;archive.org&apos;</code> then reverse resolves the
+IP addresses that are returned.</p>
+<pre><code class="language-js">const dns = require(&apos;dns&apos;);
+
+dns.resolve4(&apos;archive.org&apos;, (err, addresses) =&gt; {
+  if (err) throw err;
+
+  console.log(`addresses: ${JSON.stringify(addresses)}`);
+
+  addresses.forEach((a) =&gt; {
+    dns.reverse(a, (err, hostnames) =&gt; {
+      if (err) {
+        throw err;
+      }
+      console.log(`reverse for ${a}: ${JSON.stringify(hostnames)}`);
+    });
+  });
+});
+</code></pre>
+</li>
+</ol><p>There are subtle consequences in choosing one over the other, please consult
+the <a href="http://nodejs.cn/s/fC4ou7" rel="nofollow">Implementation considerations section</a> for more information.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/dns/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756303190"><\/script>');
+  </script>
+</body>
+</html>

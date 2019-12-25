@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>os.setPriority([pid, ]priority) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/os/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756318967" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-os">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>os.setPriority([pid, ]priority)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../os.html#os_os_setpriority_pid_priority" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/os/os_setpriority_pid_priority.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.10.0</span>
+</div><ul>
+<li><code>pid</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x4E3A;&#x5176;&#x8BBE;&#x7F6E;&#x8C03;&#x5EA6;&#x4F18;&#x5148;&#x7EA7;&#x7684;&#x8FDB;&#x7A0B; ID&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;</strong> <code>0</code>&#x3002;</li>
+<li><code>priority</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x5206;&#x914D;&#x7ED9;&#x8FDB;&#x7A0B;&#x7684;&#x8C03;&#x5EA6;&#x4F18;&#x5148;&#x7EA7;&#x3002;</li>
+</ul><p>&#x5C1D;&#x8BD5;&#x4E3A; <code>pid</code> &#x6307;&#x5B9A;&#x7684;&#x8FDB;&#x7A0B;&#x8BBE;&#x7F6E;&#x8C03;&#x5EA6;&#x4F18;&#x5148;&#x7EA7;&#x3002;
+&#x5982;&#x679C;&#x672A;&#x63D0;&#x4F9B; <code>pid</code> &#x6216;&#x8005;&#x4E3A; <code>0</code>&#xFF0C;&#x5219;&#x4F7F;&#x7528;&#x5F53;&#x524D;&#x8FDB;&#x7A0B;&#x7684;&#x8FDB;&#x7A0B; ID&#x3002;</p><p><code>priority</code> &#x8F93;&#x5165;&#x5FC5;&#x987B;&#x662F; <code>-20</code>&#xFF08;&#x9AD8;&#x4F18;&#x5148;&#x7EA7;&#xFF09;&#x5230; <code>19</code>&#xFF08;&#x4F4E;&#x4F18;&#x5148;&#x7EA7;&#xFF09;&#x4E4B;&#x95F4;&#x7684;&#x6574;&#x6570;&#x3002;
+&#x7531;&#x4E8E; Unix &#x4F18;&#x5148;&#x7EA7;&#x548C; Windows &#x4F18;&#x5148;&#x7EA7;&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x5F02;&#xFF0C; <code>priority</code> &#x4F1A;&#x88AB;&#x6620;&#x5C04;&#x5230; <code>os.constants.priority</code> &#x4E2D;&#x7684;&#x516D;&#x4E2A;&#x4F18;&#x5148;&#x7EA7;&#x5E38;&#x91CF;&#x4E4B;&#x4E00;&#x3002;
+&#x5F53;&#x68C0;&#x7D22;&#x8FDB;&#x7A0B;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x65F6;&#xFF0C;&#x6B64;&#x8303;&#x56F4;&#x7684;&#x6620;&#x5C04;&#x53EF;&#x80FD;&#x5BFC;&#x81F4; Windows &#x4E0A;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x7565;&#x6709;&#x4E0D;&#x540C;&#x3002;
+&#x4E3A;&#x907F;&#x514D;&#x6DF7;&#x6DC6;&#xFF0C;&#x5E94;&#x5C06; <code>priority</code> &#x8BBE;&#x7F6E;&#x4E3A;&#x4F18;&#x5148;&#x7EA7;&#x5E38;&#x91CF;&#x4E4B;&#x4E00;&#x3002;</p><p>&#x5728; Windows &#x4E0A;&#xFF0C;&#x5C06;&#x4F18;&#x5148;&#x7EA7;&#x8BBE;&#x7F6E;&#x4E3A; <code>PRIORITY_HIGHEST</code> &#x9700;&#x8981;&#x8F83;&#x9AD8;&#x7684;&#x7528;&#x6237;&#x6743;&#x9650;&#x3002;
+&#x5426;&#x5219;&#xFF0C;&#x8BBE;&#x7F6E;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x5C06;&#x4F1A;&#x88AB;&#x9759;&#x9ED8;&#x5730;&#x964D;&#x4F4E;&#x4E3A; <code>PRIORITY_HIGH</code>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v10.10.0</span>
+</div><ul>
+<li><code>pid</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> The process ID to set scheduling priority for.
+<strong>Default</strong> <code>0</code>.</li>
+<li><code>priority</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> The scheduling priority to assign to the process.</li>
+</ul><p>Attempts to set the scheduling priority for the process specified by <code>pid</code>. If
+<code>pid</code> is not provided or is <code>0</code>, the process ID of the current process is used.</p><p>The <code>priority</code> input must be an integer between <code>-20</code> (high priority) and <code>19</code>
+(low priority). Due to differences between Unix priority levels and Windows
+priority classes, <code>priority</code> is mapped to one of six priority constants in
+<code>os.constants.priority</code>. When retrieving a process priority level, this range
+mapping may cause the return value to be slightly different on Windows. To avoid
+confusion, set <code>priority</code> to one of the priority constants.</p><p>On Windows, setting priority to <code>PRIORITY_HIGHEST</code> requires elevated user
+privileges. Otherwise the set priority will be silently reduced to
+<code>PRIORITY_HIGH</code>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/os/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756318967"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>双工流的例子 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324284" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-stream">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>双工流的例子</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../stream.html#stream_an_example_duplex_stream" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/stream/an_example_duplex_stream.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x4E0B;&#x9762;&#x4E3E;&#x4F8B;&#x8BF4;&#x660E;&#x4E86;&#x4E00;&#x4E2A;&#x53CC;&#x5DE5;&#x6D41;&#x7684;&#x7B80;&#x5355;&#x793A;&#x4F8B;&#xFF0C;&#x5B83;&#x5C01;&#x88C5;&#x4E86;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x5199;&#x5165;&#x6570;&#x636E;&#x7684;&#x5047;&#x8BBE;&#x7684;&#x5E95;&#x5C42;&#x6E90;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x4ECE;&#x4E2D;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#xFF0C;&#x5C3D;&#x7BA1;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x4E0E; Node.js &#x6D41;&#x4E0D;&#x517C;&#x5BB9;&#x7684; API&#x3002;
+&#x4E0B;&#x9762;&#x4E3E;&#x4F8B;&#x4E86;&#x4E00;&#x4E2A;&#x53CC;&#x5DE5;&#x6D41;&#x7684;&#x7B80;&#x5355;&#x793A;&#x4F8B;&#xFF0C;&#x5B83;&#x901A;&#x8FC7;&#x53EF;&#x8BFB;&#x6D41;&#x63A5;&#x53E3;&#x8BFB;&#x56DE;&#x53EF;&#x5199;&#x6D41;&#x63A5;&#x53E3;&#x7684; buffer &#x4F20;&#x5165;&#x7684;&#x5199;&#x5165;&#x6570;&#x636E;&#x3002;</p><pre><code class="language-js">const { Duplex } = require(&apos;stream&apos;);
+const kSource = Symbol(&apos;source&apos;);
+
+class MyDuplex extends Duplex {
+  constructor(source, options) {
+    super(options);
+    this[kSource] = source;
+  }
+
+  _write(chunk, encoding, callback) {
+    // &#x5E95;&#x5C42;&#x8D44;&#x6E90;&#x53EA;&#x5904;&#x7406;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+    if (Buffer.isBuffer(chunk))
+      chunk = chunk.toString();
+    this[kSource].writeSomeData(chunk);
+    callback();
+  }
+
+  _read(size) {
+    this[kSource].fetchSomeData(size, (data, encoding) =&gt; {
+      this.push(Buffer.from(data, encoding));
+    });
+  }
+}
+</code></pre><p>&#x53CC;&#x5DE5;&#x6D41;&#x6700;&#x91CD;&#x8981;&#x7684;&#x65B9;&#x9762;&#x662F;&#xFF0C;&#x53EF;&#x8BFB;&#x7AEF;&#x548C;&#x53EF;&#x5199;&#x7AEF;&#x76F8;&#x4E92;&#x72EC;&#x7ACB;&#x4E8E;&#x5F7C;&#x6B64;&#x5730;&#x5171;&#x5B58;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x4E2D;&#x3002;</p></div>
+          <div id="content_right"><p>The following illustrates a simple example of a <code>Duplex</code> stream that wraps a
+hypothetical lower-level source object to which data can be written, and
+from which data can be read, albeit using an API that is not compatible with
+Node.js streams.
+The following illustrates a simple example of a <code>Duplex</code> stream that buffers
+incoming written data via the <a href="http://nodejs.cn/s/9JUnJ8" rel="nofollow"><code>Writable</code></a> interface that is read back out
+via the <a href="http://nodejs.cn/s/YuDKX1" rel="nofollow"><code>Readable</code></a> interface.</p><pre><code class="language-js">const { Duplex } = require(&apos;stream&apos;);
+const kSource = Symbol(&apos;source&apos;);
+
+class MyDuplex extends Duplex {
+  constructor(source, options) {
+    super(options);
+    this[kSource] = source;
+  }
+
+  _write(chunk, encoding, callback) {
+    // The underlying source only deals with strings.
+    if (Buffer.isBuffer(chunk))
+      chunk = chunk.toString();
+    this[kSource].writeSomeData(chunk);
+    callback();
+  }
+
+  _read(size) {
+    this[kSource].fetchSomeData(size, (data, encoding) =&gt; {
+      this.push(Buffer.from(data, encoding));
+    });
+  }
+}
+</code></pre><p>The most important aspect of a <code>Duplex</code> stream is that the <code>Readable</code> and
+<code>Writable</code> sides operate independently of one another despite co-existing within
+a single object instance.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324284"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>v8.getHeapSnapshot() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/v8/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756329155" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-v8">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>v8.getHeapSnapshot()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../v8.html#v8_v8_getheapsnapshot" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/v8/v8_getheapsnapshot.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v11.13.0</span>
+</div><ul>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/YuDKX1" target="_blank" rel="nofollow" class="type">&lt;stream.Readable&gt;</a> &#x5305;&#x542B; V8 &#x5806;&#x5FEB;&#x7167;&#x7684;&#x53EF;&#x8BFB;&#x6D41;&#x3002;</li>
+</ul><p>&#x751F;&#x6210;&#x5F53;&#x524D; V8 &#x5806;&#x7684;&#x5FEB;&#x7167;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x53EF;&#x8BFB;&#x6D41;&#xFF0C;&#x8BE5;&#x53EF;&#x8BFB;&#x6D41;&#x53EF;&#x7528;&#x4E8E;&#x8BFB;&#x53D6; JSON &#x5E8F;&#x5217;&#x5316;&#x8868;&#x793A;&#x3002;
+&#x6B64; JSON &#x6D41;&#x683C;&#x5F0F;&#x65E8;&#x5728;&#x4E0E; Chrome DevTools &#x7B49;&#x5DE5;&#x5177;&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#x3002;
+JSON &#x6A21;&#x5F0F;&#x672A;&#x8BB0;&#x5F55;&#x4E14;&#x7279;&#x5B9A;&#x4E8E;V8&#x5F15;&#x64CE;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x80FD;&#x4ECE; V8 &#x7684;&#x4E00;&#x4E2A;&#x7248;&#x672C;&#x66F4;&#x6539;&#x4E3A;&#x4E0B;&#x4E00;&#x4E2A;&#x7248;&#x672C;&#x3002;</p><pre><code class="language-js">const stream = v8.getHeapSnapshot();
+stream.pipe(process.stdout);
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v11.13.0</span>
+</div><ul>
+<li>Returns: <a href="http://nodejs.cn/s/YuDKX1" target="_blank" rel="nofollow" class="type">&lt;stream.Readable&gt;</a> A Readable Stream containing the V8 heap snapshot</li>
+</ul><p>Generates a snapshot of the current V8 heap and returns a Readable
+Stream that may be used to read the JSON serialized representation.
+This JSON stream format is intended to be used with tools such as
+Chrome DevTools. The JSON schema is undocumented and specific to the
+V8 engine, and may change from one version of V8 to the next.</p><pre><code class="language-js">const stream = v8.getHeapSnapshot();
+stream.pipe(process.stdout);
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/v8/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756329155"><\/script>');
+  </script>
+</body>
+</html>

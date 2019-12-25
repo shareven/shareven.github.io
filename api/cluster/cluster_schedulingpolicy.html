@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>cluster.schedulingPolicy | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/cluster/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756297805" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-cluster">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>cluster.schedulingPolicy</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../cluster.html#cluster_cluster_schedulingpolicy" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/cluster/cluster_schedulingpolicy.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.2</span>
+</div><p>&#x8C03;&#x5EA6;&#x7B56;&#x7565;&#xFF0C;&#x5305;&#x62EC;&#x5FAA;&#x73AF;&#x8BA1;&#x6570;&#x7684; <code>cluster.SCHED_RR</code>&#xFF0C;&#x4EE5;&#x53CA;&#x7531;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x51B3;&#x5B9A;&#x7684; <code>cluster.SCHED_NONE</code>&#x3002;
+&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x8BBE;&#x7F6E;&#xFF0C;&#x5F53;&#x7B2C;&#x4E00;&#x4E2A;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x88AB;&#x884D;&#x751F;&#x6216;&#x8005;&#x8C03;&#x7528; <a href="http://nodejs.cn/s/N5ksoZ" rel="nofollow"><code>.setupMaster()</code></a> &#x65F6;&#xFF0C;&#x90FD;&#x5C06;&#x7B2C;&#x4E00;&#x65F6;&#x95F4;&#x751F;&#x6548;&#x3002;</p><p>&#x9664; Windows &#x5916;&#x7684;&#x6240;&#x6709;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C; <code>SCHED_RR</code> &#x90FD;&#x662F;&#x9ED8;&#x8BA4;&#x8BBE;&#x7F6E;&#x3002;
+&#x53EA;&#x8981; libuv &#x53EF;&#x4EE5;&#x6709;&#x6548;&#x5730;&#x5206;&#x53D1; IOCP &#x53E5;&#x67C4;&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x5BFC;&#x81F4;&#x4E25;&#x91CD;&#x7684;&#x6027;&#x80FD;&#x51B2;&#x51FB;&#x7684;&#x8BDD;&#xFF0C;Windows &#x7CFB;&#x7EDF;&#x4E5F;&#x4F1A;&#x66F4;&#x6539;&#x4E3A; <code>SCHED_RR</code>&#x3002;</p><p><code>cluster.schedulingPolicy</code> &#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E; <code>NODE_CLUSTER_SCHED_POLICY</code> &#x73AF;&#x5883;&#x53D8;&#x91CF;&#x6765;&#x5B9E;&#x73B0;&#x3002;
+&#x8FD9;&#x4E2A;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x7684;&#x6709;&#x6548;&#x503C;&#x5305;&#x62EC; <code>&apos;rr&apos;</code> &#x548C; <code>&apos;none&apos;</code>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.11.2</span>
+</div><p>The scheduling policy, either <code>cluster.SCHED_RR</code> for round-robin or
+<code>cluster.SCHED_NONE</code> to leave it to the operating system. This is a
+global setting and effectively frozen once either the first worker is spawned,
+or <a href="cluster_schedulingpolicy.html#cluster_cluster_setupmaster_settings" rel="nofollow"><code>.setupMaster()</code></a> is called, whichever comes first.</p><p><code>SCHED_RR</code> is the default on all operating systems except Windows.
+Windows will change to <code>SCHED_RR</code> once libuv is able to effectively
+distribute IOCP handles without incurring a large performance hit.</p><p><code>cluster.schedulingPolicy</code> can also be set through the
+<code>NODE_CLUSTER_SCHED_POLICY</code> environment variable. Valid
+values are <code>&apos;rr&apos;</code> and <code>&apos;none&apos;</code>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/cluster/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756297805"><\/script>');
+  </script>
+</body>
+</html>

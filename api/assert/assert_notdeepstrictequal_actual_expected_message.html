@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>assert.notDeepStrictEqual(actual, expected[, message]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/assert/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756292575" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-assert">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>assert.notDeepStrictEqual(actual, expected[, message])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../assert.html#assert_assert_notdeepstrictequal_actual_expected_message" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/assert/assert_notdeepstrictequal_actual_expected_message.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v9.0.0</td>
+<td><p>The <code>-0</code> and <code>+0</code> are not considered equal anymore.</p></td></tr>
+<tr><td>v9.0.0</td>
+<td><p>The <code>NaN</code> is now compared using the <a href="https://tc39.github.io/ecma262/#sec-samevaluezero">SameValueZero</a> comparison.</p></td></tr>
+<tr><td>v9.0.0</td>
+<td><p>The <code>Error</code> names and messages are now properly compared</p></td></tr>
+<tr><td>v8.0.0</td>
+<td><p>The <code>Set</code> and <code>Map</code> content is also compared</p></td></tr>
+<tr><td>v6.4.0, v4.7.1</td>
+<td><p>Typed array slices are handled correctly now.</p></td></tr>
+<tr><td>v6.1.0</td>
+<td><p>Objects with circular references can be used as inputs now.</p></td></tr>
+<tr><td>v5.10.1, v4.4.3</td>
+<td><p>Handle non-<code>Uint8Array</code> typed arrays correctly.</p></td></tr>
+<tr><td>v1.2.0</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v1.2.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>actual</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>expected</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>message</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+</ul><p>&#x6D4B;&#x8BD5;&#x6DF1;&#x5EA6;&#x4E25;&#x683C;&#x7684;&#x4E0D;&#x5E73;&#x7B49;&#x3002;
+&#x4E0E; <a href="http://nodejs.cn/s/PPMrJo" rel="nofollow"><code>assert.deepStrictEqual()</code></a> &#x76F8;&#x53CD;&#x3002;</p><pre><code class="language-js">const assert = require(&apos;assert&apos;).strict;
+
+assert.notDeepStrictEqual({ a: 1 }, { a: &apos;1&apos; });
+// &#x901A;&#x8FC7;&#x3002;
+</code></pre><p>&#x5982;&#x679C;&#x503C;&#x6DF1;&#x5EA6;&#x4E14;&#x4E25;&#x683C;&#x76F8;&#x7B49;&#xFF0C;&#x5219;&#x629B;&#x51FA; <code>AssertionError</code>&#xFF0C;&#x5E76;&#x5C06; <code>message</code> &#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x4E3A;&#x7B49;&#x4E8E; <code>message</code> &#x53C2;&#x6570;&#x7684;&#x503C;&#x3002;
+&#x5982;&#x679C;&#x672A;&#x5B9A;&#x4E49; <code>message</code> &#x53C2;&#x6570;&#xFF0C;&#x5219;&#x4F1A;&#x5206;&#x914D;&#x9ED8;&#x8BA4;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x3002;
+&#x5982;&#x679C; <code>message</code> &#x53C2;&#x6570;&#x662F; <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> &#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x5219;&#x5B83;&#x5C06;&#x88AB;&#x629B;&#x51FA;&#x800C;&#x4E0D;&#x662F; <code>AssertionError</code>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v9.0.0</td>
+<td><p>The <code>-0</code> and <code>+0</code> are not considered equal anymore.</p></td></tr>
+<tr><td>v9.0.0</td>
+<td><p>The <code>NaN</code> is now compared using the <a href="https://tc39.github.io/ecma262/#sec-samevaluezero" rel="nofollow">SameValueZero</a> comparison.</p></td></tr>
+<tr><td>v9.0.0</td>
+<td><p>The <code>Error</code> names and messages are now properly compared</p></td></tr>
+<tr><td>v8.0.0</td>
+<td><p>The <code>Set</code> and <code>Map</code> content is also compared</p></td></tr>
+<tr><td>v6.4.0, v4.7.1</td>
+<td><p>Typed array slices are handled correctly now.</p></td></tr>
+<tr><td>v6.1.0</td>
+<td><p>Objects with circular references can be used as inputs now.</p></td></tr>
+<tr><td>v5.10.1, v4.4.3</td>
+<td><p>Handle non-<code>Uint8Array</code> typed arrays correctly.</p></td></tr>
+<tr><td>v1.2.0</td>
+<td><p><span>Added in: v1.2.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>actual</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>expected</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>message</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+</ul><p>Tests for deep strict inequality. Opposite of <a href="http://nodejs.cn/s/PPMrJo" rel="nofollow"><code>assert.deepStrictEqual()</code></a>.</p><pre><code class="language-js">const assert = require(&apos;assert&apos;).strict;
+
+assert.notDeepStrictEqual({ a: 1 }, { a: &apos;1&apos; });
+// OK
+</code></pre><p>If the values are deeply and strictly equal, an <code>AssertionError</code> is thrown with
+a <code>message</code> property set equal to the value of the <code>message</code> parameter. If the
+<code>message</code> parameter is undefined, a default error message is assigned. If the
+<code>message</code> parameter is an instance of an <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> then it will be thrown
+instead of the <code>AssertionError</code>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/assert/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756292575"><\/script>');
+  </script>
+</body>
+</html>

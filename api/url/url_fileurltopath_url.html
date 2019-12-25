@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>url.fileURLToPath(url) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/url/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756327616" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-url">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>url.fileURLToPath(url)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../url.html#url_url_fileurltopath_url" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/url/url_fileurltopath_url.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.12.0</span>
+</div><ul>
+<li><code>url</code> <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x8981;&#x8F6C;&#x6362;&#x4E3A;&#x8DEF;&#x5F84;&#x7684;&#x6587;&#x4EF6; URL &#x5B57;&#x7B26;&#x4E32;&#x6216;&#x8005; URL &#x5BF9;&#x8C61;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5B8C;&#x5168;&#x89E3;&#x6790;&#x7684;&#x5E73;&#x53F0;&#x7279;&#x5B9A;&#x7684; Node.js &#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x3002;</li>
+</ul><p>&#x6B64;&#x65B9;&#x6CD5;&#x4FDD;&#x8BC1;&#x767E;&#x5206;&#x53F7;&#x7F16;&#x7801;&#x5B57;&#x7B26;&#x89E3;&#x7801;&#x7ED3;&#x679C;&#x7684;&#x6B63;&#x786E;&#x6027;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x786E;&#x4FDD;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x5B57;&#x7B26;&#x4E32;&#x5728;&#x4E0D;&#x540C;&#x5E73;&#x53F0;&#x4E0B;&#x7684;&#x6709;&#x6548;&#x6027;&#x3002;</p><pre><code class="language-js">new URL(&apos;file:///C:/path/&apos;).pathname;    // &#x9519;&#x8BEF;: /C:/path/
+fileURLToPath(&apos;file:///C:/path/&apos;);       // &#x6B63;&#x786E;: C:\path\ (Windows)
+
+new URL(&apos;file://nas/foo.txt&apos;).pathname;  // &#x9519;&#x8BEF;: /foo.txt
+fileURLToPath(&apos;file://nas/foo.txt&apos;);     // &#x6B63;&#x786E;: \\nas\foo.txt (Windows)
+
+new URL(&apos;file:///&#x4F60;&#x597D;.txt&apos;).pathname;    // &#x9519;&#x8BEF;: /%E4%BD%A0%E5%A5%BD.txt
+fileURLToPath(&apos;file:///&#x4F60;&#x597D;.txt&apos;);       // &#x6B63;&#x786E;: /&#x4F60;&#x597D;.txt (POSIX)
+
+new URL(&apos;file:///hello world&apos;).pathname; // &#x9519;&#x8BEF;: /hello%20world
+fileURLToPath(&apos;file:///hello world&apos;);    // &#x6B63;&#x786E;: /hello world (POSIX)
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v10.12.0</span>
+</div><ul>
+<li><code>url</code> <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> The file URL string or URL object to convert to a path.</li>
+<li>Returns: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> The fully-resolved platform-specific Node.js file path.</li>
+</ul><p>This function ensures the correct decodings of percent-encoded characters as
+well as ensuring a cross-platform valid absolute path string.</p><pre><code class="language-js">new URL(&apos;file:///C:/path/&apos;).pathname;    // Incorrect: /C:/path/
+fileURLToPath(&apos;file:///C:/path/&apos;);       // Correct:   C:\path\ (Windows)
+
+new URL(&apos;file://nas/foo.txt&apos;).pathname;  // Incorrect: /foo.txt
+fileURLToPath(&apos;file://nas/foo.txt&apos;);     // Correct:   \\nas\foo.txt (Windows)
+
+new URL(&apos;file:///&#x4F60;&#x597D;.txt&apos;).pathname;    // Incorrect: /%E4%BD%A0%E5%A5%BD.txt
+fileURLToPath(&apos;file:///&#x4F60;&#x597D;.txt&apos;);       // Correct:   /&#x4F60;&#x597D;.txt (POSIX)
+
+new URL(&apos;file:///hello world&apos;).pathname; // Incorrect: /hello%20world
+fileURLToPath(&apos;file:///hello world&apos;);    // Correct:   /hello world (POSIX)
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/url/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756327616"><\/script>');
+  </script>
+</body>
+</html>

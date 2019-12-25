@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'fork' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/cluster/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756297777" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-cluster">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'fork' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../cluster.html#cluster_event_fork" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/cluster/event_fork.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.0</span>
+</div><ul>
+<li><code>worker</code> <a href="http://nodejs.cn/s/uD6sLj" target="_blank" rel="nofollow" class="type">&lt;cluster.Worker&gt;</a></li>
+</ul><p>&#x5F53;&#x65B0;&#x7684;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x88AB;&#x884D;&#x751F;&#x65F6;&#xFF0C;cluster &#x6A21;&#x5757;&#x5C06;&#x4F1A;&#x89E6;&#x53D1; <code>&apos;fork&apos;</code> &#x4E8B;&#x4EF6;&#x3002;
+&#x53EF;&#x4EE5;&#x88AB;&#x7528;&#x6765;&#x8BB0;&#x5F55;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x6D3B;&#x52A8;&#xFF0C;&#x5E76;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x8D85;&#x65F6;&#x3002;</p><pre><code class="language-js">const timeouts = [];
+function errorMsg() {
+  console.error(&apos;&#x8FDE;&#x63A5;&#x51FA;&#x9519;&apos;);
+}
+
+cluster.on(&apos;fork&apos;, (worker) =&gt; {
+  timeouts[worker.id] = setTimeout(errorMsg, 2000);
+});
+cluster.on(&apos;listening&apos;, (worker, address) =&gt; {
+  clearTimeout(timeouts[worker.id]);
+});
+cluster.on(&apos;exit&apos;, (worker, code, signal) =&gt; {
+  clearTimeout(timeouts[worker.id]);
+  errorMsg();
+});
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.7.0</span>
+</div><ul>
+<li><code>worker</code> <a href="http://nodejs.cn/s/uD6sLj" target="_blank" rel="nofollow" class="type">&lt;cluster.Worker&gt;</a></li>
+</ul><p>When a new worker is forked the cluster module will emit a <code>&apos;fork&apos;</code> event.
+This can be used to log worker activity, and create a custom timeout.</p><pre><code class="language-js">const timeouts = [];
+function errorMsg() {
+  console.error(&apos;Something must be wrong with the connection ...&apos;);
+}
+
+cluster.on(&apos;fork&apos;, (worker) =&gt; {
+  timeouts[worker.id] = setTimeout(errorMsg, 2000);
+});
+cluster.on(&apos;listening&apos;, (worker, address) =&gt; {
+  clearTimeout(timeouts[worker.id]);
+});
+cluster.on(&apos;exit&apos;, (worker, code, signal) =&gt; {
+  clearTimeout(timeouts[worker.id]);
+  errorMsg();
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/cluster/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756297777"><\/script>');
+  </script>
+</body>
+</html>

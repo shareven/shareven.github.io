@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>new Worker(filename[, options]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/worker_threads/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756330251" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-worker_threads">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>new Worker(filename[, options])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../worker_threads.html#worker_threads_new_worker_filename_options" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/new_worker_filename_options.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><ul>
+<li><code>filename</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x4E3B;&#x811A;&#x672C;&#x7684;&#x8DEF;&#x5F84;&#x3002;&#x5FC5;&#x987B;&#x662F;&#x4EE5; <code>./</code> &#x6216; <code>../</code> &#x5F00;&#x5934;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x6216;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#xFF08;&#x5373;&#x76F8;&#x5BF9;&#x4E8E;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#xFF09;&#x3002;
+&#x5982;&#x679C; <code>options.eval</code> &#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x5305;&#x542B; JavaScript &#x4EE3;&#x7801;&#x800C;&#x4E0D;&#x662F;&#x8DEF;&#x5F84;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;</li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>env</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> &#x5982;&#x679C;&#x8BBE;&#x7F6E;&#xFF0C;&#x5219;&#x6307;&#x5B9A;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x4E2D; <code>process.env</code> &#x7684;&#x521D;&#x59CB;&#x503C;&#x3002;
+&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x503C;&#xFF0C;<a href="http://nodejs.cn/s/n2nUmb" rel="nofollow"><code>worker.SHARE_ENV</code></a> &#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x7236;&#x7EBF;&#x7A0B;&#x548C;&#x5B50;&#x7EBF;&#x7A0B;&#x5E94;&#x8BE5;&#x5171;&#x4EAB;&#x5B83;&#x4EEC;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x3002;
+&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5BF9;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x7684; <code>process.env</code> &#x5BF9;&#x8C61;&#x7684;&#x66F4;&#x6539;&#x4E5F;&#x4F1A;&#x5F71;&#x54CD;&#x53E6;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x3002;
+<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>process.env</code>&#x3002;</li>
+<li><code>eval</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5982;&#x679C;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x5C06;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x89E3;&#x91CA;&#x4E3A;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x8054;&#x673A;&#x540E;&#x6267;&#x884C;&#x7684;&#x811A;&#x672C;&#x3002;</li>
+<li><code>execArgv</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string[]&gt;</a> &#x4F20;&#x9012;&#x7ED9;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x7684; node CLI &#x9009;&#x9879;&#x7684;&#x5217;&#x8868;&#x3002;
+ &#x4E0D;&#x652F;&#x6301; V8 &#x9009;&#x9879;&#xFF08;&#x4F8B;&#x5982; <code>--max-old-space-size</code>&#xFF09;&#x548C;&#x5F71;&#x54CD;&#x8FDB;&#x7A0B;&#x7684;&#x9009;&#x9879;&#xFF08;&#x4F8B;&#x5982; <code>--title</code>&#xFF09;&#x3002;
+&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#xFF0C;&#x5219;&#x5B83;&#x5C06;&#x4F1A;&#x4F5C;&#x4E3A;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x5185;&#x90E8;&#x7684; <a href="http://nodejs.cn/s/WvEcDG" rel="nofollow"><code>process.execArgv</code></a> &#x63D0;&#x4F9B;&#x3002;
+&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x9009;&#x9879;&#x5C06;&#x4F1A;&#x4ECE;&#x7236;&#x7EBF;&#x7A0B;&#x7EE7;&#x627F;&#x3002;</li>
+<li><code>stdin</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5982;&#x679C;&#x5C06;&#x5176;&#x8BBE;&#x7F6E;&#x4E3A; <code>true</code>&#xFF0C;&#x5219; <code>worker.stdin</code> &#x5C06;&#x4F1A;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x53EF;&#x5199;&#x6D41;&#xFF0C;&#x5176;&#x5185;&#x5BB9;&#x5C06;&#x4F1A;&#x5728;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x4E2D;&#x4EE5; <code>process.stdin</code> &#x51FA;&#x73B0;&#x3002;
+&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4E0D;&#x63D0;&#x4F9B;&#x4EFB;&#x4F55;&#x6570;&#x636E;&#x3002;</li>
+<li><code>stdout</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5982;&#x679C;&#x5C06;&#x5176;&#x8BBE;&#x7F6E;&#x4E3A; <code>true</code>&#xFF0C;&#x5219; <code>worker.stdout</code> &#x5C06;&#x4E0D;&#x4F1A;&#x81EA;&#x52A8;&#x5730;&#x901A;&#x8FC7;&#x7BA1;&#x9053;&#x4F20;&#x9012;&#x5230;&#x7236;&#x7EBF;&#x7A0B;&#x4E2D;&#x7684; <code>process.stdout</code>&#x3002;</li>
+<li><code>stderr</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5982;&#x679C;&#x5C06;&#x5176;&#x8BBE;&#x7F6E;&#x4E3A; <code>true</code>&#xFF0C;&#x5219; <code>worker.stderr</code> &#x5C06;&#x4E0D;&#x4F1A;&#x81EA;&#x52A8;&#x5730;&#x901A;&#x8FC7;&#x7BA1;&#x9053;&#x4F20;&#x9012;&#x5230;&#x7236;&#x7EBF;&#x7A0B;&#x4E2D;&#x7684; <code>process.stderr</code>&#x3002;</li>
+<li><code>workerData</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> &#x80FD;&#x88AB;&#x514B;&#x9686;&#x5E76;&#x4F5C;&#x4E3A; <a href="http://nodejs.cn/s/SeSr3Z" rel="nofollow"><code>require(&apos;worker_threads&apos;).workerData</code></a> &#x7684;&#x4EFB;&#x4F55; JavaScript &#x503C;&#x3002;
+&#x514B;&#x9686;&#x5C06;&#x4F1A;&#x6309;&#x7167; <a href="http://nodejs.cn/s/SLsDHc" rel="nofollow">HTML &#x7ED3;&#x6784;&#x5316;&#x514B;&#x9686;&#x7B97;&#x6CD5;</a>&#x4E2D;&#x63CF;&#x8FF0;&#x7684;&#x8FDB;&#x884C;&#xFF0C;&#x5982;&#x679C;&#x5BF9;&#x8C61;&#x65E0;&#x6CD5;&#x88AB;&#x514B;&#x9686;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x5305;&#x542B; <code>function</code>&#xFF09;&#xFF0C;&#x5219;&#x4F1A;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x3002;</li>
+</ul>
+</li>
+</ul></div>
+          <div id="content_right"><ul>
+<li><code>filename</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> The path to the Worker&#x2019;s main script. Must be
+either an absolute path or a relative path (i.e. relative to the
+current working directory) starting with <code>./</code> or <code>../</code>.
+If <code>options.eval</code> is <code>true</code>, this is a string containing JavaScript code
+rather than a path.</li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>env</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> If set, specifies the initial value of <code>process.env</code> inside
+the Worker thread. As a special value, <a href="http://nodejs.cn/s/n2nUmb" rel="nofollow"><code>worker.SHARE_ENV</code></a> may be used
+to specify that the parent thread and the child thread should share their
+environment variables; in that case, changes to one thread&#x2019;s <code>process.env</code>
+object will affect the other thread as well. <strong>Default:</strong> <code>process.env</code>.</li>
+<li><code>eval</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> If <code>true</code>, interpret the first argument to the constructor
+as a script that is executed once the worker is online.</li>
+<li><code>execArgv</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string[]&gt;</a> List of node CLI options passed to the worker.
+V8 options (such as <code>--max-old-space-size</code>) and options that affect the
+process (such as <code>--title</code>) are not supported. If set, this will be provided
+as <a href="http://nodejs.cn/s/WvEcDG" rel="nofollow"><code>process.execArgv</code></a> inside the worker. By default, options will be
+inherited from the parent thread.</li>
+<li><code>stdin</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> If this is set to <code>true</code>, then <code>worker.stdin</code> will
+provide a writable stream whose contents will appear as <code>process.stdin</code>
+inside the Worker. By default, no data is provided.</li>
+<li><code>stdout</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> If this is set to <code>true</code>, then <code>worker.stdout</code> will
+not automatically be piped through to <code>process.stdout</code> in the parent.</li>
+<li><code>stderr</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> If this is set to <code>true</code>, then <code>worker.stderr</code> will
+not automatically be piped through to <code>process.stderr</code> in the parent.</li>
+<li><code>workerData</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> Any JavaScript value that will be cloned and made
+available as <a href="http://nodejs.cn/s/SeSr3Z" rel="nofollow"><code>require(&apos;worker_threads&apos;).workerData</code></a>. The cloning will
+occur as described in the <a href="http://nodejs.cn/s/SLsDHc" rel="nofollow">HTML structured clone algorithm</a>, and an error
+will be thrown if the object cannot be cloned (e.g. because it contains
+<code>function</code>s).</li>
+</ul>
+</li>
+</ul></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/worker_threads/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756330251"><\/script>');
+  </script>
+</body>
+</html>

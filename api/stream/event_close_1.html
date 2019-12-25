@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'close' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324156" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-stream">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'close' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../stream.html#stream_event_close_1" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/stream/event_close_1.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.4</span>
+</div><p>&#x5F53;&#x6D41;&#x6216;&#x5176;&#x5E95;&#x5C42;&#x8D44;&#x6E90;&#xFF08;&#x6BD4;&#x5982;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#xFF09;&#x88AB;&#x5173;&#x95ED;&#x65F6;&#x89E6;&#x53D1; <code>&apos;close&apos;</code> &#x4E8B;&#x4EF6;&#x3002;
+&#x8BE5;&#x4E8B;&#x4EF6;&#x8868;&#x660E;&#x4E0D;&#x4F1A;&#x518D;&#x89E6;&#x53D1;&#x5176;&#x4ED6;&#x4E8B;&#x4EF6;&#xFF0C;&#x4E5F;&#x4E0D;&#x4F1A;&#x518D;&#x53D1;&#x751F;&#x64CD;&#x4F5C;&#x3002;</p><p>&#x5982;&#x679C;&#x4F7F;&#x7528; <code>emitClose</code> &#x9009;&#x9879;&#x521B;&#x5EFA;<a href="http://nodejs.cn/s/YuDKX1" rel="nofollow">&#x53EF;&#x8BFB;&#x6D41;</a>&#xFF0C;&#x5219;&#x5B83;&#x5C06;&#x4F1A;&#x59CB;&#x7EC8;&#x53D1;&#x51FA; <code>&apos;close&apos;</code> &#x4E8B;&#x4EF6;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>Add <code>emitClose</code> option to specify if <code>&apos;close&apos;</code> is emitted on destroy.</p></td></tr>
+<tr><td>v0.9.4</td>
+<td><p><span>Added in: v0.9.4</span></p></td></tr>
+</tbody></table>
+</details>
+</div><p>The <code>&apos;close&apos;</code> event is emitted when the stream and any of its underlying
+resources (a file descriptor, for example) have been closed. The event indicates
+that no more events will be emitted, and no further computation will occur.</p><p>A <a href="http://nodejs.cn/s/YuDKX1" rel="nofollow"><code>Readable</code></a> stream will always emit the <code>&apos;close&apos;</code> event if it is
+created with the <code>emitClose</code> option.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324156"><\/script>');
+  </script>
+</body>
+</html>

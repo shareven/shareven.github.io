@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'pause' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/readline/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756322219" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-readline">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'pause' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../readline.html#readline_event_pause" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/readline/event_pause.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.5</span>
+</div><p>&#x5F53;&#x53D1;&#x751F;&#x4EE5;&#x4E0B;&#x4EFB;&#x4E00;&#x60C5;&#x51B5;&#x65F6;&#x4F1A;&#x89E6;&#x53D1; <code>&apos;pause&apos;</code> &#x4E8B;&#x4EF6;&#xFF1A;</p><ul>
+<li><code>input</code> &#x6D41;&#x88AB;&#x6682;&#x505C;&#x3002;</li>
+<li><code>input</code> &#x6D41;&#x672A;&#x6682;&#x505C;&#xFF0C;&#x4E14;&#x63A5;&#x6536;&#x5230; <code>&apos;SIGCONT&apos;</code> &#x4E8B;&#x4EF6;&#x3002;&#xFF08;&#x53C2;&#x9605; <a href="http://nodejs.cn/s/b1RfF8" rel="nofollow"><code>&apos;SIGTSTP&apos;</code></a> &#x4E8B;&#x4EF6;&#x548C; <a href="http://nodejs.cn/s/SRVEpH" rel="nofollow"><code>&apos;SIGCONT&apos;</code></a> &#x4E8B;&#x4EF6;&#xFF09;</li>
+</ul><p>&#x8C03;&#x7528;&#x76D1;&#x542C;&#x5668;&#x51FD;&#x6570;&#x65F6;&#x4E0D;&#x4F20;&#x5165;&#x4EFB;&#x4F55;&#x53C2;&#x6570;&#x3002;</p><pre><code class="language-js">rl.on(&apos;pause&apos;, () =&gt; {
+  console.log(&apos;Readline &#x6682;&#x505C;&apos;);
+});
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.7.5</span>
+</div><p>The <code>&apos;pause&apos;</code> event is emitted when one of the following occur:</p><ul>
+<li>The <code>input</code> stream is paused.</li>
+<li>The <code>input</code> stream is not paused and receives the <code>&apos;SIGCONT&apos;</code> event. (See
+events <a href="http://nodejs.cn/s/b1RfF8" rel="nofollow"><code>&apos;SIGTSTP&apos;</code></a> and <a href="http://nodejs.cn/s/SRVEpH" rel="nofollow"><code>&apos;SIGCONT&apos;</code></a>.)</li>
+</ul><p>The listener function is called without passing any arguments.</p><pre><code class="language-js">rl.on(&apos;pause&apos;, () =&gt; {
+  console.log(&apos;Readline paused.&apos;);
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/readline/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756322219"><\/script>');
+  </script>
+</body>
+</html>

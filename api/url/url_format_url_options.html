@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>url.format(URL[, options]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/url/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756327619" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-url">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>url.format(URL[, options])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../url.html#url_url_format_url_options" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/url/url_format_url_options.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v7.6.0</span>
+</div><ul>
+<li><code>URL</code> <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a> <a href="http://nodejs.cn/s/5dwq7G" rel="nofollow">WHATWG URL</a> &#x5BF9;&#x8C61;&#x3002;</li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>auth</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5982;&#x679C;&#x5E8F;&#x5217;&#x5316;&#x7684; URL &#x5B57;&#x7B26;&#x4E32;&#x5E94;&#x8BE5;&#x5305;&#x542B;&#x7528;&#x6237;&#x540D;&#x548C;&#x5BC6;&#x7801;&#x5219;&#x4E3A; <code>true</code>&#xFF0C;&#x5426;&#x5219;&#x4E3A; <code>false</code>&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>true</code>&#x3002;</li>
+<li><code>fragment</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5982;&#x679C;&#x5E8F;&#x5217;&#x5316;&#x7684; URL &#x5B57;&#x7B26;&#x4E32;&#x5E94;&#x8BE5;&#x5305;&#x542B;&#x5206;&#x6BB5;&#x5219;&#x4E3A; <code>true</code>&#xFF0C;&#x5426;&#x5219;&#x4E3A; <code>false</code>&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>true</code>&#x3002;</li>
+<li><code>search</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5982;&#x679C;&#x5E8F;&#x5217;&#x5316;&#x7684; URL &#x5B57;&#x7B26;&#x4E32;&#x5E94;&#x8BE5;&#x5305;&#x542B;&#x641C;&#x7D22;&#x67E5;&#x8BE2;&#x5219;&#x4E3A; <code>true</code>&#xFF0C;&#x5426;&#x5219;&#x4E3A; <code>false</code>&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>true</code>&#x3002;</li>
+<li><code>unicode</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5982;&#x679C;&#x51FA;&#x73B0;&#x5728; URL &#x5B57;&#x7B26;&#x4E32;&#x4E3B;&#x673A;&#x5143;&#x7D20;&#x91CC;&#x7684; Unicode &#x5B57;&#x7B26;&#x5E94;&#x8BE5;&#x88AB;&#x76F4;&#x63A5;&#x7F16;&#x7801;&#x800C;&#x4E0D;&#x662F;&#x4F7F;&#x7528; Punycode &#x7F16;&#x7801;&#x5219;&#x4E3A; <code>true</code>&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#x3002;</li>
+</ul>
+</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>&#x8FD4;&#x56DE;&#x4EE3;&#x8868; <a href="http://nodejs.cn/s/5dwq7G" rel="nofollow">WHATWG URL</a> &#x5BF9;&#x8C61;&#x7684;&#x53EF;&#x81EA;&#x5B9A;&#x4E49;&#x5E8F;&#x5217;&#x5316;&#x7684; URL <code>String</code>&#x3002;</p><p>&#x867D;&#x7136; URL &#x5BF9;&#x8C61;&#x7684; <code>toString()</code> &#x65B9;&#x6CD5;&#x548C; <code>href</code> &#x5C5E;&#x6027;&#x90FD;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE; URL &#x7684;&#x5E8F;&#x5217;&#x5316;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+&#x7136;&#x800C;&#xFF0C;&#x4E24;&#x8005;&#x90FD;&#x4E0D;&#x53EF;&#x4EE5;&#x88AB;&#x81EA;&#x5B9A;&#x4E49;&#x3002;
+&#x800C; <code>url.format(URL[, options])</code> &#x65B9;&#x6CD5;&#x5141;&#x8BB8;&#x8F93;&#x51FA;&#x7684;&#x57FA;&#x672C;&#x81EA;&#x5B9A;&#x4E49;&#x3002;</p><pre><code class="language-js">const myURL = new URL(&apos;https://a:b@&#x6E2C;&#x8A66;?abc#foo&apos;);
+
+console.log(myURL.href);
+// &#x6253;&#x5370; https://a:b@xn--g6w251d/?abc#foo
+
+console.log(myURL.toString());
+// &#x6253;&#x5370; https://a:b@xn--g6w251d/?abc#foo
+
+console.log(url.format(myURL, { fragment: false, unicode: true, auth: false }));
+// &#x6253;&#x5370; &apos;https://&#x6E2C;&#x8A66;/?abc&apos;
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v7.6.0</span>
+</div><ul>
+<li><code>URL</code> <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a> A <a href="http://nodejs.cn/s/5dwq7G" rel="nofollow">WHATWG URL</a> object</li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>auth</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <code>true</code> if the serialized URL string should include the
+username and password, <code>false</code> otherwise. <strong>Default:</strong> <code>true</code>.</li>
+<li><code>fragment</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <code>true</code> if the serialized URL string should include the
+fragment, <code>false</code> otherwise. <strong>Default:</strong> <code>true</code>.</li>
+<li><code>search</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <code>true</code> if the serialized URL string should include the
+search query, <code>false</code> otherwise. <strong>Default:</strong> <code>true</code>.</li>
+<li><code>unicode</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <code>true</code> if Unicode characters appearing in the host
+component of the URL string should be encoded directly as opposed to being
+Punycode encoded. <strong>Default:</strong> <code>false</code>.</li>
+</ul>
+</li>
+<li>Returns: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>Returns a customizable serialization of a URL <code>String</code> representation of a
+<a href="http://nodejs.cn/s/5dwq7G" rel="nofollow">WHATWG URL</a> object.</p><p>The URL object has both a <code>toString()</code> method and <code>href</code> property that return
+string serializations of the URL. These are not, however, customizable in
+any way. The <code>url.format(URL[, options])</code> method allows for basic customization
+of the output.</p><pre><code class="language-js">const myURL = new URL(&apos;https://a:b@&#x6E2C;&#x8A66;?abc#foo&apos;);
+
+console.log(myURL.href);
+// Prints https://a:b@xn--g6w251d/?abc#foo
+
+console.log(myURL.toString());
+// Prints https://a:b@xn--g6w251d/?abc#foo
+
+console.log(url.format(myURL, { fragment: false, unicode: true, auth: false }));
+// Prints &apos;https://&#x6E2C;&#x8A66;/?abc&apos;
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/url/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756327619"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replServer.displayPrompt([preserveCursor]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/repl/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756322728" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-repl">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>replServer.displayPrompt([preserveCursor])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../repl.html#repl_replserver_displayprompt_preservecursor" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/repl/replserver_displayprompt_preservecursor.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.91</span>
+</div><ul>
+<li><code>preserveCursor</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+</ul><p><code>replServer.displayPrompt()</code> &#x65B9;&#x6CD5;&#x4F1A;&#x8BA9; REPL &#x5B9E;&#x4F8B;&#x505A;&#x597D;&#x7528;&#x6237;&#x8F93;&#x5165;&#x7684;&#x51C6;&#x5907;&#xFF0C;&#x6253;&#x5370;&#x914D;&#x7F6E;&#x7684; <code>prompt</code> &#x5230; <code>output</code> &#x4E2D;&#x65B0;&#x7684;&#x4E00;&#x884C;&#xFF0C;&#x7136;&#x540E;&#x8FD4;&#x56DE; <code>input</code> &#x7B49;&#x5F85;&#x65B0;&#x7684;&#x8F93;&#x5165;&#x3002;</p><p>&#x5F53;&#x6B63;&#x5728;&#x952E;&#x5165;&#x591A;&#x884C;&#x8F93;&#x5165;&#x65F6;&#xFF0C;&#x4F1A;&#x6253;&#x5370;&#x7701;&#x7565;&#x53F7;&#x800C;&#x4E0D;&#x662F;&#x63D0;&#x793A;&#x7B26;&#x3002;</p><p>&#x5F53; <code>preserveCursor</code> &#x4E3A; <code>true</code> &#x65F6;&#xFF0C;&#x6E38;&#x6807;&#x4F4D;&#x7F6E;&#x4E0D;&#x4F1A;&#x88AB;&#x590D;&#x4F4D;&#x5230; <code>0</code>&#x3002;</p><p><code>replServer.displayPrompt</code> &#x65B9;&#x6CD5;&#x4E3B;&#x8981;&#x88AB;&#x4F7F;&#x7528; <code>replServer.defineCommand()</code> &#x65B9;&#x6CD5;&#x6CE8;&#x518C;&#x7684;&#x547D;&#x4EE4;&#x7684; <code>action</code> &#x51FD;&#x6570;&#x8C03;&#x7528;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.91</span>
+</div><ul>
+<li><code>preserveCursor</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+</ul><p>The <code>replServer.displayPrompt()</code> method readies the REPL instance for input
+from the user, printing the configured <code>prompt</code> to a new line in the <code>output</code>
+and resuming the <code>input</code> to accept new input.</p><p>When multi-line input is being entered, an ellipsis is printed rather than the
+&apos;prompt&apos;.</p><p>When <code>preserveCursor</code> is <code>true</code>, the cursor placement will not be reset to <code>0</code>.</p><p>The <code>replServer.displayPrompt</code> method is primarily intended to be called from
+within the action function for commands registered using the
+<code>replServer.defineCommand()</code> method.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/repl/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756322728"><\/script>');
+  </script>
+</body>
+</html>

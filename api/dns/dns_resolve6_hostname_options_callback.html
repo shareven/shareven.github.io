@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>dns.resolve6(hostname[, options], callback) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/dns/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756303227" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-dns">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>dns.resolve6(hostname[, options], callback)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../dns.html#dns_dns_resolve6_hostname_options_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/dns/dns_resolve6_hostname_options_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v7.2.0</td>
+<td><p>This method now supports passing <code>options</code>, specifically <code>options.ttl</code>.</p></td></tr>
+<tr><td>v0.1.16</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.16</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>hostname</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x9700;&#x8981;&#x89E3;&#x6790;&#x7684;&#x4E3B;&#x673A;&#x540D;&#x3002;</li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>ttl</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x8BB0;&#x5F55;&#x6BCF;&#x4E00;&#x6761;&#x8BB0;&#x5F55;&#x7684;&#x5B58;&#x6D3B;&#x6B21;&#x6570; (TTL)&#x3002;&#x5F53;&#x4E3A; <code>true</code> &#x65F6;&#xFF0C;&#x56DE;&#x8C03;&#x4F1A;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x5E26;&#x6709; TTL &#x79D2;&#x6570;&#x8BB0;&#x5F55;&#x7684;&#x7C7B;&#x4F3C; <code>{ address: &apos;0:1:2:3:4:5:6:7&apos;, ttl: 60 }</code> &#x5BF9;&#x8C61;&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x6570;&#x7EC4;&#x3002;</li>
+</ul>
+</li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>addresses</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string[]&gt;</a> | <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object[]&gt;</a></li>
+</ul>
+</li>
+</ul><p>&#x4F7F;&#x7528; DNS &#x534F;&#x8BAE;&#x4E3A; <code>hostname</code> &#x89E3;&#x6790; IPv6 &#x5730;&#x5740;&#xFF08;<code>AAAA</code> &#x8BB0;&#x5F55;&#xFF09;&#x3002;
+<code>adresses</code> &#x53C2;&#x6570;&#x662F;&#x4F20;&#x7ED9; <code>callback</code> &#x51FD;&#x6570;&#x7684; IPv6 &#x5730;&#x5740;&#x6570;&#x7EC4;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v7.2.0</td>
+<td><p>This method now supports passing <code>options</code>, specifically <code>options.ttl</code>.</p></td></tr>
+<tr><td>v0.1.16</td>
+<td><p><span>Added in: v0.1.16</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>hostname</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> Hostname to resolve.</li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>ttl</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> Retrieve the Time-To-Live value (TTL) of each record.
+When <code>true</code>, the callback receives an array of
+<code>{ address: &apos;0:1:2:3:4:5:6:7&apos;, ttl: 60 }</code> objects rather than an array of
+strings, with the TTL expressed in seconds.</li>
+</ul>
+</li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>addresses</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string[]&gt;</a> | <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object[]&gt;</a></li>
+</ul>
+</li>
+</ul><p>Uses the DNS protocol to resolve a IPv6 addresses (<code>AAAA</code> records) for the
+<code>hostname</code>. The <code>addresses</code> argument passed to the <code>callback</code> function
+will contain an array of IPv6 addresses.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/dns/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756303227"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>filehandle.appendFile(data, options) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756310215" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>filehandle.appendFile(data, options)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_filehandle_appendfile_data_options" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/filehandle_appendfile_data_options.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.0.0</span>
+</div><ul>
+<li><code>data</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></p>
+<ul>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/334hvC" target="_blank" rel="nofollow" class="type">&lt;null&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;utf8&apos;</code>&#x3002;</li>
+<li><code>mode</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>0o666</code></li>
+<li><code>flag</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x53C2;&#x9605;<a href="http://nodejs.cn/s/JjbY8n" rel="nofollow">&#x652F;&#x6301;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x6807;&#x5FD7;</a>&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;a&apos;</code>&#x3002;</li>
+</ul>
+</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/ri1kj8" target="_blank" rel="nofollow" class="type">&lt;Promise&gt;</a></li>
+</ul><p>&#x5F02;&#x6B65;&#x5730;&#x5C06;&#x6570;&#x636E;&#x8FFD;&#x52A0;&#x5230;&#x6587;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x5C1A;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x521B;&#x5EFA;&#x8BE5;&#x6587;&#x4EF6;&#x3002;
+<code>data</code> &#x53EF;&#x4EE5;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x6216; <a href="http://nodejs.cn/s/FApxjh" rel="nofollow"><code>Buffer</code></a>&#x3002;
+<code>Promise</code> &#x5C06;&#x4F1A;&#x5728;&#x6210;&#x529F;&#x65F6;&#x89E3;&#x51B3;&#xFF0C;&#x4E14;&#x4E0D;&#x5E26;&#x53C2;&#x6570;&#x3002;</p><p>&#x5982;&#x679C; <code>options</code> &#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x5B83;&#x6307;&#x5B9A;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x3002;</p><p><code>FileHandle</code> &#x5FC5;&#x987B;&#x88AB;&#x6253;&#x5F00;&#x7528;&#x4EE5;&#x8FFD;&#x52A0;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v10.0.0</span>
+</div><ul>
+<li><code>data</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></p>
+<ul>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/334hvC" target="_blank" rel="nofollow" class="type">&lt;null&gt;</a> <strong>Default:</strong> <code>&apos;utf8&apos;</code></li>
+<li><code>mode</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> <strong>Default:</strong> <code>0o666</code></li>
+<li><code>flag</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> See <a href="http://nodejs.cn/s/JjbY8n" rel="nofollow">support of file system <code>flags</code></a>. <strong>Default:</strong> <code>&apos;a&apos;</code>.</li>
+</ul>
+</li>
+<li>Returns: <a href="http://nodejs.cn/s/ri1kj8" target="_blank" rel="nofollow" class="type">&lt;Promise&gt;</a></li>
+</ul><p>Asynchronously append data to this file, creating the file if it does not yet
+exist. <code>data</code> can be a string or a <a href="http://nodejs.cn/s/FApxjh" rel="nofollow"><code>Buffer</code></a>. The <code>Promise</code> will be
+resolved with no arguments upon success.</p><p>If <code>options</code> is a string, then it specifies the encoding.</p><p>The <code>FileHandle</code> must have been opened for appending.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756310215"><\/script>');
+  </script>
+</body>
+</html>

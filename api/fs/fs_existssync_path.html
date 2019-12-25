@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>fs.existsSync(path) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756309844" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>fs.existsSync(path)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_fs_existssync_path" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/fs_existssync_path.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v7.6.0</td>
+<td><p>The <code>path</code> parameter can be a WHATWG <code>URL</code> object using <code>file:</code> protocol. Support is currently still <em>experimental</em>.</p></td></tr>
+<tr><td>v0.1.21</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.21</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+</ul><p>&#x5982;&#x679C;&#x8DEF;&#x5F84;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x8FD4;&#x56DE; <code>true</code>&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE; <code>false</code>&#x3002;</p><p>&#x6709;&#x5173;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x53C2;&#x9605;&#x6B64; API &#x7684;&#x5F02;&#x6B65;&#x7248;&#x672C;&#x7684;&#x6587;&#x6863;&#xFF1A;<a href="http://nodejs.cn/s/udxWhD" rel="nofollow"><code>fs.exists()</code></a>&#x3002;</p><p>&#x867D;&#x7136; <code>fs.exists()</code> &#x5DF2;&#x5E9F;&#x5F03;&#xFF0C;&#x4F46; <code>fs.existsSync()</code> &#x4E0D;&#x662F;&#x5E9F;&#x5F03;&#x7684;&#x3002;
+<code>fs.exists()</code> &#x7684; <code>callback</code> &#x53C2;&#x6570;&#x63A5;&#x53D7;&#x4E0E;&#x5176;&#x4ED6; Node.js &#x56DE;&#x8C03;&#x4E0D;&#x4E00;&#x81F4;&#x7684;&#x53C2;&#x6570;&#x3002;
+<code>fs.existsSync()</code> &#x4E0D;&#x4F7F;&#x7528;&#x56DE;&#x8C03;&#x3002;</p><pre><code class="language-js">if (fs.existsSync(&apos;/etc/passwd&apos;)) {
+  console.log(&apos;&#x6587;&#x4EF6;&#x5DF2;&#x5B58;&#x5728;&apos;);
+}
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v7.6.0</td>
+<td><p>The <code>path</code> parameter can be a WHATWG <code>URL</code> object using <code>file:</code> protocol. Support is currently still <em>experimental</em>.</p></td></tr>
+<tr><td>v0.1.21</td>
+<td><p><span>Added in: v0.1.21</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li>Returns: <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+</ul><p>Returns <code>true</code> if the path exists, <code>false</code> otherwise.</p><p>For detailed information, see the documentation of the asynchronous version of
+this API: <a href="http://nodejs.cn/s/udxWhD" rel="nofollow"><code>fs.exists()</code></a>.</p><p><code>fs.exists()</code> is deprecated, but <code>fs.existsSync()</code> is not. The <code>callback</code>
+parameter to <code>fs.exists()</code> accepts parameters that are inconsistent with other
+Node.js callbacks. <code>fs.existsSync()</code> does not use a callback.</p><pre><code class="language-js">if (fs.existsSync(&apos;/etc/passwd&apos;)) {
+  console.log(&apos;The file exists.&apos;);
+}
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756309844"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>索引节点 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756310142" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>索引节点</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_inodes" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/inodes.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x5728; Linux &#x6216; macOS &#x7CFB;&#x7EDF;&#x4E0A;&#xFF0C; <code>fs.watch()</code> &#x89E3;&#x6790;&#x8DEF;&#x5F84;&#x5230;<a href="http://nodejs.cn/s/ofGTst" rel="nofollow">&#x7D22;&#x5F15;&#x8282;&#x70B9;</a>&#x5E76;&#x76D1;&#x89C6;&#x8BE5;&#x7D22;&#x5F15;&#x8282;&#x70B9;&#x3002;
+&#x5982;&#x679C;&#x5220;&#x9664;&#x5E76;&#x91CD;&#x65B0;&#x521B;&#x5EFA;&#x76D1;&#x89C6;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x5219;&#x4F1A;&#x4E3A;&#x5176;&#x5206;&#x914D;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x7D22;&#x5F15;&#x8282;&#x70B9;&#x3002;
+&#x76D1;&#x89C6;&#x5668;&#x4F1A;&#x56E0;&#x5220;&#x9664;&#x800C;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;&#xFF0C;&#x4F46;&#x4F1A;&#x7EE7;&#x7EED;&#x76D1;&#x89C6;&#x539F;&#x59CB;&#x7684;&#x7D22;&#x5F15;&#x8282;&#x70B9;&#x3002;
+&#x4E0D;&#x4F1A;&#x56E0;&#x65B0;&#x5EFA;&#x7D22;&#x5F15;&#x8282;&#x70B9;&#x800C;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;&#x3002;
+&#x8FD9;&#x662F;&#x9884;&#x671F;&#x7684;&#x884C;&#x4E3A;&#x3002;</p><p>AIX &#x6587;&#x4EF6;&#x5728;&#x6587;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E2D;&#x4FDD;&#x7559;&#x76F8;&#x540C;&#x7684;&#x7D22;&#x5F15;&#x8282;&#x70B9;&#x3002;
+&#x5728; AIX &#x4E0A;&#x4FDD;&#x5B58;&#x548C;&#x5173;&#x95ED;&#x76D1;&#x89C6;&#x7684;&#x6587;&#x4EF6;&#x5C06;&#x5BFC;&#x81F4;&#x4E24;&#x4E2A;&#x901A;&#x77E5;&#xFF08;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x6DFB;&#x52A0;&#x65B0;&#x5185;&#x5BB9;&#xFF0C;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x622A;&#x65AD;&#xFF09;&#x3002;</p></div>
+          <div id="content_right"><p>On Linux and macOS systems, <code>fs.watch()</code> resolves the path to an <a href="http://nodejs.cn/s/ofGTst" rel="nofollow">inode</a> and
+watches the inode. If the watched path is deleted and recreated, it is assigned
+a new inode. The watch will emit an event for the delete but will continue
+watching the <em>original</em> inode. Events for the new inode will not be emitted.
+This is expected behavior.</p><p>AIX files retain the same inode for the lifetime of a file. Saving and closing a
+watched file on AIX will result in two notifications (one for adding new
+content, and one for truncation).</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756310142"><\/script>');
+  </script>
+</body>
+</html>

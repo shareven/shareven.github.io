@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>fs.writev(fd, buffers[, position], callback) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756310190" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>fs.writev(fd, buffers[, position], callback)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_fs_writev_fd_buffers_position_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/fs_writev_fd_buffers_position_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v12.9.0</span>
+</div><ul>
+<li><code>fd</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>buffers</code> <a href="http://nodejs.cn/s/Xiwgzs" target="_blank" rel="nofollow" class="type">&lt;ArrayBufferView[]&gt;</a></li>
+<li><code>position</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>bytesWritten</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>buffers</code> <a href="http://nodejs.cn/s/Xiwgzs" target="_blank" rel="nofollow" class="type">&lt;ArrayBufferView[]&gt;</a></li>
+</ul>
+</li>
+</ul><p>&#x4F7F;&#x7528; <code>writev()</code> &#x5C06;&#x4E00;&#x4E2A; <code>ArrayBufferView</code> &#x6570;&#x7EC4;&#x5199;&#x5165; <code>fd</code> &#x6307;&#x5B9A;&#x7684;&#x6587;&#x4EF6;&#x3002;</p><p><code>position</code> &#x6307;&#x5B9A;&#x6587;&#x4EF6;&#x5F00;&#x5934;&#x7684;&#x504F;&#x79FB;&#x91CF;&#xFF08;&#x6570;&#x636E;&#x5E94;&#x8BE5;&#x88AB;&#x5199;&#x5165;&#x7684;&#x4F4D;&#x7F6E;&#xFF09;&#x3002;
+&#x5982;&#x679C; <code>typeof position !== &apos;number&apos;</code>&#xFF0C;&#x5219;&#x6570;&#x636E;&#x4F1A;&#x88AB;&#x5199;&#x5165;&#x5F53;&#x524D;&#x7684;&#x4F4D;&#x7F6E;&#x3002; </p><p>&#x56DE;&#x8C03;&#x6709;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#xFF1A;<code>err</code>&#x3001; <code>bytesWritten</code> &#x548C; <code>buffers</code>&#x3002;
+<code>bytesWritten</code> &#x662F;&#x4ECE; <code>buffers</code> &#x5199;&#x5165;&#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;</p><p>&#x5982;&#x679C;&#x6B64;&#x65B9;&#x6CD5;&#x662F; <a href="http://nodejs.cn/s/DGMNHh" rel="nofollow"><code>util.promisify()</code></a> &#x5316;&#x7684;&#x7248;&#x672C;&#xFF0C;&#x5219;&#x5B83;&#x8FD4;&#x56DE;&#x7684; <code>Promise</code> &#x4F1A;&#x8FD4;&#x56DE;&#x5177;&#x6709; <code>bytesWritten</code> &#x548C; <code>buffers</code> &#x5C5E;&#x6027;&#x7684; <code>Object</code>&#x3002;</p><p>&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4E0A;&#x591A;&#x6B21;&#x4F7F;&#x7528; <code>fs.writev()</code> &#x4E14;&#x4E0D;&#x7B49;&#x5F85;&#x56DE;&#x8C03;&#x662F;&#x4E0D;&#x5B89;&#x5168;&#x7684;&#x3002;
+&#x5BF9;&#x4E8E;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/VdSJQa" rel="nofollow"><code>fs.createWriteStream()</code></a>&#x3002;</p><p>&#x5728; Linux &#x4E0A;&#xFF0C;&#x5F53;&#x4EE5;&#x8FFD;&#x52A0;&#x6A21;&#x5F0F;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x65F6;&#xFF0C;&#x5199;&#x5165;&#x65E0;&#x6CD5;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x3002;
+&#x5185;&#x6838;&#x4F1A;&#x5FFD;&#x7565;&#x4F4D;&#x7F6E;&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x59CB;&#x7EC8;&#x5C06;&#x6570;&#x636E;&#x8FFD;&#x52A0;&#x5230;&#x6587;&#x4EF6;&#x7684;&#x672B;&#x5C3E;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v12.9.0</span>
+</div><ul>
+<li><code>fd</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>buffers</code> <a href="http://nodejs.cn/s/Xiwgzs" target="_blank" rel="nofollow" class="type">&lt;ArrayBufferView[]&gt;</a></li>
+<li><code>position</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>bytesWritten</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>buffers</code> <a href="http://nodejs.cn/s/Xiwgzs" target="_blank" rel="nofollow" class="type">&lt;ArrayBufferView[]&gt;</a></li>
+</ul>
+</li>
+</ul><p>Write an array of <code>ArrayBufferView</code>s to the file specified by <code>fd</code> using
+<code>writev()</code>.</p><p><code>position</code> is the offset from the beginning of the file where this data
+should be written. If <code>typeof position !== &apos;number&apos;</code>, the data will be written
+at the current position.</p><p>The callback will be given three arguments: <code>err</code>, <code>bytesWritten</code>, and
+<code>buffers</code>. <code>bytesWritten</code> is how many bytes were written from <code>buffers</code>.</p><p>If this method is <a href="http://nodejs.cn/s/DGMNHh" rel="nofollow"><code>util.promisify()</code></a>ed, it returns a <code>Promise</code> for an
+<code>Object</code> with <code>bytesWritten</code> and <code>buffers</code> properties.</p><p>It is unsafe to use <code>fs.writev()</code> multiple times on the same file without
+waiting for the callback. For this scenario, use <a href="http://nodejs.cn/s/VdSJQa" rel="nofollow"><code>fs.createWriteStream()</code></a>.</p><p>On Linux, positional writes don&apos;t work when the file is opened in append mode.
+The kernel ignores the position argument and always appends the data to
+the end of the file.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756310190"><\/script>');
+  </script>
+</body>
+</html>

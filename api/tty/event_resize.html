@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'resize' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/tty/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756326931" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-tty">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'resize' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../tty.html#tty_event_resize" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/tty/event_resize.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.7</span>
+</div><p>&#x53EA;&#x8981; <code>writeStream.columns</code> &#x6216; <code>writeStream.rows</code> &#x5C5E;&#x6027;&#x53D1;&#x751F;&#x66F4;&#x6539;&#xFF0C;&#x5C31;&#x4F1A;&#x89E6;&#x53D1; <code>&apos;resize&apos;</code> &#x4E8B;&#x4EF6;&#x3002;
+&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x6CA1;&#x6709;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;&#x76D1;&#x542C;&#x5668;&#x56DE;&#x8C03;&#x3002;</p><pre><code class="language-js">process.stdout.on(&apos;resize&apos;, () =&gt; {
+  console.log(&apos;&#x5C4F;&#x5E55;&#x5927;&#x5C0F;&#x5DF2;&#x7ECF;&#x6539;&#x53D8;&apos;);
+  console.log(`${process.stdout.columns}x${process.stdout.rows}`);
+});
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.7.7</span>
+</div><p>The <code>&apos;resize&apos;</code> event is emitted whenever either of the <code>writeStream.columns</code>
+or <code>writeStream.rows</code> properties have changed. No arguments are passed to the
+listener callback when called.</p><pre><code class="language-js">process.stdout.on(&apos;resize&apos;, () =&gt; {
+  console.log(&apos;screen size has changed!&apos;);
+  console.log(`${process.stdout.columns}x${process.stdout.rows}`);
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/tty/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756326931"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>agent.destroy() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/http/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756311844" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-http">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>agent.destroy()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../http.html#http_agent_destroy" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/http/agent_destroy.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.4</span>
+</div><p>&#x9500;&#x6BC1;&#x4EE3;&#x7406;&#x5F53;&#x524D;&#x4F7F;&#x7528;&#x7684;&#x6240;&#x6709;&#x5957;&#x63A5;&#x5B57;&#x3002;</p><p>&#x901A;&#x5E38;&#x6CA1;&#x6709;&#x5FC5;&#x8981;&#x8FD9;&#x6837;&#x505A;&#x3002;
+&#x4F46;&#x662F;&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x542F;&#x7528;&#x4E86; <code>keepAlive</code> &#x7684;&#x4EE3;&#x7406;&#xFF0C;&#x5219;&#x6700;&#x597D;&#x5728;&#x4EE3;&#x7406;&#x4E0D;&#x518D;&#x4F7F;&#x7528;&#x65F6;&#x663E;&#x5F0F;&#x5173;&#x95ED;&#x4EE3;&#x7406;&#x3002;
+&#x5426;&#x5219;&#xFF0C;&#x5728;&#x670D;&#x52A1;&#x5668;&#x7EC8;&#x6B62;&#x5957;&#x63A5;&#x5B57;&#x4E4B;&#x524D;&#xFF0C;&#x5957;&#x63A5;&#x5B57;&#x53EF;&#x80FD;&#x4F1A;&#x6302;&#x8D77;&#x5F88;&#x957F;&#x65F6;&#x95F4;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.11.4</span>
+</div><p>Destroy any sockets that are currently in use by the agent.</p><p>It is usually not necessary to do this. However, if using an
+agent with <code>keepAlive</code> enabled, then it is best to explicitly shut down
+the agent when it will no longer be used. Otherwise,
+sockets may hang open for quite a long time before the server
+terminates them.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/http/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756311844"><\/script>');
+  </script>
+</body>
+</html>

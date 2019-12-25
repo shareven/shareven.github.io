@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>fsPromises.open(path, flags[, mode]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756310341" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>fsPromises.open(path, flags[, mode])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_fspromises_open_path_flags_mode" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/fspromises_open_path_flags_mode.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v11.1.0</td>
+<td><p>The <code>flags</code> argument is now optional and defaults to <code>&apos;r&apos;</code>.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v10.0.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li><code>flags</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> &#x53C2;&#x9605;<a href="http://nodejs.cn/s/JjbY8n" rel="nofollow">&#x652F;&#x6301;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x6807;&#x5FD7;</a>&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;r&apos;</code>&#x3002;</li>
+<li><code>mode</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>0o666</code>&#xFF08;&#x53EF;&#x8BFB;&#x5199;&#xFF09;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/ri1kj8" target="_blank" rel="nofollow" class="type">&lt;Promise&gt;</a></li>
+</ul><p>&#x5F02;&#x6B65;&#x5730;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; <code>Promise</code>&#xFF0C;&#x5F53;&#x89E3;&#x51B3;&#x65F6;&#x4F1A;&#x5E26;&#x4E0A;&#x4E00;&#x4E2A; <code>FileHandle</code> &#x5BF9;&#x8C61;&#x3002;
+&#x53C2;&#x9605; <a href="http://nodejs.cn/s/ss2dGs" rel="nofollow"><code>open(2)</code></a>&#x3002;</p><p><code>mode</code> &#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#x6587;&#x4EF6;&#x6A21;&#x5F0F;&#xFF08;&#x6743;&#x9650;&#x548C;&#x7C98;&#x6EDE;&#x4F4D;&#xFF09;&#xFF0C;&#x4F46;&#x4EC5;&#x9650;&#x4E8E;&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x65F6;&#x3002;</p><p>&#x6709;&#x4E9B;&#x5B57;&#x7B26; (<code>&lt; &gt; : &quot; / \ | ? *</code>) &#x5728; Windows &#x4E0A;&#x662F;&#x9884;&#x7559;&#x7684;&#xFF0C;&#x53C2;&#x9605;<a href="http://nodejs.cn/s/GmL95W" rel="nofollow">&#x547D;&#x540D;&#x6587;&#x4EF6;&#x3001;&#x8DEF;&#x5F84;&#x4EE5;&#x53CA;&#x547D;&#x540D;&#x7A7A;&#x95F4;</a>&#x3002;
+&#x5728; NTFS &#x4E0A;&#xFF0C;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x540D;&#x5305;&#x542B;&#x5192;&#x53F7;&#xFF0C;&#x5219; Node.js &#x5C06;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x6D41;&#xFF0C;&#x53C2;&#x9605;<a href="http://nodejs.cn/s/FY8iKV" rel="nofollow">&#x6B64; MSDN &#x9875;&#x9762;</a>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v11.1.0</td>
+<td><p>The <code>flags</code> argument is now optional and defaults to <code>&apos;r&apos;</code>.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p><span>Added in: v10.0.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li><code>flags</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> See <a href="http://nodejs.cn/s/JjbY8n" rel="nofollow">support of file system <code>flags</code></a>.
+<strong>Default:</strong> <code>&apos;r&apos;</code>.</li>
+<li><code>mode</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> <strong>Default:</strong> <code>0o666</code> (readable and writable)</li>
+<li>Returns: <a href="http://nodejs.cn/s/ri1kj8" target="_blank" rel="nofollow" class="type">&lt;Promise&gt;</a></li>
+</ul><p>Asynchronous file open that returns a <code>Promise</code> that, when resolved, yields a
+<code>FileHandle</code> object. See <a href="http://nodejs.cn/s/ss2dGs" rel="nofollow"><code>open(2)</code></a>.</p><p><code>mode</code> sets the file mode (permission and sticky bits), but only if the file was
+created.</p><p>Some characters (<code>&lt; &gt; : &quot; / \ | ? *</code>) are reserved under Windows as documented
+by <a href="http://nodejs.cn/s/GmL95W" rel="nofollow">Naming Files, Paths, and Namespaces</a>. Under NTFS, if the filename contains
+a colon, Node.js will open a file system stream, as described by
+<a href="http://nodejs.cn/s/FY8iKV" rel="nofollow">this MSDN page</a>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756310341"><\/script>');
+  </script>
+</body>
+</html>

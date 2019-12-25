@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>console.trace([message][, ...args]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/console/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756298314" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-console">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>console.trace([message][, ...args])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../console.html#console_console_trace_message_args" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/console/console_trace_message_args.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.104</span>
+</div><ul>
+<li><code>message</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>...args</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+</ul><p>&#x6253;&#x5370;&#x5B57;&#x7B26;&#x4E32; <code>&apos;Trace: &apos;</code> &#x5230; <code>stderr</code>&#xFF0C;&#x7136;&#x540E;&#x5C06; <a href="http://nodejs.cn/s/cyHBok" rel="nofollow"><code>util.format()</code></a> &#x683C;&#x5F0F;&#x5316;&#x7684;&#x6D88;&#x606F;&#x548C;&#x5806;&#x6808;&#x8DDF;&#x8E2A;&#x6253;&#x5370;&#x5230;&#x4EE3;&#x7801;&#x4E2D;&#x7684;&#x5F53;&#x524D;&#x4F4D;&#x7F6E;&#x3002;</p><pre><code class="language-js">console.trace(&apos;&#x5C55;&#x793A;&apos;);
+// &#x6253;&#x5370;: (&#x5806;&#x6808;&#x8DDF;&#x8E2A;&#x5C06;&#x6839;&#x636E;&#x8C03;&#x7528;&#x8DDF;&#x8E2A;&#x7684;&#x4F4D;&#x7F6E;&#x800C;&#x6709;&#x6240;&#x4E0D;&#x540C;)
+//  Trace: &#x5C55;&#x793A;
+//    at repl:2:9
+//    at REPLServer.defaultEval (repl.js:248:27)
+//    at bound (domain.js:287:14)
+//    at REPLServer.runBound [as eval] (domain.js:300:12)
+//    at REPLServer.&lt;anonymous&gt; (repl.js:412:12)
+//    at emitOne (events.js:82:20)
+//    at REPLServer.emit (events.js:169:7)
+//    at REPLServer.Interface._onLine (readline.js:210:10)
+//    at REPLServer.Interface._line (readline.js:549:8)
+//    at REPLServer.Interface._ttyWrite (readline.js:826:14)
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.104</span>
+</div><ul>
+<li><code>message</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>...args</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+</ul><p>Prints to <code>stderr</code> the string <code>&apos;Trace: &apos;</code>, followed by the <a href="http://nodejs.cn/s/cyHBok" rel="nofollow"><code>util.format()</code></a>
+formatted message and stack trace to the current position in the code.</p><pre><code class="language-js">console.trace(&apos;Show me&apos;);
+// Prints: (stack trace will vary based on where trace is called)
+//  Trace: Show me
+//    at repl:2:9
+//    at REPLServer.defaultEval (repl.js:248:27)
+//    at bound (domain.js:287:14)
+//    at REPLServer.runBound [as eval] (domain.js:300:12)
+//    at REPLServer.&lt;anonymous&gt; (repl.js:412:12)
+//    at emitOne (events.js:82:20)
+//    at REPLServer.emit (events.js:169:7)
+//    at REPLServer.Interface._onLine (readline.js:210:10)
+//    at REPLServer.Interface._line (readline.js:549:8)
+//    at REPLServer.Interface._ttyWrite (readline.js:826:14)
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/console/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756298314"><\/script>');
+  </script>
+</body>
+</html>

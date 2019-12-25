@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>http.get(url[, options][, callback]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/http/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756312107" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-http">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>http.get(url[, options][, callback])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../http.html#http_http_get_url_options_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/http/http_get_url_options_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.9.0</td>
+<td><p>The <code>url</code> parameter can now be passed along with a separate <code>options</code> object.</p></td></tr>
+<tr><td>v7.5.0</td>
+<td><p>The <code>options</code> parameter can be a WHATWG <code>URL</code> object.</p></td></tr>
+<tr><td>v0.3.6</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.3.6</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>url</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> &#x63A5;&#x53D7;&#x4E0E; <a href="http://nodejs.cn/s/d1myoL" rel="nofollow"><code>http.request()</code></a> &#x76F8;&#x540C;&#x7684; <code>options</code>&#xFF0C;&#x4E14; <code>method</code> &#x59CB;&#x7EC8;&#x8BBE;&#x7F6E;&#x4E3A; <code>GET</code>&#x3002;&#x4ECE;&#x539F;&#x578B;&#x7EE7;&#x627F;&#x7684;&#x5C5E;&#x6027;&#x5C06;&#x88AB;&#x5FFD;&#x7565;&#x3002;</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/2F5RHd" target="_blank" rel="nofollow" class="type">&lt;http.ClientRequest&gt;</a></li>
+</ul><p>&#x7531;&#x4E8E;&#x5927;&#x591A;&#x6570;&#x8BF7;&#x6C42;&#x90FD;&#x662F;&#x6CA1;&#x6709;&#x4E3B;&#x4F53;&#x7684; GET &#x8BF7;&#x6C42;&#xFF0C;&#x56E0;&#x6B64; Node.js &#x63D0;&#x4F9B;&#x4E86;&#x8FD9;&#x4E2A;&#x4FBF;&#x6377;&#x7684;&#x65B9;&#x6CD5;&#x3002;
+&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4E0E; <a href="http://nodejs.cn/s/d1myoL" rel="nofollow"><code>http.request()</code></a> &#x7684;&#x552F;&#x4E00;&#x533A;&#x522B;&#x662F;&#x5B83;&#x5C06;&#x65B9;&#x6CD5;&#x8BBE;&#x7F6E;&#x4E3A; GET &#x5E76;&#x81EA;&#x52A8;&#x8C03;&#x7528; <code>req.end()</code>&#x3002;
+&#x7531;&#x4E8E; <a href="http://nodejs.cn/s/2F5RHd" rel="nofollow"><code>http.ClientRequest</code></a> &#x7AE0;&#x8282;&#x4E2D;&#x6240;&#x8FF0;&#x7684;&#x539F;&#x56E0;&#xFF0C;&#x56DE;&#x8C03;&#x5FC5;&#x987B;&#x6CE8;&#x610F;&#x6D88;&#x8D39;&#x54CD;&#x5E94;&#x6570;&#x636E;&#x3002;</p><p><code>callback</code> &#x8C03;&#x7528;&#x65F6;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x8BE5;&#x53C2;&#x6570;&#x662F; <a href="http://nodejs.cn/s/2RqpEw" rel="nofollow"><code>http.IncomingMessage</code></a> &#x7684;&#x5B9E;&#x4F8B;&#x3002;</p><p>&#x83B7;&#x53D6; JSON &#x7684;&#x793A;&#x4F8B;&#xFF1A;</p><pre><code class="language-js">http.get(&apos;http://nodejs.cn/index.json&apos;, (res) =&gt; {
+  const { statusCode } = res;
+  const contentType = res.headers[&apos;content-type&apos;];
+
+  let error;
+  if (statusCode !== 200) {
+    error = new Error(&apos;&#x8BF7;&#x6C42;&#x5931;&#x8D25;\n&apos; +
+                      `&#x72B6;&#x6001;&#x7801;: ${statusCode}`);
+  } else if (!/^application\/json/.test(contentType)) {
+    error = new Error(&apos;&#x65E0;&#x6548;&#x7684; content-type.\n&apos; +
+                      `&#x671F;&#x671B;&#x7684;&#x662F; application/json &#x4F46;&#x63A5;&#x6536;&#x5230;&#x7684;&#x662F; ${contentType}`);
+  }
+  if (error) {
+    console.error(error.message);
+    // &#x6D88;&#x8D39;&#x54CD;&#x5E94;&#x6570;&#x636E;&#x6765;&#x91CA;&#x653E;&#x5185;&#x5B58;&#x3002;
+    res.resume();
+    return;
+  }
+
+  res.setEncoding(&apos;utf8&apos;);
+  let rawData = &apos;&apos;;
+  res.on(&apos;data&apos;, (chunk) =&gt; { rawData += chunk; });
+  res.on(&apos;end&apos;, () =&gt; {
+    try {
+      const parsedData = JSON.parse(rawData);
+      console.log(parsedData);
+    } catch (e) {
+      console.error(e.message);
+    }
+  });
+}).on(&apos;error&apos;, (e) =&gt; {
+  console.error(`&#x51FA;&#x73B0;&#x9519;&#x8BEF;: ${e.message}`);
+});
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v10.9.0</td>
+<td><p>The <code>url</code> parameter can now be passed along with a separate <code>options</code> object.</p></td></tr>
+<tr><td>v7.5.0</td>
+<td><p>The <code>options</code> parameter can be a WHATWG <code>URL</code> object.</p></td></tr>
+<tr><td>v0.3.6</td>
+<td><p><span>Added in: v0.3.6</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>url</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> Accepts the same <code>options</code> as
+<a href="http://nodejs.cn/s/d1myoL" rel="nofollow"><code>http.request()</code></a>, with the <code>method</code> always set to <code>GET</code>.
+Properties that are inherited from the prototype are ignored.</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></li>
+<li>Returns: <a href="http://nodejs.cn/s/2F5RHd" target="_blank" rel="nofollow" class="type">&lt;http.ClientRequest&gt;</a></li>
+</ul><p>Since most requests are GET requests without bodies, Node.js provides this
+convenience method. The only difference between this method and
+<a href="http://nodejs.cn/s/d1myoL" rel="nofollow"><code>http.request()</code></a> is that it sets the method to GET and calls <code>req.end()</code>
+automatically. The callback must take care to consume the response
+data for reasons stated in <a href="http://nodejs.cn/s/2F5RHd" rel="nofollow"><code>http.ClientRequest</code></a> section.</p><p>The <code>callback</code> is invoked with a single argument that is an instance of
+<a href="http://nodejs.cn/s/2RqpEw" rel="nofollow"><code>http.IncomingMessage</code></a>.</p><p>JSON fetching example:</p><pre><code class="language-js">http.get(&apos;http://nodejs.org/dist/index.json&apos;, (res) =&gt; {
+  const { statusCode } = res;
+  const contentType = res.headers[&apos;content-type&apos;];
+
+  let error;
+  if (statusCode !== 200) {
+    error = new Error(&apos;Request Failed.\n&apos; +
+                      `Status Code: ${statusCode}`);
+  } else if (!/^application\/json/.test(contentType)) {
+    error = new Error(&apos;Invalid content-type.\n&apos; +
+                      `Expected application/json but received ${contentType}`);
+  }
+  if (error) {
+    console.error(error.message);
+    // Consume response data to free up memory
+    res.resume();
+    return;
+  }
+
+  res.setEncoding(&apos;utf8&apos;);
+  let rawData = &apos;&apos;;
+  res.on(&apos;data&apos;, (chunk) =&gt; { rawData += chunk; });
+  res.on(&apos;end&apos;, () =&gt; {
+    try {
+      const parsedData = JSON.parse(rawData);
+      console.log(parsedData);
+    } catch (e) {
+      console.error(e.message);
+    }
+  });
+}).on(&apos;error&apos;, (e) =&gt; {
+  console.error(`Got error: ${e.message}`);
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/http/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756312107"><\/script>');
+  </script>
+</body>
+</html>

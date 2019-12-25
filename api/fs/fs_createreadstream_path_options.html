@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>fs.createReadStream(path[, options]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756309831" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>fs.createReadStream(path[, options])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_fs_createreadstream_path_options" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/fs_createreadstream_path_options.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v12.10.0</td>
+<td><p>Enable <code>emitClose</code> option.</p></td></tr>
+<tr><td>v11.0.0</td>
+<td><p>Impose new restrictions on <code>start</code> and <code>end</code>, throwing more appropriate errors in cases when we cannot reasonably handle the input values.</p></td></tr>
+<tr><td>v7.6.0</td>
+<td><p>The <code>path</code> parameter can be a WHATWG <code>URL</code> object using <code>file:</code> protocol. Support is currently still <em>experimental</em>.</p></td></tr>
+<tr><td>v7.0.0</td>
+<td><p>The passed <code>options</code> object will never be modified.</p></td></tr>
+<tr><td>v2.3.0</td>
+<td><p>The passed <code>options</code> object can be a string now.</p></td></tr>
+<tr><td>v0.1.31</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.31</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>flags</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x53C2;&#x9605;<a href="http://nodejs.cn/s/JjbY8n" rel="nofollow">&#x652F;&#x6301;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x6807;&#x5FD7;</a>&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;r&apos;</code>&#x3002;</li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>null</code>&#x3002;</li>
+<li><code>fd</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>null</code>&#x3002;</li>
+<li><code>mode</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>0o666</code>&#x3002;</li>
+<li><code>autoClose</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>true</code>&#x3002;</li>
+<li><code>emitClose</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#x3002;</li>
+<li><code>start</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>end</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>Infinity</code>&#x3002;</li>
+<li><code>highWaterMark</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>64 * 1024</code>&#x3002;</li>
+</ul>
+</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/C3Eioq" target="_blank" rel="nofollow" class="type">&lt;fs.ReadStream&gt;</a></li>
+</ul><p>&#x4E0E;&#x7528;&#x4E8E;&#x53EF;&#x8BFB;&#x6D41;&#x7684; 16 kb &#x7684;&#x9ED8;&#x8BA4;&#x7684; <code>highWaterMark</code> &#x4E0D;&#x540C;&#xFF0C;&#x6B64;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x7684;&#x6D41;&#x5177;&#x6709; 64 kb &#x7684;&#x9ED8;&#x8BA4;&#x7684; <code>highWaterMark</code>&#x3002;</p><p><code>options</code> &#x53EF;&#x4EE5;&#x5305;&#x62EC; <code>start</code> &#x548C; <code>end</code> &#x503C;&#xFF0C;&#x4EE5;&#x4ECE;&#x6587;&#x4EF6;&#x4E2D;&#x8BFB;&#x53D6;&#x4E00;&#x5B9A;&#x8303;&#x56F4;&#x7684;&#x5B57;&#x8282;&#x800C;&#x4E0D;&#x662F;&#x6574;&#x4E2A;&#x6587;&#x4EF6;&#x3002;
+<code>start</code> &#x548C; <code>end</code> &#x90FD;&#x5305;&#x542B;&#x5728;&#x5185;&#x5E76;&#x4ECE; 0 &#x5F00;&#x59CB;&#x8BA1;&#x6570;&#xFF0C;&#x5141;&#x8BB8;&#x7684;&#x503C;&#x5728; [0, <a href="http://nodejs.cn/s/e9ereu" rel="nofollow"><code>Number.MAX_SAFE_INTEGER</code></a>] &#x7684;&#x8303;&#x56F4;&#x5185;&#x3002;
+&#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86; <code>fd</code> &#x5E76;&#x4E14;&#x7701;&#x7565; <code>start</code> &#x6216;&#x4E3A; <code>undefined</code>&#xFF0C;&#x5219; <code>fs.createReadStream()</code> &#x4ECE;&#x5F53;&#x524D;&#x7684;&#x6587;&#x4EF6;&#x4F4D;&#x7F6E;&#x5F00;&#x59CB;&#x987A;&#x5E8F;&#x5730;&#x8BFB;&#x53D6;&#x3002;
+<code>encoding</code> &#x53EF;&#x4EE5;&#x662F; <a href="http://nodejs.cn/s/FApxjh" rel="nofollow"><code>Buffer</code></a> &#x63A5;&#x53D7;&#x7684;&#x4EFB;&#x4F55;&#x4E00;&#x79CD;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x3002;</p><p>&#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86; <code>fd</code>&#xFF0C;&#x5219; <code>ReadStream</code> &#x5C06;&#x4F1A;&#x5FFD;&#x7565; <code>path</code> &#x53C2;&#x6570;&#x5E76;&#x5C06;&#x4F1A;&#x4F7F;&#x7528;&#x6307;&#x5B9A;&#x7684;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x3002;
+&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5C06;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1; <code>&apos;open&apos;</code> &#x4E8B;&#x4EF6;&#x3002;
+<code>fd</code> &#x5FC5;&#x987B;&#x662F;&#x963B;&#x585E;&#x7684;&#xFF0C;&#x975E;&#x963B;&#x585E;&#x7684; <code>fd</code> &#x5E94;&#x8BE5;&#x4F20;&#x7ED9; <a href="http://nodejs.cn/s/wsJ1o1" rel="nofollow"><code>net.Socket</code></a>&#x3002;</p><p>&#x5982;&#x679C; <code>fd</code> &#x6307;&#x5411;&#x4EC5;&#x652F;&#x6301;&#x963B;&#x585E;&#x8BFB;&#x53D6;&#x7684;&#x5B57;&#x7B26;&#x8BBE;&#x5907;&#xFF08;&#x4F8B;&#x5982;&#x952E;&#x76D8;&#x6216;&#x58F0;&#x5361;&#xFF09;&#xFF0C;&#x5219;&#x5728;&#x6570;&#x636E;&#x53EF;&#x7528;&#x4E4B;&#x524D;&#xFF0C;&#x8BFB;&#x53D6;&#x64CD;&#x4F5C;&#x4E0D;&#x4F1A;&#x5B8C;&#x6210;&#x3002;
+&#x8FD9;&#x53EF;&#x4EE5;&#x9632;&#x6B62;&#x8FDB;&#x7A0B;&#x9000;&#x51FA;&#x5E76;&#x4E14;&#x6D41;&#x81EA;&#x7136;&#x5730;&#x5173;&#x95ED;&#x3002;</p><p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6D41;&#x5728;&#x9500;&#x6BC1;&#x540E;&#x5C06;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1; <code>&apos;close&apos;</code> &#x4E8B;&#x4EF6;&#x3002;
+&#x8FD9;&#x4E0E;&#x5176;&#x4ED6; <code>Readable</code> &#x6D41;&#x7684;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;&#x76F8;&#x53CD;&#x3002;
+&#x5C06; <code>emitClose</code> &#x9009;&#x9879;&#x8BBE;&#x7F6E;&#x4E3A; <code>true</code> &#x53EF;&#x66F4;&#x6539;&#x6B64;&#x884C;&#x4E3A;&#x3002;</p><pre><code class="language-js">const fs = require(&apos;fs&apos;);
+// &#x4ECE;&#x67D0;&#x4E2A;&#x5B57;&#x7B26;&#x8BBE;&#x5907;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6D41;&#x3002;
+const stream = fs.createReadStream(&apos;/dev/input/event0&apos;);
+setTimeout(() =&gt; {
+  stream.close(); // &#x8FD9;&#x53EF;&#x80FD;&#x4E0D;&#x4F1A;&#x5173;&#x95ED;&#x6D41;&#x3002;
+  // &#x4EBA;&#x5DE5;&#x6807;&#x8BB0;&#x6D41;&#x7684;&#x7ED3;&#x675F;&#xFF0C;&#x5C31;&#x50CF;&#x5E95;&#x5C42;&#x7684;&#x8D44;&#x6E90;&#x81EA;&#x8EAB;&#x5DF2;&#x8868;&#x660E;&#x6587;&#x4EF6;&#x7684;&#x7ED3;&#x675F;&#x4E00;&#x6837;&#xFF0C;&#x5141;&#x8BB8;&#x6D41;&#x8FDB;&#x884C;&#x5173;&#x95ED;&#x3002;
+  // &#x8FD9;&#x4E0D;&#x4F1A;&#x53D6;&#x6D88;&#x6302;&#x8D77;&#x4E2D;&#x7684;&#x8BFB;&#x53D6;&#x64CD;&#x4F5C;&#xFF0C;&#x5982;&#x679C;&#x5B58;&#x5728;&#x6B64;&#x7C7B;&#x64CD;&#x4F5C;&#xFF0C;&#x5219;&#x8FC7;&#x7A0B;&#x53EF;&#x80FD;&#x4ECD;&#x65E0;&#x6CD5;&#x6210;&#x529F;&#x5730;&#x9000;&#x51FA;&#xFF0C;&#x76F4;&#x5230;&#x5B8C;&#x6210;&#x3002;
+  stream.push(null);
+  stream.read(0);
+}, 100);
+</code></pre><p>&#x5982;&#x679C; <code>autoClose</code> &#x4E3A; <code>false</code>&#xFF0C;&#x5219;&#x5373;&#x4F7F;&#x51FA;&#x73B0;&#x9519;&#x8BEF;&#xFF0C;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x4E5F;&#x4E0D;&#x4F1A;&#x88AB;&#x5173;&#x95ED;&#x3002;
+&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x8D1F;&#x8D23;&#x5173;&#x95ED;&#x5B83;&#x5E76;&#x786E;&#x4FDD;&#x6CA1;&#x6709;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x6CC4;&#x6F0F;&#x3002;
+&#x5982;&#x679C; <code>autoClose</code> &#x8BBE;&#x4E3A; <code>true</code>&#xFF08;&#x9ED8;&#x8BA4;&#x7684;&#x884C;&#x4E3A;&#xFF09;&#xFF0C;&#x5219;&#x5728; <code>&apos;error&apos;</code> &#x6216; <code>&apos;end&apos;</code> &#x4E8B;&#x4EF6;&#x65F6;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x5C06;&#x4F1A;&#x88AB;&#x81EA;&#x52A8;&#x5730;&#x5173;&#x95ED;&#x3002;</p><p><code>mode</code> &#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#x6587;&#x4EF6;&#x6A21;&#x5F0F;&#xFF08;&#x6743;&#x9650;&#x548C;&#x7C98;&#x6EDE;&#x4F4D;&#xFF09;&#xFF0C;&#x4F46;&#x4EC5;&#x9650;&#x4E8E;&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x65F6;&#x3002;</p><p>&#x793A;&#x4F8B;&#xFF0C;&#x4ECE;&#x4E00;&#x4E2A;&#x5927;&#x5C0F;&#x4E3A; 100 &#x4E2A;&#x5B57;&#x8282;&#x7684;&#x6587;&#x4EF6;&#x4E2D;&#x8BFB;&#x53D6;&#x6700;&#x540E; 10 &#x4E2A;&#x5B57;&#x8282;&#xFF1A;</p><pre><code class="language-js">fs.createReadStream(&apos;sample.txt&apos;, { start: 90, end: 99 });
+</code></pre><p>&#x5982;&#x679C; <code>options</code> &#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x5B83;&#x6307;&#x5B9A;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v12.10.0</td>
+<td><p>Enable <code>emitClose</code> option.</p></td></tr>
+<tr><td>v11.0.0</td>
+<td><p>Impose new restrictions on <code>start</code> and <code>end</code>, throwing more appropriate errors in cases when we cannot reasonably handle the input values.</p></td></tr>
+<tr><td>v7.6.0</td>
+<td><p>The <code>path</code> parameter can be a WHATWG <code>URL</code> object using <code>file:</code> protocol. Support is currently still <em>experimental</em>.</p></td></tr>
+<tr><td>v7.0.0</td>
+<td><p>The passed <code>options</code> object will never be modified.</p></td></tr>
+<tr><td>v2.3.0</td>
+<td><p>The passed <code>options</code> object can be a string now.</p></td></tr>
+<tr><td>v0.1.31</td>
+<td><p><span>Added in: v0.1.31</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>flags</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> See <a href="http://nodejs.cn/s/JjbY8n" rel="nofollow">support of file system <code>flags</code></a>. <strong>Default:</strong>
+<code>&apos;r&apos;</code>.</li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> <strong>Default:</strong> <code>null</code></li>
+<li><code>fd</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> <strong>Default:</strong> <code>null</code></li>
+<li><code>mode</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> <strong>Default:</strong> <code>0o666</code></li>
+<li><code>autoClose</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <strong>Default:</strong> <code>true</code></li>
+<li><code>emitClose</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <strong>Default:</strong> <code>false</code></li>
+<li><code>start</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>end</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> <strong>Default:</strong> <code>Infinity</code></li>
+<li><code>highWaterMark</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> <strong>Default:</strong> <code>64 * 1024</code></li>
+</ul>
+</li>
+<li>Returns: <a href="http://nodejs.cn/s/C3Eioq" target="_blank" rel="nofollow" class="type">&lt;fs.ReadStream&gt;</a></li>
+</ul><p>Unlike the 16 kb default <code>highWaterMark</code> for a readable stream, the stream
+returned by this method has a default <code>highWaterMark</code> of 64 kb.</p><p><code>options</code> can include <code>start</code> and <code>end</code> values to read a range of bytes from
+the file instead of the entire file. Both <code>start</code> and <code>end</code> are inclusive and
+start counting at 0, allowed values are in the
+[0, <a href="http://nodejs.cn/s/e9ereu" rel="nofollow"><code>Number.MAX_SAFE_INTEGER</code></a>] range. If <code>fd</code> is specified and <code>start</code> is
+omitted or <code>undefined</code>, <code>fs.createReadStream()</code> reads sequentially from the
+current file position. The <code>encoding</code> can be any one of those accepted by
+<a href="http://nodejs.cn/s/FApxjh" rel="nofollow"><code>Buffer</code></a>.</p><p>If <code>fd</code> is specified, <code>ReadStream</code> will ignore the <code>path</code> argument and will use
+the specified file descriptor. This means that no <code>&apos;open&apos;</code> event will be
+emitted. <code>fd</code> should be blocking; non-blocking <code>fd</code>s should be passed to
+<a href="http://nodejs.cn/s/wsJ1o1" rel="nofollow"><code>net.Socket</code></a>.</p><p>If <code>fd</code> points to a character device that only supports blocking reads
+(such as keyboard or sound card), read operations do not finish until data is
+available. This can prevent the process from exiting and the stream from
+closing naturally.</p><p>By default, the stream will not emit a <code>&apos;close&apos;</code> event after it has been
+destroyed. This is the opposite of the default for other <code>Readable</code> streams.
+Set the <code>emitClose</code> option to <code>true</code> to change this behavior.</p><pre><code class="language-js">const fs = require(&apos;fs&apos;);
+// Create a stream from some character device.
+const stream = fs.createReadStream(&apos;/dev/input/event0&apos;);
+setTimeout(() =&gt; {
+  stream.close(); // This may not close the stream.
+  // Artificially marking end-of-stream, as if the underlying resource had
+  // indicated end-of-file by itself, allows the stream to close.
+  // This does not cancel pending read operations, and if there is such an
+  // operation, the process may still not be able to exit successfully
+  // until it finishes.
+  stream.push(null);
+  stream.read(0);
+}, 100);
+</code></pre><p>If <code>autoClose</code> is false, then the file descriptor won&apos;t be closed, even if
+there&apos;s an error. It is the application&apos;s responsibility to close it and make
+sure there&apos;s no file descriptor leak. If <code>autoClose</code> is set to true (default
+behavior), on <code>&apos;error&apos;</code> or <code>&apos;end&apos;</code> the file descriptor will be closed
+automatically.</p><p><code>mode</code> sets the file mode (permission and sticky bits), but only if the
+file was created.</p><p>An example to read the last 10 bytes of a file which is 100 bytes long:</p><pre><code class="language-js">fs.createReadStream(&apos;sample.txt&apos;, { start: 90, end: 99 });
+</code></pre><p>If <code>options</code> is a string, then it specifies the encoding.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756309831"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>buf.swap16() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756294725" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-buffer">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>buf.swap16()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../buffer.html#buffer_buf_swap16" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/buffer/buf_swap16.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v5.10.0</span>
+</div><ul>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> <code>buf</code> &#x7684;&#x5F15;&#x7528;&#x3002;</li>
+</ul><p>&#x5C06; <code>buf</code> &#x89E3;&#x6790;&#x6210;&#x65E0;&#x7B26;&#x53F7;&#x7684; 16 &#x4F4D;&#x6574;&#x6570;&#x7684;&#x6570;&#x7EC4;&#xFF0C;&#x5E76;&#x4E14;&#x4EE5;&#x5B57;&#x8282;&#x987A;&#x5E8F;&#x539F;&#x5730;&#x8FDB;&#x884C;&#x4EA4;&#x6362;&#x3002;
+&#x5982;&#x679C; <a href="http://nodejs.cn/s/hn6FjL" rel="nofollow"><code>buf.length</code></a> &#x4E0D;&#x662F; 2 &#x7684;&#x500D;&#x6570;&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="http://nodejs.cn/s/NEzxCE" rel="nofollow"><code>ERR_INVALID_BUFFER_SIZE</code></a>&#x3002;</p><pre><code class="language-js">const buf1 = Buffer.from([0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8]);
+
+console.log(buf1);
+// &#x6253;&#x5370;: &lt;Buffer 01 02 03 04 05 06 07 08&gt;
+
+buf1.swap16();
+
+console.log(buf1);
+// &#x6253;&#x5370;: &lt;Buffer 02 01 04 03 06 05 08 07&gt;
+
+const buf2 = Buffer.from([0x1, 0x2, 0x3]);
+
+buf2.swap16();
+// &#x629B;&#x51FA;&#x5F02;&#x5E38; ERR_INVALID_BUFFER_SIZE&#x3002;
+</code></pre><p><code>buf.swap16()</code> &#x7684;&#x4E00;&#x4E2A;&#x65B9;&#x4FBF;&#x7528;&#x9014;&#x662F;&#x5728; UTF-16 &#x5C0F;&#x7AEF;&#x5E8F;&#x548C; UTF-16 &#x5927;&#x7AEF;&#x5E8F;&#x4E4B;&#x95F4;&#x6267;&#x884C;&#x5FEB;&#x901F;&#x7684;&#x539F;&#x5730;&#x8F6C;&#x6362;&#xFF1A;</p><pre><code class="language-js">const buf = Buffer.from(&apos;This is little-endian UTF-16&apos;, &apos;utf16le&apos;);
+buf.swap16(); // &#x8F6C;&#x6362;&#x4E3A;&#x5927;&#x7AEF;&#x5E8F; UTF-16 &#x6587;&#x672C;&#x3002;
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v5.10.0</span>
+</div><ul>
+<li>Returns: <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> A reference to <code>buf</code>.</li>
+</ul><p>Interprets <code>buf</code> as an array of unsigned 16-bit integers and swaps the
+byte order <em>in-place</em>. Throws <a href="http://nodejs.cn/s/NEzxCE" rel="nofollow"><code>ERR_INVALID_BUFFER_SIZE</code></a> if <a href="http://nodejs.cn/s/hn6FjL" rel="nofollow"><code>buf.length</code></a>
+is not a multiple of 2.</p><pre><code class="language-js">const buf1 = Buffer.from([0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8]);
+
+console.log(buf1);
+// Prints: &lt;Buffer 01 02 03 04 05 06 07 08&gt;
+
+buf1.swap16();
+
+console.log(buf1);
+// Prints: &lt;Buffer 02 01 04 03 06 05 08 07&gt;
+
+const buf2 = Buffer.from([0x1, 0x2, 0x3]);
+
+buf2.swap16();
+// Throws ERR_INVALID_BUFFER_SIZE.
+</code></pre><p>One convenient use of <code>buf.swap16()</code> is to perform a fast in-place conversion
+between UTF-16 little-endian and UTF-16 big-endian:</p><pre><code class="language-js">const buf = Buffer.from(&apos;This is little-endian UTF-16&apos;, &apos;utf16le&apos;);
+buf.swap16(); // Convert to big-endian UTF-16 text.
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756294725"><\/script>');
+  </script>
+</body>
+</html>

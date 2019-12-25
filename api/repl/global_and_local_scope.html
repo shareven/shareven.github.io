@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>全局作用域与局部作用域 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/repl/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756322701" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-repl">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>全局作用域与局部作用域</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../repl.html#repl_global_and_local_scope" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/repl/global_and_local_scope.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x9ED8;&#x8BA4;&#x7684;&#x89E3;&#x91CA;&#x5668;&#x63D0;&#x4F9B;&#x4E86;&#x83B7;&#x53D6;&#x5B58;&#x5728;&#x4E8E;&#x5168;&#x5C40;&#x4F5C;&#x7528;&#x57DF;&#x4E2D;&#x7684;&#x4EFB;&#x4F55;&#x53D8;&#x91CF;&#x7684;&#x9014;&#x5F84;&#x3002;
+&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7ED9;&#x6BCF;&#x4E2A; <code>REPLServer</code> &#x7ED1;&#x5B9A;&#x7684; <code>context</code> &#x5BF9;&#x8C61;&#x6307;&#x5B9A;&#x53D8;&#x91CF;&#xFF0C;&#x6765;&#x663E;&#x5F0F;&#x5730;&#x628A;&#x53D8;&#x91CF;&#x66B4;&#x9732;&#x7ED9; REPL&#x3002;
+&#x4F8B;&#x5982;&#xFF1A;</p><pre><code class="language-js">const repl = require(&apos;repl&apos;);
+const msg = &apos;message&apos;;
+
+repl.start(&apos;&gt; &apos;).context.m = msg;
+</code></pre><p><code>context</code> &#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x8868;&#x73B0;&#x4E3A; REPL &#x4E2D;&#x7684;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#xFF1A;</p><pre><code class="language-console">$ node repl_test.js
+&gt; m
+&apos;message&apos;
+</code></pre><p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B; <code>context</code> &#x7684;&#x5C5E;&#x6027;&#x4E0D;&#x662F;&#x53EA;&#x8BFB;&#x7684;&#x3002;
+&#x8981;&#x6307;&#x5B9A;&#x53EA;&#x8BFB;&#x7684;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C; <code>context</code> &#x7684;&#x5C5E;&#x6027;&#x5FC5;&#x987B;&#x4F7F;&#x7528; <code>Object.defineProperty()</code> &#x6765;&#x5B9A;&#x4E49;:</p><pre><code class="language-js">const repl = require(&apos;repl&apos;);
+const msg = &apos;message&apos;;
+
+const r = repl.start(&apos;&gt; &apos;);
+Object.defineProperty(r.context, &apos;m&apos;, {
+  configurable: false,
+  enumerable: true,
+  value: msg
+});
+</code></pre></div>
+          <div id="content_right"><p>The default evaluator provides access to any variables that exist in the global
+scope. It is possible to expose a variable to the REPL explicitly by assigning
+it to the <code>context</code> object associated with each <code>REPLServer</code>:</p><pre><code class="language-js">const repl = require(&apos;repl&apos;);
+const msg = &apos;message&apos;;
+
+repl.start(&apos;&gt; &apos;).context.m = msg;
+</code></pre><p>Properties in the <code>context</code> object appear as local within the REPL:</p><pre><code class="language-console">$ node repl_test.js
+&gt; m
+&apos;message&apos;
+</code></pre><p>Context properties are not read-only by default. To specify read-only globals,
+context properties must be defined using <code>Object.defineProperty()</code>:</p><pre><code class="language-js">const repl = require(&apos;repl&apos;);
+const msg = &apos;message&apos;;
+
+const r = repl.start(&apos;&gt; &apos;);
+Object.defineProperty(r.context, &apos;m&apos;, {
+  configurable: false,
+  enumerable: true,
+  value: msg
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/repl/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756322701"><\/script>');
+  </script>
+</body>
+</html>

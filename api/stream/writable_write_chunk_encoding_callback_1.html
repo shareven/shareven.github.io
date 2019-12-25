@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>writable._write(chunk, encoding, callback) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324244" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-stream">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>writable._write(chunk, encoding, callback)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../stream.html#stream_writable_write_chunk_encoding_callback_1" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/stream/writable_write_chunk_encoding_callback_1.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v12.11.0</td>
+<td><p>_write() is optional when providing _writev().</p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>chunk</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> &#x8981;&#x5199;&#x5165;&#x7684; <code>Buffer</code>&#xFF0C;&#x4ECE;&#x4F20;&#x7ED9; <a href="http://nodejs.cn/s/doppiK" rel="nofollow"><code>stream.write()</code></a> &#x7684; <code>string</code> &#x8F6C;&#x6362;&#x800C;&#x6765;&#x3002;
+&#x5982;&#x679C;&#x6D41;&#x7684; <code>decodeStrings</code> &#x9009;&#x9879;&#x4E3A; <code>false</code> &#x6216;&#x8005;&#x6D41;&#x5728;&#x5BF9;&#x8C61;&#x6A21;&#x5F0F;&#x4E0B;&#x8FD0;&#x884C;&#xFF0C;&#x5219;&#x6570;&#x636E;&#x5757;&#x5C06;&#x4E0D;&#x4F1A;&#x88AB;&#x8F6C;&#x6362;&#xFF0C;&#x5E76;&#x4E14;&#x5C06;&#x662F;&#x4F20;&#x7ED9; <a href="http://nodejs.cn/s/doppiK" rel="nofollow"><code>stream.write()</code></a> &#x7684;&#x4EFB;&#x4F55;&#x5185;&#x5BB9;&#x3002;</li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5982;&#x679C; <code>chunk</code> &#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x6307;&#x5B9A;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x3002;
+&#x5982;&#x679C; <code>chunk</code> &#x662F; <code>Buffer</code> &#x6216;&#x8005;&#x6D41;&#x5904;&#x4E8E;&#x5BF9;&#x8C61;&#x6A21;&#x5F0F;&#xFF0C;&#x5219;&#x65E0;&#x89C6;&#x8BE5;&#x9009;&#x9879;&#x3002;</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x5F53;&#x6570;&#x636E;&#x5757;&#x88AB;&#x5904;&#x7406;&#x5B8C;&#x6210;&#x540E;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;</li>
+</ul><p>&#x6240;&#x6709;&#x53EF;&#x5199;&#x6D41;&#x7684;&#x5B9E;&#x73B0;&#x5FC5;&#x987B;&#x63D0;&#x4F9B; <a href="http://nodejs.cn/s/8MvCPB" rel="nofollow"><code>writable._write()</code></a> &#x548C;/&#x6216; <a href="http://nodejs.cn/s/7qpAhU" rel="nofollow"><code>writable._writev()</code></a> &#x65B9;&#x6CD5;&#x5C06;&#x6570;&#x636E;&#x53D1;&#x9001;&#x5230;&#x5E95;&#x5C42;&#x8D44;&#x6E90;&#x3002;</p><p><a href="http://nodejs.cn/s/fhVJQM" rel="nofollow"><code>Transform</code></a> &#x6D41;&#x4F1A;&#x63D0;&#x4F9B;&#x81EA;&#x8EAB;&#x5B9E;&#x73B0;&#x7684; <a href="http://nodejs.cn/s/8MvCPB" rel="nofollow"><code>writable._write()</code></a>&#x3002;</p><p>&#x8BE5;&#x51FD;&#x6570;&#x4E0D;&#x80FD;&#x88AB;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x3002;
+&#x5B83;&#x5E94;&#x8BE5;&#x7531;&#x5B50;&#x7C7B;&#x5B9E;&#x73B0;&#xFF0C;&#x4E14;&#x53EA;&#x80FD;&#x88AB;&#x5185;&#x90E8;&#x7684; <code>Writable</code> &#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x3002;</p><p>&#x65E0;&#x8BBA;&#x662F;&#x6210;&#x529F;&#x5B8C;&#x6210;&#x5199;&#x5165;&#x8FD8;&#x662F;&#x5199;&#x5165;&#x5931;&#x8D25;&#x51FA;&#x73B0;&#x9519;&#x8BEF;&#xFF0C;&#x90FD;&#x5FC5;&#x987B;&#x8C03;&#x7528; <code>callback</code>&#x3002;
+&#x5982;&#x679C;&#x8C03;&#x7528;&#x5931;&#x8D25;&#xFF0C;&#x5219; <code>callback</code> &#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x5FC5;&#x987B;&#x662F; <code>Error</code> &#x5BF9;&#x8C61;&#x3002;
+&#x5982;&#x679C;&#x5199;&#x5165;&#x6210;&#x529F;&#xFF0C;&#x5219; <code>callback</code> &#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E3A; <code>null</code>&#x3002;</p><p>&#x5728; <code>writable._write()</code> &#x88AB;&#x8C03;&#x7528;&#x4E4B;&#x540E;&#x4E14; <code>callback</code> &#x88AB;&#x8C03;&#x7528;&#x4E4B;&#x524D;&#xFF0C;&#x6240;&#x6709;&#x5BF9; <code>writable.write()</code> &#x7684;&#x8C03;&#x7528;&#x90FD;&#x4F1A;&#x628A;&#x8981;&#x5199;&#x5165;&#x7684;&#x6570;&#x636E;&#x7F13;&#x51B2;&#x8D77;&#x6765;&#x3002;
+&#x5F53;&#x8C03;&#x7528; <code>callback</code> &#x65F6;&#xFF0C;&#x6D41;&#x5C06;&#x4F1A;&#x89E6;&#x53D1; <a href="http://nodejs.cn/s/gFdjtJ" rel="nofollow"><code>&apos;drain&apos;</code></a>&#x4E8B;&#x4EF6;&#x3002;
+&#x5982;&#x679C;&#x6D41;&#x7684;&#x5B9E;&#x73B0;&#x9700;&#x8981;&#x540C;&#x65F6;&#x5904;&#x7406;&#x591A;&#x4E2A;&#x6570;&#x636E;&#x5757;&#xFF0C;&#x5219;&#x5E94;&#x8BE5;&#x5B9E;&#x73B0; <code>writable._writev()</code> &#x65B9;&#x6CD5;&#x3002;</p><p>&#x5982;&#x679C;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x9009;&#x9879;&#x4E2D;&#x8BBE;&#x7F6E; <code>decodeStrings</code> &#x5C5E;&#x6027;&#x4E3A; <code>false</code>&#xFF0C;&#x5219; <code>chunk</code> &#x4F1A;&#x4FDD;&#x6301;&#x539F;&#x6837;&#x4F20;&#x5165; <code>.write()</code>&#xFF0C;&#x5B83;&#x53EF;&#x80FD;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x800C;&#x4E0D;&#x662F; <code>Buffer</code>&#x3002;
+&#x8FD9;&#x662F;&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;&#x5BF9;&#x67D0;&#x4E9B;&#x7279;&#x5B9A;&#x5B57;&#x7B26;&#x4E32;&#x6570;&#x636E;&#x7F16;&#x7801;&#x7684;&#x652F;&#x6301;&#x3002;
+&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C; <code>encoding</code> &#x53C2;&#x6570;&#x5C06;&#x6307;&#x793A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x3002; &#x5426;&#x5219;&#xFF0C;&#x53EF;&#x4EE5;&#x5B89;&#x5168;&#x5730;&#x5FFD;&#x7565;&#x7F16;&#x7801;&#x53C2;&#x6570;&#x3002;</p><p><code>writable._write()</code> &#x65B9;&#x6CD5;&#x6709;&#x4E0B;&#x5212;&#x7EBF;&#x524D;&#x7F00;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x662F;&#x5728;&#x5B9A;&#x4E49;&#x5728;&#x7C7B;&#x7684;&#x5185;&#x90E8;&#xFF0C;&#x4E0D;&#x5E94;&#x8BE5;&#x88AB;&#x7528;&#x6237;&#x7A0B;&#x5E8F;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v12.11.0</td>
+<td><p>_write() is optional when providing _writev().</p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>chunk</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> The <code>Buffer</code> to be written, converted from the
+<code>string</code> passed to <a href="http://nodejs.cn/s/doppiK" rel="nofollow"><code>stream.write()</code></a>. If the stream&apos;s
+<code>decodeStrings</code> option is <code>false</code> or the stream is operating in object mode,
+the chunk will not be converted &amp; will be whatever was passed to
+<a href="http://nodejs.cn/s/doppiK" rel="nofollow"><code>stream.write()</code></a>.</li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> If the chunk is a string, then <code>encoding</code> is the
+character encoding of that string. If chunk is a <code>Buffer</code>, or if the
+stream is operating in object mode, <code>encoding</code> may be ignored.</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> Call this function (optionally with an error
+argument) when processing is complete for the supplied chunk.</li>
+</ul><p>All <code>Writable</code> stream implementations must provide a
+<a href="http://nodejs.cn/s/8MvCPB" rel="nofollow"><code>writable._write()</code></a> and/or
+<a href="http://nodejs.cn/s/7qpAhU" rel="nofollow"><code>writable._writev()</code></a> method to send data to the underlying
+resource.</p><p><a href="http://nodejs.cn/s/fhVJQM" rel="nofollow"><code>Transform</code></a> streams provide their own implementation of the
+<a href="http://nodejs.cn/s/8MvCPB" rel="nofollow"><code>writable._write()</code></a>.</p><p>This function MUST NOT be called by application code directly. It should be
+implemented by child classes, and called by the internal <code>Writable</code> class
+methods only.</p><p>The <code>callback</code> method must be called to signal either that the write completed
+successfully or failed with an error. The first argument passed to the
+<code>callback</code> must be the <code>Error</code> object if the call failed or <code>null</code> if the
+write succeeded.</p><p>All calls to <code>writable.write()</code> that occur between the time <code>writable._write()</code>
+is called and the <code>callback</code> is called will cause the written data to be
+buffered. When the <code>callback</code> is invoked, the stream might emit a <a href="http://nodejs.cn/s/gFdjtJ" rel="nofollow"><code>&apos;drain&apos;</code></a>
+event. If a stream implementation is capable of processing multiple chunks of
+data at once, the <code>writable._writev()</code> method should be implemented.</p><p>If the <code>decodeStrings</code> property is explicitly set to <code>false</code> in the constructor
+options, then <code>chunk</code> will remain the same object that is passed to <code>.write()</code>,
+and may be a string rather than a <code>Buffer</code>. This is to support implementations
+that have an optimized handling for certain string data encodings. In that case,
+the <code>encoding</code> argument will indicate the character encoding of the string.
+Otherwise, the <code>encoding</code> argument can be safely ignored.</p><p>The <code>writable._write()</code> method is prefixed with an underscore because it is
+internal to the class that defines it, and should never be called directly by
+user programs.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324244"><\/script>');
+  </script>
+</body>
+</html>

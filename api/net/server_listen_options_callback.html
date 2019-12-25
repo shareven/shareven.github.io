@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>server.listen(options[, callback]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/net/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756318330" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-net">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>server.listen(options[, callback])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../net.html#net_server_listen_options_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/net/server_listen_options_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v11.4.0</td>
+<td><p>The <code>ipv6Only</code> option is supported.</p></td></tr>
+<tr><td>v0.11.14</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.11.14</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> &#x5FC5;&#x987B;&#x3002;&#x652F;&#x6301;&#x4EE5;&#x4E0B;&#x53C2;&#x6570;&#x5C5E;&#x6027;</p>
+<ul>
+<li><code>port</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>host</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86; <code>port</code> &#x53C2;&#x6570;&#x5219;&#x4F1A;&#x88AB;&#x5FFD;&#x7565;&#x3002;&#x67E5;&#x770B;<a href="http://nodejs.cn/s/tNVQV4" rel="nofollow">&#x8BC6;&#x522B; IPC &#x8FDE;&#x63A5;&#x7684;&#x8DEF;&#x5F84;&#x3002;</a>&#x3002;</li>
+<li><code>backlog</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> <a href="http://nodejs.cn/s/xGksiu" rel="nofollow"><code>server.listen()</code></a> &#x51FD;&#x6570;&#x7684;&#x901A;&#x7528;&#x53C2;&#x6570;&#x3002;</li>
+<li><code>exclusive</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#x3002;</li>
+<li><code>readableAll</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5BF9;&#x4E8E; IPC &#x670D;&#x52A1;&#x5668;&#xFF0C;&#x4F7F;&#x7BA1;&#x9053;&#x5BF9;&#x6240;&#x6709;&#x7528;&#x6237;&#x90FD;&#x53EF;&#x8BFB;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#x3002;</li>
+<li><code>writableAll</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5BF9;&#x4E8E; IPC &#x670D;&#x52A1;&#x5668;&#xFF0C;&#x4F7F;&#x7BA1;&#x9053;&#x5BF9;&#x6240;&#x6709;&#x7528;&#x6237;&#x90FD;&#x53EF;&#x5199;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#x3002;</li>
+<li><code>ipv6Only</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5BF9;&#x4E8E; TCP &#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5C06; <code>ipv6Only</code> &#x8BBE;&#x7F6E;&#x4E3A; <code>true</code> &#x5C06;&#x4F1A;&#x7981;&#x7528;&#x53CC;&#x6808;&#x652F;&#x6301;&#xFF0C;&#x5373;&#x7ED1;&#x5B9A;&#x5230;&#x4E3B;&#x673A; <code>::</code> &#x4E0D;&#x4F1A;&#x4F7F; <code>0.0.0.0</code> &#x7ED1;&#x5B9A;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#x3002;</li>
+</ul>
+</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> <a href="http://nodejs.cn/s/xGksiu" rel="nofollow"><code>server.listen()</code></a> &#x51FD;&#x6570;&#x7684;&#x901A;&#x7528;&#x53C2;&#x6570;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/gBYjux" target="_blank" rel="nofollow" class="type">&lt;net.Server&gt;</a></li>
+</ul><p>&#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86; <code>port</code> &#x53C2;&#x6570;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x7684;&#x884C;&#x4E3A;&#x8DDF; <a href="http://nodejs.cn/s/bPJPbU" rel="nofollow">server.listen([port[, host[, backlog]]][, callback])</a> &#x4E00;&#x6837;&#x3002;
+&#x5426;&#x5219;&#xFF0C;&#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86; <code>path</code> &#x53C2;&#x6570;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x7684;&#x884C;&#x4E3A;&#x4E0E; <a href="http://nodejs.cn/s/yW8Zc1" rel="nofollow"><code>server.listen(path[, backlog][, callback])</code></a> &#x4E00;&#x81F4;&#x3002;
+&#x5982;&#x679C;&#x6CA1;&#x6709; <code>port</code> &#x6216;&#x8005; <code>path</code> &#x53C2;&#x6570;&#xFF0C;&#x5219;&#x4F1A;&#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x3002;</p><p>&#x5982;&#x679C; <code>exclusive</code> &#x662F; <code>false</code>&#xFF08;&#x9ED8;&#x8BA4;&#xFF09;&#xFF0C;&#x5219;&#x96C6;&#x7FA4;&#x7684;&#x6240;&#x6709;&#x8FDB;&#x7A0B;&#x5C06;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684;&#x5E95;&#x5C42;&#x53E5;&#x67C4;&#xFF0C;&#x5141;&#x8BB8;&#x5171;&#x4EAB;&#x8FDE;&#x63A5;&#x5904;&#x7406;&#x4EFB;&#x52A1;&#x3002;&#x5982;&#x679C; <code>exclusive</code> &#x662F; <code>true</code>&#xFF0C;&#x5219;&#x53E5;&#x67C4;&#x4E0D;&#x4F1A;&#x88AB;&#x5171;&#x4EAB;&#xFF0C;&#x5982;&#x679C;&#x5C1D;&#x8BD5;&#x7AEF;&#x53E3;&#x5171;&#x4EAB;&#x5C06;&#x5BFC;&#x81F4;&#x9519;&#x8BEF;&#x3002;&#x76D1;&#x542C;&#x72EC;&#x7ACB;&#x7AEF;&#x53E3;&#x7684;&#x4F8B;&#x5B50;&#x5982;&#x4E0B;&#x3002;</p><pre><code class="language-js">server.listen({
+  host: &apos;localhost&apos;,
+  port: 80,
+  exclusive: true
+});
+</code></pre><p>&#x4EE5; root &#x8EAB;&#x4EFD;&#x542F;&#x52A8; IPC &#x670D;&#x52A1;&#x5668;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x65E0;&#x7279;&#x6743;&#x7528;&#x6237;&#x65E0;&#x6CD5;&#x8BBF;&#x95EE;&#x670D;&#x52A1;&#x5668;&#x8DEF;&#x5F84;&#x3002;
+&#x4F7F;&#x7528; <code>readableAll</code> &#x548C; <code>writableAll</code> &#x5C06;&#x4F7F;&#x6240;&#x6709;&#x7528;&#x6237;&#x90FD;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x670D;&#x52A1;&#x5668;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v11.4.0</td>
+<td><p>The <code>ipv6Only</code> option is supported.</p></td></tr>
+<tr><td>v0.11.14</td>
+<td><p><span>Added in: v0.11.14</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> Required. Supports the following properties:</p>
+<ul>
+<li><code>port</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>host</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> Will be ignored if <code>port</code> is specified. See
+<a href="http://nodejs.cn/s/tNVQV4" rel="nofollow">Identifying paths for IPC connections</a>.</li>
+<li><code>backlog</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> Common parameter of <a href="http://nodejs.cn/s/xGksiu" rel="nofollow"><code>server.listen()</code></a>
+functions.</li>
+<li><code>exclusive</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <strong>Default:</strong> <code>false</code></li>
+<li><code>readableAll</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> For IPC servers makes the pipe readable
+for all users. <strong>Default:</strong> <code>false</code>.</li>
+<li><code>writableAll</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> For IPC servers makes the pipe writable
+for all users. <strong>Default:</strong> <code>false</code>.</li>
+<li><code>ipv6Only</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> For TCP servers, setting <code>ipv6Only</code> to <code>true</code> will
+disable dual-stack support, i.e., binding to host <code>::</code> won&apos;t make
+<code>0.0.0.0</code> be bound. <strong>Default:</strong> <code>false</code>.</li>
+</ul>
+</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> Common parameter of <a href="http://nodejs.cn/s/xGksiu" rel="nofollow"><code>server.listen()</code></a>
+functions.</li>
+<li>Returns: <a href="http://nodejs.cn/s/gBYjux" target="_blank" rel="nofollow" class="type">&lt;net.Server&gt;</a></li>
+</ul><p>If <code>port</code> is specified, it behaves the same as
+<a href="server_listen_options_callback.html#net_server_listen_port_host_backlog_callback" rel="nofollow">
+<code>server.listen([port[, host[, backlog]]][, callback])</code></a>.
+Otherwise, if <code>path</code> is specified, it behaves the same as
+<a href="http://nodejs.cn/s/yW8Zc1" rel="nofollow"><code>server.listen(path[, backlog][, callback])</code></a>.
+If none of them is specified, an error will be thrown.</p><p>If <code>exclusive</code> is <code>false</code> (default), then cluster workers will use the same
+underlying handle, allowing connection handling duties to be shared. When
+<code>exclusive</code> is <code>true</code>, the handle is not shared, and attempted port sharing
+results in an error. An example which listens on an exclusive port is
+shown below.</p><pre><code class="language-js">server.listen({
+  host: &apos;localhost&apos;,
+  port: 80,
+  exclusive: true
+});
+</code></pre><p>Starting an IPC server as root may cause the server path to be inaccessible for
+unprivileged users. Using <code>readableAll</code> and <code>writableAll</code> will make the server
+accessible for all users.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/net/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756318330"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'data' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324158" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-stream">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'data' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../stream.html#stream_event_data" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/stream/event_data.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.4</span>
+</div><ul>
+<li><code>chunk</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> &#x6570;&#x636E;&#x5757;&#x3002;
+&#x5BF9;&#x4E8E;&#x975E;&#x5BF9;&#x8C61;&#x6A21;&#x5F0F;&#x7684;&#x6D41;&#xFF0C; <code>chunk</code> &#x53EF;&#x4EE5;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x6216; <code>Buffer</code>&#x3002;
+&#x5BF9;&#x4E8E;&#x5BF9;&#x8C61;&#x6A21;&#x5F0F;&#x7684;&#x6D41;&#xFF0C; <code>chunk</code> &#x53EF;&#x4EE5;&#x662F;&#x4EFB;&#x4F55; JavaScript &#x503C;&#xFF0C;&#x9664;&#x4E86; <code>null</code>&#x3002;</li>
+</ul><p>&#x5F53;&#x6D41;&#x5C06;&#x6570;&#x636E;&#x5757;&#x4F20;&#x9001;&#x7ED9;&#x6D88;&#x8D39;&#x8005;&#x540E;&#x89E6;&#x53D1;&#x3002;
+&#x5F53;&#x8C03;&#x7528; <code>readable.pipe()</code>&#xFF0C; <code>readable.resume()</code> &#x6216;&#x7ED1;&#x5B9A;&#x76D1;&#x542C;&#x5668;&#x5230; <code>&apos;data&apos;</code> &#x4E8B;&#x4EF6;&#x65F6;&#xFF0C;&#x6D41;&#x4F1A;&#x8F6C;&#x6362;&#x5230;&#x6D41;&#x52A8;&#x6A21;&#x5F0F;&#x3002;
+&#x5F53;&#x8C03;&#x7528; <code>readable.read()</code> &#x4E14;&#x6709;&#x6570;&#x636E;&#x5757;&#x8FD4;&#x56DE;&#x65F6;&#xFF0C;&#x4E5F;&#x4F1A;&#x89E6;&#x53D1; <code>&apos;data&apos;</code> &#x4E8B;&#x4EF6;&#x3002;</p><p>&#x5C06; <code>&apos;data&apos;</code> &#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x5668;&#x9644;&#x52A0;&#x5230;&#x5C1A;&#x672A;&#x663E;&#x5F0F;&#x6682;&#x505C;&#x7684;&#x6D41;&#x5C06;&#x4F1A;&#x4F7F;&#x6D41;&#x5207;&#x6362;&#x4E3A;&#x6D41;&#x52A8;&#x6A21;&#x5F0F;&#x3002;
+&#x6570;&#x636E;&#x5C06;&#x4F1A;&#x5728;&#x53EF;&#x7528;&#x65F6;&#x7ACB;&#x5373;&#x4F20;&#x9012;&#x3002;</p><p>&#x5982;&#x679C;&#x4F7F;&#x7528; <code>readable.setEncoding()</code> &#x4E3A;&#x6D41;&#x6307;&#x5B9A;&#x4E86;&#x9ED8;&#x8BA4;&#x7684;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#xFF0C;&#x5219;&#x76D1;&#x542C;&#x5668;&#x56DE;&#x8C03;&#x4F20;&#x5165;&#x7684;&#x6570;&#x636E;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5426;&#x5219;&#x4F20;&#x5165;&#x7684;&#x6570;&#x636E;&#x4E3A; <code>Buffer</code>&#x3002;</p><pre><code class="language-js">const readable = getReadableStreamSomehow();
+readable.on(&apos;data&apos;, (chunk) =&gt; {
+  console.log(`&#x63A5;&#x6536;&#x5230; ${chunk.length} &#x4E2A;&#x5B57;&#x8282;&#x7684;&#x6570;&#x636E;`);
+});
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.9.4</span>
+</div><ul>
+<li><code>chunk</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> The chunk of data. For streams that are not
+operating in object mode, the chunk will be either a string or <code>Buffer</code>.
+For streams that are in object mode, the chunk can be any JavaScript value
+other than <code>null</code>.</li>
+</ul><p>The <code>&apos;data&apos;</code> event is emitted whenever the stream is relinquishing ownership of
+a chunk of data to a consumer. This may occur whenever the stream is switched
+in flowing mode by calling <code>readable.pipe()</code>, <code>readable.resume()</code>, or by
+attaching a listener callback to the <code>&apos;data&apos;</code> event. The <code>&apos;data&apos;</code> event will
+also be emitted whenever the <code>readable.read()</code> method is called and a chunk of
+data is available to be returned.</p><p>Attaching a <code>&apos;data&apos;</code> event listener to a stream that has not been explicitly
+paused will switch the stream into flowing mode. Data will then be passed as
+soon as it is available.</p><p>The listener callback will be passed the chunk of data as a string if a default
+encoding has been specified for the stream using the
+<code>readable.setEncoding()</code> method; otherwise the data will be passed as a
+<code>Buffer</code>.</p><pre><code class="language-js">const readable = getReadableStreamSomehow();
+readable.on(&apos;data&apos;, (chunk) =&gt; {
+  console.log(`Received ${chunk.length} bytes of data.`);
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324158"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>setImmediate(callback[, ...args]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/timers/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756325271" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-timers">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>setImmediate(callback[, ...args])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../timers.html#timers_setimmediate_callback_args" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/timers/setimmediate_callback_args.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.1</span>
+</div><ul>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x5728;&#x5F53;&#x524D;&#x56DE;&#x5408;&#x7684; <a href="http://nodejs.cn/s/eeiBdr" rel="nofollow">Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;</a>&#x7ED3;&#x675F;&#x65F6;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#x3002;</li>
+<li><code>...args</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> &#x5F53;&#x8C03;&#x7528; <code>callback</code> &#x65F6;&#x4F20;&#x5165;&#x7684;&#x53EF;&#x9009;&#x53C2;&#x6570;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/SvSBDC" target="_blank" rel="nofollow" class="type">&lt;Immediate&gt;</a> &#x7528;&#x4E8E; <a href="http://nodejs.cn/s/tn26EY" rel="nofollow"><code>clearImmediate()</code></a>&#x3002;</li>
+</ul><p>&#x9884;&#x5B9A;&#x5728; I/O &#x4E8B;&#x4EF6;&#x7684;&#x56DE;&#x8C03;&#x4E4B;&#x540E;&#x7ACB;&#x5373;&#x6267;&#x884C;&#x7684; <code>callback</code>&#x3002;</p><p>&#x5F53;&#x591A;&#x6B21;&#x8C03;&#x7528; <code>setImmediate()</code> &#x65F6;&#xFF0C; <code>callback</code> &#x51FD;&#x6570;&#x5C06;&#x6309;&#x7167;&#x521B;&#x5EFA;&#x5B83;&#x4EEC;&#x7684;&#x987A;&#x5E8F;&#x6392;&#x961F;&#x7B49;&#x5F85;&#x6267;&#x884C;&#x3002;
+&#x6BCF;&#x6B21;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x8FED;&#x4EE3;&#x90FD;&#x4F1A;&#x5904;&#x7406;&#x6574;&#x4E2A;&#x56DE;&#x8C03;&#x961F;&#x5217;&#x3002;
+&#x5982;&#x679C;&#x7ACB;&#x5373;&#x5B9A;&#x65F6;&#x5668;&#x662F;&#x4ECE;&#x6B63;&#x5728;&#x6267;&#x884C;&#x7684;&#x56DE;&#x8C03;&#x6392;&#x5165;&#x961F;&#x5217;&#xFF0C;&#x5219;&#x76F4;&#x5230;&#x4E0B;&#x4E00;&#x6B21;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x8FED;&#x4EE3;&#x624D;&#x4F1A;&#x89E6;&#x53D1;&#x3002;</p><p>&#x5982;&#x679C; <code>callback</code> &#x4E0D;&#x662F;&#x51FD;&#x6570;&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="http://nodejs.cn/s/Z7Lqyj" rel="nofollow"><code>TypeError</code></a>&#x3002;</p><p>&#x6B64;&#x65B9;&#x6CD5;&#x5177;&#x6709;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/DGMNHh" rel="nofollow"><code>util.promisify()</code></a> &#x7684;&#x7528;&#x4E8E; Promise &#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x53D8;&#x4F53;&#xFF1A;</p><pre><code class="language-js">const util = require(&apos;util&apos;);
+const setImmediatePromise = util.promisify(setImmediate);
+
+setImmediatePromise(&apos;foobar&apos;).then((value) =&gt; {
+  // value === &apos;foobar&apos; &#xFF08;&#x4F20;&#x503C;&#x662F;&#x53EF;&#x9009;&#x7684;&#xFF09;
+  // &#x5728;&#x6240;&#x6709; I/O &#x56DE;&#x8C03;&#x4E4B;&#x540E;&#x6267;&#x884C;&#x3002;
+});
+
+// &#x6216;&#x4F7F;&#x7528;&#x5F02;&#x6B65;&#x529F;&#x80FD;&#x3002;
+async function timerExample() {
+  console.log(&apos;&#x5728; I/O &#x56DE;&#x8C03;&#x4E4B;&#x524D;&apos;);
+  await setImmediatePromise();
+  console.log(&apos;&#x5728; I/O &#x56DE;&#x8C03;&#x4E4B;&#x540E;&apos;);
+}
+timerExample();
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.9.1</span>
+</div><ul>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> The function to call at the end of this turn of
+the Node.js <a href="http://nodejs.cn/s/eeiBdr" rel="nofollow">Event Loop</a></li>
+<li><code>...args</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> Optional arguments to pass when the <code>callback</code> is called.</li>
+<li>Returns: <a href="http://nodejs.cn/s/SvSBDC" target="_blank" rel="nofollow" class="type">&lt;Immediate&gt;</a> for use with <a href="http://nodejs.cn/s/tn26EY" rel="nofollow"><code>clearImmediate()</code></a></li>
+</ul><p>Schedules the &quot;immediate&quot; execution of the <code>callback</code> after I/O events&apos;
+callbacks.</p><p>When multiple calls to <code>setImmediate()</code> are made, the <code>callback</code> functions are
+queued for execution in the order in which they are created. The entire callback
+queue is processed every event loop iteration. If an immediate timer is queued
+from inside an executing callback, that timer will not be triggered until the
+next event loop iteration.</p><p>If <code>callback</code> is not a function, a <a href="http://nodejs.cn/s/Z7Lqyj" rel="nofollow"><code>TypeError</code></a> will be thrown.</p><p>This method has a custom variant for promises that is available using
+<a href="http://nodejs.cn/s/DGMNHh" rel="nofollow"><code>util.promisify()</code></a>:</p><pre><code class="language-js">const util = require(&apos;util&apos;);
+const setImmediatePromise = util.promisify(setImmediate);
+
+setImmediatePromise(&apos;foobar&apos;).then((value) =&gt; {
+  // value === &apos;foobar&apos; (passing values is optional)
+  // This is executed after all I/O callbacks.
+});
+
+// Or with async function
+async function timerExample() {
+  console.log(&apos;Before I/O callbacks&apos;);
+  await setImmediatePromise();
+  console.log(&apos;After I/O callbacks&apos;);
+}
+timerExample();
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/timers/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756325271"><\/script>');
+  </script>
+</body>
+</html>

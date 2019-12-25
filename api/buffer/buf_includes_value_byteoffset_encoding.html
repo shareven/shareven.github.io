@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>buf.includes(value[, byteOffset][, encoding]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756294622" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-buffer">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>buf.includes(value[, byteOffset][, encoding])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../buffer.html#buffer_buf_includes_value_byteoffset_encoding" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/buffer/buf_includes_value_byteoffset_encoding.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v5.3.0</span>
+</div><ul>
+<li><code>value</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/ZbDkpm" target="_blank" rel="nofollow" class="type">&lt;Uint8Array&gt;</a> | <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x8981;&#x67E5;&#x627E;&#x7684;&#x503C;&#x3002;</li>
+<li><code>byteOffset</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> <code>buf</code> &#x4E2D;&#x5F00;&#x59CB;&#x67E5;&#x627E;&#x7684;&#x504F;&#x79FB;&#x91CF;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>0</code>&#x3002;</li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5982;&#x679C; <code>value</code> &#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x6307;&#x5B9A; <code>value</code> &#x7684;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;utf8&apos;</code>&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5982;&#x679C; <code>buf</code> &#x67E5;&#x627E;&#x5230; <code>value</code>&#xFF0C;&#x5219;&#x8FD4;&#x56DE; <code>true</code>&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE; <code>false</code>&#x3002;</li>
+</ul><p>&#x76F8;&#x5F53;&#x4E8E; <a href="http://nodejs.cn/s/eFR2KV" rel="nofollow"><code>buf.indexOf() !== -1</code></a>&#x3002;</p><pre><code class="language-js">const buf = Buffer.from(&apos;this is a buffer&apos;);
+
+console.log(buf.includes(&apos;this&apos;));
+// &#x6253;&#x5370;: true
+console.log(buf.includes(&apos;is&apos;));
+// &#x6253;&#x5370;: true
+console.log(buf.includes(Buffer.from(&apos;a buffer&apos;)));
+// &#x6253;&#x5370;: true
+console.log(buf.includes(97));
+// &#x6253;&#x5370;: true&#xFF08;97 &#x662F; &apos;a&apos; &#x7684;&#x5341;&#x8FDB;&#x5236; ASCII &#x503C;&#xFF09;
+console.log(buf.includes(Buffer.from(&apos;a buffer example&apos;)));
+// &#x6253;&#x5370;: false
+console.log(buf.includes(Buffer.from(&apos;a buffer example&apos;).slice(0, 8)));
+// &#x6253;&#x5370;: true
+console.log(buf.includes(&apos;this&apos;, 4));
+// &#x6253;&#x5370;: false
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v5.3.0</span>
+</div><ul>
+<li><code>value</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/ZbDkpm" target="_blank" rel="nofollow" class="type">&lt;Uint8Array&gt;</a> | <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> What to search for.</li>
+<li><code>byteOffset</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> Where to begin searching in <code>buf</code>. If negative, then
+offset is calculated from the end of <code>buf</code>. <strong>Default:</strong> <code>0</code>.</li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> If <code>value</code> is a string, this is its encoding.
+<strong>Default:</strong> <code>&apos;utf8&apos;</code>.</li>
+<li>Returns: <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <code>true</code> if <code>value</code> was found in <code>buf</code>, <code>false</code> otherwise.</li>
+</ul><p>Equivalent to <a href="http://nodejs.cn/s/eFR2KV" rel="nofollow"><code>buf.indexOf() !== -1</code></a>.</p><pre><code class="language-js">const buf = Buffer.from(&apos;this is a buffer&apos;);
+
+console.log(buf.includes(&apos;this&apos;));
+// Prints: true
+console.log(buf.includes(&apos;is&apos;));
+// Prints: true
+console.log(buf.includes(Buffer.from(&apos;a buffer&apos;)));
+// Prints: true
+console.log(buf.includes(97));
+// Prints: true (97 is the decimal ASCII value for &apos;a&apos;)
+console.log(buf.includes(Buffer.from(&apos;a buffer example&apos;)));
+// Prints: false
+console.log(buf.includes(Buffer.from(&apos;a buffer example&apos;).slice(0, 8)));
+// Prints: true
+console.log(buf.includes(&apos;this&apos;, 4));
+// Prints: false
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756294622"><\/script>');
+  </script>
+</body>
+</html>

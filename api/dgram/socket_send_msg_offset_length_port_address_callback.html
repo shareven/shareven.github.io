@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>socket.send(msg[, offset, length][, port][, address][, callback]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/dgram/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756302462" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-dgram">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>socket.send(msg[, offset, length][, port][, address][, callback])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../dgram.html#dgram_socket_send_msg_offset_length_port_address_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/socket_send_msg_offset_length_port_address_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v12.0.0</td>
+<td><p>Added support for sending data on connected sockets.</p></td></tr>
+<tr><td>v8.0.0</td>
+<td><p>The <code>msg</code> parameter can be an <code>Uint8Array</code> now.</p></td></tr>
+<tr><td>v8.0.0</td>
+<td><p>The <code>address</code> parameter is always optional now.</p></td></tr>
+<tr><td>v6.0.0</td>
+<td><p>On success, <code>callback</code> will now be called with an <code>error</code> argument of <code>null</code> rather than <code>0</code>.</p></td></tr>
+<tr><td>v5.7.0</td>
+<td><p>The <code>msg</code> parameter can be an array now. Also, the <code>offset</code> and <code>length</code> parameters are optional now.</p></td></tr>
+<tr><td>v0.1.99</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.99</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>msg</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/ZbDkpm" target="_blank" rel="nofollow" class="type">&lt;Uint8Array&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/ZJSz23" target="_blank" rel="nofollow" class="type">&lt;Array&gt;</a> &#x8981;&#x53D1;&#x9001;&#x7684;&#x6D88;&#x606F;&#x3002;</li>
+<li><code>offset</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x6307;&#x5B9A;&#x6D88;&#x606F;&#x7684;&#x5F00;&#x5934;&#x5728; buffer &#x4E2D;&#x7684;&#x504F;&#x79FB;&#x91CF;&#x3002;</li>
+<li><code>length</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x6D88;&#x606F;&#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;</li>
+<li><code>port</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x76EE;&#x6807;&#x7AEF;&#x53E3;&#x3002;</li>
+<li><code>address</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x76EE;&#x6807;&#x4E3B;&#x673A;&#x540D;&#x6216; IP &#x5730;&#x5740;&#x3002;</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x5F53;&#x6D88;&#x606F;&#x88AB;&#x53D1;&#x9001;&#x65F6;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x3002;</li>
+</ul><p>&#x5728; socket &#x4E0A;&#x5E7F;&#x64AD;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x5305;&#x3002;
+&#x5BF9;&#x4E8E;&#x65E0;&#x8FDE;&#x63A5;&#x7684; socket&#xFF0C;&#x5FC5;&#x987B;&#x6307;&#x5B9A;&#x76EE;&#x6807;&#x7684; <code>port</code> &#x548C; <code>address</code>&#x3002;
+&#x5BF9;&#x4E8E;&#x8FDE;&#x63A5;&#x7684; socket&#xFF0C;&#x5219;&#x5C06;&#x4F1A;&#x4F7F;&#x7528;&#x5176;&#x5173;&#x8054;&#x7684;&#x8FDC;&#x7A0B;&#x7AEF;&#x70B9;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x80FD;&#x8BBE;&#x7F6E; <code>port</code> &#x548C; <code>address</code> &#x53C2;&#x6570;&#x3002;</p><p><code>msg</code> &#x53C2;&#x6570;&#x5305;&#x542B;&#x4E86;&#x8981;&#x53D1;&#x9001;&#x7684;&#x6D88;&#x606F;&#x3002;
+&#x6839;&#x636E;&#x6D88;&#x606F;&#x7684;&#x7C7B;&#x578B;&#x53EF;&#x4EE5;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x505A;&#x6CD5;&#x3002;
+&#x5982;&#x679C; <code>msg</code> &#x662F;&#x4E00;&#x4E2A; <code>Buffer</code> &#x6216; <code>Uint8Array</code>&#xFF0C;&#x5219; <code>offset</code> &#x548C; <code>length</code> &#x6307;&#x5B9A;&#x4E86;&#x6D88;&#x606F;&#x5728; <code>Buffer</code> &#x4E2D;&#x5BF9;&#x5E94;&#x7684;&#x504F;&#x79FB;&#x91CF;&#x548C;&#x5B57;&#x8282;&#x6570;&#x3002;
+&#x5982;&#x679C; <code>msg</code> &#x662F;&#x4E00;&#x4E2A;<code>String</code>&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x4F1A;&#x88AB;&#x81EA;&#x52A8;&#x5730;&#x6309;&#x7167; <code>&apos;utf8&apos;</code> &#x7F16;&#x7801;&#x8F6C;&#x6362;&#x4E3A; <code>Buffer</code>&#x3002;
+&#x5BF9;&#x4E8E;&#x5305;&#x542B;&#x4E86;&#x591A;&#x5B57;&#x8282;&#x5B57;&#x7B26;&#x7684;&#x6D88;&#x606F;&#xFF0C; <code>offset</code> &#x548C; <code>length</code> &#x4F1A;&#x6839;&#x636E;&#x5BF9;&#x5E94;&#x7684;<a href="http://nodejs.cn/s/J9wTov" rel="nofollow">&#x5B57;&#x8282;&#x957F;&#x5EA6;</a>&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x6839;&#x636E;&#x5B57;&#x7B26;&#x7684;&#x4F4D;&#x7F6E;&#x3002;
+&#x5982;&#x679C; <code>msg</code> &#x662F;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x90A3;&#x4E48; <code>offset</code> &#x548C; <code>length</code> &#x5FC5;&#x987B;&#x90FD;&#x4E0D;&#x80FD;&#x88AB;&#x6307;&#x5B9A;&#x3002;</p><p><code>address</code> &#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+&#x82E5; <code>address</code> &#x7684;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x4E3B;&#x673A;&#x540D;&#xFF0C;&#x5219; DNS &#x4F1A;&#x88AB;&#x7528;&#x6765;&#x89E3;&#x6790;&#x4E3B;&#x673A;&#x7684;&#x5730;&#x5740;&#x3002;
+&#x82E5; <code>address</code> &#x672A;&#x63D0;&#x4F9B;&#x6216;&#x662F;&#x975E;&#x771F;&#x503C;&#xFF0C;&#x5219; <code>&apos;127.0.0.1&apos;</code>&#xFF08;&#x7528;&#x4E8E; <code>udp4</code> socket&#xFF09;&#x6216; <code>&apos;::1&apos;</code>&#xFF08;&#x7528;&#x4E8E; <code>udp6</code> socket&#xFF09;&#x4F1A;&#x88AB;&#x4F7F;&#x7528;&#x3002;</p><p>&#x82E5;&#x5728;&#x4E4B;&#x524D; socket &#x672A;&#x901A;&#x8FC7;&#x8C03;&#x7528; <code>bind</code> &#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x7ED1;&#x5B9A;&#xFF0C;socket &#x5C06;&#x4F1A;&#x88AB;&#x4E00;&#x4E2A;&#x968F;&#x673A;&#x7684;&#x7AEF;&#x53E3;&#x53F7;&#x8D4B;&#x503C;&#x5E76;&#x7ED1;&#x5B9A;&#x5230;&#x201C;&#x6240;&#x6709;&#x63A5;&#x53E3;&#x201D;&#x7684;&#x5730;&#x5740;&#x4E0A;&#xFF08;&#x5BF9;&#x4E8E; <code>udp4</code> socket &#x662F; <code>&apos;0.0.0.0&apos;</code>&#xFF0C;&#x5BF9;&#x4E8E; <code>udp6</code> socket &#x662F; <code>&apos;::0&apos;</code>&#xFF09;&#x3002;</p><p>&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x7684; <code>callback</code> &#x65B9;&#x6CD5;&#x6765;&#x6C47;&#x62A5; DNS &#x9519;&#x8BEF;&#x6216;&#x5224;&#x65AD;&#x53EF;&#x4EE5;&#x5B89;&#x5168;&#x5730;&#x91CD;&#x7528; <code>buf</code> &#x5BF9;&#x8C61;&#x7684;&#x65F6;&#x673A;&#x3002;
+&#x5728; Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4E2D;&#xFF0C;DNS &#x67E5;&#x8BE2;&#x4F1A;&#x5BF9;&#x53D1;&#x9001;&#x9020;&#x6210;&#x81F3;&#x5C11;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x70B9;&#x7684;&#x5EF6;&#x8FDF;&#x3002;</p><p>&#x786E;&#x5B9A;&#x6570;&#x636E;&#x5305;&#x88AB;&#x53D1;&#x9001;&#x7684;&#x552F;&#x4E00;&#x65B9;&#x5F0F;&#x5C31;&#x662F;&#x6307;&#x5B9A; <code>callback</code>&#x3002;
+&#x82E5;&#x5728; <code>callback</code> &#x88AB;&#x6307;&#x5B9A;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x6709;&#x9519;&#x8BEF;&#x53D1;&#x751F;&#xFF0C;&#x8BE5;&#x9519;&#x8BEF;&#x4F1A;&#x4F5C;&#x4E3A; <code>callback</code> &#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x3002;
+&#x82E5; <code>callback</code> &#x672A;&#x88AB;&#x6307;&#x5B9A;&#xFF0C;&#x8BE5;&#x9519;&#x8BEF;&#x4F1A;&#x4EE5; <code>&apos;error&apos;</code> &#x4E8B;&#x4EF6;&#x7684;&#x65B9;&#x5F0F;&#x6295;&#x5C04;&#x5230; <code>socket</code> &#x5BF9;&#x8C61;&#x4E0A;&#x3002;</p><p>&#x504F;&#x79FB;&#x91CF;&#x548C;&#x957F;&#x5EA6;&#x662F;&#x53EF;&#x9009;&#x7684;&#xFF0C;&#x4F46;&#x5982;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x88AB;&#x6307;&#x5B9A;&#x5219;&#x53E6;&#x4E00;&#x4E2A;&#x4E5F;&#x5FC5;&#x987B;&#x88AB;&#x6307;&#x5B9A;&#x3002;
+&#x53E6;&#x5916;&#xFF0C;&#x5B83;&#x4EEC;&#x53EA;&#x5728;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F; <code>Buffer</code> &#x6216; <code>Uint8Array</code> &#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x624D;&#x80FD;&#x88AB;&#x4F7F;&#x7528;&#x3002;</p><p>&#x793A;&#x4F8B;&#xFF0C;&#x53D1;&#x9001; UDP &#x5305;&#x5230; <code>localhost</code> &#x4E0A;&#x7684;&#x67D0;&#x4E2A;&#x7AEF;&#x53E3;&#xFF1A;</p><pre><code class="language-js">const dgram = require(&apos;dgram&apos;);
+const message = Buffer.from(&apos;&#x4E00;&#x4E9B;&#x5B57;&#x8282;&apos;);
+const client = dgram.createSocket(&apos;udp4&apos;);
+client.send(message, 41234, &apos;localhost&apos;, (err) =&gt; {
+  client.close();
+});
+</code></pre><p>&#x793A;&#x4F8B;&#xFF0C;&#x53D1;&#x9001;&#x5305;&#x542B;&#x591A;&#x4E2A; buffer &#x7684; UDP &#x5305;&#x5230; <code>127.0.0.1</code> &#x4E0A;&#x7684;&#x67D0;&#x4E2A;&#x7AEF;&#x53E3;&#xFF1A;</p><pre><code class="language-js">const dgram = require(&apos;dgram&apos;);
+const buf1 = Buffer.from(&apos;&#x4E00;&#x4E9B; &apos;);
+const buf2 = Buffer.from(&apos;&#x5B57;&#x8282;&apos;);
+const client = dgram.createSocket(&apos;udp4&apos;);
+client.send([buf1, buf2], 41234, (err) =&gt; {
+  client.close();
+});
+</code></pre><p>&#x53D1;&#x9001;&#x591A;&#x4E2A; buffer &#x7684;&#x901F;&#x5EA6;&#x53D6;&#x51B3;&#x4E8E;&#x5E94;&#x7528;&#x548C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x3002;
+&#x9010;&#x6848;&#x8FD0;&#x884C;&#x57FA;&#x51C6;&#x6765;&#x786E;&#x5B9A;&#x6700;&#x4F73;&#x7B56;&#x7565;&#x3002;
+&#x4F46;&#x662F;&#x4E00;&#x822C;&#x6765;&#x8BF4;&#xFF0C;&#x53D1;&#x9001;&#x591A;&#x4E2A; buffer &#x901F;&#x5EA6;&#x66F4;&#x5FEB;&#x3002;</p><p>&#x793A;&#x4F8B;&#xFF0C;&#x4F7F;&#x7528;&#x5DF2;&#x8FDE;&#x63A5;&#x7684; socket &#x53D1;&#x9001; UDP &#x5305;&#x5230; <code>localhost</code> &#x4E0A;&#x7684;&#x67D0;&#x4E2A;&#x7AEF;&#x53E3;&#xFF1A;</p><pre><code class="language-js">const dgram = require(&apos;dgram&apos;);
+const message = Buffer.from(&apos;&#x4E00;&#x4E9B;&#x5B57;&#x8282;&apos;);
+const client = dgram.createSocket(&apos;udp4&apos;);
+client.connect(41234, &apos;localhost&apos;, (err) =&gt; {
+  client.send(message, (err) =&gt; {
+    client.close();
+  });
+});
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v12.0.0</td>
+<td><p>Added support for sending data on connected sockets.</p></td></tr>
+<tr><td>v8.0.0</td>
+<td><p>The <code>msg</code> parameter can be an <code>Uint8Array</code> now.</p></td></tr>
+<tr><td>v8.0.0</td>
+<td><p>The <code>address</code> parameter is always optional now.</p></td></tr>
+<tr><td>v6.0.0</td>
+<td><p>On success, <code>callback</code> will now be called with an <code>error</code> argument of <code>null</code> rather than <code>0</code>.</p></td></tr>
+<tr><td>v5.7.0</td>
+<td><p>The <code>msg</code> parameter can be an array now. Also, the <code>offset</code> and <code>length</code> parameters are optional now.</p></td></tr>
+<tr><td>v0.1.99</td>
+<td><p><span>Added in: v0.1.99</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>msg</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/ZbDkpm" target="_blank" rel="nofollow" class="type">&lt;Uint8Array&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/ZJSz23" target="_blank" rel="nofollow" class="type">&lt;Array&gt;</a> Message to be sent.</li>
+<li><code>offset</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> Offset in the buffer where the message starts.</li>
+<li><code>length</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> Number of bytes in the message.</li>
+<li><code>port</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> Destination port.</li>
+<li><code>address</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> Destination hostname or IP address.</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> Called when the message has been sent.</li>
+</ul><p>Broadcasts a datagram on the socket.
+For connectionless sockets, the destination <code>port</code> and <code>address</code> must be
+specified. Connected sockets, on the other hand, will use their associated
+remote endpoint, so the <code>port</code> and <code>address</code> arguments must not be set.</p><p>The <code>msg</code> argument contains the message to be sent.
+Depending on its type, different behavior can apply. If <code>msg</code> is a <code>Buffer</code>
+or <code>Uint8Array</code>,
+the <code>offset</code> and <code>length</code> specify the offset within the <code>Buffer</code> where the
+message begins and the number of bytes in the message, respectively.
+If <code>msg</code> is a <code>String</code>, then it is automatically converted to a <code>Buffer</code>
+with <code>&apos;utf8&apos;</code> encoding. With messages that
+contain multi-byte characters, <code>offset</code> and <code>length</code> will be calculated with
+respect to <a href="http://nodejs.cn/s/J9wTov" rel="nofollow">byte length</a> and not the character position.
+If <code>msg</code> is an array, <code>offset</code> and <code>length</code> must not be specified.</p><p>The <code>address</code> argument is a string. If the value of <code>address</code> is a host name,
+DNS will be used to resolve the address of the host. If <code>address</code> is not
+provided or otherwise falsy, <code>&apos;127.0.0.1&apos;</code> (for <code>udp4</code> sockets) or <code>&apos;::1&apos;</code>
+(for <code>udp6</code> sockets) will be used by default.</p><p>If the socket has not been previously bound with a call to <code>bind</code>, the socket
+is assigned a random port number and is bound to the &quot;all interfaces&quot; address
+(<code>&apos;0.0.0.0&apos;</code> for <code>udp4</code> sockets, <code>&apos;::0&apos;</code> for <code>udp6</code> sockets.)</p><p>An optional <code>callback</code> function may be specified to as a way of reporting
+DNS errors or for determining when it is safe to reuse the <code>buf</code> object.
+DNS lookups delay the time to send for at least one tick of the
+Node.js event loop.</p><p>The only way to know for sure that the datagram has been sent is by using a
+<code>callback</code>. If an error occurs and a <code>callback</code> is given, the error will be
+passed as the first argument to the <code>callback</code>. If a <code>callback</code> is not given,
+the error is emitted as an <code>&apos;error&apos;</code> event on the <code>socket</code> object.</p><p>Offset and length are optional but both <em>must</em> be set if either are used.
+They are supported only when the first argument is a <code>Buffer</code> or <code>Uint8Array</code>.</p><p>Example of sending a UDP packet to a port on <code>localhost</code>;</p><pre><code class="language-js">const dgram = require(&apos;dgram&apos;);
+const message = Buffer.from(&apos;Some bytes&apos;);
+const client = dgram.createSocket(&apos;udp4&apos;);
+client.send(message, 41234, &apos;localhost&apos;, (err) =&gt; {
+  client.close();
+});
+</code></pre><p>Example of sending a UDP packet composed of multiple buffers to a port on
+<code>127.0.0.1</code>;</p><pre><code class="language-js">const dgram = require(&apos;dgram&apos;);
+const buf1 = Buffer.from(&apos;Some &apos;);
+const buf2 = Buffer.from(&apos;bytes&apos;);
+const client = dgram.createSocket(&apos;udp4&apos;);
+client.send([buf1, buf2], 41234, (err) =&gt; {
+  client.close();
+});
+</code></pre><p>Sending multiple buffers might be faster or slower depending on the
+application and operating system. Run benchmarks to
+determine the optimal strategy on a case-by-case basis. Generally speaking,
+however, sending multiple buffers is faster.</p><p>Example of sending a UDP packet using a socket connected to a port on
+<code>localhost</code>:</p><pre><code class="language-js">const dgram = require(&apos;dgram&apos;);
+const message = Buffer.from(&apos;Some bytes&apos;);
+const client = dgram.createSocket(&apos;udp4&apos;);
+client.connect(41234, &apos;localhost&apos;, (err) =&gt; {
+  client.send(message, (err) =&gt; {
+    client.close();
+  });
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/dgram/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756302462"><\/script>');
+  </script>
+</body>
+</html>

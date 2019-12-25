@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>缓存 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/modules/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756315990" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-modules">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>缓存</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../modules.html#modules_caching" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/modules/caching.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x6A21;&#x5757;&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x52A0;&#x8F7D;&#x540E;&#x4F1A;&#x88AB;&#x7F13;&#x5B58;&#x3002;
+&#x8FD9;&#x4E5F;&#x610F;&#x5473;&#x7740;&#xFF08;&#x7C7B;&#x4F3C;&#x5176;&#x4ED6;&#x7F13;&#x5B58;&#x673A;&#x5236;&#xFF09;&#x5982;&#x679C;&#x6BCF;&#x6B21;&#x8C03;&#x7528; <code>require(&apos;foo&apos;)</code> &#x90FD;&#x89E3;&#x6790;&#x5230;&#x540C;&#x4E00;&#x6587;&#x4EF6;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x76F8;&#x540C;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p><p>&#x591A;&#x6B21;&#x8C03;&#x7528; <code>require(foo)</code> &#x4E0D;&#x4F1A;&#x5BFC;&#x81F4;&#x6A21;&#x5757;&#x7684;&#x4EE3;&#x7801;&#x88AB;&#x6267;&#x884C;&#x591A;&#x6B21;&#x3002;
+&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x7684;&#x7279;&#x6027;&#x3002;
+&#x501F;&#x52A9;&#x5B83;, &#x53EF;&#x4EE5;&#x8FD4;&#x56DE;&#x201C;&#x90E8;&#x5206;&#x5B8C;&#x6210;&#x201D;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x4ECE;&#x800C;&#x5141;&#x8BB8;&#x52A0;&#x8F7D;&#x4F9D;&#x8D56;&#x7684;&#x4F9D;&#x8D56;, &#x5373;&#x4F7F;&#x5B83;&#x4EEC;&#x4F1A;&#x5BFC;&#x81F4;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;&#x3002;</p><p>&#x5982;&#x679C;&#x60F3;&#x8981;&#x591A;&#x6B21;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;&#x53EF;&#x4EE5;&#x5BFC;&#x51FA;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528;&#x8BE5;&#x51FD;&#x6570;&#x3002;</p></div>
+          <div id="content_right"><p>Modules are cached after the first time they are loaded. This means (among other
+things) that every call to <code>require(&apos;foo&apos;)</code> will get exactly the same object
+returned, if it would resolve to the same file.</p><p>Provided <code>require.cache</code> is not modified, multiple calls to <code>require(&apos;foo&apos;)</code>
+will not cause the module code to be executed multiple times. This is an
+important feature. With it, &quot;partially done&quot; objects can be returned, thus
+allowing transitive dependencies to be loaded even when they would cause cycles.</p><p>To have a module execute code multiple times, export a function, and call that
+function.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/modules/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756315990"><\/script>');
+  </script>
+</body>
+</html>

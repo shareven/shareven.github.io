@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>socket.connect() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/net/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756318374" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-net">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>socket.connect()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../net.html#net_socket_connect" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/net/socket_connect.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x5728;&#x7ED9;&#x5B9A;&#x7684;&#x5957;&#x63A5;&#x5B57;&#x4E0A;&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x8FDE;&#x63A5;&#x3002;</p><p>&#x53EF;&#x80FD;&#x7684;&#x7B7E;&#x540D;&#xFF1A;</p><ul>
+<li><a href="http://nodejs.cn/s/787XLt" rel="nofollow">socket.connect(options[, connectListener])</a></li>
+<li><a href="http://nodejs.cn/s/Ym5CUG" rel="nofollow">socket.connect(path[, connectListener])</a> &#x7528;&#x4E8E; <a href="http://nodejs.cn/s/rAdYjf" rel="nofollow">IPC</a> &#x8FDE;&#x63A5;&#x3002;</li>
+<li><a href="http://nodejs.cn/s/KgYe2b" rel="nofollow">socket.connect(port[, host][, connectListener])</a> &#x7528;&#x4E8E; TCP &#x8FDE;&#x63A5;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/wsJ1o1" target="_blank" rel="nofollow" class="type">&lt;net.Socket&gt;</a> socket &#x81EA;&#x8EAB;&#x3002;</li>
+</ul><p>&#x8BE5;&#x65B9;&#x6CD5;&#x662F;&#x5F02;&#x6B65;&#x7684;&#x3002;&#x5F53;&#x8FDE;&#x63A5;&#x5EFA;&#x7ACB;&#x4E86;&#x7684;&#x65F6;&#x5019;&#xFF0C;<a href="http://nodejs.cn/s/BwGGNR" rel="nofollow"><code>&apos;connect&apos;</code></a> &#x4E8B;&#x4EF6;&#x5C06;&#x4F1A;&#x88AB;&#x89E6;&#x53D1;&#x3002;&#x5982;&#x679C;&#x8FDE;&#x63A5;&#x8FC7;&#x7A0B;&#x4E2D;&#x6709;&#x95EE;&#x9898;&#xFF0C;<a href="http://nodejs.cn/s/v5sbt8" rel="nofollow"><code>&apos;error&apos;</code></a> &#x4E8B;&#x4EF6;&#x5C06;&#x4F1A;&#x4EE3;&#x66FF; <a href="http://nodejs.cn/s/BwGGNR" rel="nofollow"><code>&apos;connect&apos;</code></a> &#x4E8B;&#x4EF6;&#x88AB;&#x89E6;&#x53D1;&#xFF0C;&#x5E76;&#x5C06;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x4F20;&#x9012;&#x7ED9; <a href="http://nodejs.cn/s/v5sbt8" rel="nofollow"><code>&apos;error&apos;</code></a> &#x76D1;&#x542C;&#x5668;&#x3002;
+&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x53C2;&#x6570; <code>connectListener</code>&#xFF0C;&#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86;&#xFF0C;&#x5C06;&#x4F1A;&#x88AB;&#x6DFB;&#x52A0;&#x4E3A; <a href="http://nodejs.cn/s/BwGGNR" rel="nofollow"><code>&apos;connect&apos;</code></a> &#x4E8B;&#x4EF6;&#x7684;&#x76D1;&#x542C;&#x5668;&#x3002;</p></div>
+          <div id="content_right"><p>Initiate a connection on a given socket.</p><p>Possible signatures:</p><ul>
+<li><a href="http://nodejs.cn/s/787XLt" rel="nofollow"><code>socket.connect(options[, connectListener])</code></a></li>
+<li><a href="http://nodejs.cn/s/Ym5CUG" rel="nofollow"><code>socket.connect(path[, connectListener])</code></a>
+for <a href="http://nodejs.cn/s/rAdYjf" rel="nofollow">IPC</a> connections.</li>
+<li><a href="http://nodejs.cn/s/KgYe2b" rel="nofollow"><code>socket.connect(port[, host][, connectListener])</code></a>
+for TCP connections.</li>
+<li>Returns: <a href="http://nodejs.cn/s/wsJ1o1" target="_blank" rel="nofollow" class="type">&lt;net.Socket&gt;</a> The socket itself.</li>
+</ul><p>This function is asynchronous. When the connection is established, the
+<a href="http://nodejs.cn/s/BwGGNR" rel="nofollow"><code>&apos;connect&apos;</code></a> event will be emitted. If there is a problem connecting,
+instead of a <a href="http://nodejs.cn/s/BwGGNR" rel="nofollow"><code>&apos;connect&apos;</code></a> event, an <a href="http://nodejs.cn/s/v5sbt8" rel="nofollow"><code>&apos;error&apos;</code></a> event will be emitted with
+the error passed to the <a href="http://nodejs.cn/s/v5sbt8" rel="nofollow"><code>&apos;error&apos;</code></a> listener.
+The last parameter <code>connectListener</code>, if supplied, will be added as a listener
+for the <a href="http://nodejs.cn/s/BwGGNR" rel="nofollow"><code>&apos;connect&apos;</code></a> event <strong>once</strong>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/net/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756318374"><\/script>');
+  </script>
+</body>
+</html>

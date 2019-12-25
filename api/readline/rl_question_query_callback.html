@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>rl.question(query, callback) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/readline/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756322234" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-readline">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>rl.question(query, callback)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../readline.html#readline_rl_question_query_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/readline/rl_question_query_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.3</span>
+</div><ul>
+<li><code>query</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x8981;&#x5199;&#x5165; <code>output</code> &#x7684;&#x8BED;&#x53E5;&#x6216;&#x8BE2;&#x95EE;&#xFF0C;&#x524D;&#x7F6E;&#x4E8E;&#x63D0;&#x793A;&#x7B26;&#x3002;</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x8C03;&#x7528;&#x65F6;&#x4F20;&#x5165;&#x7528;&#x6237;&#x7684;&#x8F93;&#x5165;&#x4EE5;&#x54CD;&#x5E94; <code>query</code>&#x3002;</li>
+</ul><p><code>rl.question()</code> &#x65B9;&#x6CD5;&#x901A;&#x8FC7;&#x5C06; <code>query</code> &#x5199;&#x5165; <code>output</code> &#x6765;&#x663E;&#x793A;&#x5B83;&#xFF0C;&#x5E76;&#x7B49;&#x5F85;&#x7528;&#x6237;&#x5728; <code>input</code> &#x4E0A;&#x63D0;&#x4F9B;&#x8F93;&#x5165;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528; <code>callback</code> &#x51FD;&#x6570;&#x5C06;&#x63D0;&#x4F9B;&#x7684;&#x8F93;&#x5165;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4F20;&#x5165;&#x3002;</p><p>&#x5F53;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5982;&#x679C; <code>input</code> &#x6D41;&#x5DF2;&#x6682;&#x505C;&#xFF0C;&#x5219; <code>rl.question()</code> &#x5C06;&#x6062;&#x590D; <code>input</code> &#x6D41;&#x3002;</p><p>&#x5982;&#x679C; <code>readline.Interface</code> &#x521B;&#x5EFA;&#x65F6; <code>output</code> &#x88AB;&#x8BBE;&#x7F6E;&#x4E3A; <code>null</code> &#x6216; <code>undefined</code>&#xFF0C;&#x5219;&#x4E0D;&#x4F1A;&#x5199;&#x5165; <code>query</code>&#x3002;</p><p>&#x7528;&#x6CD5;&#x793A;&#x4F8B;&#xFF1A;</p><pre><code class="language-js">rl.question(&apos;&#x4F60;&#x6700;&#x559C;&#x6B22;&#x7684;&#x98DF;&#x7269;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;&apos;, (answer) =&gt; {
+  console.log(`&#x4F60;&#x6700;&#x559C;&#x6B22;&#x7684;&#x98DF;&#x7269;&#x662F; ${answer}`);
+});
+</code></pre><p>&#x4F20;&#x7ED9; <code>rl.question()</code> &#x7684; <code>callback</code> &#x51FD;&#x6570;&#x4E0D;&#x9075;&#x5FAA;&#x63A5;&#x53D7; <code>Error</code> &#x5BF9;&#x8C61;&#x6216; <code>null</code> &#x4F5C;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x7ECF;&#x5178;&#x6A21;&#x5F0F;&#x3002;
+&#x8C03;&#x7528; <code>callback</code> &#x65F6;&#x4F7F;&#x7528;&#x63D0;&#x4F9B;&#x7684;&#x7B54;&#x6848;&#x4F5C;&#x4E3A;&#x552F;&#x4E00;&#x7684;&#x53C2;&#x6570;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.3.3</span>
+</div><ul>
+<li><code>query</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> A statement or query to write to <code>output</code>, prepended to the
+prompt.</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> A callback function that is invoked with the user&apos;s
+input in response to the <code>query</code>.</li>
+</ul><p>The <code>rl.question()</code> method displays the <code>query</code> by writing it to the <code>output</code>,
+waits for user input to be provided on <code>input</code>, then invokes the <code>callback</code>
+function passing the provided input as the first argument.</p><p>When called, <code>rl.question()</code> will resume the <code>input</code> stream if it has been
+paused.</p><p>If the <code>readline.Interface</code> was created with <code>output</code> set to <code>null</code> or
+<code>undefined</code> the <code>query</code> is not written.</p><p>Example usage:</p><pre><code class="language-js">rl.question(&apos;What is your favorite food? &apos;, (answer) =&gt; {
+  console.log(`Oh, so your favorite food is ${answer}`);
+});
+</code></pre><p>The <code>callback</code> function passed to <code>rl.question()</code> does not follow the typical
+pattern of accepting an <code>Error</code> object or <code>null</code> as the first argument.
+The <code>callback</code> is called with the provided answer as the only argument.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/readline/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756322234"><\/script>');
+  </script>
+</body>
+</html>

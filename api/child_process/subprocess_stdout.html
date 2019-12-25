@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>subprocess.stdout | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/child_process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756295973" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-child_process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>subprocess.stdout</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../child_process.html#child_process_subprocess_stdout" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/child_process/subprocess_stdout.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.90</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/YuDKX1" target="_blank" rel="nofollow" class="type">&lt;stream.Readable&gt;</a></li>
+</ul><p>&#x8868;&#x793A;&#x5B50;&#x8FDB;&#x7A0B;&#x7684; <code>stdout</code> &#x7684;&#x53EF;&#x8BFB;&#x6D41;&#x3002;</p><p>&#x5982;&#x679C;&#x5B50;&#x8FDB;&#x7A0B;&#x88AB;&#x884D;&#x751F;&#x65F6; <code>stdio[1]</code> &#x88AB;&#x8BBE;&#x7F6E;&#x4E3A; <code>&apos;pipe&apos;</code> &#x4EE5;&#x5916;&#x7684;&#x4EFB;&#x4F55;&#x503C;&#xFF0C;&#x5219;&#x8BE5;&#x503C;&#x5C06;&#x4F1A;&#x662F; <code>null</code>&#x3002;</p><p><code>subprocess.stdout</code> &#x662F; <code>subprocess.stdio[1]</code> &#x7684;&#x522B;&#x540D;&#x3002;
+&#x4E24;&#x4E2A;&#x5C5E;&#x6027;&#x90FD;&#x5C06;&#x4F1A;&#x6307;&#x5411;&#x76F8;&#x540C;&#x7684;&#x503C;&#x3002;</p><pre><code class="language-js">const { spawn } = require(&apos;child_process&apos;);
+
+const subprocess = spawn(&apos;ls&apos;);
+
+subprocess.stdout.on(&apos;data&apos;, (data) =&gt; {
+  console.log(`&#x63A5;&#x6536;&#x5230;&#x6570;&#x636E;&#x5757; ${data}`);
+});
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.90</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/YuDKX1" target="_blank" rel="nofollow" class="type">&lt;stream.Readable&gt;</a></li>
+</ul><p>A <code>Readable Stream</code> that represents the child process&apos;s <code>stdout</code>.</p><p>If the child was spawned with <code>stdio[1]</code> set to anything other than <code>&apos;pipe&apos;</code>,
+then this will be <code>null</code>.</p><p><code>subprocess.stdout</code> is an alias for <code>subprocess.stdio[1]</code>. Both properties will
+refer to the same value.</p><pre><code class="language-js">const { spawn } = require(&apos;child_process&apos;);
+
+const subprocess = spawn(&apos;ls&apos;);
+
+subprocess.stdout.on(&apos;data&apos;, (data) =&gt; {
+  console.log(`Received chunk ${data}`);
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/child_process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756295973"><\/script>');
+  </script>
+</body>
+</html>

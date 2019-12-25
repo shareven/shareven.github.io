@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Buffer.from(array) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756294566" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-buffer">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>Buffer.from(array)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../buffer.html#buffer_class_method_buffer_from_array" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/buffer/class_method_buffer_from_array.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v5.10.0</span>
+</div><ul>
+<li><code>array</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer[]&gt;</a></li>
+</ul><p>&#x4F7F;&#x7528;&#x516B;&#x4F4D;&#x5B57;&#x8282;&#x6570;&#x7EC4; <code>array</code> &#x5206;&#x914D;&#x4E00;&#x4E2A;&#x65B0;&#x7684; <code>Buffer</code>&#x3002;</p><pre><code class="language-js">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5305;&#x542B;&#x5B57;&#x7B26;&#x4E32; &apos;buffer&apos; &#x7684; UTF-8 &#x5B57;&#x8282;&#x7684;&#x65B0; Buffer&#x3002;
+const buf = Buffer.from([0x62, 0x75, 0x66, 0x66, 0x65, 0x72]);
+</code></pre><p>&#x5982;&#x679C; <code>array</code> &#x4E0D;&#x662F;&#x4E00;&#x4E2A; <code>Array</code> &#x6216;&#x9002;&#x7528;&#x4E8E; <code>Buffer.from()</code> &#x53D8;&#x91CF;&#x7684;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#xFF0C;&#x5219;&#x629B;&#x51FA; <code>TypeError</code>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v5.10.0</span>
+</div><ul>
+<li><code>array</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer[]&gt;</a></li>
+</ul><p>Allocates a new <code>Buffer</code> using an <code>array</code> of octets.</p><pre><code class="language-js">// Creates a new Buffer containing UTF-8 bytes of the string &apos;buffer&apos;.
+const buf = Buffer.from([0x62, 0x75, 0x66, 0x66, 0x65, 0x72]);
+</code></pre><p>A <code>TypeError</code> will be thrown if <code>array</code> is not an <code>Array</code> or other type
+appropriate for <code>Buffer.from()</code> variants.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756294566"><\/script>');
+  </script>
+</body>
+</html>

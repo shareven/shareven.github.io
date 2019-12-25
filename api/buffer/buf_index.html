@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>buf[index] | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756294593" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-buffer">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>buf[index]</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../buffer.html#buffer_buf_index" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/buffer/buf_index.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+
+</div><ul>
+<li><code>index</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+</ul><p>&#x7D22;&#x5F15;&#x64CD;&#x4F5C;&#x7B26; <code>[index]</code> &#x53EF;&#x7528;&#x4E8E;&#x83B7;&#x53D6;&#x6216;&#x8BBE;&#x7F6E; <code>buf</code> &#x4E2D;&#x6307;&#x5B9A;&#x7684; <code>index</code> &#x4F4D;&#x7F6E;&#x7684;&#x516B;&#x4F4D;&#x5B57;&#x8282;&#x3002;
+&#x8BE5;&#x503C;&#x6307;&#x5411;&#x5355;&#x4E2A;&#x5B57;&#x8282;&#xFF0C;&#x6240;&#x4EE5;&#x6709;&#x6548;&#x7684;&#x503C;&#x7684;&#x8303;&#x56F4;&#x662F; <code>0x00</code> &#x81F3; <code>0xFF</code>&#xFF08;&#x5341;&#x516D;&#x8FDB;&#x5236;&#xFF09;&#x3001;&#x6216; <code>0</code> &#x81F3; <code>255</code>&#xFF08;&#x5341;&#x8FDB;&#x5236;&#xFF09;&#x3002;</p><p>&#x8BE5;&#x64CD;&#x4F5C;&#x7B26;&#x7EE7;&#x627F;&#x81EA; <code>Uint8Array</code>&#xFF0C;&#x6240;&#x4EE5;&#x5BF9;&#x8D8A;&#x754C;&#x8BBF;&#x95EE;&#x7684;&#x884C;&#x4E3A;&#x4E0E; <code>UInt8Array</code> &#x76F8;&#x540C;&#x3002;
+&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x53D6;&#x503C;&#x65F6;&#x8FD4;&#x56DE; <code>undefined</code>&#xFF0C;&#x8D4B;&#x503C;&#x65F6;&#x4E0D;&#x4F5C;&#x4E3A;&#x3002;</p><pre><code class="language-js">// &#x62F7;&#x8D1D; ASCII &#x5B57;&#x7B26;&#x4E32;&#x5230; `Buffer`&#xFF0C;&#x6BCF;&#x6B21;&#x62F7;&#x8D1D;&#x4E00;&#x4E2A;&#x5B57;&#x8282;&#x3002;
+
+const str = &apos;http://nodejs.cn/&apos;;
+const buf = Buffer.allocUnsafe(str.length);
+
+for (let i = 0; i &lt; str.length; i++) {
+  buf[i] = str.charCodeAt(i);
+}
+
+console.log(buf.toString(&apos;ascii&apos;));
+// &#x6253;&#x5370;: http://nodejs.cn/
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+
+</div><ul>
+<li><code>index</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+</ul><p>The index operator <code>[index]</code> can be used to get and set the octet at position
+<code>index</code> in <code>buf</code>. The values refer to individual bytes, so the legal value
+range is between <code>0x00</code> and <code>0xFF</code> (hex) or <code>0</code> and <code>255</code> (decimal).</p><p>This operator is inherited from <code>Uint8Array</code>, so its behavior on out-of-bounds
+access is the same as <code>UInt8Array</code>. In other words, getting returns <code>undefined</code>
+and setting does nothing.</p><pre><code class="language-js">// Copy an ASCII string into a `Buffer` one byte at a time.
+
+const str = &apos;Node.js&apos;;
+const buf = Buffer.allocUnsafe(str.length);
+
+for (let i = 0; i &lt; str.length; i++) {
+  buf[i] = str.charCodeAt(i);
+}
+
+console.log(buf.toString(&apos;ascii&apos;));
+// Prints: Node.js
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756294593"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>emitter.emit(eventName[, ...args]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/events/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756307011" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-events">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>emitter.emit(eventName[, ...args])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../events.html#events_emitter_emit_eventname_args" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/events/emitter_emit_eventname_args.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.26</span>
+</div><ul>
+<li><code>eventName</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/i5E1UH" target="_blank" rel="nofollow" class="type">&lt;symbol&gt;</a></li>
+</ul><ul>
+<li><code>...args</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+</ul><ul>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+</ul><p>&#x6309;&#x7167;&#x76D1;&#x542C;&#x5668;&#x6CE8;&#x518C;&#x7684;&#x987A;&#x5E8F;&#xFF0C;&#x540C;&#x6B65;&#x5730;&#x8C03;&#x7528;&#x6BCF;&#x4E2A;&#x6CE8;&#x518C;&#x5230;&#x540D;&#x4E3A; <code>eventName</code> &#x7684;&#x4E8B;&#x4EF6;&#x7684;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x5E76;&#x4F20;&#x5165;&#x63D0;&#x4F9B;&#x7684;&#x53C2;&#x6570;&#x3002;</p><p>&#x5982;&#x679C;&#x4E8B;&#x4EF6;&#x6709;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x5219;&#x8FD4;&#x56DE; <code>true</code>&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE; <code>false</code>&#x3002;</p><pre><code class="language-js">const EventEmitter = require(&apos;events&apos;);
+const myEmitter = new EventEmitter();
+
+// &#x7B2C;&#x4E00;&#x4E2A;&#x76D1;&#x542C;&#x5668;&#x3002;
+myEmitter.on(&apos;event&apos;, function firstListener() {
+  console.log(&apos;&#x7B2C;&#x4E00;&#x4E2A;&#x76D1;&#x542C;&#x5668;&apos;);
+});
+// &#x7B2C;&#x4E8C;&#x4E2A;&#x76D1;&#x542C;&#x5668;&#x3002;
+myEmitter.on(&apos;event&apos;, function secondListener(arg1, arg2) {
+  console.log(`&#x7B2C;&#x4E8C;&#x4E2A;&#x76D1;&#x542C;&#x5668;&#x4E2D;&#x7684;&#x4E8B;&#x4EF6;&#x6709;&#x53C2;&#x6570; ${arg1}&#x3001;${arg2}`);
+});
+// &#x7B2C;&#x4E09;&#x4E2A;&#x76D1;&#x542C;&#x5668;
+myEmitter.on(&apos;event&apos;, function thirdListener(...args) {
+  const parameters = args.join(&apos;, &apos;);
+  console.log(`&#x7B2C;&#x4E09;&#x4E2A;&#x76D1;&#x542C;&#x5668;&#x4E2D;&#x7684;&#x4E8B;&#x4EF6;&#x6709;&#x53C2;&#x6570; ${parameters}`);
+});
+
+console.log(myEmitter.listeners(&apos;event&apos;));
+
+myEmitter.emit(&apos;event&apos;, 1, 2, 3, 4, 5);
+
+// Prints:
+// [
+//   [Function: firstListener],
+//   [Function: secondListener],
+//   [Function: thirdListener]
+// ]
+// &#x7B2C;&#x4E00;&#x4E2A;&#x76D1;&#x542C;&#x5668;
+// &#x7B2C;&#x4E8C;&#x4E2A;&#x76D1;&#x542C;&#x5668;&#x4E2D;&#x7684;&#x4E8B;&#x4EF6;&#x6709;&#x53C2;&#x6570; 1&#x3001;2
+// &#x7B2C;&#x4E09;&#x4E2A;&#x76D1;&#x542C;&#x5668;&#x4E2D;&#x7684;&#x4E8B;&#x4EF6;&#x6709;&#x53C2;&#x6570; 1, 2, 3, 4, 5
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.26</span>
+</div><ul>
+<li><code>eventName</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/i5E1UH" target="_blank" rel="nofollow" class="type">&lt;symbol&gt;</a></li>
+<li><code>...args</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li>Returns: <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+</ul><p>Synchronously calls each of the listeners registered for the event named
+<code>eventName</code>, in the order they were registered, passing the supplied arguments
+to each.</p><p>Returns <code>true</code> if the event had listeners, <code>false</code> otherwise.</p><pre><code class="language-js">const EventEmitter = require(&apos;events&apos;);
+const myEmitter = new EventEmitter();
+
+// First listener
+myEmitter.on(&apos;event&apos;, function firstListener() {
+  console.log(&apos;Helloooo! first listener&apos;);
+});
+// Second listener
+myEmitter.on(&apos;event&apos;, function secondListener(arg1, arg2) {
+  console.log(`event with parameters ${arg1}, ${arg2} in second listener`);
+});
+// Third listener
+myEmitter.on(&apos;event&apos;, function thirdListener(...args) {
+  const parameters = args.join(&apos;, &apos;);
+  console.log(`event with parameters ${parameters} in third listener`);
+});
+
+console.log(myEmitter.listeners(&apos;event&apos;));
+
+myEmitter.emit(&apos;event&apos;, 1, 2, 3, 4, 5);
+
+// Prints:
+// [
+//   [Function: firstListener],
+//   [Function: secondListener],
+//   [Function: thirdListener]
+// ]
+// Helloooo! first listener
+// event with parameters 1, 2 in second listener
+// event with parameters 1, 2, 3, 4, 5 in third listener
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/events/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756307011"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>error.errno | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/errors/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756305170" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-errors">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>error.errno</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../errors.html#errors_error_errno" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/errors/error_errno.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><ul>
+<li><a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+</ul><p><code>error.errno</code> &#x5C5E;&#x6027;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x503C;&#x6216;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+&#x5982;&#x679C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6570;&#x503C;&#xFF0C;&#x5219;&#x6570;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x8D1F;&#x6570;&#xFF0C;&#x5BF9;&#x5E94; <a href="http://nodejs.cn/s/ccv5bF" rel="nofollow"><code>libuv &#x9519;&#x8BEF;&#x5904;&#x7406;</code></a> &#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x9519;&#x8BEF;&#x7801;&#x3002;
+&#x8BE6;&#x89C1; libuv <code>errno.h</code> &#x5934;&#x6587;&#x4EF6;&#xFF08;Node.js &#x6E90;&#x4EE3;&#x7801;&#x4E2D;&#x7684; <code>deps/uv/include/uv/errno.h</code>&#xFF09;&#x3002;
+&#x5982;&#x679C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x540C; <code>error.code</code>&#x3002;</p></div>
+          <div id="content_right"><ul>
+<li><a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+</ul><p>The <code>error.errno</code> property is a number or a string. If it is a number, it is a
+negative value which corresponds to the error code defined in
+<a href="http://nodejs.cn/s/ccv5bF" rel="nofollow"><code>libuv Error handling</code></a>. See the libuv <code>errno.h</code> header file
+(<code>deps/uv/include/uv/errno.h</code> in the Node.js source tree) for details. In case
+of a string, it is the same as <code>error.code</code>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/errors/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756305170"><\/script>');
+  </script>
+</body>
+</html>

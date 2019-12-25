@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'exit' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/cluster/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756297772" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-cluster">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'exit' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../cluster.html#cluster_event_exit_1" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/cluster/event_exit_1.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.9</span>
+</div><ul>
+<li><code>worker</code> <a href="http://nodejs.cn/s/uD6sLj" target="_blank" rel="nofollow" class="type">&lt;cluster.Worker&gt;</a></li>
+<li><code>code</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> &#x6B63;&#x5E38;&#x9000;&#x51FA;&#x65F6;&#x7684;&#x9000;&#x51FA;&#x4EE3;&#x7801;&#x3002;</li>
+<li><code>signal</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5BFC;&#x81F4;&#x8FDB;&#x7A0B;&#x88AB;&#x6740;&#x6B7B;&#x7684;&#x4FE1;&#x53F7;&#x540D;&#x79F0; (&#x4F8B;&#x5982; <code>&apos;SIGHUP&apos;</code>)&#x3002;</li>
+</ul><p>&#x5F53;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x5173;&#x95ED;&#x7684;&#x65F6;&#x5019;&#xFF0C;cluster &#x6A21;&#x5757;&#x90FD;&#x5C06;&#x4F1A;&#x89E6;&#x53D1; <code>&apos;exit&apos;</code> &#x4E8B;&#x4EF6;&#x3002;</p><p>&#x8FD9;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x91CD;&#x542F;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#xFF08;&#x901A;&#x8FC7;&#x518D;&#x6B21;&#x8C03;&#x7528; <a href="http://nodejs.cn/s/e6g3mN" rel="nofollow"><code>.fork()</code></a>&#xFF09;&#x3002;</p><pre><code class="language-js">cluster.on(&apos;exit&apos;, (worker, code, signal) =&gt; {
+  console.log(&apos;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B; %d &#x5173;&#x95ED; (%s). &#x91CD;&#x542F;&#x4E2D;...&apos;,
+              worker.process.pid, signal || code);
+  cluster.fork();
+});
+</code></pre><p>&#x53C2;&#x9605; <a href="http://nodejs.cn/s/ak4bFL" rel="nofollow"><code>child_process</code> event: <code>&apos;exit&apos;</code></a>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.7.9</span>
+</div><ul>
+<li><code>worker</code> <a href="http://nodejs.cn/s/uD6sLj" target="_blank" rel="nofollow" class="type">&lt;cluster.Worker&gt;</a></li>
+<li><code>code</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> The exit code, if it exited normally.</li>
+<li><code>signal</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> The name of the signal (e.g. <code>&apos;SIGHUP&apos;</code>) that caused
+the process to be killed.</li>
+</ul><p>When any of the workers die the cluster module will emit the <code>&apos;exit&apos;</code> event.</p><p>This can be used to restart the worker by calling <a href="event_exit_1.html#cluster_cluster_fork_env" rel="nofollow"><code>.fork()</code></a> again.</p><pre><code class="language-js">cluster.on(&apos;exit&apos;, (worker, code, signal) =&gt; {
+  console.log(&apos;worker %d died (%s). restarting...&apos;,
+              worker.process.pid, signal || code);
+  cluster.fork();
+});
+</code></pre><p>See <a href="http://nodejs.cn/s/ak4bFL" rel="nofollow"><code>child_process</code> event: <code>&apos;exit&apos;</code></a>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/cluster/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756297772"><\/script>');
+  </script>
+</body>
+</html>

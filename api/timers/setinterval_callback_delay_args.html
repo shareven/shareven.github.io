@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>setInterval(callback, delay[, ...args]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/timers/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756325275" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-timers">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>setInterval(callback, delay[, ...args])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../timers.html#timers_setinterval_callback_delay_args" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/timers/setinterval_callback_delay_args.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.0.1</span>
+</div><ul>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x5F53;&#x5B9A;&#x65F6;&#x5668;&#x5230;&#x70B9;&#x65F6;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#x3002;</li>
+<li><code>delay</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> &#x8C03;&#x7528; <code>callback</code> &#x4E4B;&#x524D;&#x7B49;&#x5F85;&#x7684;&#x6BEB;&#x79D2;&#x6570;&#x3002;</li>
+<li><code>...args</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> &#x5F53;&#x8C03;&#x7528; <code>callback</code> &#x65F6;&#x4F20;&#x5165;&#x7684;&#x53EF;&#x9009;&#x53C2;&#x6570;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/ezS7LR" target="_blank" rel="nofollow" class="type">&lt;Timeout&gt;</a> &#x7528;&#x4E8E; <a href="http://nodejs.cn/s/zRW98q" rel="nofollow"><code>clearInterval()</code></a>&#x3002;</li>
+</ul><p>&#x9884;&#x5B9A;&#x6BCF;&#x9694; <code>delay</code> &#x6BEB;&#x79D2;&#x91CD;&#x590D;&#x6267;&#x884C; <code>callback</code>&#x3002;</p><p>&#x5F53; <code>delay</code> &#x5927;&#x4E8E; <code>2147483647</code> &#x6216;&#x5C0F;&#x4E8E; <code>1</code> &#x65F6;&#xFF0C; <code>delay</code> &#x5C06;&#x8BBE;&#x7F6E;&#x4E3A; <code>1</code>&#x3002;
+&#x975E;&#x6574;&#x6570;&#x7684;&#x5EF6;&#x8FDF;&#x4F1A;&#x88AB;&#x622A;&#x65AD;&#x4E3A;&#x6574;&#x6570;&#x3002;</p><p>&#x5982;&#x679C; <code>callback</code> &#x4E0D;&#x662F;&#x51FD;&#x6570;&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="http://nodejs.cn/s/Z7Lqyj" rel="nofollow"><code>TypeError</code></a>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.0.1</span>
+</div><ul>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> The function to call when the timer elapses.</li>
+<li><code>delay</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> The number of milliseconds to wait before calling the
+<code>callback</code>.</li>
+<li><code>...args</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> Optional arguments to pass when the <code>callback</code> is called.</li>
+<li>Returns: <a href="http://nodejs.cn/s/ezS7LR" target="_blank" rel="nofollow" class="type">&lt;Timeout&gt;</a> for use with <a href="http://nodejs.cn/s/zRW98q" rel="nofollow"><code>clearInterval()</code></a></li>
+</ul><p>Schedules repeated execution of <code>callback</code> every <code>delay</code> milliseconds.</p><p>When <code>delay</code> is larger than <code>2147483647</code> or less than <code>1</code>, the <code>delay</code> will be
+set to <code>1</code>. Non-integer delays are truncated to an integer.</p><p>If <code>callback</code> is not a function, a <a href="http://nodejs.cn/s/Z7Lqyj" rel="nofollow"><code>TypeError</code></a> will be thrown.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/timers/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756325275"><\/script>');
+  </script>
+</body>
+</html>

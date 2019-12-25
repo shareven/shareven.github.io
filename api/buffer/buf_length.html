@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>buf.length | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756294637" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-buffer">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>buf.length</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../buffer.html#buffer_buf_length" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/buffer/buf_length.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.90</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+</ul><p>&#x8FD4;&#x56DE;&#x5185;&#x5B58;&#x4E2D;&#x5206;&#x914D;&#x7ED9; <code>buf</code> &#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;
+&#x4E0D;&#x4E00;&#x5B9A;&#x53CD;&#x6620; <code>buf</code> &#x4E2D;&#x53EF;&#x7528;&#x6570;&#x636E;&#x7684;&#x5B57;&#x8282;&#x91CF;&#x3002;</p><pre><code class="language-js">// &#x521B;&#x5EFA;&#x4E00;&#x4E2A; `Buffer`&#xFF0C;&#x5E76;&#x5199;&#x5165;&#x4E00;&#x4E2A; ASCII &#x5B57;&#x7B26;&#x4E32;&#x3002;
+
+const buf = Buffer.alloc(1234);
+
+console.log(buf.length);
+// &#x6253;&#x5370;: 1234
+
+buf.write(&apos;http://nodejs.cn/&apos;, 0, &apos;ascii&apos;);
+
+console.log(buf.length);
+// &#x6253;&#x5370;: 1234
+</code></pre><p>&#x867D;&#x7136; <code>length</code> &#x5C5E;&#x6027;&#x4E0D;&#x662F;&#x4E0D;&#x53EF;&#x53D8;&#x7684;&#xFF0C;&#x4F46;&#x6539;&#x53D8; <code>length</code> &#x7684;&#x503C;&#x53EF;&#x80FD;&#x4F1A;&#x9020;&#x6210;&#x4E0D;&#x786E;&#x5B9A;&#x7684;&#x7ED3;&#x679C;&#x3002;
+&#x5982;&#x679C;&#x60F3;&#x6539;&#x53D8;&#x4E00;&#x4E2A; <code>Buffer</code> &#x7684;&#x957F;&#x5EA6;&#xFF0C;&#x5E94;&#x8BE5;&#x5C06; <code>length</code> &#x89C6;&#x4E3A;&#x53EA;&#x8BFB;&#x7684;&#xFF0C;&#x4E14;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/uQPgxt" rel="nofollow"><code>buf.slice()</code></a> &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684; <code>Buffer</code>&#x3002;</p><pre><code class="language-js">let buf = Buffer.allocUnsafe(10);
+
+buf.write(&apos;abcdefghj&apos;, 0, &apos;ascii&apos;);
+
+console.log(buf.length);
+// &#x6253;&#x5370;: 10
+
+buf = buf.slice(0, 5);
+
+console.log(buf.length);
+// &#x6253;&#x5370;: 5
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.90</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+</ul><p>Returns the amount of memory allocated for <code>buf</code> in bytes. This
+does not necessarily reflect the amount of &quot;usable&quot; data within <code>buf</code>.</p><pre><code class="language-js">// Create a `Buffer` and write a shorter ASCII string to it.
+
+const buf = Buffer.alloc(1234);
+
+console.log(buf.length);
+// Prints: 1234
+
+buf.write(&apos;some string&apos;, 0, &apos;ascii&apos;);
+
+console.log(buf.length);
+// Prints: 1234
+</code></pre><p>While the <code>length</code> property is not immutable, changing the value of <code>length</code>
+can result in undefined and inconsistent behavior. Applications that wish to
+modify the length of a <code>Buffer</code> should therefore treat <code>length</code> as read-only and
+use <a href="http://nodejs.cn/s/uQPgxt" rel="nofollow"><code>buf.slice()</code></a> to create a new <code>Buffer</code>.</p><pre><code class="language-js">let buf = Buffer.allocUnsafe(10);
+
+buf.write(&apos;abcdefghj&apos;, 0, &apos;ascii&apos;);
+
+console.log(buf.length);
+// Prints: 10
+
+buf = buf.slice(0, 5);
+
+console.log(buf.length);
+// Prints: 5
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756294637"><\/script>');
+  </script>
+</body>
+</html>

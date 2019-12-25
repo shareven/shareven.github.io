@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>模块缓存的注意事项 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/modules/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756315991" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-modules">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>模块缓存的注意事项</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../modules.html#modules_module_caching_caveats" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/modules/module_caching_caveats.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x6A21;&#x5757;&#x662F;&#x57FA;&#x4E8E;&#x5176;&#x89E3;&#x6790;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x8FDB;&#x884C;&#x7F13;&#x5B58;&#x7684;&#x3002;
+&#x7531;&#x4E8E;&#x8C03;&#x7528;&#x6A21;&#x5757;&#x7684;&#x4F4D;&#x7F6E;&#x7684;&#x4E0D;&#x540C;&#xFF0C;&#x6A21;&#x5757;&#x53EF;&#x80FD;&#x88AB;&#x89E3;&#x6790;&#x6210;&#x4E0D;&#x540C;&#x7684;&#x6587;&#x4EF6;&#x540D;&#xFF08;&#x6BD4;&#x5982;&#x4ECE; <code>node_modules</code> &#x76EE;&#x5F55;&#x52A0;&#x8F7D;&#xFF09;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x4E0D;&#x80FD;&#x4FDD;&#x8BC1; <code>require(&apos;foo&apos;)</code> &#x603B;&#x80FD;&#x8FD4;&#x56DE;&#x5B8C;&#x5168;&#x76F8;&#x540C;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p><p>&#x6B64;&#x5916;&#xFF0C;&#x5728;&#x4E0D;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x6216;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x88AB;&#x89E3;&#x6790;&#x6210;&#x4E0D;&#x540C;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x53EF;&#x4EE5;&#x6307;&#x5411;&#x540C;&#x4E00;&#x6587;&#x4EF6;&#xFF0C;&#x4F46;&#x7F13;&#x5B58;&#x4ECD;&#x7136;&#x4F1A;&#x5C06;&#x5B83;&#x4EEC;&#x89C6;&#x4E3A;&#x4E0D;&#x540C;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x5E76;&#x591A;&#x6B21;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C; <code>require(&apos;./foo&apos;)</code> &#x548C; <code>require(&apos;./FOO&apos;)</code> &#x8FD4;&#x56DE;&#x4E24;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x7BA1; <code>./foo</code> &#x548C; <code>./FOO</code> &#x662F;&#x5426;&#x662F;&#x76F8;&#x540C;&#x7684;&#x6587;&#x4EF6;&#x3002;</p></div>
+          <div id="content_right"><p>Modules are cached based on their resolved filename. Since modules may resolve
+to a different filename based on the location of the calling module (loading
+from <code>node_modules</code> folders), it is not a <em>guarantee</em> that <code>require(&apos;foo&apos;)</code> will
+always return the exact same object, if it would resolve to different files.</p><p>Additionally, on case-insensitive file systems or operating systems, different
+resolved filenames can point to the same file, but the cache will still treat
+them as different modules and will reload the file multiple times. For example,
+<code>require(&apos;./foo&apos;)</code> and <code>require(&apos;./FOO&apos;)</code> return two different objects,
+irrespective of whether or not <code>./foo</code> and <code>./FOO</code> are the same file.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/modules/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756315991"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>dgram（数据报） | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/dgram/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756302416" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-dgram">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>dgram（数据报）</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../dgram.html#dgram_udp_datagram_sockets" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/udp_datagram_sockets.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p></p><div class="api_stability api_stability_2"><a target="_blank" rel="nofollow" href="../documentation.html#documentation_stability_index">&#x7A33;&#x5B9A;&#x6027;: 2</a> - &#x7A33;&#x5B9A;</div><p></p><p><code>dgram</code> &#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86; UDP &#x6570;&#x636E;&#x5305; socket &#x7684;&#x5B9E;&#x73B0;&#x3002;</p><pre><code class="language-js">const dgram = require(&apos;dgram&apos;);
+const server = dgram.createSocket(&apos;udp4&apos;);
+
+server.on(&apos;error&apos;, (err) =&gt; {
+  console.log(`&#x670D;&#x52A1;&#x5668;&#x5F02;&#x5E38;&#xFF1A;\n${err.stack}`);
+  server.close();
+});
+
+server.on(&apos;message&apos;, (msg, rinfo) =&gt; {
+  console.log(`&#x670D;&#x52A1;&#x5668;&#x63A5;&#x6536;&#x5230;&#x6765;&#x81EA; ${rinfo.address}:${rinfo.port} &#x7684; ${msg}`);
+});
+
+server.on(&apos;listening&apos;, () =&gt; {
+  const address = server.address();
+  console.log(`&#x670D;&#x52A1;&#x5668;&#x76D1;&#x542C; ${address.address}:${address.port}`);
+});
+
+server.bind(41234);
+// &#x670D;&#x52A1;&#x5668;&#x76D1;&#x542C; 0.0.0.0:41234
+</code></pre></div>
+          <div id="content_right"><p></p><div class="api_stability api_stability_2"><a target="_blank" rel="nofollow" href="../documentation.html#documentation_stability_index">Stability: 2</a> - Stable</div><p></p><p>The <code>dgram</code> module provides an implementation of UDP Datagram sockets.</p><pre><code class="language-js">const dgram = require(&apos;dgram&apos;);
+const server = dgram.createSocket(&apos;udp4&apos;);
+
+server.on(&apos;error&apos;, (err) =&gt; {
+  console.log(`server error:\n${err.stack}`);
+  server.close();
+});
+
+server.on(&apos;message&apos;, (msg, rinfo) =&gt; {
+  console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);
+});
+
+server.on(&apos;listening&apos;, () =&gt; {
+  const address = server.address();
+  console.log(`server listening ${address.address}:${address.port}`);
+});
+
+server.bind(41234);
+// Prints: server listening 0.0.0.0:41234
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/dgram/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756302416"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>https.request(url[, options][, callback]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/https/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756314646" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-https">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>https.request(url[, options][, callback])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../https.html#https_https_request_url_options_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/https/https_request_url_options_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.9.0</td>
+<td><p>The <code>url</code> parameter can now be passed along with a separate <code>options</code> object.</p></td></tr>
+<tr><td>v9.3.0</td>
+<td><p>The <code>options</code> parameter can now include <code>clientCertEngine</code>.</p></td></tr>
+<tr><td>v7.5.0</td>
+<td><p>The <code>options</code> parameter can be a WHATWG <code>URL</code> object.</p></td></tr>
+<tr><td>v0.3.6</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.3.6</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>url</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a> &#x63A5;&#x53D7;&#x6765;&#x81EA; <a href="http://nodejs.cn/s/d1myoL" rel="nofollow"><code>http.request()</code></a> &#x7684;&#x6240;&#x6709; <code>options</code>&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x6709;&#x4E00;&#x4E9B;&#x5DEE;&#x5F02;&#xFF1A;</p>
+<ul>
+<li><code>protocol</code> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;https:&apos;</code>&#x3002;</li>
+<li><code>port</code> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>443</code>&#x3002;</li>
+<li><code>agent</code> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>https.globalAgent</code>&#x3002;</li>
+</ul>
+</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></li>
+</ul><p>&#x5411;&#x5B89;&#x5168;&#x7684; Web &#x670D;&#x52A1;&#x5668;&#x53D1;&#x51FA;&#x8BF7;&#x6C42;&#x3002;</p><p>&#x8FD8;&#x63A5;&#x53D7;&#x6765;&#x81EA; <a href="http://nodejs.cn/s/4Pd5zB" rel="nofollow"><code>tls.connect()</code></a> &#x7684;&#x4EE5;&#x4E0B;&#x989D;&#x5916;&#x7684; <code>options</code>&#xFF1A;
+<code>ca</code>&#x3001; <code>cert</code>&#x3001; <code>ciphers</code>&#x3001; <code>clientCertEngine</code>&#x3001; <code>crl</code>&#x3001; <code>dhparam</code>&#x3001; <code>ecdhCurve</code>&#x3001; <code>honorCipherOrder</code>&#x3001; <code>key</code>&#x3001; <code>passphrase</code>&#x3001; <code>pfx</code>&#x3001; <code>rejectUnauthorized</code>&#x3001; <code>secureOptions</code>&#x3001; <code>secureProtocol</code>&#x3001; <code>servername</code>&#x3001; <code>sessionIdContext</code>&#x3002;</p><p><code>options</code> &#x53EF;&#x4EE5;&#x662F;&#x5BF9;&#x8C61;&#x3001;&#x5B57;&#x7B26;&#x4E32;&#x3001;&#x6216; <a href="http://nodejs.cn/s/5dwq7G" rel="nofollow"><code>URL</code></a> &#x5BF9;&#x8C61;&#x3002;
+&#x5982;&#x679C; <code>options</code> &#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;, &#x5219;&#x81EA;&#x52A8;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/a19aPx" rel="nofollow"><code>new URL()</code></a> &#x89E3;&#x6790;&#x5B83;&#x3002;
+&#x5982;&#x679C;&#x5B83;&#x662F;&#x4E00;&#x4E2A; <a href="http://nodejs.cn/s/5dwq7G" rel="nofollow"><code>URL</code></a> &#x5BF9;&#x8C61;&#xFF0C;&#x5219;&#x5C06;&#x81EA;&#x52A8;&#x8F6C;&#x6362;&#x4E3A;&#x666E;&#x901A;&#x7684; <code>options</code> &#x5BF9;&#x8C61;&#x3002;</p><pre><code class="language-js">const https = require(&apos;https&apos;);
+
+const options = {
+  hostname: &apos;encrypted.google.com&apos;,
+  port: 443,
+  path: &apos;/&apos;,
+  method: &apos;GET&apos;
+};
+
+const req = https.request(options, (res) =&gt; {
+  console.log(&apos;&#x72B6;&#x6001;&#x7801;:&apos;, res.statusCode);
+  console.log(&apos;&#x8BF7;&#x6C42;&#x5934;:&apos;, res.headers);
+
+  res.on(&apos;data&apos;, (d) =&gt; {
+    process.stdout.write(d);
+  });
+});
+
+req.on(&apos;error&apos;, (e) =&gt; {
+  console.error(e);
+});
+req.end();
+</code></pre><p>&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/4Pd5zB" rel="nofollow"><code>tls.connect()</code></a> &#x7684;&#x9009;&#x9879;&#x7684;&#x793A;&#x4F8B;&#xFF1A;</p><pre><code class="language-js">const options = {
+  hostname: &apos;encrypted.google.com&apos;,
+  port: 443,
+  path: &apos;/&apos;,
+  method: &apos;GET&apos;,
+  key: fs.readFileSync(&apos;test/fixtures/keys/agent2-key.pem&apos;),
+  cert: fs.readFileSync(&apos;test/fixtures/keys/agent2-cert.pem&apos;)
+};
+options.agent = new https.Agent(options);
+
+const req = https.request(options, (res) =&gt; {
+  // ...
+});
+</code></pre><p>&#x6216;&#x8005;&#xFF0C;&#x4E0D;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/6DdnrM" rel="nofollow"><code>Agent</code></a> &#x800C;&#x9009;&#x62E9;&#x9000;&#x51FA;&#x8FDE;&#x63A5;&#x6C60;&#x3002;</p><pre><code class="language-js">const options = {
+  hostname: &apos;encrypted.google.com&apos;,
+  port: 443,
+  path: &apos;/&apos;,
+  method: &apos;GET&apos;,
+  key: fs.readFileSync(&apos;test/fixtures/keys/agent2-key.pem&apos;),
+  cert: fs.readFileSync(&apos;test/fixtures/keys/agent2-cert.pem&apos;),
+  agent: false
+};
+
+const req = https.request(options, (res) =&gt; {
+  // ...
+});
+</code></pre><p>&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/5dwq7G" rel="nofollow"><code>URL</code></a> &#x4F5C;&#x4E3A; <code>options</code> &#x7684;&#x793A;&#x4F8B;&#xFF1A;</p><pre><code class="language-js">const options = new URL(&apos;https://abc:xyz@example.com&apos;);
+
+const req = https.request(options, (res) =&gt; {
+  // ...
+});
+</code></pre><p>&#x56FA;&#x5B9A;&#x8BC1;&#x4E66;&#x6307;&#x7EB9;&#x6216;&#x516C;&#x94A5;&#x7684;&#x793A;&#x4F8B;&#xFF08;&#x7C7B;&#x4F3C;&#x4E8E; <code>pin-sha256</code>&#xFF09;&#xFF1A;</p><pre><code class="language-js">const tls = require(&apos;tls&apos;);
+const https = require(&apos;https&apos;);
+const crypto = require(&apos;crypto&apos;);
+
+function sha256(s) {
+  return crypto.createHash(&apos;sha256&apos;).update(s).digest(&apos;base64&apos;);
+}
+const options = {
+  hostname: &apos;github.com&apos;,
+  port: 443,
+  path: &apos;/&apos;,
+  method: &apos;GET&apos;,
+  checkServerIdentity: function(host, cert) {
+    // &#x786E;&#x4FDD;&#x5C06;&#x8BC1;&#x4E66;&#x9881;&#x53D1;&#x7ED9;&#x6240;&#x8FDE;&#x63A5;&#x7684;&#x4E3B;&#x673A;&#x3002;
+    const err = tls.checkServerIdentity(host, cert);
+    if (err) {
+      return err;
+    }
+
+    // &#x56FA;&#x5B9A;&#x516C;&#x94A5;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;&#x56FA;&#x5B9A;&#x7684; HPKP pin-sha25&#x3002;
+    const pubkey256 = &apos;pL1+qb9HTMRZJmuC/bB/ZI9d302BYrrqiVuRyW+DGrU=&apos;;
+    if (sha256(cert.pubkey) !== pubkey256) {
+      const msg = &apos;&#x8BC1;&#x4E66;&#x9A8C;&#x8BC1;&#x9519;&#x8BEF;: &apos; +
+        `&apos;${cert.subject.CN}&apos; &#x7684;&#x516C;&#x94A5;` +
+        &apos;&#x4E0E;&#x56FA;&#x5B9A;&#x7684;&#x6307;&#x7EB9;&#x4E0D;&#x7B26;&apos;;
+      return new Error(msg);
+    }
+
+    // &#x56FA;&#x5B9A;&#x786E;&#x5207;&#x7684;&#x8BC1;&#x4E66;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x516C;&#x94A5;&#x3002;
+    const cert256 = &apos;25:FE:39:32:D9:63:8C:8A:FC:A1:9A:29:87:&apos; +
+      &apos;D8:3E:4C:1D:98:DB:71:E4:1A:48:03:98:EA:22:6A:BD:8B:93:16&apos;;
+    if (cert.fingerprint256 !== cert256) {
+      const msg = &apos;&#x8BC1;&#x4E66;&#x9A8C;&#x8BC1;&#x9519;&#x8BEF;: &apos; +
+        `&apos;${cert.subject.CN}&apos; &#x7684;&#x8BC1;&#x4E66;` +
+        &apos;&#x4E0E;&#x56FA;&#x5B9A;&#x7684;&#x6307;&#x7EB9;&#x4E0D;&#x7B26;&apos;;
+      return new Error(msg);
+    }
+
+    // &#x6B64;&#x5FAA;&#x73AF;&#x4EC5;&#x4F9B;&#x53C2;&#x8003;&#x3002;
+    // &#x6253;&#x5370;&#x94FE;&#x4E2D;&#x6240;&#x6709;&#x8BC1;&#x4E66;&#x7684;&#x8BC1;&#x4E66;&#x548C;&#x516C;&#x94A5;&#x6307;&#x7EB9;&#x3002; 
+    // &#x5C06;&#x516C;&#x5171;&#x4E92;&#x8054;&#x7F51;&#x4E0A;&#x7684;&#x53D1;&#x884C;&#x4EBA;&#x7684;&#x516C;&#x94A5;&#x56FA;&#x5B9A;&#x5728;&#x516C;&#x5171;&#x4E92;&#x8054;&#x7F51;&#x4E0A;&#x662F;&#x5F88;&#x5E38;&#x89C1;&#x7684;&#xFF0C;&#x540C;&#x65F6;&#x5728;&#x654F;&#x611F;&#x73AF;&#x5883;&#x4E2D;&#x56FA;&#x5B9A;&#x670D;&#x52A1;&#x7684;&#x516C;&#x94A5;&#x3002;
+    do {
+      console.log(&apos;&#x4E3B;&#x9898;&#x901A;&#x7528;&#x540D;&#x79F0;:&apos;, cert.subject.CN);
+      console.log(&apos;  &#x8BC1;&#x4E66; SHA256 &#x6307;&#x7EB9;:&apos;, cert.fingerprint256);
+
+      hash = crypto.createHash(&apos;sha256&apos;);
+      console.log(&apos;  &#x516C;&#x94A5; ping-sha256:&apos;, sha256(cert.pubkey));
+
+      lastprint256 = cert.fingerprint256;
+      cert = cert.issuerCertificate;
+    } while (cert.fingerprint256 !== lastprint256);
+
+  },
+};
+
+options.agent = new https.Agent(options);
+const req = https.request(options, (res) =&gt; {
+  console.log(&apos;&#x4E00;&#x5207;&#x6B63;&#x5E38;&#x3002;&#x670D;&#x52A1;&#x5668;&#x5339;&#x914D;&#x56FA;&#x5B9A;&#x8BC1;&#x4E66;&#x6216;&#x516C;&#x94A5;&#x3002;&apos;);
+  console.log(&apos;&#x72B6;&#x6001;&#x7801;:&apos;, res.statusCode);
+  // &#x6253;&#x5370; HPKP &#x503C;&#x3002;
+  console.log(&apos;&#x8BF7;&#x6C42;&#x5934;:&apos;, res.headers[&apos;public-key-pins&apos;]);
+
+  res.on(&apos;data&apos;, (d) =&gt; {});
+});
+
+req.on(&apos;error&apos;, (e) =&gt; {
+  console.error(e.message);
+});
+req.end();
+</code></pre><p>&#x793A;&#x4F8B;&#x7684;&#x8F93;&#x51FA;&#xFF1A;</p><pre><code class="language-text">&#x4E3B;&#x9898;&#x901A;&#x7528;&#x540D;&#x79F0;: github.com
+  &#x8BC1;&#x4E66; SHA256 &#x6307;&#x7EB9;: 25:FE:39:32:D9:63:8C:8A:FC:A1:9A:29:87:D8:3E:4C:1D:98:DB:71:E4:1A:48:03:98:EA:22:6A:BD:8B:93:16
+  &#x516C;&#x94A5; ping-sha256: pL1+qb9HTMRZJmuC/bB/ZI9d302BYrrqiVuRyW+DGrU=
+&#x4E3B;&#x9898;&#x901A;&#x7528;&#x540D;&#x79F0;: DigiCert SHA2 Extended Validation Server CA
+  &#x8BC1;&#x4E66; SHA256 &#x6307;&#x7EB9;: 40:3E:06:2A:26:53:05:91:13:28:5B:AF:80:A0:D4:AE:42:2C:84:8C:9F:78:FA:D0:1F:C9:4B:C5:B8:7F:EF:1A
+  &#x516C;&#x94A5; ping-sha256: RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=
+&#x4E3B;&#x9898;&#x901A;&#x7528;&#x540D;&#x79F0;: DigiCert High Assurance EV Root CA
+  &#x8BC1;&#x4E66; SHA256 &#x6307;&#x7EB9;: 74:31:E5:F4:C3:C1:CE:46:90:77:4F:0B:61:E0:54:40:88:3B:A9:A0:1E:D0:0B:A6:AB:D7:80:6E:D3:B1:18:CF
+  &#x516C;&#x94A5; ping-sha256: WoiWRyIOVNa9ihaBciRSC7XHjliYS9VwUGOIud4PB18=
+&#x4E00;&#x5207;&#x6B63;&#x5E38;&#x3002;&#x670D;&#x52A1;&#x5668;&#x5339;&#x914D;&#x56FA;&#x5B9A;&#x8BC1;&#x4E66;&#x6216;&#x516C;&#x94A5;&#x3002;
+&#x72B6;&#x6001;&#x7801;: 200
+&#x8BF7;&#x6C42;&#x5934;: max-age=0; pin-sha256=&quot;WoiWRyIOVNa9ihaBciRSC7XHjliYS9VwUGOIud4PB18=&quot;; pin-sha256=&quot;RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=&quot;; pin-sha256=&quot;k2v657xBsOVe1PQRwOsHsw3bsGT2VzIqz5K+59sNQws=&quot;; pin-sha256=&quot;K87oWBWM9UZfyddvDfoxL+8lpNyoUB2ptGtn0fv6G2Q=&quot;; pin-sha256=&quot;IQBnNBEiFuhj+8x6X8XLgh01V9Ic5/V3IRQLNFFc7v4=&quot;; pin-sha256=&quot;iie1VXtL7HzAMF+/PVPR9xzT80kQxdZeJ+zduCB3uj0=&quot;; pin-sha256=&quot;LvRiGEjRqfzurezaWuj8Wie2gyHMrW5Q06LspMnox7A=&quot;; includeSubDomains
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v10.9.0</td>
+<td><p>The <code>url</code> parameter can now be passed along with a separate <code>options</code> object.</p></td></tr>
+<tr><td>v9.3.0</td>
+<td><p>The <code>options</code> parameter can now include <code>clientCertEngine</code>.</p></td></tr>
+<tr><td>v7.5.0</td>
+<td><p>The <code>options</code> parameter can be a WHATWG <code>URL</code> object.</p></td></tr>
+<tr><td>v0.3.6</td>
+<td><p><span>Added in: v0.3.6</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>url</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a> Accepts all <code>options</code> from
+<a href="http://nodejs.cn/s/d1myoL" rel="nofollow"><code>http.request()</code></a>, with some differences in default values:</p>
+<ul>
+<li><code>protocol</code> <strong>Default:</strong> <code>&apos;https:&apos;</code></li>
+<li><code>port</code> <strong>Default:</strong> <code>443</code></li>
+<li><code>agent</code> <strong>Default:</strong> <code>https.globalAgent</code></li>
+</ul>
+</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></li>
+</ul><p>Makes a request to a secure web server.</p><p>The following additional <code>options</code> from <a href="http://nodejs.cn/s/4Pd5zB" rel="nofollow"><code>tls.connect()</code></a> are also accepted:
+<code>ca</code>, <code>cert</code>, <code>ciphers</code>, <code>clientCertEngine</code>, <code>crl</code>, <code>dhparam</code>, <code>ecdhCurve</code>,
+<code>honorCipherOrder</code>, <code>key</code>, <code>passphrase</code>, <code>pfx</code>, <code>rejectUnauthorized</code>,
+<code>secureOptions</code>, <code>secureProtocol</code>, <code>servername</code>, <code>sessionIdContext</code>.</p><p><code>options</code> can be an object, a string, or a <a href="http://nodejs.cn/s/5dwq7G" rel="nofollow"><code>URL</code></a> object. If <code>options</code> is a
+string, it is automatically parsed with <a href="http://nodejs.cn/s/a19aPx" rel="nofollow"><code>new URL()</code></a>. If it is a <a href="http://nodejs.cn/s/5dwq7G" rel="nofollow"><code>URL</code></a>
+object, it will be automatically converted to an ordinary <code>options</code> object.</p><pre><code class="language-js">const https = require(&apos;https&apos;);
+
+const options = {
+  hostname: &apos;encrypted.google.com&apos;,
+  port: 443,
+  path: &apos;/&apos;,
+  method: &apos;GET&apos;
+};
+
+const req = https.request(options, (res) =&gt; {
+  console.log(&apos;statusCode:&apos;, res.statusCode);
+  console.log(&apos;headers:&apos;, res.headers);
+
+  res.on(&apos;data&apos;, (d) =&gt; {
+    process.stdout.write(d);
+  });
+});
+
+req.on(&apos;error&apos;, (e) =&gt; {
+  console.error(e);
+});
+req.end();
+</code></pre><p>Example using options from <a href="http://nodejs.cn/s/4Pd5zB" rel="nofollow"><code>tls.connect()</code></a>:</p><pre><code class="language-js">const options = {
+  hostname: &apos;encrypted.google.com&apos;,
+  port: 443,
+  path: &apos;/&apos;,
+  method: &apos;GET&apos;,
+  key: fs.readFileSync(&apos;test/fixtures/keys/agent2-key.pem&apos;),
+  cert: fs.readFileSync(&apos;test/fixtures/keys/agent2-cert.pem&apos;)
+};
+options.agent = new https.Agent(options);
+
+const req = https.request(options, (res) =&gt; {
+  // ...
+});
+</code></pre><p>Alternatively, opt out of connection pooling by not using an <a href="http://nodejs.cn/s/6DdnrM" rel="nofollow"><code>Agent</code></a>.</p><pre><code class="language-js">const options = {
+  hostname: &apos;encrypted.google.com&apos;,
+  port: 443,
+  path: &apos;/&apos;,
+  method: &apos;GET&apos;,
+  key: fs.readFileSync(&apos;test/fixtures/keys/agent2-key.pem&apos;),
+  cert: fs.readFileSync(&apos;test/fixtures/keys/agent2-cert.pem&apos;),
+  agent: false
+};
+
+const req = https.request(options, (res) =&gt; {
+  // ...
+});
+</code></pre><p>Example using a <a href="http://nodejs.cn/s/5dwq7G" rel="nofollow"><code>URL</code></a> as <code>options</code>:</p><pre><code class="language-js">const options = new URL(&apos;https://abc:xyz@example.com&apos;);
+
+const req = https.request(options, (res) =&gt; {
+  // ...
+});
+</code></pre><p>Example pinning on certificate fingerprint, or the public key (similar to
+<code>pin-sha256</code>):</p><pre><code class="language-js">const tls = require(&apos;tls&apos;);
+const https = require(&apos;https&apos;);
+const crypto = require(&apos;crypto&apos;);
+
+function sha256(s) {
+  return crypto.createHash(&apos;sha256&apos;).update(s).digest(&apos;base64&apos;);
+}
+const options = {
+  hostname: &apos;github.com&apos;,
+  port: 443,
+  path: &apos;/&apos;,
+  method: &apos;GET&apos;,
+  checkServerIdentity: function(host, cert) {
+    // Make sure the certificate is issued to the host we are connected to
+    const err = tls.checkServerIdentity(host, cert);
+    if (err) {
+      return err;
+    }
+
+    // Pin the public key, similar to HPKP pin-sha25 pinning
+    const pubkey256 = &apos;pL1+qb9HTMRZJmuC/bB/ZI9d302BYrrqiVuRyW+DGrU=&apos;;
+    if (sha256(cert.pubkey) !== pubkey256) {
+      const msg = &apos;Certificate verification error: &apos; +
+        `The public key of &apos;${cert.subject.CN}&apos; ` +
+        &apos;does not match our pinned fingerprint&apos;;
+      return new Error(msg);
+    }
+
+    // Pin the exact certificate, rather then the pub key
+    const cert256 = &apos;25:FE:39:32:D9:63:8C:8A:FC:A1:9A:29:87:&apos; +
+      &apos;D8:3E:4C:1D:98:DB:71:E4:1A:48:03:98:EA:22:6A:BD:8B:93:16&apos;;
+    if (cert.fingerprint256 !== cert256) {
+      const msg = &apos;Certificate verification error: &apos; +
+        `The certificate of &apos;${cert.subject.CN}&apos; ` +
+        &apos;does not match our pinned fingerprint&apos;;
+      return new Error(msg);
+    }
+
+    // This loop is informational only.
+    // Print the certificate and public key fingerprints of all certs in the
+    // chain. Its common to pin the public key of the issuer on the public
+    // internet, while pinning the public key of the service in sensitive
+    // environments.
+    do {
+      console.log(&apos;Subject Common Name:&apos;, cert.subject.CN);
+      console.log(&apos;  Certificate SHA256 fingerprint:&apos;, cert.fingerprint256);
+
+      hash = crypto.createHash(&apos;sha256&apos;);
+      console.log(&apos;  Public key ping-sha256:&apos;, sha256(cert.pubkey));
+
+      lastprint256 = cert.fingerprint256;
+      cert = cert.issuerCertificate;
+    } while (cert.fingerprint256 !== lastprint256);
+
+  },
+};
+
+options.agent = new https.Agent(options);
+const req = https.request(options, (res) =&gt; {
+  console.log(&apos;All OK. Server matched our pinned cert or public key&apos;);
+  console.log(&apos;statusCode:&apos;, res.statusCode);
+  // Print the HPKP values
+  console.log(&apos;headers:&apos;, res.headers[&apos;public-key-pins&apos;]);
+
+  res.on(&apos;data&apos;, (d) =&gt; {});
+});
+
+req.on(&apos;error&apos;, (e) =&gt; {
+  console.error(e.message);
+});
+req.end();
+</code></pre><p>Outputs for example:</p><pre><code class="language-text">Subject Common Name: github.com
+  Certificate SHA256 fingerprint: 25:FE:39:32:D9:63:8C:8A:FC:A1:9A:29:87:D8:3E:4C:1D:98:DB:71:E4:1A:48:03:98:EA:22:6A:BD:8B:93:16
+  Public key ping-sha256: pL1+qb9HTMRZJmuC/bB/ZI9d302BYrrqiVuRyW+DGrU=
+Subject Common Name: DigiCert SHA2 Extended Validation Server CA
+  Certificate SHA256 fingerprint: 40:3E:06:2A:26:53:05:91:13:28:5B:AF:80:A0:D4:AE:42:2C:84:8C:9F:78:FA:D0:1F:C9:4B:C5:B8:7F:EF:1A
+  Public key ping-sha256: RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=
+Subject Common Name: DigiCert High Assurance EV Root CA
+  Certificate SHA256 fingerprint: 74:31:E5:F4:C3:C1:CE:46:90:77:4F:0B:61:E0:54:40:88:3B:A9:A0:1E:D0:0B:A6:AB:D7:80:6E:D3:B1:18:CF
+  Public key ping-sha256: WoiWRyIOVNa9ihaBciRSC7XHjliYS9VwUGOIud4PB18=
+All OK. Server matched our pinned cert or public key
+statusCode: 200
+headers: max-age=0; pin-sha256=&quot;WoiWRyIOVNa9ihaBciRSC7XHjliYS9VwUGOIud4PB18=&quot;; pin-sha256=&quot;RRM1dGqnDFsCJXBTHky16vi1obOlCgFFn/yOhI/y+ho=&quot;; pin-sha256=&quot;k2v657xBsOVe1PQRwOsHsw3bsGT2VzIqz5K+59sNQws=&quot;; pin-sha256=&quot;K87oWBWM9UZfyddvDfoxL+8lpNyoUB2ptGtn0fv6G2Q=&quot;; pin-sha256=&quot;IQBnNBEiFuhj+8x6X8XLgh01V9Ic5/V3IRQLNFFc7v4=&quot;; pin-sha256=&quot;iie1VXtL7HzAMF+/PVPR9xzT80kQxdZeJ+zduCB3uj0=&quot;; pin-sha256=&quot;LvRiGEjRqfzurezaWuj8Wie2gyHMrW5Q06LspMnox7A=&quot;; includeSubDomains
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/https/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756314646"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'exit' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/repl/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756322720" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-repl">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'exit' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../repl.html#repl_event_exit" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/repl/event_exit.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.7</span>
+</div><p>&#x5F53;&#x63A5;&#x6536;&#x5230; <code>.exit</code> &#x547D;&#x4EE4;&#x3001;&#x6216;&#x6309;&#x4E0B;&#x4E24;&#x6B21; <code>&lt;ctrl&gt;-C</code> &#x53D1;&#x51FA; <code>SIGINT</code> &#x4FE1;&#x53F7;&#x3001;&#x6216;&#x6309;&#x4E0B; <code>&lt;ctrl&gt;-D</code> &#x53D1;&#x51FA; <code>&apos;end&apos;</code> &#x4FE1;&#x53F7;&#x800C;&#x4F7F; REPL &#x88AB;&#x9000;&#x51FA;&#x65F6;&#xFF0C;&#x89E6;&#x53D1; <code>&apos;exit&apos;</code> &#x4E8B;&#x4EF6;&#x3002;
+&#x76D1;&#x542C;&#x5668;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#x4E0D;&#x5E26;&#x4EFB;&#x4F55;&#x53C2;&#x6570;&#x3002;</p><pre><code class="language-js">replServer.on(&apos;exit&apos;, () =&gt; {
+  console.log(&apos;&#x4ECE; REPL &#x63A5;&#x6536;&#x5230; &quot;exit&quot; &#x4E8B;&#x4EF6;&#xFF01;&apos;);
+  process.exit();
+});
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.7.7</span>
+</div><p>The <code>&apos;exit&apos;</code> event is emitted when the REPL is exited either by receiving the
+<code>.exit</code> command as input, the user pressing <code>&lt;ctrl&gt;-C</code> twice to signal <code>SIGINT</code>,
+or by pressing <code>&lt;ctrl&gt;-D</code> to signal <code>&apos;end&apos;</code> on the input stream. The listener
+callback is invoked without any arguments.</p><pre><code class="language-js">replServer.on(&apos;exit&apos;, () =&gt; {
+  console.log(&apos;Received &quot;exit&quot; event from repl!&apos;);
+  process.exit();
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/repl/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756322720"><\/script>');
+  </script>
+</body>
+</html>

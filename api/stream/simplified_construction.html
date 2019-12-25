@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>简单的实现 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324238" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-stream">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>简单的实现</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../stream.html#stream_simplified_construction" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/stream/simplified_construction.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v1.2.0</span>
+</div><p>&#x5BF9;&#x4E8E;&#x7B80;&#x5355;&#x7684;&#x6848;&#x4F8B;&#xFF0C;&#x6784;&#x9020;&#x6D41;&#x53EF;&#x4EE5;&#x4E0D;&#x4F9D;&#x8D56;&#x7EE7;&#x627F;&#x3002;
+&#x76F4;&#x63A5;&#x521B;&#x5EFA; <code>stream.Writable</code>&#x3001; <code>stream.Readable</code>&#x3001; <code>stream.Duplex</code> &#x6216; <code>stream.Transform</code> &#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x5E76;&#x4F20;&#x5165;&#x5BF9;&#x5E94;&#x7684;&#x65B9;&#x6CD5;&#x4F5C;&#x4E3A;&#x6784;&#x9020;&#x51FD;&#x6570;&#x9009;&#x9879;&#x3002;</p><pre><code class="language-js">const { Writable } = require(&apos;stream&apos;);
+
+const myWritable = new Writable({
+  write(chunk, encoding, callback) {
+    // ...
+  }
+});
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v1.2.0</span>
+</div><p>For many simple cases, it is possible to construct a stream without relying on
+inheritance. This can be accomplished by directly creating instances of the
+<code>stream.Writable</code>, <code>stream.Readable</code>, <code>stream.Duplex</code> or <code>stream.Transform</code>
+objects and passing appropriate methods as constructor options.</p><pre><code class="language-js">const { Writable } = require(&apos;stream&apos;);
+
+const myWritable = new Writable({
+  write(chunk, encoding, callback) {
+    // ...
+  }
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324238"><\/script>');
+  </script>
+</body>
+</html>

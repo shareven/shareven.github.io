@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>worker.isMainThread | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/worker_threads/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756330208" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-worker_threads">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>worker.isMainThread</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../worker_threads.html#worker_threads_worker_ismainthread" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/worker_threads/worker_ismainthread.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.5.0</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+</ul><p>&#x5982;&#x679C;&#x6B64;&#x4EE3;&#x7801;&#x4E0D;&#x5728; <a href="http://nodejs.cn/s/S15DqM" rel="nofollow"><code>Worker</code></a> &#x7EBF;&#x7A0B;&#x5185;&#x8FD0;&#x884C;&#xFF0C;&#x5219;&#x4E3A; <code>true</code>&#x3002;</p><pre><code class="language-js">const { Worker, isMainThread } = require(&apos;worker_threads&apos;);
+
+if (isMainThread) {
+  // &#x8FD9;&#x4F1A;&#x5728;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x5B9E;&#x4F8B;&#x4E2D;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x5F53;&#x524D;&#x6587;&#x4EF6;&#x3002;
+  new Worker(__filename);
+} else {
+  console.log(&apos;&#x5728;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x4E2D;&apos;);
+  console.log(isMainThread);  // &#x6253;&#x5370; &apos;false&apos;&#x3002;
+}
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v10.5.0</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+</ul><p>Is <code>true</code> if this code is not running inside of a <a href="http://nodejs.cn/s/S15DqM" rel="nofollow"><code>Worker</code></a> thread.</p><pre><code class="language-js">const { Worker, isMainThread } = require(&apos;worker_threads&apos;);
+
+if (isMainThread) {
+  // This re-loads the current file inside a Worker instance.
+  new Worker(__filename);
+} else {
+  console.log(&apos;Inside Worker!&apos;);
+  console.log(isMainThread);  // Prints &apos;false&apos;.
+}
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/worker_threads/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756330208"><\/script>');
+  </script>
+</body>
+</html>

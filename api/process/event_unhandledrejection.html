@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'unhandledRejection' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756320966" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'unhandledRejection' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../process.html#process_event_unhandledrejection" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/process/event_unhandledrejection.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v7.0.0</td>
+<td><p>Not handling <code>Promise</code> rejections is deprecated.</p></td></tr>
+<tr><td>v6.6.0</td>
+<td><p>Unhandled <code>Promise</code> rejections will now emit a process warning.</p></td></tr>
+<tr><td>v1.4.1</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v1.4.1</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>reason</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a> | <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> &#x6B64;&#x5BF9;&#x8C61;&#x5305;&#x542B;&#x4E86; promise &#x88AB;&#x62D2;&#x7EDD;&#x7684;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#xFF08;&#x901A;&#x5E38;&#x662F;&#x4E00;&#x4E2A; <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> &#x5BF9;&#x8C61;&#xFF09;&#x3002;</li>
+<li><code>promise</code> &#x88AB;&#x62D2;&#x7EDD;&#x7684; promise &#x5BF9;&#x8C61;&#x3002;</li>
+</ul><p>&#x5982;&#x679C;&#x5728;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x7684;&#x4E00;&#x6B21;&#x8F6E;&#x8BE2;&#x4E2D;&#xFF0C;&#x4E00;&#x4E2A; <code>Promise</code> &#x88AB;&#x62D2;&#x7EDD;&#xFF0C;&#x5E76;&#x4E14;&#x6B64; <code>Promise</code> &#x6CA1;&#x6709;&#x7ED1;&#x5B9A;&#x9519;&#x8BEF;&#x5904;&#x7406;&#x5668;&#xFF0C; <code>&apos;unhandledRejection</code> &#x4E8B;&#x4EF6;&#x4F1A;&#x88AB;&#x89E6;&#x53D1;&#x3002;
+&#x5F53;&#x4F7F;&#x7528; Promise &#x8FDB;&#x884C;&#x7F16;&#x7A0B;&#x65F6;&#xFF0C;&#x5F02;&#x5E38;&#x4F1A;&#x4EE5;&#x88AB;&#x62D2;&#x7EDD;&#x7684; promise &#x7684;&#x5F62;&#x5F0F;&#x5C01;&#x88C5;&#x3002;
+&#x62D2;&#x7EDD;&#x53EF;&#x4EE5;&#x88AB; <a href="http://nodejs.cn/s/gMRBfK" rel="nofollow"><code>promise.catch()</code></a> &#x6355;&#x83B7;&#x5E76;&#x5904;&#x7406;&#xFF0C;&#x5E76;&#x4E14;&#x5728; <code>Promise</code> &#x94FE;&#x4E2D;&#x4F20;&#x64AD;&#x3002;<code>&apos;unhandledRejection</code> &#x4E8B;&#x4EF6;&#x5728;&#x63A2;&#x6D4B;&#x548C;&#x8DDF;&#x8E2A; promise &#x88AB;&#x62D2;&#x7EDD;&#xFF0C;&#x5E76;&#x4E14;&#x62D2;&#x7EDD;&#x672A;&#x88AB;&#x5904;&#x7406;&#x7684;&#x573A;&#x666F;&#x4E2D;&#x662F;&#x5F88;&#x6709;&#x7528;&#x7684;&#x3002;</p><pre><code class="language-js">process.on(&apos;unhandledRejection&apos;, (reason, promise) =&gt; {
+  console.log(&apos;&#x672A;&#x5904;&#x7406;&#x7684;&#x62D2;&#x7EDD;&#xFF1A;&apos;, promise, &apos;&#x539F;&#x56E0;&#xFF1A;&apos;, reason);
+  // &#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#x3001;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x3001;&#x6216;&#x5176;&#x4ED6;&#x903B;&#x8F91;&#x3002;
+});
+
+somePromise.then((res) =&gt; {
+  return reportToUser(JSON.pasre(res)); // &#x6545;&#x610F;&#x8F93;&#x9519; (`pasre`)&#x3002;
+}); // &#x6CA1;&#x6709; `.catch()` &#x6216; `.then()`&#x3002;
+</code></pre><p>&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#x4E5F;&#x4F1A;&#x89E6;&#x53D1;<code>&apos;unhandledRejection&apos;</code>&#x4E8B;&#x4EF6;&#xFF1A;</p><pre><code class="language-js">function SomeResource() {
+  // &#x5C06; loaded &#x7684;&#x72B6;&#x6001;&#x8BBE;&#x7F6E;&#x4E3A;&#x4E00;&#x4E2A;&#x62D2;&#x7EDD;&#x7684; promise&#x3002;
+  this.loaded = Promise.reject(new Error(&apos;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&apos;));
+}
+
+const resource = new SomeResource();
+// resource.loaded &#x4E0A;&#x6CA1;&#x6709; .catch &#x6216; .then&#x3002;
+</code></pre><p>&#x5728;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x50CF;&#x5728;&#x5176;&#x4ED6; <code>&apos;unhandledRejection&apos;</code> &#x4E8B;&#x4EF6;&#x7684;&#x5178;&#x578B;&#x573A;&#x666F;&#x4E2D;&#x4E00;&#x6837;&#xFF0C;&#x8DDF;&#x8E2A;&#x5F00;&#x53D1;&#x8005;&#x9519;&#x8BEF;&#x5BFC;&#x81F4;&#x7684;&#x62D2;&#x7EDD;&#x3002;
+&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x8FD9;&#x6837;&#x7684;&#x9519;&#x8BEF;&#xFF0C; <code>resource.loaded</code> &#x4E2D;&#x53EF;&#x4EE5;&#x52A0;&#x4E00;&#x4E2A;&#x4E0D;&#x505A;&#x4EFB;&#x4F55;&#x64CD;&#x4F5C;&#x7684; <a href="http://nodejs.cn/s/gMRBfK" rel="nofollow"><code>.catch(() =&gt; { })</code></a> &#x5904;&#x7406;&#x5668;&#xFF0C;
+&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x963B;&#x6B62; <code>&apos;unhandledRejection&apos;</code> &#x4E8B;&#x4EF6;&#x7684;&#x89E6;&#x53D1;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v7.0.0</td>
+<td><p>Not handling <code>Promise</code> rejections is deprecated.</p></td></tr>
+<tr><td>v6.6.0</td>
+<td><p>Unhandled <code>Promise</code> rejections will now emit a process warning.</p></td></tr>
+<tr><td>v1.4.1</td>
+<td><p><span>Added in: v1.4.1</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>reason</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a> | <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> The object with which the promise was rejected
+(typically an <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> object).</li>
+<li><code>promise</code> <a href="http://nodejs.cn/s/ri1kj8" target="_blank" rel="nofollow" class="type">&lt;Promise&gt;</a> The rejected promise.</li>
+</ul><p>The <code>&apos;unhandledRejection&apos;</code> event is emitted whenever a <code>Promise</code> is rejected and
+no error handler is attached to the promise within a turn of the event loop.
+When programming with Promises, exceptions are encapsulated as &quot;rejected
+promises&quot;. Rejections can be caught and handled using <a href="http://nodejs.cn/s/gMRBfK" rel="nofollow"><code>promise.catch()</code></a> and
+are propagated through a <code>Promise</code> chain. The <code>&apos;unhandledRejection&apos;</code> event is
+useful for detecting and keeping track of promises that were rejected whose
+rejections have not yet been handled.</p><pre><code class="language-js">process.on(&apos;unhandledRejection&apos;, (reason, promise) =&gt; {
+  console.log(&apos;Unhandled Rejection at:&apos;, promise, &apos;reason:&apos;, reason);
+  // Application specific logging, throwing an error, or other logic here
+});
+
+somePromise.then((res) =&gt; {
+  return reportToUser(JSON.pasre(res)); // Note the typo (`pasre`)
+}); // No `.catch()` or `.then()`
+</code></pre><p>The following will also trigger the <code>&apos;unhandledRejection&apos;</code> event to be
+emitted:</p><pre><code class="language-js">function SomeResource() {
+  // Initially set the loaded status to a rejected promise
+  this.loaded = Promise.reject(new Error(&apos;Resource not yet loaded!&apos;));
+}
+
+const resource = new SomeResource();
+// no .catch or .then on resource.loaded for at least a turn
+</code></pre><p>In this example case, it is possible to track the rejection as a developer error
+as would typically be the case for other <code>&apos;unhandledRejection&apos;</code> events. To
+address such failures, a non-operational
+<a href="http://nodejs.cn/s/gMRBfK" rel="nofollow"><code>.catch(() =&gt; { })</code></a> handler may be attached to
+<code>resource.loaded</code>, which would prevent the <code>&apos;unhandledRejection&apos;</code> event from
+being emitted.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756320966"><\/script>');
+  </script>
+</body>
+</html>

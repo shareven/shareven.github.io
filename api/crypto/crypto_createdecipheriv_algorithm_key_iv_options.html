@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>crypto.createDecipheriv(algorithm, key, iv[, options]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/crypto/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756300311" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-crypto">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>crypto.createDecipheriv(algorithm, key, iv[, options])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../crypto.html#crypto_crypto_createdecipheriv_algorithm_key_iv_options" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/crypto/crypto_createdecipheriv_algorithm_key_iv_options.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v11.6.0</td>
+<td><p>The <code>key</code> argument can now be a <code>KeyObject</code>.</p></td></tr>
+<tr><td>v11.2.0</td>
+<td><p>The cipher <code>chacha20-poly1305</code> is now supported.</p></td></tr>
+<tr><td>v10.10.0</td>
+<td><p>Ciphers in OCB mode are now supported.</p></td></tr>
+<tr><td>v10.2.0</td>
+<td><p>The <code>authTagLength</code> option can now be used to restrict accepted GCM authentication tag lengths.</p></td></tr>
+<tr><td>v9.9.0</td>
+<td><p>The <code>iv</code> parameter may now be <code>null</code> for ciphers which do not need an initialization vector.</p></td></tr>
+<tr><td>v0.1.94</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.94</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>algorithm</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>key</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/oh3CkV" target="_blank" rel="nofollow" class="type">&lt;TypedArray&gt;</a> | <a href="http://nodejs.cn/s/yCdVkD" target="_blank" rel="nofollow" class="type">&lt;DataView&gt;</a> | <a href="http://nodejs.cn/s/T4Pify" target="_blank" rel="nofollow" class="type">&lt;KeyObject&gt;</a></li>
+<li><code>iv</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/oh3CkV" target="_blank" rel="nofollow" class="type">&lt;TypedArray&gt;</a> | <a href="http://nodejs.cn/s/yCdVkD" target="_blank" rel="nofollow" class="type">&lt;DataView&gt;</a> | <a href="http://nodejs.cn/s/334hvC" target="_blank" rel="nofollow" class="type">&lt;null&gt;</a></li>
+<li><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> <a href="http://nodejs.cn/s/bSRXmp" rel="nofollow"><code>stream.transform</code> &#x7684;&#x9009;&#x9879;</a>&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/8sszWa" target="_blank" rel="nofollow" class="type">&lt;Decipher&gt;</a></li>
+</ul><p>&#x4F7F;&#x7528;&#x7ED9;&#x5B9A;&#x7684; <code>algorithm</code>&#x3001; <code>key</code> &#x548C;&#x521D;&#x59CB;&#x5316;&#x5411;&#x91CF;&#xFF08;<code>iv</code>&#xFF09;&#x521B;&#x5EFA;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; <code>Decipher</code> &#x5BF9;&#x8C61;&#x3002;</p><p><code>options</code> &#x53C2;&#x6570;&#x63A7;&#x5236;&#x6D41;&#x7684;&#x884C;&#x4E3A;&#xFF0C;&#x5B83;&#x662F;&#x53EF;&#x9009;&#x7684;&#xFF0C;&#x9664;&#x975E;&#x4F7F;&#x7528; CCM &#x6216; OCB &#x6A21;&#x5F0F;&#x7684;&#x5BC6;&#x7801;&#xFF08;&#x4F8B;&#x5982; <code>&apos;aes-128-ccm&apos;</code>&#xFF09;&#x3002;
+&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5FC5;&#x987B;&#x4F7F;&#x7528; <code>authTagLength</code> &#x9009;&#x9879;&#xFF0C;&#x5E76;&#x4EE5;&#x5B57;&#x8282;&#x4E3A;&#x5355;&#x4F4D;&#x6307;&#x5B9A;&#x8EAB;&#x4EFD;&#x9A8C;&#x8BC1;&#x6807;&#x7B7E;&#x7684;&#x957F;&#x5EA6;&#xFF0C;&#x53C2;&#x9605; <a href="http://nodejs.cn/s/UHqv5X" rel="nofollow">CCM &#x6A21;&#x5F0F;</a>&#x3002;
+&#x5728; GCM &#x6A21;&#x5F0F;&#x4E2D;&#xFF0C;&#x4E0D;&#x9700;&#x8981; <code>authTagLength</code> &#x9009;&#x9879;&#xFF0C;&#x4F46;&#x53EF;&#x7528;&#x4E8E;&#x5C06;&#x63A5;&#x53D7;&#x7684;&#x8EAB;&#x4EFD;&#x9A8C;&#x8BC1;&#x6807;&#x7B7E;&#x9650;&#x5236;&#x4E3A;&#x5177;&#x6709;&#x6307;&#x5B9A;&#x7684;&#x957F;&#x5EA6;&#x3002;</p><p><code>algorithm</code> &#x53D6;&#x51B3;&#x4E8E; OpenSSL&#xFF0C;&#x4F8B;&#x5982; <code>&apos;aes192&apos;</code> &#x7B49;&#x3002;
+&#x5728; OpenSSL &#x7684;&#x6700;&#x65B0;&#x7248;&#x672C;&#x4E2D;&#xFF0C; <code>openssl list -cipher-algorithms</code>&#xFF08;&#x5728;&#x8F83;&#x65E7;&#x7248;&#x672C;&#x7684; OpenSSL &#x4E2D;&#x662F; <code>openssl list-cipher-algorithms</code>&#xFF09;&#x5C06;&#x4F1A;&#x663E;&#x793A;&#x53EF;&#x7528;&#x7684;&#x5BC6;&#x7801;&#x7B97;&#x6CD5;&#x3002;</p><p><code>key</code> &#x662F; <code>algorithm</code> &#x4F7F;&#x7528;&#x7684;&#x539F;&#x59CB;&#x5BC6;&#x94A5;&#xFF0C; <code>iv</code> &#x662F;<a href="http://nodejs.cn/s/mMnDDL" rel="nofollow">&#x521D;&#x59CB;&#x5316;&#x5411;&#x91CF;</a>&#x3002;
+&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x90FD;&#x5FC5;&#x987B;&#x662F; <code>&apos;utf8&apos;</code> &#x7F16;&#x7801;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3001;<a href="http://nodejs.cn/s/FP4oTy" rel="nofollow">Buffer</a>&#x3001; <code>TypedArray</code> &#x6216; <code>DataView</code>&#x3002;
+<code>key</code> &#x53EF;&#x4EE5;&#x662F; <code>secret</code> &#x7C7B;&#x578B;&#x7684; <a href="http://nodejs.cn/s/T4Pify" rel="nofollow"><code>KeyObject</code></a>&#x3002;
+&#x5982;&#x679C;&#x5BC6;&#x7801;&#x4E0D;&#x9700;&#x8981;&#x521D;&#x59CB;&#x5316;&#x5411;&#x91CF;&#xFF0C;&#x5219; <code>iv</code> &#x53EF;&#x4EE5;&#x4E3A; <code>null</code>&#x3002;</p><p>&#x521D;&#x59CB;&#x5316;&#x5411;&#x91CF;&#x5E94;&#x8BE5;&#x662F;&#x4E0D;&#x53EF;&#x9884;&#x6D4B;&#x7684;&#x4E14;&#x552F;&#x4E00;&#x7684;&#xFF0C;&#x7406;&#x60F3;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5B83;&#x4EEC;&#x5728;&#x5BC6;&#x7801;&#x4E0A;&#x662F;&#x968F;&#x673A;&#x7684;&#x3002;
+&#x5B83;&#x4EEC;&#x4E0D;&#x5FC5;&#x662F;&#x79C1;&#x5BC6;&#x7684;&#xFF1A;IV &#x901A;&#x5E38;&#x53EA;&#x662F;&#x6DFB;&#x52A0;&#x5230;&#x672A;&#x52A0;&#x5BC6;&#x7684;&#x5BC6;&#x6587;&#x6D88;&#x606F;&#x4E2D;&#x3002;
+&#x5B83;&#x4EEC;&#x5FC5;&#x987B;&#x662F;&#x4E0D;&#x53EF;&#x9884;&#x6D4B;&#x7684;&#x4E14;&#x552F;&#x4E00;&#x7684;&#xFF0C;&#x4F46;&#x4E0D;&#x4E00;&#x5B9A;&#x662F;&#x79C1;&#x5BC6;&#x7684;&#xFF0C;&#x8FD9;&#x542C;&#x8D77;&#x6765;&#x4F3C;&#x4E4E;&#x662F;&#x77DB;&#x76FE;&#x7684;&#x3002;
+&#x8BB0;&#x4F4F;&#xFF0C;&#x653B;&#x51FB;&#x8005;&#x5FC5;&#x987B;&#x65E0;&#x6CD5;&#x63D0;&#x524D;&#x9884;&#x6D4B;&#x7ED9;&#x5B9A;&#x7684; IV &#x5C06;&#x4F1A;&#x662F;&#x4EC0;&#x4E48;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v11.6.0</td>
+<td><p>The <code>key</code> argument can now be a <code>KeyObject</code>.</p></td></tr>
+<tr><td>v11.2.0</td>
+<td><p>The cipher <code>chacha20-poly1305</code> is now supported.</p></td></tr>
+<tr><td>v10.10.0</td>
+<td><p>Ciphers in OCB mode are now supported.</p></td></tr>
+<tr><td>v10.2.0</td>
+<td><p>The <code>authTagLength</code> option can now be used to restrict accepted GCM authentication tag lengths.</p></td></tr>
+<tr><td>v9.9.0</td>
+<td><p>The <code>iv</code> parameter may now be <code>null</code> for ciphers which do not need an initialization vector.</p></td></tr>
+<tr><td>v0.1.94</td>
+<td><p><span>Added in: v0.1.94</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>algorithm</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>key</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/oh3CkV" target="_blank" rel="nofollow" class="type">&lt;TypedArray&gt;</a> | <a href="http://nodejs.cn/s/yCdVkD" target="_blank" rel="nofollow" class="type">&lt;DataView&gt;</a> | <a href="http://nodejs.cn/s/T4Pify" target="_blank" rel="nofollow" class="type">&lt;KeyObject&gt;</a></li>
+<li><code>iv</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/oh3CkV" target="_blank" rel="nofollow" class="type">&lt;TypedArray&gt;</a> | <a href="http://nodejs.cn/s/yCdVkD" target="_blank" rel="nofollow" class="type">&lt;DataView&gt;</a> | <a href="http://nodejs.cn/s/334hvC" target="_blank" rel="nofollow" class="type">&lt;null&gt;</a></li>
+<li><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> <a href="http://nodejs.cn/s/bSRXmp" rel="nofollow"><code>stream.transform</code> options</a></li>
+<li>Returns: <a href="http://nodejs.cn/s/8sszWa" target="_blank" rel="nofollow" class="type">&lt;Decipher&gt;</a></li>
+</ul><p>Creates and returns a <code>Decipher</code> object that uses the given <code>algorithm</code>, <code>key</code>
+and initialization vector (<code>iv</code>).</p><p>The <code>options</code> argument controls stream behavior and is optional except when a
+cipher in CCM or OCB mode is used (e.g. <code>&apos;aes-128-ccm&apos;</code>). In that case, the
+<code>authTagLength</code> option is required and specifies the length of the
+authentication tag in bytes, see <a href="http://nodejs.cn/s/UHqv5X" rel="nofollow">CCM mode</a>. In GCM mode, the <code>authTagLength</code>
+option is not required but can be used to restrict accepted authentication tags
+to those with the specified length.</p><p>The <code>algorithm</code> is dependent on OpenSSL, examples are <code>&apos;aes192&apos;</code>, etc. On
+recent OpenSSL releases, <code>openssl list -cipher-algorithms</code>
+(<code>openssl list-cipher-algorithms</code> for older versions of OpenSSL) will
+display the available cipher algorithms.</p><p>The <code>key</code> is the raw key used by the <code>algorithm</code> and <code>iv</code> is an
+<a href="http://nodejs.cn/s/mMnDDL" rel="nofollow">initialization vector</a>. Both arguments must be <code>&apos;utf8&apos;</code> encoded strings,
+<a href="http://nodejs.cn/s/FP4oTy" rel="nofollow">Buffers</a>, <code>TypedArray</code>, or <code>DataView</code>s. The <code>key</code> may optionally be
+a <a href="http://nodejs.cn/s/T4Pify" rel="nofollow"><code>KeyObject</code></a> of type <code>secret</code>. If the cipher does not need
+an initialization vector, <code>iv</code> may be <code>null</code>.</p><p>Initialization vectors should be unpredictable and unique; ideally, they will be
+cryptographically random. They do not have to be secret: IVs are typically just
+added to ciphertext messages unencrypted. It may sound contradictory that
+something has to be unpredictable and unique, but does not have to be secret;
+remember that an attacker must not be able to predict ahead of time what a given
+IV will be.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/crypto/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756300311"><\/script>');
+  </script>
+</body>
+</html>

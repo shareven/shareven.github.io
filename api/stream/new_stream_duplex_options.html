@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>new stream.Duplex(options) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324282" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-stream">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>new stream.Duplex(options)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../stream.html#stream_new_stream_duplex_options" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/stream/new_stream_duplex_options.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v8.4.0</td>
+<td><p>The <code>readableHighWaterMark</code> and <code>writableHighWaterMark</code> options are supported now.</p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> &#x540C;&#x65F6;&#x4F20;&#x7ED9; <code>Writable</code> &#x548C; <code>Readable</code> &#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;</p>
+<ul>
+<li>
+<p><code>allowHalfOpen</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5982;&#x679C;&#x8BBE;&#x4E3A; <code>false</code>&#xFF0C;&#x5219;&#x5F53;&#x53EF;&#x8BFB;&#x7AEF;&#x7ED3;&#x675F;&#x65F6;&#xFF0C;&#x53EF;&#x5199;&#x7AEF;&#x4E5F;&#x4F1A;&#x81EA;&#x52A8;&#x7ED3;&#x675F;&#x3002;
+&#x9ED8;&#x8BA4;&#x4E3A; <code>true</code>&#x3002;</p>
+</li>
+<li>
+<p><code>readableObjectMode</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x8BBE;&#x7F6E;&#x6D41;&#x7684;&#x53EF;&#x8BFB;&#x7AEF;&#x4E3A; <code>objectMode</code>&#x3002;
+&#x5982;&#x679C; <code>objectMode</code> &#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x4E0D;&#x8D77;&#x4F5C;&#x7528;&#x3002;
+&#x9ED8;&#x8BA4;&#x4E3A; <code>false</code>&#x3002;</p>
+</li>
+<li>
+<p><code>writableObjectMode</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x8BBE;&#x7F6E;&#x6D41;&#x7684;&#x53EF;&#x5199;&#x7AEF;&#x4E3A; <code>objectMode</code>&#x3002;
+&#x5982;&#x679C; <code>objectMode</code> &#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x4E0D;&#x8D77;&#x4F5C;&#x7528;&#x3002;
+&#x9ED8;&#x8BA4;&#x4E3A; <code>false</code>&#x3002;</p>
+</li>
+<li>
+<p><code>readableHighWaterMark</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> &#x8BBE;&#x7F6E;&#x6D41;&#x7684;&#x53EF;&#x8BFB;&#x7AEF;&#x7684; <code>highWaterMark</code>&#x3002;
+&#x5982;&#x679C;&#x5DF2;&#x7ECF;&#x8BBE;&#x7F6E;&#x4E86; <code>highWaterMark</code>&#xFF0C;&#x5219;&#x4E0D;&#x8D77;&#x4F5C;&#x7528;&#x3002;</p>
+</li>
+<li>
+<p><code>writableHighWaterMark</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> &#x8BBE;&#x7F6E;&#x6D41;&#x7684;&#x53EF;&#x5199;&#x7AEF;&#x7684; <code>highWaterMark</code>&#x3002;
+&#x5982;&#x679C;&#x5DF2;&#x7ECF;&#x8BBE;&#x7F6E;&#x4E86; <code>highWaterMark</code>&#xFF0C;&#x5219;&#x4E0D;&#x8D77;&#x4F5C;&#x7528;&#x3002;</p>
+</li>
+</ul>
+</li>
+</ul><pre><code class="language-js">const { Duplex } = require(&apos;stream&apos;);
+
+class MyDuplex extends Duplex {
+  constructor(options) {
+    super(options);
+    // ...
+  }
+}
+</code></pre><p>&#x4F7F;&#x7528; ES6 &#x4E4B;&#x524D;&#x7684;&#x8BED;&#x6CD5;&#xFF1A;</p><pre><code class="language-js">const { Duplex } = require(&apos;stream&apos;);
+const util = require(&apos;util&apos;);
+
+function MyDuplex(options) {
+  if (!(this instanceof MyDuplex))
+    return new MyDuplex(options);
+  Duplex.call(this, options);
+}
+util.inherits(MyDuplex, Duplex);
+</code></pre><p>&#x4F7F;&#x7528;&#x7B80;&#x5316;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF1A;</p><pre><code class="language-js">const { Duplex } = require(&apos;stream&apos;);
+
+const myDuplex = new Duplex({
+  read(size) {
+    // ...
+  },
+  write(chunk, encoding, callback) {
+    // ...
+  }
+});
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v8.4.0</td>
+<td><p>The <code>readableHighWaterMark</code> and <code>writableHighWaterMark</code> options are supported now.</p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> Passed to both <code>Writable</code> and <code>Readable</code>
+constructors. Also has the following fields:</p>
+<ul>
+<li><code>allowHalfOpen</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> If set to <code>false</code>, then the stream will
+automatically end the writable side when the readable side ends.
+<strong>Default:</strong> <code>true</code>.</li>
+<li><code>readableObjectMode</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> Sets <code>objectMode</code> for readable side of the
+stream. Has no effect if <code>objectMode</code> is <code>true</code>. <strong>Default:</strong> <code>false</code>.</li>
+<li><code>writableObjectMode</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> Sets <code>objectMode</code> for writable side of the
+stream. Has no effect if <code>objectMode</code> is <code>true</code>. <strong>Default:</strong> <code>false</code>.</li>
+<li><code>readableHighWaterMark</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> Sets <code>highWaterMark</code> for the readable side
+of the stream. Has no effect if <code>highWaterMark</code> is provided.</li>
+<li><code>writableHighWaterMark</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> Sets <code>highWaterMark</code> for the writable side
+of the stream. Has no effect if <code>highWaterMark</code> is provided.</li>
+</ul>
+</li>
+</ul><pre><code class="language-js">const { Duplex } = require(&apos;stream&apos;);
+
+class MyDuplex extends Duplex {
+  constructor(options) {
+    super(options);
+    // ...
+  }
+}
+</code></pre><p>Or, when using pre-ES6 style constructors:</p><pre><code class="language-js">const { Duplex } = require(&apos;stream&apos;);
+const util = require(&apos;util&apos;);
+
+function MyDuplex(options) {
+  if (!(this instanceof MyDuplex))
+    return new MyDuplex(options);
+  Duplex.call(this, options);
+}
+util.inherits(MyDuplex, Duplex);
+</code></pre><p>Or, using the Simplified Constructor approach:</p><pre><code class="language-js">const { Duplex } = require(&apos;stream&apos;);
+
+const myDuplex = new Duplex({
+  read(size) {
+    // ...
+  },
+  write(chunk, encoding, callback) {
+    // ...
+  }
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324282"><\/script>');
+  </script>
+</body>
+</html>

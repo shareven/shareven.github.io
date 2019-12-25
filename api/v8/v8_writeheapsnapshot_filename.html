@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>v8.writeHeapSnapshot([filename]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/v8/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756329167" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-v8">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>v8.writeHeapSnapshot([filename])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../v8.html#v8_v8_writeheapsnapshot_filename" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/v8/v8_writeheapsnapshot_filename.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v11.13.0</span>
+</div><ul>
+<li><code>filename</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x8981;&#x4FDD;&#x5B58; V8 &#x5806;&#x5FEB;&#x7167;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x3002; 
+&#x5982;&#x679C;&#x672A;&#x6307;&#x5B9A;&#xFF0C;&#x5219;&#x5C06;&#x4F1A;&#x751F;&#x6210;&#x5177;&#x6709; <code>&apos;Heap-${yyyymmdd}-${hhmmss}-${pid}-${thread_id}.heapsnapshot&apos;</code> &#x6A21;&#x5F0F;&#x7684;&#x6587;&#x4EF6;&#x540D;&#xFF0C;
+&#x5176;&#x4E2D; <code>{pid}</code> &#x5C06;&#x4F1A;&#x662F; Node.js &#x8FDB;&#x7A0B;&#x7684; PID&#xFF0C; <code>{thread_id}</code> &#x5C06;&#x4F1A;&#x4E3A; <code>0</code>&#xFF08;&#x5F53;&#x4ECE;&#x4E3B; Node.js &#x7EBF;&#x7A0B;&#x8C03;&#x7528; <code>writeHeapSnapshot()</code> &#x65F6;&#xFF09;&#x6216;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x7684; id&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x4FDD;&#x5B58;&#x5FEB;&#x7167;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x3002;</li>
+</ul><p>&#x751F;&#x6210;&#x5F53;&#x524D; V8 &#x5806;&#x7684;&#x5FEB;&#x7167;&#x5E76;&#x5C06;&#x5176;&#x5199;&#x5165; JSON &#x6587;&#x4EF6;&#x3002;
+&#x6B64;&#x6587;&#x4EF6;&#x65E8;&#x5728;&#x4E0E; Chrome DevTools &#x7B49;&#x5DE5;&#x5177;&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#x3002;
+JSON &#x6A21;&#x5F0F;&#x672A;&#x8BB0;&#x5F55;&#x4E14;&#x7279;&#x5B9A;&#x4E8E;V8&#x5F15;&#x64CE;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x80FD;&#x4ECE; V8 &#x7684;&#x4E00;&#x4E2A;&#x7248;&#x672C;&#x66F4;&#x6539;&#x4E3A;&#x4E0B;&#x4E00;&#x4E2A;&#x7248;&#x672C;&#x3002;</p><p>&#x5806;&#x5FEB;&#x7167;&#x7279;&#x5B9A;&#x4E8E;&#x5355;&#x4E2A; V8 &#x9694;&#x79BB;&#x3002;
+&#x4F7F;&#x7528;<a href="http://nodejs.cn/s/CpVvo4" rel="nofollow">&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;</a>&#x65F6;&#xFF0C;&#x4ECE;&#x4E3B;&#x7EBF;&#x7A0B;&#x751F;&#x6210;&#x7684;&#x5806;&#x5FEB;&#x7167;&#x5C06;&#x4E0D;&#x5305;&#x542B;&#x6709;&#x5173;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x7684;&#x4EFB;&#x4F55;&#x4FE1;&#x606F;&#xFF0C;&#x53CD;&#x4E4B;&#x4EA6;&#x7136;&#x3002;</p><pre><code class="language-js">const { writeHeapSnapshot } = require(&apos;v8&apos;);
+const {
+  Worker,
+  isMainThread,
+  parentPort
+} = require(&apos;worker_threads&apos;);
+
+if (isMainThread) {
+  const worker = new Worker(__filename);
+
+  worker.once(&apos;message&apos;, (filename) =&gt; {
+    console.log(`&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x7684;&#x5806;&#x8F6C;&#x50A8;: ${filename}`);
+    // &#x83B7;&#x53D6;&#x4E3B;&#x7EBF;&#x7A0B;&#x7684;&#x5806;&#x8F6C;&#x50A8;&#x3002;
+    console.log(`&#x4E3B;&#x7EBF;&#x7A0B;&#x7684;&#x5806;&#x8F6C;&#x50A8;: ${writeHeapSnapshot()}`);
+  });
+
+  // &#x901A;&#x77E5;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5806;&#x8F6C;&#x50A8;&#x3002;
+  worker.postMessage(&apos;heapdump&apos;);
+} else {
+  parentPort.once(&apos;message&apos;, (message) =&gt; {
+    if (message === &apos;heapdump&apos;) {
+      // &#x4E3A;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x5806;&#x8F6C;&#x50A8;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x6587;&#x4EF6;&#x540D;&#x5230;&#x7236;&#x7EBF;&#x7A0B;&#x3002;
+      parentPort.postMessage(writeHeapSnapshot());
+    }
+  });
+}
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v11.13.0</span>
+</div><ul>
+<li><code>filename</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> The file path where the V8 heap snapshot is to be
+saved. If not specified, a file name with the pattern
+<code>&apos;Heap-${yyyymmdd}-${hhmmss}-${pid}-${thread_id}.heapsnapshot&apos;</code> will be
+generated, where <code>{pid}</code> will be the PID of the Node.js process,
+<code>{thread_id}</code> will be <code>0</code> when <code>writeHeapSnapshot()</code> is called from
+the main Node.js thread or the id of a worker thread.</li>
+<li>Returns: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> The filename where the snapshot was saved.</li>
+</ul><p>Generates a snapshot of the current V8 heap and writes it to a JSON
+file. This file is intended to be used with tools such as Chrome
+DevTools. The JSON schema is undocumented and specific to the V8
+engine, and may change from one version of V8 to the next.</p><p>A heap snapshot is specific to a single V8 isolate. When using
+<a href="http://nodejs.cn/s/CpVvo4" rel="nofollow">Worker Threads</a>, a heap snapshot generated from the main thread will
+not contain any information about the workers, and vice versa.</p><pre><code class="language-js">const { writeHeapSnapshot } = require(&apos;v8&apos;);
+const {
+  Worker,
+  isMainThread,
+  parentPort
+} = require(&apos;worker_threads&apos;);
+
+if (isMainThread) {
+  const worker = new Worker(__filename);
+
+  worker.once(&apos;message&apos;, (filename) =&gt; {
+    console.log(`worker heapdump: ${filename}`);
+    // Now get a heapdump for the main thread.
+    console.log(`main thread heapdump: ${writeHeapSnapshot()}`);
+  });
+
+  // Tell the worker to create a heapdump.
+  worker.postMessage(&apos;heapdump&apos;);
+} else {
+  parentPort.once(&apos;message&apos;, (message) =&gt; {
+    if (message === &apos;heapdump&apos;) {
+      // Generate a heapdump for the worker
+      // and return the filename to the parent.
+      parentPort.postMessage(writeHeapSnapshot());
+    }
+  });
+}
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/v8/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756329167"><\/script>');
+  </script>
+</body>
+</html>

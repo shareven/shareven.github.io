@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>buf.subarray([start[, end]]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756294716" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-buffer">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>buf.subarray([start[, end]])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../buffer.html#buffer_buf_subarray_start_end" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/buffer/buf_subarray_start_end.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v3.0.0</span>
+</div><ul>
+<li><code>start</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x65B0; <code>Buffer</code> &#x5F00;&#x59CB;&#x7684;&#x4F4D;&#x7F6E;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>0</code>&#x3002;</li>
+<li><code>end</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x65B0; <code>Buffer</code> &#x7ED3;&#x675F;&#x7684;&#x4F4D;&#x7F6E;&#xFF08;&#x4E0D;&#x5305;&#x542B;&#xFF09;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <a href="http://nodejs.cn/s/hn6FjL" rel="nofollow"><code>buf.length</code></a>&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a></li>
+</ul><p>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684; <code>Buffer</code>&#xFF0C;&#x5B83;&#x5F15;&#x7528;&#x4E0E;&#x539F;&#x59CB;&#x7684; Buffer &#x76F8;&#x540C;&#x7684;&#x5185;&#x5B58;&#xFF0C;&#x4F46;&#x662F;&#x7531; <code>start</code> &#x548C; <code>end</code> &#x7D22;&#x5F15;&#x8FDB;&#x884C;&#x504F;&#x79FB;&#x548C;&#x88C1;&#x526A;&#x3002;</p><p>&#x6307;&#x5B9A;&#x5927;&#x4E8E; <a href="http://nodejs.cn/s/hn6FjL" rel="nofollow"><code>buf.length</code></a> &#x7684; <code>end</code> &#x5C06;&#x4F1A;&#x8FD4;&#x56DE;&#x4E0E; <code>end</code> &#x7B49;&#x4E8E; <a href="http://nodejs.cn/s/hn6FjL" rel="nofollow"><code>buf.length</code></a> &#x65F6;&#x76F8;&#x540C;&#x7684;&#x7ED3;&#x679C;&#x3002;</p><p>&#x4FEE;&#x6539;&#x65B0;&#x7684; <code>Buffer</code> &#x5207;&#x7247;&#x5C06;&#x4F1A;&#x4FEE;&#x6539;&#x539F;&#x59CB; <code>Buffer</code> &#x4E2D;&#x7684;&#x5185;&#x5B58;&#xFF0C;&#x56E0;&#x4E3A;&#x4E24;&#x4E2A;&#x5BF9;&#x8C61;&#x5206;&#x914D;&#x7684;&#x5185;&#x5B58;&#x662F;&#x91CD;&#x53E0;&#x7684;&#x3002;</p><pre><code class="language-js">// &#x4F7F;&#x7528; ASCII &#x5B57;&#x6BCD;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; `Buffer`&#xFF0C;&#x7136;&#x540E;&#x8FDB;&#x884C;&#x5207;&#x7247;&#xFF0C;&#x518D;&#x4FEE;&#x6539;&#x539F;&#x59CB; `Buffer` &#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x5B57;&#x8282;&#x3002;
+
+const buf1 = Buffer.allocUnsafe(26);
+
+for (let i = 0; i &lt; 26; i++) {
+  // 97 &#x662F; &apos;a&apos; &#x7684;&#x5341;&#x8FDB;&#x5236; ASCII &#x503C;&#x3002;
+  buf1[i] = i + 97;
+}
+
+const buf2 = buf1.subarray(0, 3);
+
+console.log(buf2.toString(&apos;ascii&apos;, 0, buf2.length));
+// &#x6253;&#x5370;: abc
+
+buf1[0] = 33;
+
+console.log(buf2.toString(&apos;ascii&apos;, 0, buf2.length));
+// &#x6253;&#x5370;: !bc
+</code></pre><p>&#x6307;&#x5B9A;&#x8D1F;&#x7684;&#x7D22;&#x5F15;&#x4F1A;&#x5BFC;&#x81F4;&#x5207;&#x7247;&#x7684;&#x751F;&#x6210;&#x662F;&#x76F8;&#x5BF9;&#x4E8E; <code>buf</code> &#x7684;&#x672B;&#x5C3E;&#x800C;&#x4E0D;&#x662F;&#x5F00;&#x5934;&#x3002;</p><pre><code class="language-js">const buf = Buffer.from(&apos;buffer&apos;);
+
+console.log(buf.subarray(-6, -1).toString());
+// &#x6253;&#x5370;: buffe
+// (&#x76F8;&#x5F53;&#x4E8E; buf.subarray(0, 5)&#x3002;)
+
+console.log(buf.subarray(-6, -2).toString());
+// &#x6253;&#x5370;: buff
+// (&#x76F8;&#x5F53;&#x4E8E; buf.subarray(0, 4)&#x3002;)
+
+console.log(buf.subarray(-5, -2).toString());
+// &#x6253;&#x5370;: uff
+// (&#x76F8;&#x5F53;&#x4E8E; buf.subarray(1, 4)&#x3002;)
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v3.0.0</span>
+</div><ul>
+<li><code>start</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> Where the new <code>Buffer</code> will start. <strong>Default:</strong> <code>0</code>.</li>
+<li><code>end</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> Where the new <code>Buffer</code> will end (not inclusive).
+<strong>Default:</strong> <a href="http://nodejs.cn/s/hn6FjL" rel="nofollow"><code>buf.length</code></a>.</li>
+<li>Returns: <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a></li>
+</ul><p>Returns a new <code>Buffer</code> that references the same memory as the original, but
+offset and cropped by the <code>start</code> and <code>end</code> indices.</p><p>Specifying <code>end</code> greater than <a href="http://nodejs.cn/s/hn6FjL" rel="nofollow"><code>buf.length</code></a> will return the same result as
+that of <code>end</code> equal to <a href="http://nodejs.cn/s/hn6FjL" rel="nofollow"><code>buf.length</code></a>.</p><p>Modifying the new <code>Buffer</code> slice will modify the memory in the original <code>Buffer</code>
+because the allocated memory of the two objects overlap.</p><pre><code class="language-js">// Create a `Buffer` with the ASCII alphabet, take a slice, and modify one byte
+// from the original `Buffer`.
+
+const buf1 = Buffer.allocUnsafe(26);
+
+for (let i = 0; i &lt; 26; i++) {
+  // 97 is the decimal ASCII value for &apos;a&apos;.
+  buf1[i] = i + 97;
+}
+
+const buf2 = buf1.subarray(0, 3);
+
+console.log(buf2.toString(&apos;ascii&apos;, 0, buf2.length));
+// Prints: abc
+
+buf1[0] = 33;
+
+console.log(buf2.toString(&apos;ascii&apos;, 0, buf2.length));
+// Prints: !bc
+</code></pre><p>Specifying negative indexes causes the slice to be generated relative to the
+end of <code>buf</code> rather than the beginning.</p><pre><code class="language-js">const buf = Buffer.from(&apos;buffer&apos;);
+
+console.log(buf.subarray(-6, -1).toString());
+// Prints: buffe
+// (Equivalent to buf.subarray(0, 5).)
+
+console.log(buf.subarray(-6, -2).toString());
+// Prints: buff
+// (Equivalent to buf.subarray(0, 4).)
+
+console.log(buf.subarray(-5, -2).toString());
+// Prints: uff
+// (Equivalent to buf.subarray(1, 4).)
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756294716"><\/script>');
+  </script>
+</body>
+</html>

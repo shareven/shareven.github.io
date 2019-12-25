@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>socket.connect(port[, address][, callback]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/dgram/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756302449" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-dgram">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>socket.connect(port[, address][, callback])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../dgram.html#dgram_socket_connect_port_address_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/socket_connect_port_address_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v12.0.0</span>
+</div><ul>
+<li><code>port</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>address</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x5F53;&#x8FDE;&#x63A5;&#x5B8C;&#x6210;&#x6216;&#x51FA;&#x9519;&#x65F6;&#x8C03;&#x7528;&#x3002;</li>
+</ul><p>&#x4E3A; <code>dgram.Socket</code> &#x5173;&#x8054;&#x4E00;&#x4E2A;&#x8FDC;&#x7A0B;&#x5730;&#x5740;&#x548C;&#x7AEF;&#x53E3;&#x3002;
+&#x8FD9;&#x4E2A; socket &#x53E5;&#x67C4;&#x53D1;&#x9001;&#x7684;&#x4EFB;&#x4F55;&#x6D88;&#x606F;&#x90FD;&#x4F1A;&#x88AB;&#x53D1;&#x9001;&#x5230;&#x5173;&#x8054;&#x7684;&#x8FDC;&#x7A0B;&#x5730;&#x5740;&#x3002;
+&#x800C;&#x4E14;&#xFF0C;&#x8FD9;&#x4E2A;&#x5957;&#x63A5;&#x5B57;&#x4F1A;&#x53EA;&#x63A5;&#x53D7;&#x6765;&#x81EA;&#x90A3;&#x4E2A;&#x8FDC;&#x7A0B;&#x540C;&#x7C7B;&#x7684;&#x6D88;&#x606F;&#x3002;
+&#x4F1A;&#x5BFC;&#x81F4;&#x4E00;&#x4E2A; <a href="http://nodejs.cn/s/wqhC9d" rel="nofollow"><code>ERR_SOCKET_DGRAM_IS_CONNECTED</code></a> &#x5F02;&#x5E38;&#x3002;
+&#x5982;&#x679C;&#x6CA1;&#x6709;&#x63D0;&#x4F9B; <code>address</code>&#xFF0C;&#x4F1A;&#x9ED8;&#x8BA4;&#x7528; <code>&apos;127.0.0.1&apos;</code>&#xFF08;&#x9002;&#x7528;&#x4E8E; <code>udp4</code> &#x5957;&#x63A5;&#x5B57;&#xFF09;&#x6216;&#x8005; <code>&apos;::1&apos;</code>&#xFF08;&#x9002;&#x7528;&#x4E8E; <code>udp6</code> &#x5957;&#x63A5;&#x5B57;&#xFF09;&#x3002;
+&#x4E00;&#x65E6;&#x8FDE;&#x63A5;&#x5B8C;&#x6210;&#xFF0C;&#x4E00;&#x4E2A; <code>&apos;connect&apos;</code> &#x4F1A;&#x89E6;&#x53D1;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x9009;&#x7684; <code>callback</code> &#x4E5F;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x3002;
+&#x4E3A;&#x4E86;&#x9632;&#x6B62;&#x5931;&#x8D25;&#xFF0C;&#x8FD9;&#x4E2A; <code>callback</code> &#x88AB;&#x8C03;&#x7528;&#x6216;&#x8005;&#x8C03;&#x7528;&#x5931;&#x8D25;&#x89E6;&#x53D1;&#x4E00;&#x4E2A; <code>&apos;error&apos;</code> &#x4E8B;&#x4EF6;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v12.0.0</span>
+</div><ul>
+<li><code>port</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>address</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> Called when the connection is completed or on error.</li>
+</ul><p>Associates the <code>dgram.Socket</code> to a remote address and port. Every
+message sent by this handle is automatically sent to that destination. Also,
+the socket will only receive messages from that remote peer.
+Trying to call <code>connect()</code> on an already connected socket will result
+in an <a href="http://nodejs.cn/s/wqhC9d" rel="nofollow"><code>ERR_SOCKET_DGRAM_IS_CONNECTED</code></a> exception. If <code>address</code> is not
+provided, <code>&apos;127.0.0.1&apos;</code> (for <code>udp4</code> sockets) or <code>&apos;::1&apos;</code> (for <code>udp6</code> sockets)
+will be used by default. Once the connection is complete, a <code>&apos;connect&apos;</code> event
+is emitted and the optional <code>callback</code> function is called. In case of failure,
+the <code>callback</code> is called or, failing this, an <code>&apos;error&apos;</code> event is emitted.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/dgram/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756302449"><\/script>');
+  </script>
+</body>
+</html>

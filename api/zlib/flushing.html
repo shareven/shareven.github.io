@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>刷新 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/zlib/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756330927" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-zlib">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>刷新</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../zlib.html#zlib_flushing" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/zlib/flushing.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x5728;&#x538B;&#x7F29;&#x6D41;&#x4E0A;&#x8C03;&#x7528; <a href="http://nodejs.cn/s/THDXxt" rel="nofollow"><code>.flush()</code></a> &#x65B9;&#x6CD5;&#x5C06;&#x4F7F; <code>zlib</code> &#x8FD4;&#x56DE;&#x5C3D;&#x53EF;&#x80FD;&#x591A;&#x7684;&#x8F93;&#x51FA;&#x3002;
+&#x8FD9;&#x53EF;&#x80FD;&#x662F;&#x4EE5;&#x538B;&#x7F29;&#x8D28;&#x91CF;&#x4E0B;&#x964D;&#x4E3A;&#x4EE3;&#x4EF7;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x5F53;&#x9700;&#x8981;&#x5C3D;&#x5FEB;&#x63D0;&#x4F9B;&#x6570;&#x636E;&#x65F6;&#xFF0C;&#x8FD9;&#x53EF;&#x80FD;&#x662F;&#x6709;&#x7528;&#x7684;&#x3002;</p><p>&#x5728;&#x4EE5;&#x4E0B;&#x7684;&#x5B9E;&#x4F8B;&#x4E2D;, <code>flush()</code> &#x65B9;&#x6CD5;&#x7528;&#x4E8E;&#x5C06;&#x90E8;&#x5206;&#x538B;&#x7F29;&#x8FC7;&#x7684; HTTP &#x54CD;&#x5E94;&#x8FD4;&#x56DE;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#xFF1A;</p><pre><code class="language-js">const zlib = require(&apos;zlib&apos;);
+const http = require(&apos;http&apos;);
+
+http.createServer((request, response) =&gt; {
+  // &#x4E3A;&#x4E86;&#x7B80;&#x5355;&#x8D77;&#x89C1;&#xFF0C;&#x7701;&#x7565;&#x4E86;&#x5BF9; Accept-Encoding &#x7684;&#x68C0;&#x6D4B;&#x3002;
+  response.writeHead(200, { &apos;content-encoding&apos;: &apos;gzip&apos; });
+  const output = zlib.createGzip();
+  output.pipe(response);
+
+  setInterval(() =&gt; {
+    output.write(`The current time is ${Date()}\n`, () =&gt; {
+      // &#x6570;&#x636E;&#x5DF2;&#x7ECF;&#x4F20;&#x9012;&#x7ED9;&#x4E86; zlib&#xFF0C;&#x4F46;&#x538B;&#x7F29;&#x7B97;&#x6CD5;&#x770B;&#x80FD;&#x5DF2;&#x7ECF;&#x51B3;&#x5B9A;&#x7F13;&#x5B58;&#x6570;&#x636E;&#x4EE5;&#x4FBF;&#x5F97;&#x5230;&#x66F4;&#x9AD8;&#x7684;&#x538B;&#x7F29;&#x6548;&#x7387;&#x3002;
+      // &#x4E00;&#x65E6;&#x5BA2;&#x6237;&#x7AEF;&#x51C6;&#x5907;&#x63A5;&#x6536;&#x6570;&#x636E;&#xFF0C;&#x8C03;&#x7528; .flush() &#x5C06;&#x4F1A;&#x4F7F;&#x6570;&#x636E;&#x53EF;&#x7528;&#x3002;
+      output.flush();
+    });
+  }, 1000);
+}).listen(1337);
+</code></pre></div>
+          <div id="content_right"><p>Calling <a href="http://nodejs.cn/s/THDXxt" rel="nofollow"><code>.flush()</code></a> on a compression stream will make <code>zlib</code> return as much
+output as currently possible. This may come at the cost of degraded compression
+quality, but can be useful when data needs to be available as soon as possible.</p><p>In the following example, <code>flush()</code> is used to write a compressed partial
+HTTP response to the client:</p><pre><code class="language-js">const zlib = require(&apos;zlib&apos;);
+const http = require(&apos;http&apos;);
+
+http.createServer((request, response) =&gt; {
+  // For the sake of simplicity, the Accept-Encoding checks are omitted.
+  response.writeHead(200, { &apos;content-encoding&apos;: &apos;gzip&apos; });
+  const output = zlib.createGzip();
+  output.pipe(response);
+
+  setInterval(() =&gt; {
+    output.write(`The current time is ${Date()}\n`, () =&gt; {
+      // The data has been passed to zlib, but the compression algorithm may
+      // have decided to buffer the data for more efficient compression.
+      // Calling .flush() will make the data available as soon as the client
+      // is ready to receive it.
+      output.flush();
+    });
+  }, 1000);
+}).listen(1337);
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/zlib/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756330927"><\/script>');
+  </script>
+</body>
+</html>

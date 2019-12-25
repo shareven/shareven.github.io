@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>response.getHeader(name) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/http/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756311985" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-http">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>response.getHeader(name)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../http.html#http_response_getheader_name" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/http/response_getheader_name.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.4.0</span>
+</div><ul>
+<li><code>name</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+</ul><p>&#x8BFB;&#x51FA;&#x5DF2;&#x6392;&#x961F;&#x4F46;&#x672A;&#x53D1;&#x9001;&#x5230;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x54CD;&#x5E94;&#x5934;&#x3002;
+&#x8BE5;&#x540D;&#x79F0;&#x4E0D;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;&#x3002;
+&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x7C7B;&#x578B;&#x53D6;&#x51B3;&#x4E8E;&#x63D0;&#x4F9B;&#x7ED9; <a href="http://nodejs.cn/s/rqeM3J" rel="nofollow"><code>response.setHeader()</code></a> &#x7684;&#x53C2;&#x6570;&#x3002;</p><pre><code class="language-js">response.setHeader(&apos;Content-Type&apos;, &apos;text/html&apos;);
+response.setHeader(&apos;Content-Length&apos;, Buffer.byteLength(body));
+response.setHeader(&apos;Set-Cookie&apos;, [&apos;type=ninja&apos;, &apos;language=javascript&apos;]);
+const contentType = response.getHeader(&apos;content-type&apos;);
+// contentType &#x662F; &apos;text/html&apos;&#x3002;
+const contentLength = response.getHeader(&apos;Content-Length&apos;);
+// contentLength &#x7684;&#x7C7B;&#x578B;&#x4E3A;&#x6570;&#x503C;&#x3002;
+const setCookie = response.getHeader(&apos;set-cookie&apos;);
+// setCookie &#x7684;&#x7C7B;&#x578B;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x6570;&#x7EC4;&#x3002;
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.4.0</span>
+</div><ul>
+<li><code>name</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li>Returns: <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+</ul><p>Reads out a header that&apos;s already been queued but not sent to the client.
+The name is case-insensitive. The type of the return value depends
+on the arguments provided to <a href="http://nodejs.cn/s/rqeM3J" rel="nofollow"><code>response.setHeader()</code></a>.</p><pre><code class="language-js">response.setHeader(&apos;Content-Type&apos;, &apos;text/html&apos;);
+response.setHeader(&apos;Content-Length&apos;, Buffer.byteLength(body));
+response.setHeader(&apos;Set-Cookie&apos;, [&apos;type=ninja&apos;, &apos;language=javascript&apos;]);
+const contentType = response.getHeader(&apos;content-type&apos;);
+// contentType is &apos;text/html&apos;
+const contentLength = response.getHeader(&apos;Content-Length&apos;);
+// contentLength is of type number
+const setCookie = response.getHeader(&apos;set-cookie&apos;);
+// setCookie is of type string[]
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/http/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756311985"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>process.memoryUsage() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756321059" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>process.memoryUsage()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../process.html#process_process_memoryusage" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/process/process_memoryusage.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v7.2.0</td>
+<td><p>Added <code>external</code> to the returned object.</p></td></tr>
+<tr><td>v0.1.16</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.16</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li>
+<p>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>rss</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>heapTotal</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>heapUsed</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>external</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+</ul>
+</li>
+</ul><p><code>process.memoryUsage()</code> &#x65B9;&#x6CD5;&#x8FD4;&#x56DE; Node.js &#x8FDB;&#x7A0B;&#x7684;&#x5185;&#x5B58;&#x4F7F;&#x7528;&#x60C5;&#x51B5;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x8BE5;&#x5BF9;&#x8C61;&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#x503C;&#x7684;&#x5355;&#x4F4D;&#x4E3A;&#x5B57;&#x8282;&#x3002;</p><p>&#x4F8B;&#x5982;&#xFF1A;</p><pre><code class="language-js">console.log(process.memoryUsage());
+</code></pre><p>&#x4F1A;&#x5F97;&#x5230;&#xFF1A;</p><pre><code class="language-js">{
+  rss: 4935680,
+  heapTotal: 1826816,
+  heapUsed: 650472,
+  external: 49879
+}
+</code></pre><p><code>heapTotal</code> &#x548C; <code>heapUsed</code> &#x4EE3;&#x8868; V8 &#x7684;&#x5185;&#x5B58;&#x4F7F;&#x7528;&#x60C5;&#x51B5;&#x3002;
+<code>external</code> &#x4EE3;&#x8868; V8 &#x7BA1;&#x7406;&#x7684;&#xFF0C;&#x7ED1;&#x5B9A;&#x5230; Javascript &#x7684; C++ &#x5BF9;&#x8C61;&#x7684;&#x5185;&#x5B58;&#x4F7F;&#x7528;&#x60C5;&#x51B5;&#x3002;
+<code>rss</code> &#x662F;&#x9A7B;&#x7559;&#x96C6;&#x5927;&#x5C0F;, &#x662F;&#x7ED9;&#x8FD9;&#x4E2A;&#x8FDB;&#x7A0B;&#x5206;&#x914D;&#x4E86;&#x591A;&#x5C11;&#x7269;&#x7406;&#x5185;&#x5B58;&#xFF08;&#x5360;&#x603B;&#x5206;&#x914D;&#x5185;&#x5B58;&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF09;&#xFF0C;&#x8FD9;&#x4E9B;&#x7269;&#x7406;&#x5185;&#x5B58;&#x4E2D;&#x5305;&#x542B;&#x5806;&#x3001;&#x4EE3;&#x7801;&#x6BB5;&#x3001;&#x4EE5;&#x53CA;&#x6808;&#x3002;</p><p>&#x5BF9;&#x8C61;&#x3001;&#x5B57;&#x7B26;&#x4E32;&#x3001;&#x95ED;&#x5305;&#x7B49;&#x5B58;&#x4E8E;&#x5806;&#x5185;&#x5B58;&#x3002;
+&#x53D8;&#x91CF;&#x5B58;&#x4E8E;&#x6808;&#x5185;&#x5B58;&#xFF0C;&#x5B9E;&#x9645;&#x7684; JavaScript &#x6E90;&#x4EE3;&#x7801;&#x5B58;&#x4E8E;&#x4EE3;&#x7801;&#x6BB5;&#x5185;&#x5B58;&#x3002;</p><p>&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/S15DqM" rel="nofollow"><code>Worker</code></a> &#x7EBF;&#x7A0B;&#x65F6;&#xFF0C; <code>rss</code> &#x5C06;&#x4F1A;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x6574;&#x4E2A;&#x8FDB;&#x7A0B;&#x6709;&#x6548;&#x7684;&#x503C;&#xFF0C;&#x800C;&#x5176;&#x4ED6;&#x5B57;&#x6BB5;&#x53EA;&#x6307;&#x5411;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v7.2.0</td>
+<td><p>Added <code>external</code> to the returned object.</p></td></tr>
+<tr><td>v0.1.16</td>
+<td><p><span>Added in: v0.1.16</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li>
+<p>Returns: <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>rss</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>heapTotal</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>heapUsed</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>external</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+</ul>
+</li>
+</ul><p>The <code>process.memoryUsage()</code> method returns an object describing the memory usage
+of the Node.js process measured in bytes.</p><p>For example, the code:</p><pre><code class="language-js">console.log(process.memoryUsage());
+</code></pre><p>Will generate:</p><pre><code class="language-js">{
+  rss: 4935680,
+  heapTotal: 1826816,
+  heapUsed: 650472,
+  external: 49879
+}
+</code></pre><p><code>heapTotal</code> and <code>heapUsed</code> refer to V8&apos;s memory usage.
+<code>external</code> refers to the memory usage of C++ objects bound to JavaScript
+objects managed by V8. <code>rss</code>, Resident Set Size, is the amount of space
+occupied in the main memory device (that is a subset of the total allocated
+memory) for the process, which includes the <em>heap</em>, <em>code segment</em> and <em>stack</em>.</p><p>The <em>heap</em> is where objects, strings, and closures are stored. Variables are
+stored in the <em>stack</em> and the actual JavaScript code resides in the
+<em>code segment</em>.</p><p>When using <a href="http://nodejs.cn/s/S15DqM" rel="nofollow"><code>Worker</code></a> threads, <code>rss</code> will be a value that is valid for the
+entire process, while the other fields will only refer to the current thread.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756321059"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>module.builtinModules | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/modules/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756316051" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-modules">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>module.builtinModules</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../modules.html#modules_module_builtinmodules" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/modules/module_builtinmodules.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v9.3.0</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string[]&gt;</a></li>
+</ul><p>&#x7F57;&#x5217; Node.js &#x63D0;&#x4F9B;&#x7684;&#x6240;&#x6709;&#x6A21;&#x5757;&#x540D;&#x79F0;&#x3002;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5224;&#x65AD;&#x6A21;&#x5757;&#x662F;&#x5426;&#x4E3A;&#x7B2C;&#x4E09;&#x65B9;&#x6240;&#x7EF4;&#x62A4;&#x3002;</p><p>&#x6CE8;&#x610F;&#xFF0C; <code>module</code> &#x5728;&#x6B64;&#x5904;&#x542B;&#x4E49;&#x4E0E;<a href="http://nodejs.cn/s/rrmTGc" rel="nofollow">&#x6A21;&#x5757;&#x5C01;&#x88C5;&#x5668;</a>&#x6240;&#x63D0;&#x4F9B;&#x7684; <code>module</code> &#x662F;&#x4E0D;&#x540C;&#x7684;&#x3002;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5F15;&#x5165; <code>Module</code> &#x6A21;&#x5757;&#x8BBF;&#x95EE;&#xFF1A;</p><pre><code class="language-js">const builtin = require(&apos;module&apos;).builtinModules;
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v9.3.0</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string[]&gt;</a></li>
+</ul><p>A list of the names of all modules provided by Node.js. Can be used to verify
+if a module is maintained by a third party or not.</p><p><code>module</code> in this context isn&apos;t the same object that&apos;s provided
+by the <a href="http://nodejs.cn/s/rrmTGc" rel="nofollow">module wrapper</a>. To access it, require the <code>Module</code> module:</p><pre><code class="language-js">const builtin = require(&apos;module&apos;).builtinModules;
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/modules/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756316051"><\/script>');
+  </script>
+</body>
+</html>

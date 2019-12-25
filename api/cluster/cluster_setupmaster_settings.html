@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>cluster.setupMaster([settings]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/cluster/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756297813" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-cluster">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>cluster.setupMaster([settings])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../cluster.html#cluster_cluster_setupmaster_settings" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/cluster/cluster_setupmaster_settings.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v6.4.0</td>
+<td><p>The <code>stdio</code> option is supported now.</p></td></tr>
+<tr><td>v0.7.1</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.7.1</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>settings</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> &#x8BE6;&#x89C1; <a href="http://nodejs.cn/s/x5is3o" rel="nofollow"><code>cluster.settings</code></a>&#x3002;</li>
+</ul><p><code>setupMaster</code> &#x7528;&#x4E8E;&#x4FEE;&#x6539;&#x9ED8;&#x8BA4;&#x7684; &apos;fork&apos; &#x884C;&#x4E3A;&#x3002;
+&#x4E00;&#x65E6;&#x8C03;&#x7528;&#xFF0C;&#x5C06;&#x4F1A;&#x6309;&#x7167; <code>cluster.settings</code> &#x8FDB;&#x884C;&#x8BBE;&#x7F6E;&#x3002;</p><p>&#x6240;&#x6709;&#x7684;&#x8BBE;&#x7F6E;&#x53EA;&#x5BF9;&#x540E;&#x6765;&#x7684; <a href="http://nodejs.cn/s/e6g3mN" rel="nofollow"><code>.fork()</code></a> &#x8C03;&#x7528;&#x6709;&#x6548;&#xFF0C;&#x5BF9;&#x4E4B;&#x524D;&#x7684;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x65E0;&#x5F71;&#x54CD;&#x3002;</p><p>&#x552F;&#x4E00;&#x65E0;&#x6CD5;&#x901A;&#x8FC7; <code>.setupMaster()</code> &#x8BBE;&#x7F6E;&#x7684;&#x5C5E;&#x6027;&#x662F;&#x4F20;&#x7ED9; <a href="http://nodejs.cn/s/e6g3mN" rel="nofollow"><code>.fork()</code></a> &#x7684; <code>env</code> &#x5C5E;&#x6027;&#x3002;</p><p>&#x4E0A;&#x8FF0;&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x53EA;&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x8C03;&#x7528;&#x65F6;&#x6709;&#x6548;&#xFF0C;&#x5F53;&#x540E;&#x7EED;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5C06;&#x91C7;&#x7528; <code>cluster.setupMaster()</code> &#x8C03;&#x7528;&#x65F6;&#x7684;&#x5F53;&#x524D;&#x503C;&#x3002;</p><pre><code class="language-js">const cluster = require(&apos;cluster&apos;);
+cluster.setupMaster({
+  exec: &apos;worker.js&apos;,
+  args: [&apos;--use&apos;, &apos;https&apos;],
+  silent: true
+});
+cluster.fork(); // https &#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;
+cluster.setupMaster({
+  exec: &apos;worker.js&apos;,
+  args: [&apos;--use&apos;, &apos;http&apos;]
+});
+cluster.fork(); // http &#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;
+</code></pre><p>&#x8FD9;&#x53EA;&#x80FD;&#x7531;&#x4E3B;&#x8FDB;&#x7A0B;&#x8C03;&#x7528;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v6.4.0</td>
+<td><p>The <code>stdio</code> option is supported now.</p></td></tr>
+<tr><td>v0.7.1</td>
+<td><p><span>Added in: v0.7.1</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>settings</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> See <a href="http://nodejs.cn/s/x5is3o" rel="nofollow"><code>cluster.settings</code></a>.</li>
+</ul><p><code>setupMaster</code> is used to change the default &apos;fork&apos; behavior. Once called,
+the settings will be present in <code>cluster.settings</code>.</p><p>Any settings changes only affect future calls to <a href="cluster_setupmaster_settings.html#cluster_cluster_fork_env" rel="nofollow"><code>.fork()</code></a> and have no
+effect on workers that are already running.</p><p>The only attribute of a worker that cannot be set via <code>.setupMaster()</code> is
+the <code>env</code> passed to <a href="cluster_setupmaster_settings.html#cluster_cluster_fork_env" rel="nofollow"><code>.fork()</code></a>.</p><p>The defaults above apply to the first call only; the defaults for later
+calls are the current values at the time of <code>cluster.setupMaster()</code> is called.</p><pre><code class="language-js">const cluster = require(&apos;cluster&apos;);
+cluster.setupMaster({
+  exec: &apos;worker.js&apos;,
+  args: [&apos;--use&apos;, &apos;https&apos;],
+  silent: true
+});
+cluster.fork(); // https worker
+cluster.setupMaster({
+  exec: &apos;worker.js&apos;,
+  args: [&apos;--use&apos;, &apos;http&apos;]
+});
+cluster.fork(); // http worker
+</code></pre><p>This can only be called from the master process.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/cluster/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756297813"><\/script>');
+  </script>
+</body>
+</html>

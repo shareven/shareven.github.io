@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>dns.resolveTxt(hostname, callback) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/dns/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756303270" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-dns">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>dns.resolveTxt(hostname, callback)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../dns.html#dns_dns_resolvetxt_hostname_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/dns/dns_resolvetxt_hostname_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.27</span>
+</div><ul>
+<li><code>hostname</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>records</code> <a href="http://nodejs.cn/s/9Tw2bK" rel="nofollow">&lt;string[][]&gt;</a></li>
+</ul>
+</li>
+</ul><p>&#x4F7F;&#x7528; DNS &#x534F;&#x8BAE;&#x4E3A; <code>hostname</code> &#x89E3;&#x6790;&#x6587;&#x672C;&#x67E5;&#x8BE2;&#xFF08;<code>TXT</code> &#x8BB0;&#x5F55;&#xFF09;&#x3002;
+&#x4F20;&#x7ED9; <code>callback</code> &#x51FD;&#x6570;&#x7684; <code>records</code> &#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x5177;&#x6709;&#x7528;&#x4E8E; <code>hostname</code> &#x7684;&#x53EF;&#x7528;&#x7684;&#x6587;&#x672C;&#x8BB0;&#x5F55;&#x7684;&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;(&#x4F8B;&#x5982;&#xFF1A;<code>[ [&apos;v=spf1 ip4:0.0.0.0 &apos;, &apos;~all&apos; ] ]</code>)&#x3002;
+&#x6BCF;&#x4E2A;&#x5B50;&#x6570;&#x7EC4;&#x5305;&#x542B;&#x4E00;&#x6761; TXT &#x8BB0;&#x5F55;&#x5757;&#x3002;
+&#x6839;&#x636E;&#x7528;&#x4F8B;&#xFF0C;&#x8FD9;&#x4E9B;&#x53EF;&#x4EE5;&#x662F;&#x8FDE;&#x63A5;&#x5728;&#x4E00;&#x8D77;&#x6216;&#x5355;&#x72EC;&#x5BF9;&#x5F85;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.27</span>
+</div><ul>
+<li><code>hostname</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>records</code> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#String_type" class="type" rel="nofollow">&lt;string[][]&gt;</a></li>
+</ul>
+</li>
+</ul><p>Uses the DNS protocol to resolve text queries (<code>TXT</code> records) for the
+<code>hostname</code>. The <code>records</code> argument passed to the <code>callback</code> function is a
+two-dimensional array of the text records available for <code>hostname</code> (e.g.
+<code>[ [&apos;v=spf1 ip4:0.0.0.0 &apos;, &apos;~all&apos; ] ]</code>). Each sub-array contains TXT chunks of
+one record. Depending on the use case, these could be either joined together or
+treated separately.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/dns/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756303270"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>buf.toString([encoding[, start[, end]]]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756294749" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-buffer">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>buf.toString([encoding[, start[, end]]])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../buffer.html#buffer_buf_tostring_encoding_start_end" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/buffer/buf_tostring_encoding_start_end.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.90</span>
+</div><ul>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x4F7F;&#x7528;&#x7684;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;utf8&apos;</code>&#x3002;</li>
+<li><code>start</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x5F00;&#x59CB;&#x89E3;&#x7801;&#x7684;&#x5B57;&#x8282;&#x504F;&#x79FB;&#x91CF;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>0</code>&#x3002;</li>
+<li><code>end</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x7ED3;&#x675F;&#x89E3;&#x7801;&#x7684;&#x5B57;&#x8282;&#x504F;&#x79FB;&#x91CF;&#xFF08;&#x4E0D;&#x5305;&#x542B;&#xFF09;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <a href="http://nodejs.cn/s/hn6FjL" rel="nofollow"><code>buf.length</code></a>&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>&#x6839;&#x636E; <code>encoding</code> &#x6307;&#x5B9A;&#x7684;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x5C06; <code>buf</code> &#x89E3;&#x7801;&#x6210;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+&#x4F20;&#x5165; <code>start</code> &#x548C; <code>end</code> &#x53EF;&#x4EE5;&#x53EA;&#x89E3;&#x7801; <code>buf</code> &#x7684;&#x5B50;&#x96C6;&#x3002;</p><p>&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x6700;&#x5927;&#x957F;&#x5EA6;&#xFF08;&#x4EE5; UTF-16 &#x4E3A;&#x5355;&#x4F4D;&#xFF09;&#x53EF;&#x67E5;&#x770B; <a href="http://nodejs.cn/s/fReXmD" rel="nofollow"><code>buffer.constants.MAX_STRING_LENGTH</code></a>&#x3002;</p><pre><code class="language-js">const buf1 = Buffer.allocUnsafe(26);
+
+for (let i = 0; i &lt; 26; i++) {
+  // 97 &#x662F; &apos;a&apos; &#x7684;&#x5341;&#x8FDB;&#x5236; ASCII &#x503C;&#x3002;
+  buf1[i] = i + 97;
+}
+
+console.log(buf1.toString(&apos;ascii&apos;));
+// &#x6253;&#x5370;: abcdefghijklmnopqrstuvwxyz
+console.log(buf1.toString(&apos;ascii&apos;, 0, 5));
+// &#x6253;&#x5370;: abcde
+
+const buf2 = Buffer.from(&apos;t&#xE9;st&apos;);
+
+console.log(buf2.toString(&apos;hex&apos;));
+// &#x6253;&#x5370;: 74c3a97374
+console.log(buf2.toString(&apos;utf8&apos;, 0, 3));
+// &#x6253;&#x5370;: t&#xE9;
+console.log(buf2.toString(undefined, 0, 3));
+// &#x6253;&#x5370;: t&#xE9;
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.90</span>
+</div><ul>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> The character encoding to use. <strong>Default:</strong> <code>&apos;utf8&apos;</code>.</li>
+<li><code>start</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> The byte offset to start decoding at. <strong>Default:</strong> <code>0</code>.</li>
+<li><code>end</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> The byte offset to stop decoding at (not inclusive).
+<strong>Default:</strong> <a href="http://nodejs.cn/s/hn6FjL" rel="nofollow"><code>buf.length</code></a>.</li>
+<li>Returns: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>Decodes <code>buf</code> to a string according to the specified character encoding in
+<code>encoding</code>. <code>start</code> and <code>end</code> may be passed to decode only a subset of <code>buf</code>.</p><p>The maximum length of a string instance (in UTF-16 code units) is available
+as <a href="http://nodejs.cn/s/fReXmD" rel="nofollow"><code>buffer.constants.MAX_STRING_LENGTH</code></a>.</p><pre><code class="language-js">const buf1 = Buffer.allocUnsafe(26);
+
+for (let i = 0; i &lt; 26; i++) {
+  // 97 is the decimal ASCII value for &apos;a&apos;.
+  buf1[i] = i + 97;
+}
+
+console.log(buf1.toString(&apos;ascii&apos;));
+// Prints: abcdefghijklmnopqrstuvwxyz
+console.log(buf1.toString(&apos;ascii&apos;, 0, 5));
+// Prints: abcde
+
+const buf2 = Buffer.from(&apos;t&#xE9;st&apos;);
+
+console.log(buf2.toString(&apos;hex&apos;));
+// Prints: 74c3a97374
+console.log(buf2.toString(&apos;utf8&apos;, 0, 3));
+// Prints: t&#xE9;
+console.log(buf2.toString(undefined, 0, 3));
+// Prints: t&#xE9;
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756294749"><\/script>');
+  </script>
+</body>
+</html>

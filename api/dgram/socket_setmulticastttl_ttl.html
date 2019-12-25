@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>socket.setMulticastTTL(ttl) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/dgram/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756302481" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-dgram">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>socket.setMulticastTTL(ttl)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../dgram.html#dgram_socket_setmulticastttl_ttl" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/socket_setmulticastttl_ttl.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.8</span>
+</div><ul>
+<li><code>ttl</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+</ul><p>&#x8BBE;&#x7F6E; <code>IP_MULTICAST_TTL</code> &#x5957;&#x63A5;&#x5B57;&#x9009;&#x9879;&#x3002;
+&#x4E00;&#x822C;&#x6765;&#x8BF4;&#xFF0C;TTL &#x8868;&#x793A;&quot;&#x751F;&#x5B58;&#x65F6;&#x95F4;&quot;&#x3002;
+&#x8FD9;&#x91CC;&#x7279;&#x6307;&#x4E00;&#x4E2A; IP &#x6570;&#x636E;&#x5305;&#x4F20;&#x8F93;&#x65F6;&#x5141;&#x8BB8;&#x7684;&#x6700;&#x5927;&#x8DF3;&#x6B65;&#x6570;&#xFF0C;&#x5C24;&#x5176;&#x662F;&#x5BF9;&#x591A;&#x64AD;&#x4F20;&#x8F93;&#x3002;
+&#x5F53; IP &#x6570;&#x636E;&#x5305;&#x6BCF;&#x5411;&#x524D;&#x7ECF;&#x8FC7;&#x4E00;&#x4E2A;&#x8DEF;&#x7531;&#x6216;&#x7F51;&#x5173;&#x65F6;&#xFF0C;TTL &#x503C;&#x51CF; 1&#xFF0C;&#x82E5;&#x7ECF;&#x8FC7;&#x67D0;&#x4E2A;&#x8DEF;&#x7531;&#x65F6;&#xFF0C;TTL &#x503C;&#x88AB;&#x51CF;&#x81F3; 0&#xFF0C;&#x4FBF;&#x4E0D;&#x518D;&#x7EE7;&#x7EED;&#x5411;&#x524D;&#x4F20;&#x8F93;&#x3002;</p><p><code>ttl</code> &#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x662F; <code>0</code> &#x5230; <code>255</code> &#x4E4B;&#x95F4;&#x3002;
+&#x5728;&#x5927;&#x591A;&#x6570;&#x7CFB;&#x7EDF;&#x4E0A;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x662F; <code>1</code>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.3.8</span>
+</div><ul>
+<li><code>ttl</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+</ul><p>Sets the <code>IP_MULTICAST_TTL</code> socket option. While TTL generally stands for
+&quot;Time to Live&quot;, in this context it specifies the number of IP hops that a
+packet is allowed to travel through, specifically for multicast traffic. Each
+router or gateway that forwards a packet decrements the TTL. If the TTL is
+decremented to 0 by a router, it will not be forwarded.</p><p>The <code>ttl</code> argument may be between 0 and 255. The default on most systems is <code>1</code>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/dgram/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756302481"><\/script>');
+  </script>
+</body>
+</html>

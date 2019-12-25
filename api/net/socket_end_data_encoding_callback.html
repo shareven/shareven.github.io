@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>socket.end([data[, encoding]][, callback]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/net/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756318388" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-net">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>socket.end([data[, encoding]][, callback])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../net.html#net_socket_end_data_encoding_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/net/socket_end_data_encoding_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.90</span>
+</div><ul>
+<li><code>data</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/ZbDkpm" target="_blank" rel="nofollow" class="type">&lt;Uint8Array&gt;</a></li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x4EC5;&#x5F53; <code>data</code> &#x662F;&#x5B57;&#x7B26;&#x4E32;&#x65F6;&#x6709;&#x6548;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;utf8&apos;</code>&#x3002;</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x5F53; socket &#x5B8C;&#x6210;&#x65F6;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/wsJ1o1" target="_blank" rel="nofollow" class="type">&lt;net.Socket&gt;</a> socket &#x672C;&#x8EAB;&#x3002;</li>
+</ul><p>&#x534A;&#x5173;&#x95ED; socket&#x3002;
+&#x4F8B;&#x5982;&#x53D1;&#x9001;&#x4E00;&#x4E2A; FIN &#x5305;&#x3002;
+&#x670D;&#x52A1;&#x7AEF;&#x4ECD;&#x53EF;&#x4EE5;&#x53D1;&#x9001;&#x6570;&#x636E;&#x3002;</p><p>&#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86; <code>data</code>&#xFF0C;&#x5219;&#x76F8;&#x5F53;&#x4E8E;&#x8C03;&#x7528; <code>socket.write(data, encoding)</code>&#xA0;&#x4E4B;&#x540E;&#x518D;&#x8C03;&#x7528; <a href="http://nodejs.cn/s/RyEJPD" rel="nofollow"><code>socket.end()</code></a>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.90</span>
+</div><ul>
+<li><code>data</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/ZbDkpm" target="_blank" rel="nofollow" class="type">&lt;Uint8Array&gt;</a></li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> Only used when data is <code>string</code>. <strong>Default:</strong> <code>&apos;utf8&apos;</code>.</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> Optional callback for when the socket is finished.</li>
+<li>Returns: <a href="http://nodejs.cn/s/wsJ1o1" target="_blank" rel="nofollow" class="type">&lt;net.Socket&gt;</a> The socket itself.</li>
+</ul><p>Half-closes the socket. i.e., it sends a FIN packet. It is possible the
+server will still send some data.</p><p>If <code>data</code> is specified, it is equivalent to calling
+<code>socket.write(data, encoding)</code> followed by <a href="http://nodejs.cn/s/RyEJPD" rel="nofollow"><code>socket.end()</code></a>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/net/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756318388"><\/script>');
+  </script>
+</body>
+</html>

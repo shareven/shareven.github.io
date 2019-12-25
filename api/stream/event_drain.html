@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'drain' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324104" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-stream">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'drain' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../stream.html#stream_event_drain" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/stream/event_drain.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.4</span>
+</div><p>&#x5982;&#x679C;&#x8C03;&#x7528; <a href="http://nodejs.cn/s/doppiK" rel="nofollow"><code>stream.write(chunk)</code></a> &#x8FD4;&#x56DE; <code>false</code>&#xFF0C;&#x5219;&#x5F53;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x5199;&#x5165;&#x6570;&#x636E;&#x5230;&#x6D41;&#x65F6;&#x4F1A;&#x89E6;&#x53D1; <code>&apos;drain&apos;</code> &#x4E8B;&#x4EF6;&#x3002;</p><pre><code class="language-js">// &#x5411;&#x53EF;&#x5199;&#x6D41;&#x4E2D;&#x5199;&#x5165;&#x6570;&#x636E;&#x4E00;&#x767E;&#x4E07;&#x6B21;&#x3002;
+// &#x7559;&#x610F;&#x80CC;&#x538B;&#xFF08;back-pressure&#xFF09;&#x3002;
+function writeOneMillionTimes(writer, data, encoding, callback) {
+  let i = 1000000;
+  write();
+  function write() {
+    let ok = true;
+    do {
+      i--;
+      if (i === 0) {
+ &#xA0; &#xA0; &#xA0; &#xA0;// &#x6700;&#x540E;&#x4E00;&#x6B21;&#x5199;&#x5165;&#x3002;
+ &#xA0; &#xA0; &#xA0; &#xA0;writer.write(data, encoding, callback);
+      } else {
+ &#xA0; &#xA0; &#xA0; &#xA0;// &#x68C0;&#x67E5;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x5199;&#x5165;&#x3002; 
+ &#xA0; &#xA0; &#xA0; &#xA0;// &#x4E0D;&#x8981;&#x4F20;&#x5165;&#x56DE;&#x8C03;&#xFF0C;&#x56E0;&#x4E3A;&#x5199;&#x5165;&#x8FD8;&#x6CA1;&#x6709;&#x7ED3;&#x675F;&#x3002;
+ &#xA0; &#xA0; &#xA0; &#xA0;ok = writer.write(data, encoding);
+      }
+    } while (i &gt; 0 &amp;&amp; ok);
+    if (i &gt; 0) {
+ &#xA0; &#xA0; &#xA0;// &#x88AB;&#x63D0;&#x524D;&#x4E2D;&#x6B62;&#x3002;
+ &#xA0; &#xA0; &#xA0;// &#x5F53;&#x89E6;&#x53D1; &apos;drain&apos; &#x4E8B;&#x4EF6;&#x65F6;&#x7EE7;&#x7EED;&#x5199;&#x5165;&#x3002;
+      writer.once(&apos;drain&apos;, write);
+    }
+  }
+}
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.9.4</span>
+</div><p>If a call to <a href="http://nodejs.cn/s/doppiK" rel="nofollow"><code>stream.write(chunk)</code></a> returns <code>false</code>, the
+<code>&apos;drain&apos;</code> event will be emitted when it is appropriate to resume writing data
+to the stream.</p><pre><code class="language-js">// Write the data to the supplied writable stream one million times.
+// Be attentive to back-pressure.
+function writeOneMillionTimes(writer, data, encoding, callback) {
+  let i = 1000000;
+  write();
+  function write() {
+    let ok = true;
+    do {
+      i--;
+      if (i === 0) {
+        // Last time!
+        writer.write(data, encoding, callback);
+      } else {
+        // See if we should continue, or wait.
+        // Don&apos;t pass the callback, because we&apos;re not done yet.
+        ok = writer.write(data, encoding);
+      }
+    } while (i &gt; 0 &amp;&amp; ok);
+    if (i &gt; 0) {
+      // Had to stop early!
+      // Write some more once it drains.
+      writer.once(&apos;drain&apos;, write);
+    }
+  }
+}
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324104"><\/script>');
+  </script>
+</body>
+</html>

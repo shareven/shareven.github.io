@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>path.relative(from, to) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/path/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756319402" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-path">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>path.relative(from, to)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../path.html#path_path_relative_from_to" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/path/path_relative_from_to.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v6.8.0</td>
+<td><p>On Windows, the leading slashes for UNC paths are now included in the return value.</p></td></tr>
+<tr><td>v0.5.0</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.5.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>from</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>to</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p><code>path.relative()</code> &#x65B9;&#x6CD5;&#x6839;&#x636E;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x8FD4;&#x56DE; <code>from</code> &#x5230; <code>to</code> &#x7684;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;
+&#x5982;&#x679C; <code>from</code> &#x548C; <code>to</code> &#x5404;&#x81EA;&#x89E3;&#x6790;&#x5230;&#x76F8;&#x540C;&#x7684;&#x8DEF;&#x5F84;&#xFF08;&#x5206;&#x522B;&#x8C03;&#x7528; <code>path.resolve()</code> &#x4E4B;&#x540E;&#xFF09;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x96F6;&#x957F;&#x5EA6;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p><p>&#x5982;&#x679C;&#x5C06;&#x96F6;&#x957F;&#x5EA6;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x4F20;&#x5165; <code>from</code> &#x6216; <code>to</code>&#xFF0C;&#x5219;&#x4F7F;&#x7528;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x4EE3;&#x66FF;&#x8BE5;&#x96F6;&#x957F;&#x5EA6;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p><p>&#x4F8B;&#x5982;&#xFF0C;&#x5728; POSIX &#x4E0A;&#xFF1A;</p><pre><code class="language-js">path.relative(&apos;/data/orandea/test/aaa&apos;, &apos;/data/orandea/impl/bbb&apos;);
+// &#x8FD4;&#x56DE;: &apos;../../impl/bbb&apos;
+</code></pre><p>&#x5728; Windows &#x4E0A;&#xFF1A;</p><pre><code class="language-js">path.relative(&apos;C:\\orandea\\test\\aaa&apos;, &apos;C:\\orandea\\impl\\bbb&apos;);
+// &#x8FD4;&#x56DE;: &apos;..\\..\\impl\\bbb&apos;
+</code></pre><p>&#x5982;&#x679C; <code>from</code> &#x6216; <code>to</code> &#x4E0D;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="http://nodejs.cn/s/Z7Lqyj" rel="nofollow"><code>TypeError</code></a>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v6.8.0</td>
+<td><p>On Windows, the leading slashes for UNC paths are now included in the return value.</p></td></tr>
+<tr><td>v0.5.0</td>
+<td><p><span>Added in: v0.5.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>from</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>to</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li>Returns: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>The <code>path.relative()</code> method returns the relative path from <code>from</code> to <code>to</code> based
+on the current working directory. If <code>from</code> and <code>to</code> each resolve to the same
+path (after calling <code>path.resolve()</code> on each), a zero-length string is returned.</p><p>If a zero-length string is passed as <code>from</code> or <code>to</code>, the current working
+directory will be used instead of the zero-length strings.</p><p>For example, on POSIX:</p><pre><code class="language-js">path.relative(&apos;/data/orandea/test/aaa&apos;, &apos;/data/orandea/impl/bbb&apos;);
+// Returns: &apos;../../impl/bbb&apos;
+</code></pre><p>On Windows:</p><pre><code class="language-js">path.relative(&apos;C:\\orandea\\test\\aaa&apos;, &apos;C:\\orandea\\impl\\bbb&apos;);
+// Returns: &apos;..\\..\\impl\\bbb&apos;
+</code></pre><p>A <a href="http://nodejs.cn/s/Z7Lqyj" rel="nofollow"><code>TypeError</code></a> is thrown if either <code>from</code> or <code>to</code> is not a string.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/path/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756319402"><\/script>');
+  </script>
+</body>
+</html>

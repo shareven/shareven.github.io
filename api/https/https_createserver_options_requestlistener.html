@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>https.createServer([options][, requestListener]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/https/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756314633" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-https">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>https.createServer([options][, requestListener])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../https.html#https_https_createserver_options_requestlistener" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/https/https_createserver_options_requestlistener.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.4</span>
+</div><ul>
+<li><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> &#x63A5;&#x53D7;&#x6765;&#x81EA; <a href="http://nodejs.cn/s/igCzp7" rel="nofollow"><code>tls.createServer()</code></a>&#x3001;<a href="http://nodejs.cn/s/Di4SrM" rel="nofollow"><code>tls.createSecureContext()</code></a> &#x548C; <a href="http://nodejs.cn/s/CBYjFb" rel="nofollow"><code>http.createServer()</code></a> &#x7684; <code>options</code>&#x3002;</li>
+<li><code>requestListener</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x8981;&#x6DFB;&#x52A0;&#x5230; <code>&apos;request&apos;</code> &#x4E8B;&#x4EF6;&#x7684;&#x76D1;&#x542C;&#x5668;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/dj5Zzt" target="_blank" rel="nofollow" class="type">&lt;https.Server&gt;</a></li>
+</ul><pre><code class="language-js">// curl -k https://localhost:8000/
+const https = require(&apos;https&apos;);
+const fs = require(&apos;fs&apos;);
+
+const options = {
+  key: fs.readFileSync(&apos;test/fixtures/keys/agent2-key.pem&apos;),
+  cert: fs.readFileSync(&apos;test/fixtures/keys/agent2-cert.pem&apos;)
+};
+
+https.createServer(options, (req, res) =&gt; {
+  res.writeHead(200);
+  res.end(&apos;hello world\n&apos;);
+}).listen(8000);
+</code></pre><p>&#x6216;&#x8005;&#xFF1A;</p><pre><code class="language-js">const https = require(&apos;https&apos;);
+const fs = require(&apos;fs&apos;);
+
+const options = {
+  pfx: fs.readFileSync(&apos;test/fixtures/test_cert.pfx&apos;),
+  passphrase: &apos;sample&apos;
+};
+
+https.createServer(options, (req, res) =&gt; {
+  res.writeHead(200);
+  res.end(&apos;hello world\n&apos;);
+}).listen(8000);
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.3.4</span>
+</div><ul>
+<li><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> Accepts <code>options</code> from <a href="http://nodejs.cn/s/igCzp7" rel="nofollow"><code>tls.createServer()</code></a>,
+<a href="http://nodejs.cn/s/Di4SrM" rel="nofollow"><code>tls.createSecureContext()</code></a> and <a href="http://nodejs.cn/s/CBYjFb" rel="nofollow"><code>http.createServer()</code></a>.</li>
+<li><code>requestListener</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> A listener to be added to the <code>&apos;request&apos;</code> event.</li>
+<li>Returns: <a href="http://nodejs.cn/s/dj5Zzt" target="_blank" rel="nofollow" class="type">&lt;https.Server&gt;</a></li>
+</ul><pre><code class="language-js">// curl -k https://localhost:8000/
+const https = require(&apos;https&apos;);
+const fs = require(&apos;fs&apos;);
+
+const options = {
+  key: fs.readFileSync(&apos;test/fixtures/keys/agent2-key.pem&apos;),
+  cert: fs.readFileSync(&apos;test/fixtures/keys/agent2-cert.pem&apos;)
+};
+
+https.createServer(options, (req, res) =&gt; {
+  res.writeHead(200);
+  res.end(&apos;hello world\n&apos;);
+}).listen(8000);
+</code></pre><p>Or</p><pre><code class="language-js">const https = require(&apos;https&apos;);
+const fs = require(&apos;fs&apos;);
+
+const options = {
+  pfx: fs.readFileSync(&apos;test/fixtures/test_cert.pfx&apos;),
+  passphrase: &apos;sample&apos;
+};
+
+https.createServer(options, (req, res) =&gt; {
+  res.writeHead(200);
+  res.end(&apos;hello world\n&apos;);
+}).listen(8000);
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/https/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756314633"><\/script>');
+  </script>
+</body>
+</html>

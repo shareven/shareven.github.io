@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>path.isAbsolute(path) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/path/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756319387" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-path">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>path.isAbsolute(path)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../path.html#path_path_isabsolute_path" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/path/path_isabsolute_path.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.2</span>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+</ul><p><code>path.isAbsolute()</code> &#x65B9;&#x6CD5;&#x68C0;&#x6D4B; <code>path</code> &#x662F;&#x5426;&#x4E3A;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;</p><p>&#x5982;&#x679C;&#x7ED9;&#x5B9A;&#x7684; <code>path</code> &#x662F;&#x96F6;&#x957F;&#x5EA6;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x8FD4;&#x56DE; <code>false</code>&#x3002;</p><p>&#x4F8B;&#x5982;&#xFF0C;&#x5728; POSIX &#x4E0A;&#xFF1A;</p><pre><code class="language-js">path.isAbsolute(&apos;/foo/bar&apos;); // true
+path.isAbsolute(&apos;/baz/..&apos;);  // true
+path.isAbsolute(&apos;qux/&apos;);     // false
+path.isAbsolute(&apos;.&apos;);        // false
+</code></pre><p>&#x5728; Windows &#x4E0A;&#xFF1A;</p><pre><code class="language-js">path.isAbsolute(&apos;//server&apos;);    // true
+path.isAbsolute(&apos;\\\\server&apos;);  // true
+path.isAbsolute(&apos;C:/foo/..&apos;);   // true
+path.isAbsolute(&apos;C:\\foo\\..&apos;); // true
+path.isAbsolute(&apos;bar\\baz&apos;);    // false
+path.isAbsolute(&apos;bar/baz&apos;);     // false
+path.isAbsolute(&apos;.&apos;);           // false
+</code></pre><p>&#x5982;&#x679C; <code>path</code> &#x4E0D;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x629B;&#x51FA; <a href="http://nodejs.cn/s/Z7Lqyj" rel="nofollow"><code>TypeError</code></a>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.11.2</span>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li>Returns: <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+</ul><p>The <code>path.isAbsolute()</code> method determines if <code>path</code> is an absolute path.</p><p>If the given <code>path</code> is a zero-length string, <code>false</code> will be returned.</p><p>For example, on POSIX:</p><pre><code class="language-js">path.isAbsolute(&apos;/foo/bar&apos;); // true
+path.isAbsolute(&apos;/baz/..&apos;);  // true
+path.isAbsolute(&apos;qux/&apos;);     // false
+path.isAbsolute(&apos;.&apos;);        // false
+</code></pre><p>On Windows:</p><pre><code class="language-js">path.isAbsolute(&apos;//server&apos;);    // true
+path.isAbsolute(&apos;\\\\server&apos;);  // true
+path.isAbsolute(&apos;C:/foo/..&apos;);   // true
+path.isAbsolute(&apos;C:\\foo\\..&apos;); // true
+path.isAbsolute(&apos;bar\\baz&apos;);    // false
+path.isAbsolute(&apos;bar/baz&apos;);     // false
+path.isAbsolute(&apos;.&apos;);           // false
+</code></pre><p>A <a href="http://nodejs.cn/s/Z7Lqyj" rel="nofollow"><code>TypeError</code></a> is thrown if <code>path</code> is not a string.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/path/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756319387"><\/script>');
+  </script>
+</body>
+</html>

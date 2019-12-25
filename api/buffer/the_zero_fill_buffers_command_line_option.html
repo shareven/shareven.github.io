@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>--zero-fill-buffers 命令行选项 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756294514" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-buffer">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>--zero-fill-buffers 命令行选项</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../buffer.html#buffer_the_zero_fill_buffers_command_line_option" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/buffer/the_zero_fill_buffers_command_line_option.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v5.10.0</span>
+</div><p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>--zero-fill-buffers</code> &#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;&#x542F;&#x52A8; Node.js&#xFF0C;&#x4EE5;&#x4F7F;&#x6240;&#x6709;&#x65B0;&#x5206;&#x914D;&#x7684; <code>Buffer</code> &#x5B9E;&#x4F8B;&#x5728;&#x521B;&#x5EFA;&#x65F6;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;&#x96F6;&#x6765;&#x586B;&#x5145;&#x3002;
+&#x5728; Node.js 8.0.0 &#x4E4B;&#x524D;&#xFF0C;&#x8FD9;&#x5305;&#x62EC; <code>new Buffer(size)</code>&#x3001;<a href="http://nodejs.cn/s/TWpeWk" rel="nofollow"><code>Buffer.allocUnsafe()</code></a>&#x3001;<a href="http://nodejs.cn/s/PUENLw" rel="nofollow"><code>Buffer.allocUnsafeSlow()</code></a> &#x548C; <code>new SlowBuffer(size)</code> &#x5206;&#x914D;&#x7684; buffer&#x3002;
+&#x4ECE; Node.js 8.0.0 &#x5F00;&#x59CB;&#xFF0C;&#x65E0;&#x8BBA;&#x662F;&#x5426;&#x4F7F;&#x7528;&#x6B64;&#x9009;&#x9879;&#xFF0C;&#x4F7F;&#x7528; <code>new</code> &#x5206;&#x914D;&#x7684; buffer &#x59CB;&#x7EC8;&#x7528;&#x96F6;&#x586B;&#x5145;&#x3002;
+&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x9009;&#x9879;&#x53EF;&#x80FD;&#x4F1A;&#x5BF9;&#x6027;&#x80FD;&#x4EA7;&#x751F;&#x91CD;&#x5927;&#x7684;&#x8D1F;&#x9762;&#x5F71;&#x54CD;&#x3002;
+&#x5EFA;&#x8BAE;&#x4EC5;&#x5728;&#x9700;&#x8981;&#x5F3A;&#x5236;&#x65B0;&#x5206;&#x914D;&#x7684; <code>Buffer</code> &#x5B9E;&#x4F8B;&#x4E0D;&#x80FD;&#x5305;&#x542B;&#x53EF;&#x80FD;&#x654F;&#x611F;&#x7684;&#x65E7;&#x6570;&#x636E;&#x65F6;&#xFF0C;&#x624D;&#x4F7F;&#x7528; <code>--zero-fill-buffers</code> &#x9009;&#x9879;&#x3002;</p><pre><code class="language-console">$ node --zero-fill-buffers
+&gt; Buffer.allocUnsafe(5);
+&lt;Buffer 00 00 00 00 00&gt;
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v5.10.0</span>
+</div><p>Node.js can be started using the <code>--zero-fill-buffers</code> command line option to
+cause all newly allocated <code>Buffer</code> instances to be zero-filled upon creation by
+default. Before Node.js 8.0.0, this included buffers allocated by <code>new Buffer(size)</code>. Since Node.js 8.0.0, buffers allocated with <code>new</code> are always
+zero-filled, whether this option is used or not.
+<a href="http://nodejs.cn/s/TWpeWk" rel="nofollow"><code>Buffer.allocUnsafe()</code></a>, <a href="http://nodejs.cn/s/PUENLw" rel="nofollow"><code>Buffer.allocUnsafeSlow()</code></a>, and <code>new SlowBuffer(size)</code>. Use of this flag can have a significant negative impact on
+performance. Use of the <code>--zero-fill-buffers</code> option is recommended only when
+necessary to enforce that newly allocated <code>Buffer</code> instances cannot contain old
+data that is potentially sensitive.</p><pre><code class="language-console">$ node --zero-fill-buffers
+&gt; Buffer.allocUnsafe(5);
+&lt;Buffer 00 00 00 00 00&gt;
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756294514"><\/script>');
+  </script>
+</body>
+</html>

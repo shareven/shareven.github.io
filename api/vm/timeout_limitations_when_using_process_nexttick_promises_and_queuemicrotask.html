@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>当使用 process.nextTick()、Promise 和 queueMicrotask() 时的超时限制 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/vm/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756329801" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-vm">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>当使用 process.nextTick()、Promise 和 queueMicrotask() 时的超时限制</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../vm.html#vm_timeout_limitations_when_using_process_nexttick_promises_and_queuemicrotask" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/vm/timeout_limitations_when_using_process_nexttick_promises_and_queuemicrotask.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x7531;&#x4E8E;&#x5728; V8 &#x548C; Node.js &#x4E2D;&#x5B9E;&#x73B0;&#x4E86; <code>process.nextTick()</code> &#x961F;&#x5217;&#x548C;&#x4F5C;&#x4E3A; Promise &#x57FA;&#x7840;&#x7684;&#x5FAE;&#x4EFB;&#x52A1;&#x961F;&#x5217;&#x7684;&#x5185;&#x90E8;&#x673A;&#x5236;&#xFF0C;&#x56E0;&#x6B64;&#x5728;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x8FD0;&#x884C;&#x7684;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>vm.runInContext()</code>&#x3001; <code>vm.runInNewContext()</code> &#x548C; <code>vm.runInThisContext()</code> &#x8F6C;&#x4E49; <code>timeout</code>&#x3002;</p><p>&#x4F8B;&#x5982;&#xFF0C; <code>vm.runInNewContext()</code> &#x6267;&#x884C;&#x7684;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#xFF08;&#x8D85;&#x65F6;&#x4E3A; 5 &#x6BEB;&#x79D2;&#xFF09;&#x4F1A;&#x5728; promise &#x89E3;&#x51B3;&#x540E;&#x8C03;&#x5EA6;&#x65E0;&#x9650;&#x5FAA;&#x73AF;&#x3002;
+&#x8C03;&#x5EA6;&#x7684;&#x5FAA;&#x73AF;&#x6C38;&#x8FDC;&#x4E0D;&#x4F1A;&#x88AB;&#x8D85;&#x65F6;&#x4E2D;&#x65AD;&#xFF1A;</p><pre><code class="language-js">const vm = require(&apos;vm&apos;);
+
+function loop() {
+  while (1) console.log(Date.now());
+}
+
+vm.runInNewContext(
+  &apos;Promise.resolve().then(loop);&apos;,
+  { loop, console },
+  { timeout: 5 }
+);
+</code></pre><p>&#x4F7F;&#x7528; <code>process.nextTick()</code> &#x548C; <code>queueMicrotask()</code> &#x51FD;&#x6570;&#x8C03;&#x5EA6; <code>loop()</code> &#x8C03;&#x7528;&#x65F6;&#x4E5F;&#x4F1A;&#x53D1;&#x751F;&#x6B64;&#x95EE;&#x9898;&#x3002;</p><p>&#x51FA;&#x73B0;&#x6B64;&#x95EE;&#x9898;&#x662F;&#x56E0;&#x4E3A;&#x6240;&#x6709;&#x4E0A;&#x4E0B;&#x6587;&#x5171;&#x4EAB;&#x76F8;&#x540C;&#x7684;&#x5FAE;&#x4EFB;&#x52A1;&#x548C; nextTick &#x961F;&#x5217;&#x3002;</p></div>
+          <div id="content_right"><p>Because of the internal mechanics of how the <code>process.nextTick()</code> queue and
+the microtask queue that underlies Promises are implemented within V8 and
+Node.js, it is possible for code running within a context to &quot;escape&quot; the
+<code>timeout</code> set using <code>vm.runInContext()</code>, <code>vm.runInNewContext()</code>, and
+<code>vm.runInThisContext()</code>.</p><p>For example, the following code executed by <code>vm.runInNewContext()</code> with a
+timeout of 5 milliseconds schedules an infinite loop to run after a promise
+resolves. The scheduled loop is never interrupted by the timeout:</p><pre><code class="language-js">const vm = require(&apos;vm&apos;);
+
+function loop() {
+  while (1) console.log(Date.now());
+}
+
+vm.runInNewContext(
+  &apos;Promise.resolve().then(loop);&apos;,
+  { loop, console },
+  { timeout: 5 }
+);
+</code></pre><p>This issue also occurs when the <code>loop()</code> call is scheduled using
+the <code>process.nextTick()</code> and <code>queueMicrotask()</code> functions.</p><p>This issue occurs because all contexts share the same microtask and nextTick
+queues.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/vm/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756329801"><\/script>');
+  </script>
+</body>
+</html>

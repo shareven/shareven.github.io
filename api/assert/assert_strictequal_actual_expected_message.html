@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>assert.strictEqual(actual, expected[, message]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/assert/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756292598" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-assert">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>assert.strictEqual(actual, expected[, message])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../assert.html#assert_assert_strictequal_actual_expected_message" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/assert/assert_strictequal_actual_expected_message.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>Used comparison changed from Strict Equality to <code>Object.is()</code></p></td></tr>
+<tr><td>v0.1.21</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.21</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>actual</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>expected</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>message</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+</ul><p>&#x6D4B;&#x8BD5; <code>actual</code> &#x53C2;&#x6570;&#x548C; <code>expected</code> &#x53C2;&#x6570;&#x4E4B;&#x95F4;&#x7684;&#x4E25;&#x683C;&#x76F8;&#x7B49;&#x6027;&#xFF0C;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/25ULs2" rel="nofollow">SameValue&#x6BD4;&#x8F83;</a>&#x3002;</p><pre><code class="language-js">const assert = require(&apos;assert&apos;).strict;
+
+assert.strictEqual(1, 2);
+// AssertionError [ERR_ASSERTION]: Expected inputs to be strictly equal:
+//
+// 1 !== 2
+
+assert.strictEqual(1, 1);
+// OK
+
+assert.strictEqual(&apos;Hello foobar&apos;, &apos;Hello World!&apos;);
+// AssertionError [ERR_ASSERTION]: Expected inputs to be strictly equal:
+// + actual - expected
+//
+// + &apos;Hello foobar&apos;
+// - &apos;Hello World!&apos;
+//          ^
+
+const apples = 1;
+const oranges = 2;
+assert.strictEqual(apples, oranges, `apples ${apples} !== oranges ${oranges}`);
+// AssertionError [ERR_ASSERTION]: apples 1 !== oranges 2
+
+assert.strictEqual(1, &apos;1&apos;, new TypeError(&apos;Inputs are not identical&apos;));
+// TypeError: Inputs are not identical
+</code></pre><p>&#x5982;&#x679C;&#x503C;&#x4E0D;&#x4E25;&#x683C;&#x76F8;&#x7B49;&#xFF0C;&#x5219;&#x629B;&#x51FA; <code>AssertionError</code>&#xFF0C;&#x5E76;&#x5C06; <code>message</code> &#x5C5E;&#x6027;&#x8BBE;&#x7F6E;&#x4E3A;&#x7B49;&#x4E8E; <code>message</code> &#x53C2;&#x6570;&#x7684;&#x503C;&#x3002;
+&#x5982;&#x679C;&#x672A;&#x5B9A;&#x4E49; <code>message</code> &#x53C2;&#x6570;&#xFF0C;&#x5219;&#x4F1A;&#x5206;&#x914D;&#x9ED8;&#x8BA4;&#x9519;&#x8BEF;&#x6D88;&#x606F;&#x3002;
+&#x5982;&#x679C; <code>message</code> &#x53C2;&#x6570;&#x662F; <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> &#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x5219;&#x5B83;&#x5C06;&#x88AB;&#x629B;&#x51FA;&#x800C;&#x4E0D;&#x662F; <code>AssertionError</code>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>Used comparison changed from Strict Equality to <code>Object.is()</code></p></td></tr>
+<tr><td>v0.1.21</td>
+<td><p><span>Added in: v0.1.21</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>actual</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>expected</code> <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a></li>
+<li><code>message</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+</ul><p>Tests strict equality between the <code>actual</code> and <code>expected</code> parameters as
+determined by the <a href="http://nodejs.cn/s/25ULs2" rel="nofollow">SameValue Comparison</a>.</p><pre><code class="language-js">const assert = require(&apos;assert&apos;).strict;
+
+assert.strictEqual(1, 2);
+// AssertionError [ERR_ASSERTION]: Expected inputs to be strictly equal:
+//
+// 1 !== 2
+
+assert.strictEqual(1, 1);
+// OK
+
+assert.strictEqual(&apos;Hello foobar&apos;, &apos;Hello World!&apos;);
+// AssertionError [ERR_ASSERTION]: Expected inputs to be strictly equal:
+// + actual - expected
+//
+// + &apos;Hello foobar&apos;
+// - &apos;Hello World!&apos;
+//          ^
+
+const apples = 1;
+const oranges = 2;
+assert.strictEqual(apples, oranges, `apples ${apples} !== oranges ${oranges}`);
+// AssertionError [ERR_ASSERTION]: apples 1 !== oranges 2
+
+assert.strictEqual(1, &apos;1&apos;, new TypeError(&apos;Inputs are not identical&apos;));
+// TypeError: Inputs are not identical
+</code></pre><p>If the values are not strictly equal, an <code>AssertionError</code> is thrown with a
+<code>message</code> property set equal to the value of the <code>message</code> parameter. If the
+<code>message</code> parameter is undefined, a default error message is assigned. If the
+<code>message</code> parameter is an instance of an <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> then it will be thrown
+instead of the <code>AssertionError</code>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/assert/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756292598"><\/script>');
+  </script>
+</body>
+</html>

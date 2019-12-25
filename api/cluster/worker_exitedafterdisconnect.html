@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>worker.exitedAfterDisconnect | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/cluster/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756297750" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-cluster">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>worker.exitedAfterDisconnect</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../cluster.html#cluster_worker_exitedafterdisconnect" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/cluster/worker_exitedafterdisconnect.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v6.0.0</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+</ul><p>&#x5982;&#x679C;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x7531;&#x4E8E; <code>.kill()</code> &#x6216; <code>.disconnect()</code> &#x800C;&#x9000;&#x51FA;&#xFF0C;&#x5219;&#x6B64;&#x5C5E;&#x6027;&#x4E3A; <code>true</code>&#x3002;
+&#x5982;&#x679C;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x4EE5;&#x4EFB;&#x4F55;&#x5176;&#x4ED6;&#x65B9;&#x5F0F;&#x9000;&#x51FA;&#xFF0C;&#x5219;&#x4E3A; <code>false</code>&#x3002;
+&#x5982;&#x679C;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x5C1A;&#x672A;&#x9000;&#x51FA;&#xFF0C;&#x5219;&#x4E3A; <code>undefined</code>&#x3002;</p><p><a href="http://nodejs.cn/s/536ZWv" rel="nofollow"><code>worker.exitedAfterDisconnect</code></a> &#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x533A;&#x5206;&#x81EA;&#x53D1;&#x9000;&#x51FA;&#x8FD8;&#x662F;&#x88AB;&#x52A8;&#x9000;&#x51FA;&#xFF0C;&#x4E3B;&#x8FDB;&#x7A0B;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x8FD9;&#x4E2A;&#x503C;&#x51B3;&#x5B9A;&#x662F;&#x5426;&#x91CD;&#x65B0;&#x884D;&#x751F;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x3002;</p><pre><code class="language-js">cluster.on(&apos;exit&apos;, (worker, code, signal) =&gt; {
+  if (worker.exitedAfterDisconnect === true) {
+    console.log(&apos;&#x8FD9;&#x662F;&#x81EA;&#x53D1;&#x9000;&#x51FA;&#xFF0C;&#x65E0;&#x9700;&#x62C5;&#x5FC3;&apos;);
+  }
+});
+
+// &#x6740;&#x6B7B;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x3002;
+worker.kill();
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v6.0.0</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+</ul><p>This property is <code>true</code> if the worker exited due to <code>.kill()</code> or
+<code>.disconnect()</code>. If the worker exited any other way, it is <code>false</code>. If the
+worker has not exited, it is <code>undefined</code>.</p><p>The boolean <a href="http://nodejs.cn/s/536ZWv" rel="nofollow"><code>worker.exitedAfterDisconnect</code></a> allows distinguishing between
+voluntary and accidental exit, the master may choose not to respawn a worker
+based on this value.</p><pre><code class="language-js">cluster.on(&apos;exit&apos;, (worker, code, signal) =&gt; {
+  if (worker.exitedAfterDisconnect === true) {
+    console.log(&apos;Oh, it was just voluntary &#x2013; no need to worry&apos;);
+  }
+});
+
+// kill worker
+worker.kill();
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/cluster/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756297750"><\/script>');
+  </script>
+</body>
+</html>

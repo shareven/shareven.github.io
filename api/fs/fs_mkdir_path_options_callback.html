@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>fs.mkdir(path[, options], callback) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756309949" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>fs.mkdir(path[, options], callback)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_fs_mkdir_path_options_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/fs_mkdir_path_options_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.12.0</td>
+<td><p>The second argument can now be an <code>options</code> object with <code>recursive</code> and <code>mode</code> properties.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will throw a <code>TypeError</code> at runtime.</p></td></tr>
+<tr><td>v7.6.0</td>
+<td><p>The <code>path</code> parameter can be a WHATWG <code>URL</code> object using <code>file:</code> protocol. Support is currently still <em>experimental</em>.</p></td></tr>
+<tr><td>v7.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will emit a deprecation warning with id DEP0013.</p></td></tr>
+<tr><td>v0.1.8</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.8</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></p>
+<ul>
+<li><code>recursive</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#x3002;</li>
+<li><code>mode</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> Windows &#x4E0A;&#x4E0D;&#x652F;&#x6301;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>0o777</code>&#x3002;</li>
+</ul>
+</li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+</ul>
+</li>
+</ul><p>&#x5F02;&#x6B65;&#x5730;&#x521B;&#x5EFA;&#x76EE;&#x5F55;&#x3002;
+&#x9664;&#x4E86;&#x53EF;&#x80FD;&#x7684;&#x5F02;&#x5E38;&#xFF0C;&#x5B8C;&#x6210;&#x56DE;&#x8C03;&#x6CA1;&#x6709;&#x5176;&#x4ED6;&#x53C2;&#x6570;&#x3002;</p><p>&#x53EF;&#x9009;&#x7684; <code>options</code> &#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x662F;&#x6307;&#x5B9A;&#x6A21;&#x5F0F;&#xFF08;&#x6743;&#x9650;&#x548C;&#x7C98;&#x6EDE;&#x4F4D;&#xFF09;&#x7684;&#x6574;&#x6570;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x5177;&#x6709; <code>mode</code> &#x5C5E;&#x6027;&#x548C; <code>recursive</code> &#x5C5E;&#x6027;&#xFF08;&#x6307;&#x793A;&#x662F;&#x5426;&#x5E94;&#x521B;&#x5EFA;&#x7236;&#x6587;&#x4EF6;&#x5939;&#xFF09;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p><pre><code class="language-js">// &#x521B;&#x5EFA; /tmp/a/apple &#x76EE;&#x5F55;&#xFF0C;&#x65E0;&#x8BBA;&#x662F;&#x5426;&#x5B58;&#x5728; /tmp &#x548C; /tmp/a &#x76EE;&#x5F55;&#x3002;
+fs.mkdir(&apos;/tmp/a/apple&apos;, { recursive: true }, (err) =&gt; {
+  if (err) throw err;
+});
+</code></pre><p>&#x5728; Windows &#x4E0A;&#xFF0C;&#x5728;&#x6839;&#x76EE;&#x5F55;&#x4E0A;&#x4F7F;&#x7528; <code>fs.mkdir()</code> &#xFF08;&#x5373;&#x4F7F;&#x4F7F;&#x7528;&#x9012;&#x5F52;&#x53C2;&#x6570;&#xFF09;&#x4E5F;&#x4F1A;&#x5BFC;&#x81F4;&#x9519;&#x8BEF;&#xFF1A;</p><pre><code class="language-js">fs.mkdir(&apos;/&apos;, { recursive: true }, (err) =&gt; {
+  // =&gt; [Error: EPERM: operation not permitted, mkdir &apos;C:\&apos;]
+});
+</code></pre><p>&#x4E5F;&#x53EF;&#x53C2;&#x9605; <a href="http://nodejs.cn/s/ebLzdi" rel="nofollow"><code>mkdir(2)</code></a>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v10.12.0</td>
+<td><p>The second argument can now be an <code>options</code> object with <code>recursive</code> and <code>mode</code> properties.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will throw a <code>TypeError</code> at runtime.</p></td></tr>
+<tr><td>v7.6.0</td>
+<td><p>The <code>path</code> parameter can be a WHATWG <code>URL</code> object using <code>file:</code> protocol. Support is currently still <em>experimental</em>.</p></td></tr>
+<tr><td>v7.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will emit a deprecation warning with id DEP0013.</p></td></tr>
+<tr><td>v0.1.8</td>
+<td><p><span>Added in: v0.1.8</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></p>
+<ul>
+<li><code>recursive</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <strong>Default:</strong> <code>false</code></li>
+<li><code>mode</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> Not supported on Windows. <strong>Default:</strong> <code>0o777</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+</ul>
+</li>
+</ul><p>Asynchronously creates a directory. No arguments other than a possible exception
+are given to the completion callback.</p><p>The optional <code>options</code> argument can be an integer specifying mode (permission
+and sticky bits), or an object with a <code>mode</code> property and a <code>recursive</code>
+property indicating whether parent folders should be created. Calling
+<code>fs.mkdir()</code> when <code>path</code> is a directory that exists results in an error only
+when <code>recursive</code> is false.</p><pre><code class="language-js">// Creates /tmp/a/apple, regardless of whether `/tmp` and /tmp/a exist.
+fs.mkdir(&apos;/tmp/a/apple&apos;, { recursive: true }, (err) =&gt; {
+  if (err) throw err;
+});
+</code></pre><p>On Windows, using <code>fs.mkdir()</code> on the root directory even with recursion will
+result in an error:</p><pre><code class="language-js">fs.mkdir(&apos;/&apos;, { recursive: true }, (err) =&gt; {
+  // =&gt; [Error: EPERM: operation not permitted, mkdir &apos;C:\&apos;]
+});
+</code></pre><p>See also: <a href="http://nodejs.cn/s/ebLzdi" rel="nofollow"><code>mkdir(2)</code></a>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756309949"><\/script>');
+  </script>
+</body>
+</html>

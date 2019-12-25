@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>require.main | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/modules/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756316025" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-modules">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>require.main</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../modules.html#modules_require_main" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/modules/require_main.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.17</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/pqs7NL" target="_blank" rel="nofollow" class="type">&lt;module&gt;</a></li>
+</ul><p><code>Module</code> &#x5BF9;&#x8C61;&#xFF0C;&#x8868;&#x793A;&#x5F53; Node.js &#x8FDB;&#x7A0B;&#x542F;&#x52A8;&#x65F6;&#x52A0;&#x8F7D;&#x7684;&#x5165;&#x53E3;&#x811A;&#x672C;&#x3002;
+&#x53C2;&#x9605;<a href="http://nodejs.cn/s/pqqVP4" rel="nofollow">&#x8BBF;&#x95EE;&#x4E3B;&#x6A21;&#x5757;</a>&#x3002;</p><p>&#x5728; <code>entry.js</code> &#x811A;&#x672C;&#x4E2D;&#xFF1A;</p><pre><code class="language-js">console.log(require.main);
+</code></pre><pre><code class="language-sh">node entry.js
+</code></pre><pre><code class="language-js">Module {
+  id: &apos;.&apos;,
+  exports: {},
+  parent: null,
+  filename: &apos;/absolute/path/to/entry.js&apos;,
+  loaded: false,
+  children: [],
+  paths:
+   [ &apos;/absolute/path/to/node_modules&apos;,
+     &apos;/absolute/path/node_modules&apos;,
+     &apos;/absolute/node_modules&apos;,
+     &apos;/node_modules&apos; ] }
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.17</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/pqs7NL" target="_blank" rel="nofollow" class="type">&lt;module&gt;</a></li>
+</ul><p>The <code>Module</code> object representing the entry script loaded when the Node.js
+process launched.
+See <a href="require_main.html#modules_accessing_the_main_module" rel="nofollow">&quot;Accessing the main module&quot;</a>.</p><p>In <code>entry.js</code> script:</p><pre><code class="language-js">console.log(require.main);
+</code></pre><pre><code class="language-sh">node entry.js
+</code></pre><pre><code class="language-js">Module {
+  id: &apos;.&apos;,
+  exports: {},
+  parent: null,
+  filename: &apos;/absolute/path/to/entry.js&apos;,
+  loaded: false,
+  children: [],
+  paths:
+   [ &apos;/absolute/path/to/node_modules&apos;,
+     &apos;/absolute/path/node_modules&apos;,
+     &apos;/absolute/node_modules&apos;,
+     &apos;/node_modules&apos; ] }
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/modules/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756316025"><\/script>');
+  </script>
+</body>
+</html>

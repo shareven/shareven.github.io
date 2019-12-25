@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>string_decoder（字符串解码器） | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/string_decoder/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324604" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-string_decoder">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>string_decoder（字符串解码器）</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../string_decoder.html#string_decoder_string_decoder" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/string_decoder/string_decoder.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p></p><div class="api_stability api_stability_2"><a target="_blank" rel="nofollow" href="../documentation.html#documentation_stability_index">&#x7A33;&#x5B9A;&#x6027;: 2</a> - &#x7A33;&#x5B9A;</div><p></p><p><code>string_decoder</code> &#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A; API&#xFF0C;&#x7528;&#x4E8E;&#x4EE5;&#x4FDD;&#x7559;&#x7F16;&#x7801;&#x7684;&#x591A;&#x5B57;&#x8282; UTF-8 &#x548C; UTF-16 &#x5B57;&#x7B26;&#x7684;&#x65B9;&#x5F0F;&#x5C06; <code>Buffer</code> &#x5BF9;&#x8C61;&#x89E3;&#x7801;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+&#x5B83;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x65B9;&#x5F0F;&#x8BBF;&#x95EE;&#xFF1A;</p><pre><code class="language-js">const { StringDecoder } = require(&apos;string_decoder&apos;);
+</code></pre><p>&#x4EE5;&#x4E0B;&#x793A;&#x4F8B;&#x5C55;&#x793A;&#x4E86; <code>StringDecoder</code> &#x7C7B;&#x7684;&#x57FA;&#x672C;&#x7528;&#x6CD5;&#xFF1A;</p><pre><code class="language-js">const { StringDecoder } = require(&apos;string_decoder&apos;);
+const decoder = new StringDecoder(&apos;utf8&apos;);
+
+const cent = Buffer.from([0xC2, 0xA2]);
+console.log(decoder.write(cent));
+
+const euro = Buffer.from([0xE2, 0x82, 0xAC]);
+console.log(decoder.write(euro));
+</code></pre><p>&#x5C06; <code>Buffer</code> &#x5B9E;&#x4F8B;&#x5199;&#x5165; <code>StringDecoder</code> &#x5B9E;&#x4F8B;&#x65F6;&#xFF0C;&#x5C06;&#x4F7F;&#x7528;&#x5185;&#x90E8;&#x7F13;&#x51B2;&#x533A;&#x6765;&#x786E;&#x4FDD;&#x5DF2;&#x89E3;&#x7801;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x4E0D;&#x5305;&#x542B;&#x4EFB;&#x4F55;&#x4E0D;&#x5B8C;&#x6574;&#x7684;&#x591A;&#x5B57;&#x8282;&#x5B57;&#x7B26;&#x3002;
+&#x5B83;&#x4EEC;&#x4FDD;&#x5B58;&#x5728;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#xFF0C;&#x76F4;&#x5230;&#x4E0B;&#x4E00;&#x6B21;&#x8C03;&#x7528; <code>stringDecoder.write()</code> &#x6216;&#x8C03;&#x7528; <code>stringDecoder.end()</code> &#x4E3A;&#x6B62;&#x3002;</p><p>&#x5728;&#x4EE5;&#x4E0B;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;&#x6B27;&#x6D32;&#x6B27;&#x5143;&#x7B26;&#x53F7;&#xFF08;<code>&#x20AC;</code>&#xFF09;&#x7684;&#x4E09;&#x4E2A; UTF-8 &#x7F16;&#x7801;&#x5B57;&#x8282;&#x901A;&#x8FC7;&#x4E09;&#x6B21;&#x5355;&#x72EC;&#x7684;&#x64CD;&#x4F5C;&#x5199;&#x5165;&#xFF1A;</p><pre><code class="language-js">const { StringDecoder } = require(&apos;string_decoder&apos;);
+const decoder = new StringDecoder(&apos;utf8&apos;);
+
+decoder.write(Buffer.from([0xE2]));
+decoder.write(Buffer.from([0x82]));
+console.log(decoder.end(Buffer.from([0xAC])));
+</code></pre></div>
+          <div id="content_right"><p></p><div class="api_stability api_stability_2"><a target="_blank" rel="nofollow" href="../documentation.html#documentation_stability_index">Stability: 2</a> - Stable</div><p></p><p>The <code>string_decoder</code> module provides an API for decoding <code>Buffer</code> objects into
+strings in a manner that preserves encoded multi-byte UTF-8 and UTF-16
+characters. It can be accessed using:</p><pre><code class="language-js">const { StringDecoder } = require(&apos;string_decoder&apos;);
+</code></pre><p>The following example shows the basic use of the <code>StringDecoder</code> class.</p><pre><code class="language-js">const { StringDecoder } = require(&apos;string_decoder&apos;);
+const decoder = new StringDecoder(&apos;utf8&apos;);
+
+const cent = Buffer.from([0xC2, 0xA2]);
+console.log(decoder.write(cent));
+
+const euro = Buffer.from([0xE2, 0x82, 0xAC]);
+console.log(decoder.write(euro));
+</code></pre><p>When a <code>Buffer</code> instance is written to the <code>StringDecoder</code> instance, an
+internal buffer is used to ensure that the decoded string does not contain
+any incomplete multibyte characters. These are held in the buffer until the
+next call to <code>stringDecoder.write()</code> or until <code>stringDecoder.end()</code> is called.</p><p>In the following example, the three UTF-8 encoded bytes of the European Euro
+symbol (<code>&#x20AC;</code>) are written over three separate operations:</p><pre><code class="language-js">const { StringDecoder } = require(&apos;string_decoder&apos;);
+const decoder = new StringDecoder(&apos;utf8&apos;);
+
+decoder.write(Buffer.from([0xE2]));
+decoder.write(Buffer.from([0x82]));
+console.log(decoder.end(Buffer.from([0xAC])));
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/string_decoder/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324604"><\/script>');
+  </script>
+</body>
+</html>

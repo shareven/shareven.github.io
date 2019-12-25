@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>dns.lookupService(address, port, callback) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/dns/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756303217" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-dns">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>dns.lookupService(address, port, callback)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../dns.html#dns_dns_lookupservice_address_port_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/dns/dns_lookupservice_address_port_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.11.14</span>
+</div><ul>
+<li><code>address</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>port</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>hostname</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x4F8B;&#x5982; <code>nodejs.cn</code>&#x3002;</li>
+<li><code>service</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x4F8B;&#x5982; <code>http</code>&#x3002;</li>
+</ul>
+</li>
+</ul><p>&#x4F7F;&#x7528;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x5E95;&#x5C42; <code>getnameinfo</code> &#x5B9E;&#x73B0;&#x5C06;&#x7ED9;&#x5B9A;&#x7684; <code>address</code> &#x548C; <code>port</code> &#x89E3;&#x6790;&#x4E3A;&#x4E3B;&#x673A;&#x540D;&#x548C;&#x670D;&#x52A1;&#x3002;</p><p>&#x5982;&#x679C; <code>address</code> &#x4E0D;&#x662F;&#x6709;&#x6548;&#x7684; IP &#x5730;&#x5740;&#xFF0C;&#x5219;&#x5C06;&#x4F1A;&#x629B;&#x51FA; <code>TypeError</code>&#x3002;
+<code>port</code> &#x4F1A;&#x88AB;&#x5F3A;&#x5236;&#x8F6C;&#x6362;&#x4E3A;&#x6570;&#x5B57;&#x3002;
+&#x5982;&#x679C;&#x5B83;&#x4E0D;&#x662F;&#x5408;&#x6CD5;&#x7684;&#x7AEF;&#x53E3;&#xFF0C;&#x5219;&#x629B;&#x51FA; <code>TypeError</code>&#x3002;</p><p>&#x51FA;&#x9519;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C; <code>err</code> &#x662F;&#x4E00;&#x4E2A; <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> &#x5BF9;&#x8C61;&#xFF0C;&#x5176;&#x4E2D; <code>err.code</code> &#x662F;&#x9519;&#x8BEF;&#x7801;&#x3002;</p><pre><code class="language-js">const dns = require(&apos;dns&apos;);
+dns.lookupService(&apos;127.0.0.1&apos;, 22, (err, hostname, service) =&gt; {
+  console.log(hostname, service);
+  // &#x6253;&#x5370;: localhost ssh
+});
+</code></pre><p>&#x5982;&#x679C;&#x8C03;&#x7528;&#x6B64;&#x65B9;&#x6CD5;&#x7684; <a href="http://nodejs.cn/s/DGMNHh" rel="nofollow"><code>util.promisify()</code></a> &#x5316;&#x7684;&#x7248;&#x672C;&#xFF0C;&#x5219;&#x5B83;&#x8FD4;&#x56DE;&#x7684; <code>Promise</code> &#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5177;&#x6709; <code>hostname</code> &#x548C; <code>service</code> &#x5C5E;&#x6027;&#x7684; <code>Object</code>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.11.14</span>
+</div><ul>
+<li><code>address</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>port</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>hostname</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> e.g. <code>example.com</code></li>
+<li><code>service</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> e.g. <code>http</code></li>
+</ul>
+</li>
+</ul><p>Resolves the given <code>address</code> and <code>port</code> into a hostname and service using
+the operating system&apos;s underlying <code>getnameinfo</code> implementation.</p><p>If <code>address</code> is not a valid IP address, a <code>TypeError</code> will be thrown.
+The <code>port</code> will be coerced to a number. If it is not a legal port, a <code>TypeError</code>
+will be thrown.</p><p>On an error, <code>err</code> is an <a href="http://nodejs.cn/s/FLTm19" rel="nofollow"><code>Error</code></a> object, where <code>err.code</code> is the error code.</p><pre><code class="language-js">const dns = require(&apos;dns&apos;);
+dns.lookupService(&apos;127.0.0.1&apos;, 22, (err, hostname, service) =&gt; {
+  console.log(hostname, service);
+  // Prints: localhost ssh
+});
+</code></pre><p>If this method is invoked as its <a href="http://nodejs.cn/s/DGMNHh" rel="nofollow"><code>util.promisify()</code></a>ed version, it returns a
+<code>Promise</code> for an <code>Object</code> with <code>hostname</code> and <code>service</code> properties.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/dns/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756303217"><\/script>');
+  </script>
+</body>
+</html>

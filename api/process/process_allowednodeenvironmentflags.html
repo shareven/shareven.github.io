@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>process.allowedNodeEnvironmentFlags | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756320983" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>process.allowedNodeEnvironmentFlags</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../process.html#process_process_allowednodeenvironmentflags" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/process/process_allowednodeenvironmentflags.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.10.0</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/yej4PC" target="_blank" rel="nofollow" class="type">&lt;Set&gt;</a></li>
+</ul><p><code>process.allowedNodeEnvironmentFlags</code> &#x5C5E;&#x6027;&#x662F; <a href="http://nodejs.cn/s/WsPs4q" rel="nofollow"><code>NODE_OPTIONS</code></a> &#x73AF;&#x5883;&#x53D8;&#x91CF;&#x4E2D;&#x5141;&#x8BB8;&#x7684;&#x7279;&#x6B8A;&#x53EA;&#x8BFB;&#x6807;&#x5FD7;&#x7684; <code>Set</code>&#x3002;</p><p><code>process.allowedNodeEnvironmentFlags</code> &#x6269;&#x5C55;&#x4E86; <code>Set</code>&#xFF0C;&#x4F46;&#x91CD;&#x5199;&#x4E86; <code>Set.prototype.has</code> &#x4EE5;&#x8BC6;&#x522B;&#x51E0;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x53EF;&#x80FD;&#x6807;&#x5FD7;&#x7684;&#x8868;&#x793A;&#x3002;
+&#x5728;&#x4EE5;&#x4E0B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C; <code>process.allowedNodeEnvironmentFlags.has()</code> &#x5C06;&#x4F1A;&#x8FD4;&#x56DE; <code>true</code>&#xFF1A;</p><ul>
+<li>&#x6807;&#x5FD7;&#x53EF;&#x4EE5;&#x7701;&#x7565;&#x524D;&#x5BFC;&#x5355;&#xFF08;<code>-</code>&#xFF09;&#x6216;&#x53CC;&#xFF08;<code>--</code>&#xFF09;&#x7834;&#x6298;&#x53F7;&#x3002;&#x4F8B;&#x5982;&#xFF0C; <code>inspect-brk</code> &#x7528;&#x4E8E; <code>--inspect-brk</code>&#xFF0C;&#x6216; <code>r</code> &#x7528;&#x4E8E; <code>-r</code>&#x3002;</li>
+<li>&#x4F20;&#x7ED9; V8 &#x7684;&#x6807;&#x5FD7;&#xFF08;&#x5982; <code>--v8-options</code> &#x4E2D;&#x6240;&#x5217;&#xFF09;&#x53EF;&#x4EE5;&#x66FF;&#x6362;&#x4E0B;&#x5212;&#x7EBF;&#x7684;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x975E;&#x524D;&#x5BFC;&#x77ED;&#x5212;&#x7EBF;&#xFF0C;&#x53CD;&#x4E4B;&#x4EA6;&#x7136;&#x3002;&#x4F8B;&#x5982;&#xFF0C; <code>--perf_basic_prof</code>&#x3001; <code>--perf-basic-prof</code>&#x3001; <code>--perf_basic-prof</code> &#x7B49;&#x3002;</li>
+<li>&#x6807;&#x5FD7;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x7B49;&#x53F7;&#xFF08;<code>=</code>&#xFF09;&#x5B57;&#x7B26;&#x3002;&#x5305;&#x542B;&#x7B2C;&#x4E00;&#x4E2A;&#x7B49;&#x53F7;&#x540E;&#x7684;&#x6240;&#x6709;&#x5B57;&#x7B26;&#x90FD;&#x5C06;&#x88AB;&#x5FFD;&#x7565;&#x3002;&#x4F8B;&#x5982;&#xFF0C; <code>--stack-trace-limit=100</code>&#x3002;</li>
+<li>&#x5728; <a href="http://nodejs.cn/s/WsPs4q" rel="nofollow"><code>NODE_OPTIONS</code></a> &#x4E2D;&#x5FC5;&#x987B;&#x5141;&#x8BB8;&#x6807;&#x5FD7;&#x3002;</li>
+</ul><p>&#x5F53;&#x8FED;&#x4EE3; <code>process.allowedNodeEnvironmentFlags</code> &#x65F6;&#xFF0C;&#x6807;&#x5FD7;&#x53EA;&#x51FA;&#x73B0;&#x4E00;&#x6B21;&#x3002;
+&#x6BCF;&#x4E2A;&#x90FD;&#x5C06;&#x4F1A;&#x4EE5;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x7834;&#x6298;&#x53F7;&#x5F00;&#x5934;&#x3002;
+&#x4F20;&#x7ED9; V8 &#x7684;&#x6807;&#x5FD7;&#x5C06;&#x5305;&#x542B;&#x4E0B;&#x5212;&#x7EBF;&#x800C;&#x4E0D;&#x662F;&#x975E;&#x524D;&#x5BFC;&#x7834;&#x6298;&#x53F7;&#xFF1A;</p><pre><code class="language-js">process.allowedNodeEnvironmentFlags.forEach((flag) =&gt; {
+  // -r
+  // --inspect-brk
+  // --abort_on_uncaught_exception
+  // ...
+});
+</code></pre><p><code>process.allowedNodeEnvironmentFlags</code> &#x7684; <code>add()</code>&#x3001; <code>clear()</code> &#x548C; <code>delete()</code> &#x65B9;&#x6CD5;&#x4E0D;&#x6267;&#x884C;&#x4EFB;&#x4F55;&#x64CD;&#x4F5C;&#xFF0C;&#x5E76;&#x4E14;&#x5C06;&#x4F1A;&#x4EE5;&#x9759;&#x9ED8;&#x65B9;&#x5F0F;&#x5931;&#x8D25;&#x3002;</p><p>&#x5982;&#x679C;&#x5728;&#x6CA1;&#x6709; <a href="http://nodejs.cn/s/WsPs4q" rel="nofollow"><code>NODE_OPTIONS</code></a> &#x652F;&#x6301;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x7F16;&#x8BD1; Node.js&#xFF08;&#x5728; <a href="http://nodejs.cn/s/UTzMs3" rel="nofollow"><code>process.config</code></a> &#x4E2D;&#x663E;&#x793A;&#xFF09;&#xFF0C;&#x5219; <code>process.allowedNodeEnvironmentFlags</code> &#x5C06;&#x4F1A;&#x5305;&#x542B;&#x5141;&#x8BB8;&#x7684;&#x5185;&#x5BB9;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v10.10.0</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/yej4PC" target="_blank" rel="nofollow" class="type">&lt;Set&gt;</a></li>
+</ul><p>The <code>process.allowedNodeEnvironmentFlags</code> property is a special,
+read-only <code>Set</code> of flags allowable within the <a href="http://nodejs.cn/s/WsPs4q" rel="nofollow"><code>NODE_OPTIONS</code></a>
+environment variable.</p><p><code>process.allowedNodeEnvironmentFlags</code> extends <code>Set</code>, but overrides
+<code>Set.prototype.has</code> to recognize several different possible flag
+representations.  <code>process.allowedNodeEnvironmentFlags.has()</code> will
+return <code>true</code> in the following cases:</p><ul>
+<li>Flags may omit leading single (<code>-</code>) or double (<code>--</code>) dashes; e.g.,
+<code>inspect-brk</code> for <code>--inspect-brk</code>, or <code>r</code> for <code>-r</code>.</li>
+<li>Flags passed through to V8 (as listed in <code>--v8-options</code>) may replace
+one or more <em>non-leading</em> dashes for an underscore, or vice-versa;
+e.g., <code>--perf_basic_prof</code>, <code>--perf-basic-prof</code>, <code>--perf_basic-prof</code>,
+etc.</li>
+<li>Flags may contain one or more equals (<code>=</code>) characters; all
+characters after and including the first equals will be ignored;
+e.g., <code>--stack-trace-limit=100</code>.</li>
+<li>Flags <em>must</em> be allowable within <a href="http://nodejs.cn/s/WsPs4q" rel="nofollow"><code>NODE_OPTIONS</code></a>.</li>
+</ul><p>When iterating over <code>process.allowedNodeEnvironmentFlags</code>, flags will
+appear only <em>once</em>; each will begin with one or more dashes. Flags
+passed through to V8 will contain underscores instead of non-leading
+dashes:</p><pre><code class="language-js">process.allowedNodeEnvironmentFlags.forEach((flag) =&gt; {
+  // -r
+  // --inspect-brk
+  // --abort_on_uncaught_exception
+  // ...
+});
+</code></pre><p>The methods <code>add()</code>, <code>clear()</code>, and <code>delete()</code> of
+<code>process.allowedNodeEnvironmentFlags</code> do nothing, and will fail
+silently.</p><p>If Node.js was compiled <em>without</em> <a href="http://nodejs.cn/s/WsPs4q" rel="nofollow"><code>NODE_OPTIONS</code></a> support (shown in
+<a href="http://nodejs.cn/s/UTzMs3" rel="nofollow"><code>process.config</code></a>), <code>process.allowedNodeEnvironmentFlags</code> will
+contain what <em>would have</em> been allowable.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756320983"><\/script>');
+  </script>
+</body>
+</html>

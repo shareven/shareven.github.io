@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>readable.resume() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324203" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-stream">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>readable.resume()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../stream.html#stream_readable_resume" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/stream/readable_resume.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>The <code>resume()</code> has no effect if there is a <code>&apos;readable&apos;</code> event listening.</p></td></tr>
+<tr><td>v0.9.4</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.9.4</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/v7Fsu2" target="_blank" rel="nofollow" class="type">&lt;this&gt;</a></li>
+</ul><p><code>readable.resume()</code> &#x65B9;&#x6CD5;&#x5C06;&#x88AB;&#x6682;&#x505C;&#x7684;&#x53EF;&#x8BFB;&#x6D41;&#x6062;&#x590D;&#x89E6;&#x53D1; <a href="http://nodejs.cn/s/8CCPjN" rel="nofollow"><code>&apos;data&apos;</code></a> &#x4E8B;&#x4EF6;&#xFF0C;&#x5E76;&#x5C06;&#x6D41;&#x5207;&#x6362;&#x5230;&#x6D41;&#x52A8;&#x6A21;&#x5F0F;&#x3002;</p><p><code>readable.resume()</code> &#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x5145;&#x5206;&#x6D88;&#x8017;&#x6D41;&#x4E2D;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4F46;&#x65E0;&#x9700;&#x5B9E;&#x9645;&#x5904;&#x7406;&#x4EFB;&#x4F55;&#x6570;&#x636E;&#xFF1A;</p><pre><code class="language-js">getReadableStreamSomehow()
+  .resume()
+  .on(&apos;end&apos;, () =&gt; {
+    console.log(&apos;&#x5230;&#x8FBE;&#x6D41;&#x7684;&#x5C3D;&#x5934;&#xFF0C;&#x4F46;&#x65E0;&#x9700;&#x8BFB;&#x53D6;&#x4EFB;&#x4F55;&#x6570;&#x636E;&apos;);
+  });
+</code></pre><p>&#x5F53;&#x5B58;&#x5728; <code>&apos;readable&apos;</code> &#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x5668;&#x65F6;&#xFF0C; <code>readable.resume()</code> &#x65B9;&#x6CD5;&#x4E0D;&#x8D77;&#x4F5C;&#x7528;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>The <code>resume()</code> has no effect if there is a <code>&apos;readable&apos;</code> event listening.</p></td></tr>
+<tr><td>v0.9.4</td>
+<td><p><span>Added in: v0.9.4</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li>Returns: <a href="http://nodejs.cn/s/v7Fsu2" target="_blank" rel="nofollow" class="type">&lt;this&gt;</a></li>
+</ul><p>The <code>readable.resume()</code> method causes an explicitly paused <code>Readable</code> stream to
+resume emitting <a href="http://nodejs.cn/s/8CCPjN" rel="nofollow"><code>&apos;data&apos;</code></a> events, switching the stream into flowing mode.</p><p>The <code>readable.resume()</code> method can be used to fully consume the data from a
+stream without actually processing any of that data:</p><pre><code class="language-js">getReadableStreamSomehow()
+  .resume()
+  .on(&apos;end&apos;, () =&gt; {
+    console.log(&apos;Reached the end, but did not read anything.&apos;);
+  });
+</code></pre><p>The <code>readable.resume()</code> method has no effect if there is a <code>&apos;readable&apos;</code>
+event listener.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324203"><\/script>');
+  </script>
+</body>
+</html>

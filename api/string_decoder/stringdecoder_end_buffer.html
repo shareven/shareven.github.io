@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>stringDecoder.end([buffer]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/string_decoder/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324608" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-string_decoder">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>stringDecoder.end([buffer])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../string_decoder.html#string_decoder_stringdecoder_end_buffer" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/string_decoder/stringdecoder_end_buffer.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.9.3</span>
+</div><ul>
+<li><code>buffer</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/oh3CkV" target="_blank" rel="nofollow" class="type">&lt;TypedArray&gt;</a> | <a href="http://nodejs.cn/s/yCdVkD" target="_blank" rel="nofollow" class="type">&lt;DataView&gt;</a> &#x5305;&#x542B;&#x8981;&#x89E3;&#x7801;&#x7684;&#x5B57;&#x8282;&#x7684; <code>Buffer</code>&#x3001; <code>TypedArray</code> &#x6216; <code>DataView</code>&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>&#x4EE5;&#x5B57;&#x7B26;&#x4E32;&#x5F62;&#x5F0F;&#x8FD4;&#x56DE;&#x5B58;&#x50A8;&#x5728;&#x5185;&#x90E8;&#x7F13;&#x51B2;&#x533A;&#x4E2D;&#x7684;&#x4EFB;&#x4F55;&#x5269;&#x4F59;&#x8F93;&#x5165;&#x3002;
+&#x8868;&#x793A;&#x4E0D;&#x5B8C;&#x6574;&#x7684; UTF-8 &#x548C; UTF-16 &#x5B57;&#x7B26;&#x7684;&#x5B57;&#x8282;&#x5C06;&#x66FF;&#x6362;&#x4E3A;&#x9002;&#x5408;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x7684;&#x66FF;&#x6362;&#x5B57;&#x7B26;&#x3002;</p><p>&#x5982;&#x679C;&#x63D0;&#x4F9B;&#x4E86; <code>buffer</code> &#x53C2;&#x6570;&#xFF0C;&#x5219;&#x5728;&#x8FD4;&#x56DE;&#x5269;&#x4F59;&#x7684;&#x8F93;&#x5165;&#x4E4B;&#x524D;&#x518D;&#x6700;&#x540E;&#x4E00;&#x6B21;&#x8C03;&#x7528; <code>stringDecoder.write()</code>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.9.3</span>
+</div><ul>
+<li><code>buffer</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/oh3CkV" target="_blank" rel="nofollow" class="type">&lt;TypedArray&gt;</a> | <a href="http://nodejs.cn/s/yCdVkD" target="_blank" rel="nofollow" class="type">&lt;DataView&gt;</a> A <code>Buffer</code>, or <code>TypedArray</code>, or
+<code>DataView</code> containing the bytes to decode.</li>
+<li>Returns: <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>Returns any remaining input stored in the internal buffer as a string. Bytes
+representing incomplete UTF-8 and UTF-16 characters will be replaced with
+substitution characters appropriate for the character encoding.</p><p>If the <code>buffer</code> argument is provided, one final call to <code>stringDecoder.write()</code>
+is performed before returning the remaining input.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/string_decoder/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324608"><\/script>');
+  </script>
+</body>
+</html>

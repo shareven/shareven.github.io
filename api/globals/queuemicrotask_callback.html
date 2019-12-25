@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>queueMicrotask(callback) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/globals/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756310882" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-globals">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>queueMicrotask(callback)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../globals.html#globals_queuemicrotask_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/globals/queuemicrotask_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v11.0.0</span>
+</div><ul>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x8981;&#x6392;&#x961F;&#x7684;&#x51FD;&#x6570;&#x3002;</li>
+</ul><p><code>queueMicrotask()</code> &#x65B9;&#x6CD5;&#x5C06;&#x5FAE;&#x4EFB;&#x52A1;&#x6392;&#x961F;&#x4EE5;&#x8C03;&#x7528; <code>callback</code>&#x3002;
+&#x5982;&#x679C; <code>callback</code> &#x629B;&#x51FA;&#x5F02;&#x5E38;&#xFF0C;&#x5219;&#x5C06;&#x4F1A;&#x89E6;&#x53D1; <a href="http://nodejs.cn/s/tCza6h" rel="nofollow"><code>process</code> &#x5BF9;&#x8C61;</a> &#x7684; <code>&apos;uncaughtException&apos;</code> &#x4E8B;&#x4EF6;&#x3002;</p><p>&#x5FAE;&#x4EFB;&#x52A1;&#x961F;&#x5217;&#x7531; V8 &#x7BA1;&#x7406;&#xFF0C;&#x53EF;&#x4EE5;&#x4E0E; <a href="http://nodejs.cn/s/j4g1bA" rel="nofollow"><code>process.nextTick()</code></a> &#x961F;&#x5217;&#xFF08;&#x7531; Node.js &#x7BA1;&#x7406;&#xFF09;&#x7C7B;&#x4F3C;&#x7684;&#x65B9;&#x5F0F;&#x4F7F;&#x7528;&#x3002;
+&#x59CB;&#x7EC8;&#x5728; Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x7684;&#x6BCF;&#x4E2A;&#x56DE;&#x5408;&#x4E2D;&#x7684;&#x5FAE;&#x4EFB;&#x52A1;&#x961F;&#x5217;&#x4E4B;&#x524D;&#x5904;&#x7406; <code>process.nextTick()</code> &#x961F;&#x5217;&#x3002;</p><pre><code class="language-js">// `queueMicrotask()` &#x7528;&#x4E8E;&#x786E;&#x4FDD; &apos;load&apos; &#x4E8B;&#x4EF6;&#x59CB;&#x7EC8;&#x5F02;&#x6B65;&#x5730;&#x89E6;&#x53D1;&#xFF0C;&#x4E14;&#x56E0;&#x6B64;&#x4FDD;&#x6301;&#x4E00;&#x81F4;&#x3002; 
+// &#x5728;&#x8FD9;&#x91CC;&#x4F7F;&#x7528; `process.nextTick()` &#x4F1A;&#x5BFC;&#x81F4; &apos;load&apos; &#x4E8B;&#x4EF6;&#x603B;&#x662F;&#x5728;&#x4EFB;&#x4F55;&#x5176;&#x4ED6; promise &#x4EFB;&#x52A1;&#x4E4B;&#x524D;&#x89E6;&#x53D1;&#x3002;
+
+DataHandler.prototype.load = async function load(key) {
+  const hit = this._cache.get(url);
+  if (hit !== undefined) {
+    queueMicrotask(() =&gt; {
+      this.emit(&apos;load&apos;, hit);
+    });
+    return;
+  }
+
+  const data = await fetchData(key);
+  this._cache.set(url, data);
+  this.emit(&apos;load&apos;, data);
+};
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v11.0.0</span>
+</div><ul>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> Function to be queued.</li>
+</ul><p>The <code>queueMicrotask()</code> method queues a microtask to invoke <code>callback</code>. If
+<code>callback</code> throws an exception, the <a href="http://nodejs.cn/s/tCza6h" rel="nofollow"><code>process</code> object</a> <code>&apos;uncaughtException&apos;</code>
+event will be emitted.</p><p>The microtask queue is managed by V8 and may be used in a similar manner to
+the <a href="http://nodejs.cn/s/j4g1bA" rel="nofollow"><code>process.nextTick()</code></a> queue, which is managed by Node.js. The
+<code>process.nextTick()</code> queue is always processed before the microtask queue
+within each turn of the Node.js event loop.</p><pre><code class="language-js">// Here, `queueMicrotask()` is used to ensure the &apos;load&apos; event is always
+// emitted asynchronously, and therefore consistently. Using
+// `process.nextTick()` here would result in the &apos;load&apos; event always emitting
+// before any other promise jobs.
+
+DataHandler.prototype.load = async function load(key) {
+  const hit = this._cache.get(url);
+  if (hit !== undefined) {
+    queueMicrotask(() =&gt; {
+      this.emit(&apos;load&apos;, hit);
+    });
+    return;
+  }
+
+  const data = await fetchData(key);
+  this._cache.set(url, data);
+  this.emit(&apos;load&apos;, data);
+};
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/globals/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756310882"><\/script>');
+  </script>
+</body>
+</html>

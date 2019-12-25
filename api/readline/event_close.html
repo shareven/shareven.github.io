@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'close' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/readline/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756322210" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-readline">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'close' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../readline.html#readline_event_close" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/readline/event_close.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.98</span>
+</div><p>&#x5F53;&#x53D1;&#x751F;&#x4EE5;&#x4E0B;&#x4EFB;&#x4E00;&#x60C5;&#x51B5;&#x65F6;&#x4F1A;&#x89E6;&#x53D1; <code>&apos;close&apos;</code> &#x4E8B;&#x4EF6;&#xFF1A;</p><ul>
+<li>&#x8C03;&#x7528; <code>rl.close()</code> &#x65B9;&#x6CD5;&#xFF0C;&#x4E14; <code>readline.Interface</code> &#x5B9E;&#x4F8B;&#x653E;&#x5F03;&#x5BF9; <code>input</code> &#x6D41;&#x548C; <code>output</code> &#x6D41;&#x7684;&#x63A7;&#x5236;&#xFF1B;</li>
+<li><code>input</code> &#x6D41;&#x63A5;&#x6536;&#x5230;&#x5176; <code>&apos;end&apos;</code> &#x4E8B;&#x4EF6;&#xFF1B;</li>
+<li><code>input</code> &#x6D41;&#x63A5;&#x6536;&#x5230; <code>&lt;ctrl&gt;-D</code> &#x4EE5;&#x53D1;&#x4FE1;&#x53F7;&#x4F20;&#x8F93;&#x7ED3;&#x675F;&#xFF08;EOT&#xFF09;&#xFF1B;</li>
+<li><code>input</code> &#x6D41;&#x63A5;&#x6536;&#x5230; <code>&lt;ctrl&gt;-C</code> &#x4EE5;&#x53D1;&#x4FE1;&#x53F7; <code>SIGINT</code>&#xFF0C;&#x5E76;&#x4E14; <code>readline.Interface</code> &#x5B9E;&#x4F8B;&#x4E0A;&#x6CA1;&#x6709;&#x6CE8;&#x518C; <code>&apos;SIGINT&apos;</code> &#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x5668;&#x3002;</li>
+</ul><p>&#x8C03;&#x7528;&#x76D1;&#x542C;&#x5668;&#x51FD;&#x6570;&#x4E0D;&#x4F20;&#x5165;&#x4EFB;&#x4F55;&#x53C2;&#x6570;&#x3002;</p><p>&#x4E00;&#x65E6;&#x89E6;&#x53D1; <code>&apos;close&apos;</code> &#x4E8B;&#x4EF6;&#xFF0C;&#x5219; <code>readline.Interface</code> &#x5B9E;&#x4F8B;&#x5C31;&#x5B8C;&#x6210;&#x4E86;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.98</span>
+</div><p>The <code>&apos;close&apos;</code> event is emitted when one of the following occur:</p><ul>
+<li>The <code>rl.close()</code> method is called and the <code>readline.Interface</code> instance has
+relinquished control over the <code>input</code> and <code>output</code> streams;</li>
+<li>The <code>input</code> stream receives its <code>&apos;end&apos;</code> event;</li>
+<li>The <code>input</code> stream receives <code>&lt;ctrl&gt;-D</code> to signal end-of-transmission (EOT);</li>
+<li>The <code>input</code> stream receives <code>&lt;ctrl&gt;-C</code> to signal <code>SIGINT</code> and there is no
+<code>&apos;SIGINT&apos;</code> event listener registered on the <code>readline.Interface</code> instance.</li>
+</ul><p>The listener function is called without passing any arguments.</p><p>The <code>readline.Interface</code> instance is finished once the <code>&apos;close&apos;</code> event is
+emitted.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/readline/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756322210"><\/script>');
+  </script>
+</body>
+</html>

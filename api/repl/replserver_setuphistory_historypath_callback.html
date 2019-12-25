@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replServer.setupHistory(historyPath, callback) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/repl/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756322732" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-repl">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>replServer.setupHistory(historyPath, callback)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../repl.html#repl_replserver_setuphistory_historypath_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/repl/replserver_setuphistory_historypath_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v11.10.0</span>
+</div><ul>
+<li><code>historyPath</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5386;&#x53F2;&#x6587;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;&#x3002;</li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x5F53;&#x5386;&#x53F2;&#x8BB0;&#x5F55;&#x5199;&#x5165;&#x5DF2;&#x51C6;&#x5907;&#x597D;&#x6216;&#x51FA;&#x9519;&#x65F6;&#x8C03;&#x7528;&#x3002;</p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>repl</code> <a href="http://nodejs.cn/s/XV9dYG" target="_blank" rel="nofollow" class="type">&lt;repl.REPLServer&gt;</a></li>
+</ul>
+</li>
+</ul><p>&#x521D;&#x59CB;&#x5316; REPL &#x5B9E;&#x4F8B;&#x7684;&#x5386;&#x53F2;&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x3002;
+&#x5F53;&#x6267;&#x884C; Node.js &#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x5E76;&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x884C; REPL &#x65F6;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x521D;&#x59CB;&#x5316;&#x5386;&#x53F2;&#x8BB0;&#x5F55;&#x6587;&#x4EF6;&#x3002;
+&#x4F46;&#x662F;&#xFF0C;&#x4EE5;&#x7F16;&#x7A0B;&#x65B9;&#x5F0F;&#x521B;&#x5EFA; REPL &#x65F6;&#x4E0D;&#x662F;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x3002;
+&#x5F53;&#x4EE5;&#x7F16;&#x7A0B;&#x65B9;&#x5F0F;&#x4F7F;&#x7528; REPL &#x5B9E;&#x4F8B;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;&#x6B64;&#x65B9;&#x6CD5;&#x521D;&#x59CB;&#x5316;&#x5386;&#x53F2;&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v11.10.0</span>
+</div><ul>
+<li><code>historyPath</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> the path to the history file</li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> called when history writes are ready or upon error</p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>repl</code> <a href="http://nodejs.cn/s/XV9dYG" target="_blank" rel="nofollow" class="type">&lt;repl.REPLServer&gt;</a></li>
+</ul>
+</li>
+</ul><p>Initializes a history log file for the REPL instance. When executing the
+Node.js binary and using the command line REPL, a history file is initialized
+by default. However, this is not the case when creating a REPL
+programmatically. Use this method to initialize a history log file when working
+with REPL instances programmatically.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/repl/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756322732"><\/script>');
+  </script>
+</body>
+</html>

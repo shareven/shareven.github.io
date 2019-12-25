@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>DiffieHellman 类 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/crypto/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756300147" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-crypto">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>DiffieHellman 类</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../crypto.html#crypto_class_diffiehellman" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/crypto/class_diffiehellman.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.5.0</span>
+</div><p><code>DiffieHellman</code> &#x7C7B;&#x662F;&#x4E00;&#x4E2A;&#x7528;&#x6765;&#x521B;&#x5EFA; Diffie-Hellman &#x952E;&#x4EA4;&#x6362;&#x7684;&#x5DE5;&#x5177;&#x3002;</p><p><code>DiffieHellman</code> &#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/T5rtgV" rel="nofollow"><code>crypto.createDiffieHellman()</code></a> &#x65B9;&#x6CD5;&#x3002;</p><pre><code class="language-js">const crypto = require(&apos;crypto&apos;);
+const assert = require(&apos;assert&apos;);
+
+// &#x751F;&#x6210; Alice &#x7684;&#x5BC6;&#x94A5;&#x3002;
+const alice = crypto.createDiffieHellman(2048);
+const aliceKey = alice.generateKeys();
+
+// &#x751F;&#x6210; Bob &#x7684;&#x5BC6;&#x94A5;&#x3002;
+const bob = crypto.createDiffieHellman(alice.getPrime(), alice.getGenerator());
+const bobKey = bob.generateKeys();
+
+// &#x4EA4;&#x6362;&#x5E76;&#x751F;&#x6210;&#x5BC6;&#x94A5;&#x3002;
+const aliceSecret = alice.computeSecret(bobKey);
+const bobSecret = bob.computeSecret(aliceKey);
+
+// &#x5B8C;&#x6210;&#x3002;
+assert.strictEqual(aliceSecret.toString(&apos;hex&apos;), bobSecret.toString(&apos;hex&apos;));
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.5.0</span>
+</div><p>The <code>DiffieHellman</code> class is a utility for creating Diffie-Hellman key
+exchanges.</p><p>Instances of the <code>DiffieHellman</code> class can be created using the
+<a href="http://nodejs.cn/s/T5rtgV" rel="nofollow"><code>crypto.createDiffieHellman()</code></a> function.</p><pre><code class="language-js">const crypto = require(&apos;crypto&apos;);
+const assert = require(&apos;assert&apos;);
+
+// Generate Alice&apos;s keys...
+const alice = crypto.createDiffieHellman(2048);
+const aliceKey = alice.generateKeys();
+
+// Generate Bob&apos;s keys...
+const bob = crypto.createDiffieHellman(alice.getPrime(), alice.getGenerator());
+const bobKey = bob.generateKeys();
+
+// Exchange and generate the secret...
+const aliceSecret = alice.computeSecret(bobKey);
+const bobSecret = bob.computeSecret(aliceKey);
+
+// OK
+assert.strictEqual(aliceSecret.toString(&apos;hex&apos;), bobSecret.toString(&apos;hex&apos;));
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/crypto/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756300147"><\/script>');
+  </script>
+</body>
+</html>

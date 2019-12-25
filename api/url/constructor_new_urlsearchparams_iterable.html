@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>new URLSearchParams(iterable) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/url/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756327589" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-url">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>new URLSearchParams(iterable)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../url.html#url_constructor_new_urlsearchparams_iterable" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/url/constructor_new_urlsearchparams_iterable.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v7.10.0, v6.13.0</span>
+</div><ul>
+<li><code>iterable</code> <a href="http://nodejs.cn/s/mQfCyy" target="_blank" rel="nofollow" class="type">&lt;Iterable&gt;</a> &#x5143;&#x7D20;&#x662F;&#x952E;&#x503C;&#x5BF9;&#x7684;&#x8FED;&#x4EE3;&#x5BF9;&#x8C61;&#x3002;</li>
+</ul><p>&#x4EE5;&#x4E00;&#x79CD;&#x7C7B;&#x4F3C;&#x4E8E; <a href="http://nodejs.cn/s/EnuJtG" rel="nofollow"><code>Map</code></a> &#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x8FED;&#x4EE3;&#x6620;&#x5C04;&#x65B9;&#x5F0F;&#x5B9E;&#x4F8B;&#x5316;&#x4E00;&#x4E2A;&#x65B0;&#x7684; <code>URLSearchParams</code> &#x5BF9;&#x8C61;&#x3002;
+<code>iterable</code> &#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A; <code>Array</code> &#x6216;&#x8005;&#x4EFB;&#x4F55;&#x8FED;&#x4EE3;&#x5BF9;&#x8C61;&#x3002;
+&#x8FD9;&#x5C31;&#x610F;&#x5473;&#x7740; <code>iterable</code> &#x80FD;&#x591F;&#x662F;&#x53E6;&#x4E00;&#x4E2A; <code>URLSearchParams</code>&#xFF0C;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5C06;&#x7B80;&#x5355;&#x5730;&#x6839;&#x636E;&#x63D0;&#x4F9B;&#x7684; <code>URLSearchParams</code> &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x514B;&#x9686; <code>URLSearchParams</code>&#x3002;
+<code>iterable</code> &#x7684;&#x5143;&#x7D20;&#x662F;&#x952E;&#x503C;&#x5BF9;&#xFF0C;&#x5E76;&#x4E14;&#x5176;&#x672C;&#x8EAB;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x4EFB;&#x4F55;&#x8FED;&#x4EE3;&#x5BF9;&#x8C61;&#x3002;</p><p>&#x5141;&#x8BB8;&#x91CD;&#x590D;&#x7684;&#x952E;&#x3002;</p><pre><code class="language-js">let params;
+
+// &#x4F7F;&#x7528;&#x6570;&#x7EC4;&#x3002;
+params = new URLSearchParams([
+  [&apos;user&apos;, &apos;abc&apos;],
+  [&apos;query&apos;, &apos;first&apos;],
+  [&apos;query&apos;, &apos;second&apos;]
+]);
+console.log(params.toString());
+// &#x6253;&#x5370; &apos;user=abc&amp;query=first&amp;query=second&apos;
+
+// &#x4F7F;&#x7528; Map &#x5BF9;&#x8C61;&#x3002;
+const map = new Map();
+map.set(&apos;user&apos;, &apos;abc&apos;);
+map.set(&apos;query&apos;, &apos;xyz&apos;);
+params = new URLSearchParams(map);
+console.log(params.toString());
+// &#x6253;&#x5370; &apos;user=abc&amp;query=xyz&apos;
+
+// &#x4F7F;&#x7528; generator &#x51FD;&#x6570;&#x3002;
+function* getQueryPairs() {
+  yield [&apos;user&apos;, &apos;abc&apos;];
+  yield [&apos;query&apos;, &apos;first&apos;];
+  yield [&apos;query&apos;, &apos;second&apos;];
+}
+params = new URLSearchParams(getQueryPairs());
+console.log(params.toString());
+// &#x6253;&#x5370; &apos;user=abc&amp;query=first&amp;query=second&apos;
+
+// &#x6BCF;&#x4E2A;&#x952E;&#x503C;&#x5BF9;&#x5FC5;&#x987B;&#x6709;&#x4E24;&#x4E2A;&#x5143;&#x7D20;&#x3002;
+new URLSearchParams([
+  [&apos;user&apos;, &apos;abc&apos;, &apos;error&apos;]
+]);
+// &#x629B;&#x51FA; TypeError [ERR_INVALID_TUPLE]:
+//        Each query pair must be an iterable [name, value] tuple
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v7.10.0, v6.13.0</span>
+</div><ul>
+<li><code>iterable</code> <a href="http://nodejs.cn/s/mQfCyy" target="_blank" rel="nofollow" class="type">&lt;Iterable&gt;</a> An iterable object whose elements are key-value pairs</li>
+</ul><p>Instantiate a new <code>URLSearchParams</code> object with an iterable map in a way that
+is similar to <a href="http://nodejs.cn/s/EnuJtG" rel="nofollow"><code>Map</code></a>&apos;s constructor. <code>iterable</code> can be an <code>Array</code> or any
+iterable object. That means <code>iterable</code> can be another <code>URLSearchParams</code>, in
+which case the constructor will simply create a clone of the provided
+<code>URLSearchParams</code>. Elements of <code>iterable</code> are key-value pairs, and can
+themselves be any iterable object.</p><p>Duplicate keys are allowed.</p><pre><code class="language-js">let params;
+
+// Using an array
+params = new URLSearchParams([
+  [&apos;user&apos;, &apos;abc&apos;],
+  [&apos;query&apos;, &apos;first&apos;],
+  [&apos;query&apos;, &apos;second&apos;]
+]);
+console.log(params.toString());
+// Prints &apos;user=abc&amp;query=first&amp;query=second&apos;
+
+// Using a Map object
+const map = new Map();
+map.set(&apos;user&apos;, &apos;abc&apos;);
+map.set(&apos;query&apos;, &apos;xyz&apos;);
+params = new URLSearchParams(map);
+console.log(params.toString());
+// Prints &apos;user=abc&amp;query=xyz&apos;
+
+// Using a generator function
+function* getQueryPairs() {
+  yield [&apos;user&apos;, &apos;abc&apos;];
+  yield [&apos;query&apos;, &apos;first&apos;];
+  yield [&apos;query&apos;, &apos;second&apos;];
+}
+params = new URLSearchParams(getQueryPairs());
+console.log(params.toString());
+// Prints &apos;user=abc&amp;query=first&amp;query=second&apos;
+
+// Each key-value pair must have exactly two elements
+new URLSearchParams([
+  [&apos;user&apos;, &apos;abc&apos;, &apos;error&apos;]
+]);
+// Throws TypeError [ERR_INVALID_TUPLE]:
+//        Each query pair must be an iterable [name, value] tuple
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/url/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756327589"><\/script>');
+  </script>
+</body>
+</html>

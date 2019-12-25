@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>process.send(message[, sendHandle[, options]][, callback]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756321084" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>process.send(message[, sendHandle[, options]][, callback])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../process.html#process_process_send_message_sendhandle_options_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/process/process_send_message_sendhandle_options_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.5.9</span>
+</div><ul>
+<li><code>message</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></li>
+<li><code>sendHandle</code> <a href="http://nodejs.cn/s/gBYjux" target="_blank" rel="nofollow" class="type">&lt;net.Server&gt;</a> | <a href="http://nodejs.cn/s/wsJ1o1" target="_blank" rel="nofollow" class="type">&lt;net.Socket&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> &#x7528;&#x4E8E;&#x53C2;&#x6570;&#x5316;&#x67D0;&#x4E9B;&#x7C7B;&#x578B;&#x7684;&#x53E5;&#x67C4;&#x7684;&#x53D1;&#x9001;&#x3002;<code>options</code> &#x652F;&#x6301;&#x4EE5;&#x4E0B;&#x5C5E;&#x6027;&#xFF1A;</p>
+<ul>
+<li><code>keepOpen</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5F53;&#x4F20;&#x9012; <code>net.Socket</code> &#x5B9E;&#x4F8B;&#x65F6;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7684;&#x503C;&#x3002;&#x5F53;&#x4E3A; <code>true</code> &#x65F6;&#xFF0C;&#x5957;&#x63A5;&#x5B57;&#x5728;&#x53D1;&#x9001;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x4FDD;&#x6301;&#x6253;&#x5F00;&#x72B6;&#x6001;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#x3002;</li>
+</ul>
+</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+</ul><p>&#x5982;&#x679C; Node.js &#x662F;&#x4F7F;&#x7528; IPC &#x901A;&#x9053;&#x884D;&#x751F;&#x7684;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>process.send()</code> &#x65B9;&#x6CD5;&#x5C06;&#x6D88;&#x606F;&#x53D1;&#x9001;&#x5230;&#x7236;&#x8FDB;&#x7A0B;&#x3002;
+&#x6D88;&#x606F;&#x5C06;&#x4F1A;&#x4F5C;&#x4E3A;&#x7236;&#x8FDB;&#x7A0B;&#x7684; <a href="http://nodejs.cn/s/yQBM4n" rel="nofollow"><code>ChildProcess</code></a> &#x5BF9;&#x8C61;&#x4E0A;&#x7684; <a href="http://nodejs.cn/s/efA2op" rel="nofollow"><code>&apos;message&apos;</code></a> &#x4E8B;&#x4EF6;&#x88AB;&#x63A5;&#x6536;&#x3002;</p><p>&#x5982;&#x679C; Node.js &#x4E0D;&#x662F;&#x901A;&#x8FC7; IPC &#x901A;&#x9053;&#x884D;&#x751F;&#x7684;&#xFF0C;&#x5219; <code>process.send()</code> &#x5C06;&#x4F1A;&#x662F; <code>undefined</code>&#x3002;</p><p>&#x6D88;&#x606F;&#x4F1A;&#x8FDB;&#x884C;&#x5E8F;&#x5217;&#x5316;&#x548C;&#x89E3;&#x6790;&#x3002;
+&#x751F;&#x6210;&#x7684;&#x6D88;&#x606F;&#x53EF;&#x80FD;&#x4E0E;&#x6700;&#x521D;&#x53D1;&#x9001;&#x7684;&#x6D88;&#x606F;&#x4E0D;&#x540C;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.5.9</span>
+</div><ul>
+<li><code>message</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></li>
+<li><code>sendHandle</code> <a href="http://nodejs.cn/s/gBYjux" target="_blank" rel="nofollow" class="type">&lt;net.Server&gt;</a> | <a href="http://nodejs.cn/s/wsJ1o1" target="_blank" rel="nofollow" class="type">&lt;net.Socket&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> used to parameterize the sending of certain types of
+handles.<code>options</code> supports the following properties:</p>
+<ul>
+<li><code>keepOpen</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> A value that can be used when passing instances of
+<code>net.Socket</code>. When <code>true</code>, the socket is kept open in the sending process.
+<strong>Default:</strong> <code>false</code>.</li>
+</ul>
+</li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></li>
+<li>Returns: <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a></li>
+</ul><p>If Node.js is spawned with an IPC channel, the <code>process.send()</code> method can be
+used to send messages to the parent process. Messages will be received as a
+<a href="http://nodejs.cn/s/efA2op" rel="nofollow"><code>&apos;message&apos;</code></a> event on the parent&apos;s <a href="http://nodejs.cn/s/yQBM4n" rel="nofollow"><code>ChildProcess</code></a> object.</p><p>If Node.js was not spawned with an IPC channel, <code>process.send()</code> will be
+<code>undefined</code>.</p><p>The message goes through serialization and parsing. The resulting message might
+not be the same as what is originally sent.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756321084"><\/script>');
+  </script>
+</body>
+</html>

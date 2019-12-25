@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>buf.entries() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756294611" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-buffer">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>buf.entries()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../buffer.html#buffer_buf_entries" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/buffer/buf_entries.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v1.1.0</span>
+</div><ul>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/Y2SE1q" target="_blank" rel="nofollow" class="type">&lt;Iterator&gt;</a></li>
+</ul><p>&#x7528; <code>buf</code> &#x7684;&#x5185;&#x5BB9;&#x521B;&#x5EFA;&#x5E76;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A; <code>[index, byte]</code> &#x5F62;&#x5F0F;&#x7684;<a href="http://nodejs.cn/s/KK7Xfc" rel="nofollow">&#x8FED;&#x4EE3;&#x5668;</a>&#x3002;</p><pre><code class="language-js">// &#x8BB0;&#x5F55; `Buffer` &#x7684;&#x5168;&#x90E8;&#x5185;&#x5BB9;&#x3002;
+
+const buf = Buffer.from(&apos;buffer&apos;);
+
+for (const pair of buf.entries()) {
+  console.log(pair);
+}
+// &#x6253;&#x5370;:
+//   [0, 98]
+//   [1, 117]
+//   [2, 102]
+//   [3, 102]
+//   [4, 101]
+//   [5, 114]
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v1.1.0</span>
+</div><ul>
+<li>Returns: <a href="http://nodejs.cn/s/Y2SE1q" target="_blank" rel="nofollow" class="type">&lt;Iterator&gt;</a></li>
+</ul><p>Creates and returns an <a href="http://nodejs.cn/s/KK7Xfc" rel="nofollow">iterator</a> of <code>[index, byte]</code> pairs from the contents
+of <code>buf</code>.</p><pre><code class="language-js">// Log the entire contents of a `Buffer`.
+
+const buf = Buffer.from(&apos;buffer&apos;);
+
+for (const pair of buf.entries()) {
+  console.log(pair);
+}
+// Prints:
+//   [0, 98]
+//   [1, 117]
+//   [2, 102]
+//   [3, 102]
+//   [4, 101]
+//   [5, 114]
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756294611"><\/script>');
+  </script>
+</body>
+</html>

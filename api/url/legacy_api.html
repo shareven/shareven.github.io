@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>遗留的接口 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/url/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756327630" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-url">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>遗留的接口</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../url.html#url_legacy_api" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/url/legacy_api.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x5728;&#x9057;&#x7559;&#x7684; API &#x4E2D;&#xFF0C;&#x7A7A;&#x683C;&#xFF08;<code>&apos; &apos;</code>&#xFF09;&#x53CA;&#x4EE5;&#x4E0B;&#x5B57;&#x7B26;&#x5C06;&#x81EA;&#x52A8;&#x8F6C;&#x4E49;&#x4E3A; URL &#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#xFF1A;</p><pre><code class="language-txt">&lt; &gt; &quot; ` \r \n \t { } | \ ^ &apos;
+</code></pre><p>&#x4F8B;&#x5982;&#xFF0C;ASCII &#x7A7A;&#x683C;&#x5B57;&#x7B26;&#xFF08;<code>&apos; &apos;</code>&#xFF09;&#x4F1A;&#x88AB;&#x7F16;&#x7801;&#x6210; <code>%20</code>&#x3002;
+ASCII &#x659C;&#x6760;&#x5B57;&#x7B26;&#xFF08;<code>/</code>&#xFF09;&#x4F1A;&#x88AB;&#x7F16;&#x7801;&#x6210; <code>%3C</code>&#x3002;</p></div>
+          <div id="content_right"><p>Within the Legacy API, spaces (<code>&apos; &apos;</code>) and the following characters will be
+automatically escaped in the properties of URL objects:</p><pre><code class="language-txt">&lt; &gt; &quot; ` \r \n \t { } | \ ^ &apos;
+</code></pre><p>For example, the ASCII space character (<code>&apos; &apos;</code>) is encoded as <code>%20</code>. The ASCII
+forward slash (<code>/</code>) character is encoded as <code>%3C</code>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/url/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756327630"><\/script>');
+  </script>
+</body>
+</html>

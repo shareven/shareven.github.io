@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>fs.realpath(path[, options], callback) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756310032" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>fs.realpath(path[, options], callback)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_fs_realpath_path_options_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/fs_realpath_path_options_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will throw a <code>TypeError</code> at runtime.</p></td></tr>
+<tr><td>v8.0.0</td>
+<td><p>Pipe/Socket resolve support was added.</p></td></tr>
+<tr><td>v7.6.0</td>
+<td><p>The <code>path</code> parameter can be a WHATWG <code>URL</code> object using <code>file:</code> protocol. Support is currently still <em>experimental</em>.</p></td></tr>
+<tr><td>v7.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will emit a deprecation warning with id DEP0013.</p></td></tr>
+<tr><td>v6.4.0</td>
+<td><p>Calling <code>realpath</code> now works again for various edge cases on Windows.</p></td></tr>
+<tr><td>v6.0.0</td>
+<td><p>The <code>cache</code> parameter was removed.</p></td></tr>
+<tr><td>v0.1.31</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.31</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;utf8&apos;</code>&#x3002;</li>
+</ul>
+</li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>resolvedPath</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a></li>
+</ul>
+</li>
+</ul><p>&#x901A;&#x8FC7;&#x89E3;&#x6790; <code>.</code>&#x3001; <code>..</code> &#x548C;&#x7B26;&#x53F7;&#x94FE;&#x63A5;&#x5F02;&#x6B65;&#x5730;&#x8BA1;&#x7B97;&#x89C4;&#x8303;&#x8DEF;&#x5F84;&#x540D;&#x3002;</p><p>&#x89C4;&#x8303;&#x8DEF;&#x5F84;&#x540D;&#x4E0D;&#x4E00;&#x5B9A;&#x662F;&#x552F;&#x4E00;&#x7684;&#x3002;
+&#x786C;&#x94FE;&#x63A5;&#x548C;&#x7ED1;&#x5B9A;&#x88C5;&#x8F7D;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BB8;&#x591A;&#x8DEF;&#x5F84;&#x540D;&#x66B4;&#x9732;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x5B9E;&#x4F53;&#x3002;</p><p>&#x6B64;&#x51FD;&#x6570;&#x7684;&#x884C;&#x4E3A;&#x7C7B;&#x4F3C;&#x4E8E; <a href="http://nodejs.cn/s/k8V6gK" rel="nofollow"><code>realpath(3)</code></a>&#xFF0C;&#x4F46;&#x6709;&#x4E00;&#x4E9B;&#x4F8B;&#x5916;</p><ol>
+<li>
+<p>&#x5728;&#x4E0D;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E0A;&#x4E0D;&#x6267;&#x884C;&#x5927;&#x5C0F;&#x5199;&#x8F6C;&#x6362;&#x3002;&#x3002;</p>
+</li>
+<li>
+<p>&#x7B26;&#x53F7;&#x94FE;&#x63A5;&#x7684;&#x6700;&#x5927;&#x6570;&#x91CF;&#x4E0E;&#x5E73;&#x53F0;&#x65E0;&#x5173;&#xFF0C;&#x5E76;&#x4E14;&#x901A;&#x5E38;&#x9AD8;&#x4E8E;&#x672C;&#x5730; <a href="http://nodejs.cn/s/k8V6gK" rel="nofollow"><code>realpath(3)</code></a> &#x5B9E;&#x73B0;&#x652F;&#x6301;&#x7684;&#x6570;&#x91CF;&#x3002;</p>
+</li>
+</ol><p><code>callback</code> &#x6709;&#x4E24;&#x4E2A;&#x53C2;&#x6570; <code>(err, resolvedPath)</code>&#x3002;
+&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>process.cwd</code> &#x6765;&#x89E3;&#x6790;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;</p><p>&#x4EC5;&#x652F;&#x6301;&#x53EF;&#x8F6C;&#x6362;&#x4E3A; UTF8 &#x5B57;&#x7B26;&#x4E32;&#x7684;&#x8DEF;&#x5F84;&#x3002;</p><p>&#x53EF;&#x9009;&#x7684; <code>options</code> &#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x662F;&#x6307;&#x5B9A;&#x7F16;&#x7801;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x5177;&#x6709; <code>encoding</code> &#x5C5E;&#x6027;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x8BE5;&#x5C5E;&#x6027;&#x6307;&#x5B9A;&#x7528;&#x4E8E;&#x4F20;&#x9012;&#x7ED9;&#x56DE;&#x8C03;&#x7684;&#x8DEF;&#x5F84;&#x7684;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x3002;
+&#x5982;&#x679C; <code>encoding</code> &#x8BBE;&#x7F6E;&#x4E3A; <code>&apos;buffer&apos;</code>&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x7684;&#x8DEF;&#x5F84;&#x5C06;&#x4F5C;&#x4E3A; <code>Buffer</code> &#x5BF9;&#x8C61;&#x4F20;&#x5165;&#x3002;</p><p>&#x5982;&#x679C; <code>path</code> &#x89E3;&#x6790;&#x4E3A;&#x5957;&#x63A5;&#x5B57;&#x6216;&#x7BA1;&#x9053;&#xFF0C;&#x5219;&#x8BE5;&#x51FD;&#x6570;&#x5C06;&#x8FD4;&#x56DE;&#x8BE5;&#x5BF9;&#x8C61;&#x7684;&#x7CFB;&#x7EDF;&#x76F8;&#x5173;&#x540D;&#x79F0;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will throw a <code>TypeError</code> at runtime.</p></td></tr>
+<tr><td>v8.0.0</td>
+<td><p>Pipe/Socket resolve support was added.</p></td></tr>
+<tr><td>v7.6.0</td>
+<td><p>The <code>path</code> parameter can be a WHATWG <code>URL</code> object using <code>file:</code> protocol. Support is currently still <em>experimental</em>.</p></td></tr>
+<tr><td>v7.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will emit a deprecation warning with id DEP0013.</p></td></tr>
+<tr><td>v6.4.0</td>
+<td><p>Calling <code>realpath</code> now works again for various edge cases on Windows.</p></td></tr>
+<tr><td>v6.0.0</td>
+<td><p>The <code>cache</code> parameter was removed.</p></td></tr>
+<tr><td>v0.1.31</td>
+<td><p><span>Added in: v0.1.31</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> <strong>Default:</strong> <code>&apos;utf8&apos;</code></li>
+</ul>
+</li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>resolvedPath</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a></li>
+</ul>
+</li>
+</ul><p>Asynchronously computes the canonical pathname by resolving <code>.</code>, <code>..</code> and
+symbolic links.</p><p>A canonical pathname is not necessarily unique. Hard links and bind mounts can
+expose a file system entity through many pathnames.</p><p>This function behaves like <a href="http://nodejs.cn/s/k8V6gK" rel="nofollow"><code>realpath(3)</code></a>, with some exceptions:</p><ol>
+<li>
+<p>No case conversion is performed on case-insensitive file systems.</p>
+</li>
+<li>
+<p>The maximum number of symbolic links is platform-independent and generally
+(much) higher than what the native <a href="http://nodejs.cn/s/k8V6gK" rel="nofollow"><code>realpath(3)</code></a> implementation supports.</p>
+</li>
+</ol><p>The <code>callback</code> gets two arguments <code>(err, resolvedPath)</code>. May use <code>process.cwd</code>
+to resolve relative paths.</p><p>Only paths that can be converted to UTF8 strings are supported.</p><p>The optional <code>options</code> argument can be a string specifying an encoding, or an
+object with an <code>encoding</code> property specifying the character encoding to use for
+the path passed to the callback. If the <code>encoding</code> is set to <code>&apos;buffer&apos;</code>,
+the path returned will be passed as a <code>Buffer</code> object.</p><p>If <code>path</code> resolves to a socket or a pipe, the function will return a system
+dependent name for that object.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756310032"><\/script>');
+  </script>
+</body>
+</html>

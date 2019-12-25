@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'upgrade' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/http/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756311885" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-http">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'upgrade' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../http.html#http_event_upgrade" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/http/event_upgrade.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.94</span>
+</div><ul>
+<li><code>response</code> <a href="http://nodejs.cn/s/2RqpEw" target="_blank" rel="nofollow" class="type">&lt;http.IncomingMessage&gt;</a></li>
+<li><code>socket</code> <a href="http://nodejs.cn/s/wsJ1o1" target="_blank" rel="nofollow" class="type">&lt;net.Socket&gt;</a></li>
+<li><code>head</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a></li>
+</ul><p>&#x6BCF;&#x6B21;&#x670D;&#x52A1;&#x5668;&#x54CD;&#x5E94;&#x5347;&#x7EA7;&#x8BF7;&#x6C42;&#x65F6;&#x53D1;&#x51FA;&#x3002;
+&#x5982;&#x679C;&#x672A;&#x76D1;&#x542C;&#x6B64;&#x4E8B;&#x4EF6;&#x4E14;&#x54CD;&#x5E94;&#x72B6;&#x6001;&#x7801;&#x4E3A; <code>101 Switching Protocols</code>&#xFF0C;&#x5219;&#x63A5;&#x6536;&#x5347;&#x7EA7;&#x54CD;&#x5E94;&#x5934;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x5C06;&#x5173;&#x95ED;&#x5176;&#x8FDE;&#x63A5;&#x3002;</p><p>&#x5BA2;&#x6237;&#x7AEF;&#x670D;&#x52A1;&#x5668;&#x5BF9;&#xFF0C;&#x6F14;&#x793A;&#x5982;&#x4F55;&#x76D1;&#x542C; <code>&apos;upgrade&apos;</code> &#x4E8B;&#x4EF6;&#x3002;</p><pre><code class="language-js">const http = require(&apos;http&apos;);
+
+// &#x521B;&#x5EFA; HTTP &#x670D;&#x52A1;&#x5668;&#x3002;
+const srv = http.createServer((req, res) =&gt; {
+  res.writeHead(200, { &apos;Content-Type&apos;: &apos;text/plain&apos; });
+  res.end(&apos;&#x54CD;&#x5E94;&#x5185;&#x5BB9;&apos;);
+});
+srv.on(&apos;upgrade&apos;, (req, socket, head) =&gt; {
+  socket.write(&apos;HTTP/1.1 101 Web Socket Protocol Handshake\r\n&apos; +
+               &apos;Upgrade: WebSocket\r\n&apos; +
+               &apos;Connection: Upgrade\r\n&apos; +
+               &apos;\r\n&apos;);
+
+  socket.pipe(socket); // &#x54CD;&#x5E94;&#x56DE;&#x53BB;&#x3002;
+});
+
+// &#x670D;&#x52A1;&#x5668;&#x6B63;&#x5728;&#x8FD0;&#x884C;&#x3002;
+srv.listen(1337, &apos;127.0.0.1&apos;, () =&gt; {
+
+  // &#x53D1;&#x9001;&#x8BF7;&#x6C42;&#x3002;
+  const options = {
+    port: 1337,
+    host: &apos;127.0.0.1&apos;,
+    headers: {
+      &apos;Connection&apos;: &apos;Upgrade&apos;,
+      &apos;Upgrade&apos;: &apos;websocket&apos;
+    }
+  };
+
+  const req = http.request(options);
+  req.end();
+
+  req.on(&apos;upgrade&apos;, (res, socket, upgradeHead) =&gt; {
+    console.log(&apos;&#x63A5;&#x6536;&#x5230;&#x54CD;&#x5E94;&apos;);
+    socket.end();
+    process.exit(0);
+  });
+});
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.94</span>
+</div><ul>
+<li><code>response</code> <a href="http://nodejs.cn/s/2RqpEw" target="_blank" rel="nofollow" class="type">&lt;http.IncomingMessage&gt;</a></li>
+<li><code>socket</code> <a href="http://nodejs.cn/s/wsJ1o1" target="_blank" rel="nofollow" class="type">&lt;net.Socket&gt;</a></li>
+<li><code>head</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a></li>
+</ul><p>Emitted each time a server responds to a request with an upgrade. If this
+event is not being listened for and the response status code is 101 Switching
+Protocols, clients receiving an upgrade header will have their connections
+closed.</p><p>A client server pair demonstrating how to listen for the <code>&apos;upgrade&apos;</code> event.</p><pre><code class="language-js">const http = require(&apos;http&apos;);
+
+// Create an HTTP server
+const srv = http.createServer((req, res) =&gt; {
+  res.writeHead(200, { &apos;Content-Type&apos;: &apos;text/plain&apos; });
+  res.end(&apos;okay&apos;);
+});
+srv.on(&apos;upgrade&apos;, (req, socket, head) =&gt; {
+  socket.write(&apos;HTTP/1.1 101 Web Socket Protocol Handshake\r\n&apos; +
+               &apos;Upgrade: WebSocket\r\n&apos; +
+               &apos;Connection: Upgrade\r\n&apos; +
+               &apos;\r\n&apos;);
+
+  socket.pipe(socket); // echo back
+});
+
+// Now that server is running
+srv.listen(1337, &apos;127.0.0.1&apos;, () =&gt; {
+
+  // make a request
+  const options = {
+    port: 1337,
+    host: &apos;127.0.0.1&apos;,
+    headers: {
+      &apos;Connection&apos;: &apos;Upgrade&apos;,
+      &apos;Upgrade&apos;: &apos;websocket&apos;
+    }
+  };
+
+  const req = http.request(options);
+  req.end();
+
+  req.on(&apos;upgrade&apos;, (res, socket, upgradeHead) =&gt; {
+    console.log(&apos;got upgraded!&apos;);
+    socket.end();
+    process.exit(0);
+  });
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/http/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756311885"><\/script>');
+  </script>
+</body>
+</html>

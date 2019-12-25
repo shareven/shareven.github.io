@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>cipher.final([outputEncoding]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/crypto/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756300108" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-crypto">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>cipher.final([outputEncoding])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../crypto.html#crypto_cipher_final_outputencoding" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/crypto/cipher_final_outputencoding.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.94</span>
+</div><ul>
+<li><code>outputEncoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x8FD4;&#x56DE;&#x503C;&#x7684;<a href="http://nodejs.cn/s/S4xQhj" rel="nofollow">&#x5B57;&#x7B26;&#x7F16;&#x7801;</a>&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x4EFB;&#x4F55;&#x5269;&#x4F59;&#x7684;&#x52A0;&#x5BC6;&#x5185;&#x5BB9;&#x3002;&#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86; <code>outputEncoding</code>&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x5982;&#x679C;&#x672A;&#x63D0;&#x4F9B; <code>outputEncoding</code>&#xFF0C;&#x5219;&#x8FD4;&#x56DE; <a href="http://nodejs.cn/s/FP4oTy" rel="nofollow"><code>Buffer</code></a>&#x3002;</li>
+</ul><p>&#x4E00;&#x65E6;&#x8C03;&#x7528;&#x4E86; <code>cipher.final()</code> &#x65B9;&#x6CD5;&#xFF0C;&#x5219; <code>Cipher</code> &#x5BF9;&#x8C61;&#x5C31;&#x4E0D;&#x80FD;&#x518D;&#x7528;&#x4E8E;&#x52A0;&#x5BC6;&#x6570;&#x636E;&#x3002;
+&#x5982;&#x679C;&#x8BD5;&#x56FE;&#x591A;&#x6B21;&#x8C03;&#x7528; <code>cipher.final()</code>&#xFF0C;&#x5219;&#x5C06;&#x4F1A;&#x5BFC;&#x81F4;&#x629B;&#x51FA;&#x9519;&#x8BEF;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.94</span>
+</div><ul>
+<li><code>outputEncoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> The <a href="http://nodejs.cn/s/S4xQhj" rel="nofollow">encoding</a> of the return value.</li>
+<li>Returns: <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> Any remaining enciphered contents.
+If <code>outputEncoding</code> is specified, a string is
+returned. If an <code>outputEncoding</code> is not provided, a <a href="http://nodejs.cn/s/FP4oTy" rel="nofollow"><code>Buffer</code></a> is returned.</li>
+</ul><p>Once the <code>cipher.final()</code> method has been called, the <code>Cipher</code> object can no
+longer be used to encrypt data. Attempts to call <code>cipher.final()</code> more than
+once will result in an error being thrown.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/crypto/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756300108"><\/script>');
+  </script>
+</body>
+</html>

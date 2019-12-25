@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>cipher.setAutoPadding([autoPadding]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/crypto/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756300120" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-crypto">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>cipher.setAutoPadding([autoPadding])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../crypto.html#crypto_cipher_setautopadding_autopadding" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/crypto/cipher_setautopadding_autopadding.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.1</span>
+</div><ul>
+<li><code>autoPadding</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>true</code>&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/Dc8Lz2" target="_blank" rel="nofollow" class="type">&lt;Cipher&gt;</a> &#x65B9;&#x6CD5;&#x94FE;&#x3002;</li>
+</ul><p>&#x5F53;&#x4F7F;&#x7528;&#x5757;&#x52A0;&#x5BC6;&#x7B97;&#x6CD5;&#x65F6;&#xFF0C; <code>Cipher</code> &#x7C7B;&#x4F1A;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;&#x586B;&#x5145;&#x5230;&#x8F93;&#x5165;&#x6570;&#x636E;&#x4E2D;&#xFF0C;&#x6765;&#x9002;&#x914D;&#x76F8;&#x5E94;&#x5757;&#x5927;&#x5C0F;&#x3002;
+&#x53EF;&#x8C03;&#x7528; <code>cipher.setAutoPadding(false)</code> &#x7981;&#x7528;&#x9ED8;&#x8BA4;&#x586B;&#x5145;&#x3002;</p><p>&#x5F53; <code>autoPadding</code> &#x662F; <code>false</code> &#x65F6;&#xFF0C;&#x6574;&#x4E2A;&#x8F93;&#x5165;&#x6570;&#x636E;&#x7684;&#x957F;&#x5EA6;&#x5FC5;&#x987B;&#x662F; cipher &#x5757;&#x5927;&#x5C0F;&#x7684;&#x500D;&#x6570;&#xFF0C;&#x5426;&#x5219; <a href="http://nodejs.cn/s/e66XWC" rel="nofollow"><code>cipher.final()</code></a> &#x5C06;&#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x3002;
+&#x7981;&#x7528;&#x81EA;&#x52A8;&#x586B;&#x5145;&#x5BF9;&#x4E8E;&#x975E;&#x6807;&#x51C6;&#x586B;&#x5145;&#x662F;&#x6709;&#x7528;&#x7684;&#xFF0C;&#x4F8B;&#x5982;&#x4F7F;&#x7528; <code>0x0</code> &#x4EE3;&#x66FF; PKCS &#x586B;&#x5145;&#x3002;</p><p><code>cipher.setAutoPadding()</code> &#x5FC5;&#x987B;&#x5728; <a href="http://nodejs.cn/s/e66XWC" rel="nofollow"><code>cipher.final()</code></a> &#x4E4B;&#x524D;&#x88AB;&#x8C03;&#x7528;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.7.1</span>
+</div><ul>
+<li><code>autoPadding</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <strong>Default:</strong> <code>true</code></li>
+<li>Returns: <a href="http://nodejs.cn/s/Dc8Lz2" target="_blank" rel="nofollow" class="type">&lt;Cipher&gt;</a> for method chaining.</li>
+</ul><p>When using block encryption algorithms, the <code>Cipher</code> class will automatically
+add padding to the input data to the appropriate block size. To disable the
+default padding call <code>cipher.setAutoPadding(false)</code>.</p><p>When <code>autoPadding</code> is <code>false</code>, the length of the entire input data must be a
+multiple of the cipher&apos;s block size or <a href="http://nodejs.cn/s/e66XWC" rel="nofollow"><code>cipher.final()</code></a> will throw an error.
+Disabling automatic padding is useful for non-standard padding, for instance
+using <code>0x0</code> instead of PKCS padding.</p><p>The <code>cipher.setAutoPadding()</code> method must be called before
+<a href="http://nodejs.cn/s/e66XWC" rel="nofollow"><code>cipher.final()</code></a>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/crypto/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756300120"><\/script>');
+  </script>
+</body>
+</html>

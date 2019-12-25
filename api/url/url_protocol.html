@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>url.protocol | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/url/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756327565" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-url">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>url.protocol</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../url.html#url_url_protocol" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/url/url_protocol.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><ul>
+<li><a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>&#x83B7;&#x53D6;&#x53CA;&#x8BBE;&#x7F6E; URL &#x7684;&#x534F;&#x8BAE;&#x90E8;&#x5206;&#x3002;</p><pre><code class="language-js">const myURL = new URL(&apos;https://example.org&apos;);
+console.log(myURL.protocol);
+// &#x6253;&#x5370; https:
+
+myURL.protocol = &apos;ftp&apos;;
+console.log(myURL.href);
+// &#x6253;&#x5370; ftp://example.org/
+</code></pre><p>&#x5206;&#x914D;&#x7ED9; <code>protocol</code> &#x5C5E;&#x6027;&#x7684;&#x65E0;&#x6548;&#x534F;&#x8BAE;&#x503C;&#x5C06;&#x4F1A;&#x88AB;&#x5FFD;&#x7565;&#x3002;</p></div>
+          <div id="content_right"><ul>
+<li><a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>Gets and sets the protocol portion of the URL.</p><pre><code class="language-js">const myURL = new URL(&apos;https://example.org&apos;);
+console.log(myURL.protocol);
+// Prints https:
+
+myURL.protocol = &apos;ftp&apos;;
+console.log(myURL.href);
+// Prints ftp://example.org/
+</code></pre><p>Invalid URL protocol values assigned to the <code>protocol</code> property are ignored.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/url/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756327565"><\/script>');
+  </script>
+</body>
+</html>

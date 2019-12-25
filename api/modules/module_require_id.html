@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>module.require(id) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/modules/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756316049" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-modules">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>module.require(id)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../modules.html#modules_module_require_id" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/modules/module_require_id.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.5.1</span>
+</div><ul>
+<li><code>id</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> &#x5BFC;&#x51FA;&#x7684;&#x6A21;&#x5757;&#x5185;&#x5BB9;&#x3002;</li>
+</ul><p><code>module.require()</code> &#x65B9;&#x6CD5;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x52A0;&#x8F7D;&#x6A21;&#x5757;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5C31;&#x50CF;&#x4ECE;&#x539F;&#x59CB;&#x6A21;&#x5757;&#x8C03;&#x7528; <code>require()</code> &#x4E00;&#x6837;&#x3002;</p><p>&#x4E3A;&#x4E86;&#x505A;&#x5230;&#x8FD9;&#x4E2A;&#xFF0C;&#x9700;&#x8981;&#x83B7;&#x5F97;&#x4E00;&#x4E2A; <code>module</code> &#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x3002;
+&#x56E0;&#x4E3A; <code>require()</code> &#x4F1A;&#x8FD4;&#x56DE; <code>module.exports</code>&#xFF0C;&#x4E14; <code>module</code> &#x901A;&#x5E38;&#x53EA;&#x5728;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x6A21;&#x5757;&#x4EE3;&#x7801;&#x4E2D;&#x6709;&#x6548;&#xFF0C;&#x6240;&#x4EE5;&#x4E3A;&#x4E86;&#x4F7F;&#x7528;&#x5B83;&#xFF0C;&#x5FC5;&#x987B;&#x663E;&#x5F0F;&#x5730;&#x5BFC;&#x51FA;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.5.1</span>
+</div><ul>
+<li><code>id</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li>Returns: <a href="http://nodejs.cn/s/6sTGdS" target="_blank" rel="nofollow" class="type">&lt;any&gt;</a> exported module content</li>
+</ul><p>The <code>module.require()</code> method provides a way to load a module as if
+<code>require()</code> was called from the original module.</p><p>In order to do this, it is necessary to get a reference to the <code>module</code> object.
+Since <code>require()</code> returns the <code>module.exports</code>, and the <code>module</code> is typically
+<em>only</em> available within a specific module&apos;s code, it must be explicitly exported
+in order to be used.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/modules/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756316049"><\/script>');
+  </script>
+</body>
+</html>

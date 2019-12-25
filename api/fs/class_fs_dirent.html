@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>fs.Dirent 类 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756309518" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>fs.Dirent 类</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_class_fs_dirent" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/class_fs_dirent.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.10.0</span>
+</div><p>&#x76EE;&#x5F55;&#x9879;&#x7684;&#x8868;&#x793A;&#x5F62;&#x5F0F;&#xFF0C;&#x901A;&#x8FC7;&#x4ECE; <a href="http://nodejs.cn/s/PrNiRv" rel="nofollow"><code>fs.Dir</code></a> &#x4E2D;&#x8BFB;&#x53D6;&#x800C;&#x8FD4;&#x56DE;&#x3002;</p><p>&#x6B64;&#x5916;&#xFF0C;&#x5F53;&#x4F7F;&#x7528; <code>withFileTypes</code> &#x9009;&#x9879;&#x8BBE;&#x7F6E;&#x4E3A; <code>true</code> &#x8C03;&#x7528; <a href="http://nodejs.cn/s/Yvf5n5" rel="nofollow"><code>fs.readdir()</code></a> &#x6216; <a href="http://nodejs.cn/s/Frjypi" rel="nofollow"><code>fs.readdirSync()</code></a> &#x65F6;&#xFF0C;&#x751F;&#x6210;&#x7684;&#x6570;&#x7EC4;&#x5C06;&#x4F1A;&#x586B;&#x5145; <code>fs.Dirent</code> &#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x6216; <code>Buffer</code>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v10.10.0</span>
+</div><p>A representation of a directory entry, as returned by reading from an
+<a href="http://nodejs.cn/s/PrNiRv" rel="nofollow"><code>fs.Dir</code></a>.</p><p>Additionally, when <a href="http://nodejs.cn/s/Yvf5n5" rel="nofollow"><code>fs.readdir()</code></a> or <a href="http://nodejs.cn/s/Frjypi" rel="nofollow"><code>fs.readdirSync()</code></a> is called with
+the <code>withFileTypes</code> option set to <code>true</code>, the resulting array is filled with
+<code>fs.Dirent</code> objects, rather than strings or <code>Buffers</code>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756309518"><\/script>');
+  </script>
+</body>
+</html>

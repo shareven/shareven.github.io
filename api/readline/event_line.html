@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'line' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/readline/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756322216" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-readline">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'line' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../readline.html#readline_event_line" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/readline/event_line.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.98</span>
+</div><p>&#x6BCF;&#x5F53; <code>input</code> &#x6D41;&#x63A5;&#x6536;&#x5230;&#x884C;&#x5C3E;&#x8F93;&#x5165;&#xFF08;<code>\n</code>&#x3001; <code>\r</code> &#x6216; <code>\r\n</code>&#xFF09;&#x65F6;&#x5C31;&#x4F1A;&#x89E6;&#x53D1; <code>&apos;line&apos;</code> &#x4E8B;&#x4EF6;&#x3002;
+&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x901A;&#x5E38;&#x53D1;&#x751F;&#x5728;&#x5F53;&#x7528;&#x6237;&#x6309;&#x4E0B; <code>&lt;Enter&gt;</code> &#x952E;&#x6216; <code>&lt;Return&gt;</code> &#x952E;&#x3002;</p><p>&#x8C03;&#x7528;&#x76D1;&#x542C;&#x5668;&#x51FD;&#x6570;&#x65F6;&#x4F1A;&#x5E26;&#x4E0A;&#x5305;&#x542B;&#x63A5;&#x6536;&#x5230;&#x7684;&#x90A3;&#x4E00;&#x884C;&#x8F93;&#x5165;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p><pre><code class="language-js">rl.on(&apos;line&apos;, (input) =&gt; {
+  console.log(`&#x63A5;&#x6536;&#x5230;&#xFF1A;${input}`);
+});
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.98</span>
+</div><p>The <code>&apos;line&apos;</code> event is emitted whenever the <code>input</code> stream receives an
+end-of-line input (<code>\n</code>, <code>\r</code>, or <code>\r\n</code>). This usually occurs when the user
+presses the <code>&lt;Enter&gt;</code>, or <code>&lt;Return&gt;</code> keys.</p><p>The listener function is called with a string containing the single line of
+received input.</p><pre><code class="language-js">rl.on(&apos;line&apos;, (input) =&gt; {
+  console.log(`Received: ${input}`);
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/readline/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756322216"><\/script>');
+  </script>
+</body>
+</html>

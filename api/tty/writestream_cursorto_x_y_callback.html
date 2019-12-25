@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>writeStream.cursorTo(x[, y][, callback]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/tty/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756326941" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-tty">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>writeStream.cursorTo(x[, y][, callback])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../tty.html#tty_writestream_cursorto_x_y_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/tty/writestream_cursorto_x_y_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v12.7.0</td>
+<td><p>The stream&apos;s write() callback and return value are exposed.</p></td></tr>
+<tr><td>v0.7.7</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.7.7</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>x</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>y</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x64CD;&#x4F5C;&#x5B8C;&#x6210;&#x540E;&#x8C03;&#x7528;&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5982;&#x679C;&#x6D41;&#x5E0C;&#x671B;&#x8C03;&#x7528;&#x7684;&#x4EE3;&#x7801;&#x5728;&#x7EE7;&#x7EED;&#x5199;&#x5165;&#x9644;&#x52A0;&#x7684;&#x6570;&#x636E;&#x4E4B;&#x524D;&#x7B49;&#x5F85; <code>&apos;drain&apos;</code> &#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#xFF0C;&#x5219;&#x4E3A; <code>false</code>&#xFF0C;&#x5426;&#x5219;&#x4E3A; <code>true</code>&#x3002;</li>
+</ul><p><code>writeStream.cursorTo()</code> &#x5C06; <code>WriteStream</code> &#x7684;&#x5149;&#x6807;&#x79FB;&#x52A8;&#x5230;&#x6307;&#x5B9A;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v12.7.0</td>
+<td><p>The stream&apos;s write() callback and return value are exposed.</p></td></tr>
+<tr><td>v0.7.7</td>
+<td><p><span>Added in: v0.7.7</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>x</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>y</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a></li>
+<li><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> Invoked once the operation completes.</li>
+<li>Returns: <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <code>false</code> if the stream wishes for the calling code to wait
+for the <code>&apos;drain&apos;</code> event to be emitted before continuing to write additional
+data; otherwise <code>true</code>.</li>
+</ul><p><code>writeStream.cursorTo()</code> moves this <code>WriteStream</code>&apos;s cursor to the specified
+position.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/tty/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756326941"><\/script>');
+  </script>
+</body>
+</html>

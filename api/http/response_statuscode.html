@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>response.statusCode | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/http/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756312031" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-http">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>response.statusCode</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../http.html#http_response_statuscode" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/http/response_statuscode.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.4.0</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>200</code>&#x3002;</li>
+</ul><p>&#x5F53;&#x4F7F;&#x7528;&#x9690;&#x5F0F;&#x7684;&#x54CD;&#x5E94;&#x5934;&#x65F6;&#xFF08;&#x6CA1;&#x6709;&#x663E;&#x5F0F;&#x5730;&#x8C03;&#x7528; <a href="http://nodejs.cn/s/fnj9oM" rel="nofollow"><code>response.writeHead()</code></a>&#xFF09;&#xFF0C;&#x6B64;&#x5C5E;&#x6027;&#x63A7;&#x5236;&#x5728;&#x5237;&#x65B0;&#x54CD;&#x5E94;&#x5934;&#x65F6;&#x5C06;&#x53D1;&#x9001;&#x5230;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x72B6;&#x6001;&#x7801;&#x3002;</p><pre><code class="language-js">response.statusCode = 404;
+</code></pre><p>&#x54CD;&#x5E94;&#x5934;&#x53D1;&#x9001;&#x5230;&#x5BA2;&#x6237;&#x7AEF;&#x540E;&#xFF0C;&#x6B64;&#x5C5E;&#x6027;&#x8868;&#x793A;&#x5DF2;&#x53D1;&#x9001;&#x7684;&#x72B6;&#x6001;&#x7801;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.4.0</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> <strong>Default:</strong> <code>200</code></li>
+</ul><p>When using implicit headers (not calling <a href="http://nodejs.cn/s/fnj9oM" rel="nofollow"><code>response.writeHead()</code></a> explicitly),
+this property controls the status code that will be sent to the client when
+the headers get flushed.</p><pre><code class="language-js">response.statusCode = 404;
+</code></pre><p>After response header was sent to the client, this property indicates the
+status code which was sent out.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/http/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756312031"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>包装 C++ 对象 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/addons/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756291631" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-addons">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>包装 C++ 对象</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../addons.html#addons_wrapping_c_objects" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/addons/wrapping_c_objects.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x4E5F;&#x53EF;&#x4EE5;&#x5305;&#x88C5; C++ &#x5BF9;&#x8C61;/&#x7C7B;&#x4F7F;&#x5176;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; JavaScript &#x7684; <code>new</code> &#x64CD;&#x4F5C;&#x6765;&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x5B9E;&#x4F8B;&#xFF1A;</p><pre><code class="language-cpp">// addon.cc
+#include &lt;node.h&gt;
+#include &quot;myobject.h&quot;
+
+namespace demo {
+
+using v8::Local;
+using v8::Object;
+
+void InitAll(Local&lt;Object&gt; exports) {
+  MyObject::Init(exports);
+}
+
+NODE_MODULE(NODE_GYP_MODULE_NAME, InitAll)
+
+}  // namespace demo
+</code></pre><p>&#x7136;&#x540E;&#xFF0C;&#x5728; <code>myobject.h</code> &#x4E2D;&#xFF0C;&#x5305;&#x88C5;&#x7C7B;&#x7EE7;&#x627F;&#x81EA; <code>node::ObjectWrap</code>&#xFF1A;</p><pre><code class="language-cpp">// myobject.h
+#ifndef MYOBJECT_H
+#define MYOBJECT_H
+
+#include &lt;node.h&gt;
+#include &lt;node_object_wrap.h&gt;
+
+namespace demo {
+
+class MyObject : public node::ObjectWrap {
+ public:
+  static void Init(v8::Local&lt;v8::Object&gt; exports);
+
+ private:
+  explicit MyObject(double value = 0);
+  ~MyObject();
+
+  static void New(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; args);
+  static void PlusOne(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; args);
+  static v8::Persistent&lt;v8::Function&gt; constructor;
+  double value_;
+};
+
+}  // namespace demo
+
+#endif
+</code></pre><p>&#x5728; <code>myobject.cc</code> &#x4E2D;&#xFF0C;&#x5B9E;&#x73B0;&#x8981;&#x88AB;&#x5F00;&#x653E;&#x7684;&#x5404;&#x79CD;&#x65B9;&#x6CD5;&#x3002;
+&#x4E0B;&#x9762;&#xFF0C;&#x901A;&#x8FC7;&#x628A; <code>plusOne()</code> &#x6DFB;&#x52A0;&#x5230;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x539F;&#x578B;&#x6765;&#x5F00;&#x653E;&#x5B83;&#xFF1A;</p><pre><code class="language-cpp">// myobject.cc
+#include &quot;myobject.h&quot;
+
+namespace demo {
+
+using v8::Context;
+using v8::Function;
+using v8::FunctionCallbackInfo;
+using v8::FunctionTemplate;
+using v8::Isolate;
+using v8::Local;
+using v8::NewStringType;
+using v8::Number;
+using v8::Object;
+using v8::Persistent;
+using v8::String;
+using v8::Value;
+
+Persistent&lt;Function&gt; MyObject::constructor;
+
+MyObject::MyObject(double value) : value_(value) {
+}
+
+MyObject::~MyObject() {
+}
+
+void MyObject::Init(Local&lt;Object&gt; exports) {
+  Isolate* isolate = exports-&gt;GetIsolate();
+
+  // &#x51C6;&#x5907;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6A21;&#x7248;
+  Local&lt;FunctionTemplate&gt; tpl = FunctionTemplate::New(isolate, New);
+  tpl-&gt;SetClassName(String::NewFromUtf8(
+      isolate, &quot;MyObject&quot;, NewStringType::kNormal).ToLocalChecked());
+  tpl-&gt;InstanceTemplate()-&gt;SetInternalFieldCount(1);
+
+  // &#x539F;&#x578B;
+  NODE_SET_PROTOTYPE_METHOD(tpl, &quot;plusOne&quot;, PlusOne);
+
+  Local&lt;Context&gt; context = isolate-&gt;GetCurrentContext();
+  constructor.Reset(isolate, tpl-&gt;GetFunction(context).ToLocalChecked());
+  exports-&gt;Set(context, String::NewFromUtf8(
+      isolate, &quot;MyObject&quot;, NewStringType::kNormal).ToLocalChecked(),
+               tpl-&gt;GetFunction(context).ToLocalChecked()).FromJust();
+}
+
+void MyObject::New(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+  Local&lt;Context&gt; context = isolate-&gt;GetCurrentContext();
+
+  if (args.IsConstructCall()) {
+    // &#x50CF;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E00;&#x6837;&#x8C03;&#x7528;&#xFF1A;`new MyObject(...)`
+    double value = args[0]-&gt;IsUndefined() ?
+        0 : args[0]-&gt;NumberValue(context).FromMaybe(0);
+    MyObject* obj = new MyObject(value);
+    obj-&gt;Wrap(args.This());
+    args.GetReturnValue().Set(args.This());
+  } else {
+    // &#x50CF;&#x666E;&#x901A;&#x65B9;&#x6CD5; `MyObject(...)` &#x4E00;&#x6837;&#x8C03;&#x7528;&#xFF0C;&#x8F6C;&#x4E3A;&#x6784;&#x9020;&#x8C03;&#x7528;&#x3002;
+    const int argc = 1;
+    Local&lt;Value&gt; argv[argc] = { args[0] };
+    Local&lt;Function&gt; cons = Local&lt;Function&gt;::New(isolate, constructor);
+    Local&lt;Object&gt; result =
+        cons-&gt;NewInstance(context, argc, argv).ToLocalChecked();
+    args.GetReturnValue().Set(result);
+  }
+}
+
+void MyObject::PlusOne(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+
+  MyObject* obj = ObjectWrap::Unwrap&lt;MyObject&gt;(args.Holder());
+  obj-&gt;value_ += 1;
+
+  args.GetReturnValue().Set(Number::New(isolate, obj-&gt;value_));
+}
+
+}  // namespace demo
+</code></pre><p>&#x8981;&#x6784;&#x5EFA;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C; <code>myobject.cc</code> &#x6587;&#x4EF6;&#x5FC5;&#x987B;&#x88AB;&#x6DFB;&#x52A0;&#x5230; <code>binding.gyp</code>&#xFF1A;</p><pre><code class="language-json">{
+  &quot;targets&quot;: [
+    {
+      &quot;target_name&quot;: &quot;addon&quot;,
+      &quot;sources&quot;: [
+        &quot;addon.cc&quot;,
+        &quot;myobject.cc&quot;
+      ]
+    }
+  ]
+}
+</code></pre><p>&#x6D4B;&#x8BD5;&#xFF1A;</p><pre><code class="language-js">// test.js
+const addon = require(&apos;./build/Release/addon&apos;);
+
+const obj = new addon.MyObject(10);
+console.log(obj.plusOne());
+// &#x6253;&#x5370;: 11
+console.log(obj.plusOne());
+// &#x6253;&#x5370;: 12
+console.log(obj.plusOne());
+// &#x6253;&#x5370;: 13
+</code></pre><p>&#x5F53;&#x5BF9;&#x8C61;&#x88AB;&#x5783;&#x573E;&#x6536;&#x96C6;&#x65F6;&#xFF0C;&#x5305;&#x88C5;&#x5668;&#x5BF9;&#x8C61;&#x7684;&#x6790;&#x6784;&#x51FD;&#x6570;&#x5C06;&#x4F1A;&#x8FD0;&#x884C;&#x3002;
+&#x5BF9;&#x4E8E;&#x6790;&#x6784;&#x51FD;&#x6570;&#x6D4B;&#x8BD5;&#xFF0C;&#x6709;&#x4E00;&#x4E9B;&#x547D;&#x4EE4;&#x884C;&#x6807;&#x5FD7;&#x53EF;&#x7528;&#x4E8E;&#x5F3A;&#x5236;&#x5783;&#x573E;&#x6536;&#x96C6;&#x3002;
+&#x8FD9;&#x4E9B;&#x6807;&#x5FD7;&#x7531;&#x5E95;&#x5C42; V8 JavaScript &#x5F15;&#x64CE;&#x63D0;&#x4F9B;&#x3002;
+&#x5B83;&#x4EEC;&#x968F;&#x65F6;&#x53EF;&#x80FD;&#x66F4;&#x6539;&#x6216;&#x5220;&#x9664;&#x3002;
+&#x5B83;&#x4EEC;&#x6CA1;&#x6709;&#x7531; Node.js &#x6216; V8 &#x8BB0;&#x5F55;&#xFF0C;&#x5E76;&#x4E14;&#x5B83;&#x4EEC;&#x6C38;&#x8FDC;&#x4E0D;&#x5E94;&#x8BE5;&#x5728;&#x6D4B;&#x8BD5;&#x4E4B;&#x5916;&#x4F7F;&#x7528;&#x3002;</p></div>
+          <div id="content_right"><p>It is also possible to wrap C++ objects/classes in a way that allows new
+instances to be created using the JavaScript <code>new</code> operator:</p><pre><code class="language-cpp">// addon.cc
+#include &lt;node.h&gt;
+#include &quot;myobject.h&quot;
+
+namespace demo {
+
+using v8::Local;
+using v8::Object;
+
+void InitAll(Local&lt;Object&gt; exports) {
+  MyObject::Init(exports);
+}
+
+NODE_MODULE(NODE_GYP_MODULE_NAME, InitAll)
+
+}  // namespace demo
+</code></pre><p>Then, in <code>myobject.h</code>, the wrapper class inherits from <code>node::ObjectWrap</code>:</p><pre><code class="language-cpp">// myobject.h
+#ifndef MYOBJECT_H
+#define MYOBJECT_H
+
+#include &lt;node.h&gt;
+#include &lt;node_object_wrap.h&gt;
+
+namespace demo {
+
+class MyObject : public node::ObjectWrap {
+ public:
+  static void Init(v8::Local&lt;v8::Object&gt; exports);
+
+ private:
+  explicit MyObject(double value = 0);
+  ~MyObject();
+
+  static void New(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; args);
+  static void PlusOne(const v8::FunctionCallbackInfo&lt;v8::Value&gt;&amp; args);
+  static v8::Persistent&lt;v8::Function&gt; constructor;
+  double value_;
+};
+
+}  // namespace demo
+
+#endif
+</code></pre><p>In <code>myobject.cc</code>, implement the various methods that are to be exposed.
+Below, the method <code>plusOne()</code> is exposed by adding it to the constructor&apos;s
+prototype:</p><pre><code class="language-cpp">// myobject.cc
+#include &quot;myobject.h&quot;
+
+namespace demo {
+
+using v8::Context;
+using v8::Function;
+using v8::FunctionCallbackInfo;
+using v8::FunctionTemplate;
+using v8::Isolate;
+using v8::Local;
+using v8::NewStringType;
+using v8::Number;
+using v8::Object;
+using v8::Persistent;
+using v8::String;
+using v8::Value;
+
+Persistent&lt;Function&gt; MyObject::constructor;
+
+MyObject::MyObject(double value) : value_(value) {
+}
+
+MyObject::~MyObject() {
+}
+
+void MyObject::Init(Local&lt;Object&gt; exports) {
+  Isolate* isolate = exports-&gt;GetIsolate();
+
+  // Prepare constructor template
+  Local&lt;FunctionTemplate&gt; tpl = FunctionTemplate::New(isolate, New);
+  tpl-&gt;SetClassName(String::NewFromUtf8(
+      isolate, &quot;MyObject&quot;, NewStringType::kNormal).ToLocalChecked());
+  tpl-&gt;InstanceTemplate()-&gt;SetInternalFieldCount(1);
+
+  // Prototype
+  NODE_SET_PROTOTYPE_METHOD(tpl, &quot;plusOne&quot;, PlusOne);
+
+  Local&lt;Context&gt; context = isolate-&gt;GetCurrentContext();
+  constructor.Reset(isolate, tpl-&gt;GetFunction(context).ToLocalChecked());
+  exports-&gt;Set(context, String::NewFromUtf8(
+      isolate, &quot;MyObject&quot;, NewStringType::kNormal).ToLocalChecked(),
+               tpl-&gt;GetFunction(context).ToLocalChecked()).FromJust();
+}
+
+void MyObject::New(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+  Local&lt;Context&gt; context = isolate-&gt;GetCurrentContext();
+
+  if (args.IsConstructCall()) {
+    // Invoked as constructor: `new MyObject(...)`
+    double value = args[0]-&gt;IsUndefined() ?
+        0 : args[0]-&gt;NumberValue(context).FromMaybe(0);
+    MyObject* obj = new MyObject(value);
+    obj-&gt;Wrap(args.This());
+    args.GetReturnValue().Set(args.This());
+  } else {
+    // Invoked as plain function `MyObject(...)`, turn into construct call.
+    const int argc = 1;
+    Local&lt;Value&gt; argv[argc] = { args[0] };
+    Local&lt;Function&gt; cons = Local&lt;Function&gt;::New(isolate, constructor);
+    Local&lt;Object&gt; result =
+        cons-&gt;NewInstance(context, argc, argv).ToLocalChecked();
+    args.GetReturnValue().Set(result);
+  }
+}
+
+void MyObject::PlusOne(const FunctionCallbackInfo&lt;Value&gt;&amp; args) {
+  Isolate* isolate = args.GetIsolate();
+
+  MyObject* obj = ObjectWrap::Unwrap&lt;MyObject&gt;(args.Holder());
+  obj-&gt;value_ += 1;
+
+  args.GetReturnValue().Set(Number::New(isolate, obj-&gt;value_));
+}
+
+}  // namespace demo
+</code></pre><p>To build this example, the <code>myobject.cc</code> file must be added to the
+<code>binding.gyp</code>:</p><pre><code class="language-json">{
+  &quot;targets&quot;: [
+    {
+      &quot;target_name&quot;: &quot;addon&quot;,
+      &quot;sources&quot;: [
+        &quot;addon.cc&quot;,
+        &quot;myobject.cc&quot;
+      ]
+    }
+  ]
+}
+</code></pre><p>Test it with:</p><pre><code class="language-js">// test.js
+const addon = require(&apos;./build/Release/addon&apos;);
+
+const obj = new addon.MyObject(10);
+console.log(obj.plusOne());
+// Prints: 11
+console.log(obj.plusOne());
+// Prints: 12
+console.log(obj.plusOne());
+// Prints: 13
+</code></pre><p>The destructor for a wrapper object will run when the object is
+garbage-collected. For destructor testing, there are command-line flags that
+can be used to make it possible to force garbage collection. These flags are
+provided by the underlying V8 JavaScript engine. They are subject to change
+or removal at any time. They are not documented by Node.js or V8, and they
+should never be used outside of testing.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/addons/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756291631"><\/script>');
+  </script>
+</body>
+</html>

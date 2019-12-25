@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'listening' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/cluster/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756297781" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-cluster">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'listening' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../cluster.html#cluster_event_listening_1" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/cluster/event_listening_1.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.0</span>
+</div><ul>
+<li><code>worker</code> <a href="http://nodejs.cn/s/uD6sLj" target="_blank" rel="nofollow" class="type">&lt;cluster.Worker&gt;</a></li>
+<li><code>address</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></li>
+</ul><p>&#x5F53;&#x4E00;&#x4E2A;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x8C03;&#x7528; <code>listen()</code> &#x540E;&#xFF0C;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x4E0A;&#x7684; server &#x4F1A;&#x89E6;&#x53D1; <code>&apos;listening&apos;</code> &#x4E8B;&#x4EF6;&#xFF0C;&#x540C;&#x65F6;&#x4E3B;&#x8FDB;&#x7A0B;&#x4E0A;&#x7684; <code>cluster</code> &#x4E5F;&#x4F1A;&#x89E6;&#x53D1; <code>&apos;listening&apos;</code> &#x4E8B;&#x4EF6;&#x3002;</p><p>&#x4E8B;&#x4EF6;&#x53E5;&#x67C4;&#x4F7F;&#x7528;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x6765;&#x6267;&#x884C;&#xFF0C;&#x5176;&#x4E2D; <code>worker</code> &#x5305;&#x542B;&#x4E86;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x5BF9;&#x8C61;&#xFF0C; <code>address</code> &#x5305;&#x542B;&#x4E86;&#x4EE5;&#x4E0B;&#x7684;&#x8FDE;&#x63A5;&#x5C5E;&#x6027;&#xFF1A;<code>address</code>&#x3001; <code>port</code> &#x548C; <code>addressType</code>&#x3002;
+&#x5F53;&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x540C;&#x65F6;&#x76D1;&#x542C;&#x591A;&#x4E2A;&#x5730;&#x5740;&#x65F6;&#xFF0C;&#x8FD9;&#x4E9B;&#x53C2;&#x6570;&#x975E;&#x5E38;&#x6709;&#x7528;&#x3002;</p><pre><code class="language-js">cluster.on(&apos;listening&apos;, (worker, address) =&gt; {
+  console.log(
+    `&#x5DE5;&#x4F5C;&#x8FDB;&#x7A0B;&#x5DF2;&#x8FDE;&#x63A5;&#x5230; ${address.address}:${address.port}`);
+});
+</code></pre><p><code>addressType</code> &#x53EF;&#x9009;&#x503C;&#x5305;&#x62EC;:</p><ul>
+<li><code>4</code> (TCPv4)</li>
+<li><code>6</code> (TCPv6)</li>
+<li><code>-1</code> (Unix &#x57DF; socket)</li>
+<li><code>&apos;udp4&apos;</code> or <code>&apos;udp6&apos;</code> (UDP v4 &#x6216; v6)</li>
+</ul></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.7.0</span>
+</div><ul>
+<li><code>worker</code> <a href="http://nodejs.cn/s/uD6sLj" target="_blank" rel="nofollow" class="type">&lt;cluster.Worker&gt;</a></li>
+<li><code>address</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></li>
+</ul><p>After calling <code>listen()</code> from a worker, when the <code>&apos;listening&apos;</code> event is emitted
+on the server a <code>&apos;listening&apos;</code> event will also be emitted on <code>cluster</code> in the
+master.</p><p>The event handler is executed with two arguments, the <code>worker</code> contains the
+worker object and the <code>address</code> object contains the following connection
+properties: <code>address</code>, <code>port</code> and <code>addressType</code>. This is very useful if the
+worker is listening on more than one address.</p><pre><code class="language-js">cluster.on(&apos;listening&apos;, (worker, address) =&gt; {
+  console.log(
+    `A worker is now connected to ${address.address}:${address.port}`);
+});
+</code></pre><p>The <code>addressType</code> is one of:</p><ul>
+<li><code>4</code> (TCPv4)</li>
+<li><code>6</code> (TCPv6)</li>
+<li><code>-1</code> (Unix domain socket)</li>
+<li><code>&apos;udp4&apos;</code> or <code>&apos;udp6&apos;</code> (UDP v4 or v6)</li>
+</ul></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/cluster/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756297781"><\/script>');
+  </script>
+</body>
+</html>

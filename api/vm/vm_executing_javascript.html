@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>vm（虚拟机） | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/vm/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756329765" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-vm">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>vm（虚拟机）</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../vm.html#vm_vm_executing_javascript" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/vm/vm_executing_javascript.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p></p><div class="api_stability api_stability_2"><a target="_blank" rel="nofollow" href="../documentation.html#documentation_stability_index">&#x7A33;&#x5B9A;&#x6027;: 2</a> - &#x7A33;&#x5B9A;</div><p></p><p><code>vm</code> &#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x5728; V8 &#x865A;&#x62DF;&#x673A;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x7F16;&#x8BD1;&#x548C;&#x8FD0;&#x884C;&#x4EE3;&#x7801;&#x7684;&#x4E00;&#x7CFB;&#x5217; API&#x3002;<code>vm</code> &#x6A21;&#x5757;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5B89;&#x5168;&#x7684;&#x865A;&#x62DF;&#x673A;&#x3002;&#x4E0D;&#x8981;&#x7528;&#x5B83;&#x6765;&#x8FD0;&#x884C;&#x4E0D;&#x53D7;&#x4FE1;&#x4EFB;&#x7684;&#x4EE3;&#x7801;&#x3002;&#x5728;&#x8FD9;&#x4E9B;&#x6587;&#x6863;&#x4E2D; &quot;sanbox&quot; &#x8FD9;&#x4E2A;&#x672F;&#x8BED;&#x4EC5;&#x4EC5;&#x662F;&#x4E3A;&#x4E86;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x5E76;&#x4E0D;&#x63D0;&#x4F9B;&#x4EFB;&#x4F55;&#x5B89;&#x5168;&#x4FDD;&#x969C;&#x3002;</p><p>JavaScript &#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x88AB;&#x7F16;&#x8BD1;&#x5E76;&#x7ACB;&#x5373;&#x8FD0;&#x884C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7F16;&#x8BD1;&#x3001;&#x4FDD;&#x5B58;&#xFF0C;&#x4EE5;&#x540E;&#x518D;&#x8FD0;&#x884C;&#x3002;</p><p>&#x4E00;&#x4E2A;&#x5E38;&#x89C1;&#x7684;&#x573A;&#x666F;&#x662F;&#x5728;&#x6C99;&#x76D2;&#x4E2D;&#x8FD0;&#x884C;&#x4EE3;&#x7801;&#x3002;&#x6C99;&#x76D2;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684; V8 &#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5B83;&#x5177;&#x6709;&#x4E0E;&#x5176;&#x4F59;&#x4EE3;&#x7801;&#x4E0D;&#x540C;&#x7684;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#x3002;</p><p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<a href="http://nodejs.cn/s/x6KGQQ" rel="nofollow">&#x4E0A;&#x4E0B;&#x6587;&#x9694;&#x79BB;&#x5316;</a>&#x4E00;&#x4E2A;&#x6C99;&#x7BB1;&#x5BF9;&#x8C61;&#x6765;&#x63D0;&#x4F9B;&#x4E0A;&#x4E0B;&#x6587;&#x3002;&#x6C99;&#x76D2;&#x4EE3;&#x7801;&#x5C06;&#x6C99;&#x76D2;&#x4E2D;&#x7684;&#x4EFB;&#x4F55;&#x5C5E;&#x6027;&#x89C6;&#x4E3A;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#x3002;&#x7531;&#x6C99;&#x76D2;&#x4EE3;&#x7801;&#x5F15;&#x8D77;&#x7684;&#x4EFB;&#x4F55;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x7684;&#x66F4;&#x6539;&#x90FD;&#x5C06;&#x53CD;&#x6620;&#x5230;&#x6C99;&#x76D2;&#x5BF9;&#x8C61;&#x4E2D;&#x3002;</p><pre><code class="language-js">const vm = require(&apos;vm&apos;);
+
+const x = 1;
+
+const sandbox = { x: 2 };
+vm.createContext(sandbox); // &#x4E0A;&#x4E0B;&#x6587;&#x9694;&#x79BB;&#x5316;&#x4E00;&#x4E2A;&#x6C99;&#x76D2;&#x3002;
+
+const code = &apos;x += 40; var y = 17;&apos;;
+// `x` and `y` &#x662F;&#x6C99;&#x76D2;&#x73AF;&#x5883;&#x4E2D;&#x7684;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x3002;
+// &#x6700;&#x521D;&#xFF0C;x &#x7684;&#x503C;&#x4E3A; 2&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x662F; sandbox.x &#x7684;&#x503C;&#x3002;
+vm.runInContext(code, sandbox);
+
+console.log(sandbox.x); // 42
+console.log(sandbox.y); // 17
+
+console.log(x); // 1; y &#x6CA1;&#x6709;&#x5B9A;&#x4E49;&#x3002;
+</code></pre></div>
+          <div id="content_right"><p></p><div class="api_stability api_stability_2"><a target="_blank" rel="nofollow" href="../documentation.html#documentation_stability_index">Stability: 2</a> - Stable</div><p></p><p>The <code>vm</code> module provides APIs for compiling and running code within V8 Virtual
+Machine contexts. <strong>The <code>vm</code> module is not a security mechanism. Do
+not use it to run untrusted code</strong>. The term &quot;sandbox&quot; is used throughout these
+docs simply to refer to a separate context, and does not confer any security
+guarantees.</p><p>JavaScript code can be compiled and run immediately or
+compiled, saved, and run later.</p><p>A common use case is to run the code in a sandboxed environment.
+The sandboxed code uses a different V8 Context, meaning that
+it has a different global object than the rest of the code.</p><p>One can provide the context by <a href="http://nodejs.cn/s/x6KGQQ" rel="nofollow">&quot;contextifying&quot;</a> a sandbox
+object. The sandboxed code treats any property in the sandbox like a
+global variable. Any changes to global variables caused by the sandboxed
+code are reflected in the sandbox object.</p><pre><code class="language-js">const vm = require(&apos;vm&apos;);
+
+const x = 1;
+
+const sandbox = { x: 2 };
+vm.createContext(sandbox); // Contextify the sandbox.
+
+const code = &apos;x += 40; var y = 17;&apos;;
+// `x` and `y` are global variables in the sandboxed environment.
+// Initially, x has the value 2 because that is the value of sandbox.x.
+vm.runInContext(code, sandbox);
+
+console.log(sandbox.x); // 42
+console.log(sandbox.y); // 17
+
+console.log(x); // 1; y is not defined.
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/vm/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756329765"><\/script>');
+  </script>
+</body>
+</html>

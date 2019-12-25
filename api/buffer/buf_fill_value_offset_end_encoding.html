@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>buf.fill(value[, offset[, end]][, encoding]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756294618" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-buffer">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>buf.fill(value[, offset[, end]][, encoding])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../buffer.html#buffer_buf_fill_value_offset_end_encoding" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/buffer/buf_fill_value_offset_end_encoding.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v11.0.0</td>
+<td><p>Throws <code>ERR_OUT_OF_RANGE</code> instead of <code>ERR_INDEX_OUT_OF_RANGE</code>.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p>Negative <code>end</code> values throw an <code>ERR_INDEX_OUT_OF_RANGE</code> error.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p>Attempting to fill a non-zero length buffer with a zero length buffer triggers a thrown exception.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p>Specifying an invalid string for <code>value</code> triggers a thrown exception.</p></td></tr>
+<tr><td>v5.7.0</td>
+<td><p>The <code>encoding</code> parameter is supported now.</p></td></tr>
+<tr><td>v0.5.0</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.5.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>value</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/ZbDkpm" target="_blank" rel="nofollow" class="type">&lt;Uint8Array&gt;</a> | <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x7528;&#x6765;&#x586B;&#x5145; <code>buf</code> &#x7684;&#x503C;&#x3002;</li>
+<li><code>offset</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x5F00;&#x59CB;&#x586B;&#x5145; <code>buf</code> &#x7684;&#x504F;&#x79FB;&#x91CF;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>0</code>&#x3002;</li>
+<li><code>end</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x7ED3;&#x675F;&#x586B;&#x5145; <code>buf</code> &#x7684;&#x504F;&#x79FB;&#x91CF;&#xFF08;&#x4E0D;&#x5305;&#x542B;&#xFF09;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <a href="http://nodejs.cn/s/hn6FjL" rel="nofollow"><code>buf.length</code></a>&#x3002;</li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5982;&#x679C; <code>value</code> &#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x6307;&#x5B9A; <code>value</code> &#x7684;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;utf8&apos;</code>&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> <code>buf</code> &#x7684;&#x5F15;&#x7528;&#x3002;</li>
+</ul><p>&#x7528;&#x6307;&#x5B9A;&#x7684; <code>value</code> &#x586B;&#x5145; <code>buf</code>&#x3002;
+&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6307;&#x5B9A; <code>offset</code> &#x4E0E; <code>end</code>&#xFF0C;&#x5219;&#x586B;&#x5145;&#x6574;&#x4E2A; <code>buf</code>&#xFF1A;</p><pre><code class="language-js">// &#x7528; ASCII &#x5B57;&#x7B26; &apos;h&apos; &#x586B;&#x5145; `Buffer`&#x3002;
+
+const b = Buffer.allocUnsafe(50).fill(&apos;h&apos;);
+
+console.log(b.toString());
+// &#x6253;&#x5370;: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+</code></pre><p>&#x5982;&#x679C; <code>value</code> &#x4E0D;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x3001; <code>Buffer</code>&#x3001;&#x6216;&#x6574;&#x6570;&#xFF0C;&#x5219;&#x4F1A;&#x88AB;&#x8F6C;&#x6362;&#x4E3A; <code>uint32</code> &#x503C;&#x3002;
+&#x5982;&#x679C;&#x5F97;&#x5230;&#x7684;&#x6574;&#x6570;&#x5927;&#x4E8E; <code>255</code>&#xFF08;&#x5341;&#x8FDB;&#x5236;&#xFF09;&#xFF0C;&#x5219; <code>buf</code> &#x5C06;&#x4F1A;&#x4F7F;&#x7528; <code>value &amp; 255</code> &#x586B;&#x5145;&#x3002;</p><p>&#x5982;&#x679C; <code>fill()</code> &#x6700;&#x540E;&#x5199;&#x5165;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x591A;&#x5B57;&#x8282;&#x5B57;&#x7B26;&#xFF0C;&#x5219;&#x53EA;&#x5199;&#x5165;&#x9002;&#x5408; <code>buf</code> &#x7684;&#x5B57;&#x8282;&#xFF1A;</p><pre><code class="language-js">// &#x7528;&#x4E00;&#x4E2A;&#x53CC;&#x5B57;&#x8282;&#x5B57;&#x7B26;&#x586B;&#x5145; `Buffer`&#x3002;
+
+console.log(Buffer.allocUnsafe(3).fill(&apos;\u0222&apos;));
+// &#x6253;&#x5370;: &lt;Buffer c8 a2 c8&gt;
+</code></pre><p>&#x5982;&#x679C; <code>value</code> &#x5305;&#x542B;&#x65E0;&#x6548;&#x7684;&#x5B57;&#x7B26;&#xFF0C;&#x5219;&#x622A;&#x6389;&#x65E0;&#x6548;&#x7684;&#x5B57;&#x7B26;&#x3002;
+&#x5982;&#x679C;&#x622A;&#x6389;&#x540E;&#x6CA1;&#x6709;&#x6570;&#x636E;&#xFF0C;&#x5219;&#x4E0D;&#x586B;&#x5145;&#xFF1A;</p><pre><code class="language-js">const buf = Buffer.allocUnsafe(5);
+
+console.log(buf.fill(&apos;a&apos;));
+// &#x6253;&#x5370;: &lt;Buffer 61 61 61 61 61&gt;
+console.log(buf.fill(&apos;aazz&apos;, &apos;hex&apos;));
+// &#x6253;&#x5370;: &lt;Buffer aa aa aa aa aa&gt;
+console.log(buf.fill(&apos;zz&apos;, &apos;hex&apos;));
+// &#x629B;&#x51FA;&#x5F02;&#x5E38;&#x3002;
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v11.0.0</td>
+<td><p>Throws <code>ERR_OUT_OF_RANGE</code> instead of <code>ERR_INDEX_OUT_OF_RANGE</code>.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p>Negative <code>end</code> values throw an <code>ERR_INDEX_OUT_OF_RANGE</code> error.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p>Attempting to fill a non-zero length buffer with a zero length buffer triggers a thrown exception.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p>Specifying an invalid string for <code>value</code> triggers a thrown exception.</p></td></tr>
+<tr><td>v5.7.0</td>
+<td><p>The <code>encoding</code> parameter is supported now.</p></td></tr>
+<tr><td>v0.5.0</td>
+<td><p><span>Added in: v0.5.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>value</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/ZbDkpm" target="_blank" rel="nofollow" class="type">&lt;Uint8Array&gt;</a> | <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> The value with which to fill <code>buf</code>.</li>
+<li><code>offset</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> Number of bytes to skip before starting to fill <code>buf</code>.
+<strong>Default:</strong> <code>0</code>.</li>
+<li><code>end</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> Where to stop filling <code>buf</code> (not inclusive). <strong>Default:</strong>
+<a href="http://nodejs.cn/s/hn6FjL" rel="nofollow"><code>buf.length</code></a>.</li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> The encoding for <code>value</code> if <code>value</code> is a string.
+<strong>Default:</strong> <code>&apos;utf8&apos;</code>.</li>
+<li>Returns: <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> A reference to <code>buf</code>.</li>
+</ul><p>Fills <code>buf</code> with the specified <code>value</code>. If the <code>offset</code> and <code>end</code> are not given,
+the entire <code>buf</code> will be filled:</p><pre><code class="language-js">// Fill a `Buffer` with the ASCII character &apos;h&apos;.
+
+const b = Buffer.allocUnsafe(50).fill(&apos;h&apos;);
+
+console.log(b.toString());
+// Prints: hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+</code></pre><p><code>value</code> is coerced to a <code>uint32</code> value if it is not a string, <code>Buffer</code>, or
+integer. If the resulting integer is greater than <code>255</code> (decimal), <code>buf</code> will be
+filled with <code>value &amp; 255</code>.</p><p>If the final write of a <code>fill()</code> operation falls on a multi-byte character,
+then only the bytes of that character that fit into <code>buf</code> are written:</p><pre><code class="language-js">// Fill a `Buffer` with a two-byte character.
+
+console.log(Buffer.allocUnsafe(3).fill(&apos;\u0222&apos;));
+// Prints: &lt;Buffer c8 a2 c8&gt;
+</code></pre><p>If <code>value</code> contains invalid characters, it is truncated; if no valid
+fill data remains, an exception is thrown:</p><pre><code class="language-js">const buf = Buffer.allocUnsafe(5);
+
+console.log(buf.fill(&apos;a&apos;));
+// Prints: &lt;Buffer 61 61 61 61 61&gt;
+console.log(buf.fill(&apos;aazz&apos;, &apos;hex&apos;));
+// Prints: &lt;Buffer aa aa aa aa aa&gt;
+console.log(buf.fill(&apos;zz&apos;, &apos;hex&apos;));
+// Throws an exception.
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756294618"><\/script>');
+  </script>
+</body>
+</html>

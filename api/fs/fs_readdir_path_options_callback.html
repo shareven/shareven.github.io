@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>fs.readdir(path[, options], callback) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756309990" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>fs.readdir(path[, options], callback)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_fs_readdir_path_options_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/fs_readdir_path_options_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.10.0</td>
+<td><p>New option <code>withFileTypes</code> was added.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will throw a <code>TypeError</code> at runtime.</p></td></tr>
+<tr><td>v7.6.0</td>
+<td><p>The <code>path</code> parameter can be a WHATWG <code>URL</code> object using <code>file:</code> protocol. Support is currently still <em>experimental</em>.</p></td></tr>
+<tr><td>v7.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will emit a deprecation warning with id DEP0013.</p></td></tr>
+<tr><td>v6.0.0</td>
+<td><p>The <code>options</code> parameter was added.</p></td></tr>
+<tr><td>v0.1.8</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.8</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;utf8&apos;</code>&#x3002;</li>
+<li><code>withFileTypes</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#x3002;</li>
+</ul>
+</li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>files</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string[]&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer[]&gt;</a> | <a href="http://nodejs.cn/s/mNLVJ7" target="_blank" rel="nofollow" class="type">&lt;fs.Dirent[]&gt;</a></li>
+</ul>
+</li>
+</ul><p>&#x5F02;&#x6B65;&#x7684; <a href="http://nodejs.cn/s/QvrbKw" rel="nofollow"><code>readdir(3)</code></a>&#x3002;
+&#x8BFB;&#x53D6;&#x76EE;&#x5F55;&#x7684;&#x5185;&#x5BB9;&#x3002;
+&#x56DE;&#x8C03;&#x6709;&#x4E24;&#x4E2A;&#x53C2;&#x6570; <code>(err, files)</code>&#xFF0C;&#x5176;&#x4E2D; <code>files</code> &#x662F;&#x76EE;&#x5F55;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x7684;&#x6570;&#x7EC4;&#xFF08;&#x4E0D;&#x5305;&#x62EC; <code>&apos;.&apos;</code> &#x548C; <code>&apos;..&apos;</code>&#xFF09;&#x3002;</p><p>&#x53EF;&#x9009;&#x7684; <code>options</code> &#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x662F;&#x6307;&#x5B9A;&#x7F16;&#x7801;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x5177;&#x6709; <code>encoding</code> &#x5C5E;&#x6027;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x8BE5;&#x5C5E;&#x6027;&#x6307;&#x5B9A;&#x7528;&#x4E8E;&#x4F20;&#x7ED9;&#x56DE;&#x8C03;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x7684;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x3002;
+&#x5982;&#x679C; <code>encoding</code> &#x8BBE;&#x7F6E;&#x4E3A; <code>&apos;buffer&apos;</code>&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x662F; <code>Buffer</code> &#x5BF9;&#x8C61;&#x3002;</p><p>&#x5982;&#x679C; <code>options.withFileTypes</code> &#x8BBE;&#x7F6E;&#x4E3A; <code>true</code>&#xFF0C;&#x5219; <code>files</code> &#x6570;&#x7EC4;&#x5C06;&#x5305;&#x542B; <a href="http://nodejs.cn/s/mNLVJ7" rel="nofollow"><code>fs.Dirent</code></a> &#x5BF9;&#x8C61;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v10.10.0</td>
+<td><p>New option <code>withFileTypes</code> was added.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will throw a <code>TypeError</code> at runtime.</p></td></tr>
+<tr><td>v7.6.0</td>
+<td><p>The <code>path</code> parameter can be a WHATWG <code>URL</code> object using <code>file:</code> protocol. Support is currently still <em>experimental</em>.</p></td></tr>
+<tr><td>v7.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will emit a deprecation warning with id DEP0013.</p></td></tr>
+<tr><td>v6.0.0</td>
+<td><p>The <code>options</code> parameter was added.</p></td></tr>
+<tr><td>v0.1.8</td>
+<td><p><span>Added in: v0.1.8</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> <strong>Default:</strong> <code>&apos;utf8&apos;</code></li>
+<li><code>withFileTypes</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> <strong>Default:</strong> <code>false</code></li>
+</ul>
+</li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>files</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string[]&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer[]&gt;</a> | <a href="http://nodejs.cn/s/mNLVJ7" target="_blank" rel="nofollow" class="type">&lt;fs.Dirent[]&gt;</a></li>
+</ul>
+</li>
+</ul><p>Asynchronous <a href="http://nodejs.cn/s/QvrbKw" rel="nofollow"><code>readdir(3)</code></a>. Reads the contents of a directory.
+The callback gets two arguments <code>(err, files)</code> where <code>files</code> is an array of
+the names of the files in the directory excluding <code>&apos;.&apos;</code> and <code>&apos;..&apos;</code>.</p><p>The optional <code>options</code> argument can be a string specifying an encoding, or an
+object with an <code>encoding</code> property specifying the character encoding to use for
+the filenames passed to the callback. If the <code>encoding</code> is set to <code>&apos;buffer&apos;</code>,
+the filenames returned will be passed as <code>Buffer</code> objects.</p><p>If <code>options.withFileTypes</code> is set to <code>true</code>, the <code>files</code> array will contain
+<a href="http://nodejs.cn/s/mNLVJ7" rel="nofollow"><code>fs.Dirent</code></a> objects.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756309990"><\/script>');
+  </script>
+</body>
+</html>

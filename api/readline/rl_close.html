@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>rl.close() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/readline/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756322229" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-readline">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>rl.close()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../readline.html#readline_rl_close" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/readline/rl_close.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.98</span>
+</div><p><code>rl.close()</code> &#x65B9;&#x6CD5;&#x4F1A;&#x5173;&#x95ED; <code>readline.Interface</code> &#x5B9E;&#x4F8B;&#xFF0C;&#x5E76;&#x653E;&#x5F03;&#x5BF9; <code>input</code> &#x548C; <code>output</code> &#x6D41;&#x7684;&#x63A7;&#x5236;&#x3002;
+&#x5F53;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5C06;&#x89E6;&#x53D1; <code>&apos;close&apos;</code> &#x4E8B;&#x4EF6;&#x3002;</p><p>&#x8C03;&#x7528; <code>rl.close()</code> &#x4E0D;&#x4F1A;&#x7ACB;&#x5373;&#x505C;&#x6B62; <code>readline.Interface</code> &#x5B9E;&#x4F8B;&#x89E6;&#x53D1;&#x7684;&#x5176;&#x4ED6;&#x4E8B;&#x4EF6;&#xFF08;&#x5305;&#x62EC; <code>&apos;line&apos;</code>&#xFF09;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.98</span>
+</div><p>The <code>rl.close()</code> method closes the <code>readline.Interface</code> instance and
+relinquishes control over the <code>input</code> and <code>output</code> streams. When called,
+the <code>&apos;close&apos;</code> event will be emitted.</p><p>Calling <code>rl.close()</code> does not immediately stop other events (including <code>&apos;line&apos;</code>)
+from being emitted by the <code>readline.Interface</code> instance.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/readline/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756322229"><\/script>');
+  </script>
+</body>
+</html>

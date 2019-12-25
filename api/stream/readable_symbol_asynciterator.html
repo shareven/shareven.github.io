@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>readable[Symbol.asyncIterator]() | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324215" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-stream">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>readable[Symbol.asyncIterator]()</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../stream.html#stream_readable_symbol_asynciterator" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/stream/readable_symbol_asynciterator.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v11.14.0</td>
+<td><p>Symbol.asyncIterator support is no longer experimental.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v10.0.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/HnG4ws" target="_blank" rel="nofollow" class="type">&lt;AsyncIterator&gt;</a> &#x7528;&#x4E8E;&#x5B8C;&#x5168;&#x5730;&#x6D88;&#x8D39;&#x6D41;&#x3002;</li>
+</ul><pre><code class="language-js">const fs = require(&apos;fs&apos;);
+
+async function print(readable) {
+  readable.setEncoding(&apos;utf8&apos;);
+  let data = &apos;&apos;;
+  for await (const chunk of readable) {
+    data += chunk;
+  }
+  console.log(data);
+}
+
+print(fs.createReadStream(&apos;file&apos;)).catch(console.error);
+</code></pre><p>&#x5982;&#x679C;&#x5FAA;&#x73AF;&#x4EE5; <code>break</code> &#x6216; <code>throw</code> &#x7EC8;&#x6B62;&#xFF0C;&#x5219;&#x6D41;&#x5C06;&#x4F1A;&#x88AB;&#x9500;&#x6BC1;&#x3002;
+&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;&#x8FED;&#x4EE3;&#x6D41;&#x5C06;&#x5B8C;&#x5168;&#x5730;&#x6D88;&#x8D39;&#x6D41;&#x3002;
+&#x5C06;&#x4EE5;&#x5927;&#x5C0F;&#x7B49;&#x4E8E; <code>highWaterMark</code> &#x9009;&#x9879;&#x7684;&#x5757;&#x8BFB;&#x53D6;&#x6D41;&#x3002;
+&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x7684;&#x6570;&#x636E;&#x5C11;&#x4E8E; 64kb&#xFF0C;&#x5219;&#x6570;&#x636E;&#x5C06;&#x4F4D;&#x4E8E;&#x5355;&#x4E2A;&#x5757;&#x4E2D;&#xFF0C;&#x56E0;&#x4E3A;&#x6CA1;&#x6709;&#x4E3A; <a href="http://nodejs.cn/s/wiVPXD" rel="nofollow"><code>fs.createReadStream()</code></a> &#x63D0;&#x4F9B; <code>highWaterMark</code> &#x9009;&#x9879;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v11.14.0</td>
+<td><p>Symbol.asyncIterator support is no longer experimental.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p><span>Added in: v10.0.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li>Returns: <a href="http://nodejs.cn/s/HnG4ws" target="_blank" rel="nofollow" class="type">&lt;AsyncIterator&gt;</a> to fully consume the stream.</li>
+</ul><pre><code class="language-js">const fs = require(&apos;fs&apos;);
+
+async function print(readable) {
+  readable.setEncoding(&apos;utf8&apos;);
+  let data = &apos;&apos;;
+  for await (const chunk of readable) {
+    data += chunk;
+  }
+  console.log(data);
+}
+
+print(fs.createReadStream(&apos;file&apos;)).catch(console.error);
+</code></pre><p>If the loop terminates with a <code>break</code> or a <code>throw</code>, the stream will be
+destroyed. In other terms, iterating over a stream will consume the stream
+fully. The stream will be read in chunks of size equal to the <code>highWaterMark</code>
+option. In the code example above, data will be in a single chunk if the file
+has less then 64kb of data because no <code>highWaterMark</code> option is provided to
+<a href="http://nodejs.cn/s/wiVPXD" rel="nofollow"><code>fs.createReadStream()</code></a>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324215"><\/script>');
+  </script>
+</body>
+</html>

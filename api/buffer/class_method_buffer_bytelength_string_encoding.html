@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Buffer.byteLength(string[, encoding]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756294548" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-buffer">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>Buffer.byteLength(string[, encoding])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../buffer.html#buffer_class_method_buffer_bytelength_string_encoding" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/buffer/class_method_buffer_bytelength_string_encoding.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v7.0.0</td>
+<td><p>Passing invalid input will now throw an error.</p></td></tr>
+<tr><td>v5.10.0</td>
+<td><p>The <code>string</code> parameter can now be any <code>TypedArray</code>, <code>DataView</code> or <code>ArrayBuffer</code>.</p></td></tr>
+<tr><td>v0.1.90</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.90</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>string</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/oh3CkV" target="_blank" rel="nofollow" class="type">&lt;TypedArray&gt;</a> | <a href="http://nodejs.cn/s/yCdVkD" target="_blank" rel="nofollow" class="type">&lt;DataView&gt;</a> | <a href="http://nodejs.cn/s/mUbfvF" target="_blank" rel="nofollow" class="type">&lt;ArrayBuffer&gt;</a> | <a href="http://nodejs.cn/s/6J6LBy" target="_blank" rel="nofollow" class="type">&lt;SharedArrayBuffer&gt;</a> &#x8981;&#x8BA1;&#x7B97;&#x957F;&#x5EA6;&#x7684;&#x503C;&#x3002;</li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5982;&#x679C; <code>string</code> &#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x8FD9;&#x662F;&#x5B83;&#x7684;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;utf8&apos;</code>&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> <code>string</code> &#x4E2D;&#x5305;&#x542B;&#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;</li>
+</ul><p>&#x8FD4;&#x56DE;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5B9E;&#x9645;&#x5B57;&#x8282;&#x957F;&#x5EA6;&#x3002;
+&#x4E0E; <a href="http://nodejs.cn/s/TmnY1C" rel="nofollow"><code>String.prototype.length</code></a> &#x4E0D;&#x540C;&#xFF0C;&#x540E;&#x8005;&#x8FD4;&#x56DE;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5B57;&#x7B26;&#x6570;&#x3002;</p><p>&#x5BF9;&#x4E8E; <code>&apos;base64&apos;</code> &#x548C; <code>&apos;hex&apos;</code>&#xFF0C;&#x6B64;&#x51FD;&#x6570;&#x4F1A;&#x5047;&#x5B9A;&#x8F93;&#x5165;&#x662F;&#x6709;&#x6548;&#x7684;&#x3002;
+&#x5BF9;&#x4E8E;&#x5305;&#x542B;&#x975E; Base64/Hex &#x7F16;&#x7801;&#x7684;&#x6570;&#x636E;&#xFF08;&#x4F8B;&#x5982;&#x7A7A;&#x683C;&#xFF09;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x53EF;&#x80FD;&#x662F;&#x5927;&#x4E8E;&#x4ECE;&#x5B57;&#x7B26;&#x4E32;&#x521B;&#x5EFA;&#x7684; <code>Buffer</code> &#x7684;&#x957F;&#x5EA6;&#x3002;</p><pre><code class="language-js">const str = &apos;\u00bd + \u00bc = \u00be&apos;;
+
+console.log(`${str}: ${str.length} &#x4E2A;&#x5B57;&#x7B26;, ` +
+            `${Buffer.byteLength(str, &apos;utf8&apos;)} &#x4E2A;&#x5B57;&#x8282;`);
+// &#x6253;&#x5370;: &#xBD; + &#xBC; = &#xBE;: 9 &#x4E2A;&#x5B57;&#x7B26;, 12 &#x4E2A;&#x5B57;&#x8282;
+</code></pre><p>&#x5F53; <code>string</code> &#x662F;&#x4E00;&#x4E2A; <code>Buffer</code>/<a href="http://nodejs.cn/s/yCdVkD" rel="nofollow"><code>DataView</code></a>/<a href="http://nodejs.cn/s/oh3CkV" rel="nofollow"><code>TypedArray</code></a>/<a href="http://nodejs.cn/s/mUbfvF" rel="nofollow"><code>ArrayBuffer</code></a>/<a href="http://nodejs.cn/s/6J6LBy" rel="nofollow"><code>SharedArrayBuffer</code></a> &#x65F6;&#xFF0C;&#x8FD4;&#x56DE;&#x5B9E;&#x9645;&#x7684;&#x5B57;&#x8282;&#x957F;&#x5EA6;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v7.0.0</td>
+<td><p>Passing invalid input will now throw an error.</p></td></tr>
+<tr><td>v5.10.0</td>
+<td><p>The <code>string</code> parameter can now be any <code>TypedArray</code>, <code>DataView</code> or <code>ArrayBuffer</code>.</p></td></tr>
+<tr><td>v0.1.90</td>
+<td><p><span>Added in: v0.1.90</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>string</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/oh3CkV" target="_blank" rel="nofollow" class="type">&lt;TypedArray&gt;</a> | <a href="http://nodejs.cn/s/yCdVkD" target="_blank" rel="nofollow" class="type">&lt;DataView&gt;</a> | <a href="http://nodejs.cn/s/mUbfvF" target="_blank" rel="nofollow" class="type">&lt;ArrayBuffer&gt;</a> | <a href="http://nodejs.cn/s/6J6LBy" target="_blank" rel="nofollow" class="type">&lt;SharedArrayBuffer&gt;</a> A
+value to calculate the length of.</li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> If <code>string</code> is a string, this is its encoding.
+<strong>Default:</strong> <code>&apos;utf8&apos;</code>.</li>
+<li>Returns: <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> The number of bytes contained within <code>string</code>.</li>
+</ul><p>Returns the actual byte length of a string. This is not the same as
+<a href="http://nodejs.cn/s/TmnY1C" rel="nofollow"><code>String.prototype.length</code></a> since that returns the number of <em>characters</em> in
+a string.</p><p>For <code>&apos;base64&apos;</code> and <code>&apos;hex&apos;</code>, this function assumes valid input. For strings that
+contain non-Base64/Hex-encoded data (e.g. whitespace), the return value might be
+greater than the length of a <code>Buffer</code> created from the string.</p><pre><code class="language-js">const str = &apos;\u00bd + \u00bc = \u00be&apos;;
+
+console.log(`${str}: ${str.length} characters, ` +
+            `${Buffer.byteLength(str, &apos;utf8&apos;)} bytes`);
+// Prints: &#xBD; + &#xBC; = &#xBE;: 9 characters, 12 bytes
+</code></pre><p>When <code>string</code> is a <code>Buffer</code>/<a href="http://nodejs.cn/s/yCdVkD" rel="nofollow"><code>DataView</code></a>/<a href="http://nodejs.cn/s/oh3CkV" rel="nofollow"><code>TypedArray</code></a>/<a href="http://nodejs.cn/s/mUbfvF" rel="nofollow"><code>ArrayBuffer</code></a>/
+<a href="http://nodejs.cn/s/6J6LBy" rel="nofollow"><code>SharedArrayBuffer</code></a>, the actual byte length is returned.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/buffer/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756294548"><\/script>');
+  </script>
+</body>
+</html>

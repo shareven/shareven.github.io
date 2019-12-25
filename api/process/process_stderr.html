@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>process.stderr | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756321095" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>process.stderr</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../process.html#process_process_stderr" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/process/process_stderr.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><ul>
+<li><a href="http://nodejs.cn/s/t73H94" target="_blank" rel="nofollow" class="type">&lt;Stream&gt;</a></li>
+</ul><p><code>process.stderr</code> &#x5C5E;&#x6027;&#x8FD4;&#x56DE;&#x8FDE;&#x63A5;&#x5230; <code>stderr</code> (fd <code>2</code>) &#x7684;&#x6D41;&#x3002;
+&#x5B83;&#x662F;&#x4E00;&#x4E2A; <a href="http://nodejs.cn/s/wsJ1o1" rel="nofollow"><code>net.Socket</code></a> &#x6D41;&#xFF08;&#x4E5F;&#x5C31;&#x662F;<a href="http://nodejs.cn/s/eYoo7B" rel="nofollow">&#x53CC;&#x5DE5;&#x6D41;</a>&#xFF09;&#xFF0C;&#x9664;&#x975E; fd <code>2</code> &#x6307;&#x5411;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x5B83;&#x662F;&#x4E00;&#x4E2A;<a href="http://nodejs.cn/s/LzH75p" rel="nofollow">&#x53EF;&#x5199;&#x6D41;</a>&#x3002;</p><p><code>process.stderr</code> &#x4E0E;&#x5176;&#x4ED6;&#x7684; Node.js &#x6D41;&#x6709;&#x91CD;&#x5927;&#x533A;&#x522B;&#x3002;
+&#x6709;&#x5173;&#x66F4;&#x591A;&#x4FE1;&#x606F;&#xFF0C;&#x53C2;&#x9605;&#x6709;&#x5173;<a href="http://nodejs.cn/s/u5R9ap" rel="nofollow">&#x8FDB;&#x7A0B; I/O &#x7684;&#x6CE8;&#x610F;&#x4E8B;&#x9879;</a>&#x3002;</p></div>
+          <div id="content_right"><ul>
+<li><a href="http://nodejs.cn/s/t73H94" target="_blank" rel="nofollow" class="type">&lt;Stream&gt;</a></li>
+</ul><p>The <code>process.stderr</code> property returns a stream connected to
+<code>stderr</code> (fd <code>2</code>). It is a <a href="http://nodejs.cn/s/wsJ1o1" rel="nofollow"><code>net.Socket</code></a> (which is a <a href="http://nodejs.cn/s/eYoo7B" rel="nofollow">Duplex</a>
+stream) unless fd <code>2</code> refers to a file, in which case it is
+a <a href="http://nodejs.cn/s/LzH75p" rel="nofollow">Writable</a> stream.</p><p><code>process.stderr</code> differs from other Node.js streams in important ways. See
+<a href="http://nodejs.cn/s/u5R9ap" rel="nofollow">note on process I/O</a> for more information.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756321095"><\/script>');
+  </script>
+</body>
+</html>

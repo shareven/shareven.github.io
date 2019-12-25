@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>fs.write(fd, string[, position[, encoding]], callback) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756310168" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>fs.write(fd, string[, position[, encoding]], callback)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_fs_write_fd_string_position_encoding_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/fs_write_fd_string_position_encoding_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will throw a <code>TypeError</code> at runtime.</p></td></tr>
+<tr><td>v7.2.0</td>
+<td><p>The <code>position</code> parameter is optional now.</p></td></tr>
+<tr><td>v7.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will emit a deprecation warning with id DEP0013.</p></td></tr>
+<tr><td>v0.11.5</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.11.5</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>fd</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>string</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>position</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;utf8&apos;</code>&#x3002;</li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>written</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>string</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul>
+</li>
+</ul><p>&#x5C06; <code>string</code> &#x5199;&#x5165;&#x5230; <code>fd</code> &#x6307;&#x5B9A;&#x7684;&#x6587;&#x4EF6;&#x3002;
+&#x5982;&#x679C; <code>string</code> &#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x8BE5;&#x503C;&#x4F1A;&#x88AB;&#x5F3A;&#x5236;&#x8F6C;&#x6362;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x3002;</p><p><code>position</code> &#x6307;&#x5B9A;&#x6587;&#x4EF6;&#x5F00;&#x5934;&#x7684;&#x504F;&#x79FB;&#x91CF;&#xFF08;&#x6570;&#x636E;&#x5E94;&#x8BE5;&#x88AB;&#x5199;&#x5165;&#x7684;&#x4F4D;&#x7F6E;&#xFF09;&#x3002;
+&#x5982;&#x679C; <code>typeof position !== &apos;number&apos;</code>&#xFF0C;&#x5219;&#x6570;&#x636E;&#x4F1A;&#x88AB;&#x5199;&#x5165;&#x5F53;&#x524D;&#x7684;&#x4F4D;&#x7F6E;&#x3002;
+&#x53C2;&#x9605; <a href="http://nodejs.cn/s/2qJ9AM" rel="nofollow"><code>pwrite(2)</code></a>&#x3002;</p><p><code>encoding</code> &#x662F;&#x671F;&#x671B;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x7F16;&#x7801;&#x3002;</p><p>&#x56DE;&#x8C03;&#x4F1A;&#x63A5;&#x6536;&#x5230;&#x53C2;&#x6570; <code>(err, written, string)</code>&#xFF0C;&#x5176;&#x4E2D; <code>written</code> &#x6307;&#x5B9A;&#x4F20;&#x5165;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x88AB;&#x8981;&#x6C42;&#x5199;&#x5165;&#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;
+&#x88AB;&#x5199;&#x5165;&#x7684;&#x5B57;&#x8282;&#x6570;&#x4E0D;&#x4E00;&#x5B9A;&#x4E0E;&#x88AB;&#x5199;&#x5165;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x5B57;&#x7B26;&#x6570;&#x76F8;&#x540C;&#x3002;
+&#x53C2;&#x9605; <a href="http://nodejs.cn/s/J9wTov" rel="nofollow"><code>Buffer.byteLength</code></a>&#x3002;</p><p>&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4E0A;&#x591A;&#x6B21;&#x4F7F;&#x7528; <code>fs.write()</code> &#x4E14;&#x4E0D;&#x7B49;&#x5F85;&#x56DE;&#x8C03;&#x662F;&#x4E0D;&#x5B89;&#x5168;&#x7684;&#x3002;
+&#x5BF9;&#x4E8E;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/VdSJQa" rel="nofollow"><code>fs.createWriteStream()</code></a>&#x3002;</p><p>&#x5728; Linux &#x4E0A;&#xFF0C;&#x5F53;&#x4EE5;&#x8FFD;&#x52A0;&#x6A21;&#x5F0F;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x65F6;&#xFF0C;&#x5199;&#x5165;&#x65E0;&#x6CD5;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x3002;
+&#x5185;&#x6838;&#x4F1A;&#x5FFD;&#x7565;&#x4F4D;&#x7F6E;&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x59CB;&#x7EC8;&#x5C06;&#x6570;&#x636E;&#x8FFD;&#x52A0;&#x5230;&#x6587;&#x4EF6;&#x7684;&#x672B;&#x5C3E;&#x3002;</p><p>&#x5728; Windows &#x4E0A;&#xFF0C;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x8FDE;&#x63A5;&#x5230;&#x63A7;&#x5236;&#x53F0;&#xFF08;&#x4F8B;&#x5982; <code>fd == 1</code> &#x6216; <code>stdout</code>&#xFF09;&#xFF0C;&#x5219;&#x65E0;&#x8BBA;&#x4F7F;&#x7528;&#x4F55;&#x79CD;&#x7F16;&#x7801;&#xFF0C;&#x5305;&#x542B;&#x975E; ASCII &#x5B57;&#x7B26;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x90FD;&#x4E0D;&#x4F1A;&#x88AB;&#x6B63;&#x786E;&#x5730;&#x6E32;&#x67D3;&#x3002;
+&#x901A;&#x8FC7;&#x4F7F;&#x7528; <code>chcp 65001</code> &#x547D;&#x4EE4;&#x66F4;&#x6539;&#x6D3B;&#x52A8;&#x7684;&#x4EE3;&#x7801;&#x9875;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x63A7;&#x5236;&#x53F0;&#x914D;&#x7F6E;&#x4E3A;&#x6B63;&#x786E;&#x5730;&#x6E32;&#x67D3; UTF-8&#x3002;
+&#x8BE6;&#x89C1; <a href="http://nodejs.cn/s/NAMZkR" rel="nofollow">chcp</a> &#x6587;&#x6863;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will throw a <code>TypeError</code> at runtime.</p></td></tr>
+<tr><td>v7.2.0</td>
+<td><p>The <code>position</code> parameter is optional now.</p></td></tr>
+<tr><td>v7.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will emit a deprecation warning with id DEP0013.</p></td></tr>
+<tr><td>v0.11.5</td>
+<td><p><span>Added in: v0.11.5</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>fd</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>string</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>position</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> <strong>Default:</strong> <code>&apos;utf8&apos;</code></li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+<li><code>written</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>string</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul>
+</li>
+</ul><p>Write <code>string</code> to the file specified by <code>fd</code>. If <code>string</code> is not a string, then
+the value will be coerced to one.</p><p><code>position</code> refers to the offset from the beginning of the file where this data
+should be written. If <code>typeof position !== &apos;number&apos;</code> the data will be written at
+the current position. See <a href="http://nodejs.cn/s/2qJ9AM" rel="nofollow"><code>pwrite(2)</code></a>.</p><p><code>encoding</code> is the expected string encoding.</p><p>The callback will receive the arguments <code>(err, written, string)</code> where <code>written</code>
+specifies how many <em>bytes</em> the passed string required to be written. Bytes
+written is not necessarily the same as string characters written. See
+<a href="http://nodejs.cn/s/J9wTov" rel="nofollow"><code>Buffer.byteLength</code></a>.</p><p>It is unsafe to use <code>fs.write()</code> multiple times on the same file without waiting
+for the callback. For this scenario, <a href="http://nodejs.cn/s/VdSJQa" rel="nofollow"><code>fs.createWriteStream()</code></a> is
+recommended.</p><p>On Linux, positional writes don&apos;t work when the file is opened in append mode.
+The kernel ignores the position argument and always appends the data to
+the end of the file.</p><p>On Windows, if the file descriptor is connected to the console (e.g. <code>fd == 1</code>
+or <code>stdout</code>) a string containing non-ASCII characters will not be rendered
+properly by default, regardless of the encoding used.
+It is possible to configure the console to render UTF-8 properly by changing the
+active codepage with the <code>chcp 65001</code> command. See the <a href="http://nodejs.cn/s/NAMZkR" rel="nofollow">chcp</a> docs for more
+details.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756310168"><\/script>');
+  </script>
+</body>
+</html>

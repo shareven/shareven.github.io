@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>filehandle.write(buffer[, offset[, length[, position]]]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756310278" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>filehandle.write(buffer[, offset[, length[, position]]])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_filehandle_write_buffer_offset_length_position" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/filehandle_write_buffer_offset_length_position.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.0.0</span>
+</div><ul>
+<li><code>buffer</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/ZbDkpm" target="_blank" rel="nofollow" class="type">&lt;Uint8Array&gt;</a></li>
+<li><code>offset</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>length</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>position</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/ri1kj8" target="_blank" rel="nofollow" class="type">&lt;Promise&gt;</a></li>
+</ul><p>&#x5C06; <code>buffer</code> &#x5199;&#x5165;&#x5230;&#x6587;&#x4EF6;&#x3002;</p><p><code>Promise</code> &#x4F1A;&#x88AB;&#x89E3;&#x51B3;&#x5E76;&#x5E26;&#x4E0A;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5BF9;&#x8C61;&#x5305;&#x542B;&#x4E00;&#x4E2A; <code>bytesWritten</code> &#x5C5E;&#x6027;&#xFF08;&#x6307;&#x5B9A;&#x5199;&#x5165;&#x7684;&#x5B57;&#x8282;&#x6570;&#xFF09;&#x548C;&#x4E00;&#x4E2A; <code>buffer</code> &#x5C5E;&#x6027;&#xFF08;&#x6307;&#x5411;&#x5199;&#x5165;&#x7684; <code>buffer</code>&#xFF09;&#x3002;</p><p><code>offset</code> &#x51B3;&#x5B9A; buffer &#x4E2D;&#x8981;&#x88AB;&#x5199;&#x5165;&#x7684;&#x90E8;&#x4F4D;&#xFF0C; <code>length</code> &#x662F;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#xFF0C;&#x6307;&#x5B9A;&#x8981;&#x5199;&#x5165;&#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;</p><p><code>position</code> &#x6307;&#x5B9A;&#x6587;&#x4EF6;&#x5F00;&#x5934;&#x7684;&#x504F;&#x79FB;&#x91CF;&#xFF08;&#x6570;&#x636E;&#x5E94;&#x8BE5;&#x88AB;&#x5199;&#x5165;&#x7684;&#x4F4D;&#x7F6E;&#xFF09;&#x3002;
+&#x5982;&#x679C; <code>typeof position !== &apos;number&apos;</code>&#xFF0C;&#x5219;&#x6570;&#x636E;&#x4F1A;&#x88AB;&#x5199;&#x5165;&#x5F53;&#x524D;&#x7684;&#x4F4D;&#x7F6E;&#x3002;
+&#x53C2;&#x9605; <a href="http://nodejs.cn/s/2qJ9AM" rel="nofollow"><code>pwrite(2)</code></a>&#x3002;</p><p>&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4E0A;&#x591A;&#x6B21;&#x4F7F;&#x7528; <code>filehandle.write()</code> &#x4E14;&#x4E0D;&#x7B49;&#x5F85; <code>Promise</code> &#x88AB;&#x89E3;&#x51B3;&#xFF08;&#x6216;&#x88AB;&#x62D2;&#x7EDD;&#xFF09;&#x662F;&#x4E0D;&#x5B89;&#x5168;&#x7684;&#x3002;
+&#x5BF9;&#x4E8E;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/VdSJQa" rel="nofollow"><code>fs.createWriteStream()</code></a>&#x3002;</p><p>&#x5728; Linux &#x4E0A;&#xFF0C;&#x5F53;&#x4EE5;&#x8FFD;&#x52A0;&#x6A21;&#x5F0F;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x65F6;&#xFF0C;&#x5199;&#x5165;&#x65E0;&#x6CD5;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x3002;
+&#x5185;&#x6838;&#x4F1A;&#x5FFD;&#x7565;&#x4F4D;&#x7F6E;&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x59CB;&#x7EC8;&#x5C06;&#x6570;&#x636E;&#x8FFD;&#x52A0;&#x5230;&#x6587;&#x4EF6;&#x7684;&#x672B;&#x5C3E;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v10.0.0</span>
+</div><ul>
+<li><code>buffer</code> <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/ZbDkpm" target="_blank" rel="nofollow" class="type">&lt;Uint8Array&gt;</a></li>
+<li><code>offset</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>length</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li><code>position</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a></li>
+<li>Returns: <a href="http://nodejs.cn/s/ri1kj8" target="_blank" rel="nofollow" class="type">&lt;Promise&gt;</a></li>
+</ul><p>Write <code>buffer</code> to the file.</p><p>The <code>Promise</code> is resolved with an object containing a <code>bytesWritten</code> property
+identifying the number of bytes written, and a <code>buffer</code> property containing
+a reference to the <code>buffer</code> written.</p><p><code>offset</code> determines the part of the buffer to be written, and <code>length</code> is
+an integer specifying the number of bytes to write.</p><p><code>position</code> refers to the offset from the beginning of the file where this data
+should be written. If <code>typeof position !== &apos;number&apos;</code>, the data will be written
+at the current position. See <a href="http://nodejs.cn/s/2qJ9AM" rel="nofollow"><code>pwrite(2)</code></a>.</p><p>It is unsafe to use <code>filehandle.write()</code> multiple times on the same file
+without waiting for the <code>Promise</code> to be resolved (or rejected). For this
+scenario, use <a href="http://nodejs.cn/s/VdSJQa" rel="nofollow"><code>fs.createWriteStream()</code></a>.</p><p>On Linux, positional writes do not work when the file is opened in append mode.
+The kernel ignores the position argument and always appends the data to
+the end of the file.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756310278"><\/script>');
+  </script>
+</body>
+</html>

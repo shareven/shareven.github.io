@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>net.createConnection(path[, connectListener]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/net/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756318432" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-net">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>net.createConnection(path[, connectListener])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../net.html#net_net_createconnection_path_connectlistener" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/net/net_createconnection_path_connectlistener.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.90</span>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> Socket &#x5E94;&#x8BE5;&#x88AB;&#x8FDE;&#x63A5;&#x5230;&#x7684;&#x8DEF;&#x5F84;&#x3002;&#x5C06;&#x4F1A;&#x88AB;&#x4F20;&#x5165;&#x5230; <a href="http://nodejs.cn/s/Ym5CUG" rel="nofollow"><code>socket.connect(path[, connectListener])</code></a>&#x3002;&#x67E5;&#x770B;<a href="http://nodejs.cn/s/tNVQV4" rel="nofollow">&#x8BC6;&#x522B; IPC &#x8FDE;&#x63A5;&#x7684;&#x8DEF;&#x5F84;</a>&#x3002;</li>
+<li><code>connectListener</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> <a href="http://nodejs.cn/s/RTNxdX" rel="nofollow"><code>net.createConnection()</code></a> &#x65B9;&#x6CD5;&#x7684;&#x901A;&#x7528;&#x53C2;&#x6570;&#xFF0C;&#x5728;&#x521D;&#x59CB;&#x5316;&#x7684; socket &#x4E0A;&#x7684; <code>&apos;connect&apos;</code> &#x4E8B;&#x4EF6;&#x7684;&#x5355;&#x6B21;&#x76D1;&#x542C;&#x5668;&#x3002;&#x5C06;&#x4F1A;&#x88AB;&#x4F20;&#x5165;&#x5230; <a href="http://nodejs.cn/s/Ym5CUG" rel="nofollow"><code>socket.connect(path[, connectListener])</code></a>&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/wsJ1o1" target="_blank" rel="nofollow" class="type">&lt;net.Socket&gt;</a> &#x65B0;&#x521B;&#x5EFA;&#x7684; socket&#xFF0C;&#x7528;&#x6765;&#x5F00;&#x59CB;&#x8FDE;&#x63A5;&#x3002;</li>
+</ul><p>&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A; <a href="http://nodejs.cn/s/rAdYjf" rel="nofollow">IPC</a> &#x8FDE;&#x63A5;&#x3002;</p><p>&#x8BE5;&#x65B9;&#x6CD5;&#x4F7F;&#x7528;&#x6240;&#x6709;&#x9ED8;&#x8BA4;&#x9009;&#x9879;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684; <a href="http://nodejs.cn/s/wsJ1o1" rel="nofollow"><code>net.Socket</code></a>&#xFF0C;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/Ym5CUG" rel="nofollow"><code>socket.connect(path[, connectListener])</code></a> &#x7ACB;&#x5373;&#x521D;&#x59CB;&#x5316;&#x8FDE;&#x63A5;&#xFF0C;&#x7136;&#x540E;&#x8FD4;&#x56DE;&#x521D;&#x59CB;&#x5316;&#x8FDE;&#x63A5;&#x7684; <code>net.Socket</code>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.90</span>
+</div><ul>
+<li><code>path</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> Path the socket should connect to. Will be passed to
+<a href="http://nodejs.cn/s/Ym5CUG" rel="nofollow"><code>socket.connect(path[, connectListener])</code></a>.
+See <a href="http://nodejs.cn/s/tNVQV4" rel="nofollow">Identifying paths for IPC connections</a>.</li>
+<li><code>connectListener</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> Common parameter of the
+<a href="http://nodejs.cn/s/RTNxdX" rel="nofollow"><code>net.createConnection()</code></a> functions, an &quot;once&quot; listener for the
+<code>&apos;connect&apos;</code> event on the initiating socket. Will be passed to
+<a href="http://nodejs.cn/s/Ym5CUG" rel="nofollow"><code>socket.connect(path[, connectListener])</code></a>.</li>
+<li>Returns: <a href="http://nodejs.cn/s/wsJ1o1" target="_blank" rel="nofollow" class="type">&lt;net.Socket&gt;</a> The newly created socket used to start the connection.</li>
+</ul><p>Initiates an <a href="http://nodejs.cn/s/rAdYjf" rel="nofollow">IPC</a> connection.</p><p>This function creates a new <a href="http://nodejs.cn/s/wsJ1o1" rel="nofollow"><code>net.Socket</code></a> with all options set to default,
+immediately initiates connection with
+<a href="http://nodejs.cn/s/Ym5CUG" rel="nofollow"><code>socket.connect(path[, connectListener])</code></a>,
+then returns the <code>net.Socket</code> that starts the connection.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/net/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756318432"><\/script>');
+  </script>
+</body>
+</html>

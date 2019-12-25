@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>process.argv | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756320987" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>process.argv</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../process.html#process_process_argv" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/process/process_argv.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.27</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string[]&gt;</a></li>
+</ul><p><code>process.argv</code> &#x5C5E;&#x6027;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x542B;&#x5F53;&#x542F;&#x52A8; Node.js &#x8FDB;&#x7A0B;&#x65F6;&#x4F20;&#x5165;&#x7684;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#x3002;
+&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x662F; <a href="http://nodejs.cn/s/MCrAya" rel="nofollow"><code>process.execPath</code></a>&#x3002;
+&#x5982;&#x679C;&#x9700;&#x8981;&#x8BBF;&#x95EE; <code>argv[0]</code> &#x7684;&#x539F;&#x59CB;&#x503C;&#xFF0C;&#x53C2;&#x9605; <code>process.argv0</code>&#x3002;
+&#x7B2C;&#x4E8C;&#x4E2A;&#x5143;&#x7D20;&#x5C06;&#x662F;&#x6B63;&#x5728;&#x6267;&#x884C;&#x7684; JavaScript &#x6587;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;&#x3002;
+&#x5176;&#x4F59;&#x5143;&#x7D20;&#x5C06;&#x662F;&#x4EFB;&#x4F55;&#x5176;&#x4ED6;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#x3002;</p><p>&#x4F8B;&#x5982;&#xFF0C;&#x5047;&#x8BBE; <code>process-args.js</code> &#x7684;&#x811A;&#x672C;&#x5982;&#x4E0B;&#xFF1A;</p><pre><code class="language-js">// &#x6253;&#x5370; process.argv&#x3002;
+process.argv.forEach((val, index) =&gt; {
+  console.log(`${index}: ${val}`);
+});
+</code></pre><p>&#x542F;&#x52A8; Node.js &#x8FDB;&#x7A0B;&#xFF1A;</p><pre><code class="language-console">$ node process-args.js one two=three four
+</code></pre><p>&#x8F93;&#x51FA;&#x5982;&#x4E0B;&#xFF1A;</p><pre><code class="language-text">0: /usr/local/bin/node
+1: /Users/mjr/work/node/process-args.js
+2: one
+3: two=three
+4: four
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.27</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string[]&gt;</a></li>
+</ul><p>The <code>process.argv</code> property returns an array containing the command line
+arguments passed when the Node.js process was launched. The first element will
+be <a href="http://nodejs.cn/s/MCrAya" rel="nofollow"><code>process.execPath</code></a>. See <code>process.argv0</code> if access to the original value
+of <code>argv[0]</code> is needed. The second element will be the path to the JavaScript
+file being executed. The remaining elements will be any additional command line
+arguments.</p><p>For example, assuming the following script for <code>process-args.js</code>:</p><pre><code class="language-js">// print process.argv
+process.argv.forEach((val, index) =&gt; {
+  console.log(`${index}: ${val}`);
+});
+</code></pre><p>Launching the Node.js process as:</p><pre><code class="language-console">$ node process-args.js one two=three four
+</code></pre><p>Would generate the output:</p><pre><code class="language-text">0: /usr/local/bin/node
+1: /Users/mjr/work/node/process-args.js
+2: one
+3: two=three
+4: four
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756320987"><\/script>');
+  </script>
+</body>
+</html>

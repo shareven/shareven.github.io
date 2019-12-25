@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>util.deprecate(fn, msg[, code]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/util/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756328561" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-util">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>util.deprecate(fn, msg[, code])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../util.html#util_util_deprecate_fn_msg_code" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/util/util_deprecate_fn_msg_code.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>Deprecation warnings are only emitted once for each code.</p></td></tr>
+<tr><td>v0.8.0</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.8.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>fn</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x8981;&#x88AB;&#x5E9F;&#x5F03;&#x7684;&#x51FD;&#x6570;&#x3002;</li>
+<li><code>msg</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5F53;&#x8C03;&#x7528;&#x5E9F;&#x5F03;&#x7684;&#x51FD;&#x6570;&#x65F6;&#x663E;&#x793A;&#x7684;&#x8B66;&#x544A;&#x6D88;&#x606F;&#x3002;</li>
+<li><code>code</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5E9F;&#x5F03;&#x7801;&#x3002; &#x6709;&#x5173;&#x4EE3;&#x7801;&#x5217;&#x8868;&#xFF0C;&#x8BF7;&#x53C2;&#x9605;<a href="http://nodejs.cn/s/F7GdLc" rel="nofollow">&#x5E9F;&#x5F03;&#x7684; API &#x5217;</a>&#x3002;</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> &#x5E9F;&#x5F03;&#x7684;&#x51FD;&#x6570;&#x88AB;&#x5305;&#x88C5;&#x4EE5;&#x53D1;&#x51FA;&#x8B66;&#x544A;&#x3002;</li>
+</ul><p><code>util.deprecate()</code> &#x65B9;&#x6CD5;&#x4EE5;&#x4E00;&#x79CD;&#x6807;&#x8BB0;&#x4E3A;&#x5DF2;&#x5E9F;&#x5F03;&#x7684;&#x65B9;&#x5F0F;&#x5305;&#x88C5; <code>fn</code>&#xFF08;&#x53EF;&#x4EE5;&#x662F;&#x51FD;&#x6570;&#x6216;&#x7C7B;&#xFF09;&#x3002;</p><pre><code class="language-js">const util = require(&apos;util&apos;);
+
+exports.obsoleteFunction = util.deprecate(() =&gt; {
+  // &#x4E00;&#x4E9B;&#x64CD;&#x4F5C;&#x3002;
+}, &apos;obsoleteFunction() &#x5DF2;&#x5E9F;&#x5F03;&#xFF0C;&#x4F7F;&#x7528; newShinyFunction() &#x4EE3;&#x66FF;&apos;);
+</code></pre><p>&#x5F53;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#xFF0C; <code>util.deprecate()</code> &#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x4F1A;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/YXSqii" rel="nofollow"><code>&apos;warning&apos;</code></a> &#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x4E00;&#x4E2A; <code>DeprecationWarning</code>&#x3002;
+&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8B66;&#x544A;&#x53EA;&#x5728;&#x9996;&#x6B21;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#x624D;&#x4F1A;&#x88AB;&#x89E6;&#x53D1;&#x5E76;&#x6253;&#x5370;&#x5230; <code>stderr</code>&#x3002;
+&#x8B66;&#x544A;&#x88AB;&#x89E6;&#x53D1;&#x4E4B;&#x540E;&#xFF0C;&#x88AB;&#x5305;&#x88C5;&#x7684;&#x51FD;&#x6570;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x3002;</p><p>&#x5982;&#x679C;&#x5728;&#x5BF9; <code>util.deprecate()</code> &#x7684;&#x591A;&#x6B21;&#x8C03;&#x7528;&#x4E2D;&#x63D0;&#x4F9B;&#x4E86;&#x76F8;&#x540C;&#x7684;&#x53EF;&#x9009; <code>code</code>&#xFF0C;&#x5219;&#x8BE5; <code>code</code> &#x4EC5;&#x89E6;&#x53D1;&#x4E00;&#x6B21;&#x8B66;&#x544A;&#x3002;</p><pre><code class="language-js">const util = require(&apos;util&apos;);
+
+const fn1 = util.deprecate(someFunction, someMessage, &apos;DEP0001&apos;);
+const fn2 = util.deprecate(someOtherFunction, someOtherMessage, &apos;DEP0001&apos;);
+fn1(); // &#x4F7F;&#x7528;&#x4EE3;&#x7801; DEP0001 &#x89E6;&#x53D1;&#x5E9F;&#x5F03;&#x8B66;&#x544A;&#x3002;
+fn2(); // &#x4E0D;&#x4F1A;&#x89E6;&#x53D1;&#x5E9F;&#x5F03;&#x8B66;&#x544A;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x5177;&#x6709;&#x76F8;&#x540C;&#x7684;&#x4EE3;&#x7801;&#x3002;
+</code></pre><p>&#x5982;&#x679C;&#x4F7F;&#x7528;&#x4E86; <code>--no-deprecation</code> &#x6216; <code>--no-warnings</code> &#x547D;&#x4EE4;&#x884C;&#x6807;&#x8BB0;&#xFF0C;&#x6216; <code>process.noDeprecation</code> &#x5C5E;&#x6027;&#x5728;&#x9996;&#x6B21;&#x5E9F;&#x5F03;&#x8B66;&#x544A;&#x4E4B;&#x524D;&#x88AB;&#x8BBE;&#x4E3A; <code>true</code>&#xFF0C;&#x5219; <code>util.deprecate()</code> &#x65B9;&#x6CD5;&#x4EC0;&#x4E48;&#x4E5F;&#x4E0D;&#x505A;&#x3002;</p><p>&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86; <code>--trace-deprecation</code> &#x6216; <code>--trace-warnings</code> &#x547D;&#x4EE4;&#x884C;&#x6807;&#x8BB0;&#xFF0C;&#x6216; <code>process.traceDeprecation</code> &#x5C5E;&#x6027;&#x88AB;&#x8BBE;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x5E9F;&#x5F03;&#x7684;&#x51FD;&#x6570;&#x9996;&#x6B21;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#x4F1A;&#x628A;&#x8B66;&#x544A;&#x4E0E;&#x5806;&#x6808;&#x8FFD;&#x8E2A;&#x6253;&#x5370;&#x5230; <code>stderr</code>&#x3002;</p><p>&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x4E86; <code>--throw-deprecation</code> &#x547D;&#x4EE4;&#x884C;&#x6807;&#x8BB0;&#xFF0C;&#x6216; <code>process.throwDeprecation</code> &#x5C5E;&#x6027;&#x88AB;&#x8BBE;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x5F53;&#x5E9F;&#x5F03;&#x7684;&#x51FD;&#x6570;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#x4F1A;&#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x5F02;&#x5E38;&#x3002;</p><p><code>--throw-deprecation</code> &#x547D;&#x4EE4;&#x884C;&#x6807;&#x8BB0;&#x548C; <code>process.throwDeprecation</code> &#x5C5E;&#x6027;&#x4F18;&#x5148;&#x4E8E; <code>--trace-deprecation</code> &#x548C; <code>process.traceDeprecation</code>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v10.0.0</td>
+<td><p>Deprecation warnings are only emitted once for each code.</p></td></tr>
+<tr><td>v0.8.0</td>
+<td><p><span>Added in: v0.8.0</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>fn</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> The function that is being deprecated.</li>
+<li><code>msg</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> A warning message to display when the deprecated function is
+invoked.</li>
+<li><code>code</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> A deprecation code. See the <a href="http://nodejs.cn/s/F7GdLc" rel="nofollow">list of deprecated APIs</a> for a
+list of codes.</li>
+<li>Returns: <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a> The deprecated function wrapped to emit a warning.</li>
+</ul><p>The <code>util.deprecate()</code> method wraps <code>fn</code> (which may be a function or class) in
+such a way that it is marked as deprecated.</p><pre><code class="language-js">const util = require(&apos;util&apos;);
+
+exports.obsoleteFunction = util.deprecate(() =&gt; {
+  // Do something here.
+}, &apos;obsoleteFunction() is deprecated. Use newShinyFunction() instead.&apos;);
+</code></pre><p>When called, <code>util.deprecate()</code> will return a function that will emit a
+<code>DeprecationWarning</code> using the <a href="http://nodejs.cn/s/YXSqii" rel="nofollow"><code>&apos;warning&apos;</code></a> event. The warning will
+be emitted and printed to <code>stderr</code> the first time the returned function is
+called. After the warning is emitted, the wrapped function is called without
+emitting a warning.</p><p>If the same optional <code>code</code> is supplied in multiple calls to <code>util.deprecate()</code>,
+the warning will be emitted only once for that <code>code</code>.</p><pre><code class="language-js">const util = require(&apos;util&apos;);
+
+const fn1 = util.deprecate(someFunction, someMessage, &apos;DEP0001&apos;);
+const fn2 = util.deprecate(someOtherFunction, someOtherMessage, &apos;DEP0001&apos;);
+fn1(); // Emits a deprecation warning with code DEP0001
+fn2(); // Does not emit a deprecation warning because it has the same code
+</code></pre><p>If either the <code>--no-deprecation</code> or <code>--no-warnings</code> command line flags are
+used, or if the <code>process.noDeprecation</code> property is set to <code>true</code> <em>prior</em> to
+the first deprecation warning, the <code>util.deprecate()</code> method does nothing.</p><p>If the <code>--trace-deprecation</code> or <code>--trace-warnings</code> command line flags are set,
+or the <code>process.traceDeprecation</code> property is set to <code>true</code>, a warning and a
+stack trace are printed to <code>stderr</code> the first time the deprecated function is
+called.</p><p>If the <code>--throw-deprecation</code> command line flag is set, or the
+<code>process.throwDeprecation</code> property is set to <code>true</code>, then an exception will be
+thrown when the deprecated function is called.</p><p>The <code>--throw-deprecation</code> command line flag and <code>process.throwDeprecation</code>
+property take precedence over <code>--trace-deprecation</code> and
+<code>process.traceDeprecation</code>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/util/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756328561"><\/script>');
+  </script>
+</body>
+</html>

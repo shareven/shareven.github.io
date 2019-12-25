@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>filehandle.utimes(atime, mtime) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756310273" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>filehandle.utimes(atime, mtime)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_filehandle_utimes_atime_mtime" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/filehandle_utimes_atime_mtime.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v10.0.0</span>
+</div><ul>
+<li><code>atime</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/A9TMoa" target="_blank" rel="nofollow" class="type">&lt;Date&gt;</a></li>
+<li><code>mtime</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/A9TMoa" target="_blank" rel="nofollow" class="type">&lt;Date&gt;</a></li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/ri1kj8" target="_blank" rel="nofollow" class="type">&lt;Promise&gt;</a></li>
+</ul><p>&#x66F4;&#x6539; <code>FileHandle</code> &#x6307;&#x5411;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x65F6;&#x95F4;&#x6233;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x6210;&#x529F;&#x65F6;&#x89E3;&#x51B3; <code>Promise</code> &#x4E14;&#x4E0D;&#x5E26;&#x53C2;&#x6570;&#x3002;</p><p>&#x6B64;&#x51FD;&#x6570;&#x5728; 7.1 &#x4E4B;&#x524D;&#x7684; AIX &#x7248;&#x672C;&#x4E0A;&#x4E0D;&#x8D77;&#x4F5C;&#x7528;&#xFF0C;&#x5B83;&#x5C06;&#x4F1A;&#x89E3;&#x51B3; <code>Promise</code> &#x5E76;&#x5E26;&#x4E0A;&#x4F7F;&#x7528; <code>UV_ENOSYS</code> &#x4EE3;&#x7801;&#x7684;&#x9519;&#x8BEF;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v10.0.0</span>
+</div><ul>
+<li><code>atime</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/A9TMoa" target="_blank" rel="nofollow" class="type">&lt;Date&gt;</a></li>
+<li><code>mtime</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/A9TMoa" target="_blank" rel="nofollow" class="type">&lt;Date&gt;</a></li>
+<li>Returns: <a href="http://nodejs.cn/s/ri1kj8" target="_blank" rel="nofollow" class="type">&lt;Promise&gt;</a></li>
+</ul><p>Change the file system timestamps of the object referenced by the <code>FileHandle</code>
+then resolves the <code>Promise</code> with no arguments upon success.</p><p>This function does not work on AIX versions before 7.1, it will resolve the
+<code>Promise</code> with an error using code <code>UV_ENOSYS</code>.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756310273"><\/script>');
+  </script>
+</body>
+</html>

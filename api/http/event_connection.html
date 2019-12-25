@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'connection' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/http/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756311939" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-http">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'connection' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../http.html#http_event_connection" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/http/event_connection.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.0</span>
+</div><ul>
+<li><code>socket</code> <a href="http://nodejs.cn/s/wsJ1o1" target="_blank" rel="nofollow" class="type">&lt;net.Socket&gt;</a></li>
+</ul><p>&#x5EFA;&#x7ACB;&#x65B0;&#x7684; TCP &#x6D41;&#x65F6;&#x4F1A;&#x89E6;&#x53D1;&#x6B64;&#x4E8B;&#x4EF6;&#x3002;
+<code>socket</code> &#x901A;&#x5E38;&#x662F; <a href="http://nodejs.cn/s/wsJ1o1" rel="nofollow"><code>net.Socket</code></a> &#x7C7B;&#x578B;&#x7684;&#x5BF9;&#x8C61;&#x3002;
+&#x901A;&#x5E38;&#x7528;&#x6237;&#x65E0;&#x9700;&#x8BBF;&#x95EE;&#x6B64;&#x4E8B;&#x4EF6;&#x3002;
+&#x7279;&#x522B;&#x662F;&#xFF0C;&#x7531;&#x4E8E;&#x534F;&#x8BAE;&#x89E3;&#x6790;&#x5668;&#x9644;&#x52A0;&#x5230;&#x5957;&#x63A5;&#x5B57;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x5957;&#x63A5;&#x5B57;&#x5C06;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1; <code>&apos;readable&apos;</code> &#x4E8B;&#x4EF6;&#x3002;
+&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>request.connection</code> &#x8BBF;&#x95EE; <code>socket</code>&#x3002;</p><p>&#x7528;&#x6237;&#x4E5F;&#x53EF;&#x4EE5;&#x663E;&#x5F0F;&#x89E6;&#x53D1;&#x6B64;&#x4E8B;&#x4EF6;&#xFF0C;&#x4EE5;&#x5C06;&#x8FDE;&#x63A5;&#x6CE8;&#x5165; HTTP &#x670D;&#x52A1;&#x5668;&#x3002;
+&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x53EF;&#x4EE5;&#x4F20;&#x5165;&#x4EFB;&#x4F55; <a href="http://nodejs.cn/s/2iRabr" rel="nofollow"><code>Duplex</code></a> &#x6D41;&#x3002;</p><p>&#x5982;&#x679C;&#x5728;&#x6B64;&#x5904;&#x8C03;&#x7528; <code>socket.setTimeout()</code>&#xFF0C;&#x5219;&#x5F53;&#x5957;&#x63A5;&#x5B57;&#x5DF2;&#x63D0;&#x4F9B;&#x8BF7;&#x6C42;&#x65F6;&#xFF08;&#x5982;&#x679C; <code>server.keepAliveTimeout</code> &#x4E3A;&#x975E;&#x96F6;&#xFF09;&#xFF0C;&#x8D85;&#x65F6;&#x5C06;&#x4F1A;&#x88AB; <code>server.keepAliveTimeout</code> &#x66FF;&#x6362;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.0</span>
+</div><ul>
+<li><code>socket</code> <a href="http://nodejs.cn/s/wsJ1o1" target="_blank" rel="nofollow" class="type">&lt;net.Socket&gt;</a></li>
+</ul><p>This event is emitted when a new TCP stream is established. <code>socket</code> is
+typically an object of type <a href="http://nodejs.cn/s/wsJ1o1" rel="nofollow"><code>net.Socket</code></a>. Usually users will not want to
+access this event. In particular, the socket will not emit <code>&apos;readable&apos;</code> events
+because of how the protocol parser attaches to the socket. The <code>socket</code> can
+also be accessed at <code>request.connection</code>.</p><p>This event can also be explicitly emitted by users to inject connections
+into the HTTP server. In that case, any <a href="http://nodejs.cn/s/2iRabr" rel="nofollow"><code>Duplex</code></a> stream can be passed.</p><p>If <code>socket.setTimeout()</code> is called here, the timeout will be replaced with
+<code>server.keepAliveTimeout</code> when the socket has served a request (if
+<code>server.keepAliveTimeout</code> is non-zero).</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/http/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756311939"><\/script>');
+  </script>
+</body>
+</html>

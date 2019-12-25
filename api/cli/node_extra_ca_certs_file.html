@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>NODE_EXTRA_CA_CERTS=file | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/cli/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756297041" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-cli">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>NODE_EXTRA_CA_CERTS=file</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../cli.html#cli_node_extra_ca_certs_file" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/cli/node_extra_ca_certs_file.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v7.3.0</span>
+</div><p>&#x5F53;&#x8BBE;&#x7F6E;&#x4E86;&#x6B64;&#x9009;&#x9879;&#x65F6;&#xFF0C;&#x6839; CA &#x8BC1;&#x4E66;&#xFF08;&#x5982; VeriSign&#xFF09;&#x4F1A;&#x88AB; <code>file</code> &#x6307;&#x5B9A;&#x7684;&#x8BC1;&#x4E66;&#x6269;&#x5C55;&#x3002;
+&#x6587;&#x4EF6;&#x5E94;&#x8BE5;&#x5305;&#x62EC;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x53EF;&#x4FE1;&#x7684; PEM &#x683C;&#x5F0F;&#x7684;&#x8BC1;&#x4E66;&#x3002;
+&#x5982;&#x679C;&#x6587;&#x4EF6;&#x4E22;&#x5931;&#x6216;&#x6709;&#x7F3A;&#x9677;&#xFF0C;&#x5219; <a href="http://nodejs.cn/s/3jLPtt" rel="nofollow"><code>process.emitWarning()</code></a> &#x4F1A;&#x89E6;&#x53D1;&#x4E00;&#x4E2A;&#x6D88;&#x606F;&#x3002;</p><p>&#x5F53;&#x4E00;&#x4E2A; TLS &#x6216; HTTPS &#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x6216;&#x670D;&#x52A1;&#x5668;&#x7684; <code>ca</code> &#x9009;&#x9879;&#x7684;&#x5C5E;&#x6027;&#x88AB;&#x663E;&#x5F0F;&#x5730;&#x6307;&#x5B9A;&#x65F6;&#xFF0C;&#x5219;&#x6307;&#x5B9A;&#x7684;&#x8BC1;&#x4E66;&#x4E0D;&#x4F1A;&#x88AB;&#x4F7F;&#x7528;&#x3002;</p><p>&#x5F53; <code>node</code> &#x4EE5; setuid root &#x8FD0;&#x884C;&#x6216;&#x8BBE;&#x7F6E;&#x4E86; Linux &#x6587;&#x4EF6;&#x529F;&#x80FD;&#x65F6;&#xFF0C;&#x5C06;&#x4F1A;&#x5FFD;&#x7565;&#x6B64;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v7.3.0</span>
+</div><p>When set, the well known &quot;root&quot; CAs (like VeriSign) will be extended with the
+extra certificates in <code>file</code>. The file should consist of one or more trusted
+certificates in PEM format. A message will be emitted (once) with
+<a href="http://nodejs.cn/s/3jLPtt" rel="nofollow"><code>process.emitWarning()</code></a> if the file is missing or
+malformed, but any errors are otherwise ignored.</p><p>Neither the well known nor extra certificates are used when the <code>ca</code>
+options property is explicitly specified for a TLS or HTTPS client or server.</p><p>This environment variable is ignored when <code>node</code> runs as setuid root or
+has Linux file capabilities set.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/cli/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756297041"><\/script>');
+  </script>
+</body>
+</html>

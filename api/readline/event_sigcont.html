@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'SIGCONT' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/readline/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756322223" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-readline">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'SIGCONT' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../readline.html#readline_event_sigcont" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/readline/event_sigcont.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.7.5</span>
+</div><p>&#x5F53;&#x5148;&#x524D;&#x4F7F;&#x7528; <code>&lt;ctrl&gt;-Z</code>&#xFF08;&#x5373; <code>SIGTSTP</code>&#xFF09;&#x79FB;&#x5165;&#x540E;&#x53F0;&#x7684; Node.js &#x8FDB;&#x7A0B;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/hgYpiL" rel="nofollow"><code>fg(1p)</code></a> &#x8FD4;&#x56DE;&#x5230;&#x524D;&#x53F0;&#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x89E6;&#x53D1; <code>&apos;SIGCONT&apos;</code> &#x4E8B;&#x4EF6;&#x3002;</p><p>&#x5982;&#x679C; <code>input</code> &#x6D41;&#x5728; <code>SIGTSTP</code> &#x8BF7;&#x6C42;&#x4E4B;&#x524D;&#x88AB;&#x6682;&#x505C;&#xFF0C;&#x5219;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1;&#x6B64;&#x4E8B;&#x4EF6;&#x3002;</p><p>&#x8C03;&#x7528;&#x76D1;&#x542C;&#x5668;&#x51FD;&#x6570;&#x65F6;&#x4E0D;&#x4F20;&#x5165;&#x4EFB;&#x4F55;&#x53C2;&#x6570;&#x3002;</p><pre><code class="language-js">rl.on(&apos;SIGCONT&apos;, () =&gt; {
+  // `prompt` &#x5C06;&#x81EA;&#x52A8;&#x6062;&#x590D;&#x6D41;&#x3002;
+  rl.prompt();
+});
+</code></pre><p>Windows &#x4E0A;&#x4E0D;&#x652F;&#x6301; <code>&apos;SIGCONT&apos;</code> &#x4E8B;&#x4EF6;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.7.5</span>
+</div><p>The <code>&apos;SIGCONT&apos;</code> event is emitted when a Node.js process previously moved into
+the background using <code>&lt;ctrl&gt;-Z</code> (i.e. <code>SIGTSTP</code>) is then brought back to the
+foreground using <a href="http://nodejs.cn/s/hgYpiL" rel="nofollow"><code>fg(1p)</code></a>.</p><p>If the <code>input</code> stream was paused <em>before</em> the <code>SIGTSTP</code> request, this event will
+not be emitted.</p><p>The listener function is invoked without passing any arguments.</p><pre><code class="language-js">rl.on(&apos;SIGCONT&apos;, () =&gt; {
+  // `prompt` will automatically resume the stream
+  rl.prompt();
+});
+</code></pre><p>The <code>&apos;SIGCONT&apos;</code> event is <em>not</em> supported on Windows.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/readline/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756322223"><\/script>');
+  </script>
+</body>
+</html>

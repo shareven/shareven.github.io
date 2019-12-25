@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>'SIGINT' 事件 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/readline/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756322225" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-readline">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>'SIGINT' 事件</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../readline.html#readline_event_sigint" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/readline/event_sigint.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.0</span>
+</div><p>&#x6BCF;&#x5F53; <code>input</code> &#x6D41;&#x63A5;&#x6536;&#x5230; <code>&lt;ctrl&gt;-C</code> &#x8F93;&#x5165;&#xFF08;&#x901A;&#x5E38;&#x79F0;&#x4E3A; <code>SIGINT</code>&#xFF09;&#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x89E6;&#x53D1; <code>&apos;SIGINT&apos;</code> &#x4E8B;&#x4EF6;&#x3002;
+&#x5982;&#x679C;&#x5F53; <code>input</code> &#x6D41;&#x63A5;&#x6536;&#x5230; <code>SIGINT</code> &#x65F6;&#x6CA1;&#x6709;&#x6CE8;&#x518C; <code>&apos;SIGINT&apos;</code> &#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x5219;&#x4F1A;&#x89E6;&#x53D1; <code>&apos;pause&apos;</code> &#x4E8B;&#x4EF6;&#x3002;</p><p>&#x8C03;&#x7528;&#x76D1;&#x542C;&#x5668;&#x51FD;&#x6570;&#x65F6;&#x4E0D;&#x4F20;&#x5165;&#x4EFB;&#x4F55;&#x53C2;&#x6570;&#x3002;</p><pre><code class="language-js">rl.on(&apos;SIGINT&apos;, () =&gt; {
+  rl.question(&apos;&#x786E;&#x5B9A;&#x8981;&#x9000;&#x51FA;&#x5417;&#xFF1F;&apos;, (answer) =&gt; {
+    if (answer.match(/^y(es)?$/i)) rl.pause();
+  });
+});
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.3.0</span>
+</div><p>The <code>&apos;SIGINT&apos;</code> event is emitted whenever the <code>input</code> stream receives a
+<code>&lt;ctrl&gt;-C</code> input, known typically as <code>SIGINT</code>. If there are no <code>&apos;SIGINT&apos;</code> event
+listeners registered when the <code>input</code> stream receives a <code>SIGINT</code>, the <code>&apos;pause&apos;</code>
+event will be emitted.</p><p>The listener function is invoked without passing any arguments.</p><pre><code class="language-js">rl.on(&apos;SIGINT&apos;, () =&gt; {
+  rl.question(&apos;Are you sure you want to exit? &apos;, (answer) =&gt; {
+    if (answer.match(/^y(es)?$/i)) rl.pause();
+  });
+});
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/readline/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756322225"><\/script>');
+  </script>
+</body>
+</html>

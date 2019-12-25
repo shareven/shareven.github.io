@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>访问 Node.js 核心模块 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/repl/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756322702" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-repl">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>访问 Node.js 核心模块</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../repl.html#repl_accessing_core_node_js_modules" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/repl/accessing_core_node_js_modules.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x9ED8;&#x8BA4;&#x7684;&#x89E3;&#x91CA;&#x5668;&#x4F1A;&#x81EA;&#x52A8;&#x52A0;&#x8F7D;&#x88AB;&#x8C03;&#x7528;&#x7684; Node.js &#x6838;&#x5FC3;&#x6A21;&#x5757;&#x5230; REPL &#x73AF;&#x5883;&#x4E2D;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;&#x9664;&#x975E;&#x88AB;&#x58F0;&#x660E;&#x4E3A;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x6216;&#x4E00;&#x4E2A;&#x6709;&#x9650;&#x8303;&#x56F4;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x5426;&#x5219;&#x8F93;&#x5165; <code>fs</code> &#x4F1A;&#x88AB;&#x89E3;&#x91CA;&#x4E3A; <code>global.fs = require(&apos;fs&apos;)</code>&#x3002;</p><pre><code class="language-console">&gt; fs.createReadStream(&apos;./some/file&apos;);
+</code></pre></div>
+          <div id="content_right"><p>The default evaluator will automatically load Node.js core modules into the
+REPL environment when used. For instance, unless otherwise declared as a
+global or scoped variable, the input <code>fs</code> will be evaluated on-demand as
+<code>global.fs = require(&apos;fs&apos;)</code>.</p><pre><code class="language-console">&gt; fs.createReadStream(&apos;./some/file&apos;);
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/repl/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756322702"><\/script>');
+  </script>
+</body>
+</html>

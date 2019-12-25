@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>message.url | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/http/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756312096" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-http">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>message.url</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../http.html#http_message_url" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/http/message_url.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.1.90</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>&#x4EC5;&#x5BF9;&#x4ECE; <a href="http://nodejs.cn/s/jLiRTh" rel="nofollow"><code>http.Server</code></a> &#x83B7;&#x53D6;&#x7684;&#x8BF7;&#x6C42;&#x6709;&#x6548;&#x3002;</p><p>&#x8BF7;&#x6C42;&#x7684; URL &#x5B57;&#x7B26;&#x4E32;&#x3002;
+&#x5B83;&#x4EC5;&#x5305;&#x542B;&#x5B9E;&#x9645; HTTP &#x8BF7;&#x6C42;&#x4E2D;&#x5B58;&#x5728;&#x7684; URL&#x3002;
+&#x5982;&#x679C;&#x8BF7;&#x6C42;&#x662F;&#xFF1A;</p><pre><code class="language-txt">GET /status?name=ryan HTTP/1.1\r\n
+Accept: text/plain\r\n
+\r\n
+</code></pre><p>&#x5219; <code>request.url</code> &#x5C06;&#x662F;&#xFF1A;</p><pre><code class="language-js">&apos;/status?name=ryan&apos;
+</code></pre><p>&#x8981;&#x5C06; url &#x89E3;&#x6790;&#x4E3A;&#x5176;&#x5404;&#x4E2A;&#x90E8;&#x5206;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>require(&apos;url&apos;).parse(request.url)</code>&#xFF1A;</p><pre><code class="language-txt">$ node
+&gt; require(&apos;url&apos;).parse(&apos;/status?name=ryan&apos;)
+Url {
+  protocol: null,
+  slashes: null,
+  auth: null,
+  host: null,
+  port: null,
+  hostname: null,
+  hash: null,
+  search: &apos;?name=ryan&apos;,
+  query: &apos;name=ryan&apos;,
+  pathname: &apos;/status&apos;,
+  path: &apos;/status?name=ryan&apos;,
+  href: &apos;/status?name=ryan&apos; }
+</code></pre><p>&#x8981;&#x4ECE;&#x67E5;&#x8BE2;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x63D0;&#x53D6;&#x53C2;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>require(&apos;querystring&apos;).parse</code> &#x51FD;&#x6570;&#xFF0C;&#x6216;&#x8005;&#x53EF;&#x4EE5;&#x5C06; <code>true</code> &#x4F5C;&#x4E3A;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9; <code>require(&apos;url&apos;).parse</code>&#xFF1A;</p><pre><code class="language-console">$ node
+&gt; require(&apos;url&apos;).parse(&apos;/status?name=ryan&apos;, true)
+Url {
+  protocol: null,
+  slashes: null,
+  auth: null,
+  host: null,
+  port: null,
+  hostname: null,
+  hash: null,
+  search: &apos;?name=ryan&apos;,
+  query: { name: &apos;ryan&apos; },
+  pathname: &apos;/status&apos;,
+  path: &apos;/status?name=ryan&apos;,
+  href: &apos;/status?name=ryan&apos; }
+</code></pre></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.1.90</span>
+</div><ul>
+<li><a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p><strong>Only valid for request obtained from <a href="http://nodejs.cn/s/jLiRTh" rel="nofollow"><code>http.Server</code></a>.</strong></p><p>Request URL string. This contains only the URL that is
+present in the actual HTTP request. If the request is:</p><pre><code class="language-txt">GET /status?name=ryan HTTP/1.1\r\n
+Accept: text/plain\r\n
+\r\n
+</code></pre><p>Then <code>request.url</code> will be:</p><pre><code class="language-js">&apos;/status?name=ryan&apos;
+</code></pre><p>To parse the url into its parts <code>require(&apos;url&apos;).parse(request.url)</code>
+can be used:</p><pre><code class="language-console">$ node
+&gt; require(&apos;url&apos;).parse(&apos;/status?name=ryan&apos;)
+Url {
+  protocol: null,
+  slashes: null,
+  auth: null,
+  host: null,
+  port: null,
+  hostname: null,
+  hash: null,
+  search: &apos;?name=ryan&apos;,
+  query: &apos;name=ryan&apos;,
+  pathname: &apos;/status&apos;,
+  path: &apos;/status?name=ryan&apos;,
+  href: &apos;/status?name=ryan&apos; }
+</code></pre><p>To extract the parameters from the query string, the
+<code>require(&apos;querystring&apos;).parse</code> function can be used, or
+<code>true</code> can be passed as the second argument to <code>require(&apos;url&apos;).parse</code>:</p><pre><code class="language-console">$ node
+&gt; require(&apos;url&apos;).parse(&apos;/status?name=ryan&apos;, true)
+Url {
+  protocol: null,
+  slashes: null,
+  auth: null,
+  host: null,
+  port: null,
+  hostname: null,
+  hash: null,
+  search: &apos;?name=ryan&apos;,
+  query: { name: &apos;ryan&apos; },
+  pathname: &apos;/status&apos;,
+  path: &apos;/status?name=ryan&apos;,
+  href: &apos;/status?name=ryan&apos; }
+</code></pre></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/http/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756312096"><\/script>');
+  </script>
+</body>
+</html>

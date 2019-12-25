@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>child_process.spawn(command[, args][, options]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/child_process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756295878" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-child_process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>child_process.spawn(command[, args][, options])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../child_process.html#child_process_child_process_spawn_command_args_options" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/child_process/child_process_spawn_command_args_options.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v8.8.0</td>
+<td><p>The <code>windowsHide</code> option is supported now.</p></td></tr>
+<tr><td>v6.4.0</td>
+<td><p>The <code>argv0</code> option is supported now.</p></td></tr>
+<tr><td>v5.7.0</td>
+<td><p>The <code>shell</code> option is supported now.</p></td></tr>
+<tr><td>v0.1.90</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.90</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>command</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x8981;&#x8FD0;&#x884C;&#x7684;&#x547D;&#x4EE4;&#x3002;</li>
+<li><code>args</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string[]&gt;</a> &#x5B57;&#x7B26;&#x4E32;&#x53C2;&#x6570;&#x7684;&#x5217;&#x8868;&#x3002;</li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>cwd</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x3002;</li>
+<li><code>env</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> &#x73AF;&#x5883;&#x53D8;&#x91CF;&#x7684;&#x952E;&#x503C;&#x5BF9;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>process.env</code>&#x3002;</li>
+<li><code>argv0</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x663E;&#x5F0F;&#x5730;&#x8BBE;&#x7F6E;&#x53D1;&#x9001;&#x7ED9;&#x5B50;&#x8FDB;&#x7A0B;&#x7684; <code>argv[0]</code> &#x7684;&#x503C;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6307;&#x5B9A;&#xFF0C;&#x5219;&#x5C06;&#x4F1A;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A; <code>command</code> &#x7684;&#x503C;&#x3002;</li>
+<li><code>stdio</code> <a href="http://nodejs.cn/s/ZJSz23" target="_blank" rel="nofollow" class="type">&lt;Array&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5B50;&#x8FDB;&#x7A0B;&#x7684; stdio &#x914D;&#x7F6E;&#x3002;&#x53C2;&#x9605; <a href="http://nodejs.cn/s/ixmPX9" rel="nofollow"><code>options.stdio</code></a>&#x3002;</li>
+<li><code>detached</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x51C6;&#x5907;&#x5B50;&#x8FDB;&#x7A0B;&#x72EC;&#x7ACB;&#x4E8E;&#x5176;&#x7236;&#x8FDB;&#x7A0B;&#x8FD0;&#x884C;&#x3002;&#x5177;&#x4F53;&#x884C;&#x4E3A;&#x53D6;&#x51B3;&#x4E8E;&#x5E73;&#x53F0;&#xFF0C;&#x53C2;&#x9605; <a href="http://nodejs.cn/s/Zz33Wb" rel="nofollow"><code>options.detached</code></a>&#x3002;</li>
+<li><code>uid</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> &#x8BBE;&#x7F6E;&#x8FDB;&#x7A0B;&#x7684;&#x7528;&#x6237;&#x6807;&#x8BC6;&#xFF0C;&#x53C2;&#x9605; <a href="http://nodejs.cn/s/bUGgha" rel="nofollow"><code>setuid(2)</code></a>&#x3002;</li>
+<li><code>gid</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> &#x8BBE;&#x7F6E;&#x8FDB;&#x7A0B;&#x7684;&#x7FA4;&#x7EC4;&#x6807;&#x8BC6;&#xFF0C;&#x53C2;&#x9605; <a href="http://nodejs.cn/s/64HRVx" rel="nofollow"><code>setgid(2)</code></a>&#x3002;</li>
+<li><code>shell</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x5982;&#x679C;&#x4E3A; <code>true</code>&#xFF0C;&#x5219;&#x5728; shell &#x4E2D;&#x8FD0;&#x884C; <code>command</code>&#x3002;
+&#x5728; Unix &#x4E0A;&#x4F7F;&#x7528; <code>&apos;/bin/sh&apos;</code>&#xFF0C;&#x5728; Windows &#x4E0A;&#x4F7F;&#x7528; <code>process.env.ComSpec</code>&#x3002;
+&#x53EF;&#x4EE5;&#x5C06;&#x4E0D;&#x540C;&#x7684; shell &#x6307;&#x5B9A;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x3002;
+&#x53C2;&#x9605; <a href="http://nodejs.cn/s/y7VTNz" rel="nofollow">shell &#x7684;&#x8981;&#x6C42;</a>&#x4E0E; <a href="http://nodejs.cn/s/5L5sS6" rel="nofollow">Windows &#x9ED8;&#x8BA4;&#x7684; shell</a>&#x3002;
+<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#xFF08;&#x6CA1;&#x6709; shell&#xFF09;&#x3002;</li>
+<li><code>windowsVerbatimArguments</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5728; Windows &#x4E0A;&#x4E0D;&#x4E3A;&#x53C2;&#x6570;&#x52A0;&#x4E0A;&#x5F15;&#x53F7;&#x6216;&#x8F6C;&#x4E49;&#x3002;&#x5728; Unix &#x4E0A;&#x5FFD;&#x7565;&#x3002;&#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86; <code>shell</code> &#x5E76;&#x4E14;&#x662F; CMD&#xFF0C;&#x5219;&#x81EA;&#x52A8;&#x8BBE;&#x4E3A; <code>true</code>&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#x3002;</li>
+<li><code>windowsHide</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x9690;&#x85CF;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x63A7;&#x5236;&#x53F0;&#x7A97;&#x53E3;&#xFF08;&#x5728; Windows &#x7CFB;&#x7EDF;&#x4E0A;&#x901A;&#x5E38;&#x4F1A;&#x521B;&#x5EFA;&#xFF09;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#x3002;</li>
+</ul>
+</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/yQBM4n" target="_blank" rel="nofollow" class="type">&lt;ChildProcess&gt;</a></li>
+</ul><p><code>child_process.spawn()</code> &#x65B9;&#x6CD5;&#x4F7F;&#x7528;&#x7ED9;&#x5B9A;&#x7684; <code>command</code> &#x884D;&#x751F;&#x4E00;&#x4E2A;&#x65B0;&#x8FDB;&#x7A0B;&#xFF0C;&#x5E76;&#x5E26;&#x4E0A; <code>args</code> &#x4E2D;&#x7684;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#x3002;
+&#x5982;&#x679C;&#x7701;&#x7565; <code>args</code>&#xFF0C;&#x5219;&#x5176;&#x9ED8;&#x8BA4;&#x4E3A;&#x4E00;&#x4E2A;&#x7A7A;&#x6570;&#x7EC4;&#x3002;</p><p>&#x5982;&#x679C;&#x542F;&#x7528;&#x4E86; <code>shell</code> &#x9009;&#x9879;&#xFF0C;&#x5219;&#x4E0D;&#x8981;&#x5C06;&#x672A;&#x7ECF;&#x8FC7;&#x5904;&#x7406;&#x7684;&#x7528;&#x6237;&#x8F93;&#x5165;&#x4F20;&#x7ED9;&#x6B64;&#x51FD;&#x6570;&#x3002;
+&#x5305;&#x542B; shell &#x5143;&#x5B57;&#x7B26;&#x7684;&#x4EFB;&#x4F55;&#x8F93;&#x5165;&#x90FD;&#x53EF;&#x7528;&#x4E8E;&#x89E6;&#x53D1;&#x4EFB;&#x610F;&#x547D;&#x4EE4;&#x7684;&#x6267;&#x884C;&#x3002;</p><p>&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x53EF;&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x989D;&#x5916;&#x7684;&#x9009;&#x9879;&#xFF0C;&#x5177;&#x6709;&#x4EE5;&#x4E0B;&#x9ED8;&#x8BA4;&#x503C;&#xFF1A;</p><pre><code class="language-js">const defaults = {
+  cwd: undefined,
+  env: process.env
+};
+</code></pre><p>&#x4F7F;&#x7528; <code>cwd</code> &#x6307;&#x5B9A;&#x884D;&#x751F;&#x8FDB;&#x7A0B;&#x7684;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x3002;
+&#x5982;&#x679C;&#x6CA1;&#x6709;&#x7ED9;&#x5B9A;&#xFF0C;&#x5219;&#x9ED8;&#x8BA4;&#x4E3A;&#x7EE7;&#x627F;&#x5F53;&#x524D;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#x3002;</p><p>&#x4F7F;&#x7528; <code>env</code> &#x6307;&#x5B9A;&#x65B0;&#x8FDB;&#x7A0B;&#x7684;&#x53EF;&#x89C1;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x9ED8;&#x8BA4;&#x4E3A; <a href="http://nodejs.cn/s/vFJ6HL" rel="nofollow"><code>process.env</code></a>&#x3002;</p><p><code>env</code> &#x4E2D;&#x7684; <code>undefined</code> &#x503C;&#x5C06;&#x4F1A;&#x88AB;&#x5FFD;&#x7565;&#x3002;</p><p>&#x793A;&#x4F8B;&#xFF0C;&#x8FD0;&#x884C; <code>ls -lh /usr</code>&#xFF0C;&#x5E76;&#x6355;&#x83B7; <code>stdout</code>&#x3001; <code>stderr</code>&#x3001;&#x4EE5;&#x53CA;&#x9000;&#x51FA;&#x7801;&#xFF1A;</p><pre><code class="language-js">const { spawn } = require(&apos;child_process&apos;);
+const ls = spawn(&apos;ls&apos;, [&apos;-lh&apos;, &apos;/usr&apos;]);
+
+ls.stdout.on(&apos;data&apos;, (data) =&gt; {
+  console.log(`stdout: ${data}`);
+});
+
+ls.stderr.on(&apos;data&apos;, (data) =&gt; {
+  console.error(`stderr: ${data}`);
+});
+
+ls.on(&apos;close&apos;, (code) =&gt; {
+  console.log(`&#x5B50;&#x8FDB;&#x7A0B;&#x9000;&#x51FA;&#xFF0C;&#x9000;&#x51FA;&#x7801; ${code}`);
+});
+</code></pre><p>&#x793A;&#x4F8B;&#xFF0C;&#x4E00;&#x79CD;&#x975E;&#x5E38;&#x7CBE;&#x7EC6;&#x7684;&#x8FD0;&#x884C; <code>ps ax | grep ssh</code> &#x7684;&#x65B9;&#x5F0F;&#xFF1A;</p><pre><code class="language-js">const { spawn } = require(&apos;child_process&apos;);
+const ps = spawn(&apos;ps&apos;, [&apos;ax&apos;]);
+const grep = spawn(&apos;grep&apos;, [&apos;ssh&apos;]);
+
+ps.stdout.on(&apos;data&apos;, (data) =&gt; {
+  grep.stdin.write(data);
+});
+
+ps.stderr.on(&apos;data&apos;, (data) =&gt; {
+  console.error(`ps stderr: ${data}`);
+});
+
+ps.on(&apos;close&apos;, (code) =&gt; {
+  if (code !== 0) {
+    console.log(`ps &#x8FDB;&#x7A0B;&#x9000;&#x51FA;&#xFF0C;&#x9000;&#x51FA;&#x7801; ${code}`);
+  }
+  grep.stdin.end();
+});
+
+grep.stdout.on(&apos;data&apos;, (data) =&gt; {
+  console.log(data.toString());
+});
+
+grep.stderr.on(&apos;data&apos;, (data) =&gt; {
+  console.error(`grep stderr: ${data}`);
+});
+
+grep.on(&apos;close&apos;, (code) =&gt; {
+  if (code !== 0) {
+    console.log(`grep &#x8FDB;&#x7A0B;&#x9000;&#x51FA;&#xFF0C;&#x9000;&#x51FA;&#x7801; ${code}`);
+  }
+});
+</code></pre><p>&#x793A;&#x4F8B;&#xFF0C;&#x68C0;&#x67E5;&#x5931;&#x8D25;&#x7684; <code>spawn</code>&#xFF1A;</p><pre><code class="language-js">const { spawn } = require(&apos;child_process&apos;);
+const subprocess = spawn(&apos;bad_command&apos;);
+
+subprocess.on(&apos;error&apos;, (err) =&gt; {
+  console.error(&apos;&#x542F;&#x52A8;&#x5B50;&#x8FDB;&#x7A0B;&#x5931;&#x8D25;&apos;);
+});
+</code></pre><p>&#x67D0;&#x4E9B;&#x5E73;&#x53F0;&#xFF08;macOS&#x3001;Linux&#xFF09;&#x4F7F;&#x7528; <code>argv[0]</code> &#x7684;&#x503C;&#x4F5C;&#x4E3A;&#x8FDB;&#x7A0B;&#x7684;&#x6807;&#x9898;&#xFF0C;&#x5176;&#x4ED6;&#x5E73;&#x53F0;&#xFF08;Windows&#x3001;SunOS&#xFF09;&#x5219;&#x4F7F;&#x7528; <code>command</code>&#x3002;</p><p>Node.js &#x5728;&#x542F;&#x52A8;&#x65F6;&#x4F1A;&#x4F7F;&#x7528; <code>process.execPath</code> &#x8986;&#x76D6; <code>argv[0]</code>&#xFF0C;&#x56E0;&#x6B64; Node.js &#x5B50;&#x8FDB;&#x7A0B;&#x7684; <code>process.argv[0]</code> &#x4E0E;&#x4ECE;&#x7236;&#x8FDB;&#x7A0B;&#x4F20;&#x7ED9; <code>spawn</code> &#x7684; <code>argv0</code> &#x53C2;&#x6570;&#x4E0D;&#x4F1A;&#x5339;&#x914D;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>process.argv0</code> &#x5C5E;&#x6027;&#x83B7;&#x53D6;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v8.8.0</td>
+<td><p>The <code>windowsHide</code> option is supported now.</p></td></tr>
+<tr><td>v6.4.0</td>
+<td><p>The <code>argv0</code> option is supported now.</p></td></tr>
+<tr><td>v5.7.0</td>
+<td><p>The <code>shell</code> option is supported now.</p></td></tr>
+<tr><td>v0.1.90</td>
+<td><p><span>Added in: v0.1.90</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>command</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> The command to run.</li>
+<li><code>args</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string[]&gt;</a> List of string arguments.</li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a></p>
+<ul>
+<li><code>cwd</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> Current working directory of the child process.</li>
+<li><code>env</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> Environment key-value pairs. <strong>Default:</strong> <code>process.env</code>.</li>
+<li><code>argv0</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> Explicitly set the value of <code>argv[0]</code> sent to the child
+process. This will be set to <code>command</code> if not specified.</li>
+<li><code>stdio</code> <a href="http://nodejs.cn/s/ZJSz23" target="_blank" rel="nofollow" class="type">&lt;Array&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> Child&apos;s stdio configuration (see
+<a href="http://nodejs.cn/s/ixmPX9" rel="nofollow"><code>options.stdio</code></a>).</li>
+<li><code>detached</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> Prepare child to run independently of its parent
+process. Specific behavior depends on the platform, see
+<a href="http://nodejs.cn/s/Zz33Wb" rel="nofollow"><code>options.detached</code></a>).</li>
+<li><code>uid</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> Sets the user identity of the process (see <a href="http://nodejs.cn/s/bUGgha" rel="nofollow"><code>setuid(2)</code></a>).</li>
+<li><code>gid</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> Sets the group identity of the process (see <a href="http://nodejs.cn/s/64HRVx" rel="nofollow"><code>setgid(2)</code></a>).</li>
+<li><code>shell</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> If <code>true</code>, runs <code>command</code> inside of a shell. Uses
+<code>&apos;/bin/sh&apos;</code> on Unix, and <code>process.env.ComSpec</code> on Windows. A different
+shell can be specified as a string. See <a href="http://nodejs.cn/s/y7VTNz" rel="nofollow">Shell Requirements</a> and
+<a href="http://nodejs.cn/s/5L5sS6" rel="nofollow">Default Windows Shell</a>. <strong>Default:</strong> <code>false</code> (no shell).</li>
+<li><code>windowsVerbatimArguments</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> No quoting or escaping of arguments is
+done on Windows. Ignored on Unix. This is set to <code>true</code> automatically
+when <code>shell</code> is specified and is CMD. <strong>Default:</strong> <code>false</code>.</li>
+<li><code>windowsHide</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> Hide the subprocess console window that would
+normally be created on Windows systems. <strong>Default:</strong> <code>false</code>.</li>
+</ul>
+</li>
+<li>Returns: <a href="http://nodejs.cn/s/yQBM4n" target="_blank" rel="nofollow" class="type">&lt;ChildProcess&gt;</a></li>
+</ul><p>The <code>child_process.spawn()</code> method spawns a new process using the given
+<code>command</code>, with command line arguments in <code>args</code>. If omitted, <code>args</code> defaults
+to an empty array.</p><p><strong>If the <code>shell</code> option is enabled, do not pass unsanitized user input to this
+function. Any input containing shell metacharacters may be used to trigger
+arbitrary command execution.</strong></p><p>A third argument may be used to specify additional options, with these defaults:</p><pre><code class="language-js">const defaults = {
+  cwd: undefined,
+  env: process.env
+};
+</code></pre><p>Use <code>cwd</code> to specify the working directory from which the process is spawned.
+If not given, the default is to inherit the current working directory.</p><p>Use <code>env</code> to specify environment variables that will be visible to the new
+process, the default is <a href="http://nodejs.cn/s/vFJ6HL" rel="nofollow"><code>process.env</code></a>.</p><p><code>undefined</code> values in <code>env</code> will be ignored.</p><p>Example of running <code>ls -lh /usr</code>, capturing <code>stdout</code>, <code>stderr</code>, and the
+exit code:</p><pre><code class="language-js">const { spawn } = require(&apos;child_process&apos;);
+const ls = spawn(&apos;ls&apos;, [&apos;-lh&apos;, &apos;/usr&apos;]);
+
+ls.stdout.on(&apos;data&apos;, (data) =&gt; {
+  console.log(`stdout: ${data}`);
+});
+
+ls.stderr.on(&apos;data&apos;, (data) =&gt; {
+  console.error(`stderr: ${data}`);
+});
+
+ls.on(&apos;close&apos;, (code) =&gt; {
+  console.log(`child process exited with code ${code}`);
+});
+</code></pre><p>Example: A very elaborate way to run <code>ps ax | grep ssh</code></p><pre><code class="language-js">const { spawn } = require(&apos;child_process&apos;);
+const ps = spawn(&apos;ps&apos;, [&apos;ax&apos;]);
+const grep = spawn(&apos;grep&apos;, [&apos;ssh&apos;]);
+
+ps.stdout.on(&apos;data&apos;, (data) =&gt; {
+  grep.stdin.write(data);
+});
+
+ps.stderr.on(&apos;data&apos;, (data) =&gt; {
+  console.error(`ps stderr: ${data}`);
+});
+
+ps.on(&apos;close&apos;, (code) =&gt; {
+  if (code !== 0) {
+    console.log(`ps process exited with code ${code}`);
+  }
+  grep.stdin.end();
+});
+
+grep.stdout.on(&apos;data&apos;, (data) =&gt; {
+  console.log(data.toString());
+});
+
+grep.stderr.on(&apos;data&apos;, (data) =&gt; {
+  console.error(`grep stderr: ${data}`);
+});
+
+grep.on(&apos;close&apos;, (code) =&gt; {
+  if (code !== 0) {
+    console.log(`grep process exited with code ${code}`);
+  }
+});
+</code></pre><p>Example of checking for failed <code>spawn</code>:</p><pre><code class="language-js">const { spawn } = require(&apos;child_process&apos;);
+const subprocess = spawn(&apos;bad_command&apos;);
+
+subprocess.on(&apos;error&apos;, (err) =&gt; {
+  console.error(&apos;Failed to start subprocess.&apos;);
+});
+</code></pre><p>Certain platforms (macOS, Linux) will use the value of <code>argv[0]</code> for the process
+title while others (Windows, SunOS) will use <code>command</code>.</p><p>Node.js currently overwrites <code>argv[0]</code> with <code>process.execPath</code> on startup, so
+<code>process.argv[0]</code> in a Node.js child process will not match the <code>argv0</code>
+parameter passed to <code>spawn</code> from the parent, retrieve it with the
+<code>process.argv0</code> property instead.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/child_process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756295878"><\/script>');
+  </script>
+</body>
+</html>

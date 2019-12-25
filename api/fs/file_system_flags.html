@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>文件系统标志 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756310433" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>文件系统标志</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_file_system_flags" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/file_system_flags.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p>&#x5F53; <code>flag</code> &#x9009;&#x9879;&#x91C7;&#x7528;&#x5B57;&#x7B26;&#x4E32;&#x65F6;&#xFF0C;&#x53EF;&#x7528;&#x4EE5;&#x4E0B;&#x6807;&#x5FD7;&#xFF1A;</p><ul>
+<li>
+<p><code>&apos;a&apos;</code> - &#x6253;&#x5F00;&#x6587;&#x4EF6;&#x7528;&#x4E8E;&#x8FFD;&#x52A0;&#x3002;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x521B;&#x5EFA;&#x8BE5;&#x6587;&#x4EF6;&#x3002;</p>
+</li>
+<li>
+<p><code>&apos;ax&apos;</code> - &#x4E0E; <code>&apos;a&apos;</code> &#x76F8;&#x4F3C;&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x8DEF;&#x5F84;&#x5DF2;&#x5B58;&#x5728;&#x5219;&#x5931;&#x8D25;&#x3002;</p>
+</li>
+<li>
+<p><code>&apos;a+&apos;</code> - &#x6253;&#x5F00;&#x6587;&#x4EF6;&#x7528;&#x4E8E;&#x8BFB;&#x53D6;&#x548C;&#x8FFD;&#x52A0;&#x3002;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x521B;&#x5EFA;&#x8BE5;&#x6587;&#x4EF6;&#x3002;</p>
+</li>
+<li>
+<p><code>&apos;ax+&apos;</code> - &#x4E0E; <code>&apos;a+&apos;</code> &#x76F8;&#x4F3C;&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x8DEF;&#x5F84;&#x5DF2;&#x5B58;&#x5728;&#x5219;&#x5931;&#x8D25;&#x3002;</p>
+</li>
+<li>
+<p><code>&apos;as&apos;</code> - &#x4EE5;&#x540C;&#x6B65;&#x6A21;&#x5F0F;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x7528;&#x4E8E;&#x8FFD;&#x52A0;&#x3002;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x521B;&#x5EFA;&#x8BE5;&#x6587;&#x4EF6;&#x3002;</p>
+</li>
+<li>
+<p><code>&apos;as+&apos;</code> - &#x4EE5;&#x540C;&#x6B65;&#x6A21;&#x5F0F;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x7528;&#x4E8E;&#x8BFB;&#x53D6;&#x548C;&#x8FFD;&#x52A0;&#x3002;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x521B;&#x5EFA;&#x8BE5;&#x6587;&#x4EF6;&#x3002;</p>
+</li>
+<li>
+<p><code>&apos;r&apos;</code> - &#x6253;&#x5F00;&#x6587;&#x4EF6;&#x7528;&#x4E8E;&#x8BFB;&#x53D6;&#x3002;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x51FA;&#x73B0;&#x5F02;&#x5E38;&#x3002;</p>
+</li>
+<li>
+<p><code>&apos;r+&apos;</code> - &#x6253;&#x5F00;&#x6587;&#x4EF6;&#x7528;&#x4E8E;&#x8BFB;&#x53D6;&#x548C;&#x5199;&#x5165;&#x3002;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x5219;&#x51FA;&#x73B0;&#x5F02;&#x5E38;&#x3002;</p>
+</li>
+<li>
+<p><code>&apos;rs+&apos;</code> - &#x4EE5;&#x540C;&#x6B65;&#x6A21;&#x5F0F;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x7528;&#x4E8E;&#x8BFB;&#x53D6;&#x548C;&#x5199;&#x5165;&#x3002;&#x6307;&#x793A;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7ED5;&#x8FC7;&#x672C;&#x5730;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7F13;&#x5B58;&#x3002;</p>
+<p>&#x8FD9;&#x5BF9;&#x4E8E;&#x5728; NFS &#x6302;&#x8F7D;&#x4E0A;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x65F6;&#x975E;&#x5E38;&#x6709;&#x7528;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x5141;&#x8BB8;&#x8DF3;&#x8FC7;&#x53EF;&#x80FD;&#x8FC7;&#x65F6;&#x7684;&#x672C;&#x5730;&#x7F13;&#x5B58;&#x3002;
+&#x5B83;&#x5BF9; I/O &#x6027;&#x80FD;&#x6709;&#x975E;&#x5E38;&#x5B9E;&#x9645;&#x7684;&#x5F71;&#x54CD;&#xFF0C;&#x56E0;&#x6B64;&#x9664;&#x975E;&#x9700;&#x8981;&#xFF0C;&#x5426;&#x5219;&#x4E0D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#x6B64;&#x6807;&#x5FD7;&#x3002;</p>
+<p>&#x8FD9;&#x4E0D;&#x4F1A;&#x5C06; <code>fs.open()</code> &#x6216; <code>fsPromises.open()</code> &#x8F6C;&#x6362;&#x4E3A;&#x540C;&#x6B65;&#x7684;&#x963B;&#x585E;&#x8C03;&#x7528;&#x3002;
+&#x5982;&#x679C;&#x9700;&#x8981;&#x540C;&#x6B65;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x5219;&#x5E94;&#x4F7F;&#x7528; <code>fs.openSync()</code> &#x4E4B;&#x7C7B;&#x7684;&#x3002;</p>
+</li>
+<li>
+<p><code>&apos;w&apos;</code> - &#x6253;&#x5F00;&#x6587;&#x4EF6;&#x7528;&#x4E8E;&#x5199;&#x5165;&#x3002;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x5DF2;&#x5B58;&#x5728;&#x5219;&#x622A;&#x65AD;&#x6587;&#x4EF6;&#x3002;</p>
+</li>
+<li>
+<p><code>&apos;wx&apos;</code> - &#x4E0E; <code>&apos;w&apos;</code> &#x76F8;&#x4F3C;&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x8DEF;&#x5F84;&#x5DF2;&#x5B58;&#x5728;&#x5219;&#x5931;&#x8D25;&#x3002;</p>
+</li>
+<li>
+<p><code>&apos;w+&apos;</code> - &#x6253;&#x5F00;&#x6587;&#x4EF6;&#x7528;&#x4E8E;&#x8BFB;&#x53D6;&#x548C;&#x5199;&#x5165;&#x3002;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x5DF2;&#x5B58;&#x5728;&#x5219;&#x622A;&#x65AD;&#x6587;&#x4EF6;&#x3002;</p>
+</li>
+<li>
+<p><code>&apos;wx+&apos;</code> - &#x4E0E; <code>&apos;w+&apos;</code> &#x76F8;&#x4F3C;&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x8DEF;&#x5F84;&#x5DF2;&#x5B58;&#x5728;&#x5219;&#x5931;&#x8D25;&#x3002;</p>
+</li>
+</ul><p><code>flag</code> &#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#xFF0C;&#x53C2;&#x9605; <a href="http://nodejs.cn/s/ss2dGs" rel="nofollow"><code>open(2)</code></a> &#x6587;&#x6863;&#x3002;
+&#x5E38;&#x7528;&#x7684;&#x5E38;&#x91CF;&#x53EF;&#x4EE5;&#x4ECE; <code>fs.constants</code> &#x83B7;&#x53D6;&#x3002;
+&#x5728; Windows &#x4E0A;&#xFF0C;&#x6807;&#x5FD7;&#x4F1A;&#x88AB;&#x9002;&#x5F53;&#x5730;&#x8F6C;&#x6362;&#x4E3A;&#x7B49;&#x6548;&#x7684;&#x6807;&#x5FD7;&#xFF0C;&#x4F8B;&#x5982; <code>O_WRONLY</code> &#x8F6C;&#x6362;&#x4E3A; <code>FILE_GENERIC_WRITE</code>&#x3001; <code>O_EXCL|O_CREAT</code> &#x8F6C;&#x6362;&#x4E3A;&#x80FD;&#x88AB; <code>CreateFileW</code> &#x63A5;&#x53D7;&#x7684; <code>CREATE_NEW</code>&#x3002;</p><p>&#x7279;&#x6709;&#x7684; <code>&apos;x&apos;</code> &#x6807;&#x5FD7;&#xFF08; <a href="http://nodejs.cn/s/ss2dGs" rel="nofollow"><code>open(2)</code></a> &#x4E2D;&#x7684; <code>O_EXCL</code> &#x6807;&#x5FD7;&#xFF09;&#x53EF;&#x4EE5;&#x786E;&#x4FDD;&#x8DEF;&#x5F84;&#x662F;&#x65B0;&#x521B;&#x5EFA;&#x7684;&#x3002;
+&#x5728; POSIX &#x7CFB;&#x7EDF;&#x4E0A;&#xFF0C;&#x5373;&#x4F7F;&#x8DEF;&#x5F84;&#x662F;&#x4E00;&#x4E2A;&#x7B26;&#x53F7;&#x94FE;&#x63A5;&#x4E14;&#x6307;&#x5411;&#x4E00;&#x4E2A;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x5B83;&#x4E5F;&#x4F1A;&#x88AB;&#x89C6;&#x4E3A;&#x5DF2;&#x5B58;&#x5728;&#x3002;
+&#x8BE5;&#x7279;&#x6709;&#x6807;&#x5FD7;&#x4E0D;&#x4E00;&#x5B9A;&#x9002;&#x7528;&#x4E8E;&#x7F51;&#x7EDC;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x3002;</p><p>&#x5728; Linux &#x4E0A;&#xFF0C;&#x5F53;&#x4EE5;&#x8FFD;&#x52A0;&#x6A21;&#x5F0F;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x65F6;&#xFF0C;&#x5199;&#x5165;&#x65E0;&#x6CD5;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x3002;
+&#x5185;&#x6838;&#x4F1A;&#x5FFD;&#x7565;&#x4F4D;&#x7F6E;&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x59CB;&#x7EC8;&#x5C06;&#x6570;&#x636E;&#x8FFD;&#x52A0;&#x5230;&#x6587;&#x4EF6;&#x7684;&#x672B;&#x5C3E;&#x3002;</p><p>&#x5982;&#x679C;&#x8981;&#x4FEE;&#x6539;&#x6587;&#x4EF6;&#x800C;&#x4E0D;&#x662F;&#x8986;&#x76D6;&#x6587;&#x4EF6;&#xFF0C;&#x5219;&#x6807;&#x5FD7;&#x6A21;&#x5F0F;&#x5E94;&#x4E3A; <code>&apos;r+&apos;</code> &#x6A21;&#x5F0F;&#x800C;&#x4E0D;&#x662F;&#x9ED8;&#x8BA4;&#x7684; <code>&apos;w&apos;</code> &#x6A21;&#x5F0F;&#x3002;</p><p>&#x67D0;&#x4E9B;&#x6807;&#x5FD7;&#x7684;&#x884C;&#x4E3A;&#x662F;&#x7279;&#x5B9A;&#x4E8E;&#x5E73;&#x53F0;&#x7684;&#x3002;
+&#x4F8B;&#x5982;&#xFF0C;&#x5728; macOS &#x548C; Linux &#x4E0A;&#x4F7F;&#x7528; <code>&apos;a+&apos;</code> &#x6807;&#x5FD7;&#x6253;&#x5F00;&#x76EE;&#x5F55;&#xFF08;&#x53C2;&#x9605;&#x4E0B;&#x9762;&#x7684;&#x793A;&#x4F8B;&#xFF09;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x3002;
+&#x800C;&#x5728; Windows &#x548C; FreeBSD &#x4E0A;&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x6216; <code>FileHandle</code>&#x3002;</p><pre><code class="language-js">// &#x5728; macOS &#x548C; Linux &#x4E0A;&#xFF1A;
+fs.open(&apos;&lt;&#x76EE;&#x5F55;&gt;&apos;, &apos;a+&apos;, (err, fd) =&gt; {
+  // =&gt; [Error: EISDIR: illegal operation on a directory, open &lt;&#x76EE;&#x5F55;&gt;]
+});
+
+// &#x5728; Windows &#x548C; FreeBSD &#x4E0A;&#xFF1A;
+fs.open(&apos;&lt;&#x76EE;&#x5F55;&gt;&apos;, &apos;a+&apos;, (err, fd) =&gt; {
+  // =&gt; null, &lt;fd&gt;
+});
+</code></pre><p>&#x5728; Windows &#x4E0A;&#xFF0C;&#x4F7F;&#x7528; <code>&apos;w&apos;</code> &#x6807;&#x5FD7;&#x6253;&#x5F00;&#x73B0;&#x5B58;&#x7684;&#x9690;&#x85CF;&#x6587;&#x4EF6;&#xFF08;&#x901A;&#x8FC7; <code>fs.open()</code>&#x3001; <code>fs.writeFile()</code> &#x6216; <code>fsPromises.open()</code>&#xFF09;&#x4F1A;&#x629B;&#x51FA; <code>EPERM</code>&#x3002;
+&#x73B0;&#x5B58;&#x7684;&#x9690;&#x85CF;&#x6587;&#x4EF6;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>&apos;r+&apos;</code> &#x6807;&#x5FD7;&#x6253;&#x5F00;&#x7528;&#x4E8E;&#x5199;&#x5165;&#x3002;</p><p>&#x8C03;&#x7528; <code>fs.ftruncate()</code> &#x6216; <code>fsPromises.ftruncate()</code> &#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x91CD;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#x3002;</p></div>
+          <div id="content_right"><p>The following flags are available wherever the <code>flag</code> option takes a
+string.</p><ul>
+<li>
+<p><code>&apos;a&apos;</code>: Open file for appending.
+The file is created if it does not exist.</p>
+</li>
+<li>
+<p><code>&apos;ax&apos;</code>: Like <code>&apos;a&apos;</code> but fails if the path exists.</p>
+</li>
+<li>
+<p><code>&apos;a+&apos;</code>: Open file for reading and appending.
+The file is created if it does not exist.</p>
+</li>
+<li>
+<p><code>&apos;ax+&apos;</code>: Like <code>&apos;a+&apos;</code> but fails if the path exists.</p>
+</li>
+<li>
+<p><code>&apos;as&apos;</code>: Open file for appending in synchronous mode.
+The file is created if it does not exist.</p>
+</li>
+<li>
+<p><code>&apos;as+&apos;</code>: Open file for reading and appending in synchronous mode.
+The file is created if it does not exist.</p>
+</li>
+<li>
+<p><code>&apos;r&apos;</code>: Open file for reading.
+An exception occurs if the file does not exist.</p>
+</li>
+<li>
+<p><code>&apos;r+&apos;</code>: Open file for reading and writing.
+An exception occurs if the file does not exist.</p>
+</li>
+<li>
+<p><code>&apos;rs+&apos;</code>: Open file for reading and writing in synchronous mode. Instructs
+the operating system to bypass the local file system cache.</p>
+<p>This is primarily useful for opening files on NFS mounts as it allows
+skipping the potentially stale local cache. It has a very real impact on
+I/O performance so using this flag is not recommended unless it is needed.</p>
+<p>This doesn&apos;t turn <code>fs.open()</code> or <code>fsPromises.open()</code> into a synchronous
+blocking call. If synchronous operation is desired, something like
+<code>fs.openSync()</code> should be used.</p>
+</li>
+<li>
+<p><code>&apos;w&apos;</code>: Open file for writing.
+The file is created (if it does not exist) or truncated (if it exists).</p>
+</li>
+<li>
+<p><code>&apos;wx&apos;</code>: Like <code>&apos;w&apos;</code> but fails if the path exists.</p>
+</li>
+<li>
+<p><code>&apos;w+&apos;</code>: Open file for reading and writing.
+The file is created (if it does not exist) or truncated (if it exists).</p>
+</li>
+<li>
+<p><code>&apos;wx+&apos;</code>: Like <code>&apos;w+&apos;</code> but fails if the path exists.</p>
+</li>
+</ul><p><code>flag</code> can also be a number as documented by <a href="http://nodejs.cn/s/ss2dGs" rel="nofollow"><code>open(2)</code></a>; commonly used constants
+are available from <code>fs.constants</code>. On Windows, flags are translated to
+their equivalent ones where applicable, e.g. <code>O_WRONLY</code> to <code>FILE_GENERIC_WRITE</code>,
+or <code>O_EXCL|O_CREAT</code> to <code>CREATE_NEW</code>, as accepted by <code>CreateFileW</code>.</p><p>The exclusive flag <code>&apos;x&apos;</code> (<code>O_EXCL</code> flag in <a href="http://nodejs.cn/s/ss2dGs" rel="nofollow"><code>open(2)</code></a>) ensures that path is newly
+created. On POSIX systems, path is considered to exist even if it is a symlink
+to a non-existent file. The exclusive flag may or may not work with network
+file systems.</p><p>On Linux, positional writes don&apos;t work when the file is opened in append mode.
+The kernel ignores the position argument and always appends the data to
+the end of the file.</p><p>Modifying a file rather than replacing it may require a flags mode of <code>&apos;r+&apos;</code>
+rather than the default mode <code>&apos;w&apos;</code>.</p><p>The behavior of some flags are platform-specific. As such, opening a directory
+on macOS and Linux with the <code>&apos;a+&apos;</code> flag, as in the example below, will return an
+error. In contrast, on Windows and FreeBSD, a file descriptor or a <code>FileHandle</code>
+will be returned.</p><pre><code class="language-js">// macOS and Linux
+fs.open(&apos;&lt;directory&gt;&apos;, &apos;a+&apos;, (err, fd) =&gt; {
+  // =&gt; [Error: EISDIR: illegal operation on a directory, open &lt;directory&gt;]
+});
+
+// Windows and FreeBSD
+fs.open(&apos;&lt;directory&gt;&apos;, &apos;a+&apos;, (err, fd) =&gt; {
+  // =&gt; null, &lt;fd&gt;
+});
+</code></pre><p>On Windows, opening an existing hidden file using the <code>&apos;w&apos;</code> flag (either
+through <code>fs.open()</code> or <code>fs.writeFile()</code> or <code>fsPromises.open()</code>) will fail with
+<code>EPERM</code>. Existing hidden files can be opened for writing with the <code>&apos;r+&apos;</code> flag.</p><p>A call to <code>fs.ftruncate()</code> or <code>filehandle.truncate()</code> can be used to reset
+the file contents.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756310433"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>socket.dropMembership(multicastAddress[, multicastInterface]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/dgram/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756302453" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-dgram">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>socket.dropMembership(multicastAddress[, multicastInterface])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../dgram.html#dgram_socket_dropmembership_multicastaddress_multicastinterface" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/dgram/socket_dropmembership_multicastaddress_multicastinterface.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.6.9</span>
+</div><ul>
+<li><code>multicastAddress</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>multicastInterface</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>&#x5F15;&#x5BFC;&#x5185;&#x6838;&#x901A;&#x8FC7; <code>IP_DROP_MEMBERSHIP</code> &#x8FD9;&#x4E2A; socket &#x9009;&#x9879;&#x5220;&#x9664; <code>multicastAddress</code> &#x6307;&#x5B9A;&#x7684;&#x591A;&#x8DEF;&#x4F20;&#x9001;&#x96C6;&#x5408;&#x3002;
+&#x5F53; socket &#x88AB;&#x5173;&#x95ED;&#x6216;&#x8FDB;&#x7A0B;&#x88AB;&#x7EC8;&#x6B62;&#x65F6;&#xFF0C;&#x8BE5;&#x65B9;&#x6CD5;&#x4F1A;&#x88AB;&#x5185;&#x6838;&#x81EA;&#x52A8;&#x8C03;&#x7528;&#xFF0C;&#x6240;&#x4EE5;&#x5927;&#x591A;&#x6570;&#x7684;&#x5E94;&#x7528;&#x90FD;&#x4E0D;&#x7528;&#x81EA;&#x884C;&#x8C03;&#x7528;&#x8BE5;&#x65B9;&#x6CD5;&#x3002;</p><p>&#x82E5; <code>multicastInterface</code> &#x672A;&#x6307;&#x5B9A;&#xFF0C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x4F1A;&#x5C1D;&#x8BD5;&#x5220;&#x9664;&#x6240;&#x6709;&#x53EF;&#x7528;&#x63A5;&#x53E3;&#x4E0A;&#x7684;&#x6210;&#x5458;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.6.9</span>
+</div><ul>
+<li><code>multicastAddress</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+<li><code>multicastInterface</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></li>
+</ul><p>Instructs the kernel to leave a multicast group at <code>multicastAddress</code> using the
+<code>IP_DROP_MEMBERSHIP</code> socket option. This method is automatically called by the
+kernel when the socket is closed or the process terminates, so most apps will
+never have reason to call this.</p><p>If <code>multicastInterface</code> is not specified, the operating system will attempt to
+drop membership on all valid interfaces.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/dgram/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756302453"><\/script>');
+  </script>
+</body>
+</html>

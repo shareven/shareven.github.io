@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>fs.writeFile(file, data[, options], callback) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756310173" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-fs">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>fs.writeFile(file, data[, options], callback)</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../fs.html#fs_fs_writefile_file_data_options_callback" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/fs/fs_writefile_file_data_options_callback.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<details class="changelog"><summary>&#x7248;&#x672C;&#x5386;&#x53F2;</summary>
+<table>
+<tbody><tr><th>&#x7248;&#x672C;</th><th>&#x53D8;&#x66F4;</th></tr>
+<tr><td>v10.10.0</td>
+<td><p>The <code>data</code> parameter can now be any <code>TypedArray</code> or a <code>DataView</code>.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will throw a <code>TypeError</code> at runtime.</p></td></tr>
+<tr><td>v7.4.0</td>
+<td><p>The <code>data</code> parameter can now be a <code>Uint8Array</code>.</p></td></tr>
+<tr><td>v7.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will emit a deprecation warning with id DEP0013.</p></td></tr>
+<tr><td>v5.0.0</td>
+<td><p>The <code>file</code> parameter can be a file descriptor now.</p></td></tr>
+<tr><td>v0.1.29</td>
+<td><p><span>&#x65B0;&#x589E;&#x4E8E;: v0.1.29</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>file</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a> | <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> &#x6587;&#x4EF6;&#x540D;&#x6216;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x3002;</li>
+<li><code>data</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/oh3CkV" target="_blank" rel="nofollow" class="type">&lt;TypedArray&gt;</a> | <a href="http://nodejs.cn/s/yCdVkD" target="_blank" rel="nofollow" class="type">&lt;DataView&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></p>
+<ul>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/334hvC" target="_blank" rel="nofollow" class="type">&lt;null&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;utf8&apos;</code>&#x3002;</li>
+<li><code>mode</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> <strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>0o666</code>&#x3002;</li>
+<li><code>flag</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> &#x53C2;&#x9605;<a href="http://nodejs.cn/s/JjbY8n" rel="nofollow">&#x652F;&#x6301;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x6807;&#x5FD7;</a>&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>&apos;w&apos;</code>&#x3002;</li>
+</ul>
+</li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+</ul>
+</li>
+</ul><p>&#x5F53; <code>file</code> &#x662F;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x540D;&#x65F6;&#xFF0C;&#x5F02;&#x6B65;&#x5730;&#x5C06;&#x6570;&#x636E;&#x5199;&#x5165;&#x5230;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x6587;&#x4EF6;&#x5DF2;&#x5B58;&#x5728;&#x5219;&#x8986;&#x76D6;&#x8BE5;&#x6587;&#x4EF6;&#x3002;
+<code>data</code> &#x53EF;&#x4EE5;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x6216; buffer&#x3002;</p><p>&#x5F53; <code>file</code> &#x662F;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x65F6;&#xFF0C;&#x884C;&#x4E3A;&#x7C7B;&#x4F3C;&#x4E8E;&#x76F4;&#x63A5;&#x8C03;&#x7528; <code>fs.write()</code>&#xFF08;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#xFF09;&#x3002;
+&#x8BF7;&#x53C2;&#x9605;&#x4EE5;&#x4E0B;&#x6709;&#x5173;&#x4F7F;&#x7528;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x7684;&#x8BF4;&#x660E;&#x3002;</p><p>&#x5982;&#x679C; <code>data</code> &#x662F;&#x4E00;&#x4E2A; buffer&#xFF0C;&#x5219; <code>encoding</code> &#x9009;&#x9879;&#x4F1A;&#x88AB;&#x5FFD;&#x7565;&#x3002;</p><pre><code class="language-js">const data = new Uint8Array(Buffer.from(&apos;Node.js&#x4E2D;&#x6587;&#x7F51;&apos;));
+fs.writeFile(&apos;&#x6587;&#x4EF6;.txt&apos;, data, (err) =&gt; {
+  if (err) throw err;
+  console.log(&apos;&#x6587;&#x4EF6;&#x5DF2;&#x88AB;&#x4FDD;&#x5B58;&apos;);
+});
+</code></pre><p>&#x5982;&#x679C; <code>options</code> &#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5219;&#x5B83;&#x6307;&#x5B9A;&#x5B57;&#x7B26;&#x7F16;&#x7801;&#xFF1A;</p><pre><code class="language-js">fs.writeFile(&apos;&#x6587;&#x4EF6;.txt&apos;, &apos;Node.js&#x4E2D;&#x6587;&#x7F51;&apos;, &apos;utf8&apos;, callback);
+</code></pre><p>&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4E0A;&#x591A;&#x6B21;&#x4F7F;&#x7528; <code>fs.writeFile()</code> &#x4E14;&#x4E0D;&#x7B49;&#x5F85;&#x56DE;&#x8C03;&#x662F;&#x4E0D;&#x5B89;&#x5168;&#x7684;&#x3002;
+&#x5BF9;&#x4E8E;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528; <a href="http://nodejs.cn/s/VdSJQa" rel="nofollow"><code>fs.createWriteStream()</code></a>&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<details class="changelog"><summary>History</summary>
+<table>
+<tbody><tr><th>Version</th><th>Changes</th></tr>
+<tr><td>v10.10.0</td>
+<td><p>The <code>data</code> parameter can now be any <code>TypedArray</code> or a <code>DataView</code>.</p></td></tr>
+<tr><td>v10.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will throw a <code>TypeError</code> at runtime.</p></td></tr>
+<tr><td>v7.4.0</td>
+<td><p>The <code>data</code> parameter can now be a <code>Uint8Array</code>.</p></td></tr>
+<tr><td>v7.0.0</td>
+<td><p>The <code>callback</code> parameter is no longer optional. Not passing it will emit a deprecation warning with id DEP0013.</p></td></tr>
+<tr><td>v5.0.0</td>
+<td><p>The <code>file</code> parameter can be a file descriptor now.</p></td></tr>
+<tr><td>v0.1.29</td>
+<td><p><span>Added in: v0.1.29</span></p></td></tr>
+</tbody></table>
+</details>
+</div><ul>
+<li><code>file</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/5dwq7G" target="_blank" rel="nofollow" class="type">&lt;URL&gt;</a> | <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> filename or file descriptor</li>
+<li><code>data</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/6x1hD3" target="_blank" rel="nofollow" class="type">&lt;Buffer&gt;</a> | <a href="http://nodejs.cn/s/oh3CkV" target="_blank" rel="nofollow" class="type">&lt;TypedArray&gt;</a> | <a href="http://nodejs.cn/s/yCdVkD" target="_blank" rel="nofollow" class="type">&lt;DataView&gt;</a></li>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> | <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a></p>
+<ul>
+<li><code>encoding</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> | <a href="http://nodejs.cn/s/334hvC" target="_blank" rel="nofollow" class="type">&lt;null&gt;</a> <strong>Default:</strong> <code>&apos;utf8&apos;</code></li>
+<li><code>mode</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;integer&gt;</a> <strong>Default:</strong> <code>0o666</code></li>
+<li><code>flag</code> <a href="http://nodejs.cn/s/9Tw2bK" target="_blank" rel="nofollow" class="type">&lt;string&gt;</a> See <a href="http://nodejs.cn/s/JjbY8n" rel="nofollow">support of file system <code>flags</code></a>. <strong>Default:</strong> <code>&apos;w&apos;</code>.</li>
+</ul>
+</li>
+<li>
+<p><code>callback</code> <a href="http://nodejs.cn/s/ceTQa6" target="_blank" rel="nofollow" class="type">&lt;Function&gt;</a></p>
+<ul>
+<li><code>err</code> <a href="http://nodejs.cn/s/qZ873x" target="_blank" rel="nofollow" class="type">&lt;Error&gt;</a></li>
+</ul>
+</li>
+</ul><p>When <code>file</code> is a filename, asynchronously writes data to the file, replacing the
+file if it already exists.  <code>data</code> can be a string or a buffer.</p><p>When <code>file</code> is a file descriptor, the behavior is similar to calling
+<code>fs.write()</code> directly (which is recommended). See the notes below on using
+a file descriptor.</p><p>The <code>encoding</code> option is ignored if <code>data</code> is a buffer.</p><pre><code class="language-js">const data = new Uint8Array(Buffer.from(&apos;Hello Node.js&apos;));
+fs.writeFile(&apos;message.txt&apos;, data, (err) =&gt; {
+  if (err) throw err;
+  console.log(&apos;The file has been saved!&apos;);
+});
+</code></pre><p>If <code>options</code> is a string, then it specifies the encoding:</p><pre><code class="language-js">fs.writeFile(&apos;message.txt&apos;, &apos;Hello Node.js&apos;, &apos;utf8&apos;, callback);
+</code></pre><p>It is unsafe to use <code>fs.writeFile()</code> multiple times on the same file without
+waiting for the callback. For this scenario, <a href="http://nodejs.cn/s/VdSJQa" rel="nofollow"><code>fs.createWriteStream()</code></a> is
+recommended.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/fs/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756310173"><\/script>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>实现双工流 | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756324280" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-stream">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>实现双工流</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../stream.html#stream_implementing_a_duplex_stream" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/stream/implementing_a_duplex_stream.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p><a href="http://nodejs.cn/s/2iRabr" rel="nofollow">&#x53CC;&#x5DE5;&#x6D41;</a>&#x540C;&#x65F6;&#x5B9E;&#x73B0;&#x4E86;<a href="http://nodejs.cn/s/YuDKX1" rel="nofollow">&#x53EF;&#x8BFB;&#x6D41;</a>&#x548C;<a href="http://nodejs.cn/s/9JUnJ8" rel="nofollow">&#x53EF;&#x5199;&#x6D41;</a>&#xFF0C;&#x4F8B;&#x5982; TCP socket &#x8FDE;&#x63A5;&#x3002;</p><p>&#x56E0;&#x4E3A; JavaScript &#x4E0D;&#x652F;&#x6301;&#x591A;&#x91CD;&#x7EE7;&#x627F;&#xFF0C;&#x6240;&#x4EE5;&#x4F7F;&#x7528; <code>stream.Duplex</code> &#x7C7B;&#x5B9E;&#x73B0;<a href="http://nodejs.cn/s/2iRabr" rel="nofollow">&#x53CC;&#x5DE5;&#x6D41;</a>&#xFF08;&#x800C;&#x4E0D;&#x662F;&#x4F7F;&#x7528; <code>stream.Readable</code> &#x7C7B;&#x548C; <code>stream.Writable</code> &#x7C7B;&#xFF09;&#x3002;</p><p><code>stream.Duplex</code> &#x7C7B;&#x7684;&#x539F;&#x578B;&#x7EE7;&#x627F;&#x81EA; <code>stream.Readable</code> &#x548C;&#x5BC4;&#x751F;&#x81EA; <code>stream.Writable</code>&#xFF0C;&#x4F46;&#x662F; <code>instanceof</code> &#x5BF9;&#x8FD9;&#x4E24;&#x4E2A;&#x57FA;&#x7840;&#x7C7B;&#x90FD;&#x53EF;&#x7528;&#xFF0C;&#x56E0;&#x4E3A;&#x91CD;&#x5199;&#x4E86; <code>stream.Writable</code> &#x7684; <a href="http://nodejs.cn/s/D1EDvM" rel="nofollow"><code>Symbol.hasInstance</code></a>&#x3002;</p><p>&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x53CC;&#x5DE5;&#x6D41;&#x5FC5;&#x987B;&#x8C03;&#x7528; <code>new stream.Duplex([options])</code> &#x6784;&#x9020;&#x51FD;&#x6570;&#x5E76;&#x5B9E;&#x73B0; <code>readable._read()</code> &#x548C; <code>writable._write()</code> &#x65B9;&#x6CD5;&#x3002;</p></div>
+          <div id="content_right"><p>A <a href="http://nodejs.cn/s/2iRabr" rel="nofollow"><code>Duplex</code></a> stream is one that implements both <a href="http://nodejs.cn/s/YuDKX1" rel="nofollow"><code>Readable</code></a> and
+<a href="http://nodejs.cn/s/9JUnJ8" rel="nofollow"><code>Writable</code></a>, such as a TCP socket connection.</p><p>Because JavaScript does not have support for multiple inheritance, the
+<code>stream.Duplex</code> class is extended to implement a <a href="http://nodejs.cn/s/2iRabr" rel="nofollow"><code>Duplex</code></a> stream (as opposed
+to extending the <code>stream.Readable</code> <em>and</em> <code>stream.Writable</code> classes).</p><p>The <code>stream.Duplex</code> class prototypically inherits from <code>stream.Readable</code> and
+parasitically from <code>stream.Writable</code>, but <code>instanceof</code> will work properly for
+both base classes due to overriding <a href="http://nodejs.cn/s/D1EDvM" rel="nofollow"><code>Symbol.hasInstance</code></a> on
+<code>stream.Writable</code>.</p><p>Custom <code>Duplex</code> streams <em>must</em> call the <code>new stream.Duplex([options])</code>
+constructor and implement <em>both</em> the <code>readable._read()</code> and
+<code>writable._write()</code> methods.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/stream/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756324280"><\/script>');
+  </script>
+</body>
+</html>

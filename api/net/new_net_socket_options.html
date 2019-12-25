@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>new net.Socket([options]) | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/net/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756318346" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-net">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>new net.Socket([options])</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../net.html#net_new_net_socket_options" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/net/new_net_socket_options.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><div class="api_metadata">
+<span>&#x65B0;&#x589E;&#x4E8E;: v0.3.4</span>
+</div><ul>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> &#x53EF;&#x7528;&#x9009;&#x9879;&#x6709;</p>
+<ul>
+<li><code>fd</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> &#x5982;&#x679C;&#x6307;&#x5B9A;&#x4E86;&#x8BE5;&#x53C2;&#x6570;&#xFF0C;&#x5219;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x7ED9;&#x5B9A;&#x7684;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x5305;&#x88C5;&#x4E00;&#x4E2A;&#x5DF2;&#x5B58;&#x5728;&#x7684; socket&#xFF0C;&#x5426;&#x5219;&#x5C06;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684; socket&#x3002;</li>
+<li><code>allowHalfOpen</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x6307;&#x793A;&#x662F;&#x5426;&#x5141;&#x8BB8;&#x534A;&#x6253;&#x5F00;&#x7684; TCP &#x8FDE;&#x63A5;&#x3002;&#x8BE6;&#x60C5;&#x67E5;&#x770B; <a href="http://nodejs.cn/s/e8cikS" rel="nofollow"><code>net.createServer()</code></a> &#x548C; <a href="http://nodejs.cn/s/Hxzmh3" rel="nofollow"><code>&apos;end&apos;</code></a> &#x4E8B;&#x4EF6;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#x3002;</li>
+<li><code>readable</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5F53;&#x4F20;&#x9012;&#x4E86; <code>fd</code> &#x65F6;&#x5141;&#x8BB8;&#x8BFB;&#x53D6; socket&#xFF0C;&#x5426;&#x5219;&#x5FFD;&#x7565;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#x3002;</li>
+<li><code>writable</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> &#x5F53;&#x4F20;&#x9012;&#x4E86; <code>fd</code> &#x65F6;&#x5141;&#x8BB8;&#x5199;&#x5165; socket&#xFF0C;&#x5426;&#x5219;&#x5FFD;&#x7565;&#x3002;<strong>&#x9ED8;&#x8BA4;&#x503C;:</strong> <code>false</code>&#x3002;</li>
+</ul>
+</li>
+<li>&#x8FD4;&#x56DE;: <a href="http://nodejs.cn/s/wsJ1o1" target="_blank" rel="nofollow" class="type">&lt;net.Socket&gt;</a></li>
+</ul><p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A; socket &#x5BF9;&#x8C61;&#x3002;
+&#x65B0;&#x521B;&#x5EFA;&#x7684; socket &#x53EF;&#x4EE5;&#x662F; TCP socket &#x4E5F;&#x53EF;&#x4EE5;&#x662F; <a href="http://nodejs.cn/s/rAdYjf" rel="nofollow">IPC</a> &#x7AEF;&#x70B9;&#x6D41;&#xFF0C;&#x53D6;&#x51B3;&#x4E8E;&#x5B83;&#x8FDE;&#x63A5; <a href="http://nodejs.cn/s/fGCDDg" rel="nofollow"><code>connect()</code></a> &#x5230;&#x4EC0;&#x4E48;&#x3002;</p></div>
+          <div id="content_right"><div class="api_metadata">
+<span>Added in: v0.3.4</span>
+</div><ul>
+<li>
+<p><code>options</code> <a href="http://nodejs.cn/s/jzn6Ao" target="_blank" rel="nofollow" class="type">&lt;Object&gt;</a> Available options are:</p>
+<ul>
+<li><code>fd</code> <a href="http://nodejs.cn/s/SXbo1v" target="_blank" rel="nofollow" class="type">&lt;number&gt;</a> If specified, wrap around an existing socket with
+the given file descriptor, otherwise a new socket will be created.</li>
+<li><code>allowHalfOpen</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> Indicates whether half-opened TCP connections
+are allowed. See <a href="http://nodejs.cn/s/e8cikS" rel="nofollow"><code>net.createServer()</code></a> and the <a href="http://nodejs.cn/s/Hxzmh3" rel="nofollow"><code>&apos;end&apos;</code></a> event
+for details. <strong>Default:</strong> <code>false</code>.</li>
+<li><code>readable</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> Allow reads on the socket when an <code>fd</code> is passed,
+otherwise ignored. <strong>Default:</strong> <code>false</code>.</li>
+<li><code>writable</code> <a href="http://nodejs.cn/s/jFbvuT" target="_blank" rel="nofollow" class="type">&lt;boolean&gt;</a> Allow writes on the socket when an <code>fd</code> is passed,
+otherwise ignored. <strong>Default:</strong> <code>false</code>.</li>
+</ul>
+</li>
+<li>Returns: <a href="http://nodejs.cn/s/wsJ1o1" target="_blank" rel="nofollow" class="type">&lt;net.Socket&gt;</a></li>
+</ul><p>Creates a new socket object.</p><p>The newly created socket can be either a TCP socket or a streaming <a href="http://nodejs.cn/s/rAdYjf" rel="nofollow">IPC</a>
+endpoint, depending on what it <a href="http://nodejs.cn/s/fGCDDg" rel="nofollow"><code>connect()</code></a> to.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/net/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756318346"><\/script>');
+  </script>
+</body>
+</html>

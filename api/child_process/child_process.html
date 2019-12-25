@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>child_process（子进程） | Node.js API 文档</title>
+  <link rel="icon" sizes="32x32" type="image/png" href="http://static.nodejs.cn/_static/img/favicon.png"><link rel="stylesheet" href="/api/api.css">
+  <script>
+    document.write('<link href="http://nodejs.cn/api/child_process/'&#32;+&#32;(location.port?'':'//static.nodejs.cn')&#32;+&#32;'/_static/css/api.css?1576756295847" rel="stylesheet">')
+  </script>
+</head>
+<body class="alt apidoc" id="page_api_item">
+  <div id="api-section-child_process">
+    <div id="content" class="clearfix">
+  
+      <div id="column1" data-id="__ID__" class="interior">
+        <header>
+          <h1>child_process（子进程）</h1>
+          <div id="gtoc">
+            <ul>
+              <li>v12.14.0</li>
+              <li>
+                <a href="../child_process.html#child_process_child_process" name="toc">返回上层文档</a>
+              </li>
+              <li>
+                <a href="https://github.com/nodejscn/node-api-cn/edit/master/child_process/child_process.md" rel="nofollow" target="_blank">提交修改</a>
+              </li>
+              <li>
+                <a href="http://nodejs.cn/search" name="toc">搜索</a>
+              </li>
+            </ul>
+          </div>
+          <hr>
+        </header>
+
+        <div id="biz_item"></div>
+  
+        <div id="apicontent">
+          <div id="content_left"><p></p><div class="api_stability api_stability_2"><a target="_blank" rel="nofollow" href="../documentation.html#documentation_stability_index">&#x7A33;&#x5B9A;&#x6027;: 2</a> - &#x7A33;&#x5B9A;</div><p></p><p><code>child_process</code> &#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86;&#x884D;&#x751F;&#x5B50;&#x8FDB;&#x7A0B;&#x7684;&#x80FD;&#x529B;&#xFF08;&#x4EE5;&#x4E00;&#x79CD;&#x4E0E; <a href="http://nodejs.cn/s/zGgP4K" rel="nofollow"><code>popen(3)</code></a> &#x7C7B;&#x4F3C;&#x4F46;&#x4E0D;&#x76F8;&#x540C;&#x7684;&#x65B9;&#x5F0F;&#xFF09;&#x3002;
+&#x6B64;&#x529F;&#x80FD;&#x4E3B;&#x8981;&#x7531; <a href="http://nodejs.cn/s/CKoDGf" rel="nofollow"><code>child_process.spawn()</code></a> &#x51FD;&#x6570;&#x63D0;&#x4F9B;&#xFF1A;</p><pre><code class="language-js">const { spawn } = require(&apos;child_process&apos;);
+const ls = spawn(&apos;ls&apos;, [&apos;-lh&apos;, &apos;/usr&apos;]);
+
+ls.stdout.on(&apos;data&apos;, (data) =&gt; {
+  console.log(`stdout: ${data}`);
+});
+
+ls.stderr.on(&apos;data&apos;, (data) =&gt; {
+  console.error(`stderr: ${data}`);
+});
+
+ls.on(&apos;close&apos;, (code) =&gt; {
+  console.log(`&#x5B50;&#x8FDB;&#x7A0B;&#x9000;&#x51FA;&#xFF0C;&#x4F7F;&#x7528;&#x9000;&#x51FA;&#x7801; ${code}`);
+});
+</code></pre><p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C; <code>stdin</code>&#x3001; <code>stdout</code> &#x548C; <code>stderr</code> &#x7684;&#x7BA1;&#x9053;&#x4F1A;&#x5728;&#x7236; Node.js &#x8FDB;&#x7A0B;&#x548C;&#x884D;&#x751F;&#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#x4E4B;&#x95F4;&#x5EFA;&#x7ACB;&#x3002;
+&#x8FD9;&#x4E9B;&#x7BA1;&#x9053;&#x5177;&#x6709;&#x6709;&#x9650;&#x7684;&#xFF08;&#x4E14;&#x5E73;&#x53F0;&#x7279;&#x5B9A;&#x7684;&#xFF09;&#x5BB9;&#x91CF;&#x3002;
+&#x5982;&#x679C;&#x5B50;&#x8FDB;&#x7A0B;&#x5199;&#x5165; stdout &#x65F6;&#x8D85;&#x51FA;&#x8BE5;&#x9650;&#x5236;&#x4E14;&#x6CA1;&#x6709;&#x6355;&#x83B7;&#x8F93;&#x51FA;&#xFF0C;&#x5219;&#x5B50;&#x8FDB;&#x7A0B;&#x5C06;&#x4F1A;&#x963B;&#x585E;&#x5E76;&#x7B49;&#x5F85;&#x7BA1;&#x9053;&#x7F13;&#x51B2;&#x533A;&#x63A5;&#x53D7;&#x66F4;&#x591A;&#x7684;&#x6570;&#x636E;&#x3002;
+&#x8FD9;&#x4E0E; shell &#x4E2D;&#x7684;&#x7BA1;&#x9053;&#x7684;&#x884C;&#x4E3A;&#x76F8;&#x540C;&#x3002;
+&#x5982;&#x679C;&#x4E0D;&#x6D88;&#x8D39;&#x8F93;&#x51FA;&#xFF0C;&#x5219;&#x4F7F;&#x7528; <code>{ stdio: &apos;ignore&apos; }</code> &#x9009;&#x9879;&#x3002;</p><p><a href="http://nodejs.cn/s/CKoDGf" rel="nofollow"><code>child_process.spawn()</code></a> &#x65B9;&#x6CD5;&#x5F02;&#x6B65;&#x5730;&#x884D;&#x751F;&#x5B50;&#x8FDB;&#x7A0B;&#xFF0C;&#x4E14;&#x4E0D;&#x963B;&#x585E; Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x3002;
+<a href="http://nodejs.cn/s/bmkUrE" rel="nofollow"><code>child_process.spawnSync()</code></a> &#x51FD;&#x6570;&#x5219;&#x4EE5;&#x540C;&#x6B65;&#x7684;&#x65B9;&#x5F0F;&#x63D0;&#x4F9B;&#x4E86;&#x7B49;&#x6548;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x4F46;&#x4F1A;&#x963B;&#x585E;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x76F4;&#x5230;&#x884D;&#x751F;&#x7684;&#x8FDB;&#x7A0B;&#x9000;&#x51FA;&#x6216;&#x7EC8;&#x6B62;&#x3002;</p><p>&#x4E3A;&#x65B9;&#x4FBF;&#x8D77;&#x89C1;&#xFF0C; <code>child_process</code> &#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x4E86; <a href="http://nodejs.cn/s/CKoDGf" rel="nofollow"><code>child_process.spawn()</code></a> &#x548C; <a href="http://nodejs.cn/s/bmkUrE" rel="nofollow"><code>child_process.spawnSync()</code></a> &#x7684;&#x4E00;&#x4E9B;&#x540C;&#x6B65;&#x548C;&#x5F02;&#x6B65;&#x7684;&#x66FF;&#x4EE3;&#x65B9;&#x6CD5;&#x3002;
+&#x8FD9;&#x4E9B;&#x66FF;&#x4EE3;&#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x90FD;&#x662F;&#x57FA;&#x4E8E; <a href="http://nodejs.cn/s/CKoDGf" rel="nofollow"><code>child_process.spawn()</code></a> &#x6216; <a href="http://nodejs.cn/s/bmkUrE" rel="nofollow"><code>child_process.spawnSync()</code></a> &#x5B9E;&#x73B0;&#x7684;&#x3002;</p><ul>
+<li><a href="http://nodejs.cn/s/pkpJMy" rel="nofollow"><code>child_process.exec()</code></a>: &#x884D;&#x751F;&#x4E00;&#x4E2A; shell &#x5E76;&#x5728;&#x8BE5; shell &#x4E2D;&#x8FD0;&#x884C;&#x547D;&#x4EE4;&#xFF0C;&#x5F53;&#x5B8C;&#x6210;&#x65F6;&#x5219;&#x5C06; <code>stdout</code> &#x548C; <code>stderr</code> &#x4F20;&#x7ED9;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;</li>
+<li><a href="http://nodejs.cn/s/N6uK8q" rel="nofollow"><code>child_process.execFile()</code></a>: &#x7C7B;&#x4F3C;&#x4E8E; <a href="http://nodejs.cn/s/pkpJMy" rel="nofollow"><code>child_process.exec()</code></a>&#xFF0C;&#x4F46;&#x662F;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#x5B83;&#x4F1A;&#x76F4;&#x63A5;&#x884D;&#x751F;&#x547D;&#x4EE4;&#x800C;&#x4E0D;&#x5148;&#x884D;&#x751F; shell&#x3002;</li>
+<li><a href="http://nodejs.cn/s/VDCJMa" rel="nofollow"><code>child_process.fork()</code></a>: &#x884D;&#x751F;&#x4E00;&#x4E2A;&#x65B0;&#x7684; Node.js &#x8FDB;&#x7A0B;&#xFF0C;&#x5E76;&#x8C03;&#x7528;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x8BE5;&#x6A21;&#x5757;&#x5DF2;&#x5EFA;&#x7ACB;&#x4E86; IPC &#x901A;&#x4FE1;&#x901A;&#x9053;&#xFF0C;&#x5141;&#x8BB8;&#x5728;&#x7236;&#x8FDB;&#x7A0B;&#x4E0E;&#x5B50;&#x8FDB;&#x7A0B;&#x4E4B;&#x95F4;&#x53D1;&#x9001;&#x6D88;&#x606F;&#x3002;</li>
+<li><a href="http://nodejs.cn/s/i6KxMV" rel="nofollow"><code>child_process.execSync()</code></a>: <a href="http://nodejs.cn/s/pkpJMy" rel="nofollow"><code>child_process.exec()</code></a> &#x7684;&#x540C;&#x6B65;&#x7248;&#x672C;&#xFF0C;&#x5C06;&#x4F1A;&#x963B;&#x585E; Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x3002;</li>
+<li><a href="http://nodejs.cn/s/ed75fU" rel="nofollow"><code>child_process.execFileSync()</code></a>: <a href="http://nodejs.cn/s/N6uK8q" rel="nofollow"><code>child_process.execFile()</code></a> &#x7684;&#x540C;&#x6B65;&#x7248;&#x672C;&#xFF0C;&#x5C06;&#x4F1A;&#x963B;&#x585E; Node.js &#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x3002;</li>
+</ul><p>&#x5BF9;&#x4E8E;&#x67D0;&#x4E9B;&#x7528;&#x4F8B;&#xFF0C;&#x4F8B;&#x5982;&#x81EA;&#x52A8;&#x5316;&#x7684; shell &#x811A;&#x672C;&#xFF0C;<a href="http://nodejs.cn/s/Kexyms" rel="nofollow">&#x540C;&#x6B65;&#x7684;&#x65B9;&#x6CD5;</a>&#x53EF;&#x80FD;&#x66F4;&#x65B9;&#x4FBF;&#x3002;
+&#x4F46;&#x662F;&#x5728;&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x540C;&#x6B65;&#x7684;&#x65B9;&#x6CD5;&#x4F1A;&#x5BF9;&#x6027;&#x80FD;&#x4EA7;&#x751F;&#x91CD;&#x5927;&#x7684;&#x5F71;&#x54CD;&#xFF0C;&#x56E0;&#x4E3A;&#x4F1A;&#x6682;&#x505C;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x76F4;&#x5230;&#x884D;&#x751F;&#x7684;&#x8FDB;&#x7A0B;&#x5B8C;&#x6210;&#x3002;</p></div>
+          <div id="content_right"><p></p><div class="api_stability api_stability_2"><a target="_blank" rel="nofollow" href="../documentation.html#documentation_stability_index">Stability: 2</a> - Stable</div><p></p><p>The <code>child_process</code> module provides the ability to spawn child processes in
+a manner that is similar, but not identical, to <a href="http://nodejs.cn/s/zGgP4K" rel="nofollow"><code>popen(3)</code></a>. This capability
+is primarily provided by the <a href="http://nodejs.cn/s/CKoDGf" rel="nofollow"><code>child_process.spawn()</code></a> function:</p><pre><code class="language-js">const { spawn } = require(&apos;child_process&apos;);
+const ls = spawn(&apos;ls&apos;, [&apos;-lh&apos;, &apos;/usr&apos;]);
+
+ls.stdout.on(&apos;data&apos;, (data) =&gt; {
+  console.log(`stdout: ${data}`);
+});
+
+ls.stderr.on(&apos;data&apos;, (data) =&gt; {
+  console.error(`stderr: ${data}`);
+});
+
+ls.on(&apos;close&apos;, (code) =&gt; {
+  console.log(`child process exited with code ${code}`);
+});
+</code></pre><p>By default, pipes for <code>stdin</code>, <code>stdout</code>, and <code>stderr</code> are established between
+the parent Node.js process and the spawned child. These pipes have
+limited (and platform-specific) capacity. If the child process writes to
+stdout in excess of that limit without the output being captured, the child
+process will block waiting for the pipe buffer to accept more data. This is
+identical to the behavior of pipes in the shell. Use the <code>{ stdio: &apos;ignore&apos; }</code>
+option if the output will not be consumed.</p><p>The <a href="http://nodejs.cn/s/CKoDGf" rel="nofollow"><code>child_process.spawn()</code></a> method spawns the child process asynchronously,
+without blocking the Node.js event loop. The <a href="http://nodejs.cn/s/bmkUrE" rel="nofollow"><code>child_process.spawnSync()</code></a>
+function provides equivalent functionality in a synchronous manner that blocks
+the event loop until the spawned process either exits or is terminated.</p><p>For convenience, the <code>child_process</code> module provides a handful of synchronous
+and asynchronous alternatives to <a href="http://nodejs.cn/s/CKoDGf" rel="nofollow"><code>child_process.spawn()</code></a> and
+<a href="http://nodejs.cn/s/bmkUrE" rel="nofollow"><code>child_process.spawnSync()</code></a>. Each of these alternatives are implemented on
+top of <a href="http://nodejs.cn/s/CKoDGf" rel="nofollow"><code>child_process.spawn()</code></a> or <a href="http://nodejs.cn/s/bmkUrE" rel="nofollow"><code>child_process.spawnSync()</code></a>.</p><ul>
+<li><a href="http://nodejs.cn/s/pkpJMy" rel="nofollow"><code>child_process.exec()</code></a>: spawns a shell and runs a command within that
+shell, passing the <code>stdout</code> and <code>stderr</code> to a callback function when
+complete.</li>
+<li><a href="http://nodejs.cn/s/N6uK8q" rel="nofollow"><code>child_process.execFile()</code></a>: similar to <a href="http://nodejs.cn/s/pkpJMy" rel="nofollow"><code>child_process.exec()</code></a> except
+that it spawns the command directly without first spawning a shell by
+default.</li>
+<li><a href="http://nodejs.cn/s/VDCJMa" rel="nofollow"><code>child_process.fork()</code></a>: spawns a new Node.js process and invokes a
+specified module with an IPC communication channel established that allows
+sending messages between parent and child.</li>
+<li><a href="http://nodejs.cn/s/i6KxMV" rel="nofollow"><code>child_process.execSync()</code></a>: a synchronous version of
+<a href="http://nodejs.cn/s/pkpJMy" rel="nofollow"><code>child_process.exec()</code></a> that will block the Node.js event loop.</li>
+<li><a href="http://nodejs.cn/s/ed75fU" rel="nofollow"><code>child_process.execFileSync()</code></a>: a synchronous version of
+<a href="http://nodejs.cn/s/N6uK8q" rel="nofollow"><code>child_process.execFile()</code></a> that will block the Node.js event loop.</li>
+</ul><p>For certain use cases, such as automating shell scripts, the
+<a href="http://nodejs.cn/s/Kexyms" rel="nofollow">synchronous counterparts</a> may be more convenient. In many cases, however,
+the synchronous methods can have significant impact on performance due to
+stalling the event loop while spawned processes complete.</p></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.write('<script src="http://nodejs.cn/api/child_process/'&#32;+&#32;(location.port&#32;?&#32;''&#32;:&#32;'//static.nodejs.cn')&#32;+&#32;'/_static/js/api.js?1576756295847"><\/script>');
+  </script>
+</body>
+</html>
